@@ -1,0 +1,125 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * ScienceKH — Calm Academic design system
+ * Deep ocean blue + soft paper, study-friendly.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-soft: var(--primary-soft);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+
+  --shadow-soft: 0 1px 2px oklch(0.36 0.10 248 / 0.06), 0 8px 24px -12px oklch(0.36 0.10 248 / 0.12);
+  --shadow-elevated: 0 2px 4px oklch(0.36 0.10 248 / 0.08), 0 20px 40px -16px oklch(0.36 0.10 248 / 0.18);
+}
+
+:root {
+  --radius: 0.875rem;
+
+  /* Paper-soft canvas */
+  --background: oklch(0.985 0.004 247);
+  --foreground: oklch(0.22 0.03 256);
+  --surface: oklch(1 0 0);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.03 256);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.03 256);
+
+  /* Deep ocean — #0F4C81 */
+  --primary: oklch(0.40 0.10 248);
+  --primary-foreground: oklch(0.985 0.004 247);
+  --primary-soft: oklch(0.94 0.025 248);
+
+  /* Accent — #3B82F6 */
+  --accent: oklch(0.62 0.19 256);
+  --accent-foreground: oklch(0.985 0.004 247);
+
+  --secondary: oklch(0.95 0.015 247);
+  --secondary-foreground: oklch(0.28 0.04 256);
+  --muted: oklch(0.95 0.012 247);
+  --muted-foreground: oklch(0.50 0.025 256);
+
+  --destructive: oklch(0.58 0.22 27);
+  --destructive-foreground: oklch(0.985 0.004 247);
+
+  --border: oklch(0.90 0.015 247);
+  --input: oklch(0.92 0.012 247);
+  --ring: oklch(0.62 0.19 256);
+}
+
+.dark {
+  --background: oklch(0.18 0.025 256);
+  --foreground: oklch(0.96 0.005 247);
+  --surface: oklch(0.22 0.03 256);
+  --card: oklch(0.24 0.03 256);
+  --card-foreground: oklch(0.96 0.005 247);
+  --popover: oklch(0.24 0.03 256);
+  --popover-foreground: oklch(0.96 0.005 247);
+  --primary: oklch(0.70 0.14 248);
+  --primary-foreground: oklch(0.18 0.025 256);
+  --primary-soft: oklch(0.30 0.05 248);
+  --accent: oklch(0.72 0.16 256);
+  --accent-foreground: oklch(0.18 0.025 256);
+  --secondary: oklch(0.28 0.03 256);
+  --secondary-foreground: oklch(0.96 0.005 247);
+  --muted: oklch(0.28 0.03 256);
+  --muted-foreground: oklch(0.72 0.02 256);
+  --destructive: oklch(0.68 0.20 22);
+  --destructive-foreground: oklch(0.96 0.005 247);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.72 0.16 256);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html,
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-feature-settings: "ss01", "ss02";
+    letter-spacing: -0.01em;
+  }
+}
