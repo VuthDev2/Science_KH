@@ -5,7 +5,7 @@ type SignInOptions = {
 
 export const localAuth = {
   auth: {
-    signInWithOAuth: async (_provider: "google" | "apple" | "microsoft" | "lovable", _opts?: SignInOptions) => {
+    signInWithOAuth: async (_provider: "google" | "apple" | "microsoft", _opts?: SignInOptions) => {
       return {
         redirected: false,
         error: new Error("Google sign-in is unavailable in this local build. Please use email and password instead."),

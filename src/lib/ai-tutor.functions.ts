@@ -10,7 +10,7 @@ export const askTutor = createServerFn({ method: "POST" })
   )
   .handler(async ({ data, context }) => {
     const { supabase, userId } = context;
-    const apiKey = process.env.OPENAI_API_KEY || process.env.LOVABLE_API_KEY;
+    const apiKey = process.env.OPENAI_API_KEY;
 
     // Verify the conversation belongs to this user
     const { data: conv, error: convErr } = await supabase
