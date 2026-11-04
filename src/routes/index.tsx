@@ -51,7 +51,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Professional bilingual STEM learning platform for Cambodian high school students (Grade 7–12). Features Duolingo-style learning paths, daily streaks, 5-heart quizzes, and an on-demand AI tutor.",
+          "Professional bilingual STEM learning platform for Cambodian high school students (Grade 7–12). Features interactive learning paths, daily streaks, 5-heart quizzes, and an on-demand AI tutor.",
       },
     ],
   }),
@@ -248,7 +248,7 @@ function LandingPage() {
             {isKhmer ? (
               <>
                 រៀនវិទ្យាសាស្ត្រកម្រិតវិទ្យាល័យ <br className="hidden sm:block" />
-                ជាមួយវិធីសាស្ត្រ <span className="text-emerald-600 dark:text-emerald-400">Duolingo</span> ត្រៀមប្រឡងបាក់ឌុប
+                ជាមួយវិធីសាស្ត្រ <span className="text-emerald-600 dark:text-emerald-400">អន្តរកម្មឆ្លាតវៃ</span> ត្រៀមប្រឡងបាក់ឌុប
               </>
             ) : (
               <>
@@ -480,7 +480,7 @@ function LandingPage() {
               {heroTab === "path" && (
                 <div className="mx-auto max-w-md py-4 text-center">
                   <p className="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
-                    {isKhmer ? "ផ្លូវរៀនស្ទាត់ជំនាញ (Duolingo Snake Road)" : "Interactive Winding Roadmap"}
+                    {isKhmer ? "ផ្លូវរៀនស្ទាត់ជំនាញ (Interactive Roadmap)" : "Interactive Winding Roadmap"}
                   </p>
                   <h4 className="mt-1 font-display text-lg font-bold">
                     {isKhmer ? "ជំពូកទី ១ · រូបធាតុ និង ចលនា" : "Unit 1: Matter & Motion"}

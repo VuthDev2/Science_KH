@@ -9,7 +9,7 @@ import { BottomNav } from "@/components/bottom-nav";
 import { Input } from "@/components/ui/input";
 import { tx } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
-import { DuolingoPath, LessonNode } from "@/components/duolingo-path";
+import { LearningPath, LessonNode } from "@/components/learning-path";
 
 type Search = { subject?: string; grade?: number };
 
@@ -129,7 +129,7 @@ function LessonsIndex() {
                 : tx(lang, "lessons")}
             </h1>
 
-            {/* Toggle Switch between Duolingo Path and Flat List */}
+            {/* Toggle Switch between Roadmap Path and Flat List */}
             <div className="flex rounded-xl border border-border bg-card p-1 shadow-sm">
               <button
                 type="button"
@@ -219,8 +219,8 @@ function LessonsIndex() {
             <p className="text-sm text-muted-foreground">{tx(lang, "noLessons")}</p>
           </div>
         ) : viewMode === "path" ? (
-          /* Duolingo Winding Snake Path */
-          <DuolingoPath
+          /* Interactive Winding Learning Path */
+          <LearningPath
             lessons={filtered as LessonNode[]}
             completedIds={completedIds}
             inProgressIds={inProgressIds}

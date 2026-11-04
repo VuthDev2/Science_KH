@@ -28,7 +28,7 @@ export type LessonNode = {
   subject?: { slug: string; name_en: string; name_km: string } | null;
 };
 
-interface DuolingoPathProps {
+interface LearningPathProps {
   lessons: LessonNode[];
   completedIds: Set<string>;
   inProgressIds: Set<string>;
@@ -36,13 +36,13 @@ interface DuolingoPathProps {
   subjectTitle?: string;
 }
 
-export function DuolingoPath({
+export function LearningPath({
   lessons,
   completedIds,
   inProgressIds,
   lang,
   subjectTitle,
-}: DuolingoPathProps) {
+}: LearningPathProps) {
   const isKhmer = lang === "km";
   const [activePopupId, setActivePopupId] = useState<string | null>(null);
 
@@ -79,14 +79,14 @@ export function DuolingoPath({
         </div>
       </div>
 
-      {/* The Winding Snake Nodes */}
+      {/* The Winding Nodes */}
       <div className="relative flex w-full flex-col items-center gap-7">
         {lessons.map((lesson, idx) => {
           const isCompleted = completedIds.has(lesson.id);
           const isCurrent = idx === activeIndex && !isCompleted;
           const isLocked = idx > activeIndex && !isCompleted;
 
-          // Sinusoidal curve for the classic Duolingo snake offset
+          // Sinusoidal curve for the winding stepping stones
           const curveOffset = Math.sin(idx * 0.95) * 58;
 
           const isPopupOpen = activePopupId === lesson.id;
@@ -210,4 +210,3 @@ export function DuolingoPath({
     </div>
   );
 }
-

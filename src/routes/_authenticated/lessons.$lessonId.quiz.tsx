@@ -26,8 +26,8 @@ import { sounds } from "@/lib/sound-effects";
 import { launchConfetti } from "@/lib/confetti";
 
 export const Route = createFileRoute("/_authenticated/lessons/$lessonId/quiz")({
-  head: () => ({ meta: [{ title: "Duolingo STEM Quiz — ScienceKH" }] }),
-  component: DuolingoQuizPage,
+  head: () => ({ meta: [{ title: "Interactive STEM Quiz — ScienceKH" }] }),
+  component: InteractiveQuizPage,
 });
 
 type Question = {
@@ -41,7 +41,7 @@ type Question = {
   explanation_km: string | null;
 };
 
-function DuolingoQuizPage() {
+function InteractiveQuizPage() {
   const { lessonId } = Route.useParams();
   const { user } = useAuth();
   const { profile, lang } = useProfile();
@@ -344,12 +344,12 @@ function DuolingoQuizPage() {
     );
   }
 
-  // Active Quiz View (Duolingo Layout)
+  // Active Quiz View Layout
   const progressPercent = ((idx + (status !== "idle" ? 1 : 0)) / questions.length) * 100;
 
   return (
     <div className="flex min-h-screen flex-col justify-between bg-background">
-      {/* Duolingo Top Header */}
+      {/* Quiz Top Header */}
       <header className="mx-auto flex w-full max-w-2xl items-center gap-4 px-6 pt-6">
         <button
           type="button"
@@ -365,7 +365,7 @@ function DuolingoQuizPage() {
           <Progress value={progressPercent} className="h-3.5 rounded-full bg-muted" />
         </div>
 
-        {/* Duolingo Hearts Counter */}
+        {/* Hearts Counter */}
         <div
           className={cn(
             "flex items-center gap-1.5 rounded-full border border-rose-200 bg-rose-50 px-3 py-1 text-rose-600 transition-transform dark:border-rose-900/50 dark:bg-rose-950/40",
@@ -388,7 +388,7 @@ function DuolingoQuizPage() {
           {prompt}
         </h2>
 
-        {/* Duolingo-style 3D Answer Cards */}
+        {/* Tactile 3D Answer Cards */}
         <div className="mt-8 grid gap-3">
           {options.map((opt, i) => {
             const isSelected = selected === i;
@@ -445,7 +445,7 @@ function DuolingoQuizPage() {
         </div>
       </main>
 
-      {/* Duolingo Slide-up Bottom Feedback Drawer */}
+      {/* Slide-up Bottom Feedback Drawer */}
       <footer
         className={cn(
           "border-t p-6 transition-colors duration-200",

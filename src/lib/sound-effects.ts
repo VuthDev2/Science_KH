@@ -1,4 +1,4 @@
-// Zero-dependency Web Audio API sound effects for Duolingo-style feedback
+// Zero-dependency Web Audio API sound effects for interactive STEM learning
 
 class SoundEffects {
   private ctx: AudioContext | null = null;
@@ -18,7 +18,7 @@ class SoundEffects {
   }
 
   /**
-   * Duolingo-style bright ascending chime for correct answers
+   * Bright ascending chime for correct answers
    */
   playCorrect() {
     const ctx = this.getContext();
@@ -47,7 +47,7 @@ class SoundEffects {
   }
 
   /**
-   * Duolingo-style gentle low thud / buzz for incorrect answers
+   * Gentle low thud / buzz for incorrect answers
    */
   playWrong() {
     const ctx = this.getContext();

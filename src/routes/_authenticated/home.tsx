@@ -71,7 +71,7 @@ function HomePage() {
   return (
     <>
       <main className="min-h-screen bg-background pb-28">
-        {/* Duolingo Sticky Top Gamification Status Bar */}
+        {/* Sticky Top Gamification Status Bar */}
         <div className="sticky top-0 z-30 border-b border-border/80 bg-background/95 backdrop-blur">
           <div className="mx-auto flex h-14 w-full max-w-md items-center justify-between px-6">
             {/* Day Streak */}
@@ -120,7 +120,7 @@ function HomePage() {
             </h1>
           </div>
 
-          {/* Primary CTA: Jump into Duolingo Learning Path */}
+          {/* Primary CTA: Jump into Learning Path */}
           <div className="mt-5 rounded-3xl border-2 border-emerald-600/30 bg-gradient-to-br from-emerald-500 to-teal-600 p-5 text-white shadow-xl dark:border-emerald-500/50">
             <div className="flex items-start justify-between">
               <div>
