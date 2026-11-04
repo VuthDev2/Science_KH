@@ -75,3 +75,4 @@ export function launchConfetti() {
 
   animationFrameId = requestAnimationFrame(render);
 }
+
