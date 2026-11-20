@@ -52,12 +52,54 @@ import { getCuratedLesson, isUUID } from "@/lib/curated-lessons";
 import { sounds } from "@/lib/sound-effects";
 import { launchConfetti } from "@/lib/confetti";
 
-export const Route = createFileRoute("/_authenticated/lessons/$lessonId/")({
+export const Route = createFileRoute("/_authenticated/lessons/$lessonId")({
   head: () => ({ meta: [{ title: "Lesson — ScienceKH" }] }),
   component: LessonPage,
+  errorComponent: LessonErrorComponent,
 });
 
-const routeApi = getRouteApi("/_authenticated/lessons/$lessonId/");
+const routeApi = getRouteApi("/_authenticated/lessons/$lessonId");
+
+function LessonErrorComponent({ error, reset }: { error: unknown; reset: () => void }) {
+  const params = Route.useParams();
+  return (
+    <main className="min-h-screen bg-[#F8FAFC] dark:bg-slate-950 flex flex-col items-center justify-center p-6 text-center space-y-4">
+      <div className="h-16 w-16 rounded-3xl grid place-items-center bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-300 text-2xl shadow-xs">
+        ⚠️
+      </div>
+      <div className="space-y-1.5 max-w-sm">
+        <h2 className="font-display font-black text-lg text-slate-900 dark:text-white">
+          មានបញ្ហាបច្ចេកទេសលើមេរៀននេះ
+        </h2>
+        <p className="text-xs text-slate-500 leading-relaxed">
+          ប្រព័ន្ធមិនអាចបង្ហាញទិន្នន័យមេរៀនបានពេញលេញនៅពេលនេះទេ។ អ្នកអាចធ្វើតេស្ត Quiz ភ្លាមៗ ឬត្រឡប់ទៅកម្មវិធីសិក្សាវិញ។
+        </p>
+      </div>
+      <div className="flex flex-wrap items-center justify-center gap-2 pt-2">
+        <button
+          type="button"
+          onClick={() => reset()}
+          className="px-4 py-2 rounded-xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-bold text-xs hover:bg-slate-300 transition cursor-pointer"
+        >
+          ព្យាយាមម្តងទៀត
+        </button>
+        <Link
+          to="/lessons/$lessonId/quiz"
+          params={{ lessonId: params.lessonId }}
+          className="px-4 py-2 rounded-xl bg-emerald-600 text-white font-bold text-xs hover:bg-emerald-500 shadow-sm cursor-pointer"
+        >
+          ធ្វើតេស្ត Quiz ជំនួសវិញ →
+        </Link>
+        <Link
+          to="/lessons"
+          className="px-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-400 font-bold text-xs"
+        >
+          ត្រឡប់ទៅកម្មវិធីសិក្សា
+        </Link>
+      </div>
+    </main>
+  );
+}
 
 // Subject Theme Helpers
 function getSubjectTheme(slug?: string) {
@@ -197,7 +239,7 @@ const CONCEPT_CHECKS: Record<string, ConceptCheckData> = {
 };
 
 function LessonPage() {
-  const { lessonId } = routeApi.useParams();
+  const { lessonId } = Route.useParams();
   const { user } = useAuth();
   const { lang } = useProfile();
   const qc = useQueryClient();
@@ -693,7 +735,7 @@ function LessonPage() {
             {body ? (
               <ReactMarkdown
                 remarkPlugins={[remarkGfm, remarkMath]}
-                rehypePlugins={[rehypeKatex]}
+                rehypePlugins={[[rehypeKatex, { throwOnError: false, strict: false }]]}
                 components={{
                   h2: ({ children }) => (
                     <div className="mt-8 mb-3 pb-2 border-b border-slate-200 dark:border-slate-800">
@@ -871,7 +913,7 @@ function LessonPage() {
                 {/* KaTeX Problem Expression Box */}
                 {currentExercise.formulaOrContext && (
                   <div className="my-2 p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-850 border border-slate-200/80 dark:border-slate-800 text-center font-bold text-emerald-700 dark:text-emerald-300 text-base sm:text-lg overflow-x-auto whitespace-nowrap scrollbar-none">
-                    <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>
+                    <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[[rehypeKatex, { throwOnError: false, strict: false }]]}>
                       {`$$${currentExercise.formulaOrContext}$$`}
                     </ReactMarkdown>
                   </div>
@@ -952,7 +994,7 @@ function LessonPage() {
 
                 {showExerciseSolution && (
                   <div className="p-4 rounded-2xl bg-slate-50/90 dark:bg-slate-850/80 border border-slate-200/80 dark:border-slate-800 text-xs sm:text-sm text-slate-800 dark:text-slate-200 space-y-2 animate-in fade-in duration-200">
-                    <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex]}>
+                    <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[[rehypeKatex, { throwOnError: false, strict: false }]]}>
                       {isKhmer ? currentExercise.stepByStepSolutionKm : currentExercise.stepByStepSolutionEn}
                     </ReactMarkdown>
                   </div>
@@ -993,7 +1035,7 @@ function LessonPage() {
               to="/tutor"
               search={{
                 initialPrompt: lesson
-                  ? `សូមជួយពន្យល់មេរៀន «${lesson.title_km}» មុខវិជ្ជា ${lesson.subject.name_km} ថ្នាក់ទី ${lesson.grade} ឱ្យខ្ញុំយល់ច្បាស់បន្តិច។`
+                  ? `សូមជួយពន្យល់មេរៀន «${lesson.title_km}» មុខវិជ្ជា ${lesson.subject ? (isKhmer ? lesson.subject.name_km : lesson.subject.name_en) : "STEM"} ថ្នាក់ទី ${lesson.grade} ឱ្យខ្ញុំយល់ច្បាស់បន្តិច។`
                   : undefined,
               }}
               onClick={() => sounds.playPop()}

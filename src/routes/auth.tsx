@@ -51,7 +51,7 @@ function AuthPage() {
   const searchLang = search.lang;
   const targetRedirect = search.redirect || "/home";
   const navigate = useNavigate();
-  const { user, loading: authLoading } = useAuth();
+  const { user, loading: authLoading, signInAsGuest } = useAuth();
 
   // Language state initialized from search param or localStorage
   const [lang, setLang] = useState<SupportedLanguage>(() => {
@@ -421,6 +421,12 @@ function AuthPage() {
     }
   };
 
+  const handleGuestSignIn = () => {
+    signInAsGuest();
+    toast.success(isKhmer ? "ចូលរៀនជាសិស្សគំរូជោគជ័យ!" : "Signed in as Guest Student!");
+    navigate({ to: targetRedirect, replace: true });
+  };
+
   return (
     <AuthLayout
       currentLang={lang}
@@ -442,6 +448,7 @@ function AuthPage() {
                 copy={copy}
                 onSubmit={handleSignIn}
                 onGoogleSignIn={handleGoogle}
+                onGuestSignIn={handleGuestSignIn}
                 onForgotPasswordClick={() => switchMode("forgot")}
                 onSwitchToSignUp={() => switchMode("signup")}
                 submitting={submitting}

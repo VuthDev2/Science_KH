@@ -22,13 +22,13 @@ import { Route as AuthenticatedVocabRouteImport } from './routes/_authenticated/
 import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authenticated/admin.index'
 import { Route as AuthenticatedAdminReferenceRouteImport } from './routes/_authenticated/admin.reference'
 import { Route as AuthenticatedLessonsIndexRouteImport } from './routes/_authenticated/lessons.index'
+import { Route as AuthenticatedLessonsLessonIdRouteImport } from './routes/_authenticated/lessons.$lessonId'
 import { Route as AuthenticatedReferenceIndexRouteImport } from './routes/_authenticated/reference.index'
 import { Route as AuthenticatedReferenceReferenceIdRouteImport } from './routes/_authenticated/reference.$referenceId'
 import { Route as AuthenticatedTutorIndexRouteImport } from './routes/_authenticated/tutor.index'
 import { Route as AuthenticatedTutorConversationIdRouteImport } from './routes/_authenticated/tutor.$conversationId'
 import { Route as AuthenticatedAdminLessonsLessonIdRouteImport } from './routes/_authenticated/admin.lessons.$lessonId'
-import { Route as AuthenticatedLessonsLessonIdIndexRouteImport } from './routes/_authenticated/lessons.$lessonId.index'
-import { Route as AuthenticatedLessonsLessonIdQuizRouteImport } from './routes/_authenticated/lessons.$lessonId.quiz'
+import { Route as AuthenticatedLessonsLessonIdQuizRouteImport } from './routes/_authenticated/lessons.$lessonId_.quiz'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -97,6 +97,12 @@ const AuthenticatedLessonsIndexRoute =
     path: '/lessons/',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const AuthenticatedLessonsLessonIdRoute =
+  AuthenticatedLessonsLessonIdRouteImport.update({
+    id: '/lessons/$lessonId',
+    path: '/lessons/$lessonId',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedReferenceIndexRoute =
   AuthenticatedReferenceIndexRouteImport.update({
     id: '/reference/',
@@ -126,15 +132,9 @@ const AuthenticatedAdminLessonsLessonIdRoute =
     path: '/lessons/$lessonId',
     getParentRoute: () => AuthenticatedAdminRoute,
   } as any)
-const AuthenticatedLessonsLessonIdIndexRoute =
-  AuthenticatedLessonsLessonIdIndexRouteImport.update({
-    id: '/lessons/$lessonId/',
-    path: '/lessons/$lessonId/',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
 const AuthenticatedLessonsLessonIdQuizRoute =
   AuthenticatedLessonsLessonIdQuizRouteImport.update({
-    id: '/lessons/$lessonId/quiz',
+    id: '/lessons/$lessonId_/quiz',
     path: '/lessons/$lessonId/quiz',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
@@ -150,6 +150,7 @@ export interface FileRoutesByFullPath {
   '/profile': typeof AuthenticatedProfileRoute
   '/vocab': typeof AuthenticatedVocabRoute
   '/admin/reference': typeof AuthenticatedAdminReferenceRoute
+  '/lessons/$lessonId': typeof AuthenticatedLessonsLessonIdRoute
   '/reference/$referenceId': typeof AuthenticatedReferenceReferenceIdRoute
   '/tutor/$conversationId': typeof AuthenticatedTutorConversationIdRoute
   '/admin/': typeof AuthenticatedAdminIndexRoute
@@ -158,7 +159,6 @@ export interface FileRoutesByFullPath {
   '/tutor/': typeof AuthenticatedTutorIndexRoute
   '/admin/lessons/$lessonId': typeof AuthenticatedAdminLessonsLessonIdRoute
   '/lessons/$lessonId/quiz': typeof AuthenticatedLessonsLessonIdQuizRoute
-  '/lessons/$lessonId/': typeof AuthenticatedLessonsLessonIdIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -170,6 +170,7 @@ export interface FileRoutesByTo {
   '/profile': typeof AuthenticatedProfileRoute
   '/vocab': typeof AuthenticatedVocabRoute
   '/admin/reference': typeof AuthenticatedAdminReferenceRoute
+  '/lessons/$lessonId': typeof AuthenticatedLessonsLessonIdRoute
   '/reference/$referenceId': typeof AuthenticatedReferenceReferenceIdRoute
   '/tutor/$conversationId': typeof AuthenticatedTutorConversationIdRoute
   '/admin': typeof AuthenticatedAdminIndexRoute
@@ -178,7 +179,6 @@ export interface FileRoutesByTo {
   '/tutor': typeof AuthenticatedTutorIndexRoute
   '/admin/lessons/$lessonId': typeof AuthenticatedAdminLessonsLessonIdRoute
   '/lessons/$lessonId/quiz': typeof AuthenticatedLessonsLessonIdQuizRoute
-  '/lessons/$lessonId': typeof AuthenticatedLessonsLessonIdIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -193,6 +193,7 @@ export interface FileRoutesById {
   '/_authenticated/profile': typeof AuthenticatedProfileRoute
   '/_authenticated/vocab': typeof AuthenticatedVocabRoute
   '/_authenticated/admin/reference': typeof AuthenticatedAdminReferenceRoute
+  '/_authenticated/lessons/$lessonId': typeof AuthenticatedLessonsLessonIdRoute
   '/_authenticated/reference/$referenceId': typeof AuthenticatedReferenceReferenceIdRoute
   '/_authenticated/tutor/$conversationId': typeof AuthenticatedTutorConversationIdRoute
   '/_authenticated/admin/': typeof AuthenticatedAdminIndexRoute
@@ -200,8 +201,7 @@ export interface FileRoutesById {
   '/_authenticated/reference/': typeof AuthenticatedReferenceIndexRoute
   '/_authenticated/tutor/': typeof AuthenticatedTutorIndexRoute
   '/_authenticated/admin/lessons/$lessonId': typeof AuthenticatedAdminLessonsLessonIdRoute
-  '/_authenticated/lessons/$lessonId/quiz': typeof AuthenticatedLessonsLessonIdQuizRoute
-  '/_authenticated/lessons/$lessonId/': typeof AuthenticatedLessonsLessonIdIndexRoute
+  '/_authenticated/lessons/$lessonId_/quiz': typeof AuthenticatedLessonsLessonIdQuizRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -216,6 +216,7 @@ export interface FileRouteTypes {
     | '/profile'
     | '/vocab'
     | '/admin/reference'
+    | '/lessons/$lessonId'
     | '/reference/$referenceId'
     | '/tutor/$conversationId'
     | '/admin/'
@@ -224,7 +225,6 @@ export interface FileRouteTypes {
     | '/tutor/'
     | '/admin/lessons/$lessonId'
     | '/lessons/$lessonId/quiz'
-    | '/lessons/$lessonId/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -236,6 +236,7 @@ export interface FileRouteTypes {
     | '/profile'
     | '/vocab'
     | '/admin/reference'
+    | '/lessons/$lessonId'
     | '/reference/$referenceId'
     | '/tutor/$conversationId'
     | '/admin'
@@ -244,7 +245,6 @@ export interface FileRouteTypes {
     | '/tutor'
     | '/admin/lessons/$lessonId'
     | '/lessons/$lessonId/quiz'
-    | '/lessons/$lessonId'
   id:
     | '__root__'
     | '/'
@@ -258,6 +258,7 @@ export interface FileRouteTypes {
     | '/_authenticated/profile'
     | '/_authenticated/vocab'
     | '/_authenticated/admin/reference'
+    | '/_authenticated/lessons/$lessonId'
     | '/_authenticated/reference/$referenceId'
     | '/_authenticated/tutor/$conversationId'
     | '/_authenticated/admin/'
@@ -265,8 +266,7 @@ export interface FileRouteTypes {
     | '/_authenticated/reference/'
     | '/_authenticated/tutor/'
     | '/_authenticated/admin/lessons/$lessonId'
-    | '/_authenticated/lessons/$lessonId/quiz'
-    | '/_authenticated/lessons/$lessonId/'
+    | '/_authenticated/lessons/$lessonId_/quiz'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -368,6 +368,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedLessonsIndexRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/lessons/$lessonId': {
+      id: '/_authenticated/lessons/$lessonId'
+      path: '/lessons/$lessonId'
+      fullPath: '/lessons/$lessonId'
+      preLoaderRoute: typeof AuthenticatedLessonsLessonIdRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/reference/': {
       id: '/_authenticated/reference/'
       path: '/reference'
@@ -403,15 +410,8 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminLessonsLessonIdRouteImport
       parentRoute: typeof AuthenticatedAdminRoute
     }
-    '/_authenticated/lessons/$lessonId/': {
-      id: '/_authenticated/lessons/$lessonId/'
-      path: '/lessons/$lessonId'
-      fullPath: '/lessons/$lessonId/'
-      preLoaderRoute: typeof AuthenticatedLessonsLessonIdIndexRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/lessons/$lessonId/quiz': {
-      id: '/_authenticated/lessons/$lessonId/quiz'
+    '/_authenticated/lessons/$lessonId_/quiz': {
+      id: '/_authenticated/lessons/$lessonId_/quiz'
       path: '/lessons/$lessonId/quiz'
       fullPath: '/lessons/$lessonId/quiz'
       preLoaderRoute: typeof AuthenticatedLessonsLessonIdQuizRouteImport
@@ -444,13 +444,13 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedLeaderboardRoute: typeof AuthenticatedLeaderboardRoute
   AuthenticatedProfileRoute: typeof AuthenticatedProfileRoute
   AuthenticatedVocabRoute: typeof AuthenticatedVocabRoute
+  AuthenticatedLessonsLessonIdRoute: typeof AuthenticatedLessonsLessonIdRoute
   AuthenticatedReferenceReferenceIdRoute: typeof AuthenticatedReferenceReferenceIdRoute
   AuthenticatedTutorConversationIdRoute: typeof AuthenticatedTutorConversationIdRoute
   AuthenticatedLessonsIndexRoute: typeof AuthenticatedLessonsIndexRoute
   AuthenticatedReferenceIndexRoute: typeof AuthenticatedReferenceIndexRoute
   AuthenticatedTutorIndexRoute: typeof AuthenticatedTutorIndexRoute
   AuthenticatedLessonsLessonIdQuizRoute: typeof AuthenticatedLessonsLessonIdQuizRoute
-  AuthenticatedLessonsLessonIdIndexRoute: typeof AuthenticatedLessonsLessonIdIndexRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
@@ -461,6 +461,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedLeaderboardRoute: AuthenticatedLeaderboardRoute,
   AuthenticatedProfileRoute: AuthenticatedProfileRoute,
   AuthenticatedVocabRoute: AuthenticatedVocabRoute,
+  AuthenticatedLessonsLessonIdRoute: AuthenticatedLessonsLessonIdRoute,
   AuthenticatedReferenceReferenceIdRoute:
     AuthenticatedReferenceReferenceIdRoute,
   AuthenticatedTutorConversationIdRoute: AuthenticatedTutorConversationIdRoute,
@@ -468,8 +469,6 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedReferenceIndexRoute: AuthenticatedReferenceIndexRoute,
   AuthenticatedTutorIndexRoute: AuthenticatedTutorIndexRoute,
   AuthenticatedLessonsLessonIdQuizRoute: AuthenticatedLessonsLessonIdQuizRoute,
-  AuthenticatedLessonsLessonIdIndexRoute:
-    AuthenticatedLessonsLessonIdIndexRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =

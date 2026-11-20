@@ -40,12 +40,12 @@ import { recordStudyActivity } from "@/lib/streak-guardian";
 import { getCuratedLesson, getNextCuratedLesson } from "@/lib/curated-lessons";
 import { MOEYS_UNITS_REGISTRY } from "@/lib/curriculum/units";
 
-export const Route = createFileRoute("/_authenticated/lessons/$lessonId/quiz")({
+export const Route = createFileRoute("/_authenticated/lessons/$lessonId_/quiz")({
   head: () => ({ meta: [{ title: "Interactive MoEYS Learning Lab — ScienceKH" }] }),
   component: InteractiveQuizPage,
 });
 
-const routeApi = getRouteApi("/_authenticated/lessons/$lessonId/quiz");
+const routeApi = getRouteApi("/_authenticated/lessons/$lessonId_/quiz");
 
 import {
   type QuizQuestionItem,
@@ -198,7 +198,7 @@ function playKruVuthAudio(
 }
 
 function InteractiveQuizPage() {
-  const { lessonId } = routeApi.useParams();
+  const { lessonId } = Route.useParams();
   const { lang, data: profile } = useProfile();
   const { user } = useAuth();
   const { isSuper, hearts, loseHeart, recordMistake, openPaywall, refillHearts } = useSuper();

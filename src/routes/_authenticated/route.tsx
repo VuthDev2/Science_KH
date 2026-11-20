@@ -27,7 +27,19 @@ export const Route = createFileRoute("/_authenticated")({
       await new Promise((resolve) => setTimeout(resolve, 350));
     }
 
-    // Require genuine Supabase authenticated session
+    // Allow active guest student session
+    if (typeof window !== "undefined") {
+      try {
+        const guest = localStorage.getItem("sciencekh_guest_user");
+        if (guest) {
+          return { user: JSON.parse(guest) };
+        }
+      } catch {
+        // ignore
+      }
+    }
+
+    // Require genuine Supabase authenticated session or guest student
     try {
       const { data, error } = await supabase.auth.getSession();
       if (error || !data?.session?.user) {

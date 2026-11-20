@@ -13,6 +13,7 @@ interface SignInFormProps {
   copy: AuthCopy;
   onSubmit: (email: string, password: string, rememberMe: boolean) => Promise<void>;
   onGoogleSignIn: () => Promise<void>;
+  onGuestSignIn?: () => void;
   onForgotPasswordClick: () => void;
   onSwitchToSignUp: () => void;
   submitting: boolean;
@@ -25,6 +26,7 @@ export function SignInForm({
   copy,
   onSubmit,
   onGoogleSignIn,
+  onGuestSignIn,
   onForgotPasswordClick,
   onSwitchToSignUp,
   submitting,
@@ -332,6 +334,21 @@ export function SignInForm({
               <span>{copy.oauth.continueGoogle}</span>
             </Button>
           </div>
+
+          {/* 1-Tap Guest Access */}
+          {onGuestSignIn && (
+            <div className="mt-3">
+              <Button
+                type="button"
+                variant="outline"
+                onClick={onGuestSignIn}
+                className="w-full h-[46px] rounded-[14px] border-2 border-emerald-500/40 hover:border-emerald-600 bg-emerald-50/60 hover:bg-emerald-100/80 text-emerald-800 font-bold text-xs sm:text-sm transition-all cursor-pointer flex items-center justify-center gap-2 shadow-2xs active:scale-[0.99]"
+              >
+                <span>🚀</span>
+                <span>ចូលរៀនសាកល្បងភ្លាមៗ (Quick Guest Access)</span>
+              </Button>
+            </div>
+          )}
         </form>
 
         {/* Footer: Sign Up Switch */}
