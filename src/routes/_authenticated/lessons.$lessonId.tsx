@@ -8,11 +8,13 @@
 
 import { createFileRoute, Link, useNavigate, getRouteApi } from "@tanstack/react-router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, Component } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
+import katex from "katex";
+import { cleanLatexMathString } from "@/lib/utils";
 import {
   ArrowLeft,
   CheckCircle2,
@@ -61,7 +63,58 @@ export const Route = createFileRoute("/_authenticated/lessons/$lessonId")({
 
 const routeApi = getRouteApi("/_authenticated/lessons/$lessonId");
 
+class SafeMarkdownBoundary extends Component<
+  { children: React.ReactNode; fallbackText: string },
+  { hasError: boolean }
+> {
+  constructor(props: { children: React.ReactNode; fallbackText: string }) {
+    super(props);
+    this.state = { hasError: false };
+  }
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+  componentDidCatch(err: any) {
+    console.error("Markdown rendering error:", err);
+  }
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs sm:text-sm text-slate-700 dark:text-slate-300 whitespace-pre-wrap font-sans leading-relaxed">
+          {this.props.fallbackText}
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
+function SafeMathBlock({ math, className }: { math: string; className?: string }) {
+  const html = useMemo(() => {
+    try {
+      const sanitized = cleanLatexMathString(math);
+      return katex.renderToString(sanitized, {
+        displayMode: true,
+        throwOnError: false,
+        strict: false,
+      });
+    } catch {
+      return null;
+    }
+  }, [math]);
+
+  if (!html) {
+    return (
+      <div className={cn("font-mono text-xs sm:text-sm overflow-x-auto", className)}>
+        {math}
+      </div>
+    );
+  }
+  return <div className={className} dangerouslySetInnerHTML={{ __html: html }} />;
+}
+
 function LessonErrorComponent({ error, reset }: { error: unknown; reset: () => void }) {
+  console.error("Lesson route error:", error);
   let lessonId = "";
   try {
     const params = Route.useParams();
@@ -82,6 +135,16 @@ function LessonErrorComponent({ error, reset }: { error: unknown; reset: () => v
           ប្រព័ន្ធមិនអាចបង្ហាញទិន្នន័យមេរៀនបានពេញលេញនៅពេលនេះទេ។ អ្នកអាចធ្វើតេស្ត Quiz ភ្លាមៗ ឬត្រឡប់ទៅកម្មវិធីសិក្សាវិញ។
         </p>
       </div>
+
+      {Boolean(error) && (
+        <details className="mt-2 text-left p-3 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 text-xs text-red-700 dark:text-red-300 max-w-md w-full">
+          <summary className="font-semibold cursor-pointer">ព័ត៌មានលម្អិតបច្ចេកទេស (Error Details)</summary>
+          <pre className="mt-2 overflow-auto max-h-40 whitespace-pre-wrap font-mono text-[10px]">
+            {error instanceof Error ? error.stack || error.message : String(error)}
+          </pre>
+        </details>
+      )}
+
       <div className="flex flex-wrap items-center justify-center gap-2 pt-2">
         <button
           type="button"
@@ -104,6 +167,12 @@ function LessonErrorComponent({ error, reset }: { error: unknown; reset: () => v
           className="px-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-400 font-bold text-xs"
         >
           ត្រឡប់ទៅកម្មវិធីសិក្សា
+        </Link>
+        <Link
+          to="/home"
+          className="px-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-400 font-bold text-xs"
+        >
+          ត្រឡប់ទៅទំព័រដើម
         </Link>
       </div>
     </main>
@@ -297,11 +366,15 @@ function LessonPage() {
     queryFn: async () => {
       if (!user) return null;
       if (!isUUID(lessonId)) {
-        const saved =
-          typeof window !== "undefined"
-            ? localStorage.getItem(`sciencekh_progress_${user.id}_${lessonId}`)
-            : null;
-        return saved ? { status: saved } : null;
+        try {
+          const saved =
+            typeof window !== "undefined"
+              ? localStorage.getItem(`sciencekh_progress_${user.id}_${lessonId}`)
+              : null;
+          return saved ? { status: saved } : null;
+        } catch {
+          return null;
+        }
       }
       try {
         const { data } = await supabase
@@ -324,9 +397,13 @@ function LessonPage() {
     if (progress) return;
     if (!isUUID(lessonId)) {
       if (typeof window !== "undefined") {
-        localStorage.setItem(`sciencekh_progress_${user.id}_${lessonId}`, "in_progress");
-        if (isMounted) {
-          qc.invalidateQueries({ queryKey: ["progress", user.id, lessonId] });
+        try {
+          localStorage.setItem(`sciencekh_progress_${user.id}_${lessonId}`, "in_progress");
+          if (isMounted) {
+            qc.invalidateQueries({ queryKey: ["progress", user.id, lessonId] });
+          }
+        } catch {
+          // ignore storage error
         }
       }
       return;
@@ -337,11 +414,16 @@ function LessonPage() {
         { user_id: user.id, lesson_id: lessonId, status: "in_progress" },
         { onConflict: "user_id,lesson_id" },
       )
-      .then(() => {
-        if (isMounted) {
-          qc.invalidateQueries({ queryKey: ["progress", user.id, lessonId] });
-        }
-      });
+      .then(
+        () => {
+          if (isMounted) {
+            qc.invalidateQueries({ queryKey: ["progress", user.id, lessonId] });
+          }
+        },
+        (err: unknown) => {
+          console.warn("Could not save lesson progress:", err);
+        },
+      );
 
     return () => {
       isMounted = false;
@@ -473,10 +555,15 @@ function LessonPage() {
   const IconComp = theme.icon;
   const practicalInsight = getLessonPracticalInsight(lesson.title_en, lesson.title_km, isKhmer);
   const checkData = CONCEPT_CHECKS[lesson.id] || null;
-  const practiceExercises = useMemo(
-    () => (lesson ? getLessonPracticeExercises(lesson as any) : []),
-    [lesson],
-  );
+  const practiceExercises = useMemo(() => {
+    if (!lesson) return [];
+    try {
+      return getLessonPracticeExercises(lesson as any) || [];
+    } catch (err) {
+      console.warn("Failed to get practice exercises:", err);
+      return [];
+    }
+  }, [lesson]);
   const currentExercise = practiceExercises[activeExerciseIdx] || practiceExercises[0] || null;
 
   return (
@@ -560,7 +647,7 @@ function LessonPage() {
             </p>
             <Link
               to="/tutor"
-              search={{ initialPrompt: `ពន្យល់ខ្ញុំអំពីមេរៀន "${lesson.title_km}" ថ្នាក់ទី ${lesson.grade}` }}
+              search={() => ({ initialPrompt: `ពន្យល់ខ្ញុំអំពីមេរៀន "${lesson.title_km}" ថ្នាក់ទី ${lesson.grade}` })}
               className="w-full h-9 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs tracking-wide transition flex items-center justify-center gap-1.5 shadow-2xs active:scale-95 cursor-pointer"
             >
               <GraduationCap className="h-3.5 w-3.5" />
@@ -749,53 +836,55 @@ function LessonPage() {
           {/* Core Markdown Body */}
           <div className="prose prose-slate dark:prose-invert max-w-none text-foreground pt-1">
             {body ? (
-              <ReactMarkdown
-                remarkPlugins={[remarkGfm, remarkMath]}
-                rehypePlugins={[[rehypeKatex, { throwOnError: false, strict: false }]]}
-                components={{
-                  h2: ({ children }) => (
-                    <div className="mt-8 mb-3 pb-2 border-b border-slate-200 dark:border-slate-800">
-                      <h2 className="font-display text-base sm:text-lg font-bold text-slate-900 dark:text-white leading-snug m-0">
-                        {children}
-                      </h2>
-                    </div>
-                  ),
-                  h3: ({ children }) => (
-                    <h3 className="font-display text-sm sm:text-base font-bold text-slate-800 dark:text-slate-200 mt-5 mb-2">
-                      {children}
-                    </h3>
-                  ),
-                  p: ({ children }) => (
-                    <p className="text-xs sm:text-sm leading-relaxed text-slate-700 dark:text-slate-300 my-2">
-                      {children}
-                    </p>
-                  ),
-                  ul: ({ children }) => (
-                    <ul className="my-3 space-y-2 pl-1 list-none">{children}</ul>
-                  ),
-                  li: ({ children }) => (
-                    <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-slate-400 dark:bg-slate-500 shrink-0" />
-                      <div className="flex-1">{children}</div>
-                    </li>
-                  ),
-                  blockquote: ({ children }) => (
-                    <div className="my-4 rounded-2xl border border-amber-200 dark:border-amber-900/60 bg-amber-50/60 dark:bg-amber-950/20 p-4 text-xs sm:text-sm text-slate-800 dark:text-slate-200 space-y-1">
-                      <div className="flex items-center gap-1.5 font-bold text-xs text-amber-700 dark:text-amber-400">
-                        <Lightbulb className="h-4 w-4 text-amber-500 shrink-0" />
-                        <span>
-                          {isKhmer
-                            ? "ឧទាហរណ៍ជាក់ស្តែង & គន្លឹះដោះស្រាយ"
-                            : "Worked Example & Concept Tip"}
-                        </span>
+              <SafeMarkdownBoundary fallbackText={body}>
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm, remarkMath]}
+                  rehypePlugins={[[rehypeKatex, { throwOnError: false, strict: false }]]}
+                  components={{
+                    h2: ({ children }) => (
+                      <div className="mt-8 mb-3 pb-2 border-b border-slate-200 dark:border-slate-800">
+                        <h2 className="font-display text-base sm:text-lg font-bold text-slate-900 dark:text-white leading-snug m-0">
+                          {children}
+                        </h2>
                       </div>
-                      <div className="leading-relaxed not-italic">{children}</div>
-                    </div>
-                  ),
-                }}
-              >
-                {body}
-              </ReactMarkdown>
+                    ),
+                    h3: ({ children }) => (
+                      <h3 className="font-display text-sm sm:text-base font-bold text-slate-800 dark:text-slate-200 mt-5 mb-2">
+                        {children}
+                      </h3>
+                    ),
+                    p: ({ children }) => (
+                      <p className="text-xs sm:text-sm leading-relaxed text-slate-700 dark:text-slate-300 my-2">
+                        {children}
+                      </p>
+                    ),
+                    ul: ({ children }) => (
+                      <ul className="my-3 space-y-2 pl-1 list-none">{children}</ul>
+                    ),
+                    li: ({ children }) => (
+                      <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-slate-400 dark:bg-slate-500 shrink-0" />
+                        <div className="flex-1">{children}</div>
+                      </li>
+                    ),
+                    blockquote: ({ children }) => (
+                      <div className="my-4 rounded-2xl border border-amber-200 dark:border-amber-900/60 bg-amber-50/60 dark:bg-amber-950/20 p-4 text-xs sm:text-sm text-slate-800 dark:text-slate-200 space-y-1">
+                        <div className="flex items-center gap-1.5 font-bold text-xs text-amber-700 dark:text-amber-400">
+                          <Lightbulb className="h-4 w-4 text-amber-500 shrink-0" />
+                          <span>
+                            {isKhmer
+                              ? "ឧទាហរណ៍ជាក់ស្តែង & គន្លឹះដោះស្រាយ"
+                              : "Worked Example & Concept Tip"}
+                          </span>
+                        </div>
+                        <div className="leading-relaxed not-italic">{children}</div>
+                      </div>
+                    ),
+                  }}
+                >
+                  {body}
+                </ReactMarkdown>
+              </SafeMarkdownBoundary>
             ) : (
               <p className="text-slate-400 text-xs">មិនទាន់មានទិន្នន័យមេរៀននេះនៅឡើយទេ។</p>
             )}
@@ -929,16 +1018,14 @@ function LessonPage() {
                 {/* KaTeX Problem Expression Box */}
                 {currentExercise.formulaOrContext && (
                   <div className="my-2 p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-850 border border-slate-200/80 dark:border-slate-800 text-center font-bold text-emerald-700 dark:text-emerald-300 text-base sm:text-lg overflow-x-auto whitespace-nowrap scrollbar-none">
-                    <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[[rehypeKatex, { throwOnError: false, strict: false }]]}>
-                      {`$$${currentExercise.formulaOrContext}$$`}
-                    </ReactMarkdown>
+                    <SafeMathBlock math={currentExercise.formulaOrContext} />
                   </div>
                 )}
               </div>
 
               {/* 4 Interactive Answer Options */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
-                {currentExercise.options.map((opt: any, optIdx: number) => {
+                {currentExercise.options?.map((opt: any, optIdx: number) => {
                   const isSelected = selectedExerciseOptionIdx === optIdx;
                   const isCorrect = opt.isCorrect;
 
@@ -1010,9 +1097,11 @@ function LessonPage() {
 
                 {showExerciseSolution && (
                   <div className="p-4 rounded-2xl bg-slate-50/90 dark:bg-slate-850/80 border border-slate-200/80 dark:border-slate-800 text-xs sm:text-sm text-slate-800 dark:text-slate-200 space-y-2 animate-in fade-in duration-200">
-                    <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[[rehypeKatex, { throwOnError: false, strict: false }]]}>
-                      {isKhmer ? currentExercise.stepByStepSolutionKm : currentExercise.stepByStepSolutionEn}
-                    </ReactMarkdown>
+                    <SafeMarkdownBoundary fallbackText={isKhmer ? currentExercise.stepByStepSolutionKm : currentExercise.stepByStepSolutionEn}>
+                      <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[[rehypeKatex, { throwOnError: false, strict: false }]]}>
+                        {isKhmer ? currentExercise.stepByStepSolutionKm : currentExercise.stepByStepSolutionEn}
+                      </ReactMarkdown>
+                    </SafeMarkdownBoundary>
                   </div>
                 )}
               </div>
@@ -1049,11 +1138,11 @@ function LessonPage() {
           <div className="pt-2 flex items-center justify-center">
             <Link
               to="/tutor"
-              search={{
+              search={() => ({
                 initialPrompt: lesson
                   ? `សូមជួយពន្យល់មេរៀន «${lesson.title_km}» មុខវិជ្ជា ${lesson.subject ? (isKhmer ? lesson.subject.name_km : lesson.subject.name_en) : "STEM"} ថ្នាក់ទី ${lesson.grade} ឱ្យខ្ញុំយល់ច្បាស់បន្តិច។`
-                  : undefined,
-              }}
+                  : "",
+              })}
               onClick={() => sounds.playPop()}
               className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 text-xs font-semibold hover:bg-slate-200 dark:hover:bg-slate-700 transition"
             >
