@@ -228,6 +228,7 @@ function InteractiveQuizPage() {
   const startTimeRef = useRef<number>(Date.now());
   const mistakesCountRef = useRef<number>(0);
   const totalAttemptsRef = useRef<number>(0);
+  const reviewCyclesRef = useRef<number>(0);
   const [lostHeartAnimation, setLostHeartAnimation] = useState(false);
   const [showOutOfHeartsModal, setShowOutOfHeartsModal] = useState(false);
 
@@ -630,8 +631,8 @@ function InteractiveQuizPage() {
       setEnergyGlow(true);
       setTimeout(() => setEnergyGlow(false), 500);
 
-      // Queue for Mastery Protocol
-      if (!reviewProtocolQueue.some((q) => q.id === currentQ.id)) {
+      // Queue for Mastery Protocol (only during initial pass; avoids endless review loops)
+      if (!isReviewPhase && !reviewProtocolQueue.some((q) => q.id === currentQ.id)) {
         setReviewProtocolQueue((prev) => [...prev, currentQ]);
       }
     }
@@ -647,8 +648,9 @@ function InteractiveQuizPage() {
       return;
     }
 
-    // Check if Review Round is required for 100% Mastery
-    if (reviewProtocolQueue.length > 0) {
+    // Check if Review Round is required for 100% Mastery (capped at 1 review pass)
+    if (reviewProtocolQueue.length > 0 && reviewCyclesRef.current < 1) {
+      reviewCyclesRef.current += 1;
       setDeck([...reviewProtocolQueue]);
       setDeckIndex(0);
       setReviewProtocolQueue([]);
@@ -656,7 +658,7 @@ function InteractiveQuizPage() {
       toast.success(
         isKhmer
           ? "🔬 ពិធីការពិសោធន៍ឡើងវិញ៖ ដោះស្រាយចំណុចដែលខ្វះខាតដើម្បីទទួលបានជោគជ័យពេញលេញ!"
-          : "🔬 Mastery Protocol Active: Reviewing unmastered experiments!",
+          : "🔬 Mastery Review: One last try on missed questions!",
       );
     } else {
       setDone(true);
