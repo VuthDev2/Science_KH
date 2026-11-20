@@ -35,7 +35,7 @@ interface DesktopRightSidebarProps {
 export function DesktopRightSidebar({ children }: DesktopRightSidebarProps) {
   return (
     <aside
-      className="hidden xl:block w-[300px] 2xl:w-[320px] shrink-0 sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto no-scrollbar py-6 space-y-4 pl-4 pr-2"
+      className="hidden xl:block w-[300px] 2xl:w-[320px] shrink-0 sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto no-scrollbar space-y-4 pb-6"
       aria-label="Contextual Study Assistant"
     >
       {children}

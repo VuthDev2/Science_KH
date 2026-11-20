@@ -129,8 +129,8 @@ export function DesktopHeader({
     : `${currentGradeObj.labelEn} (${currentGradeObj.tierEn})`;
 
   return (
-    <header className="hidden lg:block sticky top-0 z-30 min-h-16 border-b border-[#E5EAF0] dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md transition-colors px-4 sm:px-6 lg:px-8 lg:pt-0">
-      <div className="min-h-16 py-2 lg:py-0 max-w-7xl mx-auto flex items-center justify-between gap-4">
+    <header className="hidden lg:block sticky top-0 z-30 h-16 border-b border-[#E5EAF0] dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md transition-colors px-6 lg:px-8 shrink-0">
+      <div className="h-full w-full flex items-center justify-between gap-4">
         {/* 1. Left Section: Breadcrumb Trail or Page Title */}
         <div className="min-w-0 flex items-center gap-2">
           {breadcrumbs && breadcrumbs.length > 0 ? (
