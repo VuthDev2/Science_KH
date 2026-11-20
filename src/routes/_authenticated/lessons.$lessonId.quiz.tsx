@@ -214,11 +214,9 @@ function InteractiveQuizPage() {
   // Load curated lab deck
   const initialLabDeck = useMemo(() => getCurriculumLabQuestions(lessonId), [lessonId]);
 
-  // Deck & Review Protocol State
+  // Deck & Progression State
   const [deck, setDeck] = useState<QuizQuestionItem[]>([]);
   const [deckIndex, setDeckIndex] = useState(0);
-  const [reviewProtocolQueue, setReviewProtocolQueue] = useState<QuizQuestionItem[]>([]);
-  const [isReviewPhase, setIsReviewPhase] = useState(false);
 
   // Lab Metrics & Gamification Hearts
   const [quantumEnergy, setQuantumEnergy] = useState(5); // 5 Energy Hearts
@@ -308,8 +306,6 @@ function InteractiveQuizPage() {
   useEffect(() => {
     setDeck(initialLabDeck);
     setDeckIndex(0);
-    setReviewProtocolQueue([]);
-    setIsReviewPhase(false);
     setDone(false);
     setStatus("idle");
     setResonanceStreak(0);
@@ -487,7 +483,7 @@ function InteractiveQuizPage() {
           data: {
             lessonId: lessonId,
             quizId: lesson?.quiz?.id ?? `quiz-${lessonId}`,
-            score: deck.length - reviewProtocolQueue.length,
+            score: Math.max(1, deck.length - mistakesCountRef.current),
             total: deck.length,
             passed: true,
             answers: {},
@@ -542,12 +538,11 @@ function InteractiveQuizPage() {
     },
   });
 
-  // Duolingo Auto-Progression Countdown Effect
+  // Duolingo Auto-Progression Countdown Effect: Automatically move to next block of roadmap
   useEffect(() => {
     if (!done || isAutoAdvancePaused) return;
-    if (!nextCuratedLesson) return;
 
-    setAutoAdvanceTimer(5);
+    setAutoAdvanceTimer(3);
     const interval = setInterval(() => {
       setAutoAdvanceTimer((prev) => {
         if (prev === null) return null;
@@ -555,8 +550,11 @@ function InteractiveQuizPage() {
           clearInterval(interval);
           handleProceedAfterLesson(() => {
             navigate({
-              to: "/lessons/$lessonId/quiz",
-              params: { lessonId: nextCuratedLesson.id },
+              to: "/lessons",
+              search: {
+                grade: lesson?.grade,
+                subject: lesson?.subject?.slug,
+              },
             });
           });
           return 0;
@@ -566,7 +564,7 @@ function InteractiveQuizPage() {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [done, nextCuratedLesson, isAutoAdvancePaused, navigate]);
+  }, [done, isAutoAdvancePaused, lesson, navigate]);
 
   // Verify Hypothesis
   const verifyHypothesis = () => {
@@ -630,15 +628,10 @@ function InteractiveQuizPage() {
 
       setEnergyGlow(true);
       setTimeout(() => setEnergyGlow(false), 500);
-
-      // Queue for Mastery Protocol (only during initial pass; avoids endless review loops)
-      if (!isReviewPhase && !reviewProtocolQueue.some((q) => q.id === currentQ.id)) {
-        setReviewProtocolQueue((prev) => [...prev, currentQ]);
-      }
     }
   };
 
-  // Advance Protocol
+  // Advance Protocol: When the progress line is complete, end lesson immediately and celebrate!
   const advanceProtocol = () => {
     setStatus("idle");
     setShowSocraticCard(false);
@@ -648,22 +641,10 @@ function InteractiveQuizPage() {
       return;
     }
 
-    // Check if Review Round is required for 100% Mastery (capped at 1 review pass)
-    if (reviewProtocolQueue.length > 0 && reviewCyclesRef.current < 1) {
-      reviewCyclesRef.current += 1;
-      setDeck([...reviewProtocolQueue]);
-      setDeckIndex(0);
-      setReviewProtocolQueue([]);
-      setIsReviewPhase(true);
-      toast.success(
-        isKhmer
-          ? "🔬 ពិធីការពិសោធន៍ឡើងវិញ៖ ដោះស្រាយចំណុចដែលខ្វះខាតដើម្បីទទួលបានជោគជ័យពេញលេញ!"
-          : "🔬 Mastery Review: One last try on missed questions!",
-      );
-    } else {
-      setDone(true);
-      submitHypothesis.mutate({ peakStreak: peakResonance });
-    }
+    // Line completed! All questions in this lesson have been answered.
+    // End lesson immediately — no more repeating questions!
+    setDone(true);
+    submitHypothesis.mutate({ peakStreak: peakResonance });
   };
 
   if (!currentQ && !done) {
@@ -790,75 +771,82 @@ function InteractiveQuizPage() {
           )}
         </div>
 
-        {/* Action Button (Duolingo Tactile CONTINUE Button) */}
+        {/* Action Button: Automatically move to next block of roadmap */}
         <div className="w-full max-w-md pt-4 space-y-2.5">
-          {nextCuratedLesson ? (
-            <>
-              <Button
-                size="lg"
-                onClick={() => {
-                  handleProceedAfterLesson(() => {
-                    navigate({
-                      to: "/lessons/$lessonId/quiz",
-                      params: { lessonId: nextCuratedLesson.id },
-                    });
-                  });
-                }}
-                className="h-15 sm:h-16 w-full rounded-2xl border-b-[5px] border-[#46A302] bg-[#58CC02] hover:bg-[#46A302] active:border-b-0 active:translate-y-1 text-white shadow-xl shadow-emerald-500/25 transition-all font-black uppercase tracking-wider text-sm sm:text-base cursor-pointer flex items-center justify-between px-5"
-              >
-                <div className="flex items-center gap-3 text-left">
-                  <div className="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
-                    <Play className="h-5 w-5 fill-white text-white" />
-                  </div>
-                  <div className="flex flex-col min-w-0">
-                    <span className="text-[10px] font-bold text-emerald-100 uppercase tracking-widest flex items-center gap-1.5">
-                      {autoAdvanceTimer !== null && autoAdvanceTimer > 0 && !isAutoAdvancePaused ? (
-                        <>
-                          <span>{isKhmer ? "បន្តស្វ័យប្រវត្តក្នុង" : "AUTO-ADVANCING IN"}</span>
-                          <span className="inline-block bg-white/30 px-1.5 py-0.5 rounded-md text-white font-mono text-xs font-black">
-                            {autoAdvanceTimer}s
-                          </span>
-                        </>
-                      ) : (
-                        <span>{isKhmer ? "បន្តទៅមេរៀនបន្ទាប់" : "CONTINUE TO NEXT LESSON"}</span>
-                      )}
-                    </span>
-                    <span className="text-xs sm:text-sm font-black text-white truncate max-w-[240px] sm:max-w-[280px]">
-                      {isKhmer ? nextCuratedLesson.title_km : nextCuratedLesson.title_en}
-                    </span>
-                  </div>
-                </div>
-                <ArrowRight className="h-5 w-5 shrink-0 ml-2" />
-              </Button>
-
-              {/* Auto-Advance Controls */}
-              <div className="flex items-center justify-between text-xs text-muted-foreground px-1 pt-0.5">
-                <button
-                  type="button"
-                  onClick={() => setIsAutoAdvancePaused((p) => !p)}
-                  className="inline-flex items-center gap-1 text-[11px] text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 font-bold cursor-pointer underline underline-offset-2"
-                >
-                  {isAutoAdvancePaused
-                    ? isKhmer ? "▶ បន្តស្វ័យប្រវត្តឡើងវិញ" : "▶ Resume Auto-Advance"
-                    : isKhmer ? "⏸ ផ្អាកការបន្តស្វ័យប្រវត្តិ" : "⏸ Pause Auto-Advance"}
-                </button>
-                <span className="text-[10px] text-slate-400">
-                  {isKhmer ? "ចុចប៊ូតុងដើម្បីបន្តភ្លាមៗ" : "Tap to advance immediately"}
+          <Button
+            size="lg"
+            onClick={() => {
+              handleProceedAfterLesson(() => {
+                navigate({
+                  to: "/lessons",
+                  search: {
+                    grade: lesson?.grade,
+                    subject: lesson?.subject?.slug,
+                  },
+                });
+              });
+            }}
+            className="h-15 sm:h-16 w-full rounded-2xl border-b-[5px] border-[#46A302] bg-[#58CC02] hover:bg-[#46A302] active:border-b-0 active:translate-y-1 text-white shadow-xl shadow-emerald-500/25 transition-all font-black uppercase tracking-wider text-sm sm:text-base cursor-pointer flex items-center justify-between px-5"
+          >
+            <div className="flex items-center gap-3 text-left">
+              <div className="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
+                <Play className="h-5 w-5 fill-white text-white" />
+              </div>
+              <div className="flex flex-col min-w-0">
+                <span className="text-[10px] font-bold text-emerald-100 uppercase tracking-widest flex items-center gap-1.5">
+                  {autoAdvanceTimer !== null && autoAdvanceTimer > 0 && !isAutoAdvancePaused ? (
+                    <>
+                      <span>{isKhmer ? "បន្តទៅផែនទីសិក្សាស្វ័យប្រវត្តក្នុង" : "MOVING TO ROADMAP IN"}</span>
+                      <span className="inline-block bg-white/30 px-1.5 py-0.5 rounded-md text-white font-mono text-xs font-black">
+                        {autoAdvanceTimer}s
+                      </span>
+                    </>
+                  ) : (
+                    <span>{isKhmer ? "បន្តទៅផែនទីសិក្សា" : "CONTINUE ON ROADMAP"}</span>
+                  )}
+                </span>
+                <span className="text-xs sm:text-sm font-black text-white truncate max-w-[240px] sm:max-w-[280px]">
+                  {nextCuratedLesson
+                    ? (isKhmer ? `មេរៀនបន្ទាប់៖ ${nextCuratedLesson.title_km}` : `Next Topic: ${nextCuratedLesson.title_en}`)
+                    : (isKhmer ? "ត្រឡប់ទៅផែនទីសិក្សា" : "Return to Roadmap")}
                 </span>
               </div>
-            </>
-          ) : (
+            </div>
+            <ArrowRight className="h-5 w-5 shrink-0 ml-2" />
+          </Button>
+
+          {/* Auto-Advance Controls */}
+          <div className="flex items-center justify-between text-xs text-muted-foreground px-1 pt-0.5">
+            <button
+              type="button"
+              onClick={() => setIsAutoAdvancePaused((p) => !p)}
+              className="inline-flex items-center gap-1 text-[11px] text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 font-bold cursor-pointer underline underline-offset-2"
+            >
+              {isAutoAdvancePaused
+                ? isKhmer ? "▶ បន្តស្វ័យប្រវត្តឡើងវិញ" : "▶ Resume Auto-Advance"
+                : isKhmer ? "⏸ ផ្អាកការបន្តស្វ័យប្រវត្តិ" : "⏸ Pause Auto-Advance"}
+            </button>
+            <span className="text-[10px] text-slate-400">
+              {isKhmer ? "ចុចប៊ូតុងដើម្បីបន្តភ្លាមៗ" : "Tap to advance immediately"}
+            </span>
+          </div>
+
+          {nextCuratedLesson && (
             <Button
-              size="lg"
+              variant="outline"
+              size="sm"
               onClick={() => {
                 handleProceedAfterLesson(() => {
-                  navigate({ to: "/lessons" });
+                  navigate({
+                    to: "/lessons/$lessonId/quiz",
+                    params: { lessonId: nextCuratedLesson.id },
+                  });
                 });
               }}
-              className="h-15 sm:h-16 w-full rounded-2xl border-b-[5px] border-[#46A302] bg-[#58CC02] hover:bg-[#46A302] active:border-b-0 active:translate-y-1 text-base font-black uppercase tracking-wider text-white shadow-xl shadow-emerald-500/25 transition-all cursor-pointer flex items-center justify-center gap-2"
+              className="w-full rounded-xl text-xs font-bold text-emerald-700 dark:text-emerald-300 border-emerald-300/80 dark:border-emerald-800 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 cursor-pointer"
             >
-              <span>{isKhmer ? "បញ្ចប់កម្មវិធីសិក្សា និងត្រឡប់ទៅវិញ" : "COMPLETE & RETURN TO ROADMAP"}</span>
-              <ArrowRight className="ml-2 h-5 w-5 stroke-[3]" />
+              <Play className="w-3.5 h-3.5 mr-1.5 fill-current" />
+              <span>{isKhmer ? "ចាប់ផ្តើមសំណួរមេរៀនបន្ទាប់ភ្លាមៗ" : "Start Next Quiz Directly"}</span>
             </Button>
           )}
 
