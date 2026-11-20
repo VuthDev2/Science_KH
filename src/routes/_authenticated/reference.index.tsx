@@ -474,7 +474,7 @@ function FriendlyReferenceCard({
   return (
     <article
       onClick={() => onSelect(entry)}
-      className="p-4 sm:p-5 rounded-3xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs hover:border-[#059669] dark:hover:border-[#059669] hover:shadow-md transition-all duration-200 cursor-pointer group space-y-3.5 active:scale-[0.99]"
+      className="p-5 sm:p-6 rounded-3xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs hover:border-[#059669] dark:hover:border-[#059669] hover:shadow-md transition-all duration-200 cursor-pointer group space-y-4 active:scale-[0.99]"
     >
       {/* Top Badges Row */}
       <div className="flex items-center justify-between gap-2">
@@ -972,14 +972,14 @@ function StudyReferenceLibraryPage() {
         ])}
       />
 
-      <div className="w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-none mx-auto px-4 sm:px-6 lg:px-0 pt-safe-top lg:pt-0 space-y-4 pb-32 lg:pb-8">
+      <div className="w-full mx-auto px-4 sm:px-6 lg:px-0 space-y-5 pb-32 lg:pb-8">
         {/* ================================================================== */}
         {/* VIEW A: SCREEN ONE — GRADE AND SUBJECT SELECTION (BENTO GRID)      */}
         {/* ================================================================== */}
         {!activeSubjectSlug ? (
-          <div className="space-y-4">
+          <div className="space-y-5">
             {/* Elevated Academic Hero Header */}
-            <header className="p-4 sm:p-5 rounded-3xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs space-y-3">
+            <header className="p-5 sm:p-6 rounded-3xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs space-y-3.5">
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-emerald-50 dark:bg-emerald-950/60 text-[#059669] border border-emerald-200/80 dark:border-emerald-800">
                   <CheckCircle2 className="h-3.5 w-3.5" />
@@ -1323,26 +1323,20 @@ function StudyReferenceLibraryPage() {
           /* VIEW B: SCREEN TWO & THREE — SUBJECT REFERENCE HUB & FORMULA LIST  */
           /* ================================================================== */
           <div className="space-y-4">
-            {/* Breadcrumb Navigation */}
-            <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-slate-500">
+            {/* Minimal Back Navigation */}
+            <div>
               <button
                 type="button"
                 onClick={handleBackToSubjects}
-                className="hover:text-[#059669] font-bold flex items-center gap-1 cursor-pointer transition"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-500 hover:text-[#059669] transition cursor-pointer py-1"
               >
                 <ArrowLeft className="h-3.5 w-3.5" />
-                <span>{isKhmer ? "ឯកសារយោងទាំងអស់" : "All References"}</span>
+                <span>{isKhmer ? "ត្រឡប់ទៅជ្រើសរើសមុខវិជ្ជាវិញ" : "Back to All Subjects"}</span>
               </button>
-              <span>/</span>
-              <span>{isKhmer ? `ថ្នាក់ទី ${activeGrade}` : `Grade ${activeGrade}`}</span>
-              <span>/</span>
-              <span className="font-extrabold text-slate-900 dark:text-white truncate">
-                {currentSubject?.nameKm}
-              </span>
-            </nav>
+            </div>
 
             {/* Subject Hub Header Card */}
-            <header className="p-4 sm:p-5 rounded-3xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs space-y-3">
+            <header className="p-5 sm:p-6 rounded-3xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs space-y-3.5">
               <div className="flex items-start justify-between gap-3">
                 <div className="flex items-center gap-3 min-w-0">
                   {currentSubject && (

@@ -67,14 +67,14 @@ export function AppShell({
         />
 
         {/* Workspace Canvas: Plain full-width on mobile; 3-column bounded canvas on desktop */}
-        <div className="w-full flex-1 p-0 lg:px-8 lg:py-5 lg:flex lg:items-start lg:gap-6 min-w-0">
+        <div className="w-full flex-1 p-0 lg:px-8 lg:py-6 lg:flex lg:items-start lg:gap-8 min-w-0">
           {/* Main Learning Canvas */}
           <main
             className={cn(
               "w-full min-w-0 flex-1",
               wide
                 ? "max-w-none"
-                : "max-w-4xl xl:max-w-5xl 2xl:max-w-[1040px]"
+                : "max-w-5xl 2xl:max-w-6xl"
             )}
           >
             {children}

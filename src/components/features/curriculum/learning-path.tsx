@@ -368,7 +368,7 @@ export function LearningPath({
   }, [activeGlobalLessonId]);
 
   return (
-    <div className="relative mx-auto flex w-full max-w-md flex-col items-center space-y-6 pb-28 sm:pb-32">
+    <div className="relative mx-auto flex w-full max-w-2xl flex-col items-center space-y-8 pb-28 sm:pb-32">
       {/* ===================================================================== */}
       {/* THEMATIC BIOME REALMS & WINDING STEPPING STONE PATHWAY                */}
       {/* ===================================================================== */}
