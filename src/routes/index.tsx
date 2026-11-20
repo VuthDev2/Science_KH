@@ -27,7 +27,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Master all 10 MoEYS curriculum subjects: Mathematics, Physics, Chemistry, Biology, Earth Science, Khmer Literature, English, ICT, History, and Geography for Cambodian Grades 7–12 with bite-sized lessons, Kru Vuth AI tutor, and Brevet/BacII past papers.",
+          "Master all 10 MoEYS curriculum subjects: Mathematics, Physics, Chemistry, Biology, Earth Science, Khmer Literature, English, ICT, History, and Geography for Cambodian Grades 7–12 with bite-sized lessons, Kru Vuth STEM tutor, and Brevet/BacII past papers.",
       },
     ],
   }),

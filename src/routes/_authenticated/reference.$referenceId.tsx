@@ -26,6 +26,7 @@ import {
   ShieldCheck,
   Layers,
   ChevronRight,
+  GraduationCap,
   MessageSquare,
   FileText,
   AlertCircle,
@@ -253,13 +254,20 @@ function ReferenceDetailPage() {
       ]}
       rightSidebar={
         <div className="space-y-4">
-          {/* Ask AI Tutor Widget */}
-          <div className="p-4 rounded-3xl border border-purple-200 dark:border-purple-800 bg-purple-50/50 dark:bg-purple-950/30 space-y-3">
-            <div className="flex items-center gap-2">
-              <Sparkles className="h-4 w-4 text-purple-600" />
-              <span className="text-xs font-bold text-slate-900 dark:text-white">
-                {isKhmer ? "ជំនួយការ AI វុឌ្ឍ" : "Kru Vuth AI Mentor"}
-              </span>
+          {/* Ask Tutor Widget */}
+          <div className="p-4 rounded-3xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs space-y-3">
+            <div className="flex items-center gap-2.5">
+              <div className="h-8 w-8 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 grid place-items-center shrink-0 border border-emerald-200/60 dark:border-emerald-800/60">
+                <GraduationCap className="h-4.5 w-4.5" />
+              </div>
+              <div>
+                <h4 className="text-xs font-bold text-slate-900 dark:text-white leading-tight">
+                  {isKhmer ? "លោកគ្រូ វុឌ្ឍ (Kru Vuth)" : "Kru Vuth — STEM Mentor"}
+                </h4>
+                <span className="text-[10.5px] text-slate-400 font-medium">
+                  {isKhmer ? "ជំនួយការដោះស្រាយមេរៀន MoEYS" : "Instant MoEYS Lesson Guidance"}
+                </span>
+              </div>
             </div>
             <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
               {isKhmer
@@ -269,10 +277,10 @@ function ReferenceDetailPage() {
             <Link
               to="/tutor"
               search={{ initialPrompt: `ពន្យល់ខ្ញុំអំពី ${entry.originalTitleKh} ថ្នាក់ទី ${entry.grades.join(", ")}` }}
-              className="w-full py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition active:scale-95 shadow-xs"
+              className="w-full h-9 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs tracking-wide transition flex items-center justify-center gap-1.5 shadow-2xs active:scale-95 cursor-pointer"
             >
-              <span>{isKhmer ? "សួរ AI ឥឡូវនេះ" : "Ask Kru Vuth"}</span>
-              <ArrowRight className="h-3.5 w-3.5" />
+              <GraduationCap className="h-3.5 w-3.5" />
+              <span>{isKhmer ? "សួរលោកគ្រូ វុឌ្ឍ" : "Ask Kru Vuth"}</span>
             </Link>
           </div>
 
@@ -439,10 +447,10 @@ function ReferenceDetailPage() {
                 to="/tutor"
                 search={{ initialPrompt: `សូមជួយពន្យល់លម្អិតអំពី៖ ${entry.originalTitleKh} ក្នុងមុខវិជ្ជា ${entry.subjectSlug} សម្រាប់សិស្សថ្នាក់ទី ${entry.grades[0]}។` }}
                 onClick={() => sounds.playPop()}
-                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-purple-50 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 text-xs font-bold border border-purple-200 dark:border-purple-900/60 hover:bg-purple-100 dark:hover:bg-purple-900/40 transition"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-bold border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition"
               >
-                <Sparkles className="h-3.5 w-3.5" />
-                <span>{isKhmer ? "សួរលោកគ្រូ វុឌ្ឍ AI លើមេរៀននេះ" : "Ask Kru Vuth AI about this"}</span>
+                <GraduationCap className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
+                <span>{isKhmer ? "សួរលោកគ្រូ វុឌ្ឍ លើមេរៀននេះ" : "Ask Kru Vuth about this"}</span>
               </Link>
             </div>
           </section>

@@ -171,7 +171,7 @@ export function FeaturesBentoGrid({ copy, isKhmer }: FeaturesBentoGridProps) {
             </div>
           </ScrollReveal>
 
-          {/* Card 3: Socratic AI Tutor Kru Vuth */}
+          {/* Card 3: Socratic STEM Mentor Kru Vuth */}
           <ScrollReveal
             animation="fade-up"
             delay={280}
@@ -180,7 +180,7 @@ export function FeaturesBentoGrid({ copy, isKhmer }: FeaturesBentoGridProps) {
           >
             <div className="space-y-3">
               <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200/60 group-hover:bg-emerald-100/70 transition-colors">
-                <Bot className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
+                <Sparkles className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
                 <span>{copy.tutor.tag}</span>
               </div>
               <h3 className="text-xl font-bold text-slate-900 group-hover:text-emerald-950 transition-colors">

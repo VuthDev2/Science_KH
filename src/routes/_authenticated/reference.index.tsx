@@ -437,6 +437,7 @@ function FriendlyReferenceCard({
   activeGrade,
   isKhmer,
   isCopied,
+  showSubjectBadge = false,
   onCopyFormula,
   onToggleBookmark,
   onSelect,
@@ -445,6 +446,7 @@ function FriendlyReferenceCard({
   activeGrade: number;
   isKhmer: boolean;
   isCopied: boolean;
+  showSubjectBadge?: boolean;
   onCopyFormula: (latex: string, id: string, e: React.MouseEvent) => void;
   onToggleBookmark: (id: string, e: React.MouseEvent) => void;
   onSelect: (entry: ReferenceEntry) => void;
@@ -477,16 +479,18 @@ function FriendlyReferenceCard({
       {/* Top Badges Row */}
       <div className="flex items-center justify-between gap-2">
         <div className="flex items-center gap-1.5 flex-wrap">
-          <span
-            className={cn(
-              "text-[10px] font-black px-2.5 py-0.5 rounded-full border uppercase",
-              subTheme.badgeBg,
-              subTheme.badgeText,
-              subTheme.iconBorder
-            )}
-          >
-            {entry.subjectSlug}
-          </span>
+          {showSubjectBadge && (
+            <span
+              className={cn(
+                "text-[10px] font-black px-2.5 py-0.5 rounded-full border uppercase",
+                subTheme.badgeBg,
+                subTheme.badgeText,
+                subTheme.iconBorder
+              )}
+            >
+              {entry.subjectSlug}
+            </span>
+          )}
           <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
             {REFERENCE_TYPE_LABELS[entry.referenceType]?.labelKm || entry.referenceType}
           </span>
@@ -497,9 +501,11 @@ function FriendlyReferenceCard({
         </div>
 
         <div className="flex items-center gap-2">
-          <span className="text-[10.5px] font-extrabold text-slate-400 bg-slate-50 dark:bg-slate-800 px-2 py-0.5 rounded-md">
-            {isKhmer ? `ថ្នាក់ទី ${activeGrade}` : `Grade ${activeGrade}`}
-          </span>
+          {showSubjectBadge && (
+            <span className="text-[10.5px] font-extrabold text-slate-400 bg-slate-50 dark:bg-slate-800 px-2 py-0.5 rounded-md">
+              {isKhmer ? `ថ្នាក់ទី ${activeGrade}` : `Grade ${activeGrade}`}
+            </span>
+          )}
           <button
             type="button"
             onClick={(e) => onToggleBookmark(entry.id, e)}
@@ -530,7 +536,7 @@ function FriendlyReferenceCard({
       {/* Formula / Math Expression Box with clean KaTeX */}
       {mathExpr ? (
         <div className="relative p-4 rounded-2xl bg-gradient-to-br from-slate-50 to-emerald-50/20 dark:from-slate-800/80 dark:to-emerald-950/20 border border-slate-200/80 dark:border-slate-800 formula-card-preview overflow-x-auto whitespace-nowrap text-center shadow-2xs">
-          <div className="inline-block text-base sm:text-lg md:text-xl text-slate-900 dark:text-white font-serif whitespace-nowrap px-4 py-1">
+          <div className="inline-block text-base sm:text-lg md:text-xl text-slate-900 dark:text-white whitespace-nowrap px-4 py-1">
             <SafeKatex math={mathExpr} displayMode={true} />
           </div>
 
@@ -605,11 +611,11 @@ function FriendlyReferenceCard({
 
       {/* Student Memory Hook & Real-World Meaning Callout */}
       {friendlyGuide && (
-        <div className="p-3 rounded-2xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/70 dark:border-amber-800/60 flex items-start gap-2.5">
+        <div className="p-3 rounded-2xl bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200/60 dark:border-amber-800/40 flex items-start gap-2.5">
           <Lightbulb className="h-4 w-4 text-amber-500 shrink-0 mt-0.5" />
-          <div className="space-y-0.5 text-xs text-amber-950 dark:text-amber-200 leading-relaxed font-medium">
+          <div className="space-y-0.5 text-xs text-amber-950 dark:text-amber-200/90 leading-relaxed font-medium">
             <span className="font-black text-amber-900 dark:text-amber-300 block">
-              {isKhmer ? "គន្លឹះយល់ដឹងស្រួលៗ & គន្លឹះប្រឡង៖" : "Friendly Understanding Tip:"}
+              {isKhmer ? "គន្លឹះចងចាំ & អនុវត្ត៖" : "Key Takeaway:"}
             </span>
             <p>{friendlyGuide}</p>
           </div>
@@ -849,7 +855,7 @@ function StudyReferenceLibraryPage() {
       rightSidebar={
         <div className="space-y-4">
           {/* Card 1: Active Reference Tier & MoEYS Standard Summary */}
-          <div className="p-4 rounded-3xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs space-y-3">
+          <div className="p-4 rounded-3xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs space-y-2.5">
             <div className="flex items-center justify-between">
               <span className="text-xs font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
                 <BookOpen className="h-4 w-4 text-[#059669]" />
@@ -860,7 +866,7 @@ function StudyReferenceLibraryPage() {
               </span>
             </div>
 
-            <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-xs">
+            <div className="p-2.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-xs">
               <span className="text-slate-500 dark:text-slate-400 font-medium">
                 {isKhmer ? "មុខវិជ្ជាសកម្ម" : "Available Subjects"}
               </span>
@@ -868,12 +874,6 @@ function StudyReferenceLibraryPage() {
                 {availableSubjects.length} {isKhmer ? "មុខវិជ្ជា" : "Subjects"}
               </span>
             </div>
-
-            <p className="text-[11.5px] text-slate-500 dark:text-slate-400 leading-relaxed">
-              {isKhmer
-                ? `ទិន្នន័យរូបមន្ត និមិត្តសញ្ញា និងទ្រឹស្តីបទទាំងអស់ត្រូវបានត្រួតពិនិត្យ និងចងក្រងស្របតាមសៀវភៅពុម្ពផ្លូវការថ្នាក់ទី ${activeGrade} របស់ក្រសួងអប់រំ យុវជន និងកីឡា។`
-                : `All formulas, symbols, and theorems are strictly aligned with MoEYS official Grade ${activeGrade} textbooks.`}
-            </p>
           </div>
 
           {/* Card 2: Dynamic Subject & Universal Constants Cheat Sheet */}
@@ -924,7 +924,7 @@ function StudyReferenceLibraryPage() {
           {/* Card 3: Quick Academic Study Shortcuts */}
           <div className="p-4 rounded-3xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs space-y-2.5">
             <span className="text-[11px] font-extrabold text-slate-400 uppercase tracking-wider block">
-              {isKhmer ? "ផ្លូវកាត់ជំនួយការរៀន" : "Academic Study Shortcuts"}
+              {isKhmer ? "ផ្លូវកាត់ជំនួយការរៀន" : "Study Shortcuts"}
             </span>
 
             <div className="space-y-1.5 text-xs font-bold">
@@ -934,18 +934,25 @@ function StudyReferenceLibraryPage() {
               >
                 <div className="flex items-center gap-2">
                   <Award className="h-4 w-4 text-blue-600 dark:text-blue-400 shrink-0" />
-                  <span>{isKhmer ? "វិញ្ញាសាប្រឡងបាក់ឌុប (Bac II)" : "Bac II Exam Papers (2011–24)"}</span>
+                  <span>{isKhmer ? "វិញ្ញាសាប្រឡងបាក់ឌុប (Bac II)" : "Bac II Exam Papers"}</span>
                 </div>
                 <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
               </Link>
 
               <Link
                 to="/tutor"
-                className="flex items-center justify-between p-2.5 rounded-2xl bg-purple-50/60 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300 border border-purple-100 dark:border-purple-900/60 hover:bg-purple-100/60 transition group"
+                search={{
+                  initialPrompt: currentSubject
+                    ? isKhmer
+                      ? `សូមជួយពន្យល់រូបមន្ត និងទ្រឹស្តីបទក្នុងមុខវិជ្ជា ${currentSubject.nameKm} ថ្នាក់ទី ${activeGrade} ឱ្យខ្ញុំយល់ច្បាស់។`
+                      : `Please explain the formulas and concepts in ${currentSubject.nameEn} Grade ${activeGrade}.`
+                    : undefined,
+                }}
+                className="flex items-center justify-between p-2.5 rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 border border-emerald-100 dark:border-emerald-900/60 hover:bg-emerald-100/60 transition group"
               >
                 <div className="flex items-center gap-2">
-                  <Zap className="h-4 w-4 text-purple-600 dark:text-purple-400 shrink-0" />
-                  <span>{isKhmer ? "សួរគ្រូជំនួយ Kru Vuth AI" : "Ask Kru Vuth AI STEM"}</span>
+                  <GraduationCap className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                  <span>{isKhmer ? "សួរលោកគ្រូ វុឌ្ឍ (Kru Vuth)" : "Ask Kru Vuth — STEM Mentor"}</span>
                 </div>
                 <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
               </Link>
@@ -1033,7 +1040,7 @@ function StudyReferenceLibraryPage() {
                 </span>
               </div>
 
-              {/* Segmented Grade Buttons with 3D tactile feel */}
+              {/* Segmented Grade Buttons with uniform height & alignment */}
               <div className="grid grid-cols-6 gap-1.5 p-1 rounded-2xl bg-slate-100 dark:bg-slate-800/90">
                 {REFERENCE_GRADES.map((g) => {
                   const isSelected = activeGrade === g.grade;
@@ -1043,25 +1050,25 @@ function StudyReferenceLibraryPage() {
                       type="button"
                       onClick={() => handleSelectGrade(g.grade)}
                       className={cn(
-                        "relative py-2 px-1 rounded-xl text-center font-black text-xs transition-all cursor-pointer flex flex-col items-center justify-center gap-0.5",
+                        "relative h-12 px-1 rounded-xl text-center font-black text-xs transition-all cursor-pointer flex flex-col items-center justify-center",
                         isSelected
                           ? "bg-[#059669] text-white shadow-xs border-b-2 border-emerald-800 active:border-b-0 active:translate-y-0.5"
                           : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white/60 dark:hover:bg-slate-700/60"
                       )}
                     >
-                      <span>{isKhmer ? `ថ្នាក់ ${g.grade}` : `Gr ${g.grade}`}</span>
-                      {g.badge && (
-                        <span
-                          className={cn(
-                            "text-[9px] font-extrabold px-1 rounded-sm leading-tight",
-                            isSelected
-                              ? "bg-emerald-900/40 text-emerald-100"
+                      <span className="leading-tight">{isKhmer ? `ថ្នាក់ ${g.grade}` : `Gr ${g.grade}`}</span>
+                      <span
+                        className={cn(
+                          "text-[9px] font-extrabold px-1 rounded-sm leading-tight mt-0.5 min-h-[14px] flex items-center justify-center",
+                          g.badge
+                            ? isSelected
+                              ? "bg-emerald-900/50 text-emerald-100"
                               : "bg-emerald-100 dark:bg-emerald-950/80 text-[#059669]"
-                          )}
-                        >
-                          {g.badge}
-                        </span>
-                      )}
+                            : "invisible"
+                        )}
+                      >
+                        {g.badge || "—"}
+                      </span>
                     </button>
                   );
                 })}
@@ -1155,6 +1162,7 @@ function StudyReferenceLibraryPage() {
                         activeGrade={activeGrade}
                         isKhmer={isKhmer}
                         isCopied={copiedFormulaId === entry.id}
+                        showSubjectBadge={true}
                         onCopyFormula={handleCopyFormula}
                         onToggleBookmark={handleToggleBookmark}
                         onSelect={(e) => {

@@ -2247,8 +2247,8 @@ function ExamsArchivePage() {
                     }}
                     className="w-full sm:w-auto h-11 px-6 rounded-2xl bg-[#059669] hover:bg-emerald-700 text-white font-black text-xs flex items-center justify-center gap-2 shadow-md cursor-pointer transition active:scale-95"
                   >
-                    <Bot className="h-4 w-4" />
-                    <span>សួរ Kru Vuth AI ពន្យល់វិញ្ញាសានេះ</span>
+                    <Sparkles className="h-4 w-4" />
+                    <span>សួរលោកគ្រូ វុឌ្ឍ ពន្យល់វិញ្ញាសានេះ</span>
                   </button>
                 </div>
               </DialogContent>

@@ -196,17 +196,17 @@ export function HomeRightSidebarWidgets({
         </Link>
       </div>
 
-      {/* 3. Ask Kru Vuth AI Fast Launcher */}
-      <div className="p-4 rounded-3xl border border-purple-200/70 dark:border-purple-900/50 bg-purple-50/50 dark:bg-purple-950/20 shadow-2xs space-y-3">
-        <div className="flex items-center gap-2">
-          <div className="h-8 w-8 rounded-xl bg-purple-100 dark:bg-purple-900/60 text-purple-700 dark:text-purple-300 grid place-items-center shrink-0">
-            <Bot className="h-4 w-4" />
+      {/* 3. Ask Kru Vuth Fast Launcher */}
+      <div className="p-4 rounded-3xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs space-y-3">
+        <div className="flex items-center gap-2.5">
+          <div className="h-8 w-8 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 grid place-items-center shrink-0 border border-emerald-200/60 dark:border-emerald-800/60">
+            <GraduationCap className="h-4.5 w-4.5" />
           </div>
           <div>
             <h4 className="text-xs font-bold text-slate-900 dark:text-white leading-tight">
-              {isKhmer ? "គ្រូជំនួយ Kru Vuth AI" : "Kru Vuth AI Tutor"}
+              {isKhmer ? "លោកគ្រូ វុឌ្ឍ (Kru Vuth)" : "Kru Vuth — STEM Mentor"}
             </h4>
-            <span className="text-[10px] text-purple-700 dark:text-purple-300 font-medium">
+            <span className="text-[10.5px] text-slate-400 font-medium">
               {isKhmer ? "ជំនួយការដោះស្រាយមេរៀន MoEYS" : "Instant MoEYS Lesson Guidance"}
             </span>
           </div>
@@ -215,10 +215,10 @@ export function HomeRightSidebarWidgets({
         <Link
           to="/tutor"
           onClick={() => sounds.playPop()}
-          className="w-full h-9 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs tracking-wide transition flex items-center justify-center gap-1.5 shadow-2xs active:scale-95 cursor-pointer"
+          className="w-full h-9 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs tracking-wide transition flex items-center justify-center gap-1.5 shadow-2xs active:scale-95 cursor-pointer"
         >
-          <Sparkles className="h-3.5 w-3.5" />
-          <span>{isKhmer ? "សួរចម្ងល់មេរៀនឥឡូវនេះ" : "Ask a Question"}</span>
+          <GraduationCap className="h-3.5 w-3.5" />
+          <span>{isKhmer ? "សួរចម្ងល់មេរៀន" : "Ask a Question"}</span>
         </Link>
       </div>
 

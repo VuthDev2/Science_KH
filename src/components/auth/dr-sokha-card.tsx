@@ -32,7 +32,7 @@ export function DrSokhaCard({ copy }: DrSokhaCardProps) {
 
         <span className="text-[10px] font-bold text-emerald-400 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center gap-1 select-none">
           <Sparkles className="w-2.5 h-2.5" />
-          Socratic AI
+          STEM Mentor
         </span>
       </div>
 

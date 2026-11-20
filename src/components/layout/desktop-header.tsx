@@ -352,8 +352,8 @@ export function DesktopHeader({
               <span className="text-sm">⚡</span>
             ) : profile?.avatar_url && profile.avatar_url === "biology" ? (
               <span className="text-sm">🧬</span>
-            ) : profile?.avatar_url && profile.avatar_url === "ai_tutor" ? (
-              <span className="text-sm">🤖</span>
+            ) : profile?.avatar_url && (profile.avatar_url === "kru_vuth" || profile.avatar_url === "ai_tutor") ? (
+              <span className="text-sm">🎓</span>
             ) : (
               <UserRound className="h-4 w-4" />
             )}

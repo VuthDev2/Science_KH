@@ -20,7 +20,7 @@ import {
   Sparkles,
   Loader2,
   Check,
-  Bot,
+  GraduationCap,
   ArrowRight,
   HelpCircle,
   Volume2,
@@ -53,6 +53,7 @@ import { sounds } from "@/lib/sound-effects";
 import { launchConfetti } from "@/lib/confetti";
 
 export const Route = createFileRoute("/_authenticated/lessons/$lessonId")({
+  ssr: false,
   head: () => ({ meta: [{ title: "Lesson — ScienceKH" }] }),
   component: LessonPage,
   errorComponent: LessonErrorComponent,
@@ -61,7 +62,13 @@ export const Route = createFileRoute("/_authenticated/lessons/$lessonId")({
 const routeApi = getRouteApi("/_authenticated/lessons/$lessonId");
 
 function LessonErrorComponent({ error, reset }: { error: unknown; reset: () => void }) {
-  const params = Route.useParams();
+  let lessonId = "";
+  try {
+    const params = Route.useParams();
+    lessonId = params?.lessonId || "";
+  } catch {
+    // safely handle outside route context
+  }
   return (
     <main className="min-h-screen bg-[#F8FAFC] dark:bg-slate-950 flex flex-col items-center justify-center p-6 text-center space-y-4">
       <div className="h-16 w-16 rounded-3xl grid place-items-center bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-300 text-2xl shadow-xs">
@@ -83,13 +90,15 @@ function LessonErrorComponent({ error, reset }: { error: unknown; reset: () => v
         >
           ព្យាយាមម្តងទៀត
         </button>
-        <Link
-          to="/lessons/$lessonId/quiz"
-          params={{ lessonId: params.lessonId }}
-          className="px-4 py-2 rounded-xl bg-emerald-600 text-white font-bold text-xs hover:bg-emerald-500 shadow-sm cursor-pointer"
-        >
-          ធ្វើតេស្ត Quiz ជំនួសវិញ →
-        </Link>
+        {lessonId ? (
+          <Link
+            to="/lessons/$lessonId/quiz"
+            params={{ lessonId }}
+            className="px-4 py-2 rounded-xl bg-emerald-600 text-white font-bold text-xs hover:bg-emerald-500 shadow-sm cursor-pointer"
+          >
+            ធ្វើតេស្ត Quiz ជំនួសវិញ →
+          </Link>
+        ) : null}
         <Link
           to="/lessons"
           className="px-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-400 font-bold text-xs"
@@ -529,26 +538,33 @@ function LessonPage() {
             </button>
           </div>
 
-          {/* Ask AI Tutor about this lesson */}
-          <div className="p-4 rounded-3xl border border-purple-200 dark:border-purple-800 bg-purple-50/50 dark:bg-purple-950/30 space-y-3">
-            <div className="flex items-center gap-2">
-              <Sparkles className="h-4 w-4 text-purple-600" />
-              <span className="text-xs font-bold text-slate-900 dark:text-white">
-                {isKhmer ? "ជំនួយការ AI វុឌ្ឍ" : "Kru Vuth AI Mentor"}
-              </span>
+          {/* Ask Tutor about this lesson */}
+          <div className="p-4 rounded-3xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs space-y-3">
+            <div className="flex items-center gap-2.5">
+              <div className="h-8 w-8 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 grid place-items-center shrink-0 border border-emerald-200/60 dark:border-emerald-800/60">
+                <GraduationCap className="h-4.5 w-4.5" />
+              </div>
+              <div>
+                <h4 className="text-xs font-bold text-slate-900 dark:text-white leading-tight">
+                  {isKhmer ? "លោកគ្រូ វុឌ្ឍ (Kru Vuth)" : "Kru Vuth — STEM Mentor"}
+                </h4>
+                <span className="text-[10.5px] text-slate-400 font-medium">
+                  {isKhmer ? "ជំនួយការដោះស្រាយមេរៀន MoEYS" : "Instant MoEYS Lesson Guidance"}
+                </span>
+              </div>
             </div>
             <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
               {isKhmer
-                ? `មានចម្ងល់លើមេរៀន "${lesson.title_km}" មែនទេ? សួរលោកគ្រូ វុឌ្ឍ ឥឡូវនេះ។`
+                ? `មានចម្ងល់លើមេរៀន "${lesson.title_km}" មែនទេ? សួរលោកគ្រូ វុឌ្ឍ ដើម្បីទទួលបានការពន្យល់។`
                 : `Have questions about "${lesson.title_en}"? Ask Kru Vuth for instant clarification.`}
             </p>
             <Link
               to="/tutor"
               search={{ initialPrompt: `ពន្យល់ខ្ញុំអំពីមេរៀន "${lesson.title_km}" ថ្នាក់ទី ${lesson.grade}` }}
-              className="w-full py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition active:scale-95 shadow-xs"
+              className="w-full h-9 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs tracking-wide transition flex items-center justify-center gap-1.5 shadow-2xs active:scale-95 cursor-pointer"
             >
-              <span>{isKhmer ? "សួរអំពីមេរៀននេះ" : "Ask AI About Lesson"}</span>
-              <ArrowRight className="h-3.5 w-3.5" />
+              <GraduationCap className="h-3.5 w-3.5" />
+              <span>{isKhmer ? "សួរអំពីមេរៀននេះ" : "Ask About Lesson"}</span>
             </Link>
           </div>
 
@@ -1039,13 +1055,13 @@ function LessonPage() {
                   : undefined,
               }}
               onClick={() => sounds.playPop()}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-50 dark:bg-purple-950/50 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/60 text-xs font-semibold hover:bg-purple-100 transition"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 text-xs font-semibold hover:bg-slate-200 dark:hover:bg-slate-700 transition"
             >
-              <Sparkles className="h-3.5 w-3.5 text-purple-600 dark:text-purple-400" />
+              <GraduationCap className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
               <span>
                 {isKhmer
-                  ? "សួរលោកគ្រូ វុឌ្ឍ AI អំពីមេរៀននេះ →"
-                  : "Ask Kru Vuth AI about this lesson →"}
+                  ? "សួរលោកគ្រូ វុឌ្ឍ អំពីមេរៀននេះ →"
+                  : "Ask Kru Vuth about this lesson →"}
               </span>
             </Link>
           </div>

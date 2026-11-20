@@ -5,7 +5,7 @@ export const landingI18n: Record<SupportedLanguage, LandingCopy> = {
     meta: {
       title: "ScienceKH — វេទិកាវិទ្យាសាស្ត្រអន្តរកម្ម ថ្នាក់ទី ៧-១២ កម្ពុជា",
       description:
-        "រៀនរូបវិទ្យា គីមីវិទ្យា ជីវវិទ្យា និងផែនដីវិទ្យា តាមកម្មវិធី MoEYS ត្រៀមប្រឡងឌីប្លូម និងបាក់ឌុប ជាមួយផ្លូវរៀនស្ទាត់ជំនាញ និងគ្រូ AI ជាភាសាខ្មែរ។",
+        "រៀនរូបវិទ្យា គីមីវិទ្យា ជីវវិទ្យា និងផែនដីវិទ្យា តាមកម្មវិធី MoEYS ត្រៀមប្រឡងឌីប្លូម និងបាក់ឌុប ជាមួយផ្លូវរៀនស្ទាត់ជំនាញ និងលោកគ្រូ វុឌ្ឍ (គ្រូជំនួយ STEM) ជាភាសាខ្មែរ។",
     },
     announcement: {
       badge: "ថ្នាក់ទី ៧ ដល់ ទី ១២",
@@ -32,7 +32,7 @@ export const landingI18n: Record<SupportedLanguage, LandingCopy> = {
       titleHighlight: "ថ្នាក់ទី ៧ ដល់ ទី ១២",
       titleEnd: "ដោយភាពរីករាយ និងទំនុកចិត្ត",
       subtitle:
-        "វេទិកាសិក្សាវិទ្យាសាស្ត្រអន្តរកម្មសម្រាប់សិស្សអនុវិទ្យាល័យ និងវិទ្យាល័យ (ថ្នាក់ទី ៧–១២)។ រៀន ១៥ នាទីរាល់ថ្ងៃ ឆ្លើយលំហាត់ ៥ បេះដូង និងសួរគ្រូ AI សូក្រាតជាភាសាខ្មែរគ្រប់ពេល។",
+        "វេទិកាសិក្សាវិទ្យាសាស្ត្រអន្តរកម្មសម្រាប់សិស្សអនុវិទ្យាល័យ និងវិទ្យាល័យ (ថ្នាក់ទី ៧–១២)។ រៀន ១៥ នាទីរាល់ថ្ងៃ ឆ្លើយលំហាត់ ៥ បេះដូង និងសួរលោកគ្រូ វុឌ្ឍ (គ្រូជំនួយ STEM) ជាភាសាខ្មែរគ្រប់ពេល។",
       primaryCta: "ចាប់ផ្តើមរៀនឥតគិតថ្លៃ",
       secondaryCta: "ពិនិត្យកម្មវិធីសិក្សា ៧–១២",
       trustMoEYS: "ស្របតាមក្រសួងអប់រំ ១០០%",
@@ -41,7 +41,7 @@ export const landingI18n: Record<SupportedLanguage, LandingCopy> = {
       demoTabs: {
         quiz: "លំហាត់អន្តរកម្ម",
         roadmap: "ផ្លូវរៀនស្ទាត់ជំនាញ",
-        tutor: "គ្រូ AI (វុឌ្ឍ)",
+        tutor: "លោកគ្រូ វុឌ្ឍ (STEM)",
         leaderboard: "តារាងពិន្ទុជាតិ",
       },
     },
@@ -113,13 +113,13 @@ export const landingI18n: Record<SupportedLanguage, LandingCopy> = {
         {
           id: "feedback",
           category: "ជំនួយការផ្ទាល់ខ្លួន",
-          solutionHighlight: "គ្រូ AI សូក្រាត ឆ្លើយតប ២៤ ម៉ោងជាភាសាខ្មែរ",
+          solutionHighlight: "លោកគ្រូ វុឌ្ឍ ឆ្លើយតបណែនាំជាភាសាខ្មែរ",
           problemTitle: "គ្មានជំនួយពេលជាប់គាំងលំហាត់",
           problemDesc:
             "ថ្នាក់រៀនមានសិស្សច្រើន គ្រូមិនអាចឆ្លើយសំណួរគ្រប់គ្នាបានទេ។ ពេលធ្វើកិច្ចការផ្ទះជាប់គាំង គ្មានអ្នកជួយពន្យល់ភ្លាមៗ។",
-          solutionTitle: "លោកគ្រូ AI ឆ្លើយតប ២៤ ម៉ោង",
+          solutionTitle: "លោកគ្រូ វុឌ្ឍ ឆ្លើយតបភ្លាមៗ",
           solutionDesc:
-            "សួរលំហាត់រូប គីមី ឬជីវៈ បានគ្រប់ពេល គ្រូ AI នឹងពន្យល់មួយជំហានម្តងៗជាភាសាខ្មែរ ដូចមានគ្រូផ្ទាល់ខ្លួននៅក្បែរ។",
+            "សួរលំហាត់រូប គីមី ឬជីវៈ បានគ្រប់ពេល លោកគ្រូ វុឌ្ឍ នឹងពន្យល់មួយជំហានម្តងៗជាភាសាខ្មែរ ដូចមានគ្រូផ្ទាល់ខ្លួននៅក្បែរ។",
         },
       ],
     },
@@ -143,7 +143,7 @@ export const landingI18n: Record<SupportedLanguage, LandingCopy> = {
         tag: "ការផ្ចង់អារម្មណ៍",
       },
       tutor: {
-        title: "លោកគ្រូ AI វុឌ្ឍ ពន្យល់ជំហានៗ",
+        title: "លោកគ្រូ វុឌ្ឍ ពន្យល់ជំហានៗ",
         desc: "ពេលឆ្លើយខុស ប៊ូតុង 'ពន្យល់ខ្ញុំ' នឹងបង្ហាញវិធីដោះស្រាយយ៉ាងក្បោះក្បាយជាភាសាខ្មែរភ្លាមៗ។",
         tag: "ជំនួយការ ២៤ ម៉ោង",
       },
@@ -166,7 +166,7 @@ export const landingI18n: Record<SupportedLanguage, LandingCopy> = {
         {
           step: "០២",
           title: "រៀន ១៥ នាទីរាល់ថ្ងៃ",
-          desc: "ឆ្លងកាត់មេរៀននីមួយៗលើផ្លូវរៀន ឆ្លើយលំហាត់ ៥ បេះដូង និងសួរគ្រូ AI ពេលមានចម្ងល់។",
+          desc: "ឆ្លងកាត់មេរៀននីមួយៗលើផ្លូវរៀន ឆ្លើយលំហាត់ ៥ បេះដូង និងសួរលោកគ្រូ វុឌ្ឍ ពេលមានចម្ងល់។",
         },
         {
           step: "០៣",
@@ -340,11 +340,11 @@ export const landingI18n: Record<SupportedLanguage, LandingCopy> = {
         name: "គណនីសិស្ស (Student Free)",
         price: "$០",
         period: "ឥតគិតថ្លៃរហូត",
-        desc: "សិស្សានុសិស្សទាំងអស់អាចចូលរៀនមេរៀន ធ្វើលំហាត់ និងសួរគ្រូ AI ដោយគ្មានការបង់ប្រាក់។",
+        desc: "សិស្សានុសិស្សទាំងអស់អាចចូលរៀនមេរៀន ធ្វើលំហាត់ និងសួរលោកគ្រូ វុឌ្ឍ ដោយគ្មានការបង់ប្រាក់។",
         features: [
           "ចូលរៀនមេរៀនថ្នាក់ទី ៧ ដល់ ១២ ទាំងអស់",
           "លំហាត់អន្តរកម្ម ៥ បេះដូង មិនកំណត់",
-          "គ្រូ AI វុឌ្ឍ ជួយពន្យល់ជាភាសាខ្មែរ",
+          "លោកគ្រូ វុឌ្ឍ ជួយពន្យល់ជាភាសាខ្មែរ",
           "វិញ្ញាសាប្រឡងឌីប្លូម និងបាក់ឌុប",
           "ប្រព័ន្ធរក្សា Day Streak និងតារាងពិន្ទុ",
         ],
@@ -367,7 +367,7 @@ export const landingI18n: Record<SupportedLanguage, LandingCopy> = {
           },
           {
             feature: "ជំនួយពេលជាប់គាំងលំហាត់",
-            scienceKh: "គ្រូ AI ពន្យល់ភ្លាមៗមួយជំហានម្តងៗ",
+            scienceKh: "លោកគ្រូ វុឌ្ឍ ពន្យល់ភ្លាមៗមួយជំហានម្តងៗ",
             extraClass: "ថ្នាក់មានសិស្សច្រើន ពិបាកសួរលម្អិត",
           },
           {
@@ -391,7 +391,7 @@ export const landingI18n: Record<SupportedLanguage, LandingCopy> = {
         {
           question: "តើ ScienceKH ពិតជាឥតគិតថ្លៃមែនទេ?",
           answer:
-            "បាទ/ចាស! ScienceKH ត្រូវបានបង្កើតឡើងដើម្បីផ្តល់ឱកាសរៀនស្មើៗគ្នាដល់សិស្សកម្ពុជាទូទាំងប្រទេស។ សិស្សអាចរៀនមេរៀន ធ្វើលំហាត់ និងសួរគ្រូ AI ដោយមិនចាំបាច់បង់ប្រាក់ឡើយ។",
+            "បាទ/ចាស! ScienceKH ត្រូវបានបង្កើតឡើងដើម្បីផ្តល់ឱកាសរៀនស្មើៗគ្នាដល់សិស្សកម្ពុជាទូទាំងប្រទេស។ សិស្សអាចរៀនមេរៀន ធ្វើលំហាត់ និងសួរលោកគ្រូ វុឌ្ឍ ដោយមិនចាំបាច់បង់ប្រាក់ឡើយ។",
         },
         {
           question: "តើខ្លឹមសារមេរៀនស្របតាមក្រសួងអប់រំ (MoEYS) ដែរឬទេ?",
@@ -404,9 +404,9 @@ export const landingI18n: Record<SupportedLanguage, LandingCopy> = {
             "បានយ៉ាងងាយស្រួល! ScienceKH ត្រូវបានបង្កើនល្បឿនយ៉ាងខ្ពស់ (High Performance) ប្រើប្រាស់ទិន្នន័យអ៊ីនធឺណិតតិចតួចបំផុត និងដំណើរការរលូនលើស្មាតហ្វូនគ្រប់ប្រភេទ។",
         },
         {
-          question: "តើលោកគ្រូ AI ជួយពន្យល់លំហាត់យ៉ាងដូចម្តេច?",
+          question: "តើលោកគ្រូ វុឌ្ឍ ជួយពន្យល់លំហាត់យ៉ាងដូចម្តេច?",
           answer:
-            "នៅពេលអ្នកឆ្លើយលំហាត់ខុស ឬជាប់គាំងកិច្ចការផ្ទះ គ្រូ AI នឹងពន្យល់ពីមូលហេតុ និងជំហានដោះស្រាយរូបមន្តជាភាសាខ្មែរយ៉ាងច្បាស់លាស់ ដូចមានលោកគ្រូផ្ទាល់ខ្លួននៅក្បែរ ២៤ ម៉ោង។",
+            "នៅពេលអ្នកឆ្លើយលំហាត់ខុស ឬជាប់គាំងកិច្ចការផ្ទះ លោកគ្រូ វុឌ្ឍ នឹងពន្យល់ពីមូលហេតុ និងជំហានដោះស្រាយរូបមន្តជាភាសាខ្មែរយ៉ាងច្បាស់លាស់ ដូចមានលោកគ្រូផ្ទាល់ខ្លួននៅក្បែរ ២៤ ម៉ោង។",
         },
         {
           question: "តើទិន្នន័យ និងព័ត៌មានផ្ទាល់ខ្លួនរបស់សិស្សមានសុវត្ថិភាពដែរឬទេ?",
@@ -468,7 +468,7 @@ export const landingI18n: Record<SupportedLanguage, LandingCopy> = {
     meta: {
       title: "ScienceKH — Interactive Bilingual STEM Platform for Cambodian Grade 7–12",
       description:
-        "Master Physics, Chemistry, Biology & Earth Science aligned with Cambodia's MoEYS curriculum. Prepare for Brevet and BacII exams with mastery roadmaps and a 24/7 Khmer AI tutor.",
+        "Master Physics, Chemistry, Biology & Earth Science aligned with Cambodia's MoEYS curriculum. Prepare for Brevet and BacII exams with mastery roadmaps and Kru Vuth, your 24/7 Khmer STEM mentor.",
     },
     announcement: {
       badge: "Grades 7–12 STEM",
@@ -495,7 +495,7 @@ export const landingI18n: Record<SupportedLanguage, LandingCopy> = {
       titleHighlight: "Grade 7 to Grade 12",
       titleEnd: "with Confidence",
       subtitle:
-        "Interactive STEM learning platform for Cambodian secondary and high school students (Grades 7–12). Learn 15 minutes a day with 5-heart quizzes, streak tracking, and an instant Socratic AI tutor in Khmer and English.",
+        "Interactive STEM learning platform for Cambodian secondary and high school students (Grades 7–12). Learn 15 minutes a day with 5-heart quizzes, streak tracking, and instant Socratic STEM mentorship in Khmer and English.",
       primaryCta: "Start Learning Free",
       secondaryCta: "Explore Curriculum 7–12",
       trustMoEYS: "100% MoEYS Aligned",
@@ -504,7 +504,7 @@ export const landingI18n: Record<SupportedLanguage, LandingCopy> = {
       demoTabs: {
         quiz: "Interactive Quiz",
         roadmap: "Mastery Roadmap",
-        tutor: "AI Tutor (Kru Vuth)",
+        tutor: "STEM Tutor (Kru Vuth)",
         leaderboard: "National League",
       },
     },
@@ -576,13 +576,13 @@ export const landingI18n: Record<SupportedLanguage, LandingCopy> = {
         {
           id: "feedback",
           category: "Personalized Support",
-          solutionHighlight: "24/7 Socratic AI Guidance in Khmer",
+          solutionHighlight: "24/7 Socratic STEM Guidance in Khmer",
           problemTitle: "No immediate help when stuck on homework",
           problemDesc:
             "In large classrooms, teachers cannot give individualized feedback. Students get stuck at home with no guidance.",
-          solutionTitle: "Instant 24/7 Socratic AI Tutor",
+          solutionTitle: "Instant 24/7 Kru Vuth STEM Tutor",
           solutionDesc:
-            "Ask homework questions anytime. The AI tutor guides students step-by-step in natural Khmer without simply handing out answers.",
+            "Ask homework questions anytime. Kru Vuth guides students step-by-step in natural Khmer without simply handing out answers.",
         },
       ],
     },
@@ -607,7 +607,7 @@ export const landingI18n: Record<SupportedLanguage, LandingCopy> = {
         tag: "Active Recall",
       },
       tutor: {
-        title: "Kru Vuth (24/7 Socratic AI Tutor)",
+        title: "Kru Vuth (MoEYS STEM Mentor)",
         desc: "Whenever you miss a question, tap 'Explain to Me' for an immediate step-by-step conceptual breakdown in natural Khmer.",
         tag: "Instant Guidance",
       },
@@ -630,7 +630,7 @@ export const landingI18n: Record<SupportedLanguage, LandingCopy> = {
         {
           step: "02",
           title: "Learn 15 minutes a day",
-          desc: "Complete daily roadmap nodes, test yourself with 5-heart quizzes, and consult the AI tutor whenever you get stuck.",
+          desc: "Complete daily roadmap nodes, test yourself with 5-heart quizzes, and consult Kru Vuth whenever you get stuck.",
         },
         {
           step: "03",
@@ -804,11 +804,11 @@ export const landingI18n: Record<SupportedLanguage, LandingCopy> = {
         name: "Student Free Account",
         price: "$0",
         period: "Forever Free",
-        desc: "All Cambodian students get full access to lessons, quizzes, and the AI tutor without paywalls.",
+        desc: "All Cambodian students get full access to lessons, quizzes, and Kru Vuth STEM mentor without paywalls.",
         features: [
           "Full access to Grade 7–12 science curricula",
           "Unlimited 5-heart interactive quizzes",
-          "24/7 AI tutor guidance in Khmer and English",
+          "24/7 Kru Vuth STEM guidance in Khmer and English",
           "Official Brevet & BacII past exam papers",
           "Daily streak tracking & national league rankings",
         ],
@@ -831,7 +831,7 @@ export const landingI18n: Record<SupportedLanguage, LandingCopy> = {
           },
           {
             feature: "Instant Homework Support",
-            scienceKh: "24/7 Socratic AI guidance in Khmer",
+            scienceKh: "24/7 Socratic STEM guidance in Khmer",
             extraClass: "Crowded rooms, limited question time",
           },
           {
@@ -868,9 +868,9 @@ export const landingI18n: Record<SupportedLanguage, LandingCopy> = {
             "Yes! ScienceKH is built mobile-first, highly optimized for low-bandwidth connections, and runs smoothly on all standard smartphones.",
         },
         {
-          question: "How does the AI Socratic Tutor help students study?",
+          question: "How does Kru Vuth (STEM Tutor) help students study?",
           answer:
-            "When a student misses a question or gets stuck, the AI Tutor guides them step-by-step through the core concept in clear Khmer or English.",
+            "When a student misses a question or gets stuck, Kru Vuth guides them step-by-step through the core concept in clear Khmer or English.",
         },
         {
           question: "Is student personal data safe and protected?",

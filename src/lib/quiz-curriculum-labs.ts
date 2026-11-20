@@ -5,68 +5,64 @@
 // ==============================================================================
 
 import { getCuratedLesson } from "./curated-lessons";
+import type { PracticeExercise } from "./curriculum/types";
+import { CURATED_PRACTICE_BANK } from "./curriculum/practice-exercises";
+import { getGradeStratifiedMathDeck } from "./curriculum-quiz/math-decks";
+import { getGradeStratifiedScienceDeck } from "./curriculum-quiz/science-decks";
+import type {
+  QuestionType,
+  QuantumVariable,
+  BaseQuestion,
+  SynthesizerQuestion,
+  ConceptChoiceQuestion,
+  DerivationChainQuestion,
+  LabCalculationQuestion,
+  QuizQuestionItem,
+} from "./curriculum-quiz/types";
 
-export type QuestionType =
-  "synthesizer" | "concept_choice" | "derivation_chain" | "lab_calculation";
-
-export type QuantumVariable = {
-  id: string;
-  symbol: string;
-  name_en: string;
-  name_km: string;
-  unit: string;
-  category?: "variable" | "operator" | "constant";
+export type {
+  QuestionType,
+  QuantumVariable,
+  BaseQuestion,
+  SynthesizerQuestion,
+  ConceptChoiceQuestion,
+  DerivationChainQuestion,
+  LabCalculationQuestion,
+  QuizQuestionItem,
 };
 
-export type BaseQuestion = {
-  id: string;
-  type: QuestionType;
-  stage_name_km: string;
-  stage_name_en: string;
-  prompt_km: string;
-  prompt_en: string;
-  socratic_clue_km?: string;
-  socratic_clue_en?: string;
-  formula_badge?: string;
-  explanation_km: string;
-  explanation_en: string;
-};
-
-export type SynthesizerQuestion = BaseQuestion & {
-  type: "synthesizer";
-  spoken_theorem_km: string;
-  spoken_theorem_en: string;
-  variables_pool: QuantumVariable[];
-  target_sequence_ids: string[];
-};
-
-export type ConceptChoiceQuestion = BaseQuestion & {
-  type: "concept_choice";
-  options_km: string[];
-  options_en: string[];
-  correct_index: number;
-  scientific_analogy_km?: string;
-  scientific_analogy_en?: string;
-};
-
-export type DerivationChainQuestion = BaseQuestion & {
-  type: "derivation_chain";
-  steps_km: string[];
-  steps_en: string[];
-  correct_chain_order: number[];
-};
-
-export type LabCalculationQuestion = BaseQuestion & {
-  type: "lab_calculation";
-  given_values_km: { label: string; value: string }[];
-  given_values_en: { label: string; value: string }[];
-  options_km: string[];
-  options_en: string[];
-  correct_index: number;
-};
-
-export type QuizQuestionItem =
-  SynthesizerQuestion | ConceptChoiceQuestion | DerivationChainQuestion | LabCalculationQuestion;
+/**
+ * Converts authentic step-by-step curriculum practice exercises into interactive quiz questions
+ */
+function convertPracticeExercisesToLabQuestions(
+  lessonId: string,
+  exercises: PracticeExercise[],
+): QuizQuestionItem[] {
+  return exercises.map((ex, idx) => {
+    const correctIdx = Math.max(
+      0,
+      ex.options.findIndex((o) => o.isCorrect),
+    );
+    return {
+      id: `${lessonId}-practice-${idx + 1}`,
+      type: "lab_calculation" as const,
+      stage_name_km: `ដំណាក់កាលអនុវត្តទី${idx + 1} • ${ex.titleKm}`,
+      stage_name_en: `Practice Stage ${idx + 1} • ${ex.titleEn}`,
+      prompt_km: `${ex.questionKm}${ex.formulaOrContext ? `\n\n$$${ex.formulaOrContext}$$` : ""}`,
+      prompt_en: `${ex.questionEn}${ex.formulaOrContext ? `\n\n$$${ex.formulaOrContext}$$` : ""}`,
+      given_values_km: ex.formulaOrContext ? [{ label: "រូបមន្ត", value: ex.formulaOrContext }] : [],
+      given_values_en: ex.formulaOrContext ? [{ label: "Context", value: ex.formulaOrContext }] : [],
+      options_km: ex.options.map((o) => o.labelKm),
+      options_en: ex.options.map((o) => o.labelEn),
+      correct_index: correctIdx,
+      formula_badge: ex.formulaOrContext || "MoEYS Practice",
+      socratic_clue_km: ex.tipKm || "គិតឱ្យបានហ្មត់ចត់លើជំហានដោះស្រាយនីមួយៗ។",
+      socratic_clue_en: "Carefully follow each step of the solution.",
+      explanation_km: ex.stepByStepSolutionKm,
+      explanation_en: ex.stepByStepSolutionEn,
+    };
+  });
+}
 
 /**
  * Raw Subject & Topic Aware Discovery Lab Deck Generator
@@ -857,10 +853,14 @@ function getRawCurriculumLabQuestions(lessonId: string): QuizQuestionItem[] {
       ];
     }
 
-    // 1D. Quadratic Equations & Discriminant Δ (Grade 9 / 10 Math)
-    return [
-      {
-        id: "math-quad-1",
+    // 1D. Quadratic Equations & Discriminant Δ (Grade 9 / Grade 10 Math explicit quadratic lessons)
+    if (
+      (lesson?.grade === 9 || id.includes("g9-math")) &&
+      (id.includes("math-02") || id.includes("math-11") || id.includes("quad") || id.includes("delta"))
+    ) {
+      return [
+        {
+          id: "math-quad-1",
         type: "synthesizer",
         stage_name_km: "ដំណាក់កាលទី១ • សំយោគរូបមន្តឌីសគ្រីមីណង់ Δ",
         stage_name_en: "Stage 1 • Discriminant Formula Synthesizer",
@@ -1004,10 +1004,19 @@ function getRawCurriculumLabQuestions(lessonId: string): QuizQuestionItem[] {
     ];
   }
 
+  // 1E. Grade-Stratified Mathematics Decks (Limits, Derivatives, Complex, Parabolas, Vectors, Sequences, Rationals)
+  return getGradeStratifiedMathDeck(lessonId, lesson);
+}
+
   // ============================================================================
   // 2. BIOLOGY LABS
   // ============================================================================
   if (subjectSlug === "biology" || id.includes("bio")) {
+    const stratifiedBio = getGradeStratifiedScienceDeck("biology", lessonId, lesson);
+    if (stratifiedBio) {
+      return stratifiedBio;
+    }
+
     // 2A. Molecular Genetics & DNA (G12 Bio)
     if (id.includes("g12-bio-01") || id.includes("dna") || id.includes("genetic")) {
       return [
@@ -1514,6 +1523,11 @@ function getRawCurriculumLabQuestions(lessonId: string): QuizQuestionItem[] {
   // 4. CHEMISTRY LABS
   // ============================================================================
   if (subjectSlug === "chemistry" || id.includes("chem")) {
+    const stratifiedChem = getGradeStratifiedScienceDeck("chemistry", lessonId, lesson);
+    if (stratifiedChem) {
+      return stratifiedChem;
+    }
+
     return [
       {
         id: "chem-lab-1",
@@ -2931,9 +2945,17 @@ function ensureDuolingoQuestionCount(
 /**
  * Master Subject & Topic Aware Discovery Lab Deck Generator
  * Fully aligned with MoEYS Curriculum Standards (10–12 questions per lesson block)
+ * Prioritizes curated authentic calculation exercises and grade-stratified syllabus decks.
  */
 export function getCurriculumLabQuestions(lessonId: string): QuizQuestionItem[] {
+  const curatedExercises = CURATED_PRACTICE_BANK[lessonId];
+  const practiceQuestions =
+    curatedExercises && curatedExercises.length > 0
+      ? convertPracticeExercisesToLabQuestions(lessonId, curatedExercises)
+      : [];
+
   const rawDeck = getRawCurriculumLabQuestions(lessonId);
-  return ensureDuolingoQuestionCount(rawDeck, lessonId);
+  const combinedDeck = [...practiceQuestions, ...rawDeck];
+  return ensureDuolingoQuestionCount(combinedDeck, lessonId);
 }
 

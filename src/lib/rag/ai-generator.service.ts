@@ -25,7 +25,7 @@ interface GenerateParams {
 function buildSystemPrompt(context: StudentLearningContext, mode: TutorPedagogicalMode): string {
   const isKhmer = context.language === "km";
 
-  return `You are "Kru Vuth" (លោកគ្រូ វុឌ្ឍ) — the Senior AI Educational STEM Tutor of ScienceKH.
+  return `You are "Kru Vuth" (លោកគ្រូ វុឌ្ឍ) — the Senior Educational STEM Mentor of ScienceKH.
 You specialize in the Cambodian National Curriculum (MoEYS) for Grades 7 to 12.
 
 STUDENT PROFILE:

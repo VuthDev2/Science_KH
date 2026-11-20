@@ -55,7 +55,7 @@ const chatSearchSchema = z.object({
 
 export const Route = createFileRoute("/_authenticated/tutor/$conversationId")({
   validateSearch: (search) => chatSearchSchema.parse(search),
-  head: () => ({ meta: [{ title: "Kru Vuth AI Tutor — ScienceKH" }] }),
+  head: () => ({ meta: [{ title: "Kru Vuth STEM Tutor — ScienceKH" }] }),
   component: ChatPage,
 });
 
@@ -318,7 +318,7 @@ function ChatPage() {
                 </h1>
                 <p className="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1">
                   <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                  {isKhmer ? "គ្រូជំនួយ MoEYS STEM" : "MoEYS AI STEM Tutor"}
+                  {isKhmer ? "គ្រូជំនួយ MoEYS STEM" : "MoEYS STEM Tutor"}
                 </p>
               </div>
             </div>
@@ -376,7 +376,7 @@ function ChatPage() {
             </div>
             <div>
               <h2 className="text-lg font-black text-slate-900 dark:text-white">
-                {isKhmer ? "លោកគ្រូ វុឌ្ឍ — គ្រូជំនួយ AI តាមកម្មវិធីសិក្សា MoEYS" : "Kru Vuth — MoEYS AI STEM Tutor"}
+                {isKhmer ? "លោកគ្រូ វុឌ្ឍ — គ្រូជំនួយតាមកម្មវិធីសិក្សា MoEYS" : "Kru Vuth — MoEYS STEM Tutor"}
               </h2>
               <p className="mt-1 text-xs text-slate-500 dark:text-slate-400 max-w-md mx-auto">
                 {isKhmer
@@ -445,7 +445,7 @@ function ChatPage() {
                   {!isUser && (
                     <div className="flex items-center gap-1.5 mb-2 pb-1.5 border-b border-slate-100 dark:border-slate-800 text-[11px] font-bold text-emerald-700 dark:text-emerald-400">
                       <Sparkles className="h-3.5 w-3.5" />
-                      <span>{isKhmer ? "លោកគ្រូ វុឌ្ឍ (Kru Vuth)" : "Kru Vuth (MoEYS AI Tutor)"}</span>
+                      <span>{isKhmer ? "លោកគ្រូ វុឌ្ឍ (Kru Vuth)" : "Kru Vuth (MoEYS STEM Mentor)"}</span>
                     </div>
                   )}
 

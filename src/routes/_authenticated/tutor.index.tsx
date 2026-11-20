@@ -36,7 +36,7 @@ export const Route = createFileRoute("/_authenticated/tutor/")({
   validateSearch: (s: Record<string, unknown>): TutorSearchParams => ({
     initialPrompt: typeof s.initialPrompt === "string" ? s.initialPrompt : undefined,
   }),
-  head: () => ({ meta: [{ title: "AI STEM Tutor (លោកគ្រូ វុឌ្ឍ) — ScienceKH" }] }),
+  head: () => ({ meta: [{ title: "STEM Tutor (លោកគ្រូ វុឌ្ឍ) — ScienceKH" }] }),
   component: TutorIndex,
 });
 
@@ -288,17 +288,17 @@ function TutorIndex() {
     <AppShell
       breadcrumbs={[
         { label: isKhmer ? "ទំព័រដើម" : "Home", href: "/home" },
-        { label: isKhmer ? "លោកគ្រូ វុឌ្ឍ AI" : "Kru Vuth AI Tutor" },
+        { label: isKhmer ? "លោកគ្រូ វុឌ្ឍ" : "Kru Vuth STEM Tutor" },
       ]}
       rightSidebar={
         <div className="space-y-4">
-          {/* AI Mentor Card */}
+          {/* STEM Mentor Card */}
           <div className="p-4 rounded-3xl border border-emerald-200/80 dark:border-emerald-800 bg-emerald-50/50 dark:bg-emerald-950/30 space-y-2.5">
             <div className="flex items-center gap-2">
               <span className="text-xl">👨‍🏫</span>
               <div>
                 <span className="text-xs font-bold text-slate-900 dark:text-white block">
-                  {isKhmer ? "លោកគ្រូ វុឌ្ឍ AI" : "Kru Vuth AI Mentor"}
+                  {isKhmer ? "លោកគ្រូ វុឌ្ឍ" : "Kru Vuth STEM Mentor"}
                 </span>
                 <span className="text-[10px] text-emerald-700 dark:text-emerald-400 font-semibold">
                   {isKhmer ? "ស្របតាមកម្មវិធី MoEYS" : "MoEYS Curriculum Grounded"}
@@ -345,7 +345,7 @@ function TutorIndex() {
                   {isKhmer ? "លោកគ្រូ វុឌ្ឍ" : "Kru Vuth"}
                 </h1>
                 <p className="text-[10px] text-slate-400 font-medium">
-                  {isKhmer ? "គ្រូជំនួយ STEM MoEYS" : "AI STEM Tutor"}
+                  {isKhmer ? "គ្រូជំនួយ STEM MoEYS" : "STEM Tutor"}
                 </p>
               </div>
             </div>
@@ -446,7 +446,7 @@ function TutorIndex() {
           <div className="space-y-2">
             <div className="flex items-center justify-between px-1">
               <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                {isKhmer ? "របៀបសិក្សាជាមួយ AI Tutor" : "Pedagogical Learning Modes"}
+                {isKhmer ? "របៀបសិក្សាជាមួយលោកគ្រូ វុឌ្ឍ" : "Pedagogical Learning Modes"}
               </p>
               <span className="text-[10px] font-semibold text-emerald-600 dark:text-emerald-400">
                 {isKhmer ? `ផ្អែកលើ MoEYS ថ្នាក់ទី ${studentGrade}` : `Grounded in MoEYS G${studentGrade}`}

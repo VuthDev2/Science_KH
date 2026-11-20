@@ -127,7 +127,7 @@ export function SuperPostLessonInterstitial({
               </div>
               <div>
                 <p className="text-xs font-bold text-white">
-                  {isKhmer ? "ធនាគារកែកំហុស AI" : "AI Smart Mistake Vault"}
+                  {isKhmer ? "ធនាគារកែកំហុសឆ្លាតវៃ" : "Smart Mistake Vault"}
                 </p>
                 <p className="text-[10px] text-slate-400">
                   {isKhmer ? "ហាត់រៀនសំណួរដែលធ្លាប់ខុស" : "Drill weak questions"}

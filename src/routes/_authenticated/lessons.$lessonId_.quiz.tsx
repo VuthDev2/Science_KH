@@ -41,6 +41,7 @@ import { getCuratedLesson, getNextCuratedLesson } from "@/lib/curated-lessons";
 import { MOEYS_UNITS_REGISTRY } from "@/lib/curriculum/units";
 
 export const Route = createFileRoute("/_authenticated/lessons/$lessonId_/quiz")({
+  ssr: false,
   head: () => ({ meta: [{ title: "Interactive MoEYS Learning Lab — ScienceKH" }] }),
   component: InteractiveQuizPage,
 });
@@ -1116,9 +1117,9 @@ function InteractiveQuizPage() {
             )}
 
             {/* Given Parameters Card */}
-            {"given_values_km" in currentQ && currentQ.given_values_km && (
+            {"given_values_km" in currentQ && ((isKhmer ? currentQ.given_values_km : currentQ.given_values_en) || []).length > 0 && (
               <div className="mb-5 p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-850/80 border border-slate-200 dark:border-slate-750 flex items-center justify-around gap-2 text-center shadow-sm">
-                {(isKhmer ? currentQ.given_values_km : currentQ.given_values_en).map((item, i) => (
+                {((isKhmer ? currentQ.given_values_km : currentQ.given_values_en) || []).map((item, i) => (
                   <div key={i} className="flex flex-col">
                     <span className="text-[10px] font-bold uppercase text-slate-500 dark:text-slate-400">
                       {item.label}
@@ -1471,7 +1472,7 @@ function InteractiveQuizPage() {
                   className="inline-flex items-center gap-1.5 mt-2 px-3 py-1.5 rounded-xl bg-white dark:bg-slate-900 border border-rose-300 dark:border-rose-900 text-xs font-bold text-rose-700 dark:text-rose-300 hover:bg-rose-50 transition shadow-2xs cursor-pointer"
                 >
                   <Sparkles className="h-3.5 w-3.5 text-amber-500 fill-amber-500" />
-                  <span>{isKhmer ? "សួរ Kru Vuth AI ឱ្យជួយពន្យល់" : "Ask Kru Vuth AI to Explain"}</span>
+                  <span>{isKhmer ? "សួរលោកគ្រូ វុឌ្ឍ ឱ្យជួយពន្យល់" : "Ask Kru Vuth to Explain"}</span>
                 </Link>
               </div>
             </div>

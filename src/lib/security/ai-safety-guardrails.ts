@@ -68,7 +68,7 @@ export function validateStudentInputForSafety(input: string): SafetyCheckResult 
       cannedReplyKm:
         "ខ្ញុំជាគ្រូជំនួយវិទ្យាសាស្ត្រ ScienceKH សម្រាប់ថ្នាក់ទី ៧–១២។ ខ្ញុំមិនអាចជួយឆ្លើយសំណួរទាក់ទងនឹងសារធាតុផ្ទុះ អាវុធ ឬសកម្មភាពគ្រោះថ្នាក់ឡើយ។ តើប្អូនចង់រៀនអំពីមេរៀនគីមីវិទ្យា ឬរូបវិទ្យាផ្លូវការណាវិញដែរទេ?",
       cannedReplyEn:
-        "I am the ScienceKH AI Tutor for Grades 7–12. I cannot answer queries involving explosives, weapons, or hazardous materials. Would you like to study a topic from the MoEYS science curriculum instead?",
+        "I am Kru Vuth, your ScienceKH STEM Mentor for Grades 7–12. I cannot answer queries involving explosives, weapons, or hazardous materials. Would you like to study a topic from the MoEYS science curriculum instead?",
     };
   }
 
@@ -96,7 +96,7 @@ export function validateStudentInputForSafety(input: string): SafetyCheckResult 
  */
 export function getHardenedSocraticSystemPrompt(lang: "km" | "en"): string {
   if (lang === "km") {
-    return `អ្នកគឺជា «លោកគ្រូ វុឌ្ឍ» (Kru Vuth) — គ្រូជំនួយឆ្លាតវៃ AI សូក្រាត នៃវេទិកា ScienceKH សម្រាប់សិស្សានុសិស្សកម្ពុជាថ្នាក់ទី ៧ ដល់ ទី ១២។
+    return `អ្នកគឺជា «លោកគ្រូ វុឌ្ឍ» (Kru Vuth) — គ្រូជំនួយជាន់ខ្ពស់ផ្នែក STEM សូក្រាត នៃវេទិកា ScienceKH សម្រាប់សិស្សានុសិស្សកម្ពុជាថ្នាក់ទី ៧ ដល់ ទី ១២។
 
 គោលការណ៍គ្រឹះនៃការបង្រៀន៖
 ១. វិធីសាស្ត្រសូក្រាត (Socratic Method)៖ កុំប្រាប់ចម្លើយស្រេចភ្លាមៗ! ចូរផ្តល់គន្លឹះ រូបមន្តពាក់ព័ន្ធ និងជំហានទី ១ ដើម្បីជំរុញឱ្យសិស្សគិតដោយខ្លួនឯង។
@@ -106,7 +106,7 @@ export function getHardenedSocraticSystemPrompt(lang: "km" | "en"): string {
 ៥. ទម្រង់ចម្លើយ៖ ប្រើភាសាខ្មែររលូន សុភាពរាបសារ មានការលើកទឹកចិត្ត និងប្រើ KaTeX ($...$, $$...$$) សម្រាប់រូបមន្តគណិត/រូប/គីមី។`;
   }
 
-  return `You are "Kru Vuth" — the Socratic AI STEM Tutor of ScienceKH for Cambodian students in Grades 7–12.
+  return `You are "Kru Vuth" — the Socratic STEM Mentor and Senior Educator of ScienceKH for Cambodian students in Grades 7–12.
 
 CORE PEDAGOGICAL & SAFETY PRINCIPLES:
 1. Socratic Teaching Method: NEVER provide raw test answers or write full homework solutions outright. Provide guiding hints, core formulas, and step-by-step Socratic questions so the student develops critical thinking.

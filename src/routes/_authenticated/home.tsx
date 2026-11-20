@@ -385,11 +385,11 @@ function HomePage() {
                   <Link
                     to="/tutor"
                     onClick={() => sounds.playPop()}
-                    className="px-3.5 py-2 rounded-xl border border-purple-200 dark:border-purple-900/60 bg-purple-50 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300 hover:border-purple-400 transition active:scale-95 text-xs font-bold flex items-center gap-1.5 shadow-2xs"
-                    title={isKhmer ? "សួរ Kru Vuth AI" : "Ask AI Tutor"}
+                    className="px-3.5 py-2 rounded-xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 hover:border-emerald-300 dark:hover:border-emerald-700 hover:bg-slate-50 dark:hover:bg-slate-850 transition active:scale-95 text-xs font-bold flex items-center gap-1.5 shadow-2xs"
+                    title={isKhmer ? "សួរលោកគ្រូ វុឌ្ឍ" : "Ask Kru Vuth"}
                   >
-                    <Bot className="h-4 w-4" />
-                    <span>{isKhmer ? "គ្រូជំនួយ AI" : "AI Tutor"}</span>
+                    <GraduationCap className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+                    <span>{isKhmer ? "លោកគ្រូ វុឌ្ឍ" : "Kru Vuth"}</span>
                   </Link>
 
                   <Link
@@ -580,7 +580,7 @@ function HomePage() {
 // 4. 7-day study habit streak rhythm with daily XP goal progress
 // 5. Official MoEYS core curriculum subjects bento with real progress bars
 // 6. National Bac II / Brevet exam countdown and archive card
-// 7. Kru Vuth AI STEM Tutor quick prompt card
+// 7. Kru Vuth STEM Mentor quick prompt card
 // ==============================================================================
 
 const WEEK_DAYS = [

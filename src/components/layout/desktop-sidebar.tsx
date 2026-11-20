@@ -12,6 +12,7 @@ import {
   FileText,
   Trophy,
   UserRound,
+  GraduationCap,
   Sparkles,
   LogOut,
 } from "lucide-react";
@@ -27,7 +28,8 @@ const AVATAR_EMOJI_MAP: Record<string, string> = {
   chemistry: "👩‍🔬",
   mechanics: "⚡",
   biology: "🧬",
-  ai_tutor: "🤖",
+  kru_vuth: "🎓",
+  ai_tutor: "🎓",
 };
 
 const isImageAvatar = (url?: string | null) =>
@@ -81,11 +83,11 @@ export function DesktopSidebar() {
     },
     {
       to: "/tutor",
-      labelKm: "គ្រូជំនួយ AI",
-      labelEn: "AI STEM Tutor",
-      icon: Sparkles,
+      labelKm: "លោកគ្រូ វុឌ្ឍ",
+      labelEn: "STEM Mentor",
+      icon: GraduationCap,
       exact: false,
-      badge: "AI",
+      badge: null,
     },
     {
       to: "/leaderboard",

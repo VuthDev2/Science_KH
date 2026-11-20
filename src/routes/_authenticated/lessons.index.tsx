@@ -47,6 +47,7 @@ import {
 type SearchParams = { subject?: string; grade?: number };
 
 export const Route = createFileRoute("/_authenticated/lessons/")({
+  ssr: false,
   head: () => ({ meta: [{ title: "MoEYS National Curriculum — ScienceKH" }] }),
   validateSearch: (s: Record<string, unknown>): SearchParams => ({
     subject: typeof s.subject === "string" ? s.subject : undefined,
@@ -475,7 +476,7 @@ function LessonsIndex() {
               title: isKhmer ? "កម្មវិធីសិក្សាជាតិ MoEYS ថ្នាក់ទី ៧-១២" : "MoEYS Curriculum Grades 7-12",
               description: isKhmer
                 ? "មេរៀនវិទ្យាសាស្ត្រ គណិតវិទ្យា រូបវិទ្យា គីមីវិទ្យា ជីវវិទ្យា ស្របតាមស្តង់ដារក្រសួងអប់រំ"
-                : "STEM subjects national curriculum lessons, practice quizzes, and AI tutor support.",
+                : "STEM subjects national curriculum lessons, practice quizzes, and dedicated teacher tutor support.",
               subject: activeSubjectObj.slug !== "all" ? activeSubjectObj.name_km : "STEM",
               grade: currentGrade,
               url: `https://sciencekh.com/lessons?grade=${currentGrade}`,

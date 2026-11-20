@@ -8,7 +8,7 @@ export const authI18n: Record<SupportedLanguage, AuthCopy> = {
       signUpTitle: "បង្កើតគណនី — ScienceKH",
       forgotTitle: "កំណត់ពាក្យសម្ងាត់ឡើងវិញ — ScienceKH",
       resetTitle: "បញ្ចូលពាក្យសម្ងាត់ថ្មី — ScienceKH",
-      description: "ចូលរៀនវិទ្យាសាស្ត្រថ្នាក់ទី ៧ ដល់ ទី ១២ ជាមួយ ScienceKH តាមរយៈប្រព័ន្ធផ្លូវសិក្សាឆ្លាតវៃ និងគ្រូ AI សូក្រាត។",
+      description: "ចូលរៀនវិទ្យាសាស្ត្រថ្នាក់ទី ៧ ដល់ ទី ១២ ជាមួយ ScienceKH តាមរយៈប្រព័ន្ធផ្លូវសិក្សាឆ្លាតវៃ និងលោកគ្រូ វុឌ្ឍ (គ្រូជំនួយ STEM)។",
     },
     header: {
       backHome: "ទំព័រដើម",
@@ -120,7 +120,7 @@ export const authI18n: Record<SupportedLanguage, AuthCopy> = {
         "វេទិកាសិក្សា STEM ស្របតាមកម្មវិធីជាតិថ្នាក់ទី ៧–១២ សម្រាប់សិស្សានុសិស្សកម្ពុជា។",
       tutorPreview: {
         tutorName: "លោកគ្រូ វុឌ្ឍ",
-        tutorRole: "គ្រូជំនួយ STEM AI សូក្រាត",
+        tutorRole: "លោកគ្រូ វុឌ្ឍ — គ្រូជំនួយ STEM",
         studentLabel: "សិស្ស",
         studentQuery: "ហេតុអ្វីបានជាអាតូមមានបន្ទុកអព្យាក្រឹត?",
         tutorLabel: "លោកគ្រូ វុឌ្ឍ",
@@ -140,7 +140,7 @@ export const authI18n: Record<SupportedLanguage, AuthCopy> = {
       signUpTitle: "Start Learning — ScienceKH",
       forgotTitle: "Reset Password — ScienceKH",
       resetTitle: "Set New Password — ScienceKH",
-      description: "Sign in or create your ScienceKH account to master Grades 7–12 STEM with interactive roadmaps and Socratic AI tutoring.",
+      description: "Sign in or create your ScienceKH account to master Grades 7–12 STEM with interactive roadmaps and Kru Vuth STEM mentorship.",
     },
     header: {
       backHome: "Home",
@@ -252,7 +252,7 @@ export const authI18n: Record<SupportedLanguage, AuthCopy> = {
         "The modern STEM learning platform for Cambodian students Grades 7–12.",
       tutorPreview: {
         tutorName: "Kru Vuth",
-        tutorRole: "Socratic AI STEM Tutor",
+        tutorRole: "Kru Vuth — MoEYS STEM Mentor",
         studentLabel: "Student",
         studentQuery: "Why do neutral atoms have zero net electrical charge?",
         tutorLabel: "Kru Vuth",

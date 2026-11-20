@@ -117,11 +117,11 @@ const AVATAR_OPTIONS: AvatarOption[] = [
     roleEn: "Genetics & Cells",
   },
   {
-    id: "ai_tutor",
-    emoji: "🤖",
-    nameKm: "គ្រូ AI វុឌ្ឍ",
-    nameEn: "Kru Vuth AI",
-    roleKm: "ជំនួយការឆ្លាតវៃ",
+    id: "stem_mentor",
+    emoji: "👨‍🏫",
+    nameKm: "លោកគ្រូ វុឌ្ឍ",
+    nameEn: "Kru Vuth Mentor",
+    roleKm: "គ្រូជំនួយ STEM",
     roleEn: "Socratic Mentor",
   },
 ];

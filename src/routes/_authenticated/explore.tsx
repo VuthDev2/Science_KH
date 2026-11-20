@@ -192,20 +192,22 @@ export function ExplorePage() {
 
               <Link
                 to="/tutor"
-                className="p-3 rounded-2xl border border-slate-100 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-800/40 hover:border-purple-500 transition flex items-center justify-between group"
+                className="p-3 rounded-2xl border border-slate-100 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-800/40 hover:border-emerald-500 transition flex items-center justify-between group"
               >
                 <div className="flex items-center gap-2.5">
-                  <Bot className="h-4 w-4 text-purple-600" />
+                  <div className="h-7 w-7 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 grid place-items-center shrink-0 border border-emerald-200/60 dark:border-emerald-800/60">
+                    <GraduationCap className="h-4 w-4" />
+                  </div>
                   <div>
-                    <span className="text-xs font-bold text-slate-800 dark:text-slate-200 block">
-                      {isKhmer ? "លោកគ្រូ វុឌ្ឍ AI" : "Kru Vuth AI Tutor"}
+                    <span className="text-xs font-bold text-slate-800 dark:text-slate-200 block group-hover:text-emerald-600 transition">
+                      {isKhmer ? "លោកគ្រូ វុឌ្ឍ" : "Kru Vuth STEM Mentor"}
                     </span>
                     <span className="text-[10.5px] text-slate-400">
                       {isKhmer ? "ជំនួយការសួរឆ្លើយ MoEYS" : "Curriculum-Aware Mentor"}
                     </span>
                   </div>
                 </div>
-                <ArrowRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-purple-600 group-hover:translate-x-0.5 transition-transform" />
+                <ArrowRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-emerald-600 group-hover:translate-x-0.5 transition-transform" />
               </Link>
             </div>
           </div>

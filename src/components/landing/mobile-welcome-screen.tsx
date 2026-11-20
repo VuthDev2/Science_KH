@@ -43,9 +43,9 @@ const SLIDES: SlideData[] = [
     titleKm: "រៀនវិទ្យាសាស្ត្រ ដោយទំនុកចិត្ត",
     titleEn: "Master Science with Confidence",
     descKm:
-      "គ្រប់មុខវិជ្ជា STEM ថ្នាក់ទី ៧ ដល់ ១២ ជាមួយមេរៀនសង្ខេបងាយយល់ កម្រងលំហាត់ និងជំនួយការ Kru Vuth AI",
+      "គ្រប់មុខវិជ្ជា STEM ថ្នាក់ទី ៧ ដល់ ១២ ជាមួយមេរៀនសង្ខេបងាយយល់ កម្រងលំហាត់ និងលោកគ្រូ វុឌ្ឍ (Kru Vuth) — គ្រូជំនួយ STEM",
     descEn:
-      "Covering Grades 7–12 STEM with bite-sized lessons, interactive quizzes, and Kru Vuth AI Tutor.",
+      "Covering Grades 7–12 STEM with bite-sized lessons, interactive quizzes, and Kru Vuth STEM Tutor.",
     icon: Atom,
     iconBg: "bg-emerald-50 dark:bg-emerald-950/60",
     iconColor: "text-emerald-600 dark:text-emerald-400",

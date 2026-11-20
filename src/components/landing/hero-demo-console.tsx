@@ -234,8 +234,8 @@ export function HeroDemoConsole({ copy, isKhmer }: HeroDemoConsoleProps) {
       {
         role: "tutor",
         text: isKhmer
-          ? "សួស្តីប្អូន! ខ្ញុំគឺលោកគ្រូ វុឌ្ឍ គ្រូជំនួយ AI សូក្រាត សម្រាប់សិស្សថ្នាក់ទី ៧ ដល់ ១២។ តើប្អូនមានចម្ងល់អ្វីទាក់ទងនឹងរូប, គីមី, ជីវៈ ឬផែនដីវិទ្យាថ្ងៃនេះ?"
-          : "Hello! I am Kru Vuth, your Socratic AI STEM tutor for Grades 7 to 12. What science question would you like to explore today?",
+          ? "សួស្តីប្អូន! ខ្ញុំគឺលោកគ្រូ វុឌ្ឍ គ្រូជំនួយ STEM សូក្រាត សម្រាប់សិស្សថ្នាក់ទី ៧ ដល់ ១២។ តើប្អូនមានចម្ងល់អ្វីទាក់ទងនឹងរូប, គីមី, ជីវៈ ឬផែនដីវិទ្យាថ្ងៃនេះ?"
+          : "Hello! I am Kru Vuth, your Socratic STEM tutor for Grades 7 to 12. What science question would you like to explore today?",
       },
     ],
   );
@@ -572,8 +572,8 @@ export function HeroDemoConsole({ copy, isKhmer }: HeroDemoConsoleProps) {
                   <XCircle className="w-5 h-5 text-rose-600 shrink-0" />
                   <span className="font-medium">
                     {isKhmer
-                      ? "មិនទាន់ត្រឹមត្រូវទេ! បាត់បង់បេះដូង ១។ ចុច 'សួរគ្រូ AI' ដើម្បីមើលការបកស្រាយលម្អិត!"
-                      : "Not quite! You lost 1 heart. Click 'Ask AI' to see Kru Vuth's explanation."}
+                      ? "មិនទាន់ត្រឹមត្រូវទេ! បាត់បង់បេះដូង ១។ ចុច 'សួរលោកគ្រូ វុឌ្ឍ' ដើម្បីមើលការបកស្រាយលម្អិត!"
+                      : "Not quite! You lost 1 heart. Click 'Ask Kru Vuth' to see the explanation."}
                   </span>
                 </div>
                 <div className="flex items-center gap-1.5 shrink-0">
@@ -582,8 +582,8 @@ export function HeroDemoConsole({ copy, isKhmer }: HeroDemoConsoleProps) {
                     onClick={() => setActiveTab("tutor")}
                     className="px-2.5 py-1.5 rounded-lg bg-white border border-rose-300 text-rose-900 font-bold text-xs hover:bg-rose-50 transition-colors shrink-0 flex items-center gap-1"
                   >
-                    <Bot className="w-3.5 h-3.5 text-rose-700" />
-                    <span>{isKhmer ? "សួរគ្រូ AI" : "Ask AI"}</span>
+                    <Sparkles className="w-3.5 h-3.5 text-rose-700" />
+                    <span>{isKhmer ? "សួរលោកគ្រូ វុឌ្ឍ" : "Ask Kru Vuth"}</span>
                   </button>
                   <button
                     type="button"
