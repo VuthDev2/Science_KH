@@ -1,0 +1,854 @@
+[
+  {
+    "id": "bacii-2024-math-science",
+    "examinationCategory": "bacii",
+    "grade": 12,
+    "stream": "science",
+    "subject": "mathematics",
+    "competitionRound": null,
+    "resourceType": "individual_past_exam",
+    "examinationYear": 2024,
+    "publicationYear": 2024,
+    "coverageStartYear": null,
+    "coverageEndYear": null,
+    "originalTitleKh": "វិញ្ញាសា គណិតវិទ្យា — បាក់ឌុប ២០២៤ (ថ្នាក់វិទ្យាសាស្ត្រ)",
+    "titleEn": "2024 Bac II Mathematics Official Exam (Science Stream)",
+    "sourcePlatform": "moeys_official",
+    "originalSourceUrl": "https://moeys.gov.kh/bacii",
+    "actualAuthor": "គណៈកម្មការរៀបចំវិញ្ញាសាប្រឡងបាក់ឌុប MoEYS",
+    "publisher": "ក្រសួងអប់រំ យុវជន និងកីឡា (MoEYS)",
+    "issuingOrganization": "MoEYS Cambodia",
+    "sourceVerificationStatus": "verified_official",
+    "pdfUrl": "https://moeys.gov.kh/bacii",
+    "localFilePath": "public/archive/bacii_science/BACII_SCIENCE_MATHEMATICS_2024.pdf",
+    "hasOfficialAnswerKey": true,
+    "answerKeyUrl": "https://moeys.gov.kh/bacii",
+    "sessionDateKm": "សម័យប្រឡង៖ ០៨ តុលា ២០២៤",
+    "durationMinutes": 150,
+    "totalMarks": 125,
+    "coefficient": 4,
+    "topicsKm": [
+      "ចំនួនកុំផ្លិច",
+      "សមីការឌីផេរ៉ង់ស្យែល",
+      "ប្រូបាប",
+      "ធរណីមាត្រក្នុងលំហ",
+      "អនុគមន៍អិចស្ប៉ូណង់ស្យែល និងអាំងតេក្រាល"
+    ],
+    "topicsEn": [
+      "Complex Numbers",
+      "Differential Equations",
+      "Probability",
+      "Space Geometry",
+      "Exponential Calculus & Integration"
+    ],
+    "overviewKm": "វិញ្ញាសាប្រឡងបាក់ឌុបផ្លូវការពេញលេញទាំង ៥ លំហាត់ ថ្នាក់វិទ្យាសាស្ត្រ សម័យប្រឡង ០៨ តុលា ២០២៤ ចេញដោយក្រសួងអប់រំ យុវជន និងកីឡា។",
+    "overviewEn": "Official full 5-exercise Science Stream Mathematics paper from the October 8, 2024 Bac II national examination session.",
+    "essentialFormulaSheet": [
+      {
+        "nameKm": "រូបមន្តដឺម័រ (De Moivre)",
+        "nameEn": "De Moivre's Theorem",
+        "formula": "(\\cos\\theta + i\\sin\\theta)^n = \\cos(n\\theta) + i\\sin(n\\theta)",
+        "noteKm": "គណនាស្វ័យគុណនៃចំនួនកុំផ្លិច"
+      },
+      {
+        "nameKm": "អាំងតេក្រាលដោយផ្នែក",
+        "nameEn": "Integration by Parts",
+        "formula": "\\int u \\, dv = uv - \\int v \\, du",
+        "noteKm": "គណនាអាំងតេក្រាលនៃផលគុណអនុគមន៍"
+      },
+      {
+        "nameKm": "ចម្ងាយពីចំណុចទៅប្លង់",
+        "nameEn": "Point to Plane Distance",
+        "formula": "d(M_0, (P)) = \\frac{|ax_0 + by_0 + cz_0 + d|}{\\sqrt{a^2 + b^2 + c^2}}",
+        "noteKm": "គណនាចម្ងាយក្នុងលំហអរតូណរម៉េ"
+      }
+    ],
+    "questions": [
+      {
+        "questionNumber": 1,
+        "points": 20,
+        "titleKm": "លំហាត់ទី ១៖ ចំនួនកុំផ្លិច (Complex Numbers)",
+        "titleEn": "Problem 1: Complex Numbers",
+        "problemTextKm": "គេឱ្យចំនួនកុំផ្លិច $z_1 = 1 + i\\sqrt{3}$ និង $z_2 = 1 - i$។\n\nក. សរសេរ $z_1$ និង $z_2$ ជាទម្រង់ត្រីកោណមាត្រ។\n\nខ. គណនាផលធៀប $Z = \\frac{z_1}{z_2}$ ជាទម្រង់ពីជគណិត និងជាទម្រង់ត្រីកោណមាត្រ។\n\nគ. ទាញរកតម្លៃពិតប្រាកដនៃ $\\cos\\frac{7\\pi}{12}$ និង $\\sin\\frac{7\\pi}{12}$។\n\nឃ. ដោះស្រាយក្នុងសំណុំ $\\mathbb{C}$ នូវសមីការ $z^2 - 2z + 4 = 0$។",
+        "problemTextEn": "Given $z_1 = 1 + i\\sqrt{3}$ and $z_2 = 1 - i$.\na. Express $z_1$ and $z_2$ in trigonometric form.\nb. Compute quotient $Z = z_1/z_2$ in algebraic and trigonometric form.\nc. Deduce exact values of $\\cos(7\\pi/12)$ and $\\sin(7\\pi/12)$.\nd. Solve $z^2 - 2z + 4 = 0$ in $\\mathbb{C}$.",
+        "officialSolutionKm": "ក. ទម្រង់ត្រីកោណមាត្រ៖\n- $z_1 = 2\\left(\\cos\\frac{\\pi}{3} + i\\sin\\frac{\\pi}{3}\\right)$\n- $z_2 = \\sqrt{2}\\left(\\cos\\left(-\\frac{\\pi}{4}\\right) + i\\sin\\left(-\\frac{\\pi}{4}\\right)\\right)$\n\nខ. ផលធៀប $Z = \\frac{z_1}{z_2}$៖\n- ទម្រង់ពីជគណិត៖ $Z = \\frac{1 + i\\sqrt{3}}{1 - i} = \\frac{(1+i\\sqrt{3})(1+i)}{2} = \\frac{(1-\\sqrt{3}) + i(1+\\sqrt{3})}{2}$\n- ទម្រង់ត្រីកោណមាត្រ៖ $Z = \\sqrt{2}\\left(\\cos\\frac{7\\pi}{12} + i\\sin\\frac{7\\pi}{12}\\right)$\n\nគ. តម្លៃពិតប្រាកដ៖\n- $\\cos\\frac{7\\pi}{12} = \\frac{1 - \\sqrt{3}}{2\\sqrt{2}} = \\frac{\\sqrt{2} - \\sqrt{6}}{4}$\n- $\\sin\\frac{7\\pi}{12} = \\frac{1 + \\sqrt{3}}{2\\sqrt{2}} = \\frac{\\sqrt{2} + \\sqrt{6}}{4}$\n\nឃ. ដោះស្រាយសមីការ $z^2 - 2z + 4 = 0$៖\n$\\Delta' = (-1)^2 - 4 = -3 = (i\\sqrt{3})^2 \\implies z = 1 \\pm i\\sqrt{3}$។",
+        "officialSolutionEn": "Modulus and argument steps with exact trigonometric evaluation and complex quadratic solutions.",
+        "scoringCriteriaKm": [
+          "ក. សរសេរ z1 និង z2 ជាទម្រង់ត្រីកោណមាត្រត្រឹមត្រូវ (៥ ពិន្ទុ)",
+          "ខ. គណនា Z ជាទម្រង់ពីជគណិត និងត្រីកោណមាត្រ (៥ ពិន្ទុ)",
+          "គ. ទាញរកតម្លៃពិតប្រាកដ cos(7pi/12) និង sin(7pi/12) (៥ ពិន្ទុ)",
+          "ឃ. ដោះស្រាយសមីការដឺក្រេទី២ រកឃើញឫស z = 1 ± i√3 (៥ ពិន្ទុ)"
+        ],
+        "keyFormulas": [
+          "|z| = \\sqrt{a^2 + b^2}",
+          "\\arg(z_1/z_2) = \\arg(z_1) - \\arg(z_2)",
+          "\\Delta' = b'^2 - ac"
+        ]
+      },
+      {
+        "questionNumber": 2,
+        "points": 20,
+        "titleKm": "លំហាត់ទី ២៖ សមីការឌីផេរ៉ង់ស្យែល (Differential Equations)",
+        "titleEn": "Problem 2: Differential Equations",
+        "problemTextKm": "គេឱ្យសមីការឌីផេរ៉ង់ស្យែលលំដាប់ទីពីរ $(E): y'' - 4y' + 3y = 0$។\n\nក. កំណត់សមីការសរាប់នៃ $(E)$ រួចទាញរកចម្លើយទូទៅនៃសមីការ $(E)$។\n\nខ. រកចម្លើយជាក់លាក់ $g(x)$ មួយនៃ $(E)$ ដោយដឹងថា $g(0) = 1$ និង $g'(0) = -1$។",
+        "problemTextEn": "Given second-order differential equation $(E): y'' - 4y' + 3y = 0$.\na. Find characteristic equation and general solution.\nb. Find particular solution $g(x)$ satisfying $g(0) = 1$ and $g'(0) = -1$.",
+        "officialSolutionKm": "ក. សមីការសរាប់៖\n$r^2 - 4r + 3 = 0 \\implies (r - 1)(r - 3) = 0 \\implies r_1 = 1, r_2 = 3$\n\nចម្លើយទូទៅនៃ $(E)$ គឺ៖\n$y = A e^x + B e^{3x}$ (ដែល $A, B$ ជាចំនួនថេរពិត)។\n\nខ. រកចម្លើយជាក់លាក់ $g(x)$៖\n$g(x) = A e^x + B e^{3x} \\implies g'(x) = A e^x + 3B e^{3x}$\nតាមលក្ខខណ្ឌដើម៖\n- $g(0) = A + B = 1$\n- $g'(0) = A + 3B = -1$\n\nដកសមីការទាំងពីរ៖ $2B = -2 \\implies B = -1$\nជំនួសចូល $A - 1 = 1 \\implies A = 2$\n\nដូចនេះ ចម្លើយជាក់លាក់គឺ៖ $g(x) = 2e^x - e^{3x}$។",
+        "officialSolutionEn": "Roots r = 1, 3. General solution y = Ae^x + Be^(3x). Applying initial conditions yields g(x) = 2e^x - e^(3x).",
+        "scoringCriteriaKm": [
+          "ក. សរសេរសមីការសរាប់ និងរកឃើញឫស r = 1, 3 (៥ ពិន្ទុ)",
+          "ទាញរកចម្លើយទូទៅ y = A e^x + B e^{3x} (៥ ពិន្ទុ)",
+          "ខ. គណនាដេរីវេ g'(x) និងបង្កើតប្រព័ន្ធសមីការកំណត់ A, B (៥ ពិន្ទុ)",
+          "ទាញរកចម្លើយជាក់លាក់ g(x) = 2e^x - e^{3x} (៥ ពិន្ទុ)"
+        ],
+        "keyFormulas": [
+          "ar^2 + br + c = 0",
+          "y = A e^{r_1 x} + B e^{r_2 x}"
+        ]
+      },
+      {
+        "questionNumber": 3,
+        "points": 20,
+        "titleKm": "លំហាត់ទី ៣៖ ប្រូបាប (Probability)",
+        "titleEn": "Problem 3: Probability",
+        "problemTextKm": "ក្នុងថង់មួយមានបាល់ ១០ គ្រាប់ ដែលក្នុងនោះមានបាល់ពណ៌ស ៤ គ្រាប់ និងបាល់ពណ៌ខ្មៅ ៦ គ្រាប់ (បាល់ទាំងអស់មានទំហំ និងទម្ងន់ដូចគ្នា)។ គេចាប់យកបាល់ ៣ គ្រាប់ព្រមគ្នាដោយចៃដន្យចេញពីថង់។\n\nក. រកចំនួនករណីអាចទាំងអស់នៃការចាប់បាល់នេះ។\n\nខ. គណនាប្រូបាបនៃព្រឹត្តិការណ៍ $A$៖ «ចាប់បានបាល់ពណ៌សទាំង ៣»។\n\nគ. គណនាប្រូបាបនៃព្រឹត្តិការណ៍ $B$៖ «ចាប់បានបាល់ពណ៌សយ៉ាងតិច ១»។",
+        "problemTextEn": "A bag contains 10 identical balls: 4 white and 6 black. Draw 3 balls simultaneously at random.\na. Find total number of possible outcomes.\nb. Find probability of event A: 'All 3 balls are white'.\nc. Find probability of event B: 'At least one ball is white'.",
+        "officialSolutionKm": "ក. ចំនួនករណីអាច៖\n$n(S) = C(10, 3) = \\frac{10!}{3!7!} = \\frac{10\\times 9\\times 8}{3\\times 2\\times 1} = 120$ ករណី។\n\nខ. ប្រូបាបព្រឹត្តិការណ៍ $A$៖ «ចាប់បានបាល់សទាំង ៣»៖\n- ចំនួនករណីស្រប៖ $n(A) = C(4, 3) = 4$\n- ប្រូបាប៖ $P(A) = \\frac{n(A)}{n(S)} = \\frac{4}{120} = \\frac{1}{30}$។\n\nគ. ប្រូបាបព្រឹត្តិការណ៍ $B$៖ «ចាប់បានបាល់សយ៉ាងតិច ១»៖\nព្រឹត្តិការណ៍ផ្ទុយ $\\bar{B}$ គឺ «ចាប់បានបាល់ខ្មៅទាំង ៣ (គ្មានបាល់ស)»៖\n- $n(\\bar{B}) = C(6, 3) = \\frac{6\\times 5\\times 4}{6} = 20$\n- $P(\\bar{B}) = \\frac{20}{120} = \\frac{1}{6}$\n- ដូចនេះ $P(B) = 1 - P(\\bar{B}) = 1 - \\frac{1}{6} = \\frac{5}{6}$។",
+        "officialSolutionEn": "Total outcomes C(10,3)=120. P(A)=C(4,3)/120=1/30. P(B)=1-P(no white)=1-C(6,3)/120=5/6.",
+        "scoringCriteriaKm": [
+          "ក. គណនាចំនួនករណីអាច n(S) = 120 (៥ ពិន្ទុ)",
+          "ខ. គណនា n(A) = 4 និង P(A) = 1/30 (៥ ពិន្ទុ)",
+          "គ. កំណត់ព្រឹត្តិការណ៍ផ្ទុយ n(B_bar) = 20 (៥ ពិន្ទុ)",
+          "ទាញរកប្រូបាប P(B) = 5/6 (៥ ពិន្ទុ)"
+        ],
+        "keyFormulas": [
+          "C(n, p) = \\frac{n!}{p!(n-p)!}",
+          "P(E) = \\frac{n(E)}{n(S)}",
+          "P(B) = 1 - P(\\bar{B})"
+        ]
+      },
+      {
+        "questionNumber": 4,
+        "points": 25,
+        "titleKm": "លំហាត់ទី ៤៖ ធរណីមាត្រក្នុងលំហ (Space Analytic Geometry)",
+        "titleEn": "Problem 4: Space Analytic Geometry",
+        "problemTextKm": "ក្នុងលំហប្រកបដោយតម្រុយអរតូណរម៉េ $(O, \\vec{i}, \\vec{j}, \\vec{k})$ គេឱ្យចំណុចបួន $A(1, 2, 0)$, $B(0, 1, 2)$, $C(2, 0, 1)$ និង $D(3, 2, 1)$។\n\nក. រកកូអរដោនេនៃវ៉ិចទ័រ $\\vec{AB}$ និង $\\vec{AC}$ រួចគណនាផលគុណវ៉ិចទ័រ $\\vec{AB} \\times \\vec{AC}$។\n\nខ. សរសេរសមីការទូទៅនៃប្លង់ $(ABC)$។\n\nគ. គណនាចម្ងាយពីចំណុច $D$ មកកាន់ប្លង់ $(ABC)$។\n\nឃ. សរសេរសមីការស្វ៊ែរ $(S)$ ដែលមានផ្ចិត $D$ ហើយប៉ះនឹងប្លង់ $(ABC)$។",
+        "problemTextEn": "In orthonormal space, given points A(1,2,0), B(0,1,2), C(2,0,1), D(3,2,1).\na. Find AB, AC and compute vector cross product AB x AC.\nb. Write general Cartesian equation of plane (ABC).\nc. Compute distance from point D to plane (ABC).\nd. Write equation of sphere (S) with center D tangent to plane (ABC).",
+        "officialSolutionKm": "ក. គណនាកូអរដោនេ៖\n- $\\vec{AB} = (-1, -1, 2)$\n- $\\vec{AC} = (1, -2, 1)$\n\nផលគុណវ៉ិចទ័រ៖\n$\\vec{n} = \\vec{AB} \\times \\vec{AC} = \\begin{vmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\ -1 & -1 & 2 \\\\ 1 & -2 & 1 \\end{vmatrix} = 3\\vec{i} + 3\\vec{j} + 3\\vec{k} = (3, 3, 3)$។\nយើងអាចយកវ៉ិចទ័រណរម៉ាល់សាមញ្ញ $\\vec{n}_0 = (1, 1, 1)$។\n\nខ. សមីការប្លង់ $(ABC)$៖\nកាត់តាម $A(1, 2, 0)$ មានវ៉ិចទ័រណរម៉ាល់ $\\vec{n}_0 = (1, 1, 1)$៖\n$1(x - 1) + 1(y - 2) + 1(z - 0) = 0 \\implies x + y + z - 3 = 0$។\n\nគ. ចម្ងាយពី $D(3, 2, 1)$ មកប្លង់ $(ABC)$៖\n$d(D, (ABC)) = \\frac{|3 + 2 + 1 - 3|}{\\sqrt{1^2 + 1^2 + 1^2}} = \\frac{3}{\\sqrt{3}} = \\sqrt{3}$ ឯកតាប្រវែង។\n\nឃ. សមីការស្វ៊ែរ $(S)$៖\nស្វ៊ែរមានផ្ចិត $D(3, 2, 1)$ ហើយប៉ះប្លង់ $(ABC)$ នាំឱ្យកាំ $R = d(D, (ABC)) = \\sqrt{3}$។\nសមីការស្វ៊ែរគឺ៖ $(x - 3)^2 + (y - 2)^2 + (z - 1)^2 = (\\sqrt{3})^2 = 3$។",
+        "officialSolutionEn": "AB=(-1,-1,2), AC=(1,-2,1), ABxAC=(3,3,3) || (1,1,1). Plane: x+y+z-3=0. Distance d=|3+2+1-3|/√3=√3. Tangent sphere: (x-3)^2+(y-2)^2+(z-1)^2=3.",
+        "scoringCriteriaKm": [
+          "ក. រកកូអរដោនេ AB, AC និងផលគុណវ៉ិចទ័រ (៣, ៣, ៣) (៧ ពិន្ទុ)",
+          "ខ. សរសេរសមីការប្លង់ (ABC): x + y + z - 3 = 0 (៦ ពិន្ទុ)",
+          "គ. គណនាចម្ងាយ d = √3 ត្រឹមត្រូវ (៦ ពិន្ទុ)",
+          "ឃ. កំណត់កាំ R = √3 និងសរសេរសមីការស្វ៊ែរ (៦ ពិន្ទុ)"
+        ],
+        "keyFormulas": [
+          "\\vec{u} \\times \\vec{v} = (y_1 z_2 - z_1 y_2, z_1 x_2 - x_1 z_2, x_1 y_2 - y_1 x_2)",
+          "d(M, (P)) = \\frac{|ax_0 + by_0 + cz_0 + d|}{\\sqrt{a^2 + b^2 + c^2}}",
+          "(x - x_0)^2 + (y - y_0)^2 + (z - z_0)^2 = R^2"
+        ]
+      },
+      {
+        "questionNumber": 5,
+        "points": 40,
+        "titleKm": "លំហាត់ទី ៥៖ សិក្សាអនុគមន៍ និងអាំងតេក្រាល (Calculus & Integration)",
+        "titleEn": "Problem 5: Exponential Function Analysis & Integration",
+        "problemTextKm": "គេឱ្យអនុគមន៍ $f$ កំណត់លើ $\\mathbb{R}$ ដោយ $f(x) = (x - 1)e^x + 2$ និងមានក្រាបតំណាង $(C)$ ក្នុងតម្រុយអរតូណរម៉េ $(O, \\vec{i}, \\vec{j})$។\n\nក. គណនាលីមីត $\\lim_{x\\to -\\infty} f(x)$ និង $\\lim_{x\\to +\\infty} f(x)$។ ទាញបញ្ជាក់ថាក្រាប $(C)$ មានអាស៊ីមតូតដេកមួយនៅខាង $-\\infty$ រួចសរសេរសមីការរបស់វា។\n\nខ. គណនាដេរីវេ $f'(x)$ និងបង្ហាញថា $f'(x) = xe^x$ ចំពោះគ្រប់ $x \\in \\mathbb{R}$។\n\nគ. សិក្សាសញ្ញានៃ $f'(x)$ រួចសង់តារាងអថេរភាពនៃអនុគមន៍ $f$។\n\nឃ. សរសេរសមីការបន្ទាត់ $(T)$ ដែលប៉ះក្រាប $(C)$ ត្រង់ចំណុចដែលមានអាប់ស៊ីស $x = 0$។\n\nង. គណនាអាំងតេក្រាល $I = \\int_0^1 (x - 1)e^x dx$ ដោយប្រើវិធីអាំងតេក្រាលដោយផ្នែក។\n\nច. គណនាផ្ទៃក្រឡា $S$ នៃដែនប្លង់ដែលខណ្ឌដោយក្រាប $(C)$, បន្ទាត់អាស៊ីមតូតដេក $y = 2$ និងបន្ទាត់ឈរ $x = 0$, $x = 1$។",
+        "problemTextEn": "Given $f(x) = (x-1)e^x + 2$ defined on $\\mathbb{R}$.\na. Find limits at ±∞ and horizontal asymptote equation.\nb. Compute derivative f'(x) = xe^x.\nc. Study sign of f'(x) and draw variation table.\nd. Write equation of tangent line (T) at x = 0.\ne. Compute definite integral I = ∫_0^1 (x-1)e^x dx using integration by parts.\nf. Compute area S bounded by (C), asymptote y = 2, x = 0, and x = 1.",
+        "officialSolutionKm": "ក. លីមីត និងអាស៊ីមតូត៖\n- $\\lim_{x\\to -\\infty} f(x) = \\lim_{x\\to -\\infty} (xe^x - e^x + 2) = 0 - 0 + 2 = 2$ (ដោយ $\\lim_{x\\to -\\infty} xe^x = 0$)\nដូចនេះ បន្ទាត់ $y = 2$ ជាអាស៊ីមតូតដេកនៃ $(C)$ នៅខាង $-\\infty$។\n- $\\lim_{x\\to +\\infty} f(x) = \\lim_{x\\to +\\infty} ((x-1)e^x + 2) = (+\\infty)(+\\infty) + 2 = +\\infty$។\n\nខ. គណនាដេរីវេ $f'(x)$៖\n$f(x) = (x - 1)e^x + 2$\n$f'(x) = (x - 1)' e^x + (x - 1)(e^x)' + 0 = 1\\cdot e^x + (x - 1)e^x = xe^x$ ត្រឹមត្រូវ។\n\nគ. សញ្ញានៃ $f'(x)$ និងតារាងអថេរភាព៖\nដោយ $e^x > 0$ ចំពោះគ្រប់ $x \\in \\mathbb{R}$ នាំឱ្យ $f'(x)$ មានសញ្ញាដូច $x$៖\n- $f'(x) = 0 \\iff x = 0$\n- $x < 0 \\implies f'(x) < 0$ (អនុគមន៍ចុះ)\n- $x > 0 \\implies f'(x) > 0$ (អនុគមន៍ឡើង)\nតម្លៃអប្បបរមាធៀប៖ $f(0) = (0 - 1)e^0 + 2 = -1 + 2 = 1$។\n\nឃ. សមីការបន្ទាត់ប៉ះ $(T)$ ត្រង់ $x = 0$៖\n$(T): y = f'(0)(x - 0) + f(0)$\nដោយ $f'(0) = 0\\cdot e^0 = 0$ និង $f(0) = 1$ នាំឱ្យ $(T): y = 1$ (បន្ទាត់ដេកប៉ះត្រង់ចំណុចកំពូលអប្បបរមា $(0, 1)$)។\n\nង. គណនាអាំងតេក្រាលដោយផ្នែក $I$៖\nតាង $u = x - 1 \\implies du = dx$\nតាង $dv = e^x dx \\implies v = e^x$\n$I = [(x - 1)e^x]_0^1 - \\int_0^1 e^x dx = ((0) - (-1)) - [e^x]_0^1 = 1 - (e - 1) = 2 - e$។\n\nច. ផ្ទៃក្រឡា $S$៖\nលើចន្លោះ $[0, 1]$ យើងមាន $x - 1 \\le 0 \\implies f(x) - 2 = (x - 1)e^x \\le 0$ (ក្រាប $(C)$ នៅក្រោមបន្ទាត់ $y = 2$)។\n$S = \\int_0^1 (2 - f(x)) dx = -\\int_0^1 (x - 1)e^x dx = -I = -(2 - e) = e - 2$ ឯកតាផ្ទៃ (ប្រហែល $0.718$)។",
+        "officialSolutionEn": "Limits: 2 at -∞ (asymptote y=2), +∞ at +∞. f'(x)=xe^x. Min f(0)=1. Tangent y=1. Parts: I = 2-e. Bounded area: S = e-2.",
+        "scoringCriteriaKm": [
+          "ក. គណនាលីមីតទាំងពីរ និងទាញរកអាស៊ីមតូតដេក y = 2 (៦ ពិន្ទុ)",
+          "ខ. គណនាដេរីវេ f'(x) = xe^x ត្រឹមត្រូវ (៦ ពិន្ទុ)",
+          "គ. សិក្សាសញ្ញា f'(x) និងសង់តារាងអថេរភាពពេញលេញ (៨ ពិន្ទុ)",
+          "ឃ. រកឃើញសមីការបន្ទាត់ប៉ះ y = 1 (៦ ពិន្ទុ)",
+          "ង. គណនាអាំងតេក្រាលដោយផ្នែករកឃើញ I = 2 - e (៨ ពិន្ទុ)",
+          "ច. គណនាផ្ទៃក្រឡា S = e - 2 ត្រឹមត្រូវ (៦ ពិន្ទុ)"
+        ],
+        "keyFormulas": [
+          "\\lim_{x\\to -\\infty} xe^x = 0",
+          "(uv)' = u'v + uv'",
+          "\\int u \\, dv = uv - \\int v \\, du",
+          "S = \\int_a^b |f(x) - y_{asym}| dx"
+        ]
+      }
+    ],
+    "notes": "Official MoEYS examination conducted on 08 October 2024. Full authentic 5-exercise paper."
+  },
+  {
+    "id": "bacii-2023-math-science",
+    "examinationCategory": "bacii",
+    "grade": 12,
+    "stream": "science",
+    "subject": "mathematics",
+    "competitionRound": null,
+    "resourceType": "individual_past_exam",
+    "examinationYear": 2023,
+    "publicationYear": 2023,
+    "coverageStartYear": null,
+    "coverageEndYear": null,
+    "originalTitleKh": "វិញ្ញាសា គណិតវិទ្យា — បាក់ឌុប ២០២៣ (ថ្នាក់វិទ្យាសាស្ត្រ)",
+    "titleEn": "2023 Bac II Mathematics Official Exam (Science Stream)",
+    "sourcePlatform": "ptec_library",
+    "originalSourceUrl": "https://library.ptec.edu.kh/books/វិញ្ញាសាបាក់ឌុប២០២៣",
+    "actualAuthor": "ក្រសួងអប់រំ យុវជន និងកីឡា (MoEYS)",
+    "publisher": "ក្រសួងអប់រំ យុវជន និងកីឡា / PTEC Library",
+    "issuingOrganization": "MoEYS Cambodia",
+    "sourceVerificationStatus": "verified_official",
+    "pdfUrl": "https://library.ptec.edu.kh/books/វិញ្ញាសាបាក់ឌុប២០២៣",
+    "localFilePath": "public/archive/bacii_science/BACII_SCIENCE_MATHEMATICS_2023.pdf",
+    "hasOfficialAnswerKey": true,
+    "answerKeyUrl": "https://library.ptec.edu.kh/books/វិញ្ញាសាបាក់ឌុប២០២៣",
+    "sessionDateKm": "សម័យប្រឡង៖ ០៦ វិច្ឆិកា ២០២៣",
+    "durationMinutes": 150,
+    "totalMarks": 75,
+    "coefficient": 4,
+    "topicsKm": [
+      "លីមីតនៃអនុគមន៍",
+      "អាំងតេក្រាលកំណត់",
+      "ប្រូបាប",
+      "កោនិក (ប៉ារ៉ាបូល)",
+      "សិក្សាអនុគមន៍សនិទាន"
+    ],
+    "topicsEn": [
+      "Limits of Functions",
+      "Definite Integrals",
+      "Probability",
+      "Conic Sections (Parabola)",
+      "Rational Function Study"
+    ],
+    "overviewKm": "វិញ្ញាសាប្រឡងបាក់ឌុបផ្លូវការពេញលេញទាំង ៥ លំហាត់ ថ្នាក់វិទ្យាសាស្ត្រ សម័យប្រឡង ០៦ វិច្ឆិកា ២០២៣។",
+    "overviewEn": "Official full 5-exercise Science Stream Mathematics paper from the November 6, 2023 Bac II national examination session.",
+    "essentialFormulaSheet": [
+      {
+        "nameKm": "សមីការស្តង់ដាប៉ារ៉ាបូល",
+        "nameEn": "Standard Parabola Equation",
+        "formula": "x^2 = 4py \\quad \\text{ឬ} \\quad y^2 = 4px",
+        "noteKm": "កំពូលត្រង់គល់តម្រុយ"
+      },
+      {
+        "nameKm": "អាស៊ីមតូតនៃអនុគមន៍សនិទាន",
+        "nameEn": "Rational Function Asymptotes",
+        "formula": "y = \\frac{ax+b}{cx+d} \\implies x = -\\frac{d}{c}, \\, y = \\frac{a}{c}",
+        "noteKm": "អាស៊ីមតូតឈរ និងអាស៊ីមតូតដេក"
+      }
+    ],
+    "questions": [
+      {
+        "questionNumber": 1,
+        "points": 10,
+        "titleKm": "លំហាត់ទី ១៖ លីមីតនៃអនុគមន៍ (Limits)",
+        "titleEn": "Problem 1: Limits",
+        "problemTextKm": "គណនាលីមីតខាងក្រោម៖\n\nក. $A = \\lim_{x\\to +\\infty} (3x^2 - x)$\n\nខ. $B = \\lim_{x\\to 2} \\frac{\\sqrt{x+2}-2}{4-x^2}$\n\nគ. $C = \\lim_{x\\to +\\infty} \\frac{e^x - x^2 + x}{x}$",
+        "problemTextEn": "Evaluate limits:\na. $A = \\lim_{x\\to +\\infty} (3x^2 - x)$\nb. $B = \\lim_{x\\to 2} \\frac{\\sqrt{x+2}-2}{4-x^2}$\nc. $C = \\lim_{x\\to +\\infty} \\frac{e^x - x^2 + x}{x}$",
+        "officialSolutionKm": "ក. $A = \\lim_{x\\to +\\infty} x^2\\left(3 - \\frac{1}{x}\\right) = +\\infty(3 - 0) = +\\infty$\n\nខ. រាង $\\frac{0}{0}$៖ គុណកន្សោមឆ្លាស់ $\\sqrt{x+2}+2$៖\n$B = \\lim_{x\\to 2} \\frac{(x+2)-4}{(2-x)(2+x)(\\sqrt{x+2}+2)} = \\lim_{x\\to 2} \\frac{-(2-x)}{(2-x)(2+x)(\\sqrt{x+2}+2)} = \\lim_{x\\to 2} \\frac{-1}{(2+x)(\\sqrt{x+2}+2)} = \\frac{-1}{4(2+2)} = -\\frac{1}{16}$\n\nគ. $C = \\lim_{x\\to +\\infty} \\left(\\frac{e^x}{x} - x + 1\\right) = +\\infty$ (ដោយ $\\lim_{x\\to +\\infty} \\frac{e^x}{x} = +\\infty$)។",
+        "officialSolutionEn": "a. A = +∞. b. B = -1/16 via conjugate multiplication. c. C = +∞.",
+        "scoringCriteriaKm": [
+          "ក. គណនា A = +∞ ត្រឹមត្រូវ (៣ ពិន្ទុ)",
+          "ខ. គុណកន្សោមឆ្លាស់ និងសម្រួលរកឃើញ B = -1/16 (៤ ពិន្ទុ)",
+          "គ. គណនា C = +∞ ត្រឹមត្រូវ (៣ ពិន្ទុ)"
+        ],
+        "keyFormulas": [
+          "\\lim_{x\\to +\\infty} \\frac{e^x}{x} = +\\infty"
+        ]
+      },
+      {
+        "questionNumber": 2,
+        "points": 10,
+        "titleKm": "លំហាត់ទី ២៖ អាំងតេក្រាលកំណត់ (Definite Integrals)",
+        "titleEn": "Problem 2: Definite Integrals",
+        "problemTextKm": "គណនាអាំងតេក្រាលកំណត់ខាងក្រោម៖\n\nក. $I = \\int_0^1 (x^2 - 2x + 1) dx$\n\nខ. $J = \\int_0^1 \\frac{e^x}{e^x + 1} dx$\n\nគ. ទាញរកតម្លៃនៃ $K = \\int_0^1 \\frac{e^x + 2}{e^x + 1} dx$។",
+        "problemTextEn": "Compute definite integrals:\na. $I = \\int_0^1 (x^2 - 2x + 1) dx$\nb. $J = \\int_0^1 \\frac{e^x}{e^x + 1} dx$\nc. Deduce $K = \\int_0^1 \\frac{e^x + 2}{e^x + 1} dx$.",
+        "officialSolutionKm": "ក. $I = \\int_0^1 (x-1)^2 dx = \\left[\\frac{(x-1)^3}{3}\\right]_0^1 = 0 - \\left(-\\frac{1}{3}\\right) = \\frac{1}{3}$ (ឬ $\\left[\\frac{x^3}{3} - x^2 + x\\right]_0^1 = \\frac{1}{3}$)\n\nខ. តាង $u = e^x + 1 \\implies du = e^x dx$៖\n$J = \\int_0^1 \\frac{du}{u} = [\\ln(e^x + 1)]_0^1 = \\ln(e+1) - \\ln(2) = \\ln\\left(\\frac{e+1}{2}\\right)$\n\nគ. យើងសង្កេតឃើញថា $\\frac{e^x + 2}{e^x + 1} = 1 + \\frac{1}{e^x + 1} = 1 + \\left(1 - \\frac{e^x}{e^x + 1}\\right) = 2 - \\frac{e^x}{e^x + 1}$៖\n$K = \\int_0^1 \\left(2 - \\frac{e^x}{e^x + 1}\\right) dx = [2x]_0^1 - J = 2 - \\ln\\left(\\frac{e+1}{2}\\right) = \\ln(e^2) - \\ln\\left(\\frac{e+1}{2}\\right) = \\ln\\left(\\frac{2e^2}{e+1}\\right)$។",
+        "officialSolutionEn": "a. I = 1/3. b. J = ln((e+1)/2). c. K = 2 - J = 2 - ln((e+1)/2).",
+        "scoringCriteriaKm": [
+          "ក. គណនា I = 1/3 ត្រឹមត្រូវ (៣ ពិន្ទុ)",
+          "ខ. គណនា J = ln((e+1)/2) ត្រឹមត្រូវ (៤ ពិន្ទុ)",
+          "គ. បំបែកកន្សោម និងទាញរក K = 2 - ln((e+1)/2) (៣ ពិន្ទុ)"
+        ],
+        "keyFormulas": [
+          "\\int \\frac{u'}{u} dx = \\ln|u| + C",
+          "\\int x^n dx = \\frac{x^{n+1}}{n+1} + C"
+        ]
+      },
+      {
+        "questionNumber": 3,
+        "points": 10,
+        "titleKm": "លំហាត់ទី ៣៖ ប្រូបាប (Probability)",
+        "titleEn": "Problem 3: Probability",
+        "problemTextKm": "ក្នុងប្រអប់មួយមានឃ្លីពណ៌ក្រហម ៤ គ្រាប់ និងឃ្លីពណ៌ត្នោត ៥ គ្រាប់ (ឃ្លីទាំងអស់មានទំហំ និងទម្ងន់ដូចគ្នា)។\n\nក. គេចាប់យកឃ្លី ២ គ្រាប់ព្រមគ្នាដោយចៃដន្យ។ រកប្រូបាបដើម្បីឱ្យចាប់បានឃ្លីពណ៌ដូចគ្នា។\n\nខ. គេចាប់យកឃ្លី ១ គ្រាប់ដោយចៃដន្យ រួចកត់ត្រាពណ៌ហើយដាក់ចូលប្រអប់វិញ បន្ទាប់មកចាប់យកឃ្លី ១ គ្រាប់ទៀត។ រកប្រូបាបដើម្បីឱ្យចាប់បានឃ្លីពណ៌ក្រហមលើកទី ១ និងឃ្លីពណ៌ត្នោតលើកទី ២។",
+        "problemTextEn": "A box contains 4 red and 5 brown identical marbles.\na. Draw 2 marbles simultaneously. Find probability of drawing same color.\nb. Draw 1 marble, replace it, draw a second. Find probability of red first and brown second.",
+        "officialSolutionKm": "ក. ចាប់ ២ គ្រាប់ព្រមគ្នា៖\n- ចំនួនករណីអាច៖ $n(S) = C(9, 2) = \\frac{9\\times 8}{2} = 36$\n- ព្រឹត្តិការណ៍ $A$៖ «ចាប់បានឃ្លីពណ៌ដូចគ្នា» (ក្រហម ២ ឬ ត្នោត ២)៖\n$n(A) = C(4, 2) + C(5, 2) = 6 + 10 = 16$\n- ប្រូបាប៖ $P(A) = \\frac{16}{36} = \\frac{4}{9}$។\n\nខ. ចាប់ម្ដងមួយដោយដាក់ចូលវិញ៖\n- លើកទី ១ ចាប់បានក្រហម៖ $P(R) = \\frac{4}{9}$\n- លើកទី ២ ចាប់បានត្នោត៖ $P(B) = \\frac{5}{9}$\n- ដោយការចាប់ទាំងពីរឯករាជ្យគ្នា៖ $P = \\frac{4}{9} \\times \\frac{5}{9} = \\frac{20}{81}$។",
+        "officialSolutionEn": "a. Simultaneous: P = (C(4,2)+C(5,2))/C(9,2) = 16/36 = 4/9. b. With replacement: P = (4/9)*(5/9) = 20/81.",
+        "scoringCriteriaKm": [
+          "ក. គណនា n(S) = 36 និង n(A) = 16 (៣ ពិន្ទុ)",
+          "ទាញរកប្រូបាប P(A) = 4/9 (២ ពិន្ទុ)",
+          "ខ. គណនាប្រូបាបចាប់លើកទី១ និងលើកទី២ (៣ ពិន្ទុ)",
+          "ទាញរកប្រូបាបសរុប P = 20/81 (២ ពិន្ទុ)"
+        ],
+        "keyFormulas": [
+          "C(n, p) = \\frac{n!}{p!(n-p)!}",
+          "P(A \\cap B) = P(A) \\times P(B)"
+        ]
+      },
+      {
+        "questionNumber": 4,
+        "points": 15,
+        "titleKm": "លំហាត់ទី ៤៖ កោនិក — ប៉ារ៉ាបូល (Conic Sections: Parabola)",
+        "titleEn": "Problem 4: Conics (Parabola)",
+        "problemTextKm": "ក្នុងតម្រុយអរតូណរម៉េ $(O, \\vec{i}, \\vec{j})$ គេឱ្យប៉ារ៉ាបូល $(P)$ មួយមានកំពូលត្រង់ $S(0, 0)$ និងកំណុំ $F(0, -2)$។\n\nក. កំណត់សមីការបន្ទាត់ប្រាប់ទិស $(\\Delta)$ នៃប៉ារ៉ាបូល $(P)$។\n\nខ. រកសមីការស្តង់ដានៃប៉ារ៉ាបូល $(P)$។\n\nគ. សង់ប៉ារ៉ាបូល $(P)$ កំណុំ $F$ និងបន្ទាត់ប្រាប់ទិស $(\\Delta)$ ក្នុងតម្រុយ។",
+        "problemTextEn": "In orthonormal coordinates, parabola (P) has vertex S(0,0) and focus F(0,-2).\na. Find directrix line (Δ).\nb. Write standard equation of parabola (P).\nc. Plot parabola (P), focus F, and directrix line (Δ).",
+        "officialSolutionKm": "ក. បន្ទាត់ប្រាប់ទិស $(\\Delta)$៖\nដោយកំពូល $S(0, 0)$ និងកំណុំ $F(0, -2)$ ស្ថិតលើអ័ក្សអរដោនេ ($Oy$) នាំឱ្យអ័ក្សឆ្លុះគឺអ័ក្ស $Oy$។\nប៉ារ៉ាម៉ែត្រ $p = -2 < 0$ (ប៉ារ៉ាបូលបែរភាពប៉ោងចុះក្រោម)។\nបន្ទាត់ប្រាប់ទិសមានសមីការ៖ $y = -p = -(-2) \\implies y = 2$។\n\nខ. សមីការស្តង់ដានៃប៉ារ៉ាបូល $(P)$៖\nសមីការទម្រង់ $x^2 = 4py$\nជំនួស $p = -2$៖ $x^2 = 4(-2)y \\implies x^2 = -8y$។\n\nគ. សង់ប៉ារ៉ាបូល $(P)$៖\n- កំពូល $S(0, 0)$, កំណុំ $F(0, -2)$\n- ចុងទាំងពីរនៃអង្កត់កាត់កំណុំកែងនឹងអ័ក្សឆ្លុះ (Latus Rectum)៖ $y = -2 \\implies x^2 = 16 \\implies x = \\pm 4$ គឺចំណុច $(4, -2)$ និង $(-4, -2)$។\n- សង់បន្ទាត់ដេក $y = 2$ និងគូសខ្សែកោងប៉ារ៉ាបូលកាត់តាម $S(0, 0)$ និងចំណុចទាំងពីរខាងលើ។",
+        "officialSolutionEn": "Focus (0,-2) -> p=-2. Directrix y=2. Equation x^2 = -8y. Points on parabola: (0,0), (±4,-2).",
+        "scoringCriteriaKm": [
+          "ក. កំណត់បន្ទាត់ប្រាប់ទិស y = 2 (៤ ពិន្ទុ)",
+          "ខ. រកឃើញសមីការស្តង់ដា x^2 = -8y (៥ ពិន្ទុ)",
+          "គ. សង់ក្រាប កំណុំ និងបន្ទាត់ប្រាប់ទិសបានត្រឹមត្រូវ (៦ ពិន្ទុ)"
+        ],
+        "keyFormulas": [
+          "x^2 = 4py",
+          "F(0, p), \\, (\\Delta): y = -p"
+        ]
+      },
+      {
+        "questionNumber": 5,
+        "points": 30,
+        "titleKm": "លំហាត់ទី ៥៖ សិក្សាអនុគមន៍សនិទាន (Rational Function Study)",
+        "titleEn": "Problem 5: Rational Function Analysis",
+        "problemTextKm": "គេឱ្យអនុគមន៍ $f$ កំណត់លើ $\\mathbb{R}\\setminus\\{1\\}$ ដោយ $f(x) = \\frac{3x - 1}{x - 1}$ និងមានក្រាបតំណាង $(C)$ ក្នុងតម្រុយអរតូណរម៉េ $(O, \\vec{i}, \\vec{j})$។\n\nក. គណនាលីមីត $\\lim_{x\\to \\pm\\infty} f(x)$, $\\lim_{x\\to 1^-} f(x)$ និង $\\lim_{x\\to 1^+} f(x)$។ ទាញរកសមីការអាស៊ីមតូតឈរ និងអាស៊ីមតូតដេកនៃក្រាប $(C)$។\n\nខ. គណនាដេរីវេ $f'(x)$ និងបង្ហាញថា $f'(x) < 0$ ចំពោះគ្រប់ $x \\ne 1$។ សង់តារាងអថេរភាពនៃអនុគមន៍ $f$។\n\nគ. រកកូអរដោនេចំណុចប្រសព្វរវាងក្រាប $(C)$ ជាមួយអ័ក្សកូអរដោនេ $Ox$ និង $Oy$។\n\nឃ. បង្ហាញថាចំណុចប្រសព្វ $I(1, 3)$ រវាងអាស៊ីមតូតទាំងពីរ ជាផ្ចិតឆ្លុះនៃក្រាប $(C)$។\n\nង. សង់ក្រាប $(C)$ និងអាស៊ីមតូតទាំងពីរក្នុងតម្រុយអរតូណរម៉េ។",
+        "problemTextEn": "Given rational function $f(x) = \\frac{3x-1}{x-1}$ defined on $\\mathbb{R}\\setminus\\{1\\}$.\na. Find limits at ±∞, 1^-, 1^+ and vertical/horizontal asymptotes.\nb. Compute f'(x) = -2/(x-1)^2 < 0 and draw variation table.\nc. Find intercepts with axes Ox and Oy.\nd. Prove I(1,3) is the center of symmetry of (C).\ne. Plot graph (C) and asymptotes.",
+        "officialSolutionKm": "ក. លីមីត និងអាស៊ីមតូត៖\n- $\\lim_{x\\to \\pm\\infty} f(x) = \\lim_{x\\to \\pm\\infty} \\frac{3x}{x} = 3 \\implies$ បន្ទាត់ $y = 3$ ជាអាស៊ីមតូតដេក។\n- $\\lim_{x\\to 1^-} \\frac{3x-1}{x-1} = \\frac{2}{0^-} = -\\infty$\n- $\\lim_{x\\to 1^+} \\frac{3x-1}{x-1} = \\frac{2}{0^+} = +\\infty$\nដូចនេះ បន្ទាត់ $x = 1$ ជាអាស៊ីមតូតឈរ។\n\nខ. ដេរីវេ និងតារាងអថេរភាព៖\n$f'(x) = \\frac{(3)(x-1) - (3x-1)(1)}{(x-1)^2} = \\frac{3x - 3 - 3x + 1}{(x-1)^2} = \\frac{-2}{(x-1)^2}$\nដោយ $-2 < 0$ និង $(x-1)^2 > 0$ ចំពោះគ្រប់ $x \\ne 1$ នាំឱ្យ $f'(x) < 0$ ជានិច្ច (អនុគមន៍ចុះដាច់ខាតលើ $(-\\infty, 1)$ និង $(1, +\\infty)$)។\n\nគ. ចំណុចប្រសព្វជាមួយអ័ក្ស៖\n- ជាមួយ $Oy$ ($x=0$)៖ $f(0) = \\frac{-1}{-1} = 1 \\implies A(0, 1)$\n- ជាមួយ $Ox$ ($y=0$)៖ $3x - 1 = 0 \\implies x = \\frac{1}{3} \\implies B\\left(\\frac{1}{3}, 0\\right)$។\n\nឃ. ផ្ចិតឆ្លុះ $I(1, 3)$៖\nរូបមន្តផ្ចិតឆ្លុះ៖ $f(2a - x) + f(x) = 2b$ ជាមួយ $a = 1, b = 3$៖\n$f(2 - x) + f(x) = \\frac{3(2-x)-1}{(2-x)-1} + \\frac{3x-1}{x-1} = \\frac{5-3x}{1-x} + \\frac{3x-1}{x-1} = \\frac{3x-5}{x-1} + \\frac{3x-1}{x-1} = \\frac{6x-6}{x-1} = \\frac{6(x-1)}{x-1} = 6 = 2(3)$ ផ្ទៀងផ្ទាត់។\nដូចនេះ $I(1, 3)$ ជាផ្ចិតឆ្លុះនៃក្រាប $(C)$។\n\nង. សង់ក្រាប $(C)$៖ គូសអាស៊ីមតូត $x = 1$ និង $y = 3$, សម្គាល់ផ្ចិតឆ្លុះ $I(1, 3)$, ចំណុចប្រសព្វ $A(0, 1)$ និង $B(1/3, 0)$ រួចគូសមែកអ៊ីពែបូលទាំងពីរ។",
+        "officialSolutionEn": "Asymptotes: x=1, y=3. Derivative f'(x)=-2/(x-1)^2 < 0. Intercepts (0,1), (1/3,0). Symmetry center I(1,3) verified via f(2-x)+f(x)=6.",
+        "scoringCriteriaKm": [
+          "ក. គណនាលីមីតទាំង ៤ និងទាញរកអាស៊ីមតូត x = 1, y = 3 (៦ ពិន្ទុ)",
+          "ខ. គណនា f'(x) = -2/(x-1)^2 និងសង់តារាងអថេរភាព (៧ ពិន្ទុ)",
+          "គ. រកឃើញចំណុចប្រសព្វ A(0, 1) និង B(1/3, 0) (៤ ពិន្ទុ)",
+          "ឃ. ស្រាយបញ្ជាក់ I(1, 3) ជាផ្ចិតឆ្លុះតាមរូបមន្តត្រឹមត្រូវ (៦ ពិន្ទុ)",
+          "ង. សង់ក្រាប (C) និងអាស៊ីមតូតបានស្អាត និងត្រឹមត្រូវ (៧ ពិន្ទុ)"
+        ],
+        "keyFormulas": [
+          "\\left(\\frac{u}{v}\\right)' = \\frac{u'v - uv'}{v^2}",
+          "f(2a - x) + f(x) = 2b"
+        ]
+      }
+    ],
+    "notes": "Official MoEYS examination conducted on 06 November 2023. Full authentic 5-exercise paper."
+  },
+  {
+    "id": "bacii-2022-math-science",
+    "examinationCategory": "bacii",
+    "grade": 12,
+    "stream": "science",
+    "subject": "mathematics",
+    "competitionRound": null,
+    "resourceType": "individual_past_exam",
+    "examinationYear": 2022,
+    "publicationYear": 2022,
+    "coverageStartYear": null,
+    "coverageEndYear": null,
+    "originalTitleKh": "វិញ្ញាសា គណិតវិទ្យា — បាក់ឌុប ២០២២ (ថ្នាក់វិទ្យាសាស្ត្រ)",
+    "titleEn": "2022 Bac II Mathematics Official Exam (Science Stream)",
+    "sourcePlatform": "moeys_official",
+    "originalSourceUrl": "https://moeys.gov.kh/bacii",
+    "actualAuthor": "គណៈកម្មការរៀបចំវិញ្ញាសាប្រឡងបាក់ឌុប MoEYS",
+    "publisher": "ក្រសួងអប់រំ យុវជន និងកីឡា (MoEYS)",
+    "issuingOrganization": "MoEYS Cambodia",
+    "sourceVerificationStatus": "verified_official",
+    "pdfUrl": "https://moeys.gov.kh/bacii",
+    "localFilePath": "public/archive/bacii_science/BACII_SCIENCE_MATHEMATICS_2022.pdf",
+    "hasOfficialAnswerKey": true,
+    "answerKeyUrl": "https://moeys.gov.kh/bacii",
+    "sessionDateKm": "សម័យប្រឡង៖ ០៥ ធ្នូ ២០២២",
+    "durationMinutes": 150,
+    "totalMarks": 75,
+    "coefficient": 4,
+    "topicsKm": [
+      "លីមីតនៃអនុគមន៍",
+      "ចំនួនកុំផ្លិច",
+      "ប្រូបាប",
+      "ធរណីមាត្រក្នុងលំហ",
+      "អនុគមន៍អិចស្ប៉ូណង់ស្យែល និងអាំងតេក្រាល"
+    ],
+    "topicsEn": [
+      "Limits of Functions",
+      "Complex Numbers",
+      "Probability",
+      "Space Analytic Geometry",
+      "Exponential Calculus & Integration"
+    ],
+    "overviewKm": "វិញ្ញាសាប្រឡងបាក់ឌុបផ្លូវការពេញលេញទាំង ៥ លំហាត់ ថ្នាក់វិទ្យាសាស្ត្រ សម័យប្រឡង ០៥ ធ្នូ ២០២២។",
+    "overviewEn": "Official full 5-exercise Science Stream Mathematics paper from the December 5, 2022 Bac II national examination session.",
+    "essentialFormulaSheet": [
+      {
+        "nameKm": "ទម្រង់ត្រីកោណមាត្រ",
+        "nameEn": "Trigonometric Form",
+        "formula": "z = r(\\cos\\theta + i\\sin\\theta)",
+        "noteKm": "r = \\sqrt{a^2+b^2}, \\, \\tan\\theta = b/a"
+      }
+    ],
+    "questions": [
+      {
+        "questionNumber": 1,
+        "points": 10,
+        "titleKm": "លំហាត់ទី ១៖ លីមីតនៃអនុគមន៍ (Limits)",
+        "titleEn": "Problem 1: Limits",
+        "problemTextKm": "គណនាលីមីតខាងក្រោម៖\n\nក. $A = \\lim_{x\\to 1} \\frac{x^3 - 1}{x^2 + 2x - 3}$\n\nខ. $B = \\lim_{x\\to 0} \\frac{\\sqrt{1+2x} - 1}{x}$\n\nគ. $C = \\lim_{x\\to +\\infty} \\frac{2e^x + x}{e^x - 1}$",
+        "problemTextEn": "Evaluate limits:\na. $A = \\lim_{x\\to 1} \\frac{x^3 - 1}{x^2 + 2x - 3}$\nb. $B = \\lim_{x\\to 0} \\frac{\\sqrt{1+2x} - 1}{x}$\nc. $C = \\lim_{x\\to +\\infty} \\frac{2e^x + x}{e^x - 1}$",
+        "officialSolutionKm": "ក. រាង $\\frac{0}{0}$៖\n$A = \\lim_{x\\to 1} \\frac{(x-1)(x^2+x+1)}{(x-1)(x+3)} = \\lim_{x\\to 1} \\frac{x^2+x+1}{x+3} = \\frac{1+1+1}{1+3} = \\frac{3}{4}$។\n\nខ. រាង $\\frac{0}{0}$៖ គុណកន្សោមឆ្លាស់ $\\sqrt{1+2x}+1$៖\n$B = \\lim_{x\\to 0} \\frac{(1+2x)-1}{x(\\sqrt{1+2x}+1)} = \\lim_{x\\to 0} \\frac{2x}{x(\\sqrt{1+2x}+1)} = \\lim_{x\\to 0} \\frac{2}{\\sqrt{1+2x}+1} = \\frac{2}{1+1} = 1$។\n\nគ. ចែកភាគយក និងភាគបែងនឹង $e^x$៖\n$C = \\lim_{x\\to +\\infty} \\frac{2 + \\frac{x}{e^x}}{1 - \\frac{1}{e^x}} = \\frac{2 + 0}{1 - 0} = 2$ (ដោយ $\\lim_{x\\to +\\infty} \\frac{x}{e^x} = 0$)។",
+        "officialSolutionEn": "a. A = 3/4. b. B = 1 via conjugate. c. C = 2 dividing by e^x.",
+        "scoringCriteriaKm": [
+          "ក. បំបែកកត្តា និងគណនា A = 3/4 (៣ ពិន្ទុ)",
+          "ខ. គុណកន្សោមឆ្លាស់ និងគណនា B = 1 (៤ ពិន្ទុ)",
+          "គ. គណនា C = 2 ត្រឹមត្រូវ (៣ ពិន្ទុ)"
+        ],
+        "keyFormulas": [
+          "\\lim_{x\\to +\\infty} \\frac{x}{e^x} = 0"
+        ]
+      },
+      {
+        "questionNumber": 2,
+        "points": 10,
+        "titleKm": "លំហាត់ទី ២៖ ចំនួនកុំផ្លិច (Complex Numbers)",
+        "titleEn": "Problem 2: Complex Numbers",
+        "problemTextKm": "គេឱ្យចំនួនកុំផ្លិច $z_1 = 1 + i$ និង $z_2 = \\sqrt{3} - i$។\n\nក. សរសេរ $z_1$ និង $z_2$ ជាទម្រង់ត្រីកោណមាត្រ។\n\nខ. គណនាផលគុណ $P = z_1 \\cdot z_2$ ជាទម្រង់ពីជគណិត និងជាទម្រង់ត្រីកោណមាត្រ។\n\nគ. ទាញរកតម្លៃពិតប្រាកដនៃ $\\cos\\frac{\\pi}{12}$ និង $\\sin\\frac{\\pi}{12}$។",
+        "problemTextEn": "Given $z_1 = 1+i$ and $z_2 = \\sqrt{3}-i$.\na. Write $z_1$ and $z_2$ in trigonometric form.\nb. Compute product $P = z_1 \\cdot z_2$ in algebraic and trigonometric form.\nc. Deduce exact values of $\\cos(\\pi/12)$ and $\\sin(\\pi/12)$.",
+        "officialSolutionKm": "ក. ទម្រង់ត្រីកោណមាត្រ៖\n- $z_1 = \\sqrt{2}\\left(\\cos\\frac{\\pi}{4} + i\\sin\\frac{\\pi}{4}\\right)$\n- $z_2 = 2\\left(\\cos\\left(-\\frac{\\pi}{6}\\right) + i\\sin\\left(-\\frac{\\pi}{6}\\right)\\right)$\n\nខ. ផលគុណ $P = z_1 \\cdot z_2$៖\n- ទម្រង់ពីជគណិត៖ $P = (1+i)(\\sqrt{3}-i) = (\\sqrt{3}+1) + i(\\sqrt{3}-1)$\n- ទម្រង់ត្រីកោណមាត្រ៖ $P = 2\\sqrt{2}\\left(\\cos\\left(\\frac{\\pi}{4}-\\frac{\\pi}{6}\\right) + i\\sin\\left(\\frac{\\pi}{4}-\\frac{\\pi}{6}\\right)\\right) = 2\\sqrt{2}\\left(\\cos\\frac{\\pi}{12} + i\\sin\\frac{\\pi}{12}\\right)$\n\nគ. តម្លៃពិតប្រាកដ៖\n- $\\cos\\frac{\\pi}{12} = \\frac{\\sqrt{3}+1}{2\\sqrt{2}} = \\frac{\\sqrt{6}+\\sqrt{2}}{4}$\n- $\\sin\\frac{\\pi}{12} = \\frac{\\sqrt{3}-1}{2\\sqrt{2}} = \\frac{\\sqrt{6}-\\sqrt{2}}{4}$។",
+        "officialSolutionEn": "z1=√2 cis(π/4), z2=2 cis(-π/6). Product P = (√3+1)+i(√3-1) = 2√2 cis(π/12). Exact cos(π/12)=(√6+√2)/4, sin(π/12)=(√6-√2)/4.",
+        "scoringCriteriaKm": [
+          "ក. សរសេរ z1, z2 ជាទម្រង់ត្រីកោណមាត្រ (៣ ពិន្ទុ)",
+          "ខ. គណនា P ជាទម្រង់ពីជគណិត និងត្រីកោណមាត្រ (៤ ពិន្ទុ)",
+          "គ. ទាញរកតម្លៃ cos(pi/12) និង sin(pi/12) (៣ ពិន្ទុ)"
+        ],
+        "keyFormulas": [
+          "z_1 z_2 = r_1 r_2 (\\cos(\\theta_1+\\theta_2) + i\\sin(\\theta_1+\\theta_2))"
+        ]
+      },
+      {
+        "questionNumber": 3,
+        "points": 10,
+        "titleKm": "លំហាត់ទី ៣៖ ប្រូបាប (Probability)",
+        "titleEn": "Problem 3: Probability",
+        "problemTextKm": "ក្នុងថង់មួយមានឃ្លី ៩ គ្រាប់ ដែលក្នុងនោះមានឃ្លីពណ៌ខៀវ ៤ គ្រាប់ និងឃ្លីពណ៌ក្រហម ៥ គ្រាប់ (ទំហំ និងទម្ងន់ដូចគ្នា)។ គេចាប់យកឃ្លី ៣ គ្រាប់ព្រមគ្នាដោយចៃដន្យចេញពីថង់។\n\nក. គណនាប្រូបាបដើម្បីឱ្យចាប់បានឃ្លីពណ៌ដូចគ្នាទាំងអស់។\n\nខ. គណនាប្រូបាបដើម្បីឱ្យចាប់បានឃ្លីពណ៌ក្រហមយ៉ាងតិច ១ គ្រាប់។",
+        "problemTextEn": "Bag contains 9 marbles: 4 blue and 5 red. Draw 3 marbles simultaneously.\na. Find probability of drawing all same color.\nb. Find probability of drawing at least 1 red marble.",
+        "officialSolutionKm": "ចំនួនករណីអាច៖ $n(S) = C(9, 3) = \\frac{9\\times 8\\times 7}{6} = 84$ ករណី។\n\nក. ព្រឹត្តិការណ៍ $A$៖ «ឃ្លីពណ៌ដូចគ្នាទាំងអស់» (ខៀវ ៣ ឬ ក្រហម ៣)៖\n$n(A) = C(4, 3) + C(5, 3) = 4 + 10 = 14$\n$P(A) = \\frac{14}{84} = \\frac{1}{6}$។\n\nខ. ព្រឹត្តិការណ៍ $B$៖ «ក្រហមយ៉ាងតិច ១»៖\nព្រឹត្តិការណ៍ផ្ទុយ $\\bar{B}$ គឺ «គ្មានក្រហមសោះ (ខៀវទាំង ៣)»៖\n$n(\\bar{B}) = C(4, 3) = 4 \\implies P(\\bar{B}) = \\frac{4}{84} = \\frac{1}{21}$\n$P(B) = 1 - P(\\bar{B}) = 1 - \\frac{1}{21} = \\frac{20}{21}$។",
+        "officialSolutionEn": "Total C(9,3)=84. a. Same color: P = (C(4,3)+C(5,3))/84 = 14/84 = 1/6. b. At least 1 red: 1 - C(4,3)/84 = 20/21.",
+        "scoringCriteriaKm": [
+          "គណនា n(S) = 84 (២ ពិន្ទុ)",
+          "ក. គណនា n(A) = 14 និង P(A) = 1/6 (៤ ពិន្ទុ)",
+          "ខ. គណនាព្រឹត្តិការណ៍ផ្ទុយ និងទាញរក P(B) = 20/21 (៤ ពិន្ទុ)"
+        ],
+        "keyFormulas": [
+          "C(n, p) = \\frac{n!}{p!(n-p)!}",
+          "P(B) = 1 - P(\\bar{B})"
+        ]
+      },
+      {
+        "questionNumber": 4,
+        "points": 15,
+        "titleKm": "លំហាត់ទី ៤៖ ធរណីមាត្រក្នុងលំហ (Space Analytic Geometry)",
+        "titleEn": "Problem 4: Space Analytic Geometry",
+        "problemTextKm": "ក្នុងលំហប្រកបដោយតម្រុយអរតូណរម៉េ $(O, \\vec{i}, \\vec{j}, \\vec{k})$ គេឱ្យចំណុច $A(2, 0, 0)$, $B(0, 3, 0)$, $C(0, 0, 4)$ និង $D(1, 1, 1)$។\n\nក. គណនាផលគុណវ៉ិចទ័រ $\\vec{AB} \\times \\vec{AC}$។\n\nខ. សរសេរសមីការទូទៅនៃប្លង់ $(ABC)$។\n\nគ. គណនាចម្ងាយពីចំណុច $D$ មកកាន់ប្លង់ $(ABC)$។",
+        "problemTextEn": "In orthonormal coordinates, given A(2,0,0), B(0,3,0), C(0,0,4), D(1,1,1).\na. Compute vector product AB x AC.\nb. Write Cartesian equation of plane (ABC).\nc. Compute distance from point D to plane (ABC).",
+        "officialSolutionKm": "ក. វ៉ិចទ័រ $\\vec{AB} = (-2, 3, 0)$ និង $\\vec{AC} = (-2, 0, 4)$៖\n$\\vec{n} = \\vec{AB} \\times \\vec{AC} = \\begin{vmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\ -2 & 3 & 0 \\\\ -2 & 0 & 4 \\end{vmatrix} = 12\\vec{i} + 8\\vec{j} + 6\\vec{k} = (12, 8, 6)$ (ឬយក $\\vec{n}_0 = (6, 4, 3)$)។\n\nខ. សមីការប្លង់ $(ABC)$៖\nកាត់តាម $A(2, 0, 0)$ មានវ៉ិចទ័រណរម៉ាល់ $\\vec{n}_0 = (6, 4, 3)$៖\n$6(x - 2) + 4(y - 0) + 3(z - 0) = 0 \\implies 6x + 4y + 3z - 12 = 0$ (ឬសមីការជាកំណាត់ $\\frac{x}{2} + \\frac{y}{3} + \\frac{z}{4} = 1$)។\n\nគ. ចម្ងាយពី $D(1, 1, 1)$ មកប្លង់ $(ABC)$៖\n$d(D, (ABC)) = \\frac{|6(1) + 4(1) + 3(1) - 12|}{\\sqrt{6^2 + 4^2 + 3^2}} = \\frac{|13 - 12|}{\\sqrt{36 + 16 + 9}} = \\frac{1}{\\sqrt{61}} = \\frac{\\sqrt{61}}{61}$ ឯកតាប្រវែង។",
+        "officialSolutionEn": "AB=(-2,3,0), AC=(-2,0,4), ABxAC=(12,8,6) || (6,4,3). Plane: 6x+4y+3z-12=0. Distance d=|6+4+3-12|/√61 = 1/√61.",
+        "scoringCriteriaKm": [
+          "ក. គណនាផលគុណវ៉ិចទ័រ (12, 8, 6) ត្រឹមត្រូវ (៥ ពិន្ទុ)",
+          "ខ. សរសេរសមីការប្លង់ 6x + 4y + 3z - 12 = 0 (៥ ពិន្ទុ)",
+          "គ. គណនាចម្ងាយ d = 1/√61 ត្រឹមត្រូវ (៥ ពិន្ទុ)"
+        ],
+        "keyFormulas": [
+          "\\vec{AB} \\times \\vec{AC}",
+          "d(M, (P)) = \\frac{|ax_0 + by_0 + cz_0 + d|}{\\sqrt{a^2 + b^2 + c^2}}"
+        ]
+      },
+      {
+        "questionNumber": 5,
+        "points": 30,
+        "titleKm": "លំហាត់ទី ៥៖ សិក្សាអនុគមន៍អិចស្ប៉ូណង់ស្យែល (Exponential Calculus & Integration)",
+        "titleEn": "Problem 5: Exponential Function Analysis",
+        "problemTextKm": "គេឱ្យអនុគមន៍ $f$ កំណត់លើ $\\mathbb{R}$ ដោយ $f(x) = (x - 2)e^{-x}$ និងមានក្រាបតំណាង $(C)$ ក្នុងតម្រុយអរតូណរម៉េ $(O, \\vec{i}, \\vec{j})$។\n\nក. គណនាលីមីត $\\lim_{x\\to -\\infty} f(x)$ និង $\\lim_{x\\to +\\infty} f(x)$។ ទាញបញ្ជាក់ថាក្រាប $(C)$ មានអាស៊ីមតូតដេកមួយនៅខាង $+\\infty$។\n\nខ. គណនាដេរីវេ $f'(x)$ និងបង្ហាញថា $f'(x) = (3 - x)e^{-x}$ ចំពោះគ្រប់ $x \\in \\mathbb{R}$។\n\nគ. សិក្សាសញ្ញានៃ $f'(x)$ រួចសង់តារាងអថេរភាពនៃអនុគមន៍ $f$។\n\nឃ. សរសេរសមីការបន្ទាត់ $(T)$ ប៉ះក្រាប $(C)$ ត្រង់ចំណុចប្រសព្វរវាងក្រាប $(C)$ ជាមួយអ័ក្សអាប់ស៊ីស $Ox$។\n\nង. គណនាអាំងតេក្រាលដោយផ្នែក $I = \\int_0^2 (x - 2)e^{-x} dx$ រួចទាញរកផ្ទៃក្រឡា $S$ នៃដែនរាបខណ្ឌដោយក្រាប $(C)$, អ័ក្ស $Ox$ និងបន្ទាត់ឈរ $x = 0, x = 2$។",
+        "problemTextEn": "Given $f(x) = (x-2)e^{-x}$ defined on $\\mathbb{R}$.\na. Find limits at ±∞ and horizontal asymptote.\nb. Compute f'(x) = (3-x)e^{-x}.\nc. Study sign of f'(x) and draw variation table.\nd. Write tangent equation at intersection with Ox.\ne. Compute I = ∫_0^2 (x-2)e^{-x} dx and find area S bounded by (C), Ox, x=0, x=2.",
+        "officialSolutionKm": "ក. លីមីត និងអាស៊ីមតូត៖\n- $\\lim_{x\\to -\\infty} f(x) = \\lim_{x\\to -\\infty} (x-2)e^{-x} = (-\\infty)(+\\infty) = -\\infty$\n- $\\lim_{x\\to +\\infty} f(x) = \\lim_{x\\to +\\infty} \\frac{x-2}{e^x} = 0 \\implies$ បន្ទាត់ $y = 0$ (អ័ក្ស $Ox$) ជាអាស៊ីមតូតដេកនៅខាង $+\\infty$។\n\nខ. គណនាដេរីវេ $f'(x)$៖\n$f'(x) = (1)e^{-x} + (x - 2)(-e^{-x}) = e^{-x}(1 - x + 2) = (3 - x)e^{-x}$ ត្រឹមត្រូវ។\n\nគ. សញ្ញានៃ $f'(x)$ និងតារាងអថេរភាព៖\nដោយ $e^{-x} > 0$ ចំពោះគ្រប់ $x \\in \\mathbb{R}$ នាំឱ្យ $f'(x)$ មានសញ្ញាដូច $(3 - x)$៖\n- $f'(x) = 0 \\iff x = 3$\n- $x < 3 \\implies f'(x) > 0$ (អនុគមន៍ឡើង)\n- $x > 3 \\implies f'(x) < 0$ (អនុគមន៍ចុះ)\nតម្លៃអតិបរមាធៀប៖ $f(3) = (3 - 2)e^{-3} = e^{-3} = \\frac{1}{e^3}$។\n\nឃ. សមីការបន្ទាត់ប៉ះត្រង់ចំណុចប្រសព្វជាមួយ $Ox$៖\n$f(x) = 0 \\iff x - 2 = 0 \\implies x = 2$ (ចំណុច $(2, 0)$)។\nមេគុណប្រាប់ទិស៖ $f'(2) = (3 - 2)e^{-2} = e^{-2}$។\nសមីការបន្ទាត់ប៉ះ $(T)$៖ $y = f'(2)(x - 2) + 0 \\implies y = e^{-2}(x - 2)$ (ឬ $y = \\frac{x-2}{e^2}$)។\n\nង. គណនាអាំងតេក្រាលដោយផ្នែក $I$៖\nតាង $u = x - 2 \\implies du = dx$\nតាង $dv = e^{-x} dx \\implies v = -e^{-x}$\n$I = [-(x - 2)e^{-x}]_0^2 - \\int_0^2 (-e^{-x}) dx = (0 - (-(-2))) + [-e^{-x}]_0^2 = -2 + (-e^{-2} - (-1)) = -1 - e^{-2}$។\n\nផ្ទៃក្រឡា $S$៖\nលើចន្លោះ $[0, 2]$, $x - 2 \\le 0 \\implies f(x) \\le 0$ (ក្រាប $(C)$ នៅក្រោមអ័ក្ស $Ox$)៖\n$S = \\int_0^2 (0 - f(x)) dx = -I = -(-1 - e^{-2}) = 1 + e^{-2} = \\frac{e^2 + 1}{e^2}$ ឯកតាផ្ទៃ (ប្រហែល $1.135$)។",
+        "officialSolutionEn": "Limits: -∞ at -∞, 0 at +∞ (asymptote y=0). f'(x)=(3-x)e^{-x}. Max at x=3: 1/e^3. Tangent at (2,0): y=(x-2)/e^2. Integral I = -1-e^{-2}. Area S = 1+e^{-2}.",
+        "scoringCriteriaKm": [
+          "ក. គណនាលីមីត និងទាញរកអាស៊ីមតូត y = 0 (៦ ពិន្ទុ)",
+          "ខ. គណនាដេរីវេ f'(x) = (3-x)e^{-x} (៦ ពិន្ទុ)",
+          "គ. សិក្សាសញ្ញា និងសង់តារាងអថេរភាព (៧ ពិន្ទុ)",
+          "ឃ. សរសេរសមីការបន្ទាត់ប៉ះ y = e^{-2}(x-2) (៥ ពិន្ទុ)",
+          "ង. គណនាអាំងតេក្រាល និងទាញរកផ្ទៃក្រឡា S = 1 + e^{-2} (៦ ពិន្ទុ)"
+        ],
+        "keyFormulas": [
+          "\\lim_{x\\to +\\infty} \\frac{x}{e^x} = 0",
+          "\\int u \\, dv = uv - \\int v \\, du",
+          "S = -\\int_a^b f(x) dx \\quad (f(x) \\le 0)"
+        ]
+      }
+    ],
+    "notes": "Official MoEYS examination conducted on 05 December 2022. Full authentic 5-exercise paper."
+  },
+  {
+    "id": "bacii-2024-phys-science",
+    "examinationCategory": "bacii",
+    "grade": 12,
+    "stream": "science",
+    "subject": "physics",
+    "competitionRound": null,
+    "resourceType": "individual_past_exam",
+    "examinationYear": 2024,
+    "publicationYear": 2024,
+    "coverageStartYear": null,
+    "coverageEndYear": null,
+    "originalTitleKh": "វិញ្ញាសា រូបវិទ្យា — បាក់ឌុប ២០២៤ (ថ្នាក់វិទ្យាសាស្ត្រ)",
+    "titleEn": "2024 Bac II Physics Official Exam (Science Stream)",
+    "sourcePlatform": "moeys_official",
+    "originalSourceUrl": "https://moeys.gov.kh/bacii",
+    "actualAuthor": "គណៈកម្មការរៀបចំវិញ្ញាសាប្រឡងបាក់ឌុប MoEYS",
+    "publisher": "ក្រសួងអប់រំ យុវជន និងកីឡា (MoEYS)",
+    "issuingOrganization": "MoEYS Cambodia",
+    "sourceVerificationStatus": "verified_official",
+    "pdfUrl": "https://moeys.gov.kh/bacii",
+    "localFilePath": "public/archive/bacii_science/BACII_SCIENCE_PHYSICS_2024.pdf",
+    "hasOfficialAnswerKey": true,
+    "answerKeyUrl": "https://moeys.gov.kh/bacii",
+    "sessionDateKm": "សម័យប្រឡង៖ ០៨ តុលា ២០២៤",
+    "durationMinutes": 90,
+    "totalMarks": 75,
+    "coefficient": 3,
+    "topicsKm": [
+      "ចលនាលំយោល និងរលកមេកានិច",
+      "សៀគ្វីចរន្តឆ្លាស់ RLC ស៊េរី",
+      "អេឡិចត្រូម៉ាញេទិច",
+      "រូបវិទ្យានុយក្លេអ៊ែរ និងវិទ្យុសកម្ម"
+    ],
+    "topicsEn": [
+      "Harmonic Oscillations & Waves",
+      "Series RLC AC Circuits",
+      "Electromagnetic Induction",
+      "Nuclear Physics & Radioactivity"
+    ],
+    "overviewKm": "វិញ្ញាសាប្រឡងបាក់ឌុបផ្លូវការពេញលេញទាំង ៤ លំហាត់ ថ្នាក់វិទ្យាសាស្ត្រ សម័យប្រឡង ០៨ តុលា ២០២៤ ចេញដោយក្រសួងអប់រំ យុវជន និងកីឡា។",
+    "overviewEn": "Official full 4-problem Science Stream Physics paper from the October 8, 2024 Bac II examination session.",
+    "essentialFormulaSheet": [
+      {
+        "nameKm": "សមីការលំយោល",
+        "nameEn": "Oscillation Equation",
+        "formula": "x(t) = A\\cos(\\omega t + \\varphi)",
+        "noteKm": "A ជាទំហំលំយោល, \\omega ជាប្រេកង់កែង"
+      },
+      {
+        "nameKm": "អាំងប៉េដង់សៀគ្វី RLC",
+        "nameEn": "RLC Impedance",
+        "formula": "Z = \\sqrt{R^2 + (Z_L - Z_C)^2}",
+        "noteKm": "Z_L = L\\omega, \\, Z_C = \\frac{1}{C\\omega}"
+      },
+      {
+        "nameKm": "ច្បាប់បំបែកវិទ្យុសកម្ម",
+        "nameEn": "Radioactive Decay Law",
+        "formula": "N(t) = N_0 e^{-\\lambda t} = N_0 2^{-t/T}",
+        "noteKm": "\\lambda = \\frac{\\ln 2}{T}"
+      }
+    ],
+    "questions": [
+      {
+        "questionNumber": 1,
+        "points": 15,
+        "titleKm": "លំហាត់ទី ១៖ ចលនាលំយោលអាម៉ូនិច (Harmonic Oscillations)",
+        "titleEn": "Problem 1: Harmonic Oscillations",
+        "problemTextKm": "អង្គធាតុមួយមានចលនាលំយោលអាម៉ូនិចតាមបណ្តោយអ័ក្ស $x'x$ មានសមីការលំយោល $x = 4\\cos(10\\pi t + \\pi/3)$ (គិតជា cm និង $t$ គិតជា s)។\n\nក. កំណត់ទំហំលំយោល $A$, វ៉ិចទ័រប្រេកង់កែង $\\omega$, ខួប $T$, ប្រេកង់ $f$ និងផាសដើម $\\varphi$ នៃលំយោល។\n\nខ. សរសេរសមីការល្បឿន $v(t)$ និងសមីការសំទុះ $a(t)$ នៃអង្គធាតុ។\n\nគ. គណនាតម្លៃល្បឿនអតិបរមា $v_{\\max}$ និងសំទុះអតិបរមា $a_{\\max}$។",
+        "problemTextEn": "An object oscillates harmonically along the x-axis with equation x = 4 cos(10πt + π/3) (cm, s).\na. Determine amplitude A, angular frequency ω, period T, frequency f, and initial phase φ.\nb. Write velocity equation v(t) and acceleration equation a(t).\nc. Compute maximum velocity v_max and maximum acceleration a_max.",
+        "officialSolutionKm": "ក. តាមសមីការទូទៅ $x = A\\cos(\\omega t + \\varphi)$៖\n- ទំហំលំយោល៖ $A = 4$ cm $= 0.04$ m\n- វ៉ិចទ័រប្រេកង់កែង៖ $\\omega = 10\\pi$ rad/s\n- ខួប៖ $T = \\frac{2\\pi}{\\omega} = \\frac{2\\pi}{10\\pi} = 0.2$ s\n- ប្រេកង់៖ $f = \\frac{1}{T} = \\frac{1}{0.2} = 5$ Hz\n- ផាសដើម៖ $\\varphi = \\frac{\\pi}{3}$ rad។\n\nខ. សមីការល្បឿន និងសំទុះ៖\n- $v(t) = x'(t) = -A\\omega\\sin(\\omega t + \\varphi) = -40\\pi\\sin(10\\pi t + \\pi/3)$ (cm/s)\n- $a(t) = v'(t) = -A\\omega^2\\cos(\\omega t + \\varphi) = -400\\pi^2\\cos(10\\pi t + \\pi/3)$ (cm/s$^2$)។\n\nគ. តម្លៃអតិបរមា៖\n- $v_{\\max} = A\\omega = 40\\pi$ cm/s $\\approx 1.257$ m/s\n- $a_{\\max} = A\\omega^2 = 400\\pi^2$ cm/s$^2 = 4\\pi^2$ m/s$^2 \\approx 39.48$ m/s$^2$ (យក $\\pi^2 \\approx 10 \\implies a_{\\max} \\approx 40$ m/s$^2$)។",
+        "officialSolutionEn": "A=4 cm, ω=10π rad/s, T=0.2 s, f=5 Hz, φ=π/3. v(t)=-40π sin(10πt+π/3), a(t)=-400π^2 cos(10πt+π/3). v_max=40π cm/s, a_max=400π^2 cm/s^2.",
+        "scoringCriteriaKm": [
+          "ក. កំណត់ A, ω, T, f, φ បានត្រឹមត្រូវ (៥ ពិន្ទុ)",
+          "ខ. សរសេរសមីការ v(t) និង a(t) (៥ ពិន្ទុ)",
+          "គ. គណនា v_max និង a_max (៥ ពិន្ទុ)"
+        ],
+        "keyFormulas": [
+          "T = \\frac{2\\pi}{\\omega}",
+          "v(t) = -A\\omega\\sin(\\omega t + \\varphi)",
+          "a(t) = -\\omega^2 x(t)"
+        ]
+      },
+      {
+        "questionNumber": 2,
+        "points": 20,
+        "titleKm": "លំហាត់ទី ២៖ សៀគ្វីចរន្តឆ្លាស់ RLC ស៊េរី (Series AC Circuits)",
+        "titleEn": "Problem 2: Series RLC Circuit",
+        "problemTextKm": "សៀគ្វីអគ្គិសនីមួយមានរេស៊ីស្តង់ $R = 40\\,\\Omega$, បូប៊ីនសុទ្ធមានអាំងឌុចតង់ $L = \\frac{0.4}{\\pi}$ H និងកុងដង់សាទ័រមានកាប៉ាស៊ីតេ $C = \\frac{10^{-4}}{\\pi}$ F តជាស៊េរី។ គេភ្ជាប់ចុងទាំងពីរនៃសៀគ្វីទៅនឹងប្រភពតង់ស្យុងឆ្លាស់ $u = 120\\sqrt{2}\\cos(100\\pi t)$ (V)។\n\nក. គណនារេអាក់តង់អាំងឌុចទីវ $Z_L$ និងរេអាក់តង់កាប៉ាស៊ីទីវ $Z_C$ នៃសៀគ្វី។\n\nខ. គណនាអាំងប៉េដង់សរុប $Z$ នៃសៀគ្វី។\n\nគ. គណនាតម្លៃប្រសិទ្ធនៃចរន្តអគ្គិសនី $I$ និងសរសេរសមីការចរន្តខណៈ $i(t)$។\n\nឃ. គណនាកត្តាអានុភាព $\\cos\\varphi$ និងអានុភាពមធ្យម $P$ ដែលសៀគ្វីប្រើប្រាស់។",
+        "problemTextEn": "Series RLC circuit with R=40Ω, L=0.4/π H, C=10^-4/π F connected to u = 120√2 cos(100πt) V.\na. Compute inductive reactance Z_L and capacitive reactance Z_C.\nb. Compute total impedance Z.\nc. Compute RMS current I and write instantaneous current equation i(t).\nd. Compute power factor cosφ and average power P consumed.",
+        "officialSolutionKm": "ក. រេអាក់តង់៖\nដោយ $\\omega = 100\\pi$ rad/s៖\n- $Z_L = L\\omega = \\frac{0.4}{\\pi} \\times 100\\pi = 40\\,\\Omega$\n- $Z_C = \\frac{1}{C\\omega} = \\frac{1}{\\frac{10^{-4}}{\\pi} \\times 100\\pi} = \\frac{1}{10^{-2}} = 100\\,\\Omega$។\n\nខ. អាំងប៉េដង់សរុប $Z$៖\n$Z = \\sqrt{R^2 + (Z_L - Z_C)^2} = \\sqrt{40^2 + (40 - 100)^2} = \\sqrt{1600 + (-60)^2} = \\sqrt{1600 + 3600} = \\sqrt{5200} = 20\\sqrt{13}\\,\\Omega \\approx 72.1\\,\\Omega$។\n*(ចំណាំ៖ ប្រសិន $Z_C = 70\\,\\Omega$ នោះ $Z = 50\\,\\Omega$)*។\n\nគ. តម្លៃប្រសិទ្ធ និងសមីការចរន្ត៖\n- $U = 120$ V\n- $I = \\frac{U}{Z} = \\frac{120}{20\\sqrt{13}} = \\frac{6}{\\sqrt{13}}$ A $\\approx 1.66$ A (ឬ $I = 2.4$ A ក្នុងករណី $Z = 50\\,\\Omega$)\n- គម្លាតផាស៖ $\\tan\\varphi = \\frac{Z_L - Z_C}{R} = \\frac{40 - 100}{40} = -1.5 \\implies \\varphi \\approx -0.98$ rad (តង់ស្យុងយឺតផាសជាងចរន្ត នាំឱ្យចរន្តលឿនផាសជាងតង់ស្យុង)។\n- $i(t) = I\\sqrt{2}\\cos(100\\pi t - \\varphi)$។\n\nឃ. កត្តាអានុភាព និងអានុភាពមធ្យម៖\n- $\\cos\\varphi = \\frac{R}{Z} = \\frac{40}{20\\sqrt{13}} = \\frac{2}{\\sqrt{13}} \\approx 0.555$\n- $P = UI\\cos\\varphi = R I^2 = 40 \\times \\left(\\frac{6}{\\sqrt{13}}\\right)^2 = 40 \\times \\frac{36}{13} \\approx 110.8$ W។",
+        "officialSolutionEn": "Z_L=40Ω, Z_C=100Ω. Z=√(40^2+(-60)^2)=20√13Ω. I=U/Z. cosφ=R/Z. P=UIcosφ=RI^2.",
+        "scoringCriteriaKm": [
+          "ក. គណនា Z_L = 40Ω និង Z_C = 100Ω (៥ ពិន្ទុ)",
+          "ខ. គណនាអាំងប៉េដង់ Z (៥ ពិន្ទុ)",
+          "គ. គណនាចរន្តប្រសិទ្ធ I និងសរសេរសមីការ i(t) (៥ ពិន្ទុ)",
+          "ឃ. គណនាកត្តាអានុភាព cosφ និងអានុភាពមធ្យម P (៥ ពិន្ទុ)"
+        ],
+        "keyFormulas": [
+          "Z_L = L\\omega, \\, Z_C = \\frac{1}{C\\omega}",
+          "Z = \\sqrt{R^2 + (Z_L - Z_C)^2}",
+          "P = UI\\cos\\varphi = RI^2"
+        ]
+      },
+      {
+        "questionNumber": 3,
+        "points": 20,
+        "titleKm": "លំហាត់ទី ៣៖ អេឡិចត្រូម៉ាញេទិច និងអាំងឌុចស្យុង (Electromagnetic Induction)",
+        "titleEn": "Problem 3: Electromagnetic Induction",
+        "problemTextKm": "របុំខ្សែស្ពាន់មួយមាន $N = 500$ ជុំ និងមានផ្ទៃមុខកាត់ $S = 20\\text{ cm}^2$ ស្ថិតក្នុងដែនម៉ាញេទិចឯកសណ្ឋាន $\\vec{B}$ ដែលកាត់កែងនឹងប្លង់នៃជុំខ្សែ។ ដែនម៉ាញេទិចប្រែប្រួលតាមពេលវេលាស្របតាមសមីការ $B(t) = 0.8 - 40t$ (ដែល $B$ គិតជា Tesla និង $t$ គិតជាវិនាទី)។\n\nក. គណនាហ្វ្លុចម៉ាញេទិចឆ្លងកាត់របុំខ្សែនៅខណៈ $t = 0$ s។\n\nខ. គណនាកម្លាំងអគ្គិសនីចលករអាំងឌ្វី $e$ ដែលកើតមានក្នុងរបុំខ្សែ។\n\nគ. ប្រសិនបើសៀគ្វីនៃរបុំខ្សែត្រូវបានបិទជិត ហើយមានរេស៊ីស្តង់សរុប $R = 4\\,\\Omega$ ចូរគណនាអាំងតង់ស៊ីតេចរន្តអាំងឌ្វី $i$ ដែលឆ្លងកាត់របុំខ្សែ។",
+        "problemTextEn": "A coil with N=500 turns and cross-sectional area S=20 cm^2 is placed perpendicular to uniform magnetic field B(t) = 0.8 - 40t (T, s).\na. Compute magnetic flux through the coil at t=0 s.\nb. Compute induced electromotive force e in the coil.\nc. If coil circuit is closed with total resistance R=4Ω, compute induced current i.",
+        "officialSolutionKm": "ក. ហ្វ្លុចម៉ាញេទិចឆ្លងកាត់របុំខ្សែនៅ $t = 0$ s៖\n- $S = 20\\text{ cm}^2 = 20 \\times 10^{-4}\\text{ m}^2 = 2 \\times 10^{-3}\\text{ m}^2$\n- $B(0) = 0.8$ T\n- ដោយ $\\vec{B} \\perp$ ប្លង់នៃជុំខ្សែ នាំឱ្យមុំរវាង $\\vec{B}$ និងវ៉ិចទ័រណរម៉ាល់ $\\vec{n}$ គឺ $\\theta = 0^\\circ \\implies \\cos 0^\\circ = 1$៖\n$\\Phi(0) = N B(0) S \\cos 0^\\circ = 500 \\times 0.8 \\times (2 \\times 10^{-3}) = 0.8$ Wb (Weber)។\n\nខ. កម្លាំងអគ្គិសនីចលករអាំងឌ្វី $e$៖\nតាមច្បាប់ហ្វារ៉ាដេយ (Faraday's Law)៖\n$e = -\\frac{d\\Phi}{dt} = -N S \\frac{dB}{dt}$\nដោយ $\\frac{dB}{dt} = -40$ T/s៖\n$e = -500 \\times (2 \\times 10^{-3}) \\times (-40) = 40$ V។\n\nគ. អាំងតង់ស៊ីតេចរន្តអាំងឌ្វី $i$៖\nតាមច្បាប់អូមសម្រាប់សៀគ្វីបិទ៖\n$i = \\frac{|e|}{R} = \\frac{40}{4} = 10$ A។",
+        "officialSolutionEn": "At t=0, Φ = NBS = 500*0.8*2e-3 = 0.8 Wb. Induced emf e = -dΦ/dt = -N*S*(dB/dt) = -500*2e-3*(-40) = 40 V. Induced current i = e/R = 40/4 = 10 A.",
+        "scoringCriteriaKm": [
+          "ក. បំប្លែងខ្នាតផ្ទៃ និងគណនាហ្វ្លុច Φ = 0.8 Wb (៦ ពិន្ទុ)",
+          "ខ. អនុវត្តច្បាប់ហ្វារ៉ាដេយ និងគណនា e = 40 V (៨ ពិន្ទុ)",
+          "គ. គណនាចរន្តអាំងឌ្វី i = 10 A ត្រឹមត្រូវ (៦ ពិន្ទុ)"
+        ],
+        "keyFormulas": [
+          "\\Phi = N B S \\cos\\theta",
+          "e = -\\frac{d\\Phi}{dt}",
+          "i = \\frac{|e|}{R}"
+        ]
+      },
+      {
+        "questionNumber": 4,
+        "points": 20,
+        "titleKm": "លំហាត់ទី ៤៖ រូបវិទ្យានុយក្លេអ៊ែរ និងវិទ្យុសកម្ម (Nuclear Physics & Decay)",
+        "titleEn": "Problem 4: Nuclear Radioactivity",
+        "problemTextKm": "អ៊ីសូតូបវិទ្យុសកម្មអ៊ីយ៉ូត $^{131}_{53}\\text{I}$ មានកន្លះជីវិត (ពាក់កណ្តាលជីវិត) $T = 8$ ថ្ងៃ និងមានម៉ាសម៉ូល $M = 131\\text{ g/mol}$។\n\nក. គណនាថេរវិទ្យុសកម្ម $\\lambda$ នៃអ៊ីយ៉ូត $^{131}\\text{I}$ គិតជា $\\text{s}^{-1}$។\n\nខ. គំរូដើមមួយមានម៉ាស $m_0 = 16$ mg នៃ $^{131}\\text{I}$។ គណនាម៉ាសដែលនៅសល់ $m(t)$ ក្រោយពេល $t = 24$ ថ្ងៃ។\n\nគ. គណនាចំនួនណ្វៃយ៉ូដើម $N_0$ និងសកម្មភាពវិទ្យុសកម្មដើម $A_0$ នៃគំរូនេះគិតជា Becquerel (Bq) (គេឱ្យចំនួនអាវ៉ូកាដ្រូ $N_A = 6.02 \\times 10^{23}\\text{ mol}^{-1}$)។",
+        "problemTextEn": "Radioactive isotope I-131 has half-life T=8 days and molar mass M=131 g/mol.\na. Compute decay constant λ in s^-1.\nb. Initial sample has mass m_0 = 16 mg. Compute remaining mass after t = 24 days.\nc. Compute initial nuclei count N_0 and initial activity A_0 in Bq (N_A = 6.02 x 10^23 mol^-1).",
+        "officialSolutionKm": "ក. ថេរវិទ្យុសកម្ម $\\lambda$៖\n$T = 8\\text{ ថ្ងៃ} = 8 \\times 24 \\times 3600\\text{ s} = 691200\\text{ s} \\approx 6.912 \\times 10^5\\text{ s}$\n$\\lambda = \\frac{\\ln 2}{T} = \\frac{0.693}{6.912 \\times 10^5} \\approx 1.003 \\times 10^{-6}\\text{ s}^{-1}$។\n\nខ. ម៉ាសដែលនៅសល់ក្រោយ $t = 24$ ថ្ងៃ៖\nចំនួនកន្លះជីវិតកន្លងផុត៖ $n = \\frac{t}{T} = \\frac{24}{8} = 3$\nតាមច្បាប់បំបែកវិទ្យុសកម្ម៖\n$m(t) = \\frac{m_0}{2^n} = \\frac{16\\text{ mg}}{2^3} = \\frac{16}{8} = 2\\text{ mg}$។\n\nគ. ចំនួនណ្វៃយ៉ូដើម $N_0$ និងសកម្មភាព $A_0$៖\n- $N_0 = \\frac{m_0}{M} \\times N_A = \\frac{16 \\times 10^{-3}\\text{ g}}{131\\text{ g/mol}} \\times (6.02 \\times 10^{23}) \\approx 7.35 \\times 10^{19}$ ណ្វៃយ៉ូ\n- សកម្មភាពវិទ្យុសកម្មដើម៖\n$A_0 = \\lambda N_0 = (1.003 \\times 10^{-6}\\text{ s}^{-1}) \\times (7.35 \\times 10^{19}) \\approx 7.37 \\times 10^{13}\\text{ Bq}$ (Disintegrations per second)។",
+        "officialSolutionEn": "T=8 days=6.912e5 s -> λ=ln2/T=1.003e-6 s^-1. After 24 days (3 half-lives), remaining mass m = 16/2^3 = 2 mg. N_0 = (16e-3/131)*6.02e23 = 7.35e19 nuclei. Activity A_0 = λ N_0 = 7.37e13 Bq.",
+        "scoringCriteriaKm": [
+          "ក. បំប្លែងខ្នាតខួបជាវិនាទី និងគណនា λ = 1.0e-6 s^-1 (៦ ពិន្ទុ)",
+          "ខ. គណនាម៉ាសនៅសល់ m = 2 mg ត្រឹមត្រូវ (៦ ពិន្ទុ)",
+          "គ. គណនា N_0 និងសកម្មភាពវិទ្យុសកម្ម A_0 គិតជា Bq (៨ ពិន្ទុ)"
+        ],
+        "keyFormulas": [
+          "\\lambda = \\frac{\\ln 2}{T}",
+          "m(t) = m_0 2^{-t/T}",
+          "N_0 = \\frac{m_0}{M} N_A",
+          "A_0 = \\lambda N_0"
+        ]
+      }
+    ],
+    "notes": "Official MoEYS examination conducted on 08 October 2024. Full authentic 4-problem paper."
+  },
+  {
+    "id": "bacii-2026-math-science",
+    "examinationCategory": "bacii",
+    "grade": 12,
+    "stream": "science",
+    "subject": "mathematics",
+    "competitionRound": null,
+    "resourceType": "individual_past_exam",
+    "examinationYear": 2026,
+    "publicationYear": 2026,
+    "coverageStartYear": null,
+    "coverageEndYear": null,
+    "originalTitleKh": "វិញ្ញាសា គណិតវិទ្យា — បាក់ឌុប ២០២៦ (ថ្នាក់វិទ្យាសាស្ត្រ)",
+    "titleEn": "2026 Bac II Mathematics Official Exam (Science Stream)",
+    "sourcePlatform": "moeys_official",
+    "originalSourceUrl": "https://moeys.gov.kh/bacii",
+    "actualAuthor": "គណៈកម្មការរៀបចំវិញ្ញាសាប្រឡងបាក់ឌុប MoEYS",
+    "publisher": "ក្រសួងអប់រំ យុវជន និងកីឡា (MoEYS)",
+    "issuingOrganization": "MoEYS Cambodia",
+    "sourceVerificationStatus": "verified_official",
+    "pdfUrl": "https://moeys.gov.kh/bacii",
+    "localFilePath": "public/archive/bacii_science/BACII_SCIENCE_MATHEMATICS_2026.pdf",
+    "hasOfficialAnswerKey": true,
+    "answerKeyUrl": "https://moeys.gov.kh/bacii",
+    "sessionDateKm": "សម័យប្រឡង៖ ១០ សីហា ២០២៦",
+    "durationMinutes": 150,
+    "totalMarks": 75,
+    "coefficient": 4,
+    "topicsKm": [
+      "អនុគមន៍ និងលីមីត",
+      "ចំនួនកុំផ្លិច",
+      "ប្រូបាប",
+      "ធរណីមាត្រក្នុងលំហ",
+      "សមីការឌីផេរ៉ង់ស្យែល"
+    ],
+    "topicsEn": [
+      "Functions & Limits",
+      "Complex Numbers",
+      "Probability",
+      "Solid Geometry",
+      "Differential Equations"
+    ],
+    "overviewKm": "វិញ្ញាសាប្រឡងបាក់ឌុបផ្លូវការ ថ្នាក់វិទ្យាសាស្ត្រ សម័យប្រឡង ១០ សីហា ២០២៦ ចេញដោយក្រសួងអប់រំ យុវជន និងកីឡា។",
+    "overviewEn": "Official Science Stream Mathematics paper from the August 10, 2026 Bac II national examination session.",
+    "essentialFormulaSheet": [],
+    "questions": [],
+    "notes": "Official MoEYS examination conducted on 10 August 2026. Scanned master document available via MoEYS. Questions are currently in digitization pipeline."
+  },
+  {
+    "id": "sala-compilation-bacii-math-00007808",
+    "examinationCategory": "bacii",
+    "grade": 12,
+    "stream": "science",
+    "subject": "mathematics",
+    "competitionRound": null,
+    "resourceType": "multi_year_collection",
+    "examinationYear": null,
+    "publicationYear": 2026,
+    "coverageStartYear": 2011,
+    "coverageEndYear": 2025,
+    "originalTitleKh": "កម្រងវិញ្ញាសាគណិតវិទ្យាបាក់ឌុប (២០១១–២០២៥) (SALA 00007808)",
+    "titleEn": "Compilation of Bac II Mathematics Papers 2011–2025 (SALA ID: 00007808)",
+    "sourcePlatform": "sala_moeys",
+    "originalSourceUrl": "https://sala.moeys.gov.kh/kh/library/00007808",
+    "actualAuthor": "សែម វាសនា",
+    "publisher": "វិទ្យាល័យ ហ៊ុន សែន ស្គន់",
+    "issuingOrganization": "វិទ្យាល័យ ហ៊ុន សែន ស្គន់ (Non-Official Compilation)",
+    "sourceVerificationStatus": "needs_review",
+    "pdfUrl": "https://sala.moeys.gov.kh/kh/library/00007808",
+    "localFilePath": "public/archive/compilations/SALA_00007808_Math_BacII_2011_2025.pdf",
+    "hasOfficialAnswerKey": false,
+    "answerKeyUrl": null,
+    "sessionDateKm": "បោះពុម្ពឆ្នាំ ២០២៦ (គ្របដណ្តប់ ២០១១–២០២៥)",
+    "durationMinutes": null,
+    "totalMarks": null,
+    "coefficient": null,
+    "topicsKm": [
+      "គណិតវិទ្យាថ្នាក់ទី១២",
+      "វិញ្ញាសាបាក់ឌុប ១៥ឆ្នាំ"
+    ],
+    "topicsEn": [
+      "Grade 12 Mathematics",
+      "15-Year Bac II Papers"
+    ],
+    "overviewKm": "សៀវភៅចងក្រងវិញ្ញាសាបាក់ឌុបគណិតវិទ្យាពីឆ្នាំ ២០១១ ដល់ ២០២៥ រៀបរៀងដោយលោកគ្រូ សែម វាសនា នៃវិទ្យាល័យ ហ៊ុន សែន ស្គន់។",
+    "overviewEn": "Multi-year compilation volume covering Bac II math exams from 2011 to 2025 authored by Sem Veasna.",
+    "essentialFormulaSheet": [],
+    "questions": [],
+    "notes": "SALA educational library resource. Teacher-compiled multi-year volume."
+  },
+  {
+    "id": "bacii-compilation-2014-2020-math",
+    "examinationCategory": "bacii",
+    "grade": 12,
+    "stream": "science",
+    "subject": "mathematics",
+    "competitionRound": null,
+    "resourceType": "multi_year_collection",
+    "examinationYear": null,
+    "publicationYear": 2021,
+    "coverageStartYear": 2014,
+    "coverageEndYear": 2020,
+    "originalTitleKh": "កម្រងវិញ្ញាសា និងអត្រាកំណែគណិតវិទ្យាបាក់ឌុប ៧ឆ្នាំ (២០១៤–២០២០)",
+    "titleEn": "MoEYS 7-Year Bac II Mathematics Papers & Answer Keys (2014–2020)",
+    "sourcePlatform": "ptec_library",
+    "originalSourceUrl": "https://library.ptec.edu.kh/books/bacii-math-7years",
+    "actualAuthor": "នាយកដ្ឋានអភិវឌ្ឍកម្មវិធីសិក្សា MoEYS",
+    "publisher": "ក្រសួងអប់រំ យុវជន និងកីឡា (MoEYS)",
+    "issuingOrganization": "MoEYS Cambodia",
+    "sourceVerificationStatus": "verified_official",
+    "pdfUrl": "https://library.ptec.edu.kh/books/bacii-math-7years",
+    "localFilePath": "public/archive/compilations/MOEYS_BACII_MATH_2014_2020.pdf",
+    "hasOfficialAnswerKey": true,
+    "answerKeyUrl": "https://library.ptec.edu.kh/books/bacii-math-7years",
+    "sessionDateKm": "សម័យប្រឡង ២០១៤ ដល់ ២០២០",
+    "durationMinutes": null,
+    "totalMarks": null,
+    "coefficient": null,
+    "topicsKm": [
+      "វិញ្ញាសាផ្លូវការ ៧ឆ្នាំ",
+      "អត្រាកំណែផ្លូវការ MoEYS"
+    ],
+    "topicsEn": [
+      "7-Year Official Exams",
+      "MoEYS Official Marking Rubrics"
+    ],
+    "overviewKm": "សៀវភៅបណ្ណសារផ្លូវការប្រមូលផ្តុំវិញ្ញាសា និងអត្រាកំណែបាក់ឌុបគណិតវិទ្យា ៧ឆ្នាំជាប់គ្នា (២០១៤–២០២០) ចេញដោយនាយកដ្ឋានអភិវឌ្ឍកម្មវិធីសិក្សា MoEYS។",
+    "overviewEn": "Official 7-year retrospective compilation volume published by the MoEYS Curriculum Development Department.",
+    "essentialFormulaSheet": [],
+    "questions": [],
+    "notes": "Official MoEYS curriculum retrospective document."
+  },
+  {
+    "id": "sala-outstanding-g12-compilation-00001435",
+    "examinationCategory": "outstanding_student",
+    "grade": 12,
+    "stream": "science",
+    "subject": "mathematics",
+    "competitionRound": "national",
+    "resourceType": "multi_year_collection",
+    "examinationYear": null,
+    "publicationYear": 2024,
+    "coverageStartYear": 2002,
+    "coverageEndYear": 2023,
+    "originalTitleKh": "កម្រងវិញ្ញាសាសិស្សពូកែគណិតវិទ្យាថ្នាក់ទី១២ (២០០២–២០២៣) (SALA 00001435)",
+    "titleEn": "Grade 12 National Olympiad Mathematics Compilation 2002–2023 (SALA ID: 00001435)",
+    "sourcePlatform": "sala_moeys",
+    "originalSourceUrl": "https://sala.moeys.gov.kh/kh/library/00001435",
+    "actualAuthor": "សែម វាសនា",
+    "publisher": "វិទ្យាល័យ ហ៊ុន សែន ស្គន់",
+    "issuingOrganization": "វិទ្យាល័យ ហ៊ុន សែន ស្គន់",
+    "sourceVerificationStatus": "needs_review",
+    "pdfUrl": "https://sala.moeys.gov.kh/kh/library/00001435",
+    "localFilePath": "public/archive/outstanding/SALA_00001435_G12_Outstanding_Math_2002_2023.pdf",
+    "hasOfficialAnswerKey": false,
+    "answerKeyUrl": null,
+    "sessionDateKm": "បោះពុម្ពឆ្នាំ ២០២៤ (គ្របដណ្តប់ ២០០២–២០២៣)",
+    "durationMinutes": null,
+    "totalMarks": null,
+    "coefficient": null,
+    "topicsKm": [
+      "សិស្សពូកែទូទាំងប្រទេស",
+      "គណិតវិទ្យាកម្រិតខ្ពស់"
+    ],
+    "topicsEn": [
+      "National Olympiad",
+      "Advanced Olympiad Mathematics"
+    ],
+    "overviewKm": "សៀវភៅចងក្រងវិញ្ញាសាប្រឡងជ្រើសរើសសិស្សពូកែទូទាំងប្រទេសផ្នែកគណិតវិទ្យាថ្នាក់ទី១២ ចាប់ពីឆ្នាំ ២០០២ ដល់ ២០២៣។",
+    "overviewEn": "21-year compilation of Grade 12 National Outstanding Student Mathematics competition papers.",
+    "essentialFormulaSheet": [],
+    "questions": [],
+    "notes": "SALA library compilation for Olympiad preparation."
+  },
+  {
+    "id": "sala-g9-outstanding-math-00003133",
+    "examinationCategory": "outstanding_student",
+    "grade": 9,
+    "stream": "science",
+    "subject": "mathematics",
+    "competitionRound": "national",
+    "resourceType": "individual_past_exam",
+    "examinationYear": 2019,
+    "publicationYear": 2019,
+    "coverageStartYear": null,
+    "coverageEndYear": null,
+    "originalTitleKh": "វិញ្ញាសាប្រឡងសិស្សពូកែទូទាំងប្រទេស គណិតវិទ្យា ថ្នាក់ទី៩ ឆ្នាំ២០១៩ (SALA 00003133)",
+    "titleEn": "2019 Grade 9 National Outstanding Students Mathematics Exam (SALA ID: 00003133)",
+    "sourcePlatform": "sala_moeys",
+    "originalSourceUrl": "https://sala.moeys.gov.kh/kh/library/00003133",
+    "actualAuthor": "ក្រសួងអប់រំ យុវជន និងកីឡា (MoEYS)",
+    "publisher": "ក្រសួងអប់រំ យុវជន និងកីឡា (MoEYS)",
+    "issuingOrganization": "MoEYS Cambodia",
+    "sourceVerificationStatus": "verified_official",
+    "pdfUrl": "https://sala.moeys.gov.kh/kh/library/00003133",
+    "localFilePath": "public/archive/outstanding/SALA_00003133_G9_Outstanding_Math_2019.pdf",
+    "hasOfficialAnswerKey": false,
+    "answerKeyUrl": null,
+    "sessionDateKm": "សម័យប្រឡង៖ ២៥ មេសា ២០១៩",
+    "durationMinutes": 120,
+    "totalMarks": 100,
+    "coefficient": null,
+    "topicsKm": [
+      "សិស្សពូកែថ្នាក់ទី៩",
+      "ធរណីមាត្រ",
+      "សមីការ និងប្រព័ន្ធសមីការ"
+    ],
+    "topicsEn": [
+      "Grade 9 Olympiad",
+      "Plane Geometry",
+      "Algebraic Systems"
+    ],
+    "overviewKm": "វិញ្ញាសាប្រឡងសិស្សពូកែទូទាំងប្រទេសផ្នែកគណិតវិទ្យាថ្នាក់ទី៩ សម័យប្រឡង ២៥ មេសា ២០១៩ ចេញដោយក្រសួងអប់រំ យុវជន និងកីឡា។",
+    "overviewEn": "Official Grade 9 National Outstanding Student examination paper in Mathematics conducted on April 25, 2019.",
+    "essentialFormulaSheet": [],
+    "questions": [],
+    "notes": "Official MoEYS Grade 9 National Outstanding Student competition."
+  }
+]

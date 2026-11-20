@@ -16,22 +16,69 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    let isMounted = true;
+
+    // Proactively clear any legacy demo user from storage
+    if (typeof window !== "undefined") {
+      try {
+        localStorage.removeItem("sciencekh_demo_user");
+        sessionStorage.removeItem("sciencekh_demo_user");
+      } catch {
+        // ignore
+      }
+    }
+
     const { data: sub } = supabase.auth.onAuthStateChange((_event, newSession) => {
-      setSession(newSession);
+      if (isMounted) {
+        setSession(newSession);
+      }
     });
-    supabase.auth.getSession().then(({ data }) => {
-      setSession(data.session);
-      setLoading(false);
-    });
-    return () => sub.subscription.unsubscribe();
+
+    supabase.auth
+      .getSession()
+      .then(({ data }) => {
+        if (isMounted) {
+          setSession(data.session);
+          setLoading(false);
+        }
+      })
+      .catch(() => {
+        if (isMounted) {
+          setSession(null);
+          setLoading(false);
+        }
+      });
+
+    return () => {
+      isMounted = false;
+      sub.subscription.unsubscribe();
+    };
   }, []);
 
   const signOut = async () => {
-    await supabase.auth.signOut();
+    if (typeof window !== "undefined") {
+      try {
+        localStorage.removeItem("sciencekh_demo_user");
+        sessionStorage.removeItem("sciencekh_session_only");
+      } catch {
+        // ignore storage access errors
+      }
+    }
+    setSession(null);
+    await supabase.auth.signOut().catch(() => {});
   };
 
+  const activeUser = session?.user ?? null;
+
   return (
-    <AuthContext.Provider value={{ session, user: session?.user ?? null, loading, signOut }}>
+    <AuthContext.Provider
+      value={{
+        session,
+        user: activeUser,
+        loading,
+        signOut,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

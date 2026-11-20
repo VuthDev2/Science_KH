@@ -198,6 +198,7 @@ export type Database = {
           id: string
           language: Database["public"]["Enums"]["app_language"]
           streak_days: number
+          streak_last_updated_at: string | null
           updated_at: string
           xp: number
         }
@@ -211,6 +212,7 @@ export type Database = {
           id: string
           language?: Database["public"]["Enums"]["app_language"]
           streak_days?: number
+          streak_last_updated_at?: string | null
           updated_at?: string
           xp?: number
         }
@@ -224,6 +226,7 @@ export type Database = {
           id?: string
           language?: Database["public"]["Enums"]["app_language"]
           streak_days?: number
+          streak_last_updated_at?: string | null
           updated_at?: string
           xp?: number
         }

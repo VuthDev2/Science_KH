@@ -1,0 +1,2541 @@
+{
+  "grade": 11,
+  "title_km": "កម្មវិធីសិក្សាជាតិថ្នាក់ទី ១១ - ផ្នែកវិទ្យាសាស្ត្រ និងវិទ្យាសាស្ត្រសង្គម",
+  "title_en": "Cambodian National Curriculum — Grade 11 (Science Stream & Social Science Stream)",
+  "cycle": "upper_secondary",
+  "weekly_total_hours": 36,
+  "annual_school_weeks": 38,
+  "overview_km": "ថ្នាក់ទី ១១ ចាប់ផ្តើមបំបែកជាពីរផ្នែកច្បាស់លាស់៖ ថ្នាក់វិទ្យាសាស្ត្រ (ផ្តោតគណិត រូប គីមី ជីវៈ) និងថ្នាក់វិទ្យាសាស្ត្រសង្គម (ផ្តោតភាសាខ្មែរ ប្រវត្តិ ភូមិ ពលរដ្ឋ)។",
+  "overview_en": "Grade 11 initiates formal academic streaming: Science Stream (deep STEM acceleration) and Social Science Stream (humanities, law, economics).",
+  "terminal_examination": null,
+  "academic_streams": {
+    "available_streams": [
+      "science",
+      "social_science"
+    ],
+    "weekly_hours_per_stream": 36
+  },
+  "total_subjects_count": 8,
+  "total_lessons_count": 31,
+  "subjects": [
+    {
+      "subject_slug": "mathematics",
+      "name_km": "គណិតវិទ្យា",
+      "name_en": "Mathematics",
+      "weekly_hours": 4,
+      "official_textbook": {
+        "title_km": "គណិតវិទ្យា (ថ្នាក់ទី ៧-១២)",
+        "publisher": "គ្រឹះស្ថានបោះពុម្ព និងចែកផ្សាយ ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "edition": "បោះពុម្ពឡើងវិញ ២០១៨-២០២៣",
+        "sala_url": "https://sala.moeys.gov.kh/",
+        "oer_url": "https://oer.moeys.gov.kh/"
+      },
+      "units": [
+        {
+          "unit_id": "unit-g11-math-1",
+          "unit_number": 1,
+          "title_km": "លីមីតនៃអនុគមន៍ និងភាពជាប់",
+          "title_en": "Limits of Functions & Continuity",
+          "description_km": "លីមីតនៃអនុគមន៍សនិទាន ត្រីកោណមាត្រ និងភាពជាប់នៃអនុគមន៍ត្រង់ចំណុច",
+          "description_en": "Rational and trigonometric function limits, indeterminate forms, and continuity",
+          "icon": "📐",
+          "competencies": [
+            "ស្វែងយល់ និងអនុវត្តទ្រឹស្តីក្នុង លីមីតនៃអនុគមន៍ និងភាពជាប់",
+            "ដោះស្រាយលំហាត់ និងចំណោទកម្រិតមធ្យម និងកម្រិតខ្ពស់",
+            "ត្រៀមលក្ខណៈសម្រាប់ការវាយតម្លៃប្រចាំជំពូក និងការប្រឡងបញ្ចប់ឆ្នាំ"
+          ],
+          "lesson_count": 2,
+          "lessons": [
+            {
+              "lesson_id": "les-g11-math-01",
+              "sort_order": 1,
+              "title_km": "ស្វ៊ីតចំនួនពិត ៖ ស្វ៊ីតនព្វន្ត និងស្វ៊ីតធរណីមាត្រ",
+              "title_en": "Arithmetic & Geometric Sequences",
+              "summary_km": "តួទី n នៃស្វ៊ីតនព្វន្ត un = u₁ + (n-1)d ស្វ៊ីតធរណីមាត្រ un = u₁ · qⁿ⁻¹ និងផលបូក n តួដំបូង Sn",
+              "summary_en": "Arithmetic general term un = u1 + (n-1)d, geometric term un = u1·qⁿ⁻¹, and partial series sums Sn",
+              "estimated_minutes": 24,
+              "xp_reward": 40,
+              "subtopics": [
+                "ស្វ៊ីតចំនួនពិត ៖ ស្វ៊ីតនព្វន្ត និងស្វ៊ីតធរណីមាត្រ",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ ស្វ៊ីតចំនួនពិត ៖ ស្វ៊ីតនព្វន្ត និងស្វ៊ីតធរណីមាត្រ",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ស្វ៊ីតចំនួនពិត ៖ ស្វ៊ីតនព្វន្ត និងស្វ៊ីតធរណីមាត្រ",
+                  "objective_en": "Recall, state, and explain foundational definitions of Arithmetic & Geometric Sequences"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ស្វ៊ីតចំនួនពិត",
+                  "term_en": "Arithmetic",
+                  "definition_km": "តួទី n នៃស្វ៊ីតនព្វន្ត un = u₁ + (n-1)d ស្វ៊ីតធរណីមាត្រ un = u₁ · qⁿ⁻¹ និងផលបូក n តួដំបូង Sn",
+                  "definition_en": "Arithmetic general term un = u1 + (n-1)d, geometric term un = u1·qⁿ⁻¹, and partial series sums Sn",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ស្វ៊ីតចំនួនពិត ៖ ស្វ៊ីតនព្វន្ត និងស្វ៊ីតធរណីមាត្រ"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g11-math-01-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ស្វ៊ីតចំនួនពិត ៖ ស្វ៊ីតនព្វន្ត និងស្វ៊ីតធរណីមាត្រ",
+                  "title_en": "Practice Exercise 1: Arithmetic & Geometric Sequences",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ស្វ៊ីតចំនួនពិត ៖ ស្វ៊ីតនព្វន្ត និងស្វ៊ីតធរណីមាត្រ ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Arithmetic & Geometric Sequences applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g11-math-01-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ស្វ៊ីតចំនួនពិត ៖ ស្វ៊ីតនព្វន្ត និងស្វ៊ីតធរណីមាត្រ",
+                  "title_en": "Formative Competency Problem: Arithmetic & Geometric Sequences",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ស្វ៊ីតចំនួនពិត ៖ ស្វ៊ីតនព្វន្ត និងស្វ៊ីតធរណីមាត្រ ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Arithmetic & Geometric Sequences to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g11-math-02",
+              "sort_order": 2,
+              "title_km": "លីមីតនៃអនុគមន៍ និងភាពជាប់",
+              "title_en": "Limits of Functions & Continuity",
+              "summary_km": "រាងមិនកំណត់ 0/0, ∞/∞ វិធីបំបែកជាកត្តា គុណកន្សោមឆ្លាស់ និងលីមីតត្រីកោណមាត្រ lim (sin x)/x = 1",
+              "summary_en": "Indeterminate forms 0/0 and ∞/∞, factoring, conjugate multiplication, and trigonometric limit lim (sin x)/x = 1",
+              "estimated_minutes": 25,
+              "xp_reward": 45,
+              "subtopics": [
+                "លីមីតនៃអនុគមន៍ និងភាពជាប់",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ លីមីតនៃអនុគមន៍ និងភាពជាប់",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ លីមីតនៃអនុគមន៍ និងភាពជាប់",
+                  "objective_en": "Recall, state, and explain foundational definitions of Limits of Functions & Continuity"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "លីមីតនៃអនុគមន៍",
+                  "term_en": "Limits",
+                  "definition_km": "រាងមិនកំណត់ 0/0, ∞/∞ វិធីបំបែកជាកត្តា គុណកន្សោមឆ្លាស់ និងលីមីតត្រីកោណមាត្រ lim (sin x)/x = 1",
+                  "definition_en": "Indeterminate forms 0/0 and ∞/∞, factoring, conjugate multiplication, and trigonometric limit lim (sin x)/x = 1",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន លីមីតនៃអនុគមន៍ និងភាពជាប់"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g11-math-02-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ លីមីតនៃអនុគមន៍ និងភាពជាប់",
+                  "title_en": "Practice Exercise 1: Limits of Functions & Continuity",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ លីមីតនៃអនុគមន៍ និងភាពជាប់ ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Limits of Functions & Continuity applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g11-math-02-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ លីមីតនៃអនុគមន៍ និងភាពជាប់",
+                  "title_en": "Formative Competency Problem: Limits of Functions & Continuity",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន លីមីតនៃអនុគមន៍ និងភាពជាប់ ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Limits of Functions & Continuity to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "unit-g11-math-2",
+          "unit_number": 2,
+          "title_km": "ដេរីវេ ស្វ៊ីត និងប្រូបាប៊ីលីតេ",
+          "title_en": "Derivatives, Sequences & Probability",
+          "description_km": "រូបមន្តដេរីវេ អនុវត្តក្នុងការរកបរមា ស្វ៊ីតនព្វន្ត-ធរណីមាត្រ និងប្រូបាប",
+          "description_en": "Differentiation rules, extrema, arithmetic/geometric progressions, and probability",
+          "icon": "📈",
+          "competencies": [
+            "ស្វែងយល់ និងអនុវត្តទ្រឹស្តីក្នុង ដេរីវេ ស្វ៊ីត និងប្រូបាប៊ីលីតេ",
+            "ដោះស្រាយលំហាត់ និងចំណោទកម្រិតមធ្យម និងកម្រិតខ្ពស់",
+            "ត្រៀមលក្ខណៈសម្រាប់ការវាយតម្លៃប្រចាំជំពូក និងការប្រឡងបញ្ចប់ឆ្នាំ"
+          ],
+          "lesson_count": 3,
+          "lessons": [
+            {
+              "lesson_id": "les-g11-math-03",
+              "sort_order": 3,
+              "title_km": "ដេរីវេ និងរូបមន្តដេរីវេ",
+              "title_en": "Derivatives & Differentiation Rules",
+              "summary_km": "និយមន័យដេរីវេជាលីមីត រូបមន្ត (xⁿ)' = n · xⁿ⁻¹, (u · v)', (u / v)' និងដេរីវេបណ្តាក់",
+              "summary_en": "Limit definition of derivative, power rule (xⁿ)' = n·xⁿ⁻¹, product rule (uv)', quotient rule (u/v)', and chain rule",
+              "estimated_minutes": 25,
+              "xp_reward": 45,
+              "subtopics": [
+                "ដេរីវេ និងរូបមន្តដេរីវេ",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ ដេរីវេ និងរូបមន្តដេរីវេ",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ដេរីវេ និងរូបមន្តដេរីវេ",
+                  "objective_en": "Recall, state, and explain foundational definitions of Derivatives & Differentiation Rules"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ដេរីវេ",
+                  "term_en": "Derivatives",
+                  "definition_km": "និយមន័យដេរីវេជាលីមីត រូបមន្ត (xⁿ)' = n · xⁿ⁻¹, (u · v)', (u / v)' និងដេរីវេបណ្តាក់",
+                  "definition_en": "Limit definition of derivative, power rule (xⁿ)' = n·xⁿ⁻¹, product rule (uv)', quotient rule (u/v)', and chain rule",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ដេរីវេ និងរូបមន្តដេរីវេ"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g11-math-03-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ដេរីវេ និងរូបមន្តដេរីវេ",
+                  "title_en": "Practice Exercise 1: Derivatives & Differentiation Rules",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ដេរីវេ និងរូបមន្តដេរីវេ ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Derivatives & Differentiation Rules applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g11-math-03-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ដេរីវេ និងរូបមន្តដេរីវេ",
+                  "title_en": "Formative Competency Problem: Derivatives & Differentiation Rules",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ដេរីវេ និងរូបមន្តដេរីវេ ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Derivatives & Differentiation Rules to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g11-math-04",
+              "sort_order": 4,
+              "title_km": "ការអនុវត្តដេរីវេ ៖ អថេរភាព បរមា និងខ្សែកោង",
+              "title_en": "Applications of Derivatives: Extrema & Graphing",
+              "summary_km": "ទិសដៅអថេរភាពតាមសញ្ញានៃ f'(x) ចំណុចអតិបរមា អប្បបរមា និងសមីការបន្ទាត់ប៉ះ y = f'(x₀)(x - x₀) + y₀",
+              "summary_en": "Monotonicity tests using f'(x) sign, local extrema, critical points, and tangent line equation y = f'(x0)(x - x0) + y0",
+              "estimated_minutes": 24,
+              "xp_reward": 45,
+              "subtopics": [
+                "ការអនុវត្តដេរីវេ ៖ អថេរភាព បរមា និងខ្សែកោង",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ ការអនុវត្តដេរីវេ ៖ អថេរភាព បរមា និងខ្សែកោង",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ការអនុវត្តដេរីវេ ៖ អថេរភាព បរមា និងខ្សែកោង",
+                  "objective_en": "Recall, state, and explain foundational definitions of Applications of Derivatives: Extrema & Graphing"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ការអនុវត្តដេរីវេ",
+                  "term_en": "Applications",
+                  "definition_km": "ទិសដៅអថេរភាពតាមសញ្ញានៃ f'(x) ចំណុចអតិបរមា អប្បបរមា និងសមីការបន្ទាត់ប៉ះ y = f'(x₀)(x - x₀) + y₀",
+                  "definition_en": "Monotonicity tests using f'(x) sign, local extrema, critical points, and tangent line equation y = f'(x0)(x - x0) + y0",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ការអនុវត្តដេរីវេ ៖ អថេរភាព បរមា និងខ្សែកោង"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g11-math-04-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ការអនុវត្តដេរីវេ ៖ អថេរភាព បរមា និងខ្សែកោង",
+                  "title_en": "Practice Exercise 1: Applications of Derivatives: Extrema & Graphing",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ការអនុវត្តដេរីវេ ៖ អថេរភាព បរមា និងខ្សែកោង ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Applications of Derivatives: Extrema & Graphing applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g11-math-04-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ការអនុវត្តដេរីវេ ៖ អថេរភាព បរមា និងខ្សែកោង",
+                  "title_en": "Formative Competency Problem: Applications of Derivatives: Extrema & Graphing",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ការអនុវត្តដេរីវេ ៖ អថេរភាព បរមា និងខ្សែកោង ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Applications of Derivatives: Extrema & Graphing to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g11-math-05",
+              "sort_order": 5,
+              "title_km": "ត្រីកោណមាត្រកម្រិតខ្ពស់ ៖ សមីការត្រីកោណមាត្រ",
+              "title_en": "Advanced Trigonometric Equations",
+              "summary_km": "ការដោះស្រាយសមីការ sin x = sin α, cos x = cos α និងសមីការលីនេអ៊ែរ a sin x + b cos x = c",
+              "summary_en": "Solving fundamental periodic equations sin x = a, cos x = b, and auxiliary angle reduction a sin x + b cos x = c",
+              "estimated_minutes": 24,
+              "xp_reward": 40,
+              "subtopics": [
+                "ត្រីកោណមាត្រកម្រិតខ្ពស់ ៖ សមីការត្រីកោណមាត្រ",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ ត្រីកោណមាត្រកម្រិតខ្ពស់ ៖ សមីការត្រីកោណមាត្រ",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ត្រីកោណមាត្រកម្រិតខ្ពស់ ៖ សមីការត្រីកោណមាត្រ",
+                  "objective_en": "Recall, state, and explain foundational definitions of Advanced Trigonometric Equations"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ត្រីកោណមាត្រកម្រិតខ្ពស់",
+                  "term_en": "Advanced",
+                  "definition_km": "ការដោះស្រាយសមីការ sin x = sin α, cos x = cos α និងសមីការលីនេអ៊ែរ a sin x + b cos x = c",
+                  "definition_en": "Solving fundamental periodic equations sin x = a, cos x = b, and auxiliary angle reduction a sin x + b cos x = c",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ត្រីកោណមាត្រកម្រិតខ្ពស់ ៖ សមីការត្រីកោណមាត្រ"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g11-math-05-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ត្រីកោណមាត្រកម្រិតខ្ពស់ ៖ សមីការត្រីកោណមាត្រ",
+                  "title_en": "Practice Exercise 1: Advanced Trigonometric Equations",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ត្រីកោណមាត្រកម្រិតខ្ពស់ ៖ សមីការត្រីកោណមាត្រ ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Advanced Trigonometric Equations applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g11-math-05-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ត្រីកោណមាត្រកម្រិតខ្ពស់ ៖ សមីការត្រីកោណមាត្រ",
+                  "title_en": "Formative Competency Problem: Advanced Trigonometric Equations",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ត្រីកោណមាត្រកម្រិតខ្ពស់ ៖ សមីការត្រីកោណមាត្រ ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Advanced Trigonometric Equations to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject_slug": "physics",
+      "name_km": "រូបវិទ្យា",
+      "name_en": "Physics",
+      "weekly_hours": 4,
+      "official_textbook": {
+        "title_km": "រូបវិទ្យា (ថ្នាក់ទី ៧-១២)",
+        "publisher": "នាយកដ្ឋានអភិវឌ្ឍកម្មវិធីសិក្សា ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "edition": "បោះពុម្ពឡើងវិញ ២០១៩-២០២៣",
+        "sala_url": "https://sala.moeys.gov.kh/",
+        "oer_url": "https://oer.moeys.gov.kh/"
+      },
+      "units": [
+        {
+          "unit_id": "unit-g11-physics-1",
+          "unit_number": 1,
+          "title_km": "ជំពូកទី ១៖ មូលដ្ឋានគ្រឹះរូបវិទ្យា",
+          "title_en": "Unit 1: Foundations of Physics",
+          "description_km": "មេរៀនគ្រឹះផ្លូវការតាមកម្មវិធីសិក្សាក្រសួងអប់រំ យុវជន និងកីឡា",
+          "description_en": "Core official lessons aligned with MoEYS curriculum standards",
+          "icon": "📖",
+          "competencies": [
+            "ស្វែងយល់ និងអនុវត្តទ្រឹស្តីក្នុង រូបវិទ្យា"
+          ],
+          "lesson_count": 5,
+          "lessons": [
+            {
+              "lesson_id": "les-g11-phys-01",
+              "sort_order": 1,
+              "title_km": "អគ្គិសនីស្ទាទិច និងច្បាប់គូឡុំ (Coulomb's Law)",
+              "title_en": "Electrostatics & Coulomb's Law",
+              "summary_km": "ច្បាប់គូឡុំ F = k · |q₁q₂| / r² ថេរ k = 9 · 10⁹ N · m² / C² និងអន្តរកម្មរវាងបន្ទុកចំនុច",
+              "summary_en": "Coulomb's electrostatic force law F = k|q1q2|/r², permittivity, and superposition of point charges",
+              "estimated_minutes": 22,
+              "xp_reward": 40,
+              "subtopics": [
+                "អគ្គិសនីស្ទាទិច និងច្បាប់គូឡុំ (Coulomb's Law)",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ អគ្គិសនីស្ទាទិច និងច្បាប់គូឡុំ (Coulomb's Law)",
+                  "objective_en": "Recall, state, and explain foundational definitions of Electrostatics & Coulomb's Law"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "អគ្គិសនីស្ទាទិច",
+                  "term_en": "Electrostatics",
+                  "definition_km": "ច្បាប់គូឡុំ F = k · |q₁q₂| / r² ថេរ k = 9 · 10⁹ N · m² / C² និងអន្តរកម្មរវាងបន្ទុកចំនុច",
+                  "definition_en": "Coulomb's electrostatic force law F = k|q1q2|/r², permittivity, and superposition of point charges",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន អគ្គិសនីស្ទាទិច និងច្បាប់គូឡុំ (Coulomb's Law)"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g11-phys-01-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ អគ្គិសនីស្ទាទិច និងច្បាប់គូឡុំ (Coulomb's Law)",
+                  "title_en": "Practice Exercise 1: Electrostatics & Coulomb's Law",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ អគ្គិសនីស្ទាទិច និងច្បាប់គូឡុំ (Coulomb's Law) ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Electrostatics & Coulomb's Law applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g11-phys-01-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ អគ្គិសនីស្ទាទិច និងច្បាប់គូឡុំ (Coulomb's Law)",
+                  "title_en": "Formative Competency Problem: Electrostatics & Coulomb's Law",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន អគ្គិសនីស្ទាទិច និងច្បាប់គូឡុំ (Coulomb's Law) ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Electrostatics & Coulomb's Law to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g11-phys-02",
+              "sort_order": 2,
+              "title_km": "ដែនអគ្គិសនី និងប៉ូតង់ស្យែល (E = F / q, V = E · d)",
+              "title_en": "Electric Fields & Electric Potential",
+              "summary_km": "វ៉ិចទ័រដែនអគ្គិសនី E = k · |q| / r² ខ្សែដែនអគ្គិសនី និងការងារផ្លាស់ទីបន្ទុក W = q · U",
+              "summary_en": "Electric field vector E = F/q (V/m or N/C), uniform fields between parallel plates, and electric potential V",
+              "estimated_minutes": 24,
+              "xp_reward": 40,
+              "subtopics": [
+                "ដែនអគ្គិសនី និងប៉ូតង់ស្យែល (E = F / q, V = E · d)",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ដែនអគ្គិសនី និងប៉ូតង់ស្យែល (E = F / q, V = E · d)",
+                  "objective_en": "Recall, state, and explain foundational definitions of Electric Fields & Electric Potential"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ដែនអគ្គិសនី",
+                  "term_en": "Electric",
+                  "definition_km": "វ៉ិចទ័រដែនអគ្គិសនី E = k · |q| / r² ខ្សែដែនអគ្គិសនី និងការងារផ្លាស់ទីបន្ទុក W = q · U",
+                  "definition_en": "Electric field vector E = F/q (V/m or N/C), uniform fields between parallel plates, and electric potential V",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ដែនអគ្គិសនី និងប៉ូតង់ស្យែល (E = F / q, V = E · d)"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g11-phys-02-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ដែនអគ្គិសនី និងប៉ូតង់ស្យែល (E = F / q, V = E · d)",
+                  "title_en": "Practice Exercise 1: Electric Fields & Electric Potential",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ដែនអគ្គិសនី និងប៉ូតង់ស្យែល (E = F / q, V = E · d) ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Electric Fields & Electric Potential applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g11-phys-02-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ដែនអគ្គិសនី និងប៉ូតង់ស្យែល (E = F / q, V = E · d)",
+                  "title_en": "Formative Competency Problem: Electric Fields & Electric Potential",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ដែនអគ្គិសនី និងប៉ូតង់ស្យែល (E = F / q, V = E · d) ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Electric Fields & Electric Potential to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g11-phys-03",
+              "sort_order": 3,
+              "title_km": "កុងដង់សាទ័រ និងសមត្ថភាព (C = Q / U)",
+              "title_en": "Capacitors & Energy Storage",
+              "summary_km": "និយមន័យសមត្ថភាព C = Q / U ខ្នាតហ្វារ៉ាត់ (F) និងថាមពលស្តុកក្នុងកុងដង់សាទ័រ E = 1/2 CU²",
+              "summary_en": "Capacitance C = Q/U measured in Farads (F), parallel-plate geometry C = εA/d, and energy storage E = 1/2 CU²",
+              "estimated_minutes": 22,
+              "xp_reward": 40,
+              "subtopics": [
+                "កុងដង់សាទ័រ និងសមត្ថភាព (C = Q / U)",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ កុងដង់សាទ័រ និងសមត្ថភាព (C = Q / U)",
+                  "objective_en": "Recall, state, and explain foundational definitions of Capacitors & Energy Storage"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "កុងដង់សាទ័រ",
+                  "term_en": "Capacitors",
+                  "definition_km": "និយមន័យសមត្ថភាព C = Q / U ខ្នាតហ្វារ៉ាត់ (F) និងថាមពលស្តុកក្នុងកុងដង់សាទ័រ E = 1/2 CU²",
+                  "definition_en": "Capacitance C = Q/U measured in Farads (F), parallel-plate geometry C = εA/d, and energy storage E = 1/2 CU²",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន កុងដង់សាទ័រ និងសមត្ថភាព (C = Q / U)"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g11-phys-03-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ កុងដង់សាទ័រ និងសមត្ថភាព (C = Q / U)",
+                  "title_en": "Practice Exercise 1: Capacitors & Energy Storage",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ កុងដង់សាទ័រ និងសមត្ថភាព (C = Q / U) ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Capacitors & Energy Storage applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g11-phys-03-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ កុងដង់សាទ័រ និងសមត្ថភាព (C = Q / U)",
+                  "title_en": "Formative Competency Problem: Capacitors & Energy Storage",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន កុងដង់សាទ័រ និងសមត្ថភាព (C = Q / U) ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Capacitors & Energy Storage to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g11-phys-04",
+              "sort_order": 4,
+              "title_km": "ដែនម៉ាញេទិច និងកម្លាំងឡូរ៉ិន (Lorentz Force)",
+              "title_en": "Magnetic Fields & Lorentz Force",
+              "summary_km": "កម្លាំងឡូរ៉ិនលើបន្ទុកផ្លាស់ទី F = |q| · v · B · sin α និងវិធានដៃស្តាំ",
+              "summary_en": "Lorentz force on moving charges F = q v B sin α, right-hand rule, and circular trajectory in uniform magnetic fields",
+              "estimated_minutes": 24,
+              "xp_reward": 40,
+              "subtopics": [
+                "ដែនម៉ាញេទិច និងកម្លាំងឡូរ៉ិន (Lorentz Force)",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ដែនម៉ាញេទិច និងកម្លាំងឡូរ៉ិន (Lorentz Force)",
+                  "objective_en": "Recall, state, and explain foundational definitions of Magnetic Fields & Lorentz Force"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ដែនម៉ាញេទិច",
+                  "term_en": "Magnetic",
+                  "definition_km": "កម្លាំងឡូរ៉ិនលើបន្ទុកផ្លាស់ទី F = |q| · v · B · sin α និងវិធានដៃស្តាំ",
+                  "definition_en": "Lorentz force on moving charges F = q v B sin α, right-hand rule, and circular trajectory in uniform magnetic fields",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ដែនម៉ាញេទិច និងកម្លាំងឡូរ៉ិន (Lorentz Force)"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g11-phys-04-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ដែនម៉ាញេទិច និងកម្លាំងឡូរ៉ិន (Lorentz Force)",
+                  "title_en": "Practice Exercise 1: Magnetic Fields & Lorentz Force",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ដែនម៉ាញេទិច និងកម្លាំងឡូរ៉ិន (Lorentz Force) ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Magnetic Fields & Lorentz Force applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g11-phys-04-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ដែនម៉ាញេទិច និងកម្លាំងឡូរ៉ិន (Lorentz Force)",
+                  "title_en": "Formative Competency Problem: Magnetic Fields & Lorentz Force",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ដែនម៉ាញេទិច និងកម្លាំងឡូរ៉ិន (Lorentz Force) ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Magnetic Fields & Lorentz Force to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g11-phys-05",
+              "sort_order": 5,
+              "title_km": "អាំងឌុចស្យុងអេឡិចត្រូម៉ាញេទិច និងច្បាប់ហ្វារ៉ាដេ",
+              "title_en": "Electromagnetic Induction & Faraday's Law",
+              "summary_km": "ភ្លុចម៉ាញេទិច Φ = B · S · cos θ ច្បាប់ហ្វារ៉ាដេ e = -ΔΦ / Δt និងច្បាប់ឡិនស៍",
+              "summary_en": "Magnetic flux Φ = B·S·cos θ (Weber), Faraday's law of induced EMF e = -dΦ/dt, and Lenz's direction law",
+              "estimated_minutes": 24,
+              "xp_reward": 45,
+              "subtopics": [
+                "អាំងឌុចស្យុងអេឡិចត្រូម៉ាញេទិច និងច្បាប់ហ្វារ៉ាដេ",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ អាំងឌុចស្យុងអេឡិចត្រូម៉ាញេទិច និងច្បាប់ហ្វារ៉ាដេ",
+                  "objective_en": "Recall, state, and explain foundational definitions of Electromagnetic Induction & Faraday's Law"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "អាំងឌុចស្យុងអេឡិចត្រូម៉ាញេទិច",
+                  "term_en": "Electromagnetic",
+                  "definition_km": "ភ្លុចម៉ាញេទិច Φ = B · S · cos θ ច្បាប់ហ្វារ៉ាដេ e = -ΔΦ / Δt និងច្បាប់ឡិនស៍",
+                  "definition_en": "Magnetic flux Φ = B·S·cos θ (Weber), Faraday's law of induced EMF e = -dΦ/dt, and Lenz's direction law",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន អាំងឌុចស្យុងអេឡិចត្រូម៉ាញេទិច និងច្បាប់ហ្វារ៉ាដេ"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g11-phys-05-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ អាំងឌុចស្យុងអេឡិចត្រូម៉ាញេទិច និងច្បាប់ហ្វារ៉ាដេ",
+                  "title_en": "Practice Exercise 1: Electromagnetic Induction & Faraday's Law",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ អាំងឌុចស្យុងអេឡិចត្រូម៉ាញេទិច និងច្បាប់ហ្វារ៉ាដេ ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Electromagnetic Induction & Faraday's Law applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g11-phys-05-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ អាំងឌុចស្យុងអេឡិចត្រូម៉ាញេទិច និងច្បាប់ហ្វារ៉ាដេ",
+                  "title_en": "Formative Competency Problem: Electromagnetic Induction & Faraday's Law",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន អាំងឌុចស្យុងអេឡិចត្រូម៉ាញេទិច និងច្បាប់ហ្វារ៉ាដេ ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Electromagnetic Induction & Faraday's Law to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject_slug": "chemistry",
+      "name_km": "គីមីវិទ្យា",
+      "name_en": "Chemistry",
+      "weekly_hours": 4,
+      "official_textbook": {
+        "title_km": "គីមីវិទ្យា (ថ្នាក់ទី ៧-១២)",
+        "publisher": "គ្រឹះស្ថានបោះពុម្ព និងចែកផ្សាយ ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "edition": "បោះពុម្ពឡើងវិញ ២០១៨-២០២២",
+        "sala_url": "https://sala.moeys.gov.kh/",
+        "oer_url": "https://oer.moeys.gov.kh/"
+      },
+      "units": [
+        {
+          "unit_id": "unit-g11-chemistry-1",
+          "unit_number": 1,
+          "title_km": "ជំពូកទី ១៖ មូលដ្ឋានគ្រឹះគីមីវិទ្យា",
+          "title_en": "Unit 1: Foundations of Chemistry",
+          "description_km": "មេរៀនគ្រឹះផ្លូវការតាមកម្មវិធីសិក្សាក្រសួងអប់រំ យុវជន និងកីឡា",
+          "description_en": "Core official lessons aligned with MoEYS curriculum standards",
+          "icon": "📖",
+          "competencies": [
+            "ស្វែងយល់ និងអនុវត្តទ្រឹស្តីក្នុង គីមីវិទ្យា"
+          ],
+          "lesson_count": 5,
+          "lessons": [
+            {
+              "lesson_id": "les-g11-chem-01",
+              "sort_order": 1,
+              "title_km": "ស៊ីនេទិចគីមី និងល្បឿនប្រតិកម្ម",
+              "title_en": "Chemical Kinetics & Reaction Rates",
+              "summary_km": "ល្បឿនមធ្យមនៃការបាត់បង់ប្រតិករ និងការកកើតផល v = -Δ[A]/Δt = +Δ[P]/Δt",
+              "summary_en": "Average and instantaneous reaction rate definitions, concentration curves, and kinetic rate laws",
+              "estimated_minutes": 22,
+              "xp_reward": 40,
+              "subtopics": [
+                "ស៊ីនេទិចគីមី និងល្បឿនប្រតិកម្ម",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ស៊ីនេទិចគីមី និងល្បឿនប្រតិកម្ម",
+                  "objective_en": "Recall, state, and explain foundational definitions of Chemical Kinetics & Reaction Rates"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ស៊ីនេទិចគីមី",
+                  "term_en": "Chemical",
+                  "definition_km": "ល្បឿនមធ្យមនៃការបាត់បង់ប្រតិករ និងការកកើតផល v = -Δ[A]/Δt = +Δ[P]/Δt",
+                  "definition_en": "Average and instantaneous reaction rate definitions, concentration curves, and kinetic rate laws",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ស៊ីនេទិចគីមី និងល្បឿនប្រតិកម្ម"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g11-chem-01-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ស៊ីនេទិចគីមី និងល្បឿនប្រតិកម្ម",
+                  "title_en": "Practice Exercise 1: Chemical Kinetics & Reaction Rates",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ស៊ីនេទិចគីមី និងល្បឿនប្រតិកម្ម ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Chemical Kinetics & Reaction Rates applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g11-chem-01-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ស៊ីនេទិចគីមី និងល្បឿនប្រតិកម្ម",
+                  "title_en": "Formative Competency Problem: Chemical Kinetics & Reaction Rates",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ស៊ីនេទិចគីមី និងល្បឿនប្រតិកម្ម ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Chemical Kinetics & Reaction Rates to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g11-chem-02",
+              "sort_order": 2,
+              "title_km": "សមតុល្យគីមី និងគោលការណ៍ Le Chatelier",
+              "title_en": "Chemical Equilibrium & Le Chatelier's Principle",
+              "summary_km": "ប្រតិកម្មទៅមក ថេរលំនឹង Kc និងឥទ្ធិពលនៃកំហាប់ សម្ពាធ និងសីតុណ្ហភាព",
+              "summary_en": "Reversible reactions, dynamic equilibrium constant Kc, and Le Chatelier's stress response shifts",
+              "estimated_minutes": 24,
+              "xp_reward": 45,
+              "subtopics": [
+                "សមតុល្យគីមី និងគោលការណ៍ Le Chatelier",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ សមតុល្យគីមី និងគោលការណ៍ Le Chatelier",
+                  "objective_en": "Recall, state, and explain foundational definitions of Chemical Equilibrium & Le Chatelier's Principle"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "សមតុល្យគីមី",
+                  "term_en": "Chemical",
+                  "definition_km": "ប្រតិកម្មទៅមក ថេរលំនឹង Kc និងឥទ្ធិពលនៃកំហាប់ សម្ពាធ និងសីតុណ្ហភាព",
+                  "definition_en": "Reversible reactions, dynamic equilibrium constant Kc, and Le Chatelier's stress response shifts",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន សមតុល្យគីមី និងគោលការណ៍ Le Chatelier"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g11-chem-02-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ សមតុល្យគីមី និងគោលការណ៍ Le Chatelier",
+                  "title_en": "Practice Exercise 1: Chemical Equilibrium & Le Chatelier's Principle",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ សមតុល្យគីមី និងគោលការណ៍ Le Chatelier ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Chemical Equilibrium & Le Chatelier's Principle applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g11-chem-02-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ សមតុល្យគីមី និងគោលការណ៍ Le Chatelier",
+                  "title_en": "Formative Competency Problem: Chemical Equilibrium & Le Chatelier's Principle",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន សមតុល្យគីមី និងគោលការណ៍ Le Chatelier ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Chemical Equilibrium & Le Chatelier's Principle to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g11-chem-03",
+              "sort_order": 3,
+              "title_km": "គីមីសរីរាង្គ ៖ អ៊ីដ្រូកាបួឆ្អែត អាល់កាន (CnH2n+2)",
+              "title_en": "Organic Chemistry: Alkanes (CnH2n+2)",
+              "summary_km": "រូបមន្តទូទៅ CnH2n+2 ការហៅឈ្មោះតាម IUPAC អ៊ីសូមែ និងប្រតិកម្មជំនួសជាមួយក្លរ",
+              "summary_en": "Alkane homologous series CnH2n+2, IUPAC nomenclature, structural isomers, and free radical halogenation",
+              "estimated_minutes": 24,
+              "xp_reward": 40,
+              "subtopics": [
+                "គីមីសរីរាង្គ ៖ អ៊ីដ្រូកាបួឆ្អែត អាល់កាន (CnH2n+2)",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ គីមីសរីរាង្គ ៖ អ៊ីដ្រូកាបួឆ្អែត អាល់កាន (CnH2n+2)",
+                  "objective_en": "Recall, state, and explain foundational definitions of Organic Chemistry: Alkanes (CnH2n+2)"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "គីមីសរីរាង្គ",
+                  "term_en": "Organic",
+                  "definition_km": "រូបមន្តទូទៅ CnH2n+2 ការហៅឈ្មោះតាម IUPAC អ៊ីសូមែ និងប្រតិកម្មជំនួសជាមួយក្លរ",
+                  "definition_en": "Alkane homologous series CnH2n+2, IUPAC nomenclature, structural isomers, and free radical halogenation",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន គីមីសរីរាង្គ ៖ អ៊ីដ្រូកាបួឆ្អែត អាល់កាន (CnH2n+2)"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g11-chem-03-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ គីមីសរីរាង្គ ៖ អ៊ីដ្រូកាបួឆ្អែត អាល់កាន (CnH2n+2)",
+                  "title_en": "Practice Exercise 1: Organic Chemistry: Alkanes (CnH2n+2)",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ គីមីសរីរាង្គ ៖ អ៊ីដ្រូកាបួឆ្អែត អាល់កាន (CnH2n+2) ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Organic Chemistry: Alkanes (CnH2n+2) applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g11-chem-03-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ គីមីសរីរាង្គ ៖ អ៊ីដ្រូកាបួឆ្អែត អាល់កាន (CnH2n+2)",
+                  "title_en": "Formative Competency Problem: Organic Chemistry: Alkanes (CnH2n+2)",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន គីមីសរីរាង្គ ៖ អ៊ីដ្រូកាបួឆ្អែត អាល់កាន (CnH2n+2) ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Organic Chemistry: Alkanes (CnH2n+2) to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g11-chem-04",
+              "sort_order": 4,
+              "title_km": "គីមីសរីរាង្គ ៖ អាល់សែន និងអាល់ស៊ីន",
+              "title_en": "Unsaturated Hydrocarbons: Alkenes & Alkynes",
+              "summary_km": "សម្ព័ន្ធពីរ CnH2n (អាល់សែន) សម្ព័ន្ធបី CnH2n-2 (អាល់ស៊ីន) និងប្រតិកម្មបូក",
+              "summary_en": "Double bond alkenes CnH2n, triple bond alkynes CnH2n-2, Markovnikov's rule, and bromine addition decolorization",
+              "estimated_minutes": 22,
+              "xp_reward": 40,
+              "subtopics": [
+                "គីមីសរីរាង្គ ៖ អាល់សែន និងអាល់ស៊ីន",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ គីមីសរីរាង្គ ៖ អាល់សែន និងអាល់ស៊ីន",
+                  "objective_en": "Recall, state, and explain foundational definitions of Unsaturated Hydrocarbons: Alkenes & Alkynes"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "គីមីសរីរាង្គ",
+                  "term_en": "Unsaturated",
+                  "definition_km": "សម្ព័ន្ធពីរ CnH2n (អាល់សែន) សម្ព័ន្ធបី CnH2n-2 (អាល់ស៊ីន) និងប្រតិកម្មបូក",
+                  "definition_en": "Double bond alkenes CnH2n, triple bond alkynes CnH2n-2, Markovnikov's rule, and bromine addition decolorization",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន គីមីសរីរាង្គ ៖ អាល់សែន និងអាល់ស៊ីន"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g11-chem-04-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ គីមីសរីរាង្គ ៖ អាល់សែន និងអាល់ស៊ីន",
+                  "title_en": "Practice Exercise 1: Unsaturated Hydrocarbons: Alkenes & Alkynes",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ គីមីសរីរាង្គ ៖ អាល់សែន និងអាល់ស៊ីន ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Unsaturated Hydrocarbons: Alkenes & Alkynes applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g11-chem-04-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ គីមីសរីរាង្គ ៖ អាល់សែន និងអាល់ស៊ីន",
+                  "title_en": "Formative Competency Problem: Unsaturated Hydrocarbons: Alkenes & Alkynes",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន គីមីសរីរាង្គ ៖ អាល់សែន និងអាល់ស៊ីន ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Unsaturated Hydrocarbons: Alkenes & Alkynes to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g11-chem-05",
+              "sort_order": 5,
+              "title_km": "អាល់កុល និងអេទែ (R-OH, R-O-R')",
+              "title_en": "Alcohols, Ethers & Functional Groups",
+              "summary_km": "បង្គុំមុខងារអ៊ីដ្រុកស៊ីល -OH អេតាណុល C₂H₅OH និងប្រតិកម្មចំហេះ ប្រតិកម្មជាមួយសូដ្យូម",
+              "summary_en": "Hydroxyl functional group -OH, ethanol fermentation, physical hydrogen bonding, and sodium metal reactions",
+              "estimated_minutes": 22,
+              "xp_reward": 40,
+              "subtopics": [
+                "អាល់កុល និងអេទែ (R-OH, R-O-R')",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ អាល់កុល និងអេទែ (R-OH, R-O-R')",
+                  "objective_en": "Recall, state, and explain foundational definitions of Alcohols, Ethers & Functional Groups"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "អាល់កុល",
+                  "term_en": "Alcohols,",
+                  "definition_km": "បង្គុំមុខងារអ៊ីដ្រុកស៊ីល -OH អេតាណុល C₂H₅OH និងប្រតិកម្មចំហេះ ប្រតិកម្មជាមួយសូដ្យូម",
+                  "definition_en": "Hydroxyl functional group -OH, ethanol fermentation, physical hydrogen bonding, and sodium metal reactions",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន អាល់កុល និងអេទែ (R-OH, R-O-R')"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g11-chem-05-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ អាល់កុល និងអេទែ (R-OH, R-O-R')",
+                  "title_en": "Practice Exercise 1: Alcohols, Ethers & Functional Groups",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ អាល់កុល និងអេទែ (R-OH, R-O-R') ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Alcohols, Ethers & Functional Groups applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g11-chem-05-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ អាល់កុល និងអេទែ (R-OH, R-O-R')",
+                  "title_en": "Formative Competency Problem: Alcohols, Ethers & Functional Groups",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន អាល់កុល និងអេទែ (R-OH, R-O-R') ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Alcohols, Ethers & Functional Groups to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject_slug": "biology",
+      "name_km": "ជីវវិទ្យា",
+      "name_en": "Biology",
+      "weekly_hours": 4,
+      "official_textbook": {
+        "title_km": "ជីវវិទ្យា (ថ្នាក់ទី ៧-១២)",
+        "publisher": "នាយកដ្ឋានអភិវឌ្ឍកម្មវិធីសិក្សា ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "edition": "បោះពុម្ពឡើងវិញ ២០១៨-២០២៣",
+        "sala_url": "https://sala.moeys.gov.kh/",
+        "oer_url": "https://oer.moeys.gov.kh/"
+      },
+      "units": [
+        {
+          "unit_id": "unit-g11-biology-1",
+          "unit_number": 1,
+          "title_km": "ជំពូកទី ១៖ មូលដ្ឋានគ្រឹះជីវវិទ្យា",
+          "title_en": "Unit 1: Foundations of Biology",
+          "description_km": "មេរៀនគ្រឹះផ្លូវការតាមកម្មវិធីសិក្សាក្រសួងអប់រំ យុវជន និងកីឡា",
+          "description_en": "Core official lessons aligned with MoEYS curriculum standards",
+          "icon": "📖",
+          "competencies": [
+            "ស្វែងយល់ និងអនុវត្តទ្រឹស្តីក្នុង ជីវវិទ្យា"
+          ],
+          "lesson_count": 5,
+          "lessons": [
+            {
+              "lesson_id": "les-g11-bio-01",
+              "sort_order": 1,
+              "title_km": "រស្មីសំយោគស៊ីជម្រៅ ៖ ដំណាក់កាលពន្លឺ និងវដ្ត Calvin",
+              "title_en": "Deep Photosynthesis: Light Reactions & Calvin Cycle",
+              "summary_km": "ទីឡាកូអ៊ីត ផូតូស៊ីស្ទែម II និង I ការបំបែកទឹកដោយពន្លឺ NADPH និងការផលិតគ្លុយកូសក្នុងស្ត្រូម៉ា",
+              "summary_en": "Thylakoid light-dependent ATP/NADPH photolysis and stroma light-independent Calvin cycle (RuBisCO fixation)",
+              "estimated_minutes": 25,
+              "xp_reward": 45,
+              "subtopics": [
+                "រស្មីសំយោគស៊ីជម្រៅ ៖ ដំណាក់កាលពន្លឺ និងវដ្ត Calvin",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ រស្មីសំយោគស៊ីជម្រៅ ៖ ដំណាក់កាលពន្លឺ និងវដ្ត Calvin",
+                  "objective_en": "Recall, state, and explain foundational definitions of Deep Photosynthesis: Light Reactions & Calvin Cycle"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "រស្មីសំយោគស៊ីជម្រៅ",
+                  "term_en": "Deep",
+                  "definition_km": "ទីឡាកូអ៊ីត ផូតូស៊ីស្ទែម II និង I ការបំបែកទឹកដោយពន្លឺ NADPH និងការផលិតគ្លុយកូសក្នុងស្ត្រូម៉ា",
+                  "definition_en": "Thylakoid light-dependent ATP/NADPH photolysis and stroma light-independent Calvin cycle (RuBisCO fixation)",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន រស្មីសំយោគស៊ីជម្រៅ ៖ ដំណាក់កាលពន្លឺ និងវដ្ត Calvin"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g11-bio-01-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ រស្មីសំយោគស៊ីជម្រៅ ៖ ដំណាក់កាលពន្លឺ និងវដ្ត Calvin",
+                  "title_en": "Practice Exercise 1: Deep Photosynthesis: Light Reactions & Calvin Cycle",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ រស្មីសំយោគស៊ីជម្រៅ ៖ ដំណាក់កាលពន្លឺ និងវដ្ត Calvin ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Deep Photosynthesis: Light Reactions & Calvin Cycle applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g11-bio-01-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ រស្មីសំយោគស៊ីជម្រៅ ៖ ដំណាក់កាលពន្លឺ និងវដ្ត Calvin",
+                  "title_en": "Formative Competency Problem: Deep Photosynthesis: Light Reactions & Calvin Cycle",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន រស្មីសំយោគស៊ីជម្រៅ ៖ ដំណាក់កាលពន្លឺ និងវដ្ត Calvin ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Deep Photosynthesis: Light Reactions & Calvin Cycle to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g11-bio-02",
+              "sort_order": 2,
+              "title_km": "ដង្ហើមកោសិកា ៖ Glycolysis, Krebs Cycle & ETC",
+              "title_en": "Cellular Respiration: Glycolysis, Krebs & ETC",
+              "summary_km": "គ្លីកូលីសក្នុងស៊ីតូប្លាស វដ្ត Krebs និងច្រវាក់ដឹកនាំអេឡិចត្រុងបង្កើត ៣៦ ទៅ ៣៨ ATP",
+              "summary_en": "Cytosolic glycolysis (pyruvate), mitochondrial matrix Krebs cycle, and inner membrane oxidative phosphorylation",
+              "estimated_minutes": 25,
+              "xp_reward": 45,
+              "subtopics": [
+                "ដង្ហើមកោសិកា ៖ Glycolysis, Krebs Cycle & ETC",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ដង្ហើមកោសិកា ៖ Glycolysis, Krebs Cycle & ETC",
+                  "objective_en": "Recall, state, and explain foundational definitions of Cellular Respiration: Glycolysis, Krebs & ETC"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ដង្ហើមកោសិកា",
+                  "term_en": "Cellular",
+                  "definition_km": "គ្លីកូលីសក្នុងស៊ីតូប្លាស វដ្ត Krebs និងច្រវាក់ដឹកនាំអេឡិចត្រុងបង្កើត ៣៦ ទៅ ៣៨ ATP",
+                  "definition_en": "Cytosolic glycolysis (pyruvate), mitochondrial matrix Krebs cycle, and inner membrane oxidative phosphorylation",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ដង្ហើមកោសិកា ៖ Glycolysis, Krebs Cycle & ETC"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g11-bio-02-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ដង្ហើមកោសិកា ៖ Glycolysis, Krebs Cycle & ETC",
+                  "title_en": "Practice Exercise 1: Cellular Respiration: Glycolysis, Krebs & ETC",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ដង្ហើមកោសិកា ៖ Glycolysis, Krebs Cycle & ETC ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Cellular Respiration: Glycolysis, Krebs & ETC applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g11-bio-02-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ដង្ហើមកោសិកា ៖ Glycolysis, Krebs Cycle & ETC",
+                  "title_en": "Formative Competency Problem: Cellular Respiration: Glycolysis, Krebs & ETC",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ដង្ហើមកោសិកា ៖ Glycolysis, Krebs Cycle & ETC ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Cellular Respiration: Glycolysis, Krebs & ETC to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g11-bio-03",
+              "sort_order": 3,
+              "title_km": "ការសំយោគប្រូតេអ៊ីន ៖ ចម្លងកូដ និងបកប្រែកូដ",
+              "title_en": "Protein Synthesis: Transcription & Translation",
+              "summary_km": "ការចម្លងកូដ DNA → mRNA ក្នុងណ្វៃយ៉ូ និងការបកប្រែកូដ mRNA → អាស៊ីតអាមីណេនៅរីបូសូម",
+              "summary_en": "RNA polymerase transcription from DNA template, mRNA codons, tRNA anticodons, and ribosome peptide translation",
+              "estimated_minutes": 25,
+              "xp_reward": 45,
+              "subtopics": [
+                "ការសំយោគប្រូតេអ៊ីន ៖ ចម្លងកូដ និងបកប្រែកូដ",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ការសំយោគប្រូតេអ៊ីន ៖ ចម្លងកូដ និងបកប្រែកូដ",
+                  "objective_en": "Recall, state, and explain foundational definitions of Protein Synthesis: Transcription & Translation"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ការសំយោគប្រូតេអ៊ីន",
+                  "term_en": "Protein",
+                  "definition_km": "ការចម្លងកូដ DNA → mRNA ក្នុងណ្វៃយ៉ូ និងការបកប្រែកូដ mRNA → អាស៊ីតអាមីណេនៅរីបូសូម",
+                  "definition_en": "RNA polymerase transcription from DNA template, mRNA codons, tRNA anticodons, and ribosome peptide translation",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ការសំយោគប្រូតេអ៊ីន ៖ ចម្លងកូដ និងបកប្រែកូដ"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g11-bio-03-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ការសំយោគប្រូតេអ៊ីន ៖ ចម្លងកូដ និងបកប្រែកូដ",
+                  "title_en": "Practice Exercise 1: Protein Synthesis: Transcription & Translation",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ការសំយោគប្រូតេអ៊ីន ៖ ចម្លងកូដ និងបកប្រែកូដ ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Protein Synthesis: Transcription & Translation applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g11-bio-03-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ការសំយោគប្រូតេអ៊ីន ៖ ចម្លងកូដ និងបកប្រែកូដ",
+                  "title_en": "Formative Competency Problem: Protein Synthesis: Transcription & Translation",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ការសំយោគប្រូតេអ៊ីន ៖ ចម្លងកូដ និងបកប្រែកូដ ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Protein Synthesis: Transcription & Translation to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g11-bio-04",
+              "sort_order": 4,
+              "title_km": "ហ្សែន និងការបំប្លែងហ្សែន Mutations",
+              "title_en": "Gene Mutations & Genetic Variations",
+              "summary_km": "ការបំប្លែងហ្សែនចំនុច ជំនួស បាត់ ថែមបាស កាំរស្មីយូវី និងជំងឺពន្ធុ",
+              "summary_en": "Point mutations (substitution, insertion, deletion), frameshift errors, mutagenic agents, and sickle cell anemia",
+              "estimated_minutes": 22,
+              "xp_reward": 40,
+              "subtopics": [
+                "ហ្សែន និងការបំប្លែងហ្សែន Mutations",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ហ្សែន និងការបំប្លែងហ្សែន Mutations",
+                  "objective_en": "Recall, state, and explain foundational definitions of Gene Mutations & Genetic Variations"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ហ្សែន",
+                  "term_en": "Gene",
+                  "definition_km": "ការបំប្លែងហ្សែនចំនុច ជំនួស បាត់ ថែមបាស កាំរស្មីយូវី និងជំងឺពន្ធុ",
+                  "definition_en": "Point mutations (substitution, insertion, deletion), frameshift errors, mutagenic agents, and sickle cell anemia",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ហ្សែន និងការបំប្លែងហ្សែន Mutations"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g11-bio-04-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ហ្សែន និងការបំប្លែងហ្សែន Mutations",
+                  "title_en": "Practice Exercise 1: Gene Mutations & Genetic Variations",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ហ្សែន និងការបំប្លែងហ្សែន Mutations ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Gene Mutations & Genetic Variations applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g11-bio-04-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ហ្សែន និងការបំប្លែងហ្សែន Mutations",
+                  "title_en": "Formative Competency Problem: Gene Mutations & Genetic Variations",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ហ្សែន និងការបំប្លែងហ្សែន Mutations ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Gene Mutations & Genetic Variations to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g11-bio-05",
+              "sort_order": 5,
+              "title_km": "ការដឹកជញ្ជូនសារធាតុក្នុងរុក្ខជាតិ ៖ Xylem & Phloem",
+              "title_en": "Plant Vascular Transport: Xylem & Phloem",
+              "summary_km": "លំហូរទឹកតាមស៊ីឡែម (កម្លាំងបឺតពីការបញ្ចេញចំហាយទឹក) និងលំហូរអាហារតាមផ្លូអែម",
+              "summary_en": "Transpirational pull in xylem vessels, cohesion-tension theory, and pressure-flow hypothesis in phloem sieve tubes",
+              "estimated_minutes": 20,
+              "xp_reward": 40,
+              "subtopics": [
+                "ការដឹកជញ្ជូនសារធាតុក្នុងរុក្ខជាតិ ៖ Xylem & Phloem",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ការដឹកជញ្ជូនសារធាតុក្នុងរុក្ខជាតិ ៖ Xylem & Phloem",
+                  "objective_en": "Recall, state, and explain foundational definitions of Plant Vascular Transport: Xylem & Phloem"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ការដឹកជញ្ជូនសារធាតុក្នុងរុក្ខជាតិ",
+                  "term_en": "Plant",
+                  "definition_km": "លំហូរទឹកតាមស៊ីឡែម (កម្លាំងបឺតពីការបញ្ចេញចំហាយទឹក) និងលំហូរអាហារតាមផ្លូអែម",
+                  "definition_en": "Transpirational pull in xylem vessels, cohesion-tension theory, and pressure-flow hypothesis in phloem sieve tubes",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ការដឹកជញ្ជូនសារធាតុក្នុងរុក្ខជាតិ ៖ Xylem & Phloem"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g11-bio-05-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ការដឹកជញ្ជូនសារធាតុក្នុងរុក្ខជាតិ ៖ Xylem & Phloem",
+                  "title_en": "Practice Exercise 1: Plant Vascular Transport: Xylem & Phloem",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ការដឹកជញ្ជូនសារធាតុក្នុងរុក្ខជាតិ ៖ Xylem & Phloem ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Plant Vascular Transport: Xylem & Phloem applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g11-bio-05-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ការដឹកជញ្ជូនសារធាតុក្នុងរុក្ខជាតិ ៖ Xylem & Phloem",
+                  "title_en": "Formative Competency Problem: Plant Vascular Transport: Xylem & Phloem",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ការដឹកជញ្ជូនសារធាតុក្នុងរុក្ខជាតិ ៖ Xylem & Phloem ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Plant Vascular Transport: Xylem & Phloem to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject_slug": "earth",
+      "name_km": "ផែនដី និងបរិស្ថានវិទ្យា",
+      "name_en": "Earth Science",
+      "weekly_hours": 4,
+      "official_textbook": {
+        "title_km": "ផែនដី និងបរិស្ថានវិទ្យា (ថ្នាក់ទី ៧-១២)",
+        "publisher": "គ្រឹះស្ថានបោះពុម្ព និងចែកផ្សាយ ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "edition": "បោះពុម្ពឡើងវិញ ២០១៧-២០២២",
+        "sala_url": "https://sala.moeys.gov.kh/",
+        "oer_url": "https://oer.moeys.gov.kh/"
+      },
+      "units": [
+        {
+          "unit_id": "unit-g11-earth-1",
+          "unit_number": 1,
+          "title_km": "ជំពូកទី ១៖ មូលដ្ឋានគ្រឹះផែនដី និងបរិស្ថានវិទ្យា",
+          "title_en": "Unit 1: Foundations of Earth Science",
+          "description_km": "មេរៀនគ្រឹះផ្លូវការតាមកម្មវិធីសិក្សាក្រសួងអប់រំ យុវជន និងកីឡា",
+          "description_en": "Core official lessons aligned with MoEYS curriculum standards",
+          "icon": "📖",
+          "competencies": [
+            "ស្វែងយល់ និងអនុវត្តទ្រឹស្តីក្នុង ផែនដី និងបរិស្ថានវិទ្យា"
+          ],
+          "lesson_count": 5,
+          "lessons": [
+            {
+              "lesson_id": "les-g11-earth-01",
+              "sort_order": 1,
+              "title_km": "មហាសមុទ្រវិទ្យា និងចរន្តទឹកសមុទ្រពិភពលោក",
+              "title_en": "Global Ocean Thermohaline Circulation",
+              "summary_km": "ខ្សែពានដឹកជញ្ជូនសកល ចរន្តទឹកក្តៅ Gulf Stream និងឥទ្ធិពលលើសីតុណ្ហភាពទ្វីបអឺរ៉ុប",
+              "summary_en": "Thermohaline conveyor belt driven by water density and salinity gradients, Gulf stream heat transport",
+              "estimated_minutes": 22,
+              "xp_reward": 40,
+              "subtopics": [
+                "មហាសមុទ្រវិទ្យា និងចរន្តទឹកសមុទ្រពិភពលោក",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ មហាសមុទ្រវិទ្យា និងចរន្តទឹកសមុទ្រពិភពលោក",
+                  "objective_en": "Recall, state, and explain foundational definitions of Global Ocean Thermohaline Circulation"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "មហាសមុទ្រវិទ្យា",
+                  "term_en": "Global",
+                  "definition_km": "ខ្សែពានដឹកជញ្ជូនសកល ចរន្តទឹកក្តៅ Gulf Stream និងឥទ្ធិពលលើសីតុណ្ហភាពទ្វីបអឺរ៉ុប",
+                  "definition_en": "Thermohaline conveyor belt driven by water density and salinity gradients, Gulf stream heat transport",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន មហាសមុទ្រវិទ្យា និងចរន្តទឹកសមុទ្រពិភពលោក"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g11-earth-01-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ មហាសមុទ្រវិទ្យា និងចរន្តទឹកសមុទ្រពិភពលោក",
+                  "title_en": "Practice Exercise 1: Global Ocean Thermohaline Circulation",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ មហាសមុទ្រវិទ្យា និងចរន្តទឹកសមុទ្រពិភពលោក ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Global Ocean Thermohaline Circulation applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g11-earth-01-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ មហាសមុទ្រវិទ្យា និងចរន្តទឹកសមុទ្រពិភពលោក",
+                  "title_en": "Formative Competency Problem: Global Ocean Thermohaline Circulation",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន មហាសមុទ្រវិទ្យា និងចរន្តទឹកសមុទ្រពិភពលោក ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Global Ocean Thermohaline Circulation to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g11-earth-02",
+              "sort_order": 2,
+              "title_km": "បាតុភូតអែលនីញ៉ូ និងឡានីញ៉ា (ENSO)",
+              "title_en": "El Niño & La Niña Dynamics (ENSO)",
+              "summary_km": "ការកើនឡើងកម្តៅទឹកសមុទ្រប៉ាស៊ីហ្វិក គ្រោះរាំងស្ងួត និងទឹកជំនន់នៅអាស៊ីអាគ្នេយ៍ និងកម្ពុជា",
+              "summary_en": "El Niño Southern Oscillation (ENSO), trade wind anomalies, severe droughts, and flash flood patterns in Cambodia",
+              "estimated_minutes": 22,
+              "xp_reward": 40,
+              "subtopics": [
+                "បាតុភូតអែលនីញ៉ូ និងឡានីញ៉ា (ENSO)",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ បាតុភូតអែលនីញ៉ូ និងឡានីញ៉ា (ENSO)",
+                  "objective_en": "Recall, state, and explain foundational definitions of El Niño & La Niña Dynamics (ENSO)"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "បាតុភូតអែលនីញ៉ូ",
+                  "term_en": "El",
+                  "definition_km": "ការកើនឡើងកម្តៅទឹកសមុទ្រប៉ាស៊ីហ្វិក គ្រោះរាំងស្ងួត និងទឹកជំនន់នៅអាស៊ីអាគ្នេយ៍ និងកម្ពុជា",
+                  "definition_en": "El Niño Southern Oscillation (ENSO), trade wind anomalies, severe droughts, and flash flood patterns in Cambodia",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន បាតុភូតអែលនីញ៉ូ និងឡានីញ៉ា (ENSO)"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g11-earth-02-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ បាតុភូតអែលនីញ៉ូ និងឡានីញ៉ា (ENSO)",
+                  "title_en": "Practice Exercise 1: El Niño & La Niña Dynamics (ENSO)",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ បាតុភូតអែលនីញ៉ូ និងឡានីញ៉ា (ENSO) ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for El Niño & La Niña Dynamics (ENSO) applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g11-earth-02-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ បាតុភូតអែលនីញ៉ូ និងឡានីញ៉ា (ENSO)",
+                  "title_en": "Formative Competency Problem: El Niño & La Niña Dynamics (ENSO)",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន បាតុភូតអែលនីញ៉ូ និងឡានីញ៉ា (ENSO) ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of El Niño & La Niña Dynamics (ENSO) to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g11-earth-03",
+              "sort_order": 3,
+              "title_km": "វដ្តជីវគីមី ៖ វដ្តកាបូន និងអាសូត",
+              "title_en": "Biogeochemical Cycles: Carbon & Nitrogen",
+              "summary_km": "ការផ្លាស់ប្តូរកាបូនរវាងបរិយាកាស ជីវមណ្ឌល និងសមុទ្រ ព្រមទាំងបាក់តេរីចាប់អាសូតក្នុងដី",
+              "summary_en": "Carbon sinks and fluxes, atmospheric reservoirs, and soil nitrogen-fixing bacteria (Rhizobium)",
+              "estimated_minutes": 22,
+              "xp_reward": 40,
+              "subtopics": [
+                "វដ្តជីវគីមី ៖ វដ្តកាបូន និងអាសូត",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ វដ្តជីវគីមី ៖ វដ្តកាបូន និងអាសូត",
+                  "objective_en": "Recall, state, and explain foundational definitions of Biogeochemical Cycles: Carbon & Nitrogen"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "វដ្តជីវគីមី",
+                  "term_en": "Biogeochemical",
+                  "definition_km": "ការផ្លាស់ប្តូរកាបូនរវាងបរិយាកាស ជីវមណ្ឌល និងសមុទ្រ ព្រមទាំងបាក់តេរីចាប់អាសូតក្នុងដី",
+                  "definition_en": "Carbon sinks and fluxes, atmospheric reservoirs, and soil nitrogen-fixing bacteria (Rhizobium)",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន វដ្តជីវគីមី ៖ វដ្តកាបូន និងអាសូត"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g11-earth-03-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ វដ្តជីវគីមី ៖ វដ្តកាបូន និងអាសូត",
+                  "title_en": "Practice Exercise 1: Biogeochemical Cycles: Carbon & Nitrogen",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ វដ្តជីវគីមី ៖ វដ្តកាបូន និងអាសូត ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Biogeochemical Cycles: Carbon & Nitrogen applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g11-earth-03-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ វដ្តជីវគីមី ៖ វដ្តកាបូន និងអាសូត",
+                  "title_en": "Formative Competency Problem: Biogeochemical Cycles: Carbon & Nitrogen",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន វដ្តជីវគីមី ៖ វដ្តកាបូន និងអាសូត ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Biogeochemical Cycles: Carbon & Nitrogen to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g11-earth-04",
+              "sort_order": 4,
+              "title_km": "ការប្រែប្រួលអាកាសធាតុសកល និងឧស្ម័នផ្ទះកញ្ចក់",
+              "title_en": "Global Climate Change & Cryosphere Loss",
+              "summary_km": "ការកើនឡើងកំហាប់ CO₂ លើស ៤២០ ppm ការរលាយផ្ទាំងទឹកកកប៉ូល និងកម្ពស់ទឹកសមុទ្រឡើង",
+              "summary_en": "Keeling curve, CO2 exceeding 420 ppm, positive feedback loops, polar ice sheet melt, and sea level rise",
+              "estimated_minutes": 22,
+              "xp_reward": 40,
+              "subtopics": [
+                "ការប្រែប្រួលអាកាសធាតុសកល និងឧស្ម័នផ្ទះកញ្ចក់",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ការប្រែប្រួលអាកាសធាតុសកល និងឧស្ម័នផ្ទះកញ្ចក់",
+                  "objective_en": "Recall, state, and explain foundational definitions of Global Climate Change & Cryosphere Loss"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ការប្រែប្រួលអាកាសធាតុសកល",
+                  "term_en": "Global",
+                  "definition_km": "ការកើនឡើងកំហាប់ CO₂ លើស ៤២០ ppm ការរលាយផ្ទាំងទឹកកកប៉ូល និងកម្ពស់ទឹកសមុទ្រឡើង",
+                  "definition_en": "Keeling curve, CO2 exceeding 420 ppm, positive feedback loops, polar ice sheet melt, and sea level rise",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ការប្រែប្រួលអាកាសធាតុសកល និងឧស្ម័នផ្ទះកញ្ចក់"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g11-earth-04-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ការប្រែប្រួលអាកាសធាតុសកល និងឧស្ម័នផ្ទះកញ្ចក់",
+                  "title_en": "Practice Exercise 1: Global Climate Change & Cryosphere Loss",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ការប្រែប្រួលអាកាសធាតុសកល និងឧស្ម័នផ្ទះកញ្ចក់ ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Global Climate Change & Cryosphere Loss applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g11-earth-04-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ការប្រែប្រួលអាកាសធាតុសកល និងឧស្ម័នផ្ទះកញ្ចក់",
+                  "title_en": "Formative Competency Problem: Global Climate Change & Cryosphere Loss",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ការប្រែប្រួលអាកាសធាតុសកល និងឧស្ម័នផ្ទះកញ្ចក់ ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Global Climate Change & Cryosphere Loss to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g11-earth-05",
+              "sort_order": 5,
+              "title_km": "តារាសាស្ត្រ ៖ ប្រព័ន្ធព្រះអាទិត្យ និងកាឡាក់ស៊ី Milky Way",
+              "title_en": "Astronomy: Stellar Systems & The Milky Way",
+              "summary_km": "កាឡាក់ស៊ីគូទខ្យង Milky Way ឆ្នាំពន្លឺ ផ្កាយព្រះអាទិត្យ និងប្រហោងខ្មៅកណ្តាលកាឡាក់ស៊ី",
+              "summary_en": "Spiral barred galaxy Milky Way, light-year distances, Sagittarius A* supermassive black hole, and stellar spectra",
+              "estimated_minutes": 20,
+              "xp_reward": 40,
+              "subtopics": [
+                "តារាសាស្ត្រ ៖ ប្រព័ន្ធព្រះអាទិត្យ និងកាឡាក់ស៊ី Milky Way",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ តារាសាស្ត្រ ៖ ប្រព័ន្ធព្រះអាទិត្យ និងកាឡាក់ស៊ី Milky Way",
+                  "objective_en": "Recall, state, and explain foundational definitions of Astronomy: Stellar Systems & The Milky Way"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "តារាសាស្ត្រ",
+                  "term_en": "Astronomy:",
+                  "definition_km": "កាឡាក់ស៊ីគូទខ្យង Milky Way ឆ្នាំពន្លឺ ផ្កាយព្រះអាទិត្យ និងប្រហោងខ្មៅកណ្តាលកាឡាក់ស៊ី",
+                  "definition_en": "Spiral barred galaxy Milky Way, light-year distances, Sagittarius A* supermassive black hole, and stellar spectra",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន តារាសាស្ត្រ ៖ ប្រព័ន្ធព្រះអាទិត្យ និងកាឡាក់ស៊ី Milky Way"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g11-earth-05-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ តារាសាស្ត្រ ៖ ប្រព័ន្ធព្រះអាទិត្យ និងកាឡាក់ស៊ី Milky Way",
+                  "title_en": "Practice Exercise 1: Astronomy: Stellar Systems & The Milky Way",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ តារាសាស្ត្រ ៖ ប្រព័ន្ធព្រះអាទិត្យ និងកាឡាក់ស៊ី Milky Way ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Astronomy: Stellar Systems & The Milky Way applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g11-earth-05-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ តារាសាស្ត្រ ៖ ប្រព័ន្ធព្រះអាទិត្យ និងកាឡាក់ស៊ី Milky Way",
+                  "title_en": "Formative Competency Problem: Astronomy: Stellar Systems & The Milky Way",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន តារាសាស្ត្រ ៖ ប្រព័ន្ធព្រះអាទិត្យ និងកាឡាក់ស៊ី Milky Way ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Astronomy: Stellar Systems & The Milky Way to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject_slug": "khmer",
+      "name_km": "ភាសាខ្មែរ",
+      "name_en": "Khmer Literature",
+      "weekly_hours": 4,
+      "official_textbook": {
+        "title_km": "ភាសាខ្មែរ និងតែងសេចក្តី (ថ្នាក់ទី ៧-១២)",
+        "publisher": "គ្រឹះស្ថានបោះពុម្ព និងចែកផ្សាយ ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "edition": "បោះពុម្ពឡើងវិញ ២០១៩-២០២៣",
+        "sala_url": "https://sala.moeys.gov.kh/",
+        "oer_url": "https://oer.moeys.gov.kh/"
+      },
+      "units": [
+        {
+          "unit_id": "unit-g11-khmer-1",
+          "unit_number": 1,
+          "title_km": "អក្សរសិល្ប៍ទំនើប៖ ស៊ីមអ្នកបរឡាន និងមាលាដួងចិត្ត",
+          "title_en": "Modern Realism: Sim the Driver & Mealea Doung Chett",
+          "description_km": "ការវិភាគវណ្ណៈកម្មករ ស្នេហាជាតិ និងទស្សនៈបញ្ញវន្តខ្មែរក្នុងអក្សរសិល្ប៍ទំនើប",
+          "description_en": "Working-class solidarity, patriotism, and modern realism in 20th-century literature",
+          "icon": "🚚",
+          "competencies": [
+            "ស្វែងយល់ និងអនុវត្តទ្រឹស្តីក្នុង អក្សរសិល្ប៍ទំនើប៖ ស៊ីមអ្នកបរឡាន និងមាលាដួងចិត្ត",
+            "ដោះស្រាយលំហាត់ និងចំណោទកម្រិតមធ្យម និងកម្រិតខ្ពស់",
+            "ត្រៀមលក្ខណៈសម្រាប់ការវាយតម្លៃប្រចាំជំពូក និងការប្រឡងបញ្ចប់ឆ្នាំ"
+          ],
+          "lesson_count": 2,
+          "lessons": [
+            {
+              "lesson_id": "les-g11-khmer-01",
+              "sort_order": 101,
+              "title_km": "រឿងស៊ីមអ្នកបរឡាន (អក្សរសិល្ប៍ទំនើប និងសង្គម)",
+              "title_en": "Sim the Driver Novel (Modern Literature & Society)",
+              "summary_km": "ការវិភាគតួអង្គស៊ីម ជីវភាពវណ្ណៈកម្មករ និងស្មារតីសាមគ្គីភាពក្នុងសង្គមកម្ពុជា",
+              "summary_en": "Analysis of working-class consciousness, urban solidarity, and progressive social themes",
+              "estimated_minutes": 22,
+              "xp_reward": 44,
+              "subtopics": [
+                "រឿងស៊ីមអ្នកបរឡាន (អក្សរសិល្ប៍ទំនើប និងសង្គម)",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ រឿងស៊ីមអ្នកបរឡាន (អក្សរសិល្ប៍ទំនើប និងសង្គម)",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ រឿងស៊ីមអ្នកបរឡាន (អក្សរសិល្ប៍ទំនើប និងសង្គម)",
+                  "objective_en": "Recall, state, and explain foundational definitions of Sim the Driver Novel (Modern Literature & Society)"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "រឿងស៊ីមអ្នកបរឡាន",
+                  "term_en": "Sim",
+                  "definition_km": "ការវិភាគតួអង្គស៊ីម ជីវភាពវណ្ណៈកម្មករ និងស្មារតីសាមគ្គីភាពក្នុងសង្គមកម្ពុជា",
+                  "definition_en": "Analysis of working-class consciousness, urban solidarity, and progressive social themes",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន រឿងស៊ីមអ្នកបរឡាន (អក្សរសិល្ប៍ទំនើប និងសង្គម)"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g11-khmer-01-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ រឿងស៊ីមអ្នកបរឡាន (អក្សរសិល្ប៍ទំនើប និងសង្គម)",
+                  "title_en": "Practice Exercise 1: Sim the Driver Novel (Modern Literature & Society)",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ រឿងស៊ីមអ្នកបរឡាន (អក្សរសិល្ប៍ទំនើប និងសង្គម) ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Sim the Driver Novel (Modern Literature & Society) applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g11-khmer-01-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ រឿងស៊ីមអ្នកបរឡាន (អក្សរសិល្ប៍ទំនើប និងសង្គម)",
+                  "title_en": "Formative Competency Problem: Sim the Driver Novel (Modern Literature & Society)",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន រឿងស៊ីមអ្នកបរឡាន (អក្សរសិល្ប៍ទំនើប និងសង្គម) ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Sim the Driver Novel (Modern Literature & Society) to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g11-khmer-02",
+              "sort_order": 103,
+              "title_km": "រឿងមាលាដួងចិត្ត (ស្នាដៃ នូ ហាច - ការវិភាគស្នេហាជាតិ)",
+              "title_en": "Mealea Doung Chett Novel Analysis (Nou Hach)",
+              "summary_km": "ការវិភាគតួអង្គធីតា ធារិទ្ធ ជីវិតនិស្សិតខ្មែរនៅបារាំង និងមនសិការស្នេហាជាតិ",
+              "summary_en": "Analysis of Nou Hach's classic novel: overseas intellectual struggles and patriotism",
+              "estimated_minutes": 22,
+              "xp_reward": 42,
+              "subtopics": [
+                "រឿងមាលាដួងចិត្ត (ស្នាដៃ នូ ហាច - ការវិភាគស្នេហាជាតិ)",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ រឿងមាលាដួងចិត្ត (ស្នាដៃ នូ ហាច - ការវិភាគស្នេហាជាតិ)",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ រឿងមាលាដួងចិត្ត (ស្នាដៃ នូ ហាច - ការវិភាគស្នេហាជាតិ)",
+                  "objective_en": "Recall, state, and explain foundational definitions of Mealea Doung Chett Novel Analysis (Nou Hach)"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "រឿងមាលាដួងចិត្ត",
+                  "term_en": "Mealea",
+                  "definition_km": "ការវិភាគតួអង្គធីតា ធារិទ្ធ ជីវិតនិស្សិតខ្មែរនៅបារាំង និងមនសិការស្នេហាជាតិ",
+                  "definition_en": "Analysis of Nou Hach's classic novel: overseas intellectual struggles and patriotism",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន រឿងមាលាដួងចិត្ត (ស្នាដៃ នូ ហាច - ការវិភាគស្នេហាជាតិ)"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g11-khmer-02-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ រឿងមាលាដួងចិត្ត (ស្នាដៃ នូ ហាច - ការវិភាគស្នេហាជាតិ)",
+                  "title_en": "Practice Exercise 1: Mealea Doung Chett Novel Analysis (Nou Hach)",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ រឿងមាលាដួងចិត្ត (ស្នាដៃ នូ ហាច - ការវិភាគស្នេហាជាតិ) ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Mealea Doung Chett Novel Analysis (Nou Hach) applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g11-khmer-02-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ រឿងមាលាដួងចិត្ត (ស្នាដៃ នូ ហាច - ការវិភាគស្នេហាជាតិ)",
+                  "title_en": "Formative Competency Problem: Mealea Doung Chett Novel Analysis (Nou Hach)",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន រឿងមាលាដួងចិត្ត (ស្នាដៃ នូ ហាច - ការវិភាគស្នេហាជាតិ) ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Mealea Doung Chett Novel Analysis (Nou Hach) to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject_slug": "history",
+      "name_km": "ប្រវត្តិវិទ្យា",
+      "name_en": "History",
+      "weekly_hours": 4,
+      "official_textbook": {
+        "title_km": "ប្រវត្តិវិទ្យា (ថ្នាក់ទី ៧-១២)",
+        "publisher": "គ្រឹះស្ថានបោះពុម្ព និងចែកផ្សាយ ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "edition": "បោះពុម្ពឡើងវិញ ២០១៨-២០២២",
+        "sala_url": "https://sala.moeys.gov.kh/",
+        "oer_url": "https://oer.moeys.gov.kh/"
+      },
+      "units": [
+        {
+          "unit_id": "unit-g11-hist-1",
+          "unit_number": 1,
+          "title_km": "សម័យអាណាព្យាបាលបារាំង និងចលនាតស៊ូខ្មែរ",
+          "title_en": "French Protectorate & Cambodian Anticolonial Resistance",
+          "description_km": "សន្ធិសញ្ញាឆ្នាំ ១៨៦៣ ចលនាអាចារ្យស្វា ក្រឡាហោមគង់ និងឥទ្ធិពលសង្គ្រាមលោក",
+          "description_en": "The 1863 protectorate, peasant uprisings, monastic demonstrations, and wartime dynamics",
+          "icon": "🏛️",
+          "competencies": [
+            "ស្វែងយល់ និងអនុវត្តទ្រឹស្តីក្នុង សម័យអាណាព្យាបាលបារាំង និងចលនាតស៊ូខ្មែរ",
+            "ដោះស្រាយលំហាត់ និងចំណោទកម្រិតមធ្យម និងកម្រិតខ្ពស់",
+            "ត្រៀមលក្ខណៈសម្រាប់ការវាយតម្លៃប្រចាំជំពូក និងការប្រឡងបញ្ចប់ឆ្នាំ"
+          ],
+          "lesson_count": 2,
+          "lessons": [
+            {
+              "lesson_id": "les-g11-hist-01",
+              "sort_order": 102,
+              "title_km": "សម័យអាណាព្យាបាលបារាំងនៅកម្ពុជា (១៨៦៣-១៩៥៣)",
+              "title_en": "French Protectorate Era in Cambodia (1863–1953)",
+              "summary_km": "សន្ធិសញ្ញា ១១ សីហា ១៨៦៣ ការកែទម្រង់រដ្ឋបាល និងចលនាតស៊ូរបស់ប្រជាជនខ្មែរ",
+              "summary_en": "The August 11, 1863 treaty, French administrative reorganization, and anticolonial movements",
+              "estimated_minutes": 24,
+              "xp_reward": 44,
+              "subtopics": [
+                "សម័យអាណាព្យាបាលបារាំងនៅកម្ពុជា (១៨៦៣-១៩៥៣)",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ សម័យអាណាព្យាបាលបារាំងនៅកម្ពុជា (១៨៦៣-១៩៥៣)",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ សម័យអាណាព្យាបាលបារាំងនៅកម្ពុជា (១៨៦៣-១៩៥៣)",
+                  "objective_en": "Recall, state, and explain foundational definitions of French Protectorate Era in Cambodia (1863–1953)"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "សម័យអាណាព្យាបាលបារាំងនៅកម្ពុជា",
+                  "term_en": "French",
+                  "definition_km": "សន្ធិសញ្ញា ១១ សីហា ១៨៦៣ ការកែទម្រង់រដ្ឋបាល និងចលនាតស៊ូរបស់ប្រជាជនខ្មែរ",
+                  "definition_en": "The August 11, 1863 treaty, French administrative reorganization, and anticolonial movements",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន សម័យអាណាព្យាបាលបារាំងនៅកម្ពុជា (១៨៦៣-១៩៥៣)"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g11-hist-01-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ សម័យអាណាព្យាបាលបារាំងនៅកម្ពុជា (១៨៦៣-១៩៥៣)",
+                  "title_en": "Practice Exercise 1: French Protectorate Era in Cambodia (1863–1953)",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ សម័យអាណាព្យាបាលបារាំងនៅកម្ពុជា (១៨៦៣-១៩៥៣) ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for French Protectorate Era in Cambodia (1863–1953) applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g11-hist-01-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ សម័យអាណាព្យាបាលបារាំងនៅកម្ពុជា (១៨៦៣-១៩៥៣)",
+                  "title_en": "Formative Competency Problem: French Protectorate Era in Cambodia (1863–1953)",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន សម័យអាណាព្យាបាលបារាំងនៅកម្ពុជា (១៨៦៣-១៩៥៣) ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of French Protectorate Era in Cambodia (1863–1953) to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g11-hist-02",
+              "sort_order": 105,
+              "title_km": "ចលនាតស៊ូប្រឆាំងបារាំង និងឥទ្ធិពលសង្គ្រាមលោកនៅអាស៊ីអាគ្នេយ៍",
+              "title_en": "Anticolonial Movements & World War Impacts in Southeast Asia",
+              "summary_km": "ចលនាតស៊ូរបស់ក្រឡាហោមគង់ អាចារ្យស្វា ព្រះសង្ឃ និងឥទ្ធិពលសង្គ្រាមលោកលើកម្ពុជា",
+              "summary_en": "Kralahom Kong and Achar Sva uprisings, monastic patriotic mobilization, and wartime shifts",
+              "estimated_minutes": 22,
+              "xp_reward": 42,
+              "subtopics": [
+                "ចលនាតស៊ូប្រឆាំងបារាំង និងឥទ្ធិពលសង្គ្រាមលោកនៅអាស៊ីអាគ្នេយ៍",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ ចលនាតស៊ូប្រឆាំងបារាំង និងឥទ្ធិពលសង្គ្រាមលោកនៅអាស៊ីអាគ្នេយ៍",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ចលនាតស៊ូប្រឆាំងបារាំង និងឥទ្ធិពលសង្គ្រាមលោកនៅអាស៊ីអាគ្នេយ៍",
+                  "objective_en": "Recall, state, and explain foundational definitions of Anticolonial Movements & World War Impacts in Southeast Asia"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ចលនាតស៊ូប្រឆាំងបារាំង",
+                  "term_en": "Anticolonial",
+                  "definition_km": "ចលនាតស៊ូរបស់ក្រឡាហោមគង់ អាចារ្យស្វា ព្រះសង្ឃ និងឥទ្ធិពលសង្គ្រាមលោកលើកម្ពុជា",
+                  "definition_en": "Kralahom Kong and Achar Sva uprisings, monastic patriotic mobilization, and wartime shifts",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ចលនាតស៊ូប្រឆាំងបារាំង និងឥទ្ធិពលសង្គ្រាមលោកនៅអាស៊ីអាគ្នេយ៍"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g11-hist-02-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ចលនាតស៊ូប្រឆាំងបារាំង និងឥទ្ធិពលសង្គ្រាមលោកនៅអាស៊ីអាគ្នេយ៍",
+                  "title_en": "Practice Exercise 1: Anticolonial Movements & World War Impacts in Southeast Asia",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ចលនាតស៊ូប្រឆាំងបារាំង និងឥទ្ធិពលសង្គ្រាមលោកនៅអាស៊ីអាគ្នេយ៍ ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Anticolonial Movements & World War Impacts in Southeast Asia applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g11-hist-02-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ចលនាតស៊ូប្រឆាំងបារាំង និងឥទ្ធិពលសង្គ្រាមលោកនៅអាស៊ីអាគ្នេយ៍",
+                  "title_en": "Formative Competency Problem: Anticolonial Movements & World War Impacts in Southeast Asia",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ចលនាតស៊ូប្រឆាំងបារាំង និងឥទ្ធិពលសង្គ្រាមលោកនៅអាស៊ីអាគ្នេយ៍ ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Anticolonial Movements & World War Impacts in Southeast Asia to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject_slug": "geography",
+      "name_km": "ភូមិវិទ្យា",
+      "name_en": "Geography",
+      "weekly_hours": 4,
+      "official_textbook": {
+        "title_km": "ភូមិវិទ្យា (ថ្នាក់ទី ៧-១២)",
+        "publisher": "គ្រឹះស្ថានបោះពុម្ព និងចែកផ្សាយ ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "edition": "បោះពុម្ពឡើងវិញ ២០១៨-២០២២",
+        "sala_url": "https://sala.moeys.gov.kh/",
+        "oer_url": "https://oer.moeys.gov.kh/"
+      },
+      "units": [
+        {
+          "unit_id": "unit-g11-geo-1",
+          "unit_number": 1,
+          "title_km": "នគរូបនីយកម្ម តំបន់សេដ្ឋកិច្ចពិសេស និងហេដ្ឋារចនាសម្ព័ន្ធ",
+          "title_en": "Urbanization, SEZs & Strategic Logistics",
+          "description_km": "ការរីកចម្រើននៃរាជធានីភ្នំពេញ តំបន់សេដ្ឋកិច្ចពិសេស ផ្លូវល្បឿនលឿន និងកំពង់ផែទឹកជ្រៅ",
+          "description_en": "Urban growth, industrial SEZ corridors, expressway networks, and deep-sea ports",
+          "icon": "🏙️",
+          "competencies": [
+            "ស្វែងយល់ និងអនុវត្តទ្រឹស្តីក្នុង នគរូបនីយកម្ម តំបន់សេដ្ឋកិច្ចពិសេស និងហេដ្ឋារចនាសម្ព័ន្ធ",
+            "ដោះស្រាយលំហាត់ និងចំណោទកម្រិតមធ្យម និងកម្រិតខ្ពស់",
+            "ត្រៀមលក្ខណៈសម្រាប់ការវាយតម្លៃប្រចាំជំពូក និងការប្រឡងបញ្ចប់ឆ្នាំ"
+          ],
+          "lesson_count": 2,
+          "lessons": [
+            {
+              "lesson_id": "les-g11-geo-01",
+              "sort_order": 103,
+              "title_km": "នគរូបនីយកម្ម និងតំបន់សេដ្ឋកិច្ចពិសេស (SEZ)",
+              "title_en": "Urbanization & Special Economic Zones (SEZ)",
+              "summary_km": "ការរីកចម្រើននៃទីក្រុងភ្នំពេញ ហេដ្ឋារចនាសម្ព័ន្ធ និងតួនាទីតំបន់សេដ្ឋកិច្ចពិសេស",
+              "summary_en": "Phnom Penh municipal growth, infrastructure expansion, and industrial SEZs",
+              "estimated_minutes": 22,
+              "xp_reward": 44,
+              "subtopics": [
+                "នគរូបនីយកម្ម និងតំបន់សេដ្ឋកិច្ចពិសេស (SEZ)",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ នគរូបនីយកម្ម និងតំបន់សេដ្ឋកិច្ចពិសេស (SEZ)",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ នគរូបនីយកម្ម និងតំបន់សេដ្ឋកិច្ចពិសេស (SEZ)",
+                  "objective_en": "Recall, state, and explain foundational definitions of Urbanization & Special Economic Zones (SEZ)"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "នគរូបនីយកម្ម",
+                  "term_en": "Urbanization",
+                  "definition_km": "ការរីកចម្រើននៃទីក្រុងភ្នំពេញ ហេដ្ឋារចនាសម្ព័ន្ធ និងតួនាទីតំបន់សេដ្ឋកិច្ចពិសេស",
+                  "definition_en": "Phnom Penh municipal growth, infrastructure expansion, and industrial SEZs",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន នគរូបនីយកម្ម និងតំបន់សេដ្ឋកិច្ចពិសេស (SEZ)"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g11-geo-01-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ នគរូបនីយកម្ម និងតំបន់សេដ្ឋកិច្ចពិសេស (SEZ)",
+                  "title_en": "Practice Exercise 1: Urbanization & Special Economic Zones (SEZ)",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ នគរូបនីយកម្ម និងតំបន់សេដ្ឋកិច្ចពិសេស (SEZ) ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Urbanization & Special Economic Zones (SEZ) applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g11-geo-01-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ នគរូបនីយកម្ម និងតំបន់សេដ្ឋកិច្ចពិសេស (SEZ)",
+                  "title_en": "Formative Competency Problem: Urbanization & Special Economic Zones (SEZ)",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន នគរូបនីយកម្ម និងតំបន់សេដ្ឋកិច្ចពិសេស (SEZ) ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Urbanization & Special Economic Zones (SEZ) to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g11-geo-02",
+              "sort_order": 107,
+              "title_km": "ហេដ្ឋារចនាសម្ព័ន្ធដឹកជញ្ជូន ផ្លូវល្បឿនលឿន និងកំពង់ផែទឹកជ្រៅ",
+              "title_en": "Transport Infrastructure, Expressways & Deep-Sea Ports",
+              "summary_km": "ផ្លូវល្បឿនលឿនភ្នំពេញ-ព្រះសីហនុ កំពង់ផែស្វយ័តក្រុងព្រះសីហនុ និងច្រករបៀងសេដ្ឋកិច្ចភាគខាងត្បូង",
+              "summary_en": "Phnom Penh-Sihanoukville Expressway, deep-sea container ports, and regional connectivity corridors",
+              "estimated_minutes": 22,
+              "xp_reward": 42,
+              "subtopics": [
+                "ហេដ្ឋារចនាសម្ព័ន្ធដឹកជញ្ជូន ផ្លូវល្បឿនលឿន និងកំពង់ផែទឹកជ្រៅ",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ ហេដ្ឋារចនាសម្ព័ន្ធដឹកជញ្ជូន ផ្លូវល្បឿនលឿន និងកំពង់ផែទឹកជ្រៅ",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ហេដ្ឋារចនាសម្ព័ន្ធដឹកជញ្ជូន ផ្លូវល្បឿនលឿន និងកំពង់ផែទឹកជ្រៅ",
+                  "objective_en": "Recall, state, and explain foundational definitions of Transport Infrastructure, Expressways & Deep-Sea Ports"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ហេដ្ឋារចនាសម្ព័ន្ធដឹកជញ្ជូន",
+                  "term_en": "Transport",
+                  "definition_km": "ផ្លូវល្បឿនលឿនភ្នំពេញ-ព្រះសីហនុ កំពង់ផែស្វយ័តក្រុងព្រះសីហនុ និងច្រករបៀងសេដ្ឋកិច្ចភាគខាងត្បូង",
+                  "definition_en": "Phnom Penh-Sihanoukville Expressway, deep-sea container ports, and regional connectivity corridors",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ហេដ្ឋារចនាសម្ព័ន្ធដឹកជញ្ជូន ផ្លូវល្បឿនលឿន និងកំពង់ផែទឹកជ្រៅ"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g11-geo-02-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ហេដ្ឋារចនាសម្ព័ន្ធដឹកជញ្ជូន ផ្លូវល្បឿនលឿន និងកំពង់ផែទឹកជ្រៅ",
+                  "title_en": "Practice Exercise 1: Transport Infrastructure, Expressways & Deep-Sea Ports",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ហេដ្ឋារចនាសម្ព័ន្ធដឹកជញ្ជូន ផ្លូវល្បឿនលឿន និងកំពង់ផែទឹកជ្រៅ ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Transport Infrastructure, Expressways & Deep-Sea Ports applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g11-geo-02-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ហេដ្ឋារចនាសម្ព័ន្ធដឹកជញ្ជូន ផ្លូវល្បឿនលឿន និងកំពង់ផែទឹកជ្រៅ",
+                  "title_en": "Formative Competency Problem: Transport Infrastructure, Expressways & Deep-Sea Ports",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ហេដ្ឋារចនាសម្ព័ន្ធដឹកជញ្ជូន ផ្លូវល្បឿនលឿន និងកំពង់ផែទឹកជ្រៅ ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Transport Infrastructure, Expressways & Deep-Sea Ports to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -39,28 +39,37 @@
 
 ---
 
-## 📁 Project Structure
+## 📁 Project Structure & Architecture
+
+ScienceKH is split into a **Frontend Client** (`src/`) and an **Express Backend API** (`server/`):
 
 ```text
 ScienceKH/
-├── src/
-│   ├── components/         # Reusable UI components (buttons, dialogs, navs)
-│   ├── hooks/              # Custom React hooks
-│   ├── integrations/       # Backend & database clients (Supabase)
-│   ├── lib/                # Utilities, i18n, auth context, AI functions
-│   ├── routes/             # TanStack file-based routes
-│   │   ├── _authenticated/ # Protected routes (dashboard, lessons, tutor, profile)
-│   │   ├── auth.tsx        # Authentication page
-│   │   └── index.tsx       # Landing page
-│   ├── router.tsx          # Router configuration
-│   ├── server.ts           # Server-side rendering handler
-│   └── styles.css          # Global styling & Tailwind directives
-├── supabase/
-│   ├── migrations/         # PostgreSQL schema & RLS migrations
-│   └── config.toml         # Supabase configuration
-├── package.json
-├── tsconfig.json
-└── vite.config.ts
+├── src/                          # 🎨 FRONTEND (React 19 + TanStack Router on Port 8080)
+│   ├── components/               # Reusable UI & Auth components
+│   ├── routes/                   # TanStack Router file-based pages
+│   ├── lib/                      # Auth context, state, gamification hooks
+│   ├── integrations/supabase/    # Supabase client (Anon key + RLS)
+│   ├── styles.css                # Tailwind CSS v4 design system
+│   └── README.md                 # Frontend architecture guide
+│
+├── server/                       # ⚙️ BACKEND (Node.js + Express API on Port 5001)
+│   ├── src/
+│   │   ├── index.ts              # Express server entry point (Helmet, CORS, Port 5001)
+│   │   ├── routes/               # API endpoints (auth.ts, exercises.ts, tutor.ts, etc.)
+│   │   ├── middleware/           # Security layers (auth.ts, rate-limit.ts, error-handler.ts)
+│   │   ├── services/             # Transactional services (mailer.ts Nodemailer)
+│   │   └── config/               # Environment & secrets loader (env.ts)
+│   ├── package.json              # Backend dependencies (express, nodemailer, helmet)
+│   ├── tsconfig.json             # Backend TypeScript configuration
+│   └── README.md                 # Backend API documentation
+│
+├── supabase/                     # 🗄️ DATABASE (PostgreSQL Schema & Migrations)
+│   └── migrations/               # Database tables, RLS policies & constraints
+│
+├── .env                          # Local environment variables & secrets
+├── package.json                  # Root runner scripts (npm run dev:frontend, dev:backend)
+└── tsconfig.json                 # Frontend TypeScript configuration
 ```
 
 ---
@@ -97,7 +106,17 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your-supabase-publishable-key
 OPENAI_API_KEY=your-openai-api-key # Optional: For AI Tutor
 ```
 
-### 4. Run the development server
+### 4. Run the development servers
+
+You can run both or either server independently:
+
+```bash
+# Start Frontend (React 19 on http://localhost:8080)
+npm run dev:frontend
+
+# Start Backend API (Node.js + Express on http://localhost:5001)
+npm run dev:backend
+```
 
 ```bash
 npm run dev

@@ -1,0 +1,23 @@
+# ==============================================================================
+# ScienceKH — Official Robots.txt
+# Optimized for Googlebot, Bingbot, and Educational Search Crawlers
+# ==============================================================================
+
+User-agent: *
+Allow: /
+Allow: /lessons
+Allow: /exams
+Allow: /vocab
+Allow: /leaderboard
+Allow: /privacy
+Allow: /terms
+Allow: /auth
+
+# Disallow authenticated-only API & admin endpoints from public indexing
+Disallow: /admin/
+Disallow: /_authenticated/admin/
+Disallow: /api/
+
+# Host & Sitemap Declaration
+Host: https://sciencekh.com
+Sitemap: https://sciencekh.com/sitemap.xml

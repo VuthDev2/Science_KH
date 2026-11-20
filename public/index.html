@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="km">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#059669" />
+    <title>ScienceKH — Learn Science in Khmer & English</title>
+    <link rel="icon" href="/favicon.svg" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #064E3B;
+        color: #ffffff;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Kantumruy Pro", sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        text-align: center;
+        padding: 24px;
+      }
+      .logo {
+        width: 76px;
+        height: 76px;
+        background: #059669;
+        border-radius: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 38px;
+        font-weight: 900;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+        margin-bottom: 20px;
+        color: #ffffff;
+      }
+      .brand {
+        font-size: 24px;
+        font-weight: 800;
+        margin: 0 0 6px 0;
+        letter-spacing: -0.5px;
+      }
+      .brand span {
+        color: #34D399;
+      }
+      .status {
+        margin: 0;
+        opacity: 0.85;
+        font-size: 13.5px;
+        max-width: 280px;
+        line-height: 1.5;
+      }
+      .spinner {
+        width: 32px;
+        height: 32px;
+        border: 3.5px solid rgba(255, 255, 255, 0.2);
+        border-top-color: #34D399;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+        margin: 24px 0 12px 0;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="logo">S</div>
+    <h1 class="brand">Science<span>KH</span></h1>
+    <p class="status">កំពុងតភ្ជាប់ទៅកាន់ម៉ាស៊ីនបម្រើការ (Connecting to ScienceKH)...</p>
+    <div class="spinner"></div>
+
+    <script>
+      (function () {
+        var targets = [
+          "http://10.0.2.2:8080",
+          "http://localhost:8080"
+        ];
+        var statusEl = document.querySelector(".status");
+
+        function tryConnect(index) {
+          if (index >= targets.length) {
+            if (statusEl) {
+              statusEl.innerText = "កំពុងព្យាយាមភ្ជាប់ឡើងវិញ... (Connecting to local dev server)...";
+            }
+            setTimeout(function () { tryConnect(0); }, 1500);
+            return;
+          }
+          var url = targets[index];
+          fetch(url, { method: "HEAD", mode: "no-cors" })
+            .then(function () {
+              window.location.replace(url);
+            })
+            .catch(function () {
+              tryConnect(index + 1);
+            });
+        }
+
+        tryConnect(0);
+      })();
+    </script>
+  </body>
+</html>

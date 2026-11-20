@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- 1. Home / Landing Page -->
+  <url>
+    <loc>https://sciencekh.com/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="km" href="https://sciencekh.com/?lang=km"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sciencekh.com/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sciencekh.com/"/>
+  </url>
+
+  <!-- 2. MoEYS Official Exam Archive (High Priority for Bac II Search Traffic) -->
+  <url>
+    <loc>https://sciencekh.com/exams</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="km" href="https://sciencekh.com/exams?lang=km"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sciencekh.com/exams?lang=en"/>
+  </url>
+
+  <!-- 3. STEM Fundamentals Warehouse (Duolingo Codex for Symbols & Formulas) -->
+  <url>
+    <loc>https://sciencekh.com/vocab</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="km" href="https://sciencekh.com/vocab?lang=km"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sciencekh.com/vocab?lang=en"/>
+  </url>
+
+  <!-- 4. National Curriculum Lessons & Units Hub -->
+  <url>
+    <loc>https://sciencekh.com/lessons</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="km" href="https://sciencekh.com/lessons?lang=km"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sciencekh.com/lessons?lang=en"/>
+  </url>
+
+  <!-- 5. Subject Specific Curriculum Landing URLs -->
+  <url>
+    <loc>https://sciencekh.com/lessons?subject=mathematics</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://sciencekh.com/lessons?subject=physics</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://sciencekh.com/lessons?subject=chemistry</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://sciencekh.com/lessons?subject=biology</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 6. National Leaderboard & Gamification -->
+  <url>
+    <loc>https://sciencekh.com/leaderboard</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- 7. Dr. Sokha AI STEM Tutor -->
+  <url>
+    <loc>https://sciencekh.com/tutor</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- 8. Privacy & Terms -->
+  <url>
+    <loc>https://sciencekh.com/privacy</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.30</priority>
+  </url>
+  <url>
+    <loc>https://sciencekh.com/terms</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.30</priority>
+  </url>
+</urlset>

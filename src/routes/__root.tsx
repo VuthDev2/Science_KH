@@ -10,9 +10,17 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+const resolvedAppCss = import.meta.env.DEV ? "/src/styles.css?direct" : appCss;
 import { reportAppError } from "../lib/error-reporting";
 import { AuthProvider } from "../lib/auth-context";
+import { SuperProvider } from "../lib/super-context";
+import { SuperPaywallModal } from "../components/super/super-paywall-modal";
+import { MistakeReviewDrawer } from "../components/super/mistake-review-drawer";
 import { Toaster } from "../components/ui/sonner";
+import { initNativeMobile } from "../lib/native-mobile";
+
+import { SITE_CONFIG } from "../lib/seo/constants";
+import { generateOrganizationSchema } from "../lib/seo/schema-generator";
 
 function NotFoundComponent() {
   return (
@@ -78,24 +86,42 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   head: () => ({
     meta: [
       { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1" },
-      { name: "theme-color", content: "#0F4C81" },
-      { title: "ScienceKH — Learn science in Khmer & English" },
+      { name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" },
+      { name: "theme-color", content: SITE_CONFIG.themeColor },
+      { name: "apple-mobile-web-app-capable", content: "yes" },
+      { name: "apple-mobile-web-app-status-bar-style", content: "black-translucent" },
+      { name: "mobile-web-app-capable", content: "yes" },
+      { title: `${SITE_CONFIG.name} — ${SITE_CONFIG.taglineKm}` },
       {
         name: "description",
-        content: "AI-powered science learning for Cambodian Grade 7–12 students.",
+        content: SITE_CONFIG.descriptionKm,
       },
-      { property: "og:title", content: "ScienceKH" },
-      { property: "og:description", content: "AI-powered science learning for Cambodian students." },
+      // OpenGraph SEO
+      { property: "og:site_name", content: SITE_CONFIG.name },
+      { property: "og:title", content: `${SITE_CONFIG.name} — ${SITE_CONFIG.taglineKm}` },
+      { property: "og:description", content: SITE_CONFIG.descriptionKm },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: SITE_CONFIG.siteUrl },
+      { property: "og:image", content: SITE_CONFIG.defaultOgImage },
+      { property: "og:locale", content: SITE_CONFIG.localeKm },
+      { property: "og:locale:alternate", content: SITE_CONFIG.localeEn },
+      // Twitter Cards
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:site", content: SITE_CONFIG.twitterHandle },
+      { name: "twitter:title", content: `${SITE_CONFIG.name} — ${SITE_CONFIG.taglineKm}` },
+      { name: "twitter:description", content: SITE_CONFIG.descriptionKm },
+      { name: "twitter:image", content: SITE_CONFIG.defaultOgImage },
     ],
     links: [
-      { rel: "stylesheet", href: appCss },
+      { rel: "manifest", href: "/manifest.json" },
+      { rel: "stylesheet", href: resolvedAppCss },
+      { rel: "canonical", href: SITE_CONFIG.siteUrl },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "dns-prefetch", href: "https://fonts.googleapis.com" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Preahvihear&display=swap",
       },
     ],
   }),
@@ -106,12 +132,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  const orgSchema = generateOrganizationSchema();
+
   return (
-    <html lang="en">
+    <html lang="km">
       <head>
         <HeadContent />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(orgSchema),
+          }}
+        />
       </head>
-      <body>
+      <body className="min-h-screen bg-[#F8FAFC] dark:bg-slate-950 text-slate-900 dark:text-slate-100 antialiased">
         {children}
         <Scripts />
       </body>
@@ -122,11 +156,19 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
+  useEffect(() => {
+    initNativeMobile();
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
-        <Outlet />
-        <Toaster />
+        <SuperProvider>
+          <Outlet />
+          <SuperPaywallModal />
+          <MistakeReviewDrawer />
+          <Toaster />
+        </SuperProvider>
       </AuthProvider>
     </QueryClientProvider>
   );

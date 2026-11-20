@@ -1,4 +1,4 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, useNavigate, getRouteApi } from "@tanstack/react-router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { Loader2, Plus, Trash2 } from "lucide-react";
@@ -17,8 +17,10 @@ export const Route = createFileRoute("/_authenticated/admin/lessons/$lessonId")(
   component: EditLesson,
 });
 
+const routeApi = getRouteApi("/_authenticated/admin/lessons/$lessonId");
+
 function EditLesson() {
-  const { lessonId } = Route.useParams();
+  const { lessonId } = routeApi.useParams();
   const navigate = useNavigate();
   const qc = useQueryClient();
 

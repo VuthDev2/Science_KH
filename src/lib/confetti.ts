@@ -44,6 +44,7 @@ export function launchConfetti() {
   const duration = 2500; // 2.5 seconds
 
   function render() {
+    if (!ctx) return;
     const elapsed = Date.now() - startTime;
     if (elapsed > duration) {
       cancelAnimationFrame(animationFrameId);

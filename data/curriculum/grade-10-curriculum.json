@@ -1,0 +1,2898 @@
+{
+  "grade": 10,
+  "title_km": "កម្មវិធីសិក្សាជាតិថ្នាក់ទី ១០ - មធ្យមសិក្សាទុតិយភូមិ (ថ្នាក់មូលដ្ឋានរួម)",
+  "title_en": "Cambodian National Curriculum — Grade 10 (Upper Secondary Common Core Diagnostic)",
+  "cycle": "upper_secondary",
+  "weekly_total_hours": 34,
+  "annual_school_weeks": 38,
+  "overview_km": "ថ្នាក់ទី ១០ ជាថ្នាក់មូលដ្ឋានរួមដែលកំណត់ទិសដៅជ្រើសរើសផ្នែកវិទ្យាសាស្ត្រ ឬផ្នែកវិទ្យាសាស្ត្រសង្គមសម្រាប់ថ្នាក់ទី ១១ និងទី ១២។",
+  "overview_en": "Grade 10 is the diagnostic foundation year for upper secondary education, establishing core prerequisites before academic streaming.",
+  "terminal_examination": null,
+  "academic_streams": {
+    "type": "common_diagnostic_core",
+    "note_km": "សិស្សទាំងអស់រៀនមុខវិជ្ជារួមគ្នាមុនពេលជ្រើសរើសផ្នែកវិទ្យាសាស្ត្រ ឬវិទ្យាសាស្ត្រសង្គមនៅថ្នាក់ទី ១១"
+  },
+  "total_subjects_count": 10,
+  "total_lessons_count": 35,
+  "subjects": [
+    {
+      "subject_slug": "mathematics",
+      "name_km": "គណិតវិទ្យា",
+      "name_en": "Mathematics",
+      "weekly_hours": 4,
+      "official_textbook": {
+        "title_km": "គណិតវិទ្យា (ថ្នាក់ទី ៧-១២)",
+        "publisher": "គ្រឹះស្ថានបោះពុម្ព និងចែកផ្សាយ ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "edition": "បោះពុម្ពឡើងវិញ ២០១៨-២០២៣",
+        "sala_url": "https://sala.moeys.gov.kh/",
+        "oer_url": "https://oer.moeys.gov.kh/"
+      },
+      "units": [
+        {
+          "unit_id": "unit-g10-math-1",
+          "unit_number": 1,
+          "title_km": "ពហុធា និងសមីការ-វិសមីការដឺក្រេទី២",
+          "title_en": "Polynomials & Quadratic Equations",
+          "description_km": "ឫសនៃពហុធា សញ្ញានៃត្រីធាដឺក្រេទី២ និងវិសមីការពីជគណិត",
+          "description_en": "Polynomial roots, quadratic trinomial signs, and algebraic inequalities",
+          "icon": "📐",
+          "competencies": [
+            "ស្វែងយល់ និងអនុវត្តទ្រឹស្តីក្នុង ពហុធា និងសមីការ-វិសមីការដឺក្រេទី២",
+            "ដោះស្រាយលំហាត់ និងចំណោទកម្រិតមធ្យម និងកម្រិតខ្ពស់",
+            "ត្រៀមលក្ខណៈសម្រាប់ការវាយតម្លៃប្រចាំជំពូក និងការប្រឡងបញ្ចប់ឆ្នាំ"
+          ],
+          "lesson_count": 2,
+          "lessons": [
+            {
+              "lesson_id": "les-g10-math-01",
+              "sort_order": 1,
+              "title_km": "អនុគមន៍ដឺក្រេទី២ ប៉ារ៉ាបូល និងអថេរភាព",
+              "title_en": "Quadratic Functions & Parabola Geometry",
+              "summary_km": "ទម្រង់ y = ax² + bx + c កំពូលប៉ារ៉ាបូល (-b/2a, -Δ/4a) អ័ក្សឆ្លុះ និងតារាងអថេរភាព",
+              "summary_en": "Parabola vertex form, axis of symmetry x = -b/2a, concavity, and quadratic variation tables",
+              "estimated_minutes": 24,
+              "xp_reward": 40,
+              "subtopics": [
+                "អនុគមន៍ដឺក្រេទី២ ប៉ារ៉ាបូល និងអថេរភាព",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ អនុគមន៍ដឺក្រេទី២ ប៉ារ៉ាបូល និងអថេរភាព",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ អនុគមន៍ដឺក្រេទី២ ប៉ារ៉ាបូល និងអថេរភាព",
+                  "objective_en": "Recall, state, and explain foundational definitions of Quadratic Functions & Parabola Geometry"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "អនុគមន៍ដឺក្រេទី២",
+                  "term_en": "Quadratic",
+                  "definition_km": "ទម្រង់ y = ax² + bx + c កំពូលប៉ារ៉ាបូល (-b/2a, -Δ/4a) អ័ក្សឆ្លុះ និងតារាងអថេរភាព",
+                  "definition_en": "Parabola vertex form, axis of symmetry x = -b/2a, concavity, and quadratic variation tables",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន អនុគមន៍ដឺក្រេទី២ ប៉ារ៉ាបូល និងអថេរភាព"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g10-math-01-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ អនុគមន៍ដឺក្រេទី២ ប៉ារ៉ាបូល និងអថេរភាព",
+                  "title_en": "Practice Exercise 1: Quadratic Functions & Parabola Geometry",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ អនុគមន៍ដឺក្រេទី២ ប៉ារ៉ាបូល និងអថេរភាព ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Quadratic Functions & Parabola Geometry applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g10-math-01-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ អនុគមន៍ដឺក្រេទី២ ប៉ារ៉ាបូល និងអថេរភាព",
+                  "title_en": "Formative Competency Problem: Quadratic Functions & Parabola Geometry",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន អនុគមន៍ដឺក្រេទី២ ប៉ារ៉ាបូល និងអថេរភាព ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Quadratic Functions & Parabola Geometry to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g10-math-02",
+              "sort_order": 2,
+              "title_km": "វ៉ិចទ័រក្នុងប្លង់ និងផលគុណស្កាលែ",
+              "title_en": "Vectors in the Plane & Dot Product",
+              "summary_km": "កូអរដោនេវ៉ិចទ័រ ផលបូកវ៉ិចទ័រ ប្រវែងវ៉ិចទ័រ និងផលគុណស្កាលែ u · v = |u||v|cos θ",
+              "summary_en": "Vector magnitude, orthogonal dot product u · v = 0, and analytical formula x x' + y y'",
+              "estimated_minutes": 22,
+              "xp_reward": 40,
+              "subtopics": [
+                "វ៉ិចទ័រក្នុងប្លង់ និងផលគុណស្កាលែ",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ វ៉ិចទ័រក្នុងប្លង់ និងផលគុណស្កាលែ",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ វ៉ិចទ័រក្នុងប្លង់ និងផលគុណស្កាលែ",
+                  "objective_en": "Recall, state, and explain foundational definitions of Vectors in the Plane & Dot Product"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "វ៉ិចទ័រក្នុងប្លង់",
+                  "term_en": "Vectors",
+                  "definition_km": "កូអរដោនេវ៉ិចទ័រ ផលបូកវ៉ិចទ័រ ប្រវែងវ៉ិចទ័រ និងផលគុណស្កាលែ u · v = |u||v|cos θ",
+                  "definition_en": "Vector magnitude, orthogonal dot product u · v = 0, and analytical formula x x' + y y'",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន វ៉ិចទ័រក្នុងប្លង់ និងផលគុណស្កាលែ"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g10-math-02-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ វ៉ិចទ័រក្នុងប្លង់ និងផលគុណស្កាលែ",
+                  "title_en": "Practice Exercise 1: Vectors in the Plane & Dot Product",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ វ៉ិចទ័រក្នុងប្លង់ និងផលគុណស្កាលែ ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Vectors in the Plane & Dot Product applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g10-math-02-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ វ៉ិចទ័រក្នុងប្លង់ និងផលគុណស្កាលែ",
+                  "title_en": "Formative Competency Problem: Vectors in the Plane & Dot Product",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន វ៉ិចទ័រក្នុងប្លង់ និងផលគុណស្កាលែ ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Vectors in the Plane & Dot Product to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "unit-g10-math-2",
+          "unit_number": 2,
+          "title_km": "ត្រីកោណមាត្រកម្រិតខ្ពស់ និងវ៉ិចទ័រ",
+          "title_en": "Trigonometry & Vector Analysis",
+          "description_km": "រូបមន្តបូក គុណត្រីកោណមាត្រ វ៉ិចទ័រក្នុងប្លង់ និងផលគុណស្កាលែ",
+          "description_en": "Trigonometric identities, planar vectors, and scalar dot products",
+          "icon": "📊",
+          "competencies": [
+            "ស្វែងយល់ និងអនុវត្តទ្រឹស្តីក្នុង ត្រីកោណមាត្រកម្រិតខ្ពស់ និងវ៉ិចទ័រ",
+            "ដោះស្រាយលំហាត់ និងចំណោទកម្រិតមធ្យម និងកម្រិតខ្ពស់",
+            "ត្រៀមលក្ខណៈសម្រាប់ការវាយតម្លៃប្រចាំជំពូក និងការប្រឡងបញ្ចប់ឆ្នាំ"
+          ],
+          "lesson_count": 3,
+          "lessons": [
+            {
+              "lesson_id": "les-g10-math-03",
+              "sort_order": 3,
+              "title_km": "ត្រីកោណមាត្រកម្រិតខ្ពស់ និងរូបមន្តបំប្លែង",
+              "title_en": "Advanced Trigonometry & Addition Formulas",
+              "summary_km": "រូបមន្តបូក cos(a ± b), sin(a ± b) និងរូបមន្តមុំទ្វេ sin 2a, cos 2a",
+              "summary_en": "Angle addition theorems, double-angle formulas sin 2a = 2 sin a cos a, cos 2a = cos²a - sin²a",
+              "estimated_minutes": 24,
+              "xp_reward": 40,
+              "subtopics": [
+                "ត្រីកោណមាត្រកម្រិតខ្ពស់ និងរូបមន្តបំប្លែង",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ ត្រីកោណមាត្រកម្រិតខ្ពស់ និងរូបមន្តបំប្លែង",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ត្រីកោណមាត្រកម្រិតខ្ពស់ និងរូបមន្តបំប្លែង",
+                  "objective_en": "Recall, state, and explain foundational definitions of Advanced Trigonometry & Addition Formulas"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ត្រីកោណមាត្រកម្រិតខ្ពស់",
+                  "term_en": "Advanced",
+                  "definition_km": "រូបមន្តបូក cos(a ± b), sin(a ± b) និងរូបមន្តមុំទ្វេ sin 2a, cos 2a",
+                  "definition_en": "Angle addition theorems, double-angle formulas sin 2a = 2 sin a cos a, cos 2a = cos²a - sin²a",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ត្រីកោណមាត្រកម្រិតខ្ពស់ និងរូបមន្តបំប្លែង"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g10-math-03-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ត្រីកោណមាត្រកម្រិតខ្ពស់ និងរូបមន្តបំប្លែង",
+                  "title_en": "Practice Exercise 1: Advanced Trigonometry & Addition Formulas",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ត្រីកោណមាត្រកម្រិតខ្ពស់ និងរូបមន្តបំប្លែង ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Advanced Trigonometry & Addition Formulas applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g10-math-03-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ត្រីកោណមាត្រកម្រិតខ្ពស់ និងរូបមន្តបំប្លែង",
+                  "title_en": "Formative Competency Problem: Advanced Trigonometry & Addition Formulas",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ត្រីកោណមាត្រកម្រិតខ្ពស់ និងរូបមន្តបំប្លែង ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Advanced Trigonometry & Addition Formulas to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g10-math-04",
+              "sort_order": 4,
+              "title_km": "សមីការបន្ទាត់ និងចម្ងាយពីចំណុចទៅបន្ទាត់",
+              "title_en": "Linear Equations & Point-to-Line Distance",
+              "summary_km": "សមីការទូទៅ ax + by + c = 0 វ៉ិចទ័រប្រាប់ទិស វ៉ិចទ័រណរម៉ាល់ និងរូបមន្តចម្ងាយ d",
+              "summary_en": "General line equation ax + by + c = 0, normal vector (a, b), and distance formula d = |ax0 + by0 + c| / √(a² + b²)",
+              "estimated_minutes": 22,
+              "xp_reward": 40,
+              "subtopics": [
+                "សមីការបន្ទាត់ និងចម្ងាយពីចំណុចទៅបន្ទាត់",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ សមីការបន្ទាត់ និងចម្ងាយពីចំណុចទៅបន្ទាត់",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ សមីការបន្ទាត់ និងចម្ងាយពីចំណុចទៅបន្ទាត់",
+                  "objective_en": "Recall, state, and explain foundational definitions of Linear Equations & Point-to-Line Distance"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "សមីការបន្ទាត់",
+                  "term_en": "Linear",
+                  "definition_km": "សមីការទូទៅ ax + by + c = 0 វ៉ិចទ័រប្រាប់ទិស វ៉ិចទ័រណរម៉ាល់ និងរូបមន្តចម្ងាយ d",
+                  "definition_en": "General line equation ax + by + c = 0, normal vector (a, b), and distance formula d = |ax0 + by0 + c| / √(a² + b²)",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន សមីការបន្ទាត់ និងចម្ងាយពីចំណុចទៅបន្ទាត់"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g10-math-04-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ សមីការបន្ទាត់ និងចម្ងាយពីចំណុចទៅបន្ទាត់",
+                  "title_en": "Practice Exercise 1: Linear Equations & Point-to-Line Distance",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ សមីការបន្ទាត់ និងចម្ងាយពីចំណុចទៅបន្ទាត់ ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Linear Equations & Point-to-Line Distance applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g10-math-04-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ សមីការបន្ទាត់ និងចម្ងាយពីចំណុចទៅបន្ទាត់",
+                  "title_en": "Formative Competency Problem: Linear Equations & Point-to-Line Distance",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន សមីការបន្ទាត់ និងចម្ងាយពីចំណុចទៅបន្ទាត់ ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Linear Equations & Point-to-Line Distance to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g10-math-05",
+              "sort_order": 5,
+              "title_km": "វិសមីការដឺក្រេទី២ និងតារាងសញ្ញា",
+              "title_en": "Quadratic Inequalities & Sign Analysis",
+              "summary_km": "សញ្ញានៃត្រីធាដឺក្រេទី២ ax² + bx + c វិធាន «ក្នុងផ្ទុយ ក្រៅដូច» និងសំណុំដំណោះស្រាយ",
+              "summary_en": "Sign table rules for quadratic trinomials: sign between roots is opposite to a, sign outside is same as a",
+              "estimated_minutes": 22,
+              "xp_reward": 40,
+              "subtopics": [
+                "វិសមីការដឺក្រេទី២ និងតារាងសញ្ញា",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ វិសមីការដឺក្រេទី២ និងតារាងសញ្ញា",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ វិសមីការដឺក្រេទី២ និងតារាងសញ្ញា",
+                  "objective_en": "Recall, state, and explain foundational definitions of Quadratic Inequalities & Sign Analysis"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "វិសមីការដឺក្រេទី២",
+                  "term_en": "Quadratic",
+                  "definition_km": "សញ្ញានៃត្រីធាដឺក្រេទី២ ax² + bx + c វិធាន «ក្នុងផ្ទុយ ក្រៅដូច» និងសំណុំដំណោះស្រាយ",
+                  "definition_en": "Sign table rules for quadratic trinomials: sign between roots is opposite to a, sign outside is same as a",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន វិសមីការដឺក្រេទី២ និងតារាងសញ្ញា"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g10-math-05-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ វិសមីការដឺក្រេទី២ និងតារាងសញ្ញា",
+                  "title_en": "Practice Exercise 1: Quadratic Inequalities & Sign Analysis",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ វិសមីការដឺក្រេទី២ និងតារាងសញ្ញា ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Quadratic Inequalities & Sign Analysis applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g10-math-05-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ វិសមីការដឺក្រេទី២ និងតារាងសញ្ញា",
+                  "title_en": "Formative Competency Problem: Quadratic Inequalities & Sign Analysis",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន វិសមីការដឺក្រេទី២ និងតារាងសញ្ញា ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Quadratic Inequalities & Sign Analysis to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject_slug": "physics",
+      "name_km": "រូបវិទ្យា",
+      "name_en": "Physics",
+      "weekly_hours": 4,
+      "official_textbook": {
+        "title_km": "រូបវិទ្យា (ថ្នាក់ទី ៧-១២)",
+        "publisher": "នាយកដ្ឋានអភិវឌ្ឍកម្មវិធីសិក្សា ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "edition": "បោះពុម្ពឡើងវិញ ២០១៩-២០២៣",
+        "sala_url": "https://sala.moeys.gov.kh/",
+        "oer_url": "https://oer.moeys.gov.kh/"
+      },
+      "units": [
+        {
+          "unit_id": "unit-g10-physics-1",
+          "unit_number": 1,
+          "title_km": "ជំពូកទី ១៖ មូលដ្ឋានគ្រឹះរូបវិទ្យា",
+          "title_en": "Unit 1: Foundations of Physics",
+          "description_km": "មេរៀនគ្រឹះផ្លូវការតាមកម្មវិធីសិក្សាក្រសួងអប់រំ យុវជន និងកីឡា",
+          "description_en": "Core official lessons aligned with MoEYS curriculum standards",
+          "icon": "📖",
+          "competencies": [
+            "ស្វែងយល់ និងអនុវត្តទ្រឹស្តីក្នុង រូបវិទ្យា"
+          ],
+          "lesson_count": 5,
+          "lessons": [
+            {
+              "lesson_id": "les-g10-phys-01",
+              "sort_order": 1,
+              "title_km": "ស៊ីនេម៉ាទិច ៖ ចលនាត្រង់ប្រែប្រួលស្មើ (v = at + v₀)",
+              "title_en": "Kinematics: Uniformly Accelerated Motion",
+              "summary_km": "សំទុះ a = const សមីការល្បឿន v = at + v₀ និងសមីការពេល x = 1/2 at² + v₀t + x₀",
+              "summary_en": "Constant acceleration a, velocity-time equation v = at + v0, and displacement x = 1/2 at² + v0t",
+              "estimated_minutes": 24,
+              "xp_reward": 40,
+              "subtopics": [
+                "ស៊ីនេម៉ាទិច ៖ ចលនាត្រង់ប្រែប្រួលស្មើ (v = at + v₀)",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ស៊ីនេម៉ាទិច ៖ ចលនាត្រង់ប្រែប្រួលស្មើ (v = at + v₀)",
+                  "objective_en": "Recall, state, and explain foundational definitions of Kinematics: Uniformly Accelerated Motion"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ស៊ីនេម៉ាទិច",
+                  "term_en": "Kinematics:",
+                  "definition_km": "សំទុះ a = const សមីការល្បឿន v = at + v₀ និងសមីការពេល x = 1/2 at² + v₀t + x₀",
+                  "definition_en": "Constant acceleration a, velocity-time equation v = at + v0, and displacement x = 1/2 at² + v0t",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ស៊ីនេម៉ាទិច ៖ ចលនាត្រង់ប្រែប្រួលស្មើ (v = at + v₀)"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g10-phys-01-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ស៊ីនេម៉ាទិច ៖ ចលនាត្រង់ប្រែប្រួលស្មើ (v = at + v₀)",
+                  "title_en": "Practice Exercise 1: Kinematics: Uniformly Accelerated Motion",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ស៊ីនេម៉ាទិច ៖ ចលនាត្រង់ប្រែប្រួលស្មើ (v = at + v₀) ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Kinematics: Uniformly Accelerated Motion applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g10-phys-01-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ស៊ីនេម៉ាទិច ៖ ចលនាត្រង់ប្រែប្រួលស្មើ (v = at + v₀)",
+                  "title_en": "Formative Competency Problem: Kinematics: Uniformly Accelerated Motion",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ស៊ីនេម៉ាទិច ៖ ចលនាត្រង់ប្រែប្រួលស្មើ (v = at + v₀) ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Kinematics: Uniformly Accelerated Motion to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g10-phys-02",
+              "sort_order": 2,
+              "title_km": "ច្បាប់ញូតុនទាំង ៣ នៃចលនា",
+              "title_en": "Newton's Three Laws of Motion",
+              "summary_km": "ច្បាប់ទី១ (និចលភាព) ច្បាប់ទី២ (F = ma) និងច្បាប់ទី៣ (សកម្មភាព និងប្រតិកម្ម)",
+              "summary_en": "First law (inertia), second law (F = ma net force dynamics), and third law (action-reaction pairs)",
+              "estimated_minutes": 22,
+              "xp_reward": 40,
+              "subtopics": [
+                "ច្បាប់ញូតុនទាំង ៣ នៃចលនា",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ច្បាប់ញូតុនទាំង ៣ នៃចលនា",
+                  "objective_en": "Recall, state, and explain foundational definitions of Newton's Three Laws of Motion"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ច្បាប់ញូតុនទាំង",
+                  "term_en": "Newton's",
+                  "definition_km": "ច្បាប់ទី១ (និចលភាព) ច្បាប់ទី២ (F = ma) និងច្បាប់ទី៣ (សកម្មភាព និងប្រតិកម្ម)",
+                  "definition_en": "First law (inertia), second law (F = ma net force dynamics), and third law (action-reaction pairs)",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ច្បាប់ញូតុនទាំង ៣ នៃចលនា"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g10-phys-02-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ច្បាប់ញូតុនទាំង ៣ នៃចលនា",
+                  "title_en": "Practice Exercise 1: Newton's Three Laws of Motion",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ច្បាប់ញូតុនទាំង ៣ នៃចលនា ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Newton's Three Laws of Motion applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g10-phys-02-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ច្បាប់ញូតុនទាំង ៣ នៃចលនា",
+                  "title_en": "Formative Competency Problem: Newton's Three Laws of Motion",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ច្បាប់ញូតុនទាំង ៣ នៃចលនា ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Newton's Three Laws of Motion to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g10-phys-03",
+              "sort_order": 3,
+              "title_km": "កម្លាំងកកិត និងកម្លាំងទំនាញសកល",
+              "title_en": "Friction Forces & Universal Gravitation",
+              "summary_km": "កកិតទប់ កកិតរអិល f = μ · N និងច្បាប់ទំនាញសកលរបស់ញូតុន F = G · (m₁m₂)/r²",
+              "summary_en": "Static and kinetic friction f = μN, normal force, and Newton's Universal Gravitation law",
+              "estimated_minutes": 22,
+              "xp_reward": 40,
+              "subtopics": [
+                "កម្លាំងកកិត និងកម្លាំងទំនាញសកល",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ កម្លាំងកកិត និងកម្លាំងទំនាញសកល",
+                  "objective_en": "Recall, state, and explain foundational definitions of Friction Forces & Universal Gravitation"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "កម្លាំងកកិត",
+                  "term_en": "Friction",
+                  "definition_km": "កកិតទប់ កកិតរអិល f = μ · N និងច្បាប់ទំនាញសកលរបស់ញូតុន F = G · (m₁m₂)/r²",
+                  "definition_en": "Static and kinetic friction f = μN, normal force, and Newton's Universal Gravitation law",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន កម្លាំងកកិត និងកម្លាំងទំនាញសកល"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g10-phys-03-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ កម្លាំងកកិត និងកម្លាំងទំនាញសកល",
+                  "title_en": "Practice Exercise 1: Friction Forces & Universal Gravitation",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ កម្លាំងកកិត និងកម្លាំងទំនាញសកល ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Friction Forces & Universal Gravitation applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g10-phys-03-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ កម្លាំងកកិត និងកម្លាំងទំនាញសកល",
+                  "title_en": "Formative Competency Problem: Friction Forces & Universal Gravitation",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន កម្លាំងកកិត និងកម្លាំងទំនាញសកល ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Friction Forces & Universal Gravitation to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g10-phys-04",
+              "sort_order": 4,
+              "title_km": "ការងារ ថាមពលស៊ីនេទិច និងថាមពលប៉ូតង់ស្យែល",
+              "title_en": "Kinetic & Potential Energy Conservation",
+              "summary_km": "ថាមពលស៊ីនេទិច Ek = 1/2 mv² ថាមពលប៉ូតង់ស្យែលទំនាញ Ep = mgh និងទ្រឹស្តីបទថាមពលស៊ីនេទិច",
+              "summary_en": "Kinetic energy Ek = 1/2 mv², gravitational potential energy Ep = mgh, and work-energy theorem",
+              "estimated_minutes": 24,
+              "xp_reward": 40,
+              "subtopics": [
+                "ការងារ ថាមពលស៊ីនេទិច និងថាមពលប៉ូតង់ស្យែល",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ការងារ ថាមពលស៊ីនេទិច និងថាមពលប៉ូតង់ស្យែល",
+                  "objective_en": "Recall, state, and explain foundational definitions of Kinetic & Potential Energy Conservation"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ការងារ",
+                  "term_en": "Kinetic",
+                  "definition_km": "ថាមពលស៊ីនេទិច Ek = 1/2 mv² ថាមពលប៉ូតង់ស្យែលទំនាញ Ep = mgh និងទ្រឹស្តីបទថាមពលស៊ីនេទិច",
+                  "definition_en": "Kinetic energy Ek = 1/2 mv², gravitational potential energy Ep = mgh, and work-energy theorem",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ការងារ ថាមពលស៊ីនេទិច និងថាមពលប៉ូតង់ស្យែល"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g10-phys-04-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ការងារ ថាមពលស៊ីនេទិច និងថាមពលប៉ូតង់ស្យែល",
+                  "title_en": "Practice Exercise 1: Kinetic & Potential Energy Conservation",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ការងារ ថាមពលស៊ីនេទិច និងថាមពលប៉ូតង់ស្យែល ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Kinetic & Potential Energy Conservation applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g10-phys-04-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ការងារ ថាមពលស៊ីនេទិច និងថាមពលប៉ូតង់ស្យែល",
+                  "title_en": "Formative Competency Problem: Kinetic & Potential Energy Conservation",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ការងារ ថាមពលស៊ីនេទិច និងថាមពលប៉ូតង់ស្យែល ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Kinetic & Potential Energy Conservation to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g10-phys-05",
+              "sort_order": 5,
+              "title_km": "ច្បាប់រក្សាថាមពលមេកានិច (Em = Ek + Ep)",
+              "title_en": "Conservation of Mechanical Energy",
+              "summary_km": "ថាមពលមេកានិចសរុប Em = Ek + Ep = ថេរ ក្នុងដែនទំនាញដី (គ្មានកម្លាំងកកិត)",
+              "summary_en": "Mechanical energy conservation in conservative gravitational fields: kinetic transforms to potential",
+              "estimated_minutes": 22,
+              "xp_reward": 40,
+              "subtopics": [
+                "ច្បាប់រក្សាថាមពលមេកានិច (Em = Ek + Ep)",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ច្បាប់រក្សាថាមពលមេកានិច (Em = Ek + Ep)",
+                  "objective_en": "Recall, state, and explain foundational definitions of Conservation of Mechanical Energy"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ច្បាប់រក្សាថាមពលមេកានិច",
+                  "term_en": "Conservation",
+                  "definition_km": "ថាមពលមេកានិចសរុប Em = Ek + Ep = ថេរ ក្នុងដែនទំនាញដី (គ្មានកម្លាំងកកិត)",
+                  "definition_en": "Mechanical energy conservation in conservative gravitational fields: kinetic transforms to potential",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ច្បាប់រក្សាថាមពលមេកានិច (Em = Ek + Ep)"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g10-phys-05-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ច្បាប់រក្សាថាមពលមេកានិច (Em = Ek + Ep)",
+                  "title_en": "Practice Exercise 1: Conservation of Mechanical Energy",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ច្បាប់រក្សាថាមពលមេកានិច (Em = Ek + Ep) ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Conservation of Mechanical Energy applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g10-phys-05-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ច្បាប់រក្សាថាមពលមេកានិច (Em = Ek + Ep)",
+                  "title_en": "Formative Competency Problem: Conservation of Mechanical Energy",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ច្បាប់រក្សាថាមពលមេកានិច (Em = Ek + Ep) ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Conservation of Mechanical Energy to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject_slug": "chemistry",
+      "name_km": "គីមីវិទ្យា",
+      "name_en": "Chemistry",
+      "weekly_hours": 4,
+      "official_textbook": {
+        "title_km": "គីមីវិទ្យា (ថ្នាក់ទី ៧-១២)",
+        "publisher": "គ្រឹះស្ថានបោះពុម្ព និងចែកផ្សាយ ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "edition": "បោះពុម្ពឡើងវិញ ២០១៨-២០២២",
+        "sala_url": "https://sala.moeys.gov.kh/",
+        "oer_url": "https://oer.moeys.gov.kh/"
+      },
+      "units": [
+        {
+          "unit_id": "unit-g10-chemistry-1",
+          "unit_number": 1,
+          "title_km": "ជំពូកទី ១៖ មូលដ្ឋានគ្រឹះគីមីវិទ្យា",
+          "title_en": "Unit 1: Foundations of Chemistry",
+          "description_km": "មេរៀនគ្រឹះផ្លូវការតាមកម្មវិធីសិក្សាក្រសួងអប់រំ យុវជន និងកីឡា",
+          "description_en": "Core official lessons aligned with MoEYS curriculum standards",
+          "icon": "📖",
+          "competencies": [
+            "ស្វែងយល់ និងអនុវត្តទ្រឹស្តីក្នុង គីមីវិទ្យា"
+          ],
+          "lesson_count": 5,
+          "lessons": [
+            {
+              "lesson_id": "les-g10-chem-01",
+              "sort_order": 1,
+              "title_km": "រចនាសម្ព័ន្ធអាតូម និងការកំណត់អេឡិចត្រុង",
+              "title_en": "Atomic Structure & Electron Configurations",
+              "summary_km": "លេខអាតូម Z ស្រទាប់ K, L, M, N អ័រប៊ីតាល់ s, p, d, f និងគោលការណ៍ Aufbau",
+              "summary_en": "Atomic number Z, mass number A, s/p/d/f subshells, Aufbau diagonal principle, Pauli exclusion",
+              "estimated_minutes": 24,
+              "xp_reward": 40,
+              "subtopics": [
+                "រចនាសម្ព័ន្ធអាតូម និងការកំណត់អេឡិចត្រុង",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ រចនាសម្ព័ន្ធអាតូម និងការកំណត់អេឡិចត្រុង",
+                  "objective_en": "Recall, state, and explain foundational definitions of Atomic Structure & Electron Configurations"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "រចនាសម្ព័ន្ធអាតូម",
+                  "term_en": "Atomic",
+                  "definition_km": "លេខអាតូម Z ស្រទាប់ K, L, M, N អ័រប៊ីតាល់ s, p, d, f និងគោលការណ៍ Aufbau",
+                  "definition_en": "Atomic number Z, mass number A, s/p/d/f subshells, Aufbau diagonal principle, Pauli exclusion",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន រចនាសម្ព័ន្ធអាតូម និងការកំណត់អេឡិចត្រុង"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g10-chem-01-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ រចនាសម្ព័ន្ធអាតូម និងការកំណត់អេឡិចត្រុង",
+                  "title_en": "Practice Exercise 1: Atomic Structure & Electron Configurations",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ រចនាសម្ព័ន្ធអាតូម និងការកំណត់អេឡិចត្រុង ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Atomic Structure & Electron Configurations applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g10-chem-01-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ រចនាសម្ព័ន្ធអាតូម និងការកំណត់អេឡិចត្រុង",
+                  "title_en": "Formative Competency Problem: Atomic Structure & Electron Configurations",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន រចនាសម្ព័ន្ធអាតូម និងការកំណត់អេឡិចត្រុង ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Atomic Structure & Electron Configurations to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g10-chem-02",
+              "sort_order": 2,
+              "title_km": "តារាងខួបនៃធាតុគីមី និងច្បាប់ Mendeleev",
+              "title_en": "Periodic Trends & Chemical Periodicity",
+              "summary_km": "ខួប (Periods) ក្រុម (Groups) អេឡិចត្រុងវ៉ាឡង់ និងបម្រែបម្រួលកាំអាតូម និងអេឡិចត្រូអវិជ្ជមាន",
+              "summary_en": "Periods, alkali/halogen groups, electronegativity trends, ionization energy, and atomic radii",
+              "estimated_minutes": 22,
+              "xp_reward": 40,
+              "subtopics": [
+                "តារាងខួបនៃធាតុគីមី និងច្បាប់ Mendeleev",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ តារាងខួបនៃធាតុគីមី និងច្បាប់ Mendeleev",
+                  "objective_en": "Recall, state, and explain foundational definitions of Periodic Trends & Chemical Periodicity"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "តារាងខួបនៃធាតុគីមី",
+                  "term_en": "Periodic",
+                  "definition_km": "ខួប (Periods) ក្រុម (Groups) អេឡិចត្រុងវ៉ាឡង់ និងបម្រែបម្រួលកាំអាតូម និងអេឡិចត្រូអវិជ្ជមាន",
+                  "definition_en": "Periods, alkali/halogen groups, electronegativity trends, ionization energy, and atomic radii",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន តារាងខួបនៃធាតុគីមី និងច្បាប់ Mendeleev"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g10-chem-02-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ តារាងខួបនៃធាតុគីមី និងច្បាប់ Mendeleev",
+                  "title_en": "Practice Exercise 1: Periodic Trends & Chemical Periodicity",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ តារាងខួបនៃធាតុគីមី និងច្បាប់ Mendeleev ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Periodic Trends & Chemical Periodicity applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g10-chem-02-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ តារាងខួបនៃធាតុគីមី និងច្បាប់ Mendeleev",
+                  "title_en": "Formative Competency Problem: Periodic Trends & Chemical Periodicity",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន តារាងខួបនៃធាតុគីមី និងច្បាប់ Mendeleev ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Periodic Trends & Chemical Periodicity to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g10-chem-03",
+              "sort_order": 3,
+              "title_km": "សម្ព័ន្ធគីមី ៖ សម្ព័ន្ធអ៊ីយ៉ុង និងកូវ៉ាឡង់",
+              "title_en": "Chemical Bonding: Ionic vs Covalent",
+              "summary_km": "ការផ្ទេរអេឡិចត្រុង (សម្ព័ន្ធអ៊ីយ៉ុង) និងការចូលរួមអេឡិចត្រុងរួម (សម្ព័ន្ធកូវ៉ាឡង់)",
+              "summary_en": "Octet rule, ionic crystal lattices via electron transfer, and polar/nonpolar covalent molecular sharing",
+              "estimated_minutes": 22,
+              "xp_reward": 40,
+              "subtopics": [
+                "សម្ព័ន្ធគីមី ៖ សម្ព័ន្ធអ៊ីយ៉ុង និងកូវ៉ាឡង់",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ សម្ព័ន្ធគីមី ៖ សម្ព័ន្ធអ៊ីយ៉ុង និងកូវ៉ាឡង់",
+                  "objective_en": "Recall, state, and explain foundational definitions of Chemical Bonding: Ionic vs Covalent"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "សម្ព័ន្ធគីមី",
+                  "term_en": "Chemical",
+                  "definition_km": "ការផ្ទេរអេឡិចត្រុង (សម្ព័ន្ធអ៊ីយ៉ុង) និងការចូលរួមអេឡិចត្រុងរួម (សម្ព័ន្ធកូវ៉ាឡង់)",
+                  "definition_en": "Octet rule, ionic crystal lattices via electron transfer, and polar/nonpolar covalent molecular sharing",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន សម្ព័ន្ធគីមី ៖ សម្ព័ន្ធអ៊ីយ៉ុង និងកូវ៉ាឡង់"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g10-chem-03-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ សម្ព័ន្ធគីមី ៖ សម្ព័ន្ធអ៊ីយ៉ុង និងកូវ៉ាឡង់",
+                  "title_en": "Practice Exercise 1: Chemical Bonding: Ionic vs Covalent",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ សម្ព័ន្ធគីមី ៖ សម្ព័ន្ធអ៊ីយ៉ុង និងកូវ៉ាឡង់ ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Chemical Bonding: Ionic vs Covalent applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g10-chem-03-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ សម្ព័ន្ធគីមី ៖ សម្ព័ន្ធអ៊ីយ៉ុង និងកូវ៉ាឡង់",
+                  "title_en": "Formative Competency Problem: Chemical Bonding: Ionic vs Covalent",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន សម្ព័ន្ធគីមី ៖ សម្ព័ន្ធអ៊ីយ៉ុង និងកូវ៉ាឡង់ ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Chemical Bonding: Ionic vs Covalent to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g10-chem-04",
+              "sort_order": 4,
+              "title_km": "ប្រតិកម្មអុកស៊ីដូរេដុកកម្ម និងតុល្យភាពអេឡិចត្រុង",
+              "title_en": "Redox Reactions & Oxidation States",
+              "summary_km": "ការគណនាលេខអុកស៊ីតកម្ម (N.O) វិធីតុល្យភាពកន្លះសមីការអេឡិចត្រុង",
+              "summary_en": "Determining oxidation states, balancing complex redox equations via ion-electron half-reaction method",
+              "estimated_minutes": 24,
+              "xp_reward": 40,
+              "subtopics": [
+                "ប្រតិកម្មអុកស៊ីដូរេដុកកម្ម និងតុល្យភាពអេឡិចត្រុង",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ប្រតិកម្មអុកស៊ីដូរេដុកកម្ម និងតុល្យភាពអេឡិចត្រុង",
+                  "objective_en": "Recall, state, and explain foundational definitions of Redox Reactions & Oxidation States"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ប្រតិកម្មអុកស៊ីដូរេដុកកម្ម",
+                  "term_en": "Redox",
+                  "definition_km": "ការគណនាលេខអុកស៊ីតកម្ម (N.O) វិធីតុល្យភាពកន្លះសមីការអេឡិចត្រុង",
+                  "definition_en": "Determining oxidation states, balancing complex redox equations via ion-electron half-reaction method",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ប្រតិកម្មអុកស៊ីដូរេដុកកម្ម និងតុល្យភាពអេឡិចត្រុង"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g10-chem-04-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ប្រតិកម្មអុកស៊ីដូរេដុកកម្ម និងតុល្យភាពអេឡិចត្រុង",
+                  "title_en": "Practice Exercise 1: Redox Reactions & Oxidation States",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ប្រតិកម្មអុកស៊ីដូរេដុកកម្ម និងតុល្យភាពអេឡិចត្រុង ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Redox Reactions & Oxidation States applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g10-chem-04-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ប្រតិកម្មអុកស៊ីដូរេដុកកម្ម និងតុល្យភាពអេឡិចត្រុង",
+                  "title_en": "Formative Competency Problem: Redox Reactions & Oxidation States",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ប្រតិកម្មអុកស៊ីដូរេដុកកម្ម និងតុល្យភាពអេឡិចត្រុង ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Redox Reactions & Oxidation States to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g10-chem-05",
+              "sort_order": 5,
+              "title_km": "សូលុយស្យុង និងកំហាប់ម៉ូល (C = n / V)",
+              "title_en": "Molar Solutions & Dilution Dynamics",
+              "summary_km": "ការរៀបចំសូលុយស្យុង ការរំលាយសារធាតុ និងរូបមន្តពង្រាវសូលុយស្យុង C₁ · V₁ = C₂ · V₂",
+              "summary_en": "Solution preparation, volumetric flasks, molarity C = n/V, and dilution equation C1·V1 = C2·V2",
+              "estimated_minutes": 20,
+              "xp_reward": 35,
+              "subtopics": [
+                "សូលុយស្យុង និងកំហាប់ម៉ូល (C = n / V)",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ សូលុយស្យុង និងកំហាប់ម៉ូល (C = n / V)",
+                  "objective_en": "Recall, state, and explain foundational definitions of Molar Solutions & Dilution Dynamics"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "សូលុយស្យុង",
+                  "term_en": "Molar",
+                  "definition_km": "ការរៀបចំសូលុយស្យុង ការរំលាយសារធាតុ និងរូបមន្តពង្រាវសូលុយស្យុង C₁ · V₁ = C₂ · V₂",
+                  "definition_en": "Solution preparation, volumetric flasks, molarity C = n/V, and dilution equation C1·V1 = C2·V2",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន សូលុយស្យុង និងកំហាប់ម៉ូល (C = n / V)"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g10-chem-05-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ សូលុយស្យុង និងកំហាប់ម៉ូល (C = n / V)",
+                  "title_en": "Practice Exercise 1: Molar Solutions & Dilution Dynamics",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ សូលុយស្យុង និងកំហាប់ម៉ូល (C = n / V) ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Molar Solutions & Dilution Dynamics applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g10-chem-05-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ សូលុយស្យុង និងកំហាប់ម៉ូល (C = n / V)",
+                  "title_en": "Formative Competency Problem: Molar Solutions & Dilution Dynamics",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន សូលុយស្យុង និងកំហាប់ម៉ូល (C = n / V) ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Molar Solutions & Dilution Dynamics to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject_slug": "biology",
+      "name_km": "ជីវវិទ្យា",
+      "name_en": "Biology",
+      "weekly_hours": 4,
+      "official_textbook": {
+        "title_km": "ជីវវិទ្យា (ថ្នាក់ទី ៧-១២)",
+        "publisher": "នាយកដ្ឋានអភិវឌ្ឍកម្មវិធីសិក្សា ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "edition": "បោះពុម្ពឡើងវិញ ២០១៨-២០២៣",
+        "sala_url": "https://sala.moeys.gov.kh/",
+        "oer_url": "https://oer.moeys.gov.kh/"
+      },
+      "units": [
+        {
+          "unit_id": "unit-g10-biology-1",
+          "unit_number": 1,
+          "title_km": "ជំពូកទី ១៖ មូលដ្ឋានគ្រឹះជីវវិទ្យា",
+          "title_en": "Unit 1: Foundations of Biology",
+          "description_km": "មេរៀនគ្រឹះផ្លូវការតាមកម្មវិធីសិក្សាក្រសួងអប់រំ យុវជន និងកីឡា",
+          "description_en": "Core official lessons aligned with MoEYS curriculum standards",
+          "icon": "📖",
+          "competencies": [
+            "ស្វែងយល់ និងអនុវត្តទ្រឹស្តីក្នុង ជីវវិទ្យា"
+          ],
+          "lesson_count": 5,
+          "lessons": [
+            {
+              "lesson_id": "les-g10-bio-01",
+              "sort_order": 1,
+              "title_km": "ម៉ាក្រូម៉ូលេគុលជីវសាស្រ្ត ៖ កាបូអ៊ីដ្រាត ប្រូតេអ៊ីន ខ្លាញ់",
+              "title_en": "Biological Macromolecules & Nutrition",
+              "summary_km": "ម៉ូណូមែ ប៉ូលីមែ អាស៊ីតអាមីណេ អាស៊ីតខ្លាញ់ និងសារៈសំខាន់ក្នុងរាងកាយ",
+              "summary_en": "Carbohydrates (monosaccharides, starch), proteins (amino acids), lipids (fatty acids, glycerol), nucleic acids",
+              "estimated_minutes": 22,
+              "xp_reward": 40,
+              "subtopics": [
+                "ម៉ាក្រូម៉ូលេគុលជីវសាស្រ្ត ៖ កាបូអ៊ីដ្រាត ប្រូតេអ៊ីន ខ្លាញ់",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ម៉ាក្រូម៉ូលេគុលជីវសាស្រ្ត ៖ កាបូអ៊ីដ្រាត ប្រូតេអ៊ីន ខ្លាញ់",
+                  "objective_en": "Recall, state, and explain foundational definitions of Biological Macromolecules & Nutrition"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ម៉ាក្រូម៉ូលេគុលជីវសាស្រ្ត",
+                  "term_en": "Biological",
+                  "definition_km": "ម៉ូណូមែ ប៉ូលីមែ អាស៊ីតអាមីណេ អាស៊ីតខ្លាញ់ និងសារៈសំខាន់ក្នុងរាងកាយ",
+                  "definition_en": "Carbohydrates (monosaccharides, starch), proteins (amino acids), lipids (fatty acids, glycerol), nucleic acids",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ម៉ាក្រូម៉ូលេគុលជីវសាស្រ្ត ៖ កាបូអ៊ីដ្រាត ប្រូតេអ៊ីន ខ្លាញ់"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g10-bio-01-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ម៉ាក្រូម៉ូលេគុលជីវសាស្រ្ត ៖ កាបូអ៊ីដ្រាត ប្រូតេអ៊ីន ខ្លាញ់",
+                  "title_en": "Practice Exercise 1: Biological Macromolecules & Nutrition",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ម៉ាក្រូម៉ូលេគុលជីវសាស្រ្ត ៖ កាបូអ៊ីដ្រាត ប្រូតេអ៊ីន ខ្លាញ់ ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Biological Macromolecules & Nutrition applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g10-bio-01-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ម៉ាក្រូម៉ូលេគុលជីវសាស្រ្ត ៖ កាបូអ៊ីដ្រាត ប្រូតេអ៊ីន ខ្លាញ់",
+                  "title_en": "Formative Competency Problem: Biological Macromolecules & Nutrition",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ម៉ាក្រូម៉ូលេគុលជីវសាស្រ្ត ៖ កាបូអ៊ីដ្រាត ប្រូតេអ៊ីន ខ្លាញ់ ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Biological Macromolecules & Nutrition to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g10-bio-02",
+              "sort_order": 2,
+              "title_km": "អង់ស៊ីម និងកាតាលីករជីវសាស្ត្រ",
+              "title_en": "Enzyme Catalysis & Substrate Specificity",
+              "summary_km": "យន្តការសោ និងកូនសោ (Lock-and-Key) ឥទ្ធិពលសីតុណ្ហភាព និង pH លើល្បឿនអង់ស៊ីម",
+              "summary_en": "Enzyme active site, lowering activation energy, denaturation with high temperature and pH fluctuations",
+              "estimated_minutes": 20,
+              "xp_reward": 40,
+              "subtopics": [
+                "អង់ស៊ីម និងកាតាលីករជីវសាស្ត្រ",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ អង់ស៊ីម និងកាតាលីករជីវសាស្ត្រ",
+                  "objective_en": "Recall, state, and explain foundational definitions of Enzyme Catalysis & Substrate Specificity"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "អង់ស៊ីម",
+                  "term_en": "Enzyme",
+                  "definition_km": "យន្តការសោ និងកូនសោ (Lock-and-Key) ឥទ្ធិពលសីតុណ្ហភាព និង pH លើល្បឿនអង់ស៊ីម",
+                  "definition_en": "Enzyme active site, lowering activation energy, denaturation with high temperature and pH fluctuations",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន អង់ស៊ីម និងកាតាលីករជីវសាស្ត្រ"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g10-bio-02-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ អង់ស៊ីម និងកាតាលីករជីវសាស្ត្រ",
+                  "title_en": "Practice Exercise 1: Enzyme Catalysis & Substrate Specificity",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ អង់ស៊ីម និងកាតាលីករជីវសាស្ត្រ ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Enzyme Catalysis & Substrate Specificity applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g10-bio-02-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ អង់ស៊ីម និងកាតាលីករជីវសាស្ត្រ",
+                  "title_en": "Formative Competency Problem: Enzyme Catalysis & Substrate Specificity",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន អង់ស៊ីម និងកាតាលីករជីវសាស្ត្រ ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Enzyme Catalysis & Substrate Specificity to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g10-bio-03",
+              "sort_order": 3,
+              "title_km": "មេតាបូលីសកោសិកា ៖ ATP និងដង្ហើមកោសិកា",
+              "title_en": "Cellular Metabolism & ATP Synthesis",
+              "summary_km": "រូបិយប័ណ្ណថាមពលកោសិកា ATP ដង្ហើមត្រូវការអុកស៊ីសែន C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + 36 ATP",
+              "summary_en": "Cellular energy currency ATP, mitochondrial aerobic respiration producing 36-38 ATP per glucose",
+              "estimated_minutes": 24,
+              "xp_reward": 40,
+              "subtopics": [
+                "មេតាបូលីសកោសិកា ៖ ATP និងដង្ហើមកោសិកា",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ មេតាបូលីសកោសិកា ៖ ATP និងដង្ហើមកោសិកា",
+                  "objective_en": "Recall, state, and explain foundational definitions of Cellular Metabolism & ATP Synthesis"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "មេតាបូលីសកោសិកា",
+                  "term_en": "Cellular",
+                  "definition_km": "រូបិយប័ណ្ណថាមពលកោសិកា ATP ដង្ហើមត្រូវការអុកស៊ីសែន C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + 36 ATP",
+                  "definition_en": "Cellular energy currency ATP, mitochondrial aerobic respiration producing 36-38 ATP per glucose",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន មេតាបូលីសកោសិកា ៖ ATP និងដង្ហើមកោសិកា"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g10-bio-03-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ មេតាបូលីសកោសិកា ៖ ATP និងដង្ហើមកោសិកា",
+                  "title_en": "Practice Exercise 1: Cellular Metabolism & ATP Synthesis",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ មេតាបូលីសកោសិកា ៖ ATP និងដង្ហើមកោសិកា ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Cellular Metabolism & ATP Synthesis applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g10-bio-03-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ មេតាបូលីសកោសិកា ៖ ATP និងដង្ហើមកោសិកា",
+                  "title_en": "Formative Competency Problem: Cellular Metabolism & ATP Synthesis",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន មេតាបូលីសកោសិកា ៖ ATP និងដង្ហើមកោសិកា ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Cellular Metabolism & ATP Synthesis to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g10-bio-04",
+              "sort_order": 4,
+              "title_km": "វដ្តកោសិកា និងការបែងចែកកោសិកា មីតូស",
+              "title_en": "Cell Cycle & Mitotic Division",
+              "summary_km": "ដំណាក់កាលអាំងទែផាស ៤ ដំណាក់កាលនៃមីតូស ៖ ប្រូផាស មេតាផាស អាណាផាស និងតេឡូផាស",
+              "summary_en": "Interphase (G1, S, G2 DNA synthesis) and 4 mitotic stages: Prophase, Metaphase, Anaphase, Telophase",
+              "estimated_minutes": 22,
+              "xp_reward": 40,
+              "subtopics": [
+                "វដ្តកោសិកា និងការបែងចែកកោសិកា មីតូស",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ វដ្តកោសិកា និងការបែងចែកកោសិកា មីតូស",
+                  "objective_en": "Recall, state, and explain foundational definitions of Cell Cycle & Mitotic Division"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "វដ្តកោសិកា",
+                  "term_en": "Cell",
+                  "definition_km": "ដំណាក់កាលអាំងទែផាស ៤ ដំណាក់កាលនៃមីតូស ៖ ប្រូផាស មេតាផាស អាណាផាស និងតេឡូផាស",
+                  "definition_en": "Interphase (G1, S, G2 DNA synthesis) and 4 mitotic stages: Prophase, Metaphase, Anaphase, Telophase",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន វដ្តកោសិកា និងការបែងចែកកោសិកា មីតូស"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g10-bio-04-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ វដ្តកោសិកា និងការបែងចែកកោសិកា មីតូស",
+                  "title_en": "Practice Exercise 1: Cell Cycle & Mitotic Division",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ វដ្តកោសិកា និងការបែងចែកកោសិកា មីតូស ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Cell Cycle & Mitotic Division applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g10-bio-04-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ វដ្តកោសិកា និងការបែងចែកកោសិកា មីតូស",
+                  "title_en": "Formative Competency Problem: Cell Cycle & Mitotic Division",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន វដ្តកោសិកា និងការបែងចែកកោសិកា មីតូស ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Cell Cycle & Mitotic Division to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g10-bio-05",
+              "sort_order": 5,
+              "title_km": "មេយ៉ូស និងការបង្កើតស្ពែម៉ាតូសូអ៊ីត អូវុល",
+              "title_en": "Meiosis & Gametogenesis",
+              "summary_km": "ការបែងចែកកាត់បន្ថយក្រូម៉ូសូម 2n → n ការឆ្លាស់ប្តូរហ្សែន Crossing-over និងបំរែបំរួលពន្ធុ",
+              "summary_en": "Reduction division from 2n diploid to n haploid gametes, homologous crossing-over, and genetic diversity",
+              "estimated_minutes": 24,
+              "xp_reward": 40,
+              "subtopics": [
+                "មេយ៉ូស និងការបង្កើតស្ពែម៉ាតូសូអ៊ីត អូវុល",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ មេយ៉ូស និងការបង្កើតស្ពែម៉ាតូសូអ៊ីត អូវុល",
+                  "objective_en": "Recall, state, and explain foundational definitions of Meiosis & Gametogenesis"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "មេយ៉ូស",
+                  "term_en": "Meiosis",
+                  "definition_km": "ការបែងចែកកាត់បន្ថយក្រូម៉ូសូម 2n → n ការឆ្លាស់ប្តូរហ្សែន Crossing-over និងបំរែបំរួលពន្ធុ",
+                  "definition_en": "Reduction division from 2n diploid to n haploid gametes, homologous crossing-over, and genetic diversity",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន មេយ៉ូស និងការបង្កើតស្ពែម៉ាតូសូអ៊ីត អូវុល"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g10-bio-05-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ មេយ៉ូស និងការបង្កើតស្ពែម៉ាតូសូអ៊ីត អូវុល",
+                  "title_en": "Practice Exercise 1: Meiosis & Gametogenesis",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ មេយ៉ូស និងការបង្កើតស្ពែម៉ាតូសូអ៊ីត អូវុល ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Meiosis & Gametogenesis applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g10-bio-05-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ មេយ៉ូស និងការបង្កើតស្ពែម៉ាតូសូអ៊ីត អូវុល",
+                  "title_en": "Formative Competency Problem: Meiosis & Gametogenesis",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន មេយ៉ូស និងការបង្កើតស្ពែម៉ាតូសូអ៊ីត អូវុល ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Meiosis & Gametogenesis to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject_slug": "earth",
+      "name_km": "ផែនដី និងបរិស្ថានវិទ្យា",
+      "name_en": "Earth Science",
+      "weekly_hours": 4,
+      "official_textbook": {
+        "title_km": "ផែនដី និងបរិស្ថានវិទ្យា (ថ្នាក់ទី ៧-១២)",
+        "publisher": "គ្រឹះស្ថានបោះពុម្ព និងចែកផ្សាយ ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "edition": "បោះពុម្ពឡើងវិញ ២០១៧-២០២២",
+        "sala_url": "https://sala.moeys.gov.kh/",
+        "oer_url": "https://oer.moeys.gov.kh/"
+      },
+      "units": [
+        {
+          "unit_id": "unit-g10-earth-1",
+          "unit_number": 1,
+          "title_km": "ជំពូកទី ១៖ មូលដ្ឋានគ្រឹះផែនដី និងបរិស្ថានវិទ្យា",
+          "title_en": "Unit 1: Foundations of Earth Science",
+          "description_km": "មេរៀនគ្រឹះផ្លូវការតាមកម្មវិធីសិក្សាក្រសួងអប់រំ យុវជន និងកីឡា",
+          "description_en": "Core official lessons aligned with MoEYS curriculum standards",
+          "icon": "📖",
+          "competencies": [
+            "ស្វែងយល់ និងអនុវត្តទ្រឹស្តីក្នុង ផែនដី និងបរិស្ថានវិទ្យា"
+          ],
+          "lesson_count": 5,
+          "lessons": [
+            {
+              "lesson_id": "les-g10-earth-01",
+              "sort_order": 1,
+              "title_km": "ភូមិសាស្ត្ររូបវិទ្យា ៖ បន្ទះតិចតូនិចកម្រិតខ្ពស់",
+              "title_en": "Advanced Lithospheric Plate Tectonics",
+              "summary_km": "តំបន់រុញច្រានក្រោម (Subduction Zones) ក្រវាត់ភ្លើងប៉ាស៊ីហ្វិក និងរណ្តៅសមុទ្រម៉ារីយ៉ាណា",
+              "summary_en": "Deep ocean subduction trenches, Mariana trench 11 km depth, volcanic island arcs, and slab pull",
+              "estimated_minutes": 20,
+              "xp_reward": 35,
+              "subtopics": [
+                "ភូមិសាស្ត្ររូបវិទ្យា ៖ បន្ទះតិចតូនិចកម្រិតខ្ពស់",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ភូមិសាស្ត្ររូបវិទ្យា ៖ បន្ទះតិចតូនិចកម្រិតខ្ពស់",
+                  "objective_en": "Recall, state, and explain foundational definitions of Advanced Lithospheric Plate Tectonics"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ភូមិសាស្ត្ររូបវិទ្យា",
+                  "term_en": "Advanced",
+                  "definition_km": "តំបន់រុញច្រានក្រោម (Subduction Zones) ក្រវាត់ភ្លើងប៉ាស៊ីហ្វិក និងរណ្តៅសមុទ្រម៉ារីយ៉ាណា",
+                  "definition_en": "Deep ocean subduction trenches, Mariana trench 11 km depth, volcanic island arcs, and slab pull",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ភូមិសាស្ត្ររូបវិទ្យា ៖ បន្ទះតិចតូនិចកម្រិតខ្ពស់"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g10-earth-01-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ភូមិសាស្ត្ររូបវិទ្យា ៖ បន្ទះតិចតូនិចកម្រិតខ្ពស់",
+                  "title_en": "Practice Exercise 1: Advanced Lithospheric Plate Tectonics",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ភូមិសាស្ត្ររូបវិទ្យា ៖ បន្ទះតិចតូនិចកម្រិតខ្ពស់ ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Advanced Lithospheric Plate Tectonics applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g10-earth-01-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ភូមិសាស្ត្ររូបវិទ្យា ៖ បន្ទះតិចតូនិចកម្រិតខ្ពស់",
+                  "title_en": "Formative Competency Problem: Advanced Lithospheric Plate Tectonics",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ភូមិសាស្ត្ររូបវិទ្យា ៖ បន្ទះតិចតូនិចកម្រិតខ្ពស់ ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Advanced Lithospheric Plate Tectonics to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g10-earth-02",
+              "sort_order": 2,
+              "title_km": "រចនាសម្ព័ន្ធភូគព្ភសាស្ត្រ ៖ ផ្នត់ និងកំហុស",
+              "title_en": "Geological Structures: Folds & Faults",
+              "summary_km": "អង់ទីគ្លីណាល់ ស៊ីងគ្លីណាល់ កំហុសធម្មតា កំហុសច្រាស និងកំហុសរអិលកាត់",
+              "summary_en": "Anticline arches, syncline troughs, normal faults, reverse thrust faults, and strike-slip shear boundaries",
+              "estimated_minutes": 20,
+              "xp_reward": 35,
+              "subtopics": [
+                "រចនាសម្ព័ន្ធភូគព្ភសាស្ត្រ ៖ ផ្នត់ និងកំហុស",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ រចនាសម្ព័ន្ធភូគព្ភសាស្ត្រ ៖ ផ្នត់ និងកំហុស",
+                  "objective_en": "Recall, state, and explain foundational definitions of Geological Structures: Folds & Faults"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "រចនាសម្ព័ន្ធភូគព្ភសាស្ត្រ",
+                  "term_en": "Geological",
+                  "definition_km": "អង់ទីគ្លីណាល់ ស៊ីងគ្លីណាល់ កំហុសធម្មតា កំហុសច្រាស និងកំហុសរអិលកាត់",
+                  "definition_en": "Anticline arches, syncline troughs, normal faults, reverse thrust faults, and strike-slip shear boundaries",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន រចនាសម្ព័ន្ធភូគព្ភសាស្ត្រ ៖ ផ្នត់ និងកំហុស"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g10-earth-02-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ រចនាសម្ព័ន្ធភូគព្ភសាស្ត្រ ៖ ផ្នត់ និងកំហុស",
+                  "title_en": "Practice Exercise 1: Geological Structures: Folds & Faults",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ រចនាសម្ព័ន្ធភូគព្ភសាស្ត្រ ៖ ផ្នត់ និងកំហុស ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Geological Structures: Folds & Faults applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g10-earth-02-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ រចនាសម្ព័ន្ធភូគព្ភសាស្ត្រ ៖ ផ្នត់ និងកំហុស",
+                  "title_en": "Formative Competency Problem: Geological Structures: Folds & Faults",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន រចនាសម្ព័ន្ធភូគព្ភសាស្ត្រ ៖ ផ្នត់ និងកំហុស ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Geological Structures: Folds & Faults to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g10-earth-03",
+              "sort_order": 3,
+              "title_km": "ធារាសាស្ត្រ និងជលសាស្រ្តទឹកក្រោមដី",
+              "title_en": "Hydrogeology, Aquifers & Groundwater",
+              "summary_km": "ស្រទាប់ផ្ទុកទឹក អណ្តូងធម្មជាតិ កម្រិតទឹកក្រោមដី និងបញ្ហាជាតិអាសេនិចនៅកម្ពុជា",
+              "summary_en": "Unconfined vs confined aquifers, water table recharge, and natural arsenic contamination along Mekong",
+              "estimated_minutes": 20,
+              "xp_reward": 35,
+              "subtopics": [
+                "ធារាសាស្ត្រ និងជលសាស្រ្តទឹកក្រោមដី",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ធារាសាស្ត្រ និងជលសាស្រ្តទឹកក្រោមដី",
+                  "objective_en": "Recall, state, and explain foundational definitions of Hydrogeology, Aquifers & Groundwater"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ធារាសាស្ត្រ",
+                  "term_en": "Hydrogeology,",
+                  "definition_km": "ស្រទាប់ផ្ទុកទឹក អណ្តូងធម្មជាតិ កម្រិតទឹកក្រោមដី និងបញ្ហាជាតិអាសេនិចនៅកម្ពុជា",
+                  "definition_en": "Unconfined vs confined aquifers, water table recharge, and natural arsenic contamination along Mekong",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ធារាសាស្ត្រ និងជលសាស្រ្តទឹកក្រោមដី"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g10-earth-03-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ធារាសាស្ត្រ និងជលសាស្រ្តទឹកក្រោមដី",
+                  "title_en": "Practice Exercise 1: Hydrogeology, Aquifers & Groundwater",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ធារាសាស្ត្រ និងជលសាស្រ្តទឹកក្រោមដី ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Hydrogeology, Aquifers & Groundwater applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g10-earth-03-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ធារាសាស្ត្រ និងជលសាស្រ្តទឹកក្រោមដី",
+                  "title_en": "Formative Competency Problem: Hydrogeology, Aquifers & Groundwater",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ធារាសាស្ត្រ និងជលសាស្រ្តទឹកក្រោមដី ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Hydrogeology, Aquifers & Groundwater to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g10-earth-04",
+              "sort_order": 4,
+              "title_km": "ប្រព័ន្ធអាកាសធាតុកម្ពុជា ៖ ខ្យល់មូសុងនិរតី និងឦសាន",
+              "title_en": "Cambodia Monsoon Climatology",
+              "summary_km": "សម្ពាធទាបឥណ្ឌា សម្ពាធខ្ពស់ស៊ីបេរី របបទឹកភ្លៀង និងឥទ្ធិពលលើកសិកម្មស្រូវ",
+              "summary_en": "Intertropical Convergence Zone (ITCZ), Southwest wet monsoon, Northeast dry monsoon, and paddy rice agriculture",
+              "estimated_minutes": 18,
+              "xp_reward": 35,
+              "subtopics": [
+                "ប្រព័ន្ធអាកាសធាតុកម្ពុជា ៖ ខ្យល់មូសុងនិរតី និងឦសាន",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ប្រព័ន្ធអាកាសធាតុកម្ពុជា ៖ ខ្យល់មូសុងនិរតី និងឦសាន",
+                  "objective_en": "Recall, state, and explain foundational definitions of Cambodia Monsoon Climatology"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ប្រព័ន្ធអាកាសធាតុកម្ពុជា",
+                  "term_en": "Cambodia",
+                  "definition_km": "សម្ពាធទាបឥណ្ឌា សម្ពាធខ្ពស់ស៊ីបេរី របបទឹកភ្លៀង និងឥទ្ធិពលលើកសិកម្មស្រូវ",
+                  "definition_en": "Intertropical Convergence Zone (ITCZ), Southwest wet monsoon, Northeast dry monsoon, and paddy rice agriculture",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ប្រព័ន្ធអាកាសធាតុកម្ពុជា ៖ ខ្យល់មូសុងនិរតី និងឦសាន"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g10-earth-04-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ប្រព័ន្ធអាកាសធាតុកម្ពុជា ៖ ខ្យល់មូសុងនិរតី និងឦសាន",
+                  "title_en": "Practice Exercise 1: Cambodia Monsoon Climatology",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ប្រព័ន្ធអាកាសធាតុកម្ពុជា ៖ ខ្យល់មូសុងនិរតី និងឦសាន ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Cambodia Monsoon Climatology applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g10-earth-04-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ប្រព័ន្ធអាកាសធាតុកម្ពុជា ៖ ខ្យល់មូសុងនិរតី និងឦសាន",
+                  "title_en": "Formative Competency Problem: Cambodia Monsoon Climatology",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ប្រព័ន្ធអាកាសធាតុកម្ពុជា ៖ ខ្យល់មូសុងនិរតី និងឦសាន ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Cambodia Monsoon Climatology to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g10-earth-05",
+              "sort_order": 5,
+              "title_km": "ភូគព្ភប្រវត្តិ និងផូស៊ីល",
+              "title_en": "Geologic Time Scale & Index Fossils",
+              "summary_km": "មហាយុគ (Eras) សម័យកាល ផូស៊ីលណែនាំ និងការកំណត់អាយុកាលតាមវិទ្យុសកម្ម C-14",
+              "summary_en": "Paleozoic, Mesozoic, Cenozoic eras, index fossils, and carbon-14 radiometric dating principles",
+              "estimated_minutes": 20,
+              "xp_reward": 35,
+              "subtopics": [
+                "ភូគព្ភប្រវត្តិ និងផូស៊ីល",
+                "ការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ភូគព្ភប្រវត្តិ និងផូស៊ីល",
+                  "objective_en": "Recall, state, and explain foundational definitions of Geologic Time Scale & Index Fossils"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាន"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ភូគព្ភប្រវត្តិ",
+                  "term_en": "Geologic",
+                  "definition_km": "មហាយុគ (Eras) សម័យកាល ផូស៊ីលណែនាំ និងការកំណត់អាយុកាលតាមវិទ្យុសកម្ម C-14",
+                  "definition_en": "Paleozoic, Mesozoic, Cenozoic eras, index fossils, and carbon-14 radiometric dating principles",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ភូគព្ភប្រវត្តិ និងផូស៊ីល"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g10-earth-05-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ភូគព្ភប្រវត្តិ និងផូស៊ីល",
+                  "title_en": "Practice Exercise 1: Geologic Time Scale & Index Fossils",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ភូគព្ភប្រវត្តិ និងផូស៊ីល ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Geologic Time Scale & Index Fossils applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g10-earth-05-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ភូគព្ភប្រវត្តិ និងផូស៊ីល",
+                  "title_en": "Formative Competency Problem: Geologic Time Scale & Index Fossils",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ភូគព្ភប្រវត្តិ និងផូស៊ីល ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Geologic Time Scale & Index Fossils to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject_slug": "khmer",
+      "name_km": "ភាសាខ្មែរ",
+      "name_en": "Khmer Literature",
+      "weekly_hours": 4,
+      "official_textbook": {
+        "title_km": "ភាសាខ្មែរ និងតែងសេចក្តី (ថ្នាក់ទី ៧-១២)",
+        "publisher": "គ្រឹះស្ថានបោះពុម្ព និងចែកផ្សាយ ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "edition": "បោះពុម្ពឡើងវិញ ២០១៩-២០២៣",
+        "sala_url": "https://sala.moeys.gov.kh/",
+        "oer_url": "https://oer.moeys.gov.kh/"
+      },
+      "units": [
+        {
+          "unit_id": "unit-g10-khmer-1",
+          "unit_number": 1,
+          "title_km": "រឿងរាមកេរ្តិ៍ និងកាព្យបុរាណព្រហ្មគីតិ",
+          "title_en": "Reamker Epic & Classical Brahmagit Poetry",
+          "description_km": "ទស្សនវិជ្ជាធម៌ឈ្នះអធម៌ក្នុងរឿងរាមកេរ្តិ៍ និងចង្វាក់កាព្យបទព្រហ្មគីតិ-ឥន្ទ្រជិត",
+          "description_en": "Dharma vs Adharma in the Reamker and metrical prosody of classical Brahmagit verse",
+          "icon": "🎭",
+          "competencies": [
+            "ស្វែងយល់ និងអនុវត្តទ្រឹស្តីក្នុង រឿងរាមកេរ្តិ៍ និងកាព្យបុរាណព្រហ្មគីតិ",
+            "ដោះស្រាយលំហាត់ និងចំណោទកម្រិតមធ្យម និងកម្រិតខ្ពស់",
+            "ត្រៀមលក្ខណៈសម្រាប់ការវាយតម្លៃប្រចាំជំពូក និងការប្រឡងបញ្ចប់ឆ្នាំ"
+          ],
+          "lesson_count": 2,
+          "lessons": [
+            {
+              "lesson_id": "les-g10-khmer-01",
+              "sort_order": 101,
+              "title_km": "រឿងរាមកេរ្តិ៍ (កម្រិតវិភាគទស្សនវិជ្ជា និងសិល្បៈតែង)",
+              "title_en": "Reamker Epic: Philosophy & Classical Art",
+              "summary_km": "ការវិភាគតួអង្គព្រះរាម ក្រុងរាពណ៍ និងទស្សនវិជ្ជាធម៌ឈ្នះអធម៌ក្នុងសង្គមខ្មែរ",
+              "summary_en": "Philosophical analysis of Dharma versus Adharma and royal literature in the Reamker",
+              "estimated_minutes": 22,
+              "xp_reward": 42,
+              "subtopics": [
+                "រឿងរាមកេរ្តិ៍ (កម្រិតវិភាគទស្សនវិជ្ជា និងសិល្បៈតែង)",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ រឿងរាមកេរ្តិ៍ (កម្រិតវិភាគទស្សនវិជ្ជា និងសិល្បៈតែង)",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ រឿងរាមកេរ្តិ៍ (កម្រិតវិភាគទស្សនវិជ្ជា និងសិល្បៈតែង)",
+                  "objective_en": "Recall, state, and explain foundational definitions of Reamker Epic: Philosophy & Classical Art"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "រឿងរាមកេរ្តិ៍",
+                  "term_en": "Reamker",
+                  "definition_km": "ការវិភាគតួអង្គព្រះរាម ក្រុងរាពណ៍ និងទស្សនវិជ្ជាធម៌ឈ្នះអធម៌ក្នុងសង្គមខ្មែរ",
+                  "definition_en": "Philosophical analysis of Dharma versus Adharma and royal literature in the Reamker",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន រឿងរាមកេរ្តិ៍ (កម្រិតវិភាគទស្សនវិជ្ជា និងសិល្បៈតែង)"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g10-khmer-01-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ រឿងរាមកេរ្តិ៍ (កម្រិតវិភាគទស្សនវិជ្ជា និងសិល្បៈតែង)",
+                  "title_en": "Practice Exercise 1: Reamker Epic: Philosophy & Classical Art",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ រឿងរាមកេរ្តិ៍ (កម្រិតវិភាគទស្សនវិជ្ជា និងសិល្បៈតែង) ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Reamker Epic: Philosophy & Classical Art applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g10-khmer-01-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ រឿងរាមកេរ្តិ៍ (កម្រិតវិភាគទស្សនវិជ្ជា និងសិល្បៈតែង)",
+                  "title_en": "Formative Competency Problem: Reamker Epic: Philosophy & Classical Art",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន រឿងរាមកេរ្តិ៍ (កម្រិតវិភាគទស្សនវិជ្ជា និងសិល្បៈតែង) ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Reamker Epic: Philosophy & Classical Art to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g10-khmer-02",
+              "sort_order": 103,
+              "title_km": "កាព្យបទព្រហ្មគីតិ និងឥន្ទ្រជិត",
+              "title_en": "Brahmagit & Indrajit Classical Khmer Poetic Meters",
+              "summary_km": "លក្ខណៈចង្វាក់ បទពាក្យ ៧ និង ៨ ក្នុងស្នាដៃអក្សរសិល្ប៍បុរាណ",
+              "summary_en": "Metric rhythm, internal consonance, and strophic conventions in classical poetry",
+              "estimated_minutes": 20,
+              "xp_reward": 42,
+              "subtopics": [
+                "កាព្យបទព្រហ្មគីតិ និងឥន្ទ្រជិត",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ កាព្យបទព្រហ្មគីតិ និងឥន្ទ្រជិត",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ កាព្យបទព្រហ្មគីតិ និងឥន្ទ្រជិត",
+                  "objective_en": "Recall, state, and explain foundational definitions of Brahmagit & Indrajit Classical Khmer Poetic Meters"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "កាព្យបទព្រហ្មគីតិ",
+                  "term_en": "Brahmagit",
+                  "definition_km": "លក្ខណៈចង្វាក់ បទពាក្យ ៧ និង ៨ ក្នុងស្នាដៃអក្សរសិល្ប៍បុរាណ",
+                  "definition_en": "Metric rhythm, internal consonance, and strophic conventions in classical poetry",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន កាព្យបទព្រហ្មគីតិ និងឥន្ទ្រជិត"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g10-khmer-02-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ កាព្យបទព្រហ្មគីតិ និងឥន្ទ្រជិត",
+                  "title_en": "Practice Exercise 1: Brahmagit & Indrajit Classical Khmer Poetic Meters",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ កាព្យបទព្រហ្មគីតិ និងឥន្ទ្រជិត ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Brahmagit & Indrajit Classical Khmer Poetic Meters applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g10-khmer-02-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ កាព្យបទព្រហ្មគីតិ និងឥន្ទ្រជិត",
+                  "title_en": "Formative Competency Problem: Brahmagit & Indrajit Classical Khmer Poetic Meters",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន កាព្យបទព្រហ្មគីតិ និងឥន្ទ្រជិត ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Brahmagit & Indrajit Classical Khmer Poetic Meters to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject_slug": "history",
+      "name_km": "ប្រវត្តិវិទ្យា",
+      "name_en": "History",
+      "weekly_hours": 4,
+      "official_textbook": {
+        "title_km": "ប្រវត្តិវិទ្យា (ថ្នាក់ទី ៧-១២)",
+        "publisher": "គ្រឹះស្ថានបោះពុម្ព និងចែកផ្សាយ ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "edition": "បោះពុម្ពឡើងវិញ ២០១៨-២០២២",
+        "sala_url": "https://sala.moeys.gov.kh/",
+        "oer_url": "https://oer.moeys.gov.kh/"
+      },
+      "units": [
+        {
+          "unit_id": "unit-g10-hist-1",
+          "unit_number": 1,
+          "title_km": "សម័យកណ្តាល ពាណិជ្ជកម្មលង្វែក និងសម័យឧដុង្គ",
+          "title_en": "Middle Period: Longvek & Oudong Dynasty",
+          "description_km": "ការប្តូររាជធានីពីអង្គរ សេដ្ឋកិច្ចពាណិជ្ជកម្មអន្តរជាតិលង្វែក និងរាជធានីឧដុង្គ",
+          "description_en": "Post-Angkorian transition, maritime commerce in Longvek, and the royal Oudong period",
+          "icon": "🏯",
+          "competencies": [
+            "ស្វែងយល់ និងអនុវត្តទ្រឹស្តីក្នុង សម័យកណ្តាល ពាណិជ្ជកម្មលង្វែក និងសម័យឧដុង្គ",
+            "ដោះស្រាយលំហាត់ និងចំណោទកម្រិតមធ្យម និងកម្រិតខ្ពស់",
+            "ត្រៀមលក្ខណៈសម្រាប់ការវាយតម្លៃប្រចាំជំពូក និងការប្រឡងបញ្ចប់ឆ្នាំ"
+          ],
+          "lesson_count": 2,
+          "lessons": [
+            {
+              "lesson_id": "les-g10-hist-01",
+              "sort_order": 102,
+              "title_km": "សម័យកណ្តាល (ចតុមុខ លង្វែក និងឧដុង្គ)",
+              "title_en": "Middle Period Cambodia: Chaktomuk, Longvek & Oudong",
+              "summary_km": "ការប្តូររាជធានីពីអង្គរ សេដ្ឋកិច្ចពាណិជ្ជកម្មលង្វែក និងការកសាងក្រុងឧដុង្គ",
+              "summary_en": "Capital relocation from Angkor, maritime trading prosperity in Longvek, and Oudong era",
+              "estimated_minutes": 22,
+              "xp_reward": 42,
+              "subtopics": [
+                "សម័យកណ្តាល (ចតុមុខ លង្វែក និងឧដុង្គ)",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ សម័យកណ្តាល (ចតុមុខ លង្វែក និងឧដុង្គ)",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ សម័យកណ្តាល (ចតុមុខ លង្វែក និងឧដុង្គ)",
+                  "objective_en": "Recall, state, and explain foundational definitions of Middle Period Cambodia: Chaktomuk, Longvek & Oudong"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "សម័យកណ្តាល",
+                  "term_en": "Middle",
+                  "definition_km": "ការប្តូររាជធានីពីអង្គរ សេដ្ឋកិច្ចពាណិជ្ជកម្មលង្វែក និងការកសាងក្រុងឧដុង្គ",
+                  "definition_en": "Capital relocation from Angkor, maritime trading prosperity in Longvek, and Oudong era",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន សម័យកណ្តាល (ចតុមុខ លង្វែក និងឧដុង្គ)"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g10-hist-01-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ សម័យកណ្តាល (ចតុមុខ លង្វែក និងឧដុង្គ)",
+                  "title_en": "Practice Exercise 1: Middle Period Cambodia: Chaktomuk, Longvek & Oudong",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ សម័យកណ្តាល (ចតុមុខ លង្វែក និងឧដុង្គ) ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Middle Period Cambodia: Chaktomuk, Longvek & Oudong applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g10-hist-01-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ សម័យកណ្តាល (ចតុមុខ លង្វែក និងឧដុង្គ)",
+                  "title_en": "Formative Competency Problem: Middle Period Cambodia: Chaktomuk, Longvek & Oudong",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន សម័យកណ្តាល (ចតុមុខ លង្វែក និងឧដុង្គ) ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Middle Period Cambodia: Chaktomuk, Longvek & Oudong to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g10-hist-02",
+              "sort_order": 105,
+              "title_km": "សេដ្ឋកិច្ចពាណិជ្ជកម្មលង្វែក និងសម័យឧដុង្គ (សតវត្សទី ១៦-១៩)",
+              "title_en": "Longvek Maritime Prosperity & Oudong Royal Era",
+              "summary_km": "កំពង់ផែពាណិជ្ជកម្មអន្តរជាតិលង្វែក ទំនាក់ទំនងជាមួយព័រទុយហ្កាល់ អេស្ប៉ាញ និងហូឡង់",
+              "summary_en": "International trade in Longvek, diplomatic contacts with Europe, and the Oudong period",
+              "estimated_minutes": 20,
+              "xp_reward": 42,
+              "subtopics": [
+                "សេដ្ឋកិច្ចពាណិជ្ជកម្មលង្វែក និងសម័យឧដុង្គ (សតវត្សទី ១៦-១៩)",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ សេដ្ឋកិច្ចពាណិជ្ជកម្មលង្វែក និងសម័យឧដុង្គ (សតវត្សទី ១៦-១៩)",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ សេដ្ឋកិច្ចពាណិជ្ជកម្មលង្វែក និងសម័យឧដុង្គ (សតវត្សទី ១៦-១៩)",
+                  "objective_en": "Recall, state, and explain foundational definitions of Longvek Maritime Prosperity & Oudong Royal Era"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "សេដ្ឋកិច្ចពាណិជ្ជកម្មលង្វែក",
+                  "term_en": "Longvek",
+                  "definition_km": "កំពង់ផែពាណិជ្ជកម្មអន្តរជាតិលង្វែក ទំនាក់ទំនងជាមួយព័រទុយហ្កាល់ អេស្ប៉ាញ និងហូឡង់",
+                  "definition_en": "International trade in Longvek, diplomatic contacts with Europe, and the Oudong period",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន សេដ្ឋកិច្ចពាណិជ្ជកម្មលង្វែក និងសម័យឧដុង្គ (សតវត្សទី ១៦-១៩)"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g10-hist-02-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ សេដ្ឋកិច្ចពាណិជ្ជកម្មលង្វែក និងសម័យឧដុង្គ (សតវត្សទី ១៦-១៩)",
+                  "title_en": "Practice Exercise 1: Longvek Maritime Prosperity & Oudong Royal Era",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ សេដ្ឋកិច្ចពាណិជ្ជកម្មលង្វែក និងសម័យឧដុង្គ (សតវត្សទី ១៦-១៩) ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Longvek Maritime Prosperity & Oudong Royal Era applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g10-hist-02-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ សេដ្ឋកិច្ចពាណិជ្ជកម្មលង្វែក និងសម័យឧដុង្គ (សតវត្សទី ១៦-១៩)",
+                  "title_en": "Formative Competency Problem: Longvek Maritime Prosperity & Oudong Royal Era",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន សេដ្ឋកិច្ចពាណិជ្ជកម្មលង្វែក និងសម័យឧដុង្គ (សតវត្សទី ១៦-១៩) ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Longvek Maritime Prosperity & Oudong Royal Era to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject_slug": "geography",
+      "name_km": "ភូមិវិទ្យា",
+      "name_en": "Geography",
+      "weekly_hours": 4,
+      "official_textbook": {
+        "title_km": "ភូមិវិទ្យា (ថ្នាក់ទី ៧-១២)",
+        "publisher": "គ្រឹះស្ថានបោះពុម្ព និងចែកផ្សាយ ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "edition": "បោះពុម្ពឡើងវិញ ២០១៨-២០២២",
+        "sala_url": "https://sala.moeys.gov.kh/",
+        "oer_url": "https://oer.moeys.gov.kh/"
+      },
+      "units": [
+        {
+          "unit_id": "unit-g10-geo-1",
+          "unit_number": 1,
+          "title_km": "ធនធានធម្មជាតិ និងការអភិរក្សជីវចម្រុះ",
+          "title_en": "Natural Resources & Biodiversity Conservation",
+          "description_km": "សក្តានុពលរ៉ែ ទំនប់វារីអគ្គិសនី ឧទ្យានជាតិ និងតំបន់ការពារធម្មជាតិកម្ពុជា",
+          "description_en": "Hydropower potential, mineral resources, national parks, and wildlife sanctuaries",
+          "icon": "⛰️",
+          "competencies": [
+            "ស្វែងយល់ និងអនុវត្តទ្រឹស្តីក្នុង ធនធានធម្មជាតិ និងការអភិរក្សជីវចម្រុះ",
+            "ដោះស្រាយលំហាត់ និងចំណោទកម្រិតមធ្យម និងកម្រិតខ្ពស់",
+            "ត្រៀមលក្ខណៈសម្រាប់ការវាយតម្លៃប្រចាំជំពូក និងការប្រឡងបញ្ចប់ឆ្នាំ"
+          ],
+          "lesson_count": 2,
+          "lessons": [
+            {
+              "lesson_id": "les-g10-geo-01",
+              "sort_order": 103,
+              "title_km": "ធនធានរ៉ែ ថាមពល និងកសិកម្មកម្ពុជា",
+              "title_en": "Mineral Resources, Energy & Agriculture in Cambodia",
+              "summary_km": "សក្តានុពលរ៉ែដែក មាស បុកស៊ីត ទំនប់វារីអគ្គិសនី និងការធ្វើពិពិធកម្មកសិកម្ម",
+              "summary_en": "Bauxite, gold, iron ore potential, hydropower development, and agricultural diversification",
+              "estimated_minutes": 20,
+              "xp_reward": 42,
+              "subtopics": [
+                "ធនធានរ៉ែ ថាមពល និងកសិកម្មកម្ពុជា",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ ធនធានរ៉ែ ថាមពល និងកសិកម្មកម្ពុជា",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ធនធានរ៉ែ ថាមពល និងកសិកម្មកម្ពុជា",
+                  "objective_en": "Recall, state, and explain foundational definitions of Mineral Resources, Energy & Agriculture in Cambodia"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ធនធានរ៉ែ",
+                  "term_en": "Mineral",
+                  "definition_km": "សក្តានុពលរ៉ែដែក មាស បុកស៊ីត ទំនប់វារីអគ្គិសនី និងការធ្វើពិពិធកម្មកសិកម្ម",
+                  "definition_en": "Bauxite, gold, iron ore potential, hydropower development, and agricultural diversification",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ធនធានរ៉ែ ថាមពល និងកសិកម្មកម្ពុជា"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g10-geo-01-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ធនធានរ៉ែ ថាមពល និងកសិកម្មកម្ពុជា",
+                  "title_en": "Practice Exercise 1: Mineral Resources, Energy & Agriculture in Cambodia",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ធនធានរ៉ែ ថាមពល និងកសិកម្មកម្ពុជា ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Mineral Resources, Energy & Agriculture in Cambodia applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g10-geo-01-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ធនធានរ៉ែ ថាមពល និងកសិកម្មកម្ពុជា",
+                  "title_en": "Formative Competency Problem: Mineral Resources, Energy & Agriculture in Cambodia",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ធនធានរ៉ែ ថាមពល និងកសិកម្មកម្ពុជា ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Mineral Resources, Energy & Agriculture in Cambodia to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g10-geo-02",
+              "sort_order": 107,
+              "title_km": "ការអភិរក្សជីវចម្រុះ និងតំបន់ការពារធម្មជាតិនៅកម្ពុជា",
+              "title_en": "Biodiversity Conservation & Protected Areas",
+              "summary_km": "ឧទ្យានជាតិ ដែនជម្រកសត្វព្រៃ របៀងអភិរក្សជីវចម្រុះ និងអេកូទេសចរណ៍",
+              "summary_en": "National parks, wildlife sanctuaries, biodiversity corridors, and sustainable ecotourism",
+              "estimated_minutes": 20,
+              "xp_reward": 42,
+              "subtopics": [
+                "ការអភិរក្សជីវចម្រុះ និងតំបន់ការពារធម្មជាតិនៅកម្ពុជា",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ ការអភិរក្សជីវចម្រុះ និងតំបន់ការពារធម្មជាតិនៅកម្ពុជា",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ការអភិរក្សជីវចម្រុះ និងតំបន់ការពារធម្មជាតិនៅកម្ពុជា",
+                  "objective_en": "Recall, state, and explain foundational definitions of Biodiversity Conservation & Protected Areas"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ការអភិរក្សជីវចម្រុះ",
+                  "term_en": "Biodiversity",
+                  "definition_km": "ឧទ្យានជាតិ ដែនជម្រកសត្វព្រៃ របៀងអភិរក្សជីវចម្រុះ និងអេកូទេសចរណ៍",
+                  "definition_en": "National parks, wildlife sanctuaries, biodiversity corridors, and sustainable ecotourism",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ការអភិរក្សជីវចម្រុះ និងតំបន់ការពារធម្មជាតិនៅកម្ពុជា"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g10-geo-02-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ការអភិរក្សជីវចម្រុះ និងតំបន់ការពារធម្មជាតិនៅកម្ពុជា",
+                  "title_en": "Practice Exercise 1: Biodiversity Conservation & Protected Areas",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ការអភិរក្សជីវចម្រុះ និងតំបន់ការពារធម្មជាតិនៅកម្ពុជា ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Biodiversity Conservation & Protected Areas applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g10-geo-02-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ការអភិរក្សជីវចម្រុះ និងតំបន់ការពារធម្មជាតិនៅកម្ពុជា",
+                  "title_en": "Formative Competency Problem: Biodiversity Conservation & Protected Areas",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ការអភិរក្សជីវចម្រុះ និងតំបន់ការពារធម្មជាតិនៅកម្ពុជា ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Biodiversity Conservation & Protected Areas to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject_slug": "english",
+      "name_km": "ភាសាអង់គ្លេស",
+      "name_en": "English",
+      "weekly_hours": 4,
+      "official_textbook": {
+        "title_km": "English for Cambodia (Book 1 - Book 6)",
+        "publisher": "CAM-MoEYS Educational Publishing House",
+        "edition": "Edition 2016-2022",
+        "sala_url": "https://sala.moeys.gov.kh/",
+        "oer_url": "https://oer.moeys.gov.kh/"
+      },
+      "units": [
+        {
+          "unit_id": "unit-g10-eng-1",
+          "unit_number": 1,
+          "title_km": "Academic Grammar, Perfect Tenses & Conditionals",
+          "title_en": "Academic Grammar, Perfect Tenses & Conditionals",
+          "description_km": "Present Perfect vs Past Simple លក្ខខណ្ឌ Type 1 & 2 និងពាក្យភ្ជាប់គំនិតពិភាក្សា",
+          "description_en": "Tense contrasts, conditional logic, and formal cause-effect transition connectors",
+          "icon": "📖",
+          "competencies": [
+            "ស្វែងយល់ និងអនុវត្តទ្រឹស្តីក្នុង Academic Grammar, Perfect Tenses & Conditionals",
+            "ដោះស្រាយលំហាត់ និងចំណោទកម្រិតមធ្យម និងកម្រិតខ្ពស់",
+            "ត្រៀមលក្ខណៈសម្រាប់ការវាយតម្លៃប្រចាំជំពូក និងការប្រឡងបញ្ចប់ឆ្នាំ"
+          ],
+          "lesson_count": 2,
+          "lessons": [
+            {
+              "lesson_id": "les-g10-eng-01",
+              "sort_order": 104,
+              "title_km": "Present Perfect vs Past Simple & Academic Texts",
+              "title_en": "Present Perfect vs Past Simple & Academic Texts",
+              "summary_km": "ការប្រៀបធៀប Present Perfect និង Past Simple ព្រមទាំងការអានអត្ថបទបែប STEM",
+              "summary_en": "Contrasting present perfect and past simple in scientific reporting and academic papers",
+              "estimated_minutes": 20,
+              "xp_reward": 42,
+              "subtopics": [
+                "Present Perfect vs Past Simple & Academic Texts",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ Present Perfect vs Past Simple & Academic Texts",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ Present Perfect vs Past Simple & Academic Texts",
+                  "objective_en": "Recall, state, and explain foundational definitions of Present Perfect vs Past Simple & Academic Texts"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "Present",
+                  "term_en": "Present",
+                  "definition_km": "ការប្រៀបធៀប Present Perfect និង Past Simple ព្រមទាំងការអានអត្ថបទបែប STEM",
+                  "definition_en": "Contrasting present perfect and past simple in scientific reporting and academic papers",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន Present Perfect vs Past Simple & Academic Texts"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g10-eng-01-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ Present Perfect vs Past Simple & Academic Texts",
+                  "title_en": "Practice Exercise 1: Present Perfect vs Past Simple & Academic Texts",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ Present Perfect vs Past Simple & Academic Texts ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Present Perfect vs Past Simple & Academic Texts applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g10-eng-01-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ Present Perfect vs Past Simple & Academic Texts",
+                  "title_en": "Formative Competency Problem: Present Perfect vs Past Simple & Academic Texts",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន Present Perfect vs Past Simple & Academic Texts ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Present Perfect vs Past Simple & Academic Texts to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g10-eng-02",
+              "sort_order": 109,
+              "title_km": "Conditionals (Type 1 & 2) & Academic Connectors",
+              "title_en": "Conditionals (Type 1 & 2) & Academic Connectors",
+              "summary_km": "លក្ខខណ្ឌពិត និងមិនពិត ព្រមទាំងពាក្យភ្ជាប់គំនិតពិភាក្សា",
+              "summary_en": "Real and unreal conditional hypotheses, with discourse transition words",
+              "estimated_minutes": 20,
+              "xp_reward": 42,
+              "subtopics": [
+                "Conditionals (Type 1 & 2) & Academic Connectors",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ Conditionals (Type 1 & 2) & Academic Connectors",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ Conditionals (Type 1 & 2) & Academic Connectors",
+                  "objective_en": "Recall, state, and explain foundational definitions of Conditionals (Type 1 & 2) & Academic Connectors"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "Conditionals",
+                  "term_en": "Conditionals",
+                  "definition_km": "លក្ខខណ្ឌពិត និងមិនពិត ព្រមទាំងពាក្យភ្ជាប់គំនិតពិភាក្សា",
+                  "definition_en": "Real and unreal conditional hypotheses, with discourse transition words",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន Conditionals (Type 1 & 2) & Academic Connectors"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g10-eng-02-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ Conditionals (Type 1 & 2) & Academic Connectors",
+                  "title_en": "Practice Exercise 1: Conditionals (Type 1 & 2) & Academic Connectors",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ Conditionals (Type 1 & 2) & Academic Connectors ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Conditionals (Type 1 & 2) & Academic Connectors applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g10-eng-02-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ Conditionals (Type 1 & 2) & Academic Connectors",
+                  "title_en": "Formative Competency Problem: Conditionals (Type 1 & 2) & Academic Connectors",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន Conditionals (Type 1 & 2) & Academic Connectors ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Conditionals (Type 1 & 2) & Academic Connectors to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject_slug": "ict",
+      "name_km": "ព័ត៌មានវិទ្យា",
+      "name_en": "ICT & Computing",
+      "weekly_hours": 4,
+      "official_textbook": {
+        "title_km": "បច្ចេកវិទ្យាព័ត៌មាន និងសារគមនាគមន៍ (ថ្នាក់ទី ៧-១២)",
+        "publisher": "នាយកដ្ឋានបច្ចេកវិទ្យាព័ត៌មាន (DIT) ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "edition": "កម្មវិធីសិក្សាបច្ចេកវិទ្យាឌីជីថល ២០២០-២០២៥",
+        "sala_url": "https://sala.moeys.gov.kh/",
+        "oer_url": "https://oer.moeys.gov.kh/"
+      },
+      "units": [
+        {
+          "unit_id": "unit-g10-ict-1",
+          "unit_number": 1,
+          "title_km": "ក្បួនដោះស្រាយបញ្ហា និងគំនូសតាង (Algorithms)",
+          "title_en": "Algorithms, Pseudocode & Flowcharts",
+          "description_km": "ការរៀបចំ Algorithm និមិត្តសញ្ញា Flowchart លក្ខខណ្ឌ និងរង្វិលជុំ Loops",
+          "description_en": "Algorithmic thinking, flowchart logic gates, conditional branching, and iteration loops",
+          "icon": "🔀",
+          "competencies": [
+            "ស្វែងយល់ និងអនុវត្តទ្រឹស្តីក្នុង ក្បួនដោះស្រាយបញ្ហា និងគំនូសតាង (Algorithms)",
+            "ដោះស្រាយលំហាត់ និងចំណោទកម្រិតមធ្យម និងកម្រិតខ្ពស់",
+            "ត្រៀមលក្ខណៈសម្រាប់ការវាយតម្លៃប្រចាំជំពូក និងការប្រឡងបញ្ចប់ឆ្នាំ"
+          ],
+          "lesson_count": 2,
+          "lessons": [
+            {
+              "lesson_id": "les-g10-ict-01",
+              "sort_order": 105,
+              "title_km": "ក្បួនដោះស្រាយ និងដ្យាក្រាមលំហូរ (Algorithms & Flowcharts)",
+              "title_en": "Algorithms & Flowcharts",
+              "summary_km": "គំនិតនៃ Algorithm សញ្ញាសម្គាល់ក្នុង Flowchart (Start, Decision, Process) និង Pseudo-code",
+              "summary_en": "Algorithmic thinking, standard flowchart symbols, decision logic, and pseudocode structures",
+              "estimated_minutes": 20,
+              "xp_reward": 42,
+              "subtopics": [
+                "ក្បួនដោះស្រាយ និងដ្យាក្រាមលំហូរ (Algorithms & Flowcharts)",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ ក្បួនដោះស្រាយ និងដ្យាក្រាមលំហូរ (Algorithms & Flowcharts)",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ក្បួនដោះស្រាយ និងដ្យាក្រាមលំហូរ (Algorithms & Flowcharts)",
+                  "objective_en": "Recall, state, and explain foundational definitions of Algorithms & Flowcharts"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ក្បួនដោះស្រាយ",
+                  "term_en": "Algorithms",
+                  "definition_km": "គំនិតនៃ Algorithm សញ្ញាសម្គាល់ក្នុង Flowchart (Start, Decision, Process) និង Pseudo-code",
+                  "definition_en": "Algorithmic thinking, standard flowchart symbols, decision logic, and pseudocode structures",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ក្បួនដោះស្រាយ និងដ្យាក្រាមលំហូរ (Algorithms & Flowcharts)"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g10-ict-01-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ក្បួនដោះស្រាយ និងដ្យាក្រាមលំហូរ (Algorithms & Flowcharts)",
+                  "title_en": "Practice Exercise 1: Algorithms & Flowcharts",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ក្បួនដោះស្រាយ និងដ្យាក្រាមលំហូរ (Algorithms & Flowcharts) ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Algorithms & Flowcharts applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g10-ict-01-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ក្បួនដោះស្រាយ និងដ្យាក្រាមលំហូរ (Algorithms & Flowcharts)",
+                  "title_en": "Formative Competency Problem: Algorithms & Flowcharts",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ក្បួនដោះស្រាយ និងដ្យាក្រាមលំហូរ (Algorithms & Flowcharts) ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Algorithms & Flowcharts to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g10-ict-02",
+              "sort_order": 111,
+              "title_km": "ក្បួនដោះស្រាយបញ្ហា (Algorithms) និងគំនូសតាង (Flowcharts)",
+              "title_en": "Algorithms, Logic Pseudocode & Flowcharts",
+              "summary_km": "ការរៀបចំជំហានដោះស្រាយបញ្ហា លក្ខខណ្ឌ IF-THEN-ELSE រង្វិលជុំ LOOP និងនិមិត្តសញ្ញាគំនូសតាង",
+              "summary_en": "Algorithmic thinking, branching logic, loop constructs, and standard ISO flowchart symbols",
+              "estimated_minutes": 20,
+              "xp_reward": 42,
+              "subtopics": [
+                "ក្បួនដោះស្រាយបញ្ហា (Algorithms) និងគំនូសតាង (Flowcharts)",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ ក្បួនដោះស្រាយបញ្ហា (Algorithms) និងគំនូសតាង (Flowcharts)",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ក្បួនដោះស្រាយបញ្ហា (Algorithms) និងគំនូសតាង (Flowcharts)",
+                  "objective_en": "Recall, state, and explain foundational definitions of Algorithms, Logic Pseudocode & Flowcharts"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ក្បួនដោះស្រាយបញ្ហា",
+                  "term_en": "Algorithms,",
+                  "definition_km": "ការរៀបចំជំហានដោះស្រាយបញ្ហា លក្ខខណ្ឌ IF-THEN-ELSE រង្វិលជុំ LOOP និងនិមិត្តសញ្ញាគំនូសតាង",
+                  "definition_en": "Algorithmic thinking, branching logic, loop constructs, and standard ISO flowchart symbols",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ក្បួនដោះស្រាយបញ្ហា (Algorithms) និងគំនូសតាង (Flowcharts)"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g10-ict-02-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ក្បួនដោះស្រាយបញ្ហា (Algorithms) និងគំនូសតាង (Flowcharts)",
+                  "title_en": "Practice Exercise 1: Algorithms, Logic Pseudocode & Flowcharts",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ក្បួនដោះស្រាយបញ្ហា (Algorithms) និងគំនូសតាង (Flowcharts) ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Algorithms, Logic Pseudocode & Flowcharts applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g10-ict-02-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ក្បួនដោះស្រាយបញ្ហា (Algorithms) និងគំនូសតាង (Flowcharts)",
+                  "title_en": "Formative Competency Problem: Algorithms, Logic Pseudocode & Flowcharts",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ក្បួនដោះស្រាយបញ្ហា (Algorithms) និងគំនូសតាង (Flowcharts) ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Algorithms, Logic Pseudocode & Flowcharts to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

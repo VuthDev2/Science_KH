@@ -1,213 +1,502 @@
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, useNavigate, getRouteApi } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { z } from "zod";
-import { Atom, Loader2 } from "lucide-react";
+import { ShieldCheck } from "lucide-react";
 import { toast } from "sonner";
 
 import { supabase } from "@/integrations/supabase/client";
-import { localAuth } from "@/integrations/local-auth/index";
+import { AuthApiService } from "@/services";
 import { useAuth } from "@/lib/auth-context";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import {
+  isAllowedEmailDomain,
+  EMAIL_DOMAIN_ERROR_KM,
+  EMAIL_DOMAIN_ERROR_EN,
+} from "@/lib/security/email-validator";
+import { authI18n } from "@/components/auth/i18n";
+import { AuthLayout } from "@/components/auth/auth-layout";
+import { AuthHeader } from "@/components/auth/auth-header";
+import { SignInForm } from "@/components/auth/sign-in-form";
+import { SignUpForm } from "@/components/auth/sign-up-form";
+import { ForgotPasswordForm } from "@/components/auth/forgot-password-form";
+import { ResetPasswordForm } from "@/components/auth/reset-password-form";
+import { HeroPanel } from "@/components/auth/hero-panel";
+import type { SupportedLanguage } from "@/components/landing/types";
 
 const searchSchema = z.object({
-  mode: z.enum(["signin", "signup"]).catch("signin"),
+  mode: z.enum(["signin", "signup", "forgot", "reset"]).catch("signin"),
+  lang: z.enum(["km", "en"]).catch("km"),
+  redirect: z.string().optional(),
 });
 
 export const Route = createFileRoute("/auth")({
   validateSearch: searchSchema,
   head: () => ({
     meta: [
-      { title: "Sign in — ScienceKH" },
-      { name: "description", content: "Sign in or create your ScienceKH student account." },
+      { name: "robots", content: "noindex, nofollow" },
+      { title: "Authentication — ScienceKH" },
+      {
+        name: "description",
+        content: "Sign in or create your student account for ScienceKH Grades 7–12 STEM learning platform.",
+      },
     ],
   }),
   component: AuthPage,
 });
 
+const routeApi = getRouteApi("/auth");
+
 function AuthPage() {
-  const { mode } = Route.useSearch();
+  const search = routeApi.useSearch();
+  const mode = search.mode;
+  const searchLang = search.lang;
+  const targetRedirect = search.redirect || "/home";
   const navigate = useNavigate();
   const { user, loading: authLoading } = useAuth();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+  // Language state initialized from search param or localStorage
+  const [lang, setLang] = useState<SupportedLanguage>(() => {
+    if (searchLang === "km" || searchLang === "en") return searchLang;
+    try {
+      if (typeof window !== "undefined") {
+        const saved = localStorage.getItem("sciencekh_lang");
+        if (saved === "km" || saved === "en") return saved as SupportedLanguage;
+      }
+    } catch {}
+    return "km";
+  });
+  const copy = authI18n[lang];
+  const isKhmer = lang === "km";
+
+  // Dynamic browser title synchronization
+  useEffect(() => {
+    let pageTitle = copy.meta.signInTitle;
+    if (mode === "signup") pageTitle = copy.meta.signUpTitle;
+    else if (mode === "forgot") pageTitle = copy.meta.forgotTitle;
+    else if (mode === "reset") pageTitle = copy.meta.resetTitle;
+    if (typeof document !== "undefined") {
+      document.title = pageTitle;
+    }
+  }, [mode, copy]);
+
+  // Sync state if URL query param changes
+  useEffect(() => {
+    if (searchLang && (searchLang === "km" || searchLang === "en") && searchLang !== lang) {
+      setLang(searchLang);
+    }
+  }, [searchLang, lang]);
+
+  // Handle explicit language toggling with immediate state, storage & URL sync
+  const handleLanguageChange = (newLang: SupportedLanguage) => {
+    setLang(newLang);
+    try {
+      localStorage.setItem("sciencekh_lang", newLang);
+    } catch {}
+    navigate({
+      to: "/auth",
+      search: (prev) => ({ ...prev, lang: newLang }),
+      replace: true,
+    });
+  };
+
+  // Request & server states
   const [submitting, setSubmitting] = useState(false);
   const [googleLoading, setGoogleLoading] = useState(false);
+  const [serverError, setServerError] = useState<string | null>(null);
 
+  // Listen for Supabase password recovery event from email link
   useEffect(() => {
-    if (!authLoading && user) {
-      navigate({ to: "/home", replace: true });
-    }
-  }, [authLoading, user, navigate]);
-
-  const isSignup = mode === "signup";
-
-  async function handleEmailSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setSubmitting(true);
-    try {
-      if (isSignup) {
-        const { error } = await supabase.auth.signUp({
-          email,
-          password,
-          options: {
-            emailRedirectTo: `${window.location.origin}/home`,
-            data: { full_name: name, display_name: name },
-          },
+    const { data: sub } = supabase.auth.onAuthStateChange((event) => {
+      if (event === "PASSWORD_RECOVERY") {
+        navigate({
+          to: "/auth",
+          search: (prev) => ({ ...prev, mode: "reset" }),
+          replace: true,
         });
-        if (error) throw error;
-        toast.success("Welcome to ScienceKH! Check your email if confirmation is required.");
-      } else {
-        const { error } = await supabase.auth.signInWithPassword({ email, password });
-        if (error) throw error;
-        toast.success("Signed in");
       }
-    } catch (err) {
-      const message = err instanceof Error ? err.message : "Something went wrong";
-      toast.error(message);
+    });
+
+    return () => sub.subscription.unsubscribe();
+  }, [navigate]);
+
+  // If already authenticated and not resetting password, redirect to destination
+  useEffect(() => {
+    if (!authLoading && user && mode !== "reset") {
+      navigate({ to: targetRedirect, replace: true });
+    }
+  }, [authLoading, user, mode, targetRedirect, navigate]);
+
+  const switchMode = (newMode: "signin" | "signup" | "forgot" | "reset") => {
+    setServerError(null);
+    navigate({
+      to: "/auth",
+      search: { mode: newMode, lang, redirect: search.redirect },
+      replace: true,
+    });
+  };
+
+  // Real Supabase Sign In with friendly Khmer/English error translations
+  const handleSignIn = async (emailVal: string, passwordVal: string, rememberMe = true) => {
+    setSubmitting(true);
+    setServerError(null);
+
+    // Enforce email domain whitelist: only @gmail.com and .edu.kh
+    if (!isAllowedEmailDomain(emailVal)) {
+      setServerError(isKhmer ? EMAIL_DOMAIN_ERROR_KM : EMAIL_DOMAIN_ERROR_EN);
+      setSubmitting(false);
+      return;
+    }
+
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: emailVal,
+        password: passwordVal,
+      });
+
+      if (error) {
+        const errorMsg = error.message.toLowerCase();
+        if (errorMsg.includes("invalid login credentials") || errorMsg.includes("invalid_credentials")) {
+          setServerError(
+            isKhmer
+              ? "អ៊ីមែល ឬពាក្យសម្ងាត់មិនត្រឹមត្រូវទេ។ សូមពិនិត្យឡើងវិញ។"
+              : "Invalid email or password. Please try again."
+          );
+        } else if (errorMsg.includes("email not confirmed")) {
+          setServerError(
+            isKhmer
+              ? "សូមបញ្ជាក់អ៊ីមែលរបស់អ្នកជាមុនសិនតាមរយៈសារដែលយើងបានផ្ញើជូន។"
+              : "Please confirm your email address before signing in."
+          );
+        } else {
+          setServerError(error.message);
+        }
+        return;
+      }
+
+      if (data?.session) {
+        // Remember me choice can be persisted
+        try {
+          if (!rememberMe) {
+            sessionStorage.setItem("sciencekh_session_only", "true");
+          } else {
+            sessionStorage.removeItem("sciencekh_session_only");
+          }
+        } catch {}
+
+        toast.success(copy.signIn.successToast);
+        navigate({ to: targetRedirect, replace: true });
+      }
+    } catch {
+      setServerError(copy.validation.genericLoginError);
     } finally {
       setSubmitting(false);
     }
-  }
+  };
 
-  async function handleGoogle() {
-    setGoogleLoading(true);
+  // Real Supabase Sign Up with grade level attachment & profile initialization
+  const handleSignUp = async (nameVal: string, emailVal: string, passwordVal: string, gradeVal: number) => {
+    setSubmitting(true);
+    setServerError(null);
+
+    // Enforce email domain whitelist: only @gmail.com and .edu.kh
+    if (!isAllowedEmailDomain(emailVal)) {
+      setServerError(isKhmer ? EMAIL_DOMAIN_ERROR_KM : EMAIL_DOMAIN_ERROR_EN);
+      setSubmitting(false);
+      return;
+    }
+
     try {
-      const result = await localAuth.auth.signInWithOAuth("google", {
-        redirect_uri: window.location.origin,
+      const redirectTo = search.redirect
+        ? `${window.location.origin}${search.redirect}`
+        : `${window.location.origin}/home`;
+
+      const { data, error } = await supabase.auth.signUp({
+        email: emailVal,
+        password: passwordVal,
+        options: {
+          emailRedirectTo: redirectTo,
+          data: {
+            full_name: nameVal,
+            display_name: nameVal,
+            grade: gradeVal,
+            language: lang,
+          },
+        },
       });
-      if (result.error) {
-        toast.error(result.error.message ?? "Google sign-in failed");
-        setGoogleLoading(false);
+
+      if (error) {
+        const errorMsg = error.message.toLowerCase();
+        if (errorMsg.includes("already registered") || errorMsg.includes("already in use")) {
+          setServerError(
+            isKhmer
+              ? "អ៊ីមែលនេះមានគណនីរួចហើយ។ សូមជ្រើសរើស 'ចូលគណនី'។"
+              : "An account with this email already exists. Please sign in."
+          );
+        } else {
+          setServerError(error.message);
+        }
         return;
       }
-      if (result.redirected) return;
-      // Session is now set; redirect handled by useEffect
+
+      // Initialize profile row in PostgreSQL
+      if (data?.user) {
+        try {
+          await supabase.from("profiles").upsert({
+            id: data.user.id,
+            full_name: nameVal,
+            display_name: nameVal,
+            grade: gradeVal,
+            language: lang,
+            xp: 0,
+            coins: 50,
+            streak_days: 1,
+          });
+
+          await supabase.from("user_roles").upsert({
+            user_id: data.user.id,
+            role: "student",
+          });
+        } catch {
+          // non-fatal if table trigger handles it
+        }
+      }
+
+      toast.success(
+        isKhmer
+          ? "បង្កើតគណនីជោគជ័យ! សូមពិនិត្យអ៊ីមែល ឬចូលប្រើប្រាស់។"
+          : "Account created successfully!"
+      );
+
+      // If session exists immediately, navigate to destination
+      if (data?.session) {
+        navigate({ to: targetRedirect, replace: true });
+      } else {
+        // Switch to signin mode
+        switchMode("signin");
+      }
     } catch (err) {
-      const message = err instanceof Error ? err.message : "Google sign-in failed";
-      toast.error(message);
+      const msg = err instanceof Error ? err.message : "Registration failed";
+      setServerError(msg);
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  // Nodemailer 6-digit OTP Pre-Verification (validates code before new password input)
+  const handleVerifyOtpOnly = async (data: { email: string; code: string }): Promise<boolean> => {
+    setSubmitting(true);
+    setServerError(null);
+    try {
+      await AuthApiService.verifyOtpOnly(data.email, data.code);
+      toast.success(
+        isKhmer ? "លេខកូដផ្ទៀងផ្ទាត់ត្រឹមត្រូវ!" : "Verification code confirmed!"
+      );
+      return true;
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "Failed to verify code";
+      setServerError(msg);
+      return false;
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  // Nodemailer 6-digit OTP Password Reset Request
+  const handleSendResetOtp = async (emailVal: string): Promise<boolean> => {
+    setSubmitting(true);
+    setServerError(null);
+
+    // Enforce email domain whitelist: only @gmail.com and .edu.kh
+    if (!isAllowedEmailDomain(emailVal)) {
+      setServerError(isKhmer ? EMAIL_DOMAIN_ERROR_KM : EMAIL_DOMAIN_ERROR_EN);
+      setSubmitting(false);
+      return false;
+    }
+
+    try {
+      await AuthApiService.requestResetOtp(emailVal);
+      toast.success(
+        isKhmer
+          ? "លេខកូដផ្ទៀងផ្ទាត់ ៦ ខ្ទង់ត្រូវបានផ្ញើតាម Nodemailer ទៅកាន់អ៊ីមែលរបស់អ្នកហើយ!"
+          : "6-digit OTP verification code sent via Nodemailer to your email!"
+      );
+      return true;
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "Failed to send verification code";
+      setServerError(msg);
+      return false;
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  // Nodemailer 6-digit OTP Verification & Password Update
+  const handleVerifyResetOtp = async (data: {
+    email: string;
+    code: string;
+    newPassword: string;
+  }): Promise<boolean> => {
+    setSubmitting(true);
+    setServerError(null);
+
+    // Enforce email domain whitelist: only @gmail.com and .edu.kh
+    if (!isAllowedEmailDomain(data.email)) {
+      setServerError(isKhmer ? EMAIL_DOMAIN_ERROR_KM : EMAIL_DOMAIN_ERROR_EN);
+      setSubmitting(false);
+      return false;
+    }
+
+    try {
+      await AuthApiService.verifyResetOtpAndSetPassword(data.email, data.code, data.newPassword);
+      toast.success(
+        isKhmer
+          ? "ពាក្យសម្ងាត់ត្រូវបានផ្លាស់ប្តូរជោគជ័យ!"
+          : "Password updated successfully!"
+      );
+      return true;
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "Failed to reset password";
+      setServerError(msg);
+      return false;
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  // Real Password Update (when arriving from recovery email fallback)
+  const handleResetPassword = async (newPasswordVal: string): Promise<boolean> => {
+    setSubmitting(true);
+    setServerError(null);
+    try {
+      const { error } = await supabase.auth.updateUser({
+        password: newPasswordVal,
+      });
+
+      if (error) {
+        setServerError(error.message);
+        return false;
+      }
+
+      toast.success(copy.resetPassword.successToast);
+      navigate({ to: targetRedirect, replace: true });
+      return true;
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "Failed to reset password";
+      setServerError(msg);
+      return false;
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  // Google OAuth via Supabase
+  const handleGoogle = async () => {
+    setGoogleLoading(true);
+    setServerError(null);
+    try {
+      const redirectTo = search.redirect
+        ? `${window.location.origin}${search.redirect}`
+        : `${window.location.origin}/home`;
+
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: "google",
+        options: {
+          redirectTo,
+          queryParams: {
+            access_type: "offline",
+            prompt: "consent",
+          },
+        },
+      });
+      if (error) throw error;
+    } catch (err: unknown) {
+      const errMsg = err instanceof Error ? err.message : String(err);
+      setServerError(
+        errMsg ||
+          (isKhmer
+            ? "ការចូលតាម Google មិនទាន់ដំណើរការនៅក្នុង browser នេះទេ។ សូមប្រើប្រាស់អ៊ីមែល។"
+            : "Google sign-in is not available in this environment. Please use email.")
+      );
+    } finally {
       setGoogleLoading(false);
     }
-  }
+  };
 
   return (
-    <main className="min-h-screen bg-background">
-      <header className="mx-auto flex w-full max-w-md items-center justify-between px-6 pt-6">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="grid h-9 w-9 place-items-center rounded-xl bg-primary text-primary-foreground shadow-soft">
-            <Atom className="h-5 w-5" />
-          </div>
-          <span className="font-display text-lg font-semibold tracking-tight">ScienceKH</span>
-        </Link>
-      </header>
+    <AuthLayout
+      currentLang={lang}
+      brandingContent={<HeroPanel copy={copy.showcase} isKhmer={isKhmer} mode={mode} />}
+      formContent={
+        <div className="w-full max-w-[480px] mx-auto flex flex-col justify-between flex-1 min-h-full">
+          {/* Top Bar with Home Link & Language Toggle */}
+          <AuthHeader
+            currentLang={lang}
+            onLanguageChange={handleLanguageChange}
+            backHomeLabel={copy.header.backHome}
+            languageToggleAria={copy.header.languageToggleAria}
+          />
 
-      <section className="mx-auto w-full max-w-md px-6 pt-10 pb-12">
-        <h1 className="font-display text-3xl font-semibold tracking-tight">
-          {isSignup ? "Create your account" : "Welcome back"}
-        </h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          {isSignup
-            ? "Start learning physics, chemistry, biology and earth science."
-            : "Sign in to continue your study streak."}
-        </p>
-
-        <div className="mt-8">
-          <Button
-            type="button"
-            variant="outline"
-            size="lg"
-            className="h-12 w-full text-base"
-            onClick={handleGoogle}
-            disabled={googleLoading}
-          >
-            {googleLoading ? (
-              <Loader2 className="h-4 w-4 animate-spin" />
-            ) : (
-              <GoogleMark />
-            )}
-            Continue with Google
-          </Button>
-
-          <div className="my-6 flex items-center gap-3 text-xs uppercase tracking-wider text-muted-foreground">
-            <div className="h-px flex-1 bg-border" />
-            or
-            <div className="h-px flex-1 bg-border" />
-          </div>
-
-          <form onSubmit={handleEmailSubmit} className="space-y-4">
-            {isSignup && (
-              <div className="space-y-1.5">
-                <Label htmlFor="name">Your name</Label>
-                <Input
-                  id="name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                  placeholder="Sokha"
-                  className="h-12"
-                />
-              </div>
-            )}
-            <div className="space-y-1.5">
-              <Label htmlFor="email">Email</Label>
-              <Input
-                id="email"
-                type="email"
-                autoComplete="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="you@example.com"
-                className="h-12"
+          {/* Centered Authentication Form per Mode */}
+          <div className="w-full my-auto py-2.5 sm:py-3">
+            {mode === "signin" && (
+              <SignInForm
+                copy={copy}
+                onSubmit={handleSignIn}
+                onGoogleSignIn={handleGoogle}
+                onForgotPasswordClick={() => switchMode("forgot")}
+                onSwitchToSignUp={() => switchMode("signup")}
+                submitting={submitting}
+                googleLoading={googleLoading}
+                serverError={serverError}
+                onClearServerError={() => setServerError(null)}
               />
-            </div>
-            <div className="space-y-1.5">
-              <Label htmlFor="password">Password</Label>
-              <Input
-                id="password"
-                type="password"
-                autoComplete={isSignup ? "new-password" : "current-password"}
-                required
-                minLength={6}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="At least 6 characters"
-                className="h-12"
+            )}
+
+            {mode === "signup" && (
+              <SignUpForm
+                copy={copy}
+                onSubmit={handleSignUp}
+                onGoogleSignUp={handleGoogle}
+                onSwitchToSignIn={() => switchMode("signin")}
+                submitting={submitting}
+                googleLoading={googleLoading}
+                serverError={serverError}
+                onClearServerError={() => setServerError(null)}
               />
-            </div>
+            )}
 
-            <Button type="submit" size="lg" className="h-12 w-full text-base shadow-soft" disabled={submitting}>
-              {submitting && <Loader2 className="h-4 w-4 animate-spin" />}
-              {isSignup ? "Create account" : "Sign in"}
-            </Button>
-          </form>
+            {mode === "forgot" && (
+              <ForgotPasswordForm
+                copy={copy}
+                isKhmer={isKhmer}
+                onSendOtp={handleSendResetOtp}
+                onVerifyOtpOnly={handleVerifyOtpOnly}
+                onVerifyOtpAndReset={handleVerifyResetOtp}
+                onSwitchToSignIn={() => switchMode("signin")}
+                submitting={submitting}
+                serverError={serverError}
+                onClearServerError={() => setServerError(null)}
+              />
+            )}
 
-          <p className="mt-6 text-center text-sm text-muted-foreground">
-            {isSignup ? "Already have an account?" : "New to ScienceKH?"}{" "}
-            <Link
-              to="/auth"
-              search={{ mode: isSignup ? "signin" : "signup" }}
-              className="font-medium text-primary hover:underline"
-            >
-              {isSignup ? "Sign in" : "Create one"}
-            </Link>
-          </p>
+            {mode === "reset" && (
+              <ResetPasswordForm
+                copy={copy}
+                onSubmit={handleResetPassword}
+                onSwitchToSignIn={() => switchMode("signin")}
+                submitting={submitting}
+                serverError={serverError}
+                onClearServerError={() => setServerError(null)}
+              />
+            )}
+          </div>
+
+          {/* Bottom Security Trust Notice */}
+          <div className="pt-3 pb-1 border-t border-[#E5EAF0] max-w-[480px] mx-auto w-full flex items-center justify-center gap-1.5 text-xs text-[#94A3B8] text-center mt-auto">
+            <ShieldCheck className="w-3.5 h-3.5 text-[#059669] shrink-0" />
+            <span>{copy.trustBadge.secureNotice}</span>
+          </div>
         </div>
-      </section>
-    </main>
-  );
-}
-
-function GoogleMark() {
-  return (
-    <svg viewBox="0 0 48 48" className="h-5 w-5" aria-hidden="true">
-      <path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.4 29.3 35.5 24 35.5c-6.4 0-11.5-5.1-11.5-11.5S17.6 12.5 24 12.5c2.9 0 5.6 1.1 7.6 2.9l5.7-5.7C33.9 6.5 29.2 4.5 24 4.5 13.2 4.5 4.5 13.2 4.5 24S13.2 43.5 24 43.5 43.5 34.8 43.5 24c0-1.2-.1-2.4-.4-3.5z"/>
-      <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.6 16 19 12.5 24 12.5c2.9 0 5.6 1.1 7.6 2.9l5.7-5.7C33.9 6.5 29.2 4.5 24 4.5 16.4 4.5 9.8 8.7 6.3 14.7z"/>
-      <path fill="#4CAF50" d="M24 43.5c5.1 0 9.7-1.9 13.2-5.1l-6.1-5c-2 1.4-4.5 2.2-7.1 2.2-5.3 0-9.7-3.1-11.3-7.4l-6.5 5C9.7 39.2 16.3 43.5 24 43.5z"/>
-      <path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.1-4.1 5.4l6.1 5c-.4.4 6.7-4.9 6.7-14.4 0-1.2-.1-2.4-.4-3.5z"/>
-    </svg>
+      }
+    />
   );
 }

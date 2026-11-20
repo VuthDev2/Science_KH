@@ -1,0 +1,3093 @@
+{
+  "grade": 7,
+  "title_km": "កម្មវិធីសិក្សាជាតិថ្នាក់ទី ៧ - អនុវិទ្យាល័យ (មូលដ្ឋានគ្រឹះ)",
+  "title_en": "Cambodian National Curriculum — Grade 7 (Lower Secondary Foundation)",
+  "cycle": "lower_secondary",
+  "weekly_total_hours": 33,
+  "annual_school_weeks": 38,
+  "overview_km": "ថ្នាក់ទី ៧ ជាដំណាក់កាលអន្តរកាលដ៏សំខាន់ពីបឋមសិក្សាចូលកាន់អនុវិទ្យាល័យ ដោយបំបែកមុខវិជ្ជាទៅតាមឯកទេសច្បាស់លាស់ និងពង្រឹងស្វ័យសិក្សា។",
+  "overview_en": "Grade 7 represents the critical foundational bridge between primary arithmetic and junior secondary abstract science, literature, and analytical geometry.",
+  "terminal_examination": null,
+  "academic_streams": null,
+  "total_subjects_count": 11,
+  "total_lessons_count": 54,
+  "subjects": [
+    {
+      "subject_slug": "mathematics",
+      "name_km": "គណិតវិទ្យា",
+      "name_en": "Mathematics",
+      "weekly_hours": 2,
+      "official_textbook": {
+        "title_km": "គណិតវិទ្យា (ថ្នាក់ទី ៧-១២)",
+        "publisher": "គ្រឹះស្ថានបោះពុម្ព និងចែកផ្សាយ ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "edition": "បោះពុម្ពឡើងវិញ ២០១៨-២០២៣",
+        "sala_url": "https://sala.moeys.gov.kh/",
+        "oer_url": "https://oer.moeys.gov.kh/"
+      },
+      "units": [
+        {
+          "unit_id": "unit-g7-math-1",
+          "unit_number": 1,
+          "title_km": "ជំពូកទី ១ ៖ ចំនួនគត់ និងចំនួនគត់រ៉ឺឡាទីប",
+          "title_en": "Unit 1: Integers & Signed Numbers",
+          "description_km": "សញ្ញាណចំនួនគត់ ឫសការេ ឫសគូប កត្តាបឋម ប.ម.ធ ព.គ.ទ និងប្រមាណវិធីលើចំនួនគត់រ៉ឺឡាទីប",
+          "description_en": "Natural numbers, square/cube roots, prime factorization, GCD, LCM, and signed integer arithmetic",
+          "icon": "🔢",
+          "competencies": [
+            "ស្គាល់ចំនួនគត់ធម្មជាតិ ឫសការេ និងឫសគូប",
+            "បំបែកចំនួនជាកត្តាបឋម និងរក ប.ម.ធ និង ព.គ.ទ",
+            "អនុវត្តប្រមាណវិធីបូក ដក គុណ ចែកលើចំនួនគត់រ៉ឺឡាទីប និងតម្លៃដាច់ខាត"
+          ],
+          "lesson_count": 3,
+          "lessons": [
+            {
+              "lesson_id": "les-g7-math-01",
+              "sort_order": 1,
+              "title_km": "ចំនួនគត់ (សញ្ញាណ ឫសការេ និងឫសគូប)",
+              "title_en": "Whole Numbers, Square Roots & Cube Roots",
+              "summary_km": "ស្វែងយល់ចំនួនគត់ធម្មជាតិ បន្ទាត់ចំនួន ស្វ័យគុណការេ គូប ឫសការេ និងឫសគូប",
+              "summary_en": "Natural whole numbers, number lines, square numbers, cube numbers, and evaluating square & cube roots",
+              "estimated_minutes": 18,
+              "xp_reward": 35
+            },
+            {
+              "lesson_id": "les-g7-math-02",
+              "sort_order": 2,
+              "title_km": "តួចែក និងពហុគុណ (ប.ម.ធ និង ព.គ.ទ)",
+              "title_en": "Divisors & Multiples (GCD & LCM)",
+              "summary_km": "កត្តាបឋម ការបំបែកជាផលគុណកត្តាបឋម តួចែករួមធំបំផុត (ប.ម.ធ) និងពហុគុណរួមតូចបំផុត (ព.គ.ទ)",
+              "summary_en": "Prime numbers, prime factorization, greatest common divisor (GCD), and least common multiple (LCM)",
+              "estimated_minutes": 20,
+              "xp_reward": 35
+            },
+            {
+              "lesson_id": "les-g7-math-03",
+              "sort_order": 3,
+              "title_km": "ចំនួនគត់រ៉ឺឡាទីប និងប្រមាណវិធី",
+              "title_en": "Signed Integers & Operations",
+              "summary_km": "ចំនួនគត់វិជ្ជមាន ចំនួនសូន្យ ចំនួនគត់អវិជ្ជមាន តម្លៃដាច់ខាត វិធីបូក ដក គុណ ចែក",
+              "summary_en": "Signed integers, order on the number line, absolute value |a|, and basic integer arithmetic (+, -, ×, ÷)",
+              "estimated_minutes": 20,
+              "xp_reward": 35
+            }
+          ]
+        },
+        {
+          "unit_id": "unit-g7-math-2",
+          "unit_number": 2,
+          "title_km": "ជំពូកទី ២ ៖ ប្រភាគ ចំនួនទសភាគ និងភាគរយ",
+          "title_en": "Unit 2: Fractions, Decimals & Percentages",
+          "description_km": "ប្រភាគសមមូល ប្រមាណវិធីលើប្រភាគ ចំនួនទសភាគ និងការគណនាភាគរយ-ការប្រាក់",
+          "description_en": "Equivalent fractions, decimal operations, percentages, discounts, and simple commercial interest",
+          "icon": "🥧",
+          "competencies": [
+            "ស្វែងយល់ប្រភាគសមមូល និងសម្រួលប្រភាគ",
+            "អនុវត្តប្រមាណវិធីបូក ដក គុណ ចែកលើប្រភាគ និងទសភាគ",
+            "ដោះស្រាយចំណោទភាគរយ ការបញ្ចុះតម្លៃ និងការប្រាក់សាមញ្ញ"
+          ],
+          "lesson_count": 3,
+          "lessons": [
+            {
+              "lesson_id": "les-g7-math-04",
+              "sort_order": 4,
+              "title_km": "ប្រភាគ និងប្រមាណវិធីលើប្រភាគ",
+              "title_en": "Fractions & Fraction Operations",
+              "summary_km": "ប្រភាគស្មើគ្នា ការសម្រួលប្រភាគ វិធីបូក ដក គុណ និងចែកប្រភាគចម្រុះ",
+              "summary_en": "Equivalent fractions, simplest forms, mixed numbers, and arithmetic (+, -, ×, ÷) across unlike denominators",
+              "estimated_minutes": 20,
+              "xp_reward": 35
+            },
+            {
+              "lesson_id": "les-g7-math-05",
+              "sort_order": 5,
+              "title_km": "ចំនួនទសភាគ និងការបំប្លែង",
+              "title_en": "Decimals & Decimal Conversions",
+              "summary_km": "សញ្ញាណចំនួនទសភាគ ប្រមាណវិធីលើទសភាគ និងការបំប្លែងរវាងប្រភាគនិងទសភាគ",
+              "summary_en": "Decimal place values, rounding rules, arithmetic operations, and converting fractions to decimals",
+              "estimated_minutes": 18,
+              "xp_reward": 35
+            },
+            {
+              "lesson_id": "les-g7-math-06",
+              "sort_order": 6,
+              "title_km": "ភាគរយ និងចំណោទជាក់ស្តែង",
+              "title_en": "Percentages & Real-World Applications",
+              "summary_km": "សញ្ញាណភាគរយ (%) ការគណនាភាគរយនៃការបញ្ចុះតម្លៃ ពន្ធ និងការប្រាក់សាមញ្ញ",
+              "summary_en": "Percentage calculations, sales discounts, taxes, markups, and simple interest formulas",
+              "estimated_minutes": 20,
+              "xp_reward": 35
+            }
+          ]
+        },
+        {
+          "unit_id": "unit-g7-math-3",
+          "unit_number": 3,
+          "title_km": "ជំពូកទី ៣ ៖ ស្វ័យគុណ និងពីជគណិត",
+          "title_en": "Unit 3: Powers & Algebra",
+          "description_km": "វិធានស្វ័យគុណ កន្សោមពីជគណិត សមីការដឺក្រេទី១ វិសមភាព និងផលធៀប-សមាមាត្រ",
+          "description_en": "Exponent laws, algebraic expressions, linear equations ax+b=c, inequalities, and proportions",
+          "icon": "⚡",
+          "competencies": [
+            "អនុវត្តវិធានផលគុណ និងផលចែកស្វ័យគុណ",
+            "គណនាតម្លៃលេខនៃកន្សោមពីជគណិត",
+            "ដោះស្រាយសមីការដឺក្រេទី១ វិសមភាព និងផលធៀប-សមាមាត្រ"
+          ],
+          "lesson_count": 5,
+          "lessons": [
+            {
+              "lesson_id": "les-g7-math-07",
+              "sort_order": 7,
+              "title_km": "ស្វ័យគុណនៃចំនួន",
+              "title_en": "Powers & Exponent Laws",
+              "summary_km": "វិធានស្វ័យគុណ aᵐ · aⁿ, aᵐ / aⁿ, ស្វ័យគុណនៃស្វ័យគុណ (aᵐ)ⁿ និងស្វ័យគុណសូន្យ a⁰ = 1",
+              "summary_en": "Exponent laws for products, quotients, powers of powers, and zero exponent definition",
+              "estimated_minutes": 20,
+              "xp_reward": 35
+            },
+            {
+              "lesson_id": "les-g7-math-08",
+              "sort_order": 8,
+              "title_km": "កន្សោមពីជគណិត និងតម្លៃលេខ",
+              "title_en": "Algebraic Expressions & Evaluation",
+              "summary_km": "សញ្ញាណអថេរ កន្សោមពីជគណិត ការជំនួសតម្លៃលេខ ឯកធា និងពហុធា",
+              "summary_en": "Variables, forming algebraic expressions, numerical substitution, and grouping like terms",
+              "estimated_minutes": 20,
+              "xp_reward": 35
+            },
+            {
+              "lesson_id": "les-g7-math-09",
+              "sort_order": 9,
+              "title_km": "សមីការដឺក្រេទី១ មានមួយអញ្ញាត",
+              "title_en": "Linear Equations with One Unknown",
+              "summary_km": "ទម្រង់ទូទៅ ax + b = c វិធានប្តូរអង្គ ឫសសមីការ និងចំណោទអនុវត្ត",
+              "summary_en": "Solving linear equations ax + b = c, transposition principles, root verification, and real-world word problems",
+              "estimated_minutes": 22,
+              "xp_reward": 35
+            },
+            {
+              "lesson_id": "les-g7-math-10",
+              "sort_order": 10,
+              "title_km": "វិសមភាព និងលក្ខណៈ",
+              "title_en": "Inequalities & Properties",
+              "summary_km": "សញ្ញាណវិសមភាព (<, >, ≤, ≥) លក្ខណៈបូក ដក គុណ ចែក និងការតាងលើបន្ទាត់ចំនួន",
+              "summary_en": "Inequality symbols, addition/multiplication properties, sign reversals with negative multipliers, and number line graphs",
+              "estimated_minutes": 20,
+              "xp_reward": 35
+            },
+            {
+              "lesson_id": "les-g7-math-11",
+              "sort_order": 11,
+              "title_km": "ផលធៀប និងសមាមាត្រ",
+              "title_en": "Ratios, Rates & Proportions",
+              "summary_km": "ផលធៀបពីរទំហំ អត្រាល្បឿន v = d/t សមាមាត្រ a/b = c/d និងសមាមាត្រច្រាស",
+              "summary_en": "Ratios of quantities, unit rates, speed relations, proportion cross-multiplication, and inverse variation",
+              "estimated_minutes": 20,
+              "xp_reward": 35
+            }
+          ]
+        },
+        {
+          "unit_id": "unit-g7-math-4",
+          "unit_number": 4,
+          "title_km": "ជំពូកទី ៤ ៖ ធរណីមាត្រក្នុងប្លង់ និងសូលីត",
+          "title_en": "Unit 4: Geometry & 3D Solids",
+          "description_km": "ចំណុច បន្ទាត់ មុំ បន្ទាត់ស្រប-កែង ត្រីកោណ បរិមាត្រ ផ្ទៃក្រឡា រង្វង់ មាឌគូប និងភាពឆ្លុះ",
+          "description_en": "Lines, angles, parallel transversals, triangles, polygon areas, circles, 3D solids, and reflections",
+          "icon": "📐",
+          "competencies": [
+            "ស្គាល់ និងសង់ចំណុច បន្ទាត់ កន្លះបន្ទាត់ និងអង្កត់",
+            "កំណត់រង្វាស់មុំ និងលក្ខណៈមុំឆ្លាស់ មុំស្រប",
+            "គណនាបរិមាត្រ ផ្ទៃក្រឡា និងមាឌសូលីត",
+            "អនុវត្តភាពឆ្លុះក្នុងប្លង់"
+          ],
+          "lesson_count": 8,
+          "lessons": [
+            {
+              "lesson_id": "les-g7-math-12",
+              "sort_order": 12,
+              "title_km": "សញ្ញាណដំបូងនៃរូបធរណីមាត្រ",
+              "title_en": "Basic Geometric Concepts",
+              "summary_km": "ចំណុច បន្ទាត់ កន្លះបន្ទាត់ អង្កត់ ចំណុចកណ្តាល និងប្លង់",
+              "summary_en": "Fundamental geometric elements: points, lines, rays, segments, midpoints, and collinear relations",
+              "estimated_minutes": 18,
+              "xp_reward": 35
+            },
+            {
+              "lesson_id": "les-g7-math-13",
+              "sort_order": 13,
+              "title_km": "មុំ និងប្រភេទមុំ",
+              "title_en": "Angles & Angle Classifications",
+              "summary_km": "រង្វាស់មុំ (ដឺក្រេ) មុំស្រួច មុំកែង មុំទាល មុំរាប មុំជាប់ មុំបន្ថែម មុំបំពេញ និងមុំទល់កំពូល",
+              "summary_en": "Angle measurement in degrees, classifications (acute, right, obtuse, straight), complementary, supplementary, and vertical angles",
+              "estimated_minutes": 20,
+              "xp_reward": 35
+            },
+            {
+              "lesson_id": "les-g7-math-14",
+              "sort_order": 14,
+              "title_km": "បន្ទាត់ស្រប និងបន្ទាត់កែង",
+              "title_en": "Parallel & Perpendicular Lines",
+              "summary_km": "និយមន័យបន្ទាត់ស្រប កែង បន្ទាត់ខ្វែង មុំឆ្លាស់ក្នុង មុំឆ្លាស់ក្រៅ និងមុំស្រប",
+              "summary_en": "Parallel and perpendicular line properties, transversal lines, alternate interior/exterior angles, and corresponding angles",
+              "estimated_minutes": 20,
+              "xp_reward": 35
+            },
+            {
+              "lesson_id": "les-g7-math-15",
+              "sort_order": 15,
+              "title_km": "រូបធរណីមាត្រដែលមានវិមាត្រពីរ (ត្រីកោណ និងពហុកោណ)",
+              "title_en": "2D Geometric Shapes: Triangles & Polygons",
+              "summary_km": "លក្ខណៈត្រីកោណសម័ង្ស សមបាត កែង ផលបូកមុំក្នុងត្រីកោណ ១៨០° និងចតុកោណ",
+              "summary_en": "Properties of triangles (equilateral, isosceles, right), triangle angle sum theorem (180°), and polygon classifications",
+              "estimated_minutes": 20,
+              "xp_reward": 35
+            },
+            {
+              "lesson_id": "les-g7-math-16",
+              "sort_order": 16,
+              "title_km": "បរិមាត្រ និងផ្ទៃក្រឡាពហុកោណ",
+              "title_en": "Perimeters & Areas of Polygons",
+              "summary_km": "រូបមន្តបរិមាត្រ និងផ្ទៃក្រឡាចតុកោណកែង ការេ ប្រលេឡូក្រាម ត្រីកោណ និងចតុកោណព្នាយ",
+              "summary_en": "Standard formulas for perimeters and areas of rectangles, squares, parallelograms, triangles, and trapezoids",
+              "estimated_minutes": 20,
+              "xp_reward": 35
+            },
+            {
+              "lesson_id": "les-g7-math-17",
+              "sort_order": 17,
+              "title_km": "រង្វង់ បរិមាត្រ និងផ្ទៃក្រឡា",
+              "title_en": "Circles, Circumference & Area",
+              "summary_km": "កាំ (r) អង្កត់ផ្ចិត (d = 2r) ចំនួន π ≈ 3.1416 បរិមាត្រ C = 2πr និងផ្ទៃក្រឡា S = πr²",
+              "summary_en": "Circle definitions, diameter, circumference formula C = 2πr, area formula S = πr², and circular sectors",
+              "estimated_minutes": 20,
+              "xp_reward": 35
+            },
+            {
+              "lesson_id": "les-g7-math-18",
+              "sort_order": 18,
+              "title_km": "មាឌ និងផ្ទៃក្រឡាខាងនៃសូលីត",
+              "title_en": "Surface Area & Volume of 3D Solids",
+              "summary_km": "គូប ប្រលេពីប៉ែតកែង ផ្ទៃក្រឡាខាង ផ្ទៃក្រឡាសរុប និងមាឌ V = a³ ឬ V = l × w × h",
+              "summary_en": "Surface area and volume of three-dimensional solids: cubes and rectangular parallelepipeds/prisms",
+              "estimated_minutes": 20,
+              "xp_reward": 35
+            },
+            {
+              "lesson_id": "les-g7-math-19",
+              "sort_order": 19,
+              "title_km": "ភាពឆ្លុះក្នុងប្លង់",
+              "title_en": "Planar Reflections & Symmetry",
+              "summary_km": "អ័ក្សឆ្លុះ ភាពឆ្លុះធៀបនឹងបន្ទាត់ ភាពឆ្លុះធៀបនឹងចំណុច និងរូបភាពឆ្លុះនៃអង្កត់/មុំ",
+              "summary_en": "Axial symmetry, central point symmetry, mirror image reflections, and preserving length and angle measures",
+              "estimated_minutes": 18,
+              "xp_reward": 35
+            }
+          ]
+        },
+        {
+          "unit_id": "unit-g7-math-5",
+          "unit_number": 5,
+          "title_km": "ជំពូកទី ៥ ៖ ស្ថិតិ និងប្រូបាប",
+          "title_en": "Unit 5: Statistics & Probability",
+          "description_km": "ការពិសោធន៍ចៃដន្យ គណនាប្រូបាប តារាងប្រេកង់ ដ្យាក្រាមក្រាបសសរ និងក្រាបផ្ចិត",
+          "description_en": "Random experiments, probability P(A)=m/n, frequency tables, bar charts, and circular pie charts",
+          "icon": "📊",
+          "competencies": [
+            "យល់ដឹងពីការពិសោធន៍ចៃដន្យ និងគណនាប្រូបាបបឋម",
+            "ប្រមូលទិន្នន័យ និងរៀបចំតារាងប្រេកង់",
+            "គូរ និងបកស្រាយដ្យាក្រាមក្រាបសសរ និងក្រាបផ្ចិត"
+          ],
+          "lesson_count": 3,
+          "lessons": [
+            {
+              "lesson_id": "les-g7-math-20",
+              "sort_order": 20,
+              "title_km": "ប្រូបាបបឋម",
+              "title_en": "Introduction to Probability",
+              "summary_km": "ការពិសោធន៍ចៃដន្យ លំហសំណាក ព្រឹត្តិការណ៍ និងរូបមន្តប្រូបាប P(A) = m / n",
+              "summary_en": "Random experiments, sample spaces, favorable outcomes, and classical probability calculation P(A) = m / n",
+              "estimated_minutes": 20,
+              "xp_reward": 35
+            },
+            {
+              "lesson_id": "les-g7-math-21",
+              "sort_order": 21,
+              "title_km": "ក្រាបសសរ និងការបកស្រាយទិន្នន័យ",
+              "title_en": "Bar Charts & Frequency Distributions",
+              "summary_km": "ការប្រមូលទិន្នន័យ តារាងប្រេកង់ ដ្យាក្រាមសសរទោល និងដ្យាក្រាមសសរទ្វេ",
+              "summary_en": "Data organization, frequency distribution tables, single and double bar charts, and data interpretation",
+              "estimated_minutes": 20,
+              "xp_reward": 35
+            },
+            {
+              "lesson_id": "les-g7-math-22",
+              "sort_order": 22,
+              "title_km": "ក្រាបផ្ចិត និងដ្យាក្រាមរង្វង់",
+              "title_en": "Pie Charts & Circular Diagrams",
+              "summary_km": "ការគណនាមុំផ្ចិតតាមភាគរយ (360° × %) ការគូរដ្យាក្រាមរង្វង់ និងការវិភាគទិន្នន័យស្ថិតិ",
+              "summary_en": "Converting percentages to central angles (360° × %), drawing circular pie charts, and statistical inference",
+              "estimated_minutes": 20,
+              "xp_reward": 35
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject_slug": "physics",
+      "name_km": "រូបវិទ្យា",
+      "name_en": "Physics",
+      "weekly_hours": 2,
+      "official_textbook": {
+        "title_km": "រូបវិទ្យា (ថ្នាក់ទី ៧-១២)",
+        "publisher": "នាយកដ្ឋានអភិវឌ្ឍកម្មវិធីសិក្សា ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "edition": "បោះពុម្ពឡើងវិញ ២០១៩-២០២៣",
+        "sala_url": "https://sala.moeys.gov.kh/",
+        "oer_url": "https://oer.moeys.gov.kh/"
+      },
+      "units": [
+        {
+          "unit_id": "unit-g7-phys-1",
+          "unit_number": 1,
+          "title_km": "ការវាស់វែង ខ្នាត SI និងដង់ស៊ីតេ",
+          "title_en": "Measurement, SI Units & Density",
+          "description_km": "ប្រព័ន្ធខ្នាតអន្តរជាតិ SI ម៉ាស មាឌ និងរូបមន្តដង់ស៊ីតេ",
+          "description_en": "Standard SI base units, mass, volume, and density calculations",
+          "icon": "⚖️",
+          "competencies": [
+            "ស្វែងយល់ និងអនុវត្តទ្រឹស្តីក្នុង ការវាស់វែង ខ្នាត SI និងដង់ស៊ីតេ",
+            "ដោះស្រាយលំហាត់ និងចំណោទកម្រិតមធ្យម និងកម្រិតខ្ពស់",
+            "ត្រៀមលក្ខណៈសម្រាប់ការវាយតម្លៃប្រចាំជំពូក និងការប្រឡងបញ្ចប់ឆ្នាំ"
+          ],
+          "lesson_count": 2,
+          "lessons": [
+            {
+              "lesson_id": "les-g7-phys-01",
+              "sort_order": 1,
+              "title_km": "ការវាស់វែង និងប្រព័ន្ធខ្នាតអន្តរជាតិ SI",
+              "title_en": "Measurement & SI Standard Units",
+              "summary_km": "ខ្នាតគោល SI ប្រវែង ម៉ាស ពេលវេលា និងឧបករណ៍វាស់ជាក់ស្តែង",
+              "summary_en": "International System of Units (SI), metric prefixes, length, mass, and time measurements",
+              "estimated_minutes": 18,
+              "xp_reward": 35,
+              "subtopics": [
+                "ការវាស់វែង និងប្រព័ន្ធខ្នាតអន្តរជាតិ SI",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ ការវាស់វែង និងប្រព័ន្ធខ្នាតអន្តរជាតិ SI",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ការវាស់វែង និងប្រព័ន្ធខ្នាតអន្តរជាតិ SI",
+                  "objective_en": "Recall, state, and explain foundational definitions of Measurement & SI Standard Units"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ការវាស់វែង",
+                  "term_en": "Measurement",
+                  "definition_km": "ខ្នាតគោល SI ប្រវែង ម៉ាស ពេលវេលា និងឧបករណ៍វាស់ជាក់ស្តែង",
+                  "definition_en": "International System of Units (SI), metric prefixes, length, mass, and time measurements",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ការវាស់វែង និងប្រព័ន្ធខ្នាតអន្តរជាតិ SI"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g7-phys-01-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ការវាស់វែង និងប្រព័ន្ធខ្នាតអន្តរជាតិ SI",
+                  "title_en": "Practice Exercise 1: Measurement & SI Standard Units",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ការវាស់វែង និងប្រព័ន្ធខ្នាតអន្តរជាតិ SI ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Measurement & SI Standard Units applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g7-phys-01-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ការវាស់វែង និងប្រព័ន្ធខ្នាតអន្តរជាតិ SI",
+                  "title_en": "Formative Competency Problem: Measurement & SI Standard Units",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ការវាស់វែង និងប្រព័ន្ធខ្នាតអន្តរជាតិ SI ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Measurement & SI Standard Units to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g7-phys-02",
+              "sort_order": 2,
+              "title_km": "ម៉ាស៊ីនសាមញ្ញ ៖ ឃ្នាស់ រ៉ក និងរបងជម្រាល",
+              "title_en": "Simple Machines: Levers & Mechanical Advantage",
+              "summary_km": "គោលការណ៍លំនឹងឃ្នាស់ F₁ · d₁ = F₂ · d₂ ចំណុចទម្រ និងប្រយោជន៍មេកានិច",
+              "summary_en": "Lever equilibrium F1·d1 = F2·d2, fulcrum principles, pulleys, and inclined planes",
+              "estimated_minutes": 20,
+              "xp_reward": 35,
+              "subtopics": [
+                "ម៉ាស៊ីនសាមញ្ញ ៖ ឃ្នាស់ រ៉ក និងរបងជម្រាល",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ ម៉ាស៊ីនសាមញ្ញ ៖ ឃ្នាស់ រ៉ក និងរបងជម្រាល",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ម៉ាស៊ីនសាមញ្ញ ៖ ឃ្នាស់ រ៉ក និងរបងជម្រាល",
+                  "objective_en": "Recall, state, and explain foundational definitions of Simple Machines: Levers & Mechanical Advantage"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ម៉ាស៊ីនសាមញ្ញ",
+                  "term_en": "Simple",
+                  "definition_km": "គោលការណ៍លំនឹងឃ្នាស់ F₁ · d₁ = F₂ · d₂ ចំណុចទម្រ និងប្រយោជន៍មេកានិច",
+                  "definition_en": "Lever equilibrium F1·d1 = F2·d2, fulcrum principles, pulleys, and inclined planes",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ម៉ាស៊ីនសាមញ្ញ ៖ ឃ្នាស់ រ៉ក និងរបងជម្រាល"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g7-phys-02-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ម៉ាស៊ីនសាមញ្ញ ៖ ឃ្នាស់ រ៉ក និងរបងជម្រាល",
+                  "title_en": "Practice Exercise 1: Simple Machines: Levers & Mechanical Advantage",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ម៉ាស៊ីនសាមញ្ញ ៖ ឃ្នាស់ រ៉ក និងរបងជម្រាល ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Simple Machines: Levers & Mechanical Advantage applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g7-phys-02-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ម៉ាស៊ីនសាមញ្ញ ៖ ឃ្នាស់ រ៉ក និងរបងជម្រាល",
+                  "title_en": "Formative Competency Problem: Simple Machines: Levers & Mechanical Advantage",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ម៉ាស៊ីនសាមញ្ញ ៖ ឃ្នាស់ រ៉ក និងរបងជម្រាល ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Simple Machines: Levers & Mechanical Advantage to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "unit-g7-phys-2",
+          "unit_number": 2,
+          "title_km": "ម៉ាស៊ីនសាមញ្ញ និងកម្ដៅ",
+          "title_en": "Simple Machines & Thermal Expansion",
+          "description_km": "រ៉ក ឃ្នាស់ របងជម្រាល និងការរីកមាឌនៃរូបធាតុពេលត្រូវកម្ដៅ",
+          "description_en": "Levers, pulleys, inclined planes, and thermal expansion of matter",
+          "icon": "⚙️",
+          "competencies": [
+            "ស្វែងយល់ និងអនុវត្តទ្រឹស្តីក្នុង ម៉ាស៊ីនសាមញ្ញ និងកម្ដៅ",
+            "ដោះស្រាយលំហាត់ និងចំណោទកម្រិតមធ្យម និងកម្រិតខ្ពស់",
+            "ត្រៀមលក្ខណៈសម្រាប់ការវាយតម្លៃប្រចាំជំពូក និងការប្រឡងបញ្ចប់ឆ្នាំ"
+          ],
+          "lesson_count": 3,
+          "lessons": [
+            {
+              "lesson_id": "les-g7-phys-03",
+              "sort_order": 3,
+              "title_km": "ម៉ាសមាឌ និងដង់ស៊ីតេ (D = m / V)",
+              "title_en": "Mass, Volume & Density (D = m / V)",
+              "summary_km": "និយមន័យដង់ស៊ីតេ រូបមន្ត D = m / V និងលក្ខខណ្ឌអណ្តែត-លិចក្នុងទឹក",
+              "summary_en": "Density equation D = m/V, pure water benchmark 1000 kg/m³, and flotation criteria",
+              "estimated_minutes": 20,
+              "xp_reward": 35,
+              "subtopics": [
+                "ម៉ាសមាឌ និងដង់ស៊ីតេ (D = m / V)",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ ម៉ាសមាឌ និងដង់ស៊ីតេ (D = m / V)",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ម៉ាសមាឌ និងដង់ស៊ីតេ (D = m / V)",
+                  "objective_en": "Recall, state, and explain foundational definitions of Mass, Volume & Density (D = m / V)"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ម៉ាសមាឌ",
+                  "term_en": "Mass,",
+                  "definition_km": "និយមន័យដង់ស៊ីតេ រូបមន្ត D = m / V និងលក្ខខណ្ឌអណ្តែត-លិចក្នុងទឹក",
+                  "definition_en": "Density equation D = m/V, pure water benchmark 1000 kg/m³, and flotation criteria",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ម៉ាសមាឌ និងដង់ស៊ីតេ (D = m / V)"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g7-phys-03-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ម៉ាសមាឌ និងដង់ស៊ីតេ (D = m / V)",
+                  "title_en": "Practice Exercise 1: Mass, Volume & Density (D = m / V)",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ម៉ាសមាឌ និងដង់ស៊ីតេ (D = m / V) ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Mass, Volume & Density (D = m / V) applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g7-phys-03-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ម៉ាសមាឌ និងដង់ស៊ីតេ (D = m / V)",
+                  "title_en": "Formative Competency Problem: Mass, Volume & Density (D = m / V)",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ម៉ាសមាឌ និងដង់ស៊ីតេ (D = m / V) ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Mass, Volume & Density (D = m / V) to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g7-phys-04",
+              "sort_order": 4,
+              "title_km": "កម្លាំង និងចលនា",
+              "title_en": "Forces and Motion",
+              "summary_km": "កម្លាំងទាញ កម្លាំងរុញ កម្លាំងកកិត និងឥទ្ធិពលលើល្បឿននៃចលនា",
+              "summary_en": "Pushes and pulls, friction resistance, gravity, and velocity changes",
+              "estimated_minutes": 18,
+              "xp_reward": 35,
+              "subtopics": [
+                "កម្លាំង និងចលនា",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ កម្លាំង និងចលនា",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ កម្លាំង និងចលនា",
+                  "objective_en": "Recall, state, and explain foundational definitions of Forces and Motion"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "កម្លាំង",
+                  "term_en": "Forces",
+                  "definition_km": "កម្លាំងទាញ កម្លាំងរុញ កម្លាំងកកិត និងឥទ្ធិពលលើល្បឿននៃចលនា",
+                  "definition_en": "Pushes and pulls, friction resistance, gravity, and velocity changes",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន កម្លាំង និងចលនា"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g7-phys-04-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ កម្លាំង និងចលនា",
+                  "title_en": "Practice Exercise 1: Forces and Motion",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ កម្លាំង និងចលនា ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Forces and Motion applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g7-phys-04-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ កម្លាំង និងចលនា",
+                  "title_en": "Formative Competency Problem: Forces and Motion",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន កម្លាំង និងចលនា ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Forces and Motion to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g7-phys-05",
+              "sort_order": 5,
+              "title_km": "កម្តៅ និងការរីកមាឌនៃអង្គធាតុ",
+              "title_en": "Heat & Thermal Expansion of Matter",
+              "summary_km": "ឥទ្ធិពលកម្តៅលើសូលីត រាវ ឧស្ម័ន និងទែរម៉ូម៉ែត្រវាស់សីតុណ្ហភាព",
+              "summary_en": "Thermal expansion in solids, liquids, gases, and Celsius temperature scales",
+              "estimated_minutes": 18,
+              "xp_reward": 35,
+              "subtopics": [
+                "កម្តៅ និងការរីកមាឌនៃអង្គធាតុ",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ កម្តៅ និងការរីកមាឌនៃអង្គធាតុ",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ កម្តៅ និងការរីកមាឌនៃអង្គធាតុ",
+                  "objective_en": "Recall, state, and explain foundational definitions of Heat & Thermal Expansion of Matter"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "កម្តៅ",
+                  "term_en": "Heat",
+                  "definition_km": "ឥទ្ធិពលកម្តៅលើសូលីត រាវ ឧស្ម័ន និងទែរម៉ូម៉ែត្រវាស់សីតុណ្ហភាព",
+                  "definition_en": "Thermal expansion in solids, liquids, gases, and Celsius temperature scales",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន កម្តៅ និងការរីកមាឌនៃអង្គធាតុ"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g7-phys-05-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ កម្តៅ និងការរីកមាឌនៃអង្គធាតុ",
+                  "title_en": "Practice Exercise 1: Heat & Thermal Expansion of Matter",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ កម្តៅ និងការរីកមាឌនៃអង្គធាតុ ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Heat & Thermal Expansion of Matter applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g7-phys-05-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ កម្តៅ និងការរីកមាឌនៃអង្គធាតុ",
+                  "title_en": "Formative Competency Problem: Heat & Thermal Expansion of Matter",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន កម្តៅ និងការរីកមាឌនៃអង្គធាតុ ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Heat & Thermal Expansion of Matter to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject_slug": "chemistry",
+      "name_km": "គីមីវិទ្យា",
+      "name_en": "Chemistry",
+      "weekly_hours": 2,
+      "official_textbook": {
+        "title_km": "គីមីវិទ្យា (ថ្នាក់ទី ៧-១២)",
+        "publisher": "គ្រឹះស្ថានបោះពុម្ព និងចែកផ្សាយ ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "edition": "បោះពុម្ពឡើងវិញ ២០១៨-២០២២",
+        "sala_url": "https://sala.moeys.gov.kh/",
+        "oer_url": "https://oer.moeys.gov.kh/"
+      },
+      "units": [
+        {
+          "unit_id": "unit-g7-chem-1",
+          "unit_number": 1,
+          "title_km": "សារធាតុបរិសុទ្ធ ល្បាយ និងវិធីញែក",
+          "title_en": "Pure Substances, Mixtures & Separation",
+          "description_km": "ល្បាយស្មើសាច់ មិនស្មើសាច់ វិធីច្រោះ ការរំហួត និងការបំណិត",
+          "description_en": "Homogeneous/heterogeneous mixtures, filtration, evaporation, and distillation",
+          "icon": "🧪",
+          "competencies": [
+            "ស្វែងយល់ និងអនុវត្តទ្រឹស្តីក្នុង សារធាតុបរិសុទ្ធ ល្បាយ និងវិធីញែក",
+            "ដោះស្រាយលំហាត់ និងចំណោទកម្រិតមធ្យម និងកម្រិតខ្ពស់",
+            "ត្រៀមលក្ខណៈសម្រាប់ការវាយតម្លៃប្រចាំជំពូក និងការប្រឡងបញ្ចប់ឆ្នាំ"
+          ],
+          "lesson_count": 2,
+          "lessons": [
+            {
+              "lesson_id": "les-g7-chem-01",
+              "sort_order": 1,
+              "title_km": "សារធាតុបរិសុទ្ធ និងល្បាយ",
+              "title_en": "Pure Substances & Mixtures",
+              "summary_km": "ភាពខុសគ្នារវាងសារធាតុបរិសុទ្ធ ល្បាយស្មើសាច់ និងល្បាយមិនស្មើសាច់",
+              "summary_en": "Pure substances, elements, compounds, homogeneous and heterogeneous mixtures",
+              "estimated_minutes": 18,
+              "xp_reward": 35,
+              "subtopics": [
+                "សារធាតុបរិសុទ្ធ និងល្បាយ",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ សារធាតុបរិសុទ្ធ និងល្បាយ",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ សារធាតុបរិសុទ្ធ និងល្បាយ",
+                  "objective_en": "Recall, state, and explain foundational definitions of Pure Substances & Mixtures"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "សារធាតុបរិសុទ្ធ",
+                  "term_en": "Pure",
+                  "definition_km": "ភាពខុសគ្នារវាងសារធាតុបរិសុទ្ធ ល្បាយស្មើសាច់ និងល្បាយមិនស្មើសាច់",
+                  "definition_en": "Pure substances, elements, compounds, homogeneous and heterogeneous mixtures",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន សារធាតុបរិសុទ្ធ និងល្បាយ"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g7-chem-01-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ សារធាតុបរិសុទ្ធ និងល្បាយ",
+                  "title_en": "Practice Exercise 1: Pure Substances & Mixtures",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ សារធាតុបរិសុទ្ធ និងល្បាយ ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Pure Substances & Mixtures applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g7-chem-01-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ សារធាតុបរិសុទ្ធ និងល្បាយ",
+                  "title_en": "Formative Competency Problem: Pure Substances & Mixtures",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន សារធាតុបរិសុទ្ធ និងល្បាយ ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Pure Substances & Mixtures to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g7-chem-02",
+              "sort_order": 2,
+              "title_km": "បាតុភូតរូប និងបាតុភូតគីមី",
+              "title_en": "Physical vs. Chemical Changes",
+              "summary_km": "ការផ្លាស់ប្តូររូបរាង កំណក រលាយ និងប្រតិកម្មគីមីបង្កើតសារធាតុថ្មី",
+              "summary_en": "Phase transitions vs chemical reactions creating entirely new substances with energy transfer",
+              "estimated_minutes": 18,
+              "xp_reward": 35,
+              "subtopics": [
+                "បាតុភូតរូប និងបាតុភូតគីមី",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ បាតុភូតរូប និងបាតុភូតគីមី",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ បាតុភូតរូប និងបាតុភូតគីមី",
+                  "objective_en": "Recall, state, and explain foundational definitions of Physical vs. Chemical Changes"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "បាតុភូតរូប",
+                  "term_en": "Physical",
+                  "definition_km": "ការផ្លាស់ប្តូររូបរាង កំណក រលាយ និងប្រតិកម្មគីមីបង្កើតសារធាតុថ្មី",
+                  "definition_en": "Phase transitions vs chemical reactions creating entirely new substances with energy transfer",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន បាតុភូតរូប និងបាតុភូតគីមី"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g7-chem-02-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ បាតុភូតរូប និងបាតុភូតគីមី",
+                  "title_en": "Practice Exercise 1: Physical vs. Chemical Changes",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ បាតុភូតរូប និងបាតុភូតគីមី ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Physical vs. Chemical Changes applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g7-chem-02-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ បាតុភូតរូប និងបាតុភូតគីមី",
+                  "title_en": "Formative Competency Problem: Physical vs. Chemical Changes",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន បាតុភូតរូប និងបាតុភូតគីមី ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Physical vs. Chemical Changes to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "unit-g7-chem-2",
+          "unit_number": 2,
+          "title_km": "បាតុភូតរូប គីមី ទឹក និងខ្យល់",
+          "title_en": "Physical/Chemical Changes, Water & Air",
+          "description_km": "បម្រែបម្រួលរូប និងគីមី សមាសភាពទឹក និងខ្យល់ក្នុងបរិយាកាស",
+          "description_en": "Physical vs chemical reactions, water states, and atmospheric air gases",
+          "icon": "⚗️",
+          "competencies": [
+            "ស្វែងយល់ និងអនុវត្តទ្រឹស្តីក្នុង បាតុភូតរូប គីមី ទឹក និងខ្យល់",
+            "ដោះស្រាយលំហាត់ និងចំណោទកម្រិតមធ្យម និងកម្រិតខ្ពស់",
+            "ត្រៀមលក្ខណៈសម្រាប់ការវាយតម្លៃប្រចាំជំពូក និងការប្រឡងបញ្ចប់ឆ្នាំ"
+          ],
+          "lesson_count": 3,
+          "lessons": [
+            {
+              "lesson_id": "les-g7-chem-03",
+              "sort_order": 3,
+              "title_km": "ទឹក និងសារធាតុរំលាយ",
+              "title_en": "Water, Solvents & Solubility",
+              "summary_km": "ទឹកជាសារធាតុរំលាយសកល សូលុយស្យុង សារធាតុរលាយ និងកំហាប់",
+              "summary_en": "Universal solvent properties of water, solute, solvent, and saturation concentrations",
+              "estimated_minutes": 18,
+              "xp_reward": 35,
+              "subtopics": [
+                "ទឹក និងសារធាតុរំលាយ",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ ទឹក និងសារធាតុរំលាយ",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ទឹក និងសារធាតុរំលាយ",
+                  "objective_en": "Recall, state, and explain foundational definitions of Water, Solvents & Solubility"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ទឹក",
+                  "term_en": "Water,",
+                  "definition_km": "ទឹកជាសារធាតុរំលាយសកល សូលុយស្យុង សារធាតុរលាយ និងកំហាប់",
+                  "definition_en": "Universal solvent properties of water, solute, solvent, and saturation concentrations",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ទឹក និងសារធាតុរំលាយ"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g7-chem-03-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ទឹក និងសារធាតុរំលាយ",
+                  "title_en": "Practice Exercise 1: Water, Solvents & Solubility",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ទឹក និងសារធាតុរំលាយ ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Water, Solvents & Solubility applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g7-chem-03-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ទឹក និងសារធាតុរំលាយ",
+                  "title_en": "Formative Competency Problem: Water, Solvents & Solubility",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ទឹក និងសារធាតុរំលាយ ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Water, Solvents & Solubility to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g7-chem-04",
+              "sort_order": 4,
+              "title_km": "ខ្យល់ និងសមាសភាគបរិយាកាស",
+              "title_en": "Air & Atmospheric Composition",
+              "summary_km": "សមាសភាគឧស្ម័ន អាសូត ៧៨% អុកស៊ីសែន ២១% និងឧស្ម័នផ្សេងៗ",
+              "summary_en": "Atmospheric composition: 78% Nitrogen, 21% Oxygen, Argon and Carbon dioxide traces",
+              "estimated_minutes": 18,
+              "xp_reward": 35,
+              "subtopics": [
+                "ខ្យល់ និងសមាសភាគបរិយាកាស",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ ខ្យល់ និងសមាសភាគបរិយាកាស",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ខ្យល់ និងសមាសភាគបរិយាកាស",
+                  "objective_en": "Recall, state, and explain foundational definitions of Air & Atmospheric Composition"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ខ្យល់",
+                  "term_en": "Air",
+                  "definition_km": "សមាសភាគឧស្ម័ន អាសូត ៧៨% អុកស៊ីសែន ២១% និងឧស្ម័នផ្សេងៗ",
+                  "definition_en": "Atmospheric composition: 78% Nitrogen, 21% Oxygen, Argon and Carbon dioxide traces",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ខ្យល់ និងសមាសភាគបរិយាកាស"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g7-chem-04-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ខ្យល់ និងសមាសភាគបរិយាកាស",
+                  "title_en": "Practice Exercise 1: Air & Atmospheric Composition",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ខ្យល់ និងសមាសភាគបរិយាកាស ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Air & Atmospheric Composition applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g7-chem-04-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ខ្យល់ និងសមាសភាគបរិយាកាស",
+                  "title_en": "Formative Competency Problem: Air & Atmospheric Composition",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ខ្យល់ និងសមាសភាគបរិយាកាស ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Air & Atmospheric Composition to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g7-chem-05",
+              "sort_order": 5,
+              "title_km": "អាតូម និងម៉ូលេគុលបឋម",
+              "title_en": "Atoms & Molecules Fundamentals",
+              "summary_km": "រចនាសម្ព័ន្ធបឋមនៃអាតូម នុយក្លេអ៊ុង ប្រូតុង អេឡិចត្រុង និងម៉ូលេគុល",
+              "summary_en": "Introductory atomic structure: protons, neutrons, electrons, and simple molecular bonding",
+              "estimated_minutes": 20,
+              "xp_reward": 35,
+              "subtopics": [
+                "អាតូម និងម៉ូលេគុលបឋម",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ អាតូម និងម៉ូលេគុលបឋម",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ អាតូម និងម៉ូលេគុលបឋម",
+                  "objective_en": "Recall, state, and explain foundational definitions of Atoms & Molecules Fundamentals"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "អាតូម",
+                  "term_en": "Atoms",
+                  "definition_km": "រចនាសម្ព័ន្ធបឋមនៃអាតូម នុយក្លេអ៊ុង ប្រូតុង អេឡិចត្រុង និងម៉ូលេគុល",
+                  "definition_en": "Introductory atomic structure: protons, neutrons, electrons, and simple molecular bonding",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន អាតូម និងម៉ូលេគុលបឋម"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g7-chem-05-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ អាតូម និងម៉ូលេគុលបឋម",
+                  "title_en": "Practice Exercise 1: Atoms & Molecules Fundamentals",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ អាតូម និងម៉ូលេគុលបឋម ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Atoms & Molecules Fundamentals applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g7-chem-05-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ អាតូម និងម៉ូលេគុលបឋម",
+                  "title_en": "Formative Competency Problem: Atoms & Molecules Fundamentals",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន អាតូម និងម៉ូលេគុលបឋម ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Atoms & Molecules Fundamentals to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject_slug": "biology",
+      "name_km": "ជីវវិទ្យា",
+      "name_en": "Biology",
+      "weekly_hours": 2,
+      "official_textbook": {
+        "title_km": "ជីវវិទ្យា (ថ្នាក់ទី ៧-១២)",
+        "publisher": "នាយកដ្ឋានអភិវឌ្ឍកម្មវិធីសិក្សា ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "edition": "បោះពុម្ពឡើងវិញ ២០១៨-២០២៣",
+        "sala_url": "https://sala.moeys.gov.kh/",
+        "oer_url": "https://oer.moeys.gov.kh/"
+      },
+      "units": [
+        {
+          "unit_id": "unit-g7-bio-1",
+          "unit_number": 1,
+          "title_km": "កោសិកា និងចំណាត់ថ្នាក់ភាវៈរស់",
+          "title_en": "Cells & Classification of Living Things",
+          "description_km": "រចនាសម្ព័ន្ធកោសិការុក្ខជាតិ និងសត្វ ព្រមទាំងអាណាចក្រភាវៈរស់ទាំង ៥",
+          "description_en": "Plant and animal cell structures, organelles, and the five biological kingdoms",
+          "icon": "🔬",
+          "competencies": [
+            "ស្វែងយល់ និងអនុវត្តទ្រឹស្តីក្នុង កោសិកា និងចំណាត់ថ្នាក់ភាវៈរស់",
+            "ដោះស្រាយលំហាត់ និងចំណោទកម្រិតមធ្យម និងកម្រិតខ្ពស់",
+            "ត្រៀមលក្ខណៈសម្រាប់ការវាយតម្លៃប្រចាំជំពូក និងការប្រឡងបញ្ចប់ឆ្នាំ"
+          ],
+          "lesson_count": 2,
+          "lessons": [
+            {
+              "lesson_id": "les-g7-bio-01",
+              "sort_order": 1,
+              "title_km": "រចនាសម្ព័ន្ធកោសិការុក្ខជាតិ និងកោសិកាសត្វ",
+              "title_en": "Plant & Animal Cell Architecture",
+              "summary_km": "កោសិកាជាឯកតាមូលដ្ឋាន ភ្នាសកោសិកា ស៊ីតូប្លាស ណ្វៃយ៉ូ និងក្លរ៉ូប្លាស",
+              "summary_en": "Cell theory basics: cell wall, cell membrane, cytoplasm, nucleus, vacuole, chloroplast differences",
+              "estimated_minutes": 20,
+              "xp_reward": 35,
+              "subtopics": [
+                "រចនាសម្ព័ន្ធកោសិការុក្ខជាតិ និងកោសិកាសត្វ",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ រចនាសម្ព័ន្ធកោសិការុក្ខជាតិ និងកោសិកាសត្វ",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ រចនាសម្ព័ន្ធកោសិការុក្ខជាតិ និងកោសិកាសត្វ",
+                  "objective_en": "Recall, state, and explain foundational definitions of Plant & Animal Cell Architecture"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "រចនាសម្ព័ន្ធកោសិការុក្ខជាតិ",
+                  "term_en": "Plant",
+                  "definition_km": "កោសិកាជាឯកតាមូលដ្ឋាន ភ្នាសកោសិកា ស៊ីតូប្លាស ណ្វៃយ៉ូ និងក្លរ៉ូប្លាស",
+                  "definition_en": "Cell theory basics: cell wall, cell membrane, cytoplasm, nucleus, vacuole, chloroplast differences",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន រចនាសម្ព័ន្ធកោសិការុក្ខជាតិ និងកោសិកាសត្វ"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g7-bio-01-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ រចនាសម្ព័ន្ធកោសិការុក្ខជាតិ និងកោសិកាសត្វ",
+                  "title_en": "Practice Exercise 1: Plant & Animal Cell Architecture",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ រចនាសម្ព័ន្ធកោសិការុក្ខជាតិ និងកោសិកាសត្វ ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Plant & Animal Cell Architecture applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g7-bio-01-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ រចនាសម្ព័ន្ធកោសិការុក្ខជាតិ និងកោសិកាសត្វ",
+                  "title_en": "Formative Competency Problem: Plant & Animal Cell Architecture",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន រចនាសម្ព័ន្ធកោសិការុក្ខជាតិ និងកោសិកាសត្វ ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Plant & Animal Cell Architecture to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g7-bio-02",
+              "sort_order": 2,
+              "title_km": "ចំណាត់ថ្នាក់ភាវៈរស់ទាំង ៥ អាណាចក្រ",
+              "title_en": "Classification of Living Things (5 Kingdoms)",
+              "summary_km": "អាណាចក្របាក់តេរី ព្រូទីស ផ្សិត រុក្ខជាតិ និងសត្វ តាមប្រព័ន្ធ Whittaker",
+              "summary_en": "Whittaker's 5 Kingdom taxonomy: Monera, Protista, Fungi, Plantae, and Animalia",
+              "estimated_minutes": 18,
+              "xp_reward": 35,
+              "subtopics": [
+                "ចំណាត់ថ្នាក់ភាវៈរស់ទាំង ៥ អាណាចក្រ",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ ចំណាត់ថ្នាក់ភាវៈរស់ទាំង ៥ អាណាចក្រ",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ចំណាត់ថ្នាក់ភាវៈរស់ទាំង ៥ អាណាចក្រ",
+                  "objective_en": "Recall, state, and explain foundational definitions of Classification of Living Things (5 Kingdoms)"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ចំណាត់ថ្នាក់ភាវៈរស់ទាំង",
+                  "term_en": "Classification",
+                  "definition_km": "អាណាចក្របាក់តេរី ព្រូទីស ផ្សិត រុក្ខជាតិ និងសត្វ តាមប្រព័ន្ធ Whittaker",
+                  "definition_en": "Whittaker's 5 Kingdom taxonomy: Monera, Protista, Fungi, Plantae, and Animalia",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ចំណាត់ថ្នាក់ភាវៈរស់ទាំង ៥ អាណាចក្រ"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g7-bio-02-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ចំណាត់ថ្នាក់ភាវៈរស់ទាំង ៥ អាណាចក្រ",
+                  "title_en": "Practice Exercise 1: Classification of Living Things (5 Kingdoms)",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ចំណាត់ថ្នាក់ភាវៈរស់ទាំង ៥ អាណាចក្រ ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Classification of Living Things (5 Kingdoms) applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g7-bio-02-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ចំណាត់ថ្នាក់ភាវៈរស់ទាំង ៥ អាណាចក្រ",
+                  "title_en": "Formative Competency Problem: Classification of Living Things (5 Kingdoms)",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ចំណាត់ថ្នាក់ភាវៈរស់ទាំង ៥ អាណាចក្រ ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Classification of Living Things (5 Kingdoms) to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "unit-g7-bio-2",
+          "unit_number": 2,
+          "title_km": "រុក្ខជាតិ និងច្រវាក់អាហារអេកូឡូស៊ី",
+          "title_en": "Plant Physiology & Food Chains",
+          "description_km": "រចនាសម្ព័ន្ធរុក្ខជាតិ ការសំយោគពន្លឺ ច្រវាក់អាហារ និងបណ្តាញអាហារ",
+          "description_en": "Plant anatomy, photosynthesis basics, producers, consumers, and food webs",
+          "icon": "🌱",
+          "competencies": [
+            "ស្វែងយល់ និងអនុវត្តទ្រឹស្តីក្នុង រុក្ខជាតិ និងច្រវាក់អាហារអេកូឡូស៊ី",
+            "ដោះស្រាយលំហាត់ និងចំណោទកម្រិតមធ្យម និងកម្រិតខ្ពស់",
+            "ត្រៀមលក្ខណៈសម្រាប់ការវាយតម្លៃប្រចាំជំពូក និងការប្រឡងបញ្ចប់ឆ្នាំ"
+          ],
+          "lesson_count": 3,
+          "lessons": [
+            {
+              "lesson_id": "les-g7-bio-03",
+              "sort_order": 3,
+              "title_km": "សរីរាង្គរុក្ខជាតិ ៖ ឫស ដើម ស្លឹក",
+              "title_en": "Plant Anatomy: Roots, Stems & Leaves",
+              "summary_km": "មុខងារស្រូបទឹករបស់ឫស ការដឹកជញ្ជូន និងស្តូម៉ាតប្តូរឧស្ម័ននៅស្លឹក",
+              "summary_en": "Root absorption, xylem-phloem stem transport, and stomata gas exchange mechanics",
+              "estimated_minutes": 18,
+              "xp_reward": 35,
+              "subtopics": [
+                "សរីរាង្គរុក្ខជាតិ ៖ ឫស ដើម ស្លឹក",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ សរីរាង្គរុក្ខជាតិ ៖ ឫស ដើម ស្លឹក",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ សរីរាង្គរុក្ខជាតិ ៖ ឫស ដើម ស្លឹក",
+                  "objective_en": "Recall, state, and explain foundational definitions of Plant Anatomy: Roots, Stems & Leaves"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "សរីរាង្គរុក្ខជាតិ",
+                  "term_en": "Plant",
+                  "definition_km": "មុខងារស្រូបទឹករបស់ឫស ការដឹកជញ្ជូន និងស្តូម៉ាតប្តូរឧស្ម័ននៅស្លឹក",
+                  "definition_en": "Root absorption, xylem-phloem stem transport, and stomata gas exchange mechanics",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន សរីរាង្គរុក្ខជាតិ ៖ ឫស ដើម ស្លឹក"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g7-bio-03-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ សរីរាង្គរុក្ខជាតិ ៖ ឫស ដើម ស្លឹក",
+                  "title_en": "Practice Exercise 1: Plant Anatomy: Roots, Stems & Leaves",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ សរីរាង្គរុក្ខជាតិ ៖ ឫស ដើម ស្លឹក ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Plant Anatomy: Roots, Stems & Leaves applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g7-bio-03-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ សរីរាង្គរុក្ខជាតិ ៖ ឫស ដើម ស្លឹក",
+                  "title_en": "Formative Competency Problem: Plant Anatomy: Roots, Stems & Leaves",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន សរីរាង្គរុក្ខជាតិ ៖ ឫស ដើម ស្លឹក ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Plant Anatomy: Roots, Stems & Leaves to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g7-bio-04",
+              "sort_order": 4,
+              "title_km": "រស្មីសំយោគ និងការដកដង្ហើមរបស់រុក្ខជាតិ",
+              "title_en": "Plant Photosynthesis & Transpiration",
+              "summary_km": "សមីការ 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂ ពន្លឺព្រះអាទិត្យ និងសារៈសំខាន់ចំពោះជីវិត",
+              "summary_en": "Photosynthesis chemical equation, solar photon absorption via chlorophyll, and oxygen release",
+              "estimated_minutes": 20,
+              "xp_reward": 35,
+              "subtopics": [
+                "រស្មីសំយោគ និងការដកដង្ហើមរបស់រុក្ខជាតិ",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ រស្មីសំយោគ និងការដកដង្ហើមរបស់រុក្ខជាតិ",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ រស្មីសំយោគ និងការដកដង្ហើមរបស់រុក្ខជាតិ",
+                  "objective_en": "Recall, state, and explain foundational definitions of Plant Photosynthesis & Transpiration"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "រស្មីសំយោគ",
+                  "term_en": "Plant",
+                  "definition_km": "សមីការ 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂ ពន្លឺព្រះអាទិត្យ និងសារៈសំខាន់ចំពោះជីវិត",
+                  "definition_en": "Photosynthesis chemical equation, solar photon absorption via chlorophyll, and oxygen release",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន រស្មីសំយោគ និងការដកដង្ហើមរបស់រុក្ខជាតិ"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g7-bio-04-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ រស្មីសំយោគ និងការដកដង្ហើមរបស់រុក្ខជាតិ",
+                  "title_en": "Practice Exercise 1: Plant Photosynthesis & Transpiration",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ រស្មីសំយោគ និងការដកដង្ហើមរបស់រុក្ខជាតិ ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Plant Photosynthesis & Transpiration applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g7-bio-04-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ រស្មីសំយោគ និងការដកដង្ហើមរបស់រុក្ខជាតិ",
+                  "title_en": "Formative Competency Problem: Plant Photosynthesis & Transpiration",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន រស្មីសំយោគ និងការដកដង្ហើមរបស់រុក្ខជាតិ ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Plant Photosynthesis & Transpiration to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g7-bio-05",
+              "sort_order": 5,
+              "title_km": "ប្រព័ន្ធអេកូឡូស៊ី និងខ្សែច្រវាក់ចំណីអាហារ",
+              "title_en": "Ecosystems, Trophic Levels & Food Webs",
+              "summary_km": "អ្នកផលិត អ្នកប្រើប្រាស់ អ្នករំលាយពុកផុយ និងលំហូរថាមពលក្នុងធម្មជាតិ",
+              "summary_en": "Producers, primary/secondary consumers, decomposers, and trophic energy pyramid flow",
+              "estimated_minutes": 18,
+              "xp_reward": 35,
+              "subtopics": [
+                "ប្រព័ន្ធអេកូឡូស៊ី និងខ្សែច្រវាក់ចំណីអាហារ",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ ប្រព័ន្ធអេកូឡូស៊ី និងខ្សែច្រវាក់ចំណីអាហារ",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ប្រព័ន្ធអេកូឡូស៊ី និងខ្សែច្រវាក់ចំណីអាហារ",
+                  "objective_en": "Recall, state, and explain foundational definitions of Ecosystems, Trophic Levels & Food Webs"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ប្រព័ន្ធអេកូឡូស៊ី",
+                  "term_en": "Ecosystems,",
+                  "definition_km": "អ្នកផលិត អ្នកប្រើប្រាស់ អ្នករំលាយពុកផុយ និងលំហូរថាមពលក្នុងធម្មជាតិ",
+                  "definition_en": "Producers, primary/secondary consumers, decomposers, and trophic energy pyramid flow",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ប្រព័ន្ធអេកូឡូស៊ី និងខ្សែច្រវាក់ចំណីអាហារ"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g7-bio-05-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ប្រព័ន្ធអេកូឡូស៊ី និងខ្សែច្រវាក់ចំណីអាហារ",
+                  "title_en": "Practice Exercise 1: Ecosystems, Trophic Levels & Food Webs",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ប្រព័ន្ធអេកូឡូស៊ី និងខ្សែច្រវាក់ចំណីអាហារ ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Ecosystems, Trophic Levels & Food Webs applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g7-bio-05-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ប្រព័ន្ធអេកូឡូស៊ី និងខ្សែច្រវាក់ចំណីអាហារ",
+                  "title_en": "Formative Competency Problem: Ecosystems, Trophic Levels & Food Webs",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ប្រព័ន្ធអេកូឡូស៊ី និងខ្សែច្រវាក់ចំណីអាហារ ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Ecosystems, Trophic Levels & Food Webs to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject_slug": "earth",
+      "name_km": "ផែនដី និងបរិស្ថានវិទ្យា",
+      "name_en": "Earth Science",
+      "weekly_hours": 2,
+      "official_textbook": {
+        "title_km": "ផែនដី និងបរិស្ថានវិទ្យា (ថ្នាក់ទី ៧-១២)",
+        "publisher": "គ្រឹះស្ថានបោះពុម្ព និងចែកផ្សាយ ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "edition": "បោះពុម្ពឡើងវិញ ២០១៧-២០២២",
+        "sala_url": "https://sala.moeys.gov.kh/",
+        "oer_url": "https://oer.moeys.gov.kh/"
+      },
+      "units": [
+        {
+          "unit_id": "unit-g7-earth-1",
+          "unit_number": 1,
+          "title_km": "ស្រទាប់ផែនដី វដ្តថ្ម និងវដ្តទឹក",
+          "title_en": "Earth Layers, Rock & Water Cycles",
+          "description_km": "សំបកផែនដី ម៉ង់តូ ស្នូល ប្រភេទថ្មទាំង ៣ និងដំណាក់កាលនៃវដ្តទឹក",
+          "description_en": "Crust, mantle, core, igneous/sedimentary/metamorphic rocks, and water cycle",
+          "icon": "🌍",
+          "competencies": [
+            "ស្វែងយល់ និងអនុវត្តទ្រឹស្តីក្នុង ស្រទាប់ផែនដី វដ្តថ្ម និងវដ្តទឹក",
+            "ដោះស្រាយលំហាត់ និងចំណោទកម្រិតមធ្យម និងកម្រិតខ្ពស់",
+            "ត្រៀមលក្ខណៈសម្រាប់ការវាយតម្លៃប្រចាំជំពូក និងការប្រឡងបញ្ចប់ឆ្នាំ"
+          ],
+          "lesson_count": 3,
+          "lessons": [
+            {
+              "lesson_id": "les-g7-earth-01",
+              "sort_order": 1,
+              "title_km": "រចនាសម្ព័ន្ធស្រទាប់ខាងក្នុងរបស់ផែនដី",
+              "title_en": "Earth's Geosphere Layered Structure",
+              "summary_km": "សំបកផែនដី អាវផែនដី ស្នូលក្រៅ និងស្នូលក្នុងរឹង",
+              "summary_en": "Crust, mantle, liquid outer core, solid inner core, seismic discontinuities, and temperatures",
+              "estimated_minutes": 20,
+              "xp_reward": 35,
+              "subtopics": [
+                "រចនាសម្ព័ន្ធស្រទាប់ខាងក្នុងរបស់ផែនដី",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ រចនាសម្ព័ន្ធស្រទាប់ខាងក្នុងរបស់ផែនដី",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ រចនាសម្ព័ន្ធស្រទាប់ខាងក្នុងរបស់ផែនដី",
+                  "objective_en": "Recall, state, and explain foundational definitions of Earth's Geosphere Layered Structure"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "រចនាសម្ព័ន្ធស្រទាប់ខាងក្នុងរបស់ផែនដី",
+                  "term_en": "Earth's",
+                  "definition_km": "សំបកផែនដី អាវផែនដី ស្នូលក្រៅ និងស្នូលក្នុងរឹង",
+                  "definition_en": "Crust, mantle, liquid outer core, solid inner core, seismic discontinuities, and temperatures",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន រចនាសម្ព័ន្ធស្រទាប់ខាងក្នុងរបស់ផែនដី"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g7-earth-01-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ រចនាសម្ព័ន្ធស្រទាប់ខាងក្នុងរបស់ផែនដី",
+                  "title_en": "Practice Exercise 1: Earth's Geosphere Layered Structure",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ រចនាសម្ព័ន្ធស្រទាប់ខាងក្នុងរបស់ផែនដី ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Earth's Geosphere Layered Structure applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g7-earth-01-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ រចនាសម្ព័ន្ធស្រទាប់ខាងក្នុងរបស់ផែនដី",
+                  "title_en": "Formative Competency Problem: Earth's Geosphere Layered Structure",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន រចនាសម្ព័ន្ធស្រទាប់ខាងក្នុងរបស់ផែនដី ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Earth's Geosphere Layered Structure to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g7-earth-02",
+              "sort_order": 2,
+              "title_km": "វដ្តថ្ម និងប្រភេទថ្មទាំង ៣",
+              "title_en": "The Rock Cycle & Three Major Rock Types",
+              "summary_km": "ថ្មម៉ាក់ម៉ា ថ្មកម្ទេចកំណ និងថ្មប្រែក្លាយ ព្រមទាំងការបំលែងនៃវដ្តថ្ម",
+              "summary_en": "Igneous, sedimentary, and metamorphic rock genesis through heat, pressure, and cooling",
+              "estimated_minutes": 18,
+              "xp_reward": 35,
+              "subtopics": [
+                "វដ្តថ្ម និងប្រភេទថ្មទាំង ៣",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ វដ្តថ្ម និងប្រភេទថ្មទាំង ៣",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ វដ្តថ្ម និងប្រភេទថ្មទាំង ៣",
+                  "objective_en": "Recall, state, and explain foundational definitions of The Rock Cycle & Three Major Rock Types"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "វដ្តថ្ម",
+                  "term_en": "The",
+                  "definition_km": "ថ្មម៉ាក់ម៉ា ថ្មកម្ទេចកំណ និងថ្មប្រែក្លាយ ព្រមទាំងការបំលែងនៃវដ្តថ្ម",
+                  "definition_en": "Igneous, sedimentary, and metamorphic rock genesis through heat, pressure, and cooling",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន វដ្តថ្ម និងប្រភេទថ្មទាំង ៣"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g7-earth-02-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ វដ្តថ្ម និងប្រភេទថ្មទាំង ៣",
+                  "title_en": "Practice Exercise 1: The Rock Cycle & Three Major Rock Types",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ វដ្តថ្ម និងប្រភេទថ្មទាំង ៣ ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for The Rock Cycle & Three Major Rock Types applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g7-earth-02-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ វដ្តថ្ម និងប្រភេទថ្មទាំង ៣",
+                  "title_en": "Formative Competency Problem: The Rock Cycle & Three Major Rock Types",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន វដ្តថ្ម និងប្រភេទថ្មទាំង ៣ ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of The Rock Cycle & Three Major Rock Types to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g7-earth-03",
+              "sort_order": 3,
+              "title_km": "វដ្តទឹក និងប្រភពទឹកលើផែនដី",
+              "title_en": "Hydrological Water Cycle & Global Reservoirs",
+              "summary_km": "ការហួត កំណកញើស ទឹកភ្លៀង និងលំហូរទឹកក្នុងទន្លេមេគង្គ និងបឹងទន្លេសាប",
+              "summary_en": "Evaporation, transpiration, condensation, precipitation, surface runoff, and Mekong water flow",
+              "estimated_minutes": 18,
+              "xp_reward": 35,
+              "subtopics": [
+                "វដ្តទឹក និងប្រភពទឹកលើផែនដី",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ វដ្តទឹក និងប្រភពទឹកលើផែនដី",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ វដ្តទឹក និងប្រភពទឹកលើផែនដី",
+                  "objective_en": "Recall, state, and explain foundational definitions of Hydrological Water Cycle & Global Reservoirs"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "វដ្តទឹក",
+                  "term_en": "Hydrological",
+                  "definition_km": "ការហួត កំណកញើស ទឹកភ្លៀង និងលំហូរទឹកក្នុងទន្លេមេគង្គ និងបឹងទន្លេសាប",
+                  "definition_en": "Evaporation, transpiration, condensation, precipitation, surface runoff, and Mekong water flow",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន វដ្តទឹក និងប្រភពទឹកលើផែនដី"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g7-earth-03-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ វដ្តទឹក និងប្រភពទឹកលើផែនដី",
+                  "title_en": "Practice Exercise 1: Hydrological Water Cycle & Global Reservoirs",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ វដ្តទឹក និងប្រភពទឹកលើផែនដី ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Hydrological Water Cycle & Global Reservoirs applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g7-earth-03-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ វដ្តទឹក និងប្រភពទឹកលើផែនដី",
+                  "title_en": "Formative Competency Problem: Hydrological Water Cycle & Global Reservoirs",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន វដ្តទឹក និងប្រភពទឹកលើផែនដី ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Hydrological Water Cycle & Global Reservoirs to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "unit-g7-earth-2",
+          "unit_number": 2,
+          "title_km": "បរិយាកាស និងការប្រែប្រួលអាកាសធាតុ",
+          "title_en": "Atmosphere & Weather Systems",
+          "description_km": "ស្រទាប់បរិយាកាស សម្ពាធខ្យល់ របបពពក និងទឹកភ្លៀង",
+          "description_en": "Atmospheric strata, barometric pressure, cloud types, and precipitation",
+          "icon": "☁️",
+          "competencies": [
+            "ស្វែងយល់ និងអនុវត្តទ្រឹស្តីក្នុង បរិយាកាស និងការប្រែប្រួលអាកាសធាតុ",
+            "ដោះស្រាយលំហាត់ និងចំណោទកម្រិតមធ្យម និងកម្រិតខ្ពស់",
+            "ត្រៀមលក្ខណៈសម្រាប់ការវាយតម្លៃប្រចាំជំពូក និងការប្រឡងបញ្ចប់ឆ្នាំ"
+          ],
+          "lesson_count": 2,
+          "lessons": [
+            {
+              "lesson_id": "les-g7-earth-04",
+              "sort_order": 4,
+              "title_km": "អាកាសធាតុ ខ្យល់ និងសម្ពាធបរិយាកាស",
+              "title_en": "Weather, Wind Systems & Atmospheric Pressure",
+              "summary_km": "សម្ពាធខ្ពស់ សម្ពាធទាប ការកកើតខ្យល់ និងខ្យល់មូសុងនៅប្រទេសកម្ពុជា",
+              "summary_en": "High and low pressure systems, isobaric wind generation, and seasonal monsoon cycles in Cambodia",
+              "estimated_minutes": 18,
+              "xp_reward": 35,
+              "subtopics": [
+                "អាកាសធាតុ ខ្យល់ និងសម្ពាធបរិយាកាស",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ អាកាសធាតុ ខ្យល់ និងសម្ពាធបរិយាកាស",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ អាកាសធាតុ ខ្យល់ និងសម្ពាធបរិយាកាស",
+                  "objective_en": "Recall, state, and explain foundational definitions of Weather, Wind Systems & Atmospheric Pressure"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "អាកាសធាតុ",
+                  "term_en": "Weather,",
+                  "definition_km": "សម្ពាធខ្ពស់ សម្ពាធទាប ការកកើតខ្យល់ និងខ្យល់មូសុងនៅប្រទេសកម្ពុជា",
+                  "definition_en": "High and low pressure systems, isobaric wind generation, and seasonal monsoon cycles in Cambodia",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន អាកាសធាតុ ខ្យល់ និងសម្ពាធបរិយាកាស"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g7-earth-04-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ អាកាសធាតុ ខ្យល់ និងសម្ពាធបរិយាកាស",
+                  "title_en": "Practice Exercise 1: Weather, Wind Systems & Atmospheric Pressure",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ អាកាសធាតុ ខ្យល់ និងសម្ពាធបរិយាកាស ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Weather, Wind Systems & Atmospheric Pressure applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g7-earth-04-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ អាកាសធាតុ ខ្យល់ និងសម្ពាធបរិយាកាស",
+                  "title_en": "Formative Competency Problem: Weather, Wind Systems & Atmospheric Pressure",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន អាកាសធាតុ ខ្យល់ និងសម្ពាធបរិយាកាស ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Weather, Wind Systems & Atmospheric Pressure to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g7-earth-05",
+              "sort_order": 5,
+              "title_km": "ភពក្នុងប្រព័ន្ធព្រះអាទិត្យ",
+              "title_en": "Planetary Systems in the Solar Orbit",
+              "summary_km": "ព្រះអាទិត្យ ភពទាំង ៨ ភពដី និងភពឧស្ម័នយក្ស ព្រមទាំងគន្លងតារាវិថី",
+              "summary_en": "The Sun, terrestrial inner planets (Mercury, Venus, Earth, Mars), gas giants (Jupiter, Saturn, Uranus, Neptune)",
+              "estimated_minutes": 20,
+              "xp_reward": 35,
+              "subtopics": [
+                "ភពក្នុងប្រព័ន្ធព្រះអាទិត្យ",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ ភពក្នុងប្រព័ន្ធព្រះអាទិត្យ",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ភពក្នុងប្រព័ន្ធព្រះអាទិត្យ",
+                  "objective_en": "Recall, state, and explain foundational definitions of Planetary Systems in the Solar Orbit"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ភពក្នុងប្រព័ន្ធព្រះអាទិត្យ",
+                  "term_en": "Planetary",
+                  "definition_km": "ព្រះអាទិត្យ ភពទាំង ៨ ភពដី និងភពឧស្ម័នយក្ស ព្រមទាំងគន្លងតារាវិថី",
+                  "definition_en": "The Sun, terrestrial inner planets (Mercury, Venus, Earth, Mars), gas giants (Jupiter, Saturn, Uranus, Neptune)",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ភពក្នុងប្រព័ន្ធព្រះអាទិត្យ"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g7-earth-05-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ភពក្នុងប្រព័ន្ធព្រះអាទិត្យ",
+                  "title_en": "Practice Exercise 1: Planetary Systems in the Solar Orbit",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ភពក្នុងប្រព័ន្ធព្រះអាទិត្យ ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Planetary Systems in the Solar Orbit applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g7-earth-05-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ភពក្នុងប្រព័ន្ធព្រះអាទិត្យ",
+                  "title_en": "Formative Competency Problem: Planetary Systems in the Solar Orbit",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ភពក្នុងប្រព័ន្ធព្រះអាទិត្យ ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Planetary Systems in the Solar Orbit to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject_slug": "khmer",
+      "name_km": "ភាសាខ្មែរ",
+      "name_en": "Khmer Literature",
+      "weekly_hours": 2,
+      "official_textbook": {
+        "title_km": "ភាសាខ្មែរ និងតែងសេចក្តី (ថ្នាក់ទី ៧-១២)",
+        "publisher": "គ្រឹះស្ថានបោះពុម្ព និងចែកផ្សាយ ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "edition": "បោះពុម្ពឡើងវិញ ២០១៩-២០២៣",
+        "sala_url": "https://sala.moeys.gov.kh/",
+        "oer_url": "https://oer.moeys.gov.kh/"
+      },
+      "units": [
+        {
+          "unit_id": "unit-g7-khmer-1",
+          "unit_number": 1,
+          "title_km": "កាព្យឃ្លោងខ្មែរ និងវេយ្យាករណ៍គ្រឹះ",
+          "title_en": "Classical Poetic Meters & Grammar",
+          "description_km": "ចង្វាក់បទកាកគតិ បទពាក្យ ៧ ថ្នាក់ពាក្យ នាម កិរិយា និងគុណនាម",
+          "description_en": "Kak-Kati & 7-syllable poetic meters, parts of speech, and descriptive essays",
+          "icon": "📖",
+          "competencies": [
+            "ស្វែងយល់ និងអនុវត្តទ្រឹស្តីក្នុង កាព្យឃ្លោងខ្មែរ និងវេយ្យាករណ៍គ្រឹះ",
+            "ដោះស្រាយលំហាត់ និងចំណោទកម្រិតមធ្យម និងកម្រិតខ្ពស់",
+            "ត្រៀមលក្ខណៈសម្រាប់ការវាយតម្លៃប្រចាំជំពូក និងការប្រឡងបញ្ចប់ឆ្នាំ"
+          ],
+          "lesson_count": 2,
+          "lessons": [
+            {
+              "lesson_id": "les-g7-khmer-01",
+              "sort_order": 101,
+              "title_km": "កាព្យឃ្លោងខ្មែរ (បទកាកគតិ និងបទពាក្យ ៧)",
+              "title_en": "Khmer Poetic Meters (Kak-Kati & 7-Syllable Meter)",
+              "summary_km": "សិក្សាចង្វាក់ ចំនួនព្យាង្គ និងចំណាប់ចុងចួននៃបទកាកគតិ និងបទពាក្យប្រាំពីរ",
+              "summary_en": "Rhythm, syllable counts, and rhyme schemes in traditional Khmer poetry",
+              "estimated_minutes": 20,
+              "xp_reward": 35,
+              "subtopics": [
+                "កាព្យឃ្លោងខ្មែរ (បទកាកគតិ និងបទពាក្យ ៧)",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ កាព្យឃ្លោងខ្មែរ (បទកាកគតិ និងបទពាក្យ ៧)",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ កាព្យឃ្លោងខ្មែរ (បទកាកគតិ និងបទពាក្យ ៧)",
+                  "objective_en": "Recall, state, and explain foundational definitions of Khmer Poetic Meters (Kak-Kati & 7-Syllable Meter)"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "កាព្យឃ្លោងខ្មែរ",
+                  "term_en": "Khmer",
+                  "definition_km": "សិក្សាចង្វាក់ ចំនួនព្យាង្គ និងចំណាប់ចុងចួននៃបទកាកគតិ និងបទពាក្យប្រាំពីរ",
+                  "definition_en": "Rhythm, syllable counts, and rhyme schemes in traditional Khmer poetry",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន កាព្យឃ្លោងខ្មែរ (បទកាកគតិ និងបទពាក្យ ៧)"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g7-khmer-01-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ កាព្យឃ្លោងខ្មែរ (បទកាកគតិ និងបទពាក្យ ៧)",
+                  "title_en": "Practice Exercise 1: Khmer Poetic Meters (Kak-Kati & 7-Syllable Meter)",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ កាព្យឃ្លោងខ្មែរ (បទកាកគតិ និងបទពាក្យ ៧) ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Khmer Poetic Meters (Kak-Kati & 7-Syllable Meter) applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g7-khmer-01-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ កាព្យឃ្លោងខ្មែរ (បទកាកគតិ និងបទពាក្យ ៧)",
+                  "title_en": "Formative Competency Problem: Khmer Poetic Meters (Kak-Kati & 7-Syllable Meter)",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន កាព្យឃ្លោងខ្មែរ (បទកាកគតិ និងបទពាក្យ ៧) ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Khmer Poetic Meters (Kak-Kati & 7-Syllable Meter) to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g7-khmer-02",
+              "sort_order": 102,
+              "title_km": "ថ្នាក់ពាក្យ នាម កិរិយា និងគុណនាម",
+              "title_en": "Parts of Speech: Nouns, Verbs & Adjectives",
+              "summary_km": "ការបែងចែកថ្នាក់ពាក្យ និងមុខងារវេយ្យាករណ៍ក្នុងប្រយោគភាសាខ្មែរ",
+              "summary_en": "Classification of word classes and syntactic roles in Khmer grammar",
+              "estimated_minutes": 18,
+              "xp_reward": 35,
+              "subtopics": [
+                "ថ្នាក់ពាក្យ នាម កិរិយា និងគុណនាម",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ ថ្នាក់ពាក្យ នាម កិរិយា និងគុណនាម",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ថ្នាក់ពាក្យ នាម កិរិយា និងគុណនាម",
+                  "objective_en": "Recall, state, and explain foundational definitions of Parts of Speech: Nouns, Verbs & Adjectives"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ថ្នាក់ពាក្យ",
+                  "term_en": "Parts",
+                  "definition_km": "ការបែងចែកថ្នាក់ពាក្យ និងមុខងារវេយ្យាករណ៍ក្នុងប្រយោគភាសាខ្មែរ",
+                  "definition_en": "Classification of word classes and syntactic roles in Khmer grammar",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ថ្នាក់ពាក្យ នាម កិរិយា និងគុណនាម"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g7-khmer-02-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ថ្នាក់ពាក្យ នាម កិរិយា និងគុណនាម",
+                  "title_en": "Practice Exercise 1: Parts of Speech: Nouns, Verbs & Adjectives",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ថ្នាក់ពាក្យ នាម កិរិយា និងគុណនាម ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Parts of Speech: Nouns, Verbs & Adjectives applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g7-khmer-02-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ថ្នាក់ពាក្យ នាម កិរិយា និងគុណនាម",
+                  "title_en": "Formative Competency Problem: Parts of Speech: Nouns, Verbs & Adjectives",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ថ្នាក់ពាក្យ នាម កិរិយា និងគុណនាម ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Parts of Speech: Nouns, Verbs & Adjectives to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject_slug": "history",
+      "name_km": "ប្រវត្តិវិទ្យា",
+      "name_en": "History",
+      "weekly_hours": 2,
+      "official_textbook": {
+        "title_km": "ប្រវត្តិវិទ្យា (ថ្នាក់ទី ៧-១២)",
+        "publisher": "គ្រឹះស្ថានបោះពុម្ព និងចែកផ្សាយ ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "edition": "បោះពុម្ពឡើងវិញ ២០១៨-២០២២",
+        "sala_url": "https://sala.moeys.gov.kh/",
+        "oer_url": "https://oer.moeys.gov.kh/"
+      },
+      "units": [
+        {
+          "unit_id": "unit-g7-hist-1",
+          "unit_number": 1,
+          "title_km": "បុរេប្រវត្តិសាស្ត្រកម្ពុជា និងការកកើតនគរភ្នំ",
+          "title_en": "Cambodian Prehistory & Rise of Funan",
+          "description_km": "ស្ថានីយល្អាងស្ពាន សំរោងសែន និងពាណិជ្ជកម្មកំពង់ផែអូរកែវនៃនគរភ្នំ",
+          "description_en": "Prehistoric archaeological sites and maritime commerce through the Oc Eo entrepôt",
+          "icon": "🏛️",
+          "competencies": [
+            "ស្វែងយល់ និងអនុវត្តទ្រឹស្តីក្នុង បុរេប្រវត្តិសាស្ត្រកម្ពុជា និងការកកើតនគរភ្នំ",
+            "ដោះស្រាយលំហាត់ និងចំណោទកម្រិតមធ្យម និងកម្រិតខ្ពស់",
+            "ត្រៀមលក្ខណៈសម្រាប់ការវាយតម្លៃប្រចាំជំពូក និងការប្រឡងបញ្ចប់ឆ្នាំ"
+          ],
+          "lesson_count": 2,
+          "lessons": [
+            {
+              "lesson_id": "les-g7-hist-01",
+              "sort_order": 103,
+              "title_km": "បុរេប្រវត្តិសាស្ត្រកម្ពុជា (ស្ថានីយល្អាងស្ពាន និងសំរោងសែន)",
+              "title_en": "Cambodian Prehistory: Laang Spean & Samrong Sen",
+              "summary_km": "ភស្តុតាងបុរាណវិទ្យាអំពីមនុស្សសម័យថ្មបំបែក ថ្មរំលីង និងយុគសំរឹទ្ធនៅកម្ពុជា",
+              "summary_en": "Archaeological evidence of Paleolithic, Neolithic, and Bronze ages in Cambodia",
+              "estimated_minutes": 20,
+              "xp_reward": 35,
+              "subtopics": [
+                "បុរេប្រវត្តិសាស្ត្រកម្ពុជា (ស្ថានីយល្អាងស្ពាន និងសំរោងសែន)",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ បុរេប្រវត្តិសាស្ត្រកម្ពុជា (ស្ថានីយល្អាងស្ពាន និងសំរោងសែន)",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ បុរេប្រវត្តិសាស្ត្រកម្ពុជា (ស្ថានីយល្អាងស្ពាន និងសំរោងសែន)",
+                  "objective_en": "Recall, state, and explain foundational definitions of Cambodian Prehistory: Laang Spean & Samrong Sen"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "បុរេប្រវត្តិសាស្ត្រកម្ពុជា",
+                  "term_en": "Cambodian",
+                  "definition_km": "ភស្តុតាងបុរាណវិទ្យាអំពីមនុស្សសម័យថ្មបំបែក ថ្មរំលីង និងយុគសំរឹទ្ធនៅកម្ពុជា",
+                  "definition_en": "Archaeological evidence of Paleolithic, Neolithic, and Bronze ages in Cambodia",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន បុរេប្រវត្តិសាស្ត្រកម្ពុជា (ស្ថានីយល្អាងស្ពាន និងសំរោងសែន)"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g7-hist-01-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ បុរេប្រវត្តិសាស្ត្រកម្ពុជា (ស្ថានីយល្អាងស្ពាន និងសំរោងសែន)",
+                  "title_en": "Practice Exercise 1: Cambodian Prehistory: Laang Spean & Samrong Sen",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ បុរេប្រវត្តិសាស្ត្រកម្ពុជា (ស្ថានីយល្អាងស្ពាន និងសំរោងសែន) ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Cambodian Prehistory: Laang Spean & Samrong Sen applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g7-hist-01-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ បុរេប្រវត្តិសាស្ត្រកម្ពុជា (ស្ថានីយល្អាងស្ពាន និងសំរោងសែន)",
+                  "title_en": "Formative Competency Problem: Cambodian Prehistory: Laang Spean & Samrong Sen",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន បុរេប្រវត្តិសាស្ត្រកម្ពុជា (ស្ថានីយល្អាងស្ពាន និងសំរោងសែន) ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Cambodian Prehistory: Laang Spean & Samrong Sen to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g7-hist-02",
+              "sort_order": 104,
+              "title_km": "នគរភ្នំ (ហ្វូណន)៖ ការកកើត និងពាណិជ្ជកម្មកំពង់ផែអូរកែវ",
+              "title_en": "Funan Kingdom: Origins & Oc Eo Maritime Trade",
+              "summary_km": "ការកកើតរដ្ឋដំបូងនៅកម្ពុជា ទំនាក់ទំនងពាណិជ្ជកម្មជាមួយឥណ្ឌានិងរ៉ូម និងប្រព័ន្ធធារាសាស្ត្រ",
+              "summary_en": "Establishment of Cambodia's earliest recorded state, maritime trade through Oc Eo, and early irrigation",
+              "estimated_minutes": 20,
+              "xp_reward": 35,
+              "subtopics": [
+                "នគរភ្នំ (ហ្វូណន)៖ ការកកើត និងពាណិជ្ជកម្មកំពង់ផែអូរកែវ",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ នគរភ្នំ (ហ្វូណន)៖ ការកកើត និងពាណិជ្ជកម្មកំពង់ផែអូរកែវ",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ នគរភ្នំ (ហ្វូណន)៖ ការកកើត និងពាណិជ្ជកម្មកំពង់ផែអូរកែវ",
+                  "objective_en": "Recall, state, and explain foundational definitions of Funan Kingdom: Origins & Oc Eo Maritime Trade"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "នគរភ្នំ",
+                  "term_en": "Funan",
+                  "definition_km": "ការកកើតរដ្ឋដំបូងនៅកម្ពុជា ទំនាក់ទំនងពាណិជ្ជកម្មជាមួយឥណ្ឌានិងរ៉ូម និងប្រព័ន្ធធារាសាស្ត្រ",
+                  "definition_en": "Establishment of Cambodia's earliest recorded state, maritime trade through Oc Eo, and early irrigation",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន នគរភ្នំ (ហ្វូណន)៖ ការកកើត និងពាណិជ្ជកម្មកំពង់ផែអូរកែវ"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g7-hist-02-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ នគរភ្នំ (ហ្វូណន)៖ ការកកើត និងពាណិជ្ជកម្មកំពង់ផែអូរកែវ",
+                  "title_en": "Practice Exercise 1: Funan Kingdom: Origins & Oc Eo Maritime Trade",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ នគរភ្នំ (ហ្វូណន)៖ ការកកើត និងពាណិជ្ជកម្មកំពង់ផែអូរកែវ ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Funan Kingdom: Origins & Oc Eo Maritime Trade applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g7-hist-02-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ នគរភ្នំ (ហ្វូណន)៖ ការកកើត និងពាណិជ្ជកម្មកំពង់ផែអូរកែវ",
+                  "title_en": "Formative Competency Problem: Funan Kingdom: Origins & Oc Eo Maritime Trade",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន នគរភ្នំ (ហ្វូណន)៖ ការកកើត និងពាណិជ្ជកម្មកំពង់ផែអូរកែវ ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Funan Kingdom: Origins & Oc Eo Maritime Trade to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject_slug": "geography",
+      "name_km": "ភូមិវិទ្យា",
+      "name_en": "Geography",
+      "weekly_hours": 2,
+      "official_textbook": {
+        "title_km": "ភូមិវិទ្យា (ថ្នាក់ទី ៧-១២)",
+        "publisher": "គ្រឹះស្ថានបោះពុម្ព និងចែកផ្សាយ ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "edition": "បោះពុម្ពឡើងវិញ ២០១៨-២០២២",
+        "sala_url": "https://sala.moeys.gov.kh/",
+        "oer_url": "https://oer.moeys.gov.kh/"
+      },
+      "units": [
+        {
+          "unit_id": "unit-g7-geo-1",
+          "unit_number": 1,
+          "title_km": "ភូមិសាស្ត្ររូបវន្តកម្ពុជា ជួរភ្នំ និងប្រព័ន្ធទឹក",
+          "title_en": "Physical Geography: Landforms & Hydrology",
+          "description_km": "ទន្លេមេគង្គ បឹងទន្លេសាប ជួរភ្នំក្រវាញ-ដងរែក និងរបបខ្យល់មូសុង",
+          "description_en": "Cardamom & Dangrek ranges, Mekong-Tonle Sap basin, and tropical monsoons",
+          "icon": "🗺️",
+          "competencies": [
+            "ស្វែងយល់ និងអនុវត្តទ្រឹស្តីក្នុង ភូមិសាស្ត្ររូបវន្តកម្ពុជា ជួរភ្នំ និងប្រព័ន្ធទឹក",
+            "ដោះស្រាយលំហាត់ និងចំណោទកម្រិតមធ្យម និងកម្រិតខ្ពស់",
+            "ត្រៀមលក្ខណៈសម្រាប់ការវាយតម្លៃប្រចាំជំពូក និងការប្រឡងបញ្ចប់ឆ្នាំ"
+          ],
+          "lesson_count": 2,
+          "lessons": [
+            {
+              "lesson_id": "les-g7-geo-01",
+              "sort_order": 104,
+              "title_km": "ភូមិសាស្ត្ររូបវន្តកម្ពុជា (ទន្លេមេគង្គ និងបឹងទន្លេសាប)",
+              "title_en": "Physical Geography of Cambodia: Mekong & Tonle Sap",
+              "summary_km": "ប្រព័ន្ធធារាសាស្ត្រធម្មជាតិ របបទឹកហូរច្រាសទិស និងជីវចម្រុះបឹងទន្លេសាប",
+              "summary_en": "Hydrological systems, reverse flow mechanics, and Tonle Sap biosphere",
+              "estimated_minutes": 20,
+              "xp_reward": 35,
+              "subtopics": [
+                "ភូមិសាស្ត្ររូបវន្តកម្ពុជា (ទន្លេមេគង្គ និងបឹងទន្លេសាប)",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ ភូមិសាស្ត្ររូបវន្តកម្ពុជា (ទន្លេមេគង្គ និងបឹងទន្លេសាប)",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ភូមិសាស្ត្ររូបវន្តកម្ពុជា (ទន្លេមេគង្គ និងបឹងទន្លេសាប)",
+                  "objective_en": "Recall, state, and explain foundational definitions of Physical Geography of Cambodia: Mekong & Tonle Sap"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ភូមិសាស្ត្ររូបវន្តកម្ពុជា",
+                  "term_en": "Physical",
+                  "definition_km": "ប្រព័ន្ធធារាសាស្ត្រធម្មជាតិ របបទឹកហូរច្រាសទិស និងជីវចម្រុះបឹងទន្លេសាប",
+                  "definition_en": "Hydrological systems, reverse flow mechanics, and Tonle Sap biosphere",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ភូមិសាស្ត្ររូបវន្តកម្ពុជា (ទន្លេមេគង្គ និងបឹងទន្លេសាប)"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g7-geo-01-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ភូមិសាស្ត្ររូបវន្តកម្ពុជា (ទន្លេមេគង្គ និងបឹងទន្លេសាប)",
+                  "title_en": "Practice Exercise 1: Physical Geography of Cambodia: Mekong & Tonle Sap",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ភូមិសាស្ត្ររូបវន្តកម្ពុជា (ទន្លេមេគង្គ និងបឹងទន្លេសាប) ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Physical Geography of Cambodia: Mekong & Tonle Sap applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g7-geo-01-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ភូមិសាស្ត្ររូបវន្តកម្ពុជា (ទន្លេមេគង្គ និងបឹងទន្លេសាប)",
+                  "title_en": "Formative Competency Problem: Physical Geography of Cambodia: Mekong & Tonle Sap",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ភូមិសាស្ត្ររូបវន្តកម្ពុជា (ទន្លេមេគង្គ និងបឹងទន្លេសាប) ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Physical Geography of Cambodia: Mekong & Tonle Sap to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g7-geo-02",
+              "sort_order": 106,
+              "title_km": "សណ្ឋានដី និងអាកាសធាតុកម្ពុជា (ជួរភ្នំក្រវាញ ដងរែក និងខ្យល់មូសុង)",
+              "title_en": "Landforms & Climate: Cardamom Mountains & Monsoons",
+              "summary_km": "ការបែងចែកតំបន់ភូមិសាស្ត្រធំៗទាំង ៤ នៃកម្ពុជា និងរបបខ្យល់មូសុងប្រចាំឆ្នាំ",
+              "summary_en": "Four major physiographic regions: Cardamom & Dangrek ranges, plains, coastal zone, and monsoons",
+              "estimated_minutes": 20,
+              "xp_reward": 35,
+              "subtopics": [
+                "សណ្ឋានដី និងអាកាសធាតុកម្ពុជា (ជួរភ្នំក្រវាញ ដងរែក និងខ្យល់មូសុង)",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ សណ្ឋានដី និងអាកាសធាតុកម្ពុជា (ជួរភ្នំក្រវាញ ដងរែក និងខ្យល់មូសុង)",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ សណ្ឋានដី និងអាកាសធាតុកម្ពុជា (ជួរភ្នំក្រវាញ ដងរែក និងខ្យល់មូសុង)",
+                  "objective_en": "Recall, state, and explain foundational definitions of Landforms & Climate: Cardamom Mountains & Monsoons"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "សណ្ឋានដី",
+                  "term_en": "Landforms",
+                  "definition_km": "ការបែងចែកតំបន់ភូមិសាស្ត្រធំៗទាំង ៤ នៃកម្ពុជា និងរបបខ្យល់មូសុងប្រចាំឆ្នាំ",
+                  "definition_en": "Four major physiographic regions: Cardamom & Dangrek ranges, plains, coastal zone, and monsoons",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន សណ្ឋានដី និងអាកាសធាតុកម្ពុជា (ជួរភ្នំក្រវាញ ដងរែក និងខ្យល់មូសុង)"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g7-geo-02-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ សណ្ឋានដី និងអាកាសធាតុកម្ពុជា (ជួរភ្នំក្រវាញ ដងរែក និងខ្យល់មូសុង)",
+                  "title_en": "Practice Exercise 1: Landforms & Climate: Cardamom Mountains & Monsoons",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ សណ្ឋានដី និងអាកាសធាតុកម្ពុជា (ជួរភ្នំក្រវាញ ដងរែក និងខ្យល់មូសុង) ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Landforms & Climate: Cardamom Mountains & Monsoons applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g7-geo-02-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ សណ្ឋានដី និងអាកាសធាតុកម្ពុជា (ជួរភ្នំក្រវាញ ដងរែក និងខ្យល់មូសុង)",
+                  "title_en": "Formative Competency Problem: Landforms & Climate: Cardamom Mountains & Monsoons",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន សណ្ឋានដី និងអាកាសធាតុកម្ពុជា (ជួរភ្នំក្រវាញ ដងរែក និងខ្យល់មូសុង) ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Landforms & Climate: Cardamom Mountains & Monsoons to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject_slug": "english",
+      "name_km": "ភាសាអង់គ្លេស",
+      "name_en": "English",
+      "weekly_hours": 2,
+      "official_textbook": {
+        "title_km": "English for Cambodia (Book 1 - Book 6)",
+        "publisher": "CAM-MoEYS Educational Publishing House",
+        "edition": "Edition 2016-2022",
+        "sala_url": "https://sala.moeys.gov.kh/",
+        "oer_url": "https://oer.moeys.gov.kh/"
+      },
+      "units": [
+        {
+          "unit_id": "unit-g7-eng-1",
+          "unit_number": 1,
+          "title_km": "Present & Past Tenses in Daily Life",
+          "title_en": "Present & Past Tenses in Daily Life",
+          "description_km": "កាលបច្ចុប្បន្ន និងអតីតកាលធម្មតា កិរិយាស័ព្ទប្រក្រតី/មិនប្រក្រតី និងការសន្ទនា",
+          "description_en": "Present simple, past simple narrative structures, and everyday school vocabulary",
+          "icon": "🔤",
+          "competencies": [
+            "ស្វែងយល់ និងអនុវត្តទ្រឹស្តីក្នុង Present & Past Tenses in Daily Life",
+            "ដោះស្រាយលំហាត់ និងចំណោទកម្រិតមធ្យម និងកម្រិតខ្ពស់",
+            "ត្រៀមលក្ខណៈសម្រាប់ការវាយតម្លៃប្រចាំជំពូក និងការប្រឡងបញ្ចប់ឆ្នាំ"
+          ],
+          "lesson_count": 2,
+          "lessons": [
+            {
+              "lesson_id": "les-g7-eng-01",
+              "sort_order": 105,
+              "title_km": "Present Simple Tense & Daily Routines",
+              "title_en": "Present Simple Tense & Daily Routines",
+              "summary_km": "ការប្រើប្រាស់កាលបច្ចុប្បន្នកាលធម្មតា វិធានបំប្លែងកិរិយា និងប្រយោគបដិសេធ",
+              "summary_en": "Present simple usage, third-person singular inflection, and interrogative/negative forms",
+              "estimated_minutes": 18,
+              "xp_reward": 35,
+              "subtopics": [
+                "Present Simple Tense & Daily Routines",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ Present Simple Tense & Daily Routines",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ Present Simple Tense & Daily Routines",
+                  "objective_en": "Recall, state, and explain foundational definitions of Present Simple Tense & Daily Routines"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "Present",
+                  "term_en": "Present",
+                  "definition_km": "ការប្រើប្រាស់កាលបច្ចុប្បន្នកាលធម្មតា វិធានបំប្លែងកិរិយា និងប្រយោគបដិសេធ",
+                  "definition_en": "Present simple usage, third-person singular inflection, and interrogative/negative forms",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន Present Simple Tense & Daily Routines"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g7-eng-01-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ Present Simple Tense & Daily Routines",
+                  "title_en": "Practice Exercise 1: Present Simple Tense & Daily Routines",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ Present Simple Tense & Daily Routines ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Present Simple Tense & Daily Routines applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g7-eng-01-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ Present Simple Tense & Daily Routines",
+                  "title_en": "Formative Competency Problem: Present Simple Tense & Daily Routines",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន Present Simple Tense & Daily Routines ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Present Simple Tense & Daily Routines to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g7-eng-02",
+              "sort_order": 108,
+              "title_km": "Past Simple Tense: School Days & Personal Narratives",
+              "title_en": "Past Simple Tense: School Days & Personal Narratives",
+              "summary_km": "ការប្រើប្រាស់ Past Simple កិរិយាស័ព្ទប្រក្រតី/មិនប្រក្រតី និងការរៀបរាប់ព្រឹត្តិការណ៍កន្លងផុត",
+              "summary_en": "Past simple structures, regular (-ed) and irregular verbs, and conversational narrative past",
+              "estimated_minutes": 20,
+              "xp_reward": 35,
+              "subtopics": [
+                "Past Simple Tense: School Days & Personal Narratives",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ Past Simple Tense: School Days & Personal Narratives",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ Past Simple Tense: School Days & Personal Narratives",
+                  "objective_en": "Recall, state, and explain foundational definitions of Past Simple Tense: School Days & Personal Narratives"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "Past",
+                  "term_en": "Past",
+                  "definition_km": "ការប្រើប្រាស់ Past Simple កិរិយាស័ព្ទប្រក្រតី/មិនប្រក្រតី និងការរៀបរាប់ព្រឹត្តិការណ៍កន្លងផុត",
+                  "definition_en": "Past simple structures, regular (-ed) and irregular verbs, and conversational narrative past",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន Past Simple Tense: School Days & Personal Narratives"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g7-eng-02-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ Past Simple Tense: School Days & Personal Narratives",
+                  "title_en": "Practice Exercise 1: Past Simple Tense: School Days & Personal Narratives",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ Past Simple Tense: School Days & Personal Narratives ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Past Simple Tense: School Days & Personal Narratives applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g7-eng-02-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ Past Simple Tense: School Days & Personal Narratives",
+                  "title_en": "Formative Competency Problem: Past Simple Tense: School Days & Personal Narratives",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន Past Simple Tense: School Days & Personal Narratives ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Past Simple Tense: School Days & Personal Narratives to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject_slug": "ict",
+      "name_km": "ព័ត៌មានវិទ្យា",
+      "name_en": "ICT & Computing",
+      "weekly_hours": 2,
+      "official_textbook": {
+        "title_km": "បច្ចេកវិទ្យាព័ត៌មាន និងសារគមនាគមន៍ (ថ្នាក់ទី ៧-១២)",
+        "publisher": "នាយកដ្ឋានបច្ចេកវិទ្យាព័ត៌មាន (DIT) ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "edition": "កម្មវិធីសិក្សាបច្ចេកវិទ្យាឌីជីថល ២០២០-២០២៥",
+        "sala_url": "https://sala.moeys.gov.kh/",
+        "oer_url": "https://oer.moeys.gov.kh/"
+      },
+      "units": [
+        {
+          "unit_id": "unit-g7-ict-1",
+          "unit_number": 1,
+          "title_km": "ផ្នែករឹងកុំព្យូទ័រ និងការវាយអក្សរខ្មែរយូនីកូដ",
+          "title_en": "Computer Hardware & Khmer Unicode Typing",
+          "description_km": "ស្ថាបត្យកម្ម CPU, RAM ប្លង់ក្តារចុចយូនីកូដ (Coeng) និងការរៀបចំឯកសារ",
+          "description_en": "Core processor architecture, memory, Khmer subscript typing, and word processing",
+          "icon": "💻",
+          "competencies": [
+            "ស្វែងយល់ និងអនុវត្តទ្រឹស្តីក្នុង ផ្នែករឹងកុំព្យូទ័រ និងការវាយអក្សរខ្មែរយូនីកូដ",
+            "ដោះស្រាយលំហាត់ និងចំណោទកម្រិតមធ្យម និងកម្រិតខ្ពស់",
+            "ត្រៀមលក្ខណៈសម្រាប់ការវាយតម្លៃប្រចាំជំពូក និងការប្រឡងបញ្ចប់ឆ្នាំ"
+          ],
+          "lesson_count": 2,
+          "lessons": [
+            {
+              "lesson_id": "les-g7-ict-01",
+              "sort_order": 106,
+              "title_km": "កុំព្យូទ័រ និងប្រព័ន្ធប្រតិបត្តិការ (Hardware & OS)",
+              "title_en": "Computer Hardware & Operating Systems",
+              "summary_km": "សមាសភាគរឹង (CPU, RAM, Storage) និងតួនាទីនៃប្រព័ន្ធប្រតិបត្តិការ",
+              "summary_en": "Hardware components (CPU, RAM, SSD) and operating system architecture",
+              "estimated_minutes": 18,
+              "xp_reward": 35,
+              "subtopics": [
+                "កុំព្យូទ័រ និងប្រព័ន្ធប្រតិបត្តិការ (Hardware & OS)",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ កុំព្យូទ័រ និងប្រព័ន្ធប្រតិបត្តិការ (Hardware & OS)",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ កុំព្យូទ័រ និងប្រព័ន្ធប្រតិបត្តិការ (Hardware & OS)",
+                  "objective_en": "Recall, state, and explain foundational definitions of Computer Hardware & Operating Systems"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "កុំព្យូទ័រ",
+                  "term_en": "Computer",
+                  "definition_km": "សមាសភាគរឹង (CPU, RAM, Storage) និងតួនាទីនៃប្រព័ន្ធប្រតិបត្តិការ",
+                  "definition_en": "Hardware components (CPU, RAM, SSD) and operating system architecture",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន កុំព្យូទ័រ និងប្រព័ន្ធប្រតិបត្តិការ (Hardware & OS)"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g7-ict-01-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ កុំព្យូទ័រ និងប្រព័ន្ធប្រតិបត្តិការ (Hardware & OS)",
+                  "title_en": "Practice Exercise 1: Computer Hardware & Operating Systems",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ កុំព្យូទ័រ និងប្រព័ន្ធប្រតិបត្តិការ (Hardware & OS) ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Computer Hardware & Operating Systems applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g7-ict-01-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ កុំព្យូទ័រ និងប្រព័ន្ធប្រតិបត្តិការ (Hardware & OS)",
+                  "title_en": "Formative Competency Problem: Computer Hardware & Operating Systems",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន កុំព្យូទ័រ និងប្រព័ន្ធប្រតិបត្តិការ (Hardware & OS) ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Computer Hardware & Operating Systems to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g7-ict-02",
+              "sort_order": 110,
+              "title_km": "ការវាយអក្សរខ្មែរយូនីកូដ និងការរៀបចំឯកសារ (Word Processing)",
+              "title_en": "Khmer Unicode Typing & Word Processing",
+              "summary_km": "ប្លង់ក្តារចុចខ្មែរយូនីកូដ ស្រៈពេញតួ ជើងអក្សរ (Coeng) និងការរៀបចំទម្រង់ឯកសារ",
+              "summary_en": "Khmer Unicode keyboard layout, subscript consonants (Coeng key), and document layout formatting",
+              "estimated_minutes": 20,
+              "xp_reward": 35,
+              "subtopics": [
+                "ការវាយអក្សរខ្មែរយូនីកូដ និងការរៀបចំឯកសារ (Word Processing)",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ ការវាយអក្សរខ្មែរយូនីកូដ និងការរៀបចំឯកសារ (Word Processing)",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ ការវាយអក្សរខ្មែរយូនីកូដ និងការរៀបចំឯកសារ (Word Processing)",
+                  "objective_en": "Recall, state, and explain foundational definitions of Khmer Unicode Typing & Word Processing"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "ការវាយអក្សរខ្មែរយូនីកូដ",
+                  "term_en": "Khmer",
+                  "definition_km": "ប្លង់ក្តារចុចខ្មែរយូនីកូដ ស្រៈពេញតួ ជើងអក្សរ (Coeng) និងការរៀបចំទម្រង់ឯកសារ",
+                  "definition_en": "Khmer Unicode keyboard layout, subscript consonants (Coeng key), and document layout formatting",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន ការវាយអក្សរខ្មែរយូនីកូដ និងការរៀបចំឯកសារ (Word Processing)"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g7-ict-02-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ ការវាយអក្សរខ្មែរយូនីកូដ និងការរៀបចំឯកសារ (Word Processing)",
+                  "title_en": "Practice Exercise 1: Khmer Unicode Typing & Word Processing",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ ការវាយអក្សរខ្មែរយូនីកូដ និងការរៀបចំឯកសារ (Word Processing) ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Khmer Unicode Typing & Word Processing applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g7-ict-02-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ ការវាយអក្សរខ្មែរយូនីកូដ និងការរៀបចំឯកសារ (Word Processing)",
+                  "title_en": "Formative Competency Problem: Khmer Unicode Typing & Word Processing",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន ការវាយអក្សរខ្មែរយូនីកូដ និងការរៀបចំឯកសារ (Word Processing) ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Khmer Unicode Typing & Word Processing to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject_slug": "morality",
+      "name_km": "សីលធម៌ និងពលរដ្ឋវិជ្ជា",
+      "name_en": "Moral & Civics",
+      "weekly_hours": 2,
+      "official_textbook": {
+        "title_km": "សីលធម៌ និងពលរដ្ឋវិជ្ជា (ថ្នាក់ទី ៧-១២)",
+        "publisher": "នាយកដ្ឋានអភិវឌ្ឍកម្មវិធីសិក្សា ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "edition": "បោះពុម្ពឡើងវិញ ២០១៩-២០២៣",
+        "sala_url": "https://sala.moeys.gov.kh/",
+        "oer_url": "https://oer.moeys.gov.kh/"
+      },
+      "units": [
+        {
+          "unit_id": "unit-g7-moral-1",
+          "unit_number": 1,
+          "title_km": "សីលធម៌ក្នុងគ្រួសារ និងសិទ្ធិកុមារ",
+          "title_en": "Family Ethics & Child Rights",
+          "description_km": "កតញ្ញូតាធម៌ សិទ្ធិទាំងបួនរបស់កុមារ និងកាតព្វកិច្ចសិស្សក្នុងសាលារៀន",
+          "description_en": "Filial piety, UNCRC four child rights pillars, and student civic duties",
+          "icon": "🤝",
+          "competencies": [
+            "ស្វែងយល់ និងអនុវត្តទ្រឹស្តីក្នុង សីលធម៌ក្នុងគ្រួសារ និងសិទ្ធិកុមារ",
+            "ដោះស្រាយលំហាត់ និងចំណោទកម្រិតមធ្យម និងកម្រិតខ្ពស់",
+            "ត្រៀមលក្ខណៈសម្រាប់ការវាយតម្លៃប្រចាំជំពូក និងការប្រឡងបញ្ចប់ឆ្នាំ"
+          ],
+          "lesson_count": 2,
+          "lessons": [
+            {
+              "lesson_id": "les-g7-moral-01",
+              "sort_order": 107,
+              "title_km": "សីលធម៌ក្នុងគ្រួសារ និងសាលារៀន",
+              "title_en": "Ethics in Family & School Community",
+              "summary_km": "ការដឹងគុណមាតាបិតា ការគោរពលោកគ្រូអ្នកគ្រូ និងច្បាប់សីលធម៌រស់នៅប្រចាំថ្ងៃ",
+              "summary_en": "Filial piety, respect for teachers, and fundamental civic duties in school and family",
+              "estimated_minutes": 18,
+              "xp_reward": 35,
+              "subtopics": [
+                "សីលធម៌ក្នុងគ្រួសារ និងសាលារៀន",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ សីលធម៌ក្នុងគ្រួសារ និងសាលារៀន",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ សីលធម៌ក្នុងគ្រួសារ និងសាលារៀន",
+                  "objective_en": "Recall, state, and explain foundational definitions of Ethics in Family & School Community"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "សីលធម៌ក្នុងគ្រួសារ",
+                  "term_en": "Ethics",
+                  "definition_km": "ការដឹងគុណមាតាបិតា ការគោរពលោកគ្រូអ្នកគ្រូ និងច្បាប់សីលធម៌រស់នៅប្រចាំថ្ងៃ",
+                  "definition_en": "Filial piety, respect for teachers, and fundamental civic duties in school and family",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន សីលធម៌ក្នុងគ្រួសារ និងសាលារៀន"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g7-moral-01-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ សីលធម៌ក្នុងគ្រួសារ និងសាលារៀន",
+                  "title_en": "Practice Exercise 1: Ethics in Family & School Community",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ សីលធម៌ក្នុងគ្រួសារ និងសាលារៀន ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Ethics in Family & School Community applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g7-moral-01-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ សីលធម៌ក្នុងគ្រួសារ និងសាលារៀន",
+                  "title_en": "Formative Competency Problem: Ethics in Family & School Community",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន សីលធម៌ក្នុងគ្រួសារ និងសាលារៀន ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Ethics in Family & School Community to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            },
+            {
+              "lesson_id": "les-g7-moral-02",
+              "sort_order": 112,
+              "title_km": "សិទ្ធិកុមារ និងកាតព្វកិច្ចពលរដ្ឋក្នុងសាលារៀន",
+              "title_en": "Child Rights & Student Civic Duty",
+              "summary_km": "សិទ្ធិជាមូលដ្ឋានទាំងបួនរបស់កុមារ សមភាពយេនឌ័រ និងការថែរក្សាទ្រព្យសម្បត្តិសាធារណៈ",
+              "summary_en": "Four core pillars of child rights (UNCRC), gender equity, and stewardship of public property",
+              "estimated_minutes": 20,
+              "xp_reward": 35,
+              "subtopics": [
+                "សិទ្ធិកុមារ និងកាតព្វកិច្ចពលរដ្ឋក្នុងសាលារៀន",
+                "ទ្រឹស្តី និងរូបមន្តគន្លឹះនៃ សិទ្ធិកុមារ និងកាតព្វកិច្ចពលរដ្ឋក្នុងសាលារៀន",
+                "លំហាត់គំរូ និងការអនុវត្តជាក់ស្តែង"
+              ],
+              "learning_objectives": [
+                {
+                  "level": "Remember & Understand",
+                  "bloom_level": "knowledge",
+                  "objective_km": "ស្វែងយល់ និងចងចាំនិយមន័យគ្រឹះនៃ សិទ្ធិកុមារ និងកាតព្វកិច្ចពលរដ្ឋក្នុងសាលារៀន",
+                  "objective_en": "Recall, state, and explain foundational definitions of Child Rights & Student Civic Duty"
+                },
+                {
+                  "level": "Apply",
+                  "bloom_level": "application",
+                  "objective_km": "អនុវត្តទ្រឹស្តី និងរូបមន្តដោះស្រាយលំហាត់ និងចំណោទជាក់ស្តែង",
+                  "objective_en": "Apply formulas, theorems, and structural rules to solve authentic problem scenarios"
+                },
+                {
+                  "level": "Analyze & Evaluate",
+                  "bloom_level": "analysis",
+                  "objective_km": "វិភាគ និងវាយតម្លៃទំនាក់ទំនងរវាងទ្រឹស្តី និងបាតុភូត ឬស្នាដៃអក្សរសិល្ប៍",
+                  "objective_en": "Analyze mathematical models, experimental datasets, or literary themes with deductive reasoning"
+                }
+              ],
+              "prerequisites": [
+                "ចំណេះដឹងមូលដ្ឋាននៃថ្នាក់មុន និងមេរៀនមុនក្នុងជំពូក",
+                "សមត្ថភាពគណនាលេខ និងការអានយល់ន័យ"
+              ],
+              "key_vocabulary": [
+                {
+                  "term_km": "សិទ្ធិកុមារ",
+                  "term_en": "Child",
+                  "definition_km": "សិទ្ធិជាមូលដ្ឋានទាំងបួនរបស់កុមារ សមភាពយេនឌ័រ និងការថែរក្សាទ្រព្យសម្បត្តិសាធារណៈ",
+                  "definition_en": "Four core pillars of child rights (UNCRC), gender equity, and stewardship of public property",
+                  "contextual_usage": "ការប្រើប្រាស់ក្នុងមេរៀន សិទ្ធិកុមារ និងកាតព្វកិច្ចពលរដ្ឋក្នុងសាលារៀន"
+                }
+              ],
+              "practice_exercises": [
+                {
+                  "id": "prac-les-g7-moral-02-01",
+                  "title_km": "លំហាត់អនុវត្តទី ១៖ សិទ្ធិកុមារ និងកាតព្វកិច្ចពលរដ្ឋក្នុងសាលារៀន",
+                  "title_en": "Practice Exercise 1: Child Rights & Student Civic Duty",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Supplementary Didactic Practice",
+                  "question_km": "ចូរពន្យល់ និងដោះស្រាយលំហាត់គំរូនៃ សិទ្ធិកុមារ និងកាតព្វកិច្ចពលរដ្ឋក្នុងសាលារៀន ដោយផ្អែកលើទ្រឹស្តីបទផ្លូវការ។",
+                  "question_en": "Explain and calculate the standard scenario for Child Rights & Student Civic Duty applying verified MoEYS rules.",
+                  "sample_solution_km": "អនុវត្តតាមជំហានគន្លឹះ៖ ១. កំណត់បម្រាប់ ២. ជ្រើសរើសរូបមន្ត/វិធាន ៣. គណនា និងផ្ទៀងផ្ទាត់ចម្លើយ។",
+                  "sample_solution_en": "Step-by-step solution: 1. Identify given values 2. Apply the relevant formula/rule 3. Compute and verify final unit."
+                },
+                {
+                  "id": "prac-les-g7-moral-02-02",
+                  "title_km": "លំហាត់ពង្រឹងសមត្ថភាព៖ សិទ្ធិកុមារ និងកាតព្វកិច្ចពលរដ្ឋក្នុងសាលារៀន",
+                  "title_en": "Formative Competency Problem: Child Rights & Student Civic Duty",
+                  "difficulty": "medium",
+                  "is_official_exam_sample": false,
+                  "source_category": "ScienceKH Formative Assessment",
+                  "question_km": "ចូរអនុវត្តចំណេះដឹងពីមេរៀន សិទ្ធិកុមារ និងកាតព្វកិច្ចពលរដ្ឋក្នុងសាលារៀន ទៅនឹងស្ថានភាពជាក់ស្តែងក្នុងជីវភាពប្រចាំថ្ងៃ។",
+                  "question_en": "Apply the principles of Child Rights & Student Civic Duty to real-world technological and daily life situations.",
+                  "sample_solution_km": "បង្ហាញការដោះស្រាយតាមដំណាក់កាលលម្អិតស្របតាមកម្រងកែវិញ្ញាសាផ្លូវការ។",
+                  "sample_solution_en": "Comprehensive step-by-step resolution aligned with official MoEYS marking rubrics."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

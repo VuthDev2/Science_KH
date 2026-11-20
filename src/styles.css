@@ -1,125 +1,370 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
+@import "katex/dist/katex.min.css";
 
 @custom-variant dark (&:is(.dark *));
 
 /*
- * ScienceKH — Calm Academic design system
- * Deep ocean blue + soft paper, study-friendly.
+ * ScienceKH — Design Tokens
+ * Clean, modern, calm: Linear/Stripe polish meets friendly STEM educational energy.
+ * Deep Slate Navy (#0F172A) + Fresh Science Green (#059669 / #10B981).
  */
 
 @theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-3xl: 32px;
 
-  --font-display: "Plus Jakarta Sans", "Kantumruy Pro", system-ui, sans-serif;
-  --font-sans: "Plus Jakarta Sans", "Kantumruy Pro", system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", "Kantumruy Pro", "Preahvihear", system-ui, -apple-system, sans-serif;
+  --font-sans: "Plus Jakarta Sans", "Kantumruy Pro", system-ui, -apple-system, sans-serif;
+  --font-km: "Kantumruy Pro", "Preahvihear", system-ui, -apple-system, sans-serif;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
+
+  /* Primary Brand - Deep Slate Navy */
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
-  --color-primary-soft: var(--primary-soft);
+  --color-primary-hover: var(--primary-hover);
+
+  /* Accent Brand - Fresh Science Emerald Green */
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent-subtle: var(--accent-subtle);
+  --color-accent-border: var(--accent-border);
+
+  /* Functional Semantics */
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-ring-offset-background: var(--background);
 
-  --shadow-soft: 0 1px 2px oklch(0.36 0.10 248 / 0.06), 0 8px 24px -12px oklch(0.36 0.10 248 / 0.12);
-  --shadow-elevated: 0 2px 4px oklch(0.36 0.10 248 / 0.08), 0 20px 40px -16px oklch(0.36 0.10 248 / 0.18);
+  /* Soft layered elevations */
+  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.07), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.04);
+  --shadow-xl: 0 20px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(15, 23, 42, 0.16);
 }
 
 :root {
   --radius: 0.875rem;
 
-  /* Paper-soft canvas */
-  --background: oklch(0.985 0.004 247);
-  --foreground: oklch(0.22 0.03 256);
-  --surface: oklch(1 0 0);
+  /* Surfaces & Canvas */
+  --background: #ffffff;
+  --foreground: #0f172a; /* Slate 900 */
+  --surface: #ffffff;
+  --surface-muted: #f8fafc; /* Slate 50 */
 
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.22 0.03 256);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.22 0.03 256);
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
 
-  /* Deep ocean — #0F4C81 */
-  --primary: oklch(0.40 0.10 248);
-  --primary-foreground: oklch(0.985 0.004 247);
-  --primary-soft: oklch(0.94 0.025 248);
+  /* Primary Deep Slate Navy */
+  --primary: #0f172a;
+  --primary-foreground: #ffffff;
+  --primary-hover: #1e293b;
 
-  /* Accent — #3B82F6 */
-  --accent: oklch(0.62 0.19 256);
-  --accent-foreground: oklch(0.985 0.004 247);
+  /* Accent Science Green */
+  --accent: #059669; /* Emerald 600 */
+  --accent-foreground: #ffffff;
+  --accent-subtle: #ecfdf5; /* Emerald 50 */
+  --accent-border: #a7f3d0; /* Emerald 200 */
 
-  --secondary: oklch(0.95 0.015 247);
-  --secondary-foreground: oklch(0.28 0.04 256);
-  --muted: oklch(0.95 0.012 247);
-  --muted-foreground: oklch(0.50 0.025 256);
+  /* Semantics */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
 
-  --destructive: oklch(0.58 0.22 27);
-  --destructive-foreground: oklch(0.985 0.004 247);
-
-  --border: oklch(0.90 0.015 247);
-  --input: oklch(0.92 0.012 247);
-  --ring: oklch(0.62 0.19 256);
+  --muted: #f1f5f9; /* Slate 100 */
+  --muted-foreground: #64748b; /* Slate 500 */
+  --border: #e2e8f0; /* Slate 200 */
+  --input: #e2e8f0;
+  --ring: #059669;
 }
 
 .dark {
-  --background: oklch(0.18 0.025 256);
-  --foreground: oklch(0.96 0.005 247);
-  --surface: oklch(0.22 0.03 256);
-  --card: oklch(0.24 0.03 256);
-  --card-foreground: oklch(0.96 0.005 247);
-  --popover: oklch(0.24 0.03 256);
-  --popover-foreground: oklch(0.96 0.005 247);
-  --primary: oklch(0.70 0.14 248);
-  --primary-foreground: oklch(0.18 0.025 256);
-  --primary-soft: oklch(0.30 0.05 248);
-  --accent: oklch(0.72 0.16 256);
-  --accent-foreground: oklch(0.18 0.025 256);
-  --secondary: oklch(0.28 0.03 256);
-  --secondary-foreground: oklch(0.96 0.005 247);
-  --muted: oklch(0.28 0.03 256);
-  --muted-foreground: oklch(0.72 0.02 256);
-  --destructive: oklch(0.68 0.20 22);
-  --destructive-foreground: oklch(0.96 0.005 247);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.72 0.16 256);
+  --background: #020617; /* Slate 950 */
+  --foreground: #f8fafc;
+  --surface: #0b0f19;
+  --surface-muted: #0f172a;
+
+  --card: #0b0f19;
+  --card-foreground: #f8fafc;
+  --popover: #0b0f19;
+  --popover-foreground: #f8fafc;
+
+  --primary: #f8fafc;
+  --primary-foreground: #0f172a;
+  --primary-hover: #e2e8f0;
+
+  --accent: #10b981;
+  --accent-foreground: #020617;
+  --accent-subtle: rgba(16, 185, 129, 0.12);
+  --accent-border: rgba(16, 185, 129, 0.25);
+
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  --border: #1e293b;
+  --input: #1e293b;
+  --ring: #10b981;
 }
 
-@layer base {
-  * {
-    border-color: var(--color-border);
+/* Accessibility: Khmer typography rules */
+:lang(km) {
+  font-family: var(--font-km);
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+}
+
+/* Smooth Anchor Navigation and Section Offsets */
+html {
+  scroll-behavior: smooth;
+  background-color: #f8fafc;
+  color: #0f172a;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: none;
+}
+
+body {
+  background-color: #f8fafc;
+  color: #0f172a;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: none;
+}
+
+.dark html,
+.dark body {
+  background-color: #020617;
+  color: #f8fafc;
+}
+
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+/* Hero staggered entrance animations (above the fold) */
+@keyframes heroEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
   }
-  html,
-  body {
-    font-family: var(--font-sans);
-    background-color: var(--color-background);
-    color: var(--color-foreground);
-    -webkit-font-smoothing: antialiased;
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
-  h1, h2, h3, h4 {
-    font-family: var(--font-display);
-    font-feature-settings: "ss01", "ss02";
-    letter-spacing: -0.01em;
+}
+
+.animate-hero-in {
+  animation: heroEntrance 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Staggered Text Entrance & Blur-to-Focus Animations */
+@keyframes textSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+    filter: blur(4px);
   }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.animate-text-reveal-1 {
+  animation: textSlideUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+.animate-text-reveal-2 {
+  animation: textSlideUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both;
+}
+
+.animate-text-reveal-3 {
+  animation: textSlideUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.46s both;
+}
+
+.animate-text-sub-reveal {
+  animation: textSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.65s both;
+}
+
+/* Continuous Animated Luminous Gradient Text */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-text {
+  background-size: 200% auto;
+  animation: gradientShift 5s ease infinite;
+}
+
+/* Breathing Ambient Emerald Glow */
+@keyframes emeraldBreathingGlow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(16, 185, 129, 0.65));
+  }
+}
+
+.animate-emerald-glow {
+  animation: emeraldBreathingGlow 3.5s ease-in-out infinite;
+}
+
+/* Interactive Card Hover Micro-Interactions */
+.interactive-card {
+  transition:
+    transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.28s ease;
+}
+
+.interactive-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Socratic AI Bouncing Typing Dots */
+@keyframes typingDot {
+  0%,
+  80%,
+  100% {
+    transform: scale(0.6);
+    opacity: 0.4;
+  }
+  40% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+.animate-typing-1 {
+  animation: typingDot 1.4s infinite ease-in-out;
+}
+.animate-typing-2 {
+  animation: typingDot 1.4s infinite ease-in-out 0.2s;
+}
+.animate-typing-3 {
+  animation: typingDot 1.4s infinite ease-in-out 0.4s;
+}
+
+/* Accessibility: Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Mobile Safe Area Insets for iOS Notch & Android Display Cutouts */
+:root {
+  --sat: env(safe-area-inset-top, 0px);
+  --sab: env(safe-area-inset-bottom, 0px);
+  --sal: env(safe-area-inset-left, 0px);
+  --sar: env(safe-area-inset-right, 0px);
+
+  /* Resilient safe padding top: ensures at least 56-64px clearance on mobile even if env() is 0 */
+  --header-safe-pt: max(3.25rem, calc(env(safe-area-inset-top, 0px) + 0.5rem));
+  --page-safe-pt: max(3.75rem, calc(env(safe-area-inset-top, 0px) + 1.25rem));
+}
+
+.pt-safe,
+.pt-safe-top {
+  padding-top: var(--page-safe-pt);
+}
+.header-safe-top {
+  padding-top: var(--header-safe-pt);
+}
+.pb-safe,
+.pb-safe-bottom {
+  padding-bottom: max(1.25rem, calc(env(safe-area-inset-bottom, 0px) + 0.75rem));
+}
+.mt-safe,
+.mt-safe-top {
+  margin-top: env(safe-area-inset-top, 0px);
+}
+.mb-safe,
+.mb-safe-bottom {
+  margin-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* ========================================================================== */
+/* KaTeX Mathematical Formula Armor                                           */
+/* Never break mathematical equations across awkward multi-lines              */
+/* ========================================================================== */
+.katex {
+  font-size: 1.05em;
+  text-rendering: auto;
+  line-height: 1.2;
+}
+
+.katex-html {
+  white-space: nowrap !important;
+}
+
+.katex-display {
+  margin: 0.5em 0 !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  max-width: 100% !important;
+  padding: 0.25rem 0.5rem !important;
+  text-align: center;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+/* Formula card containers: guaranteed single-line display with horizontal scroll */
+.formula-card-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.formula-card-preview::-webkit-scrollbar {
+  display: none;
 }

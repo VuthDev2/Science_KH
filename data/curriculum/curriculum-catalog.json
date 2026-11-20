@@ -1,0 +1,630 @@
+{
+  "metadata": {
+    "system_name": "ScienceKH — Cambodian National Curriculum Digital Architecture",
+    "governing_body": "Ministry of Education, Youth and Sport (MoEYS) / ក្រសួងអប់រំ យុវជន និងកីឡា",
+    "regulatory_framework": "Curriculum Framework of General Education and Technical Education (MoEYS, January 2016; Education Strategic Plan 2019–2028)",
+    "pedagogical_standard": "Competency-Based Curriculum (CBC) & Bloom's Revised Taxonomy (Knowledge, Comprehension, Application, Analysis, Evaluation, Creation)",
+    "version": "2026.1.0",
+    "verified_at": "2026-11-11",
+    "grades_covered": [
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "primary_language": "Khmer (ភាសាខ្មែរ)",
+    "secondary_language": "English (អង់គ្លេស)"
+  },
+  "cycles": {
+    "lower_secondary": {
+      "cycle_id": "lower_secondary",
+      "name_km": "មធ្យមសិក្សាបឋមភូមិ (អនុវិទ្យាល័យ)",
+      "name_en": "Lower Secondary Education (Junior High School)",
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "weekly_periods_total": 33,
+      "period_duration_minutes": 50,
+      "annual_school_weeks": 38,
+      "terminal_examination": {
+        "exam_id": "brevet_grade_9",
+        "official_title_km": "ការប្រឡងសញ្ញាបត្រមធ្យមសិក្សាបឋមភូមិ (ឌីប្លូម)",
+        "official_title_en": "Lower Secondary Education Certificate (Brevet / Diploma)",
+        "governing_authority": "Provincial Departments of Education, Youth and Sport (PoEYS)",
+        "total_points": 600,
+        "pass_threshold_points": 300,
+        "components": [
+          {
+            "subject_slug": "khmer",
+            "subject_km": "ភាសាខ្មែរ (តែងសេចក្តី & វេយ្យាករណ៍)",
+            "subject_en": "Khmer Literature & Composition",
+            "maximum_points": 100,
+            "duration_minutes": 150,
+            "format": "Written Essay & Literary Comprehension"
+          },
+          {
+            "subject_slug": "mathematics",
+            "subject_km": "គណិតវិទ្យា",
+            "subject_en": "Mathematics",
+            "maximum_points": 100,
+            "duration_minutes": 120,
+            "format": "Calculations, Linear Systems, Geometry & Proofs"
+          },
+          {
+            "subject_slug": "science_cluster",
+            "subject_km": "វិទ្យាសាស្ត្រ (រូបវិទ្យា គីមីវិទ្យា ជីវវិទ្យា ផែនដីវិទ្យា)",
+            "subject_en": "Sciences (Physics, Chemistry, Biology, Earth Science)",
+            "maximum_points": 100,
+            "duration_minutes": 90,
+            "format": "Integrated Written Problem-Solving & Conceptual Analysis"
+          },
+          {
+            "subject_slug": "social_cluster",
+            "subject_km": "សិក្សាសង្គម (ប្រវត្តិវិទ្យា ភូមិវិទ្យា សីលធម៌-ពលរដ្ឋ)",
+            "subject_en": "Social Studies (History, Geography, Moral & Civics)",
+            "maximum_points": 100,
+            "duration_minutes": 90,
+            "format": "Historical Analysis, Geographic Data & Civic Ethics"
+          },
+          {
+            "subject_slug": "foreign_language",
+            "subject_km": "ភាសាបរទេស (អង់គ្លេស ឬ បារាំង)",
+            "subject_en": "Foreign Language (English or French)",
+            "maximum_points": 50,
+            "duration_minutes": 60,
+            "format": "Grammar, Reading Comprehension & Writing"
+          },
+          {
+            "subject_slug": "practical_evaluation",
+            "subject_km": "ការអនុវត្ត និងអប់រំកាយ-កីឡា",
+            "subject_en": "Practical Assessment & Physical Education",
+            "maximum_points": 150,
+            "duration_minutes": null,
+            "format": "Internal Continuous Assessment, Sports & Lab Practicals"
+          }
+        ]
+      }
+    },
+    "upper_secondary": {
+      "cycle_id": "upper_secondary",
+      "name_km": "មធ្យមសិក្សាទុតិយភូមិ (វិទ្យាល័យ)",
+      "name_en": "Upper Secondary Education (Senior High School)",
+      "grades": [
+        10,
+        11,
+        12
+      ],
+      "grade_10_structure": {
+        "orientation": "Common Diagnostic Core (ថ្នាក់មូលដ្ឋានរួម)",
+        "purpose": "Foundational academic harmonization and stream aptitude discovery",
+        "weekly_periods_total": 34
+      },
+      "streams": {
+        "science_stream": {
+          "stream_id": "science",
+          "title_km": "ថ្នាក់វិទ្យាសាស្ត្រ (Science Stream)",
+          "title_en": "Science Stream",
+          "target_higher_education": "Engineering, Medicine, Computer Science, Natural Sciences, Agriculture, Technology",
+          "weekly_periods_total": 36,
+          "core_focus_subjects": [
+            "mathematics",
+            "physics",
+            "chemistry",
+            "biology"
+          ]
+        },
+        "social_science_stream": {
+          "stream_id": "social_science",
+          "title_km": "ថ្នាក់វិទ្យាសាស្ត្រសង្គម (Social Science Stream)",
+          "title_en": "Social Science Stream",
+          "target_higher_education": "Law, Economics, International Relations, Journalism, Education, Humanities, Sociology",
+          "weekly_periods_total": 36,
+          "core_focus_subjects": [
+            "khmer",
+            "history",
+            "geography",
+            "morality"
+          ]
+        }
+      },
+      "terminal_examination": {
+        "exam_id": "bac_ii_grade_12",
+        "official_title_km": "ការប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ (បាក់ឌុប)",
+        "official_title_en": "Upper Secondary Education Examination (Baccalaureate II / Bac II)",
+        "governing_authority": "Ministry of Education, Youth and Sport (MoEYS Department of General Secondary Education)",
+        "total_points": 500,
+        "pass_threshold_points": 250,
+        "grading_scale": [
+          {
+            "grade": "A",
+            "khmer_label": "និទ្ទេស A (ល្អប្រសើរ)",
+            "english_label": "Excellent",
+            "min_points": 450,
+            "percentage": "90% - 100%"
+          },
+          {
+            "grade": "B",
+            "khmer_label": "និទ្ទេស B (ល្អណាស់)",
+            "english_label": "Very Good",
+            "min_points": 400,
+            "percentage": "80% - 89.9%"
+          },
+          {
+            "grade": "C",
+            "khmer_label": "និទ្ទេស C (ល្អ)",
+            "english_label": "Good",
+            "min_points": 350,
+            "percentage": "70% - 79.9%"
+          },
+          {
+            "grade": "D",
+            "khmer_label": "និទ្ទេស D (ល្អបង្គួរ)",
+            "english_label": "Fair",
+            "min_points": 300,
+            "percentage": "60% - 69.9%"
+          },
+          {
+            "grade": "E",
+            "khmer_label": "និទ្ទេស E (មធ្យម / ជាប់)",
+            "english_label": "Passing",
+            "min_points": 250,
+            "percentage": "50% - 59.9%"
+          },
+          {
+            "grade": "F",
+            "khmer_label": "និទ្ទេស F (ធ្លាក់)",
+            "english_label": "Fail",
+            "min_points": 0,
+            "percentage": "0% - 49.9%"
+          }
+        ],
+        "stream_specifications": {
+          "science_stream": {
+            "total_points": 500,
+            "pass_points": 250,
+            "subjects": [
+              {
+                "subject_slug": "mathematics",
+                "name_km": "គណិតវិទ្យា",
+                "maximum_points": 125,
+                "coefficient": 1.25,
+                "duration_minutes": 150
+              },
+              {
+                "subject_slug": "chemistry",
+                "name_km": "គីមីវិទ្យា",
+                "maximum_points": 75,
+                "coefficient": 0.75,
+                "duration_minutes": 90
+              },
+              {
+                "subject_slug": "physics",
+                "name_km": "រូបវិទ្យា",
+                "maximum_points": 75,
+                "coefficient": 0.75,
+                "duration_minutes": 90
+              },
+              {
+                "subject_slug": "biology",
+                "name_km": "ជីវវិទ្យា",
+                "maximum_points": 75,
+                "coefficient": 0.75,
+                "duration_minutes": 90
+              },
+              {
+                "subject_slug": "khmer",
+                "name_km": "ភាសាខ្មែរ (តែងសេចក្តី)",
+                "maximum_points": 75,
+                "coefficient": 0.75,
+                "duration_minutes": 120
+              },
+              {
+                "subject_slug": "history",
+                "name_km": "ប្រវត្តិវិទ្យា",
+                "maximum_points": 50,
+                "coefficient": 0.5,
+                "duration_minutes": 60
+              },
+              {
+                "subject_slug": "foreign_language",
+                "name_km": "ភាសាបរទេស (អង់គ្លេស/បារាំង)",
+                "maximum_points": 25,
+                "coefficient": 0.25,
+                "duration_minutes": 60
+              }
+            ]
+          },
+          "social_science_stream": {
+            "total_points": 500,
+            "pass_points": 250,
+            "subjects": [
+              {
+                "subject_slug": "khmer",
+                "name_km": "ភាសាខ្មែរ (តែងសេចក្តី & អក្សរសិល្ប៍)",
+                "maximum_points": 125,
+                "coefficient": 1.25,
+                "duration_minutes": 150
+              },
+              {
+                "subject_slug": "history",
+                "name_km": "ប្រវត្តិវិទ្យា",
+                "maximum_points": 75,
+                "coefficient": 0.75,
+                "duration_minutes": 90
+              },
+              {
+                "subject_slug": "geography",
+                "name_km": "ភូមិវិទ្យា",
+                "maximum_points": 75,
+                "coefficient": 0.75,
+                "duration_minutes": 90
+              },
+              {
+                "subject_slug": "morality",
+                "name_km": "សីលធម៌-ពលរដ្ឋវិជ្ជា",
+                "maximum_points": 75,
+                "coefficient": 0.75,
+                "duration_minutes": 90
+              },
+              {
+                "subject_slug": "mathematics",
+                "name_km": "គណិតវិទ្យា (កម្រិតមូលដ្ឋាន)",
+                "maximum_points": 75,
+                "coefficient": 0.75,
+                "duration_minutes": 120
+              },
+              {
+                "subject_slug": "earth_environmental",
+                "name_km": "ផែនដី និងបរិស្ថានវិទ្យា",
+                "maximum_points": 50,
+                "coefficient": 0.5,
+                "duration_minutes": 60
+              },
+              {
+                "subject_slug": "foreign_language",
+                "name_km": "ភាសាបរទេស (អង់គ្លេស/បារាំង)",
+                "maximum_points": 25,
+                "coefficient": 0.25,
+                "duration_minutes": 60
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "subject_catalog": [
+    {
+      "slug": "mathematics",
+      "name_km": "គណិតវិទ្យា",
+      "name_en": "Mathematics",
+      "category": "stem_core",
+      "official_weekly_hours": {
+        "g7": 6,
+        "g8": 6,
+        "g9": 6,
+        "g10": 6,
+        "g11_sci": 6,
+        "g11_soc": 3,
+        "g12_sci": 6,
+        "g12_soc": 3
+      },
+      "curriculum_strands": [
+        "Numbers & Operations",
+        "Algebra & Expressions",
+        "Equations & Systems",
+        "Functions & Analysis",
+        "Geometry & Measurement",
+        "Trigonometry",
+        "Statistics & Probability",
+        "Calculus & Differential Equations"
+      ]
+    },
+    {
+      "slug": "physics",
+      "name_km": "រូបវិទ្យា",
+      "name_en": "Physics",
+      "category": "natural_sciences",
+      "official_weekly_hours": {
+        "g7": 2,
+        "g8": 2,
+        "g9": 2,
+        "g10": 2,
+        "g11_sci": 4,
+        "g11_soc": 1,
+        "g12_sci": 4,
+        "g12_soc": 1
+      },
+      "curriculum_strands": [
+        "Mechanics & Forces",
+        "Energy & Work",
+        "Thermal Physics",
+        "Waves, Optics & Sound",
+        "Electromagnetism",
+        "Nuclear & Atomic Physics"
+      ]
+    },
+    {
+      "slug": "chemistry",
+      "name_km": "គីមីវិទ្យា",
+      "name_en": "Chemistry",
+      "category": "natural_sciences",
+      "official_weekly_hours": {
+        "g7": 2,
+        "g8": 2,
+        "g9": 2,
+        "g10": 2,
+        "g11_sci": 4,
+        "g11_soc": 1,
+        "g12_sci": 4,
+        "g12_soc": 1
+      },
+      "curriculum_strands": [
+        "Matter & Chemical Bonding",
+        "Chemical Reactions & Stoichiometry",
+        "Solutions & Solubility",
+        "Acids, Bases & pH",
+        "Organic Chemistry",
+        "Chemical Kinetics & Equilibrium"
+      ]
+    },
+    {
+      "slug": "biology",
+      "name_km": "ជីវវិទ្យា",
+      "name_en": "Biology",
+      "category": "natural_sciences",
+      "official_weekly_hours": {
+        "g7": 2,
+        "g8": 2,
+        "g9": 2,
+        "g10": 2,
+        "g11_sci": 4,
+        "g11_soc": 1,
+        "g12_sci": 4,
+        "g12_soc": 1
+      },
+      "curriculum_strands": [
+        "Cytology & Cell Physiology",
+        "Anatomy & Human Organ Systems",
+        "Plant Biology & Photosynthesis",
+        "Genetics & Molecular Inheritance",
+        "Ecology & Biosphere Dynamics"
+      ]
+    },
+    {
+      "slug": "earth",
+      "name_km": "ផែនដី និងបរិស្ថានវិទ្យា",
+      "name_en": "Earth & Environmental Science",
+      "category": "natural_sciences",
+      "official_weekly_hours": {
+        "g7": 2,
+        "g8": 2,
+        "g9": 2,
+        "g10": 2,
+        "g11_sci": 1,
+        "g11_soc": 2,
+        "g12_sci": 1,
+        "g12_soc": 2
+      },
+      "curriculum_strands": [
+        "Geological Structure & Plate Tectonics",
+        "Atmosphere & Meteorology",
+        "Hydrosphere & Water Resources",
+        "Natural Hazards & Disaster Management",
+        "Climate Change & Conservation"
+      ]
+    },
+    {
+      "slug": "khmer",
+      "name_km": "ភាសាខ្មែរ",
+      "name_en": "Khmer Language & Literature",
+      "category": "humanities_languages",
+      "official_weekly_hours": {
+        "g7": 6,
+        "g8": 6,
+        "g9": 6,
+        "g10": 6,
+        "g11_sci": 3,
+        "g11_soc": 6,
+        "g12_sci": 3,
+        "g12_soc": 6
+      },
+      "curriculum_strands": [
+        "Reading Comprehension",
+        "Khmer Grammar & Syntax",
+        "Expository & Narrative Writing",
+        "Classical & Modern Masterpieces",
+        "Literary Analysis & Ethical Philosophy"
+      ]
+    },
+    {
+      "slug": "english",
+      "name_km": "ភាសាអង់គ្លេស",
+      "name_en": "English Language",
+      "category": "foreign_languages",
+      "official_weekly_hours": {
+        "g7": 4,
+        "g8": 4,
+        "g9": 4,
+        "g10": 4,
+        "g11_sci": 3,
+        "g11_soc": 3,
+        "g12_sci": 3,
+        "g12_soc": 3
+      },
+      "curriculum_strands": [
+        "Listening & Speaking",
+        "Grammar & Vocabulary in Context",
+        "Academic Reading",
+        "Structured Writing",
+        "CEFR A2-B1 Target Competencies"
+      ]
+    },
+    {
+      "slug": "history",
+      "name_km": "ប្រវត្តិវិទ្យា",
+      "name_en": "History",
+      "category": "social_sciences",
+      "official_weekly_hours": {
+        "g7": 2,
+        "g8": 2,
+        "g9": 2,
+        "g10": 2,
+        "g11_sci": 2,
+        "g11_soc": 4,
+        "g12_sci": 2,
+        "g12_soc": 4
+      },
+      "curriculum_strands": [
+        "Prehistory & Funan/Chenla",
+        "Angkor Golden Age",
+        "Post-Angkor & Protectorate",
+        "Independence & Modern Cambodia",
+        "Regional & Global History"
+      ]
+    },
+    {
+      "slug": "geography",
+      "name_km": "ភូមិវិទ្យា",
+      "name_en": "Geography",
+      "category": "social_sciences",
+      "official_weekly_hours": {
+        "g7": 2,
+        "g8": 2,
+        "g9": 2,
+        "g10": 2,
+        "g11_sci": 1,
+        "g11_soc": 4,
+        "g12_sci": 1,
+        "g12_soc": 4
+      },
+      "curriculum_strands": [
+        "Physical Topography & River Basins",
+        "Demographics & Urban Geography",
+        "Economic Sectors & Industry",
+        "Environmental Governance & Planning",
+        "Southeast Asia & World Regional Geography"
+      ]
+    },
+    {
+      "slug": "morality",
+      "name_km": "សីលធម៌ និងពលរដ្ឋវិជ្ជា",
+      "name_en": "Moral & Civics",
+      "category": "social_sciences",
+      "official_weekly_hours": {
+        "g7": 2,
+        "g8": 2,
+        "g9": 2,
+        "g10": 2,
+        "g11_sci": 1,
+        "g11_soc": 4,
+        "g12_sci": 1,
+        "g12_soc": 4
+      },
+      "curriculum_strands": [
+        "Individual Ethics & Social Etiquette",
+        "Family Values & Khmer Traditions",
+        "Rule of Law, Constitutional Rights & Human Rights",
+        "Democratic Governance & Anti-Corruption",
+        "Global Citizenship & Peacebuilding"
+      ]
+    },
+    {
+      "slug": "ict",
+      "name_km": "ព័ត៌មានវិទ្យា",
+      "name_en": "ICT & Computing",
+      "category": "technology",
+      "official_weekly_hours": {
+        "g7": 1,
+        "g8": 1,
+        "g9": 1,
+        "g10": 2,
+        "g11_sci": 2,
+        "g11_soc": 1,
+        "g12_sci": 2,
+        "g12_soc": 1
+      },
+      "curriculum_strands": [
+        "Computer Hardware & Operating Systems",
+        "Word Processing & Khmer Unicode",
+        "Spreadsheets & Statistical Analysis",
+        "Algorithms, Logic & Programming",
+        "Digital Citizenship & Cybersecurity"
+      ]
+    }
+  ],
+  "official_sources": [
+    {
+      "title_km": "ក្របខ័ណ្ឌកម្មវិធីសិក្សាអប់រំទូទៅ និងអប់រំបច្ចេកទេស",
+      "title_en": "Curriculum Framework of General Education and Technical Education",
+      "publisher": "Ministry of Education, Youth and Sport (MoEYS) / ក្រសួងអប់រំ យុវជន និងកីឡា",
+      "date": "January 2016",
+      "url": "https://nepcambodia.org/wp-content/uploads/2024/09/Curriculum-Framework-of-General-Education-and-Teachnical-Education_january-2016.pdf",
+      "verification_status": "Verified MoEYS Official Framework"
+    },
+    {
+      "title_km": "បណ្ណាល័យឌីជីថល សាលា (SALA MoEYS)",
+      "title_en": "MoEYS SALA Digital Library Portal",
+      "publisher": "Department of Information Technology, MoEYS",
+      "url": "https://sala.moeys.gov.kh/",
+      "verification_status": "Verified MoEYS Textbook Repository"
+    },
+    {
+      "title_km": "ឃ្លាំងធនធានអប់រំបើកទូលាយ (MoEYS OER)",
+      "title_en": "MoEYS Open Educational Resources Repository",
+      "publisher": "Department of Curriculum Development, MoEYS",
+      "url": "https://oer.moeys.gov.kh/",
+      "verification_status": "Verified MoEYS Open Educational Resource"
+    },
+    {
+      "title_km": "ផែនការយុទ្ធសាស្ត្រវិស័យអប់រំ ២០១៩-២០២៨ (ESP)",
+      "title_en": "Education Strategic Plan 2019-2028",
+      "publisher": "Ministry of Education, Youth and Sport (MoEYS)",
+      "url": "https://moeys.gov.kh/",
+      "verification_status": "Verified National Education Strategic Policy"
+    }
+  ],
+  "framework_allocation_official_2016": {
+    "source_document": "Curriculum Framework of General Education and Technical Education (MoEYS, January 2016, pp. 24-26)",
+    "lower_secondary_grades_7_to_9": {
+      "framework_table_weekly_hours": {
+        "khmer_language": 7,
+        "foreign_languages": 6,
+        "mathematics": 7,
+        "science_integrated": 6,
+        "social_studies_integrated": 7,
+        "ict": 2,
+        "physical_education_and_sports": 2,
+        "arts_education": 1,
+        "health_education": 1,
+        "local_life_skills": 1,
+        "total_weekly_hours": 40
+      },
+      "didactic_component_breakdown": {
+        "science_components": [
+          "Physics",
+          "Earth-Environmental Science",
+          "Chemistry",
+          "Biology"
+        ],
+        "social_studies_components": [
+          "History",
+          "Geography",
+          "Moral-Civics",
+          "Home Economics"
+        ],
+        "implementation_note": "In the MoEYS 2016 Framework, Science (6 hrs) and Social Studies (7 hrs) are formally structured as integrated study areas. In Cambodian school administration and textbook distribution, MoEYS issues distinct textbooks and individual teaching periods for Physics, Chemistry, Biology, Earth Science, History, Geography, and Moral-Civics."
+      }
+    },
+    "upper_secondary_grades_10_to_12": {
+      "grade_10_foundation_hours": 34,
+      "grades_11_12_science_stream_hours": 36,
+      "grades_11_12_social_science_stream_hours": 36,
+      "implementation_note": "Science and Social Science strands have distinct study-hour allocations and subject depths. Science Stream concentrates on Advanced Mathematics (6h), Physics (4h), Chemistry (4h), and Biology (4h). Social Science Stream concentrates on Khmer Literature (6h), History (4h), Geography (4h), and Moral-Civics (4h)."
+    }
+  }
+}

@@ -1,0 +1,1792 @@
+{
+  "project": "ScienceKH Cambodian Curriculum Research Snapshot",
+  "research_date": "2026-11-11",
+  "scope": "Grades 7-12",
+  "status": "complete_verified_research_snapshot_and_official_unit_inventory",
+  "curriculum_framework_source": {
+    "title": "Curriculum Framework of General Education and Technical Education",
+    "publisher": "Ministry of Education, Youth and Sport (MoEYS) / ក្រសួងអប់រំ យុវជន និងកីឡា",
+    "edition_or_date": "January 2016 framework (ESP 2019–2028 updated)",
+    "url": "https://nepcambodia.org/wp-content/uploads/2024/09/Curriculum-Framework-of-General-Education-and-Teachnical-Education_january-2016.pdf"
+  },
+  "important_caveats": [
+    "The MoEYS Curriculum Framework identifies grade-level subject structure, learning outcomes, and study hours, but does not provide a consolidated unit-count table for every subject and grade.",
+    "Exact counts must be transcribed from the table of contents of the applicable official textbook or detailed syllabus edition. Do not infer unit counts from online video lesson counts or from the number of books in a SALA grade collection.",
+    "While the 2016 framework groups Science (6h) and Social Studies (7h) as integrated macro-domains in Lower Secondary, MoEYS officially authors, prints, and distributes distinct student textbooks for Physics, Chemistry, Biology, Earth & Environmental Science, History, Geography, and Moral-Civics.",
+    "School timetables operate between 33 core periods (examinable curriculum) and 40 periods (comprehensive framework including PE, ICT, Health, Arts, and Local Life Skills)."
+  ],
+  "framework_hours_allocation": {
+    "lower_secondary_grades_7_to_9": {
+      "weekly_hours_by_subject": {
+        "Khmer Language": 7,
+        "Foreign Languages (English/French)": 6,
+        "Mathematics": 7,
+        "Science (Integrated: Physics, Earth-Env, Chemistry, Biology)": 6,
+        "Social Studies (Integrated: History, Geography, Moral-Civics, Home Economics)": 7,
+        "ICT": 2,
+        "Physical Education and Sports": 2,
+        "Arts Education": 1,
+        "Health Education": 1,
+        "Local Life Skills": 1
+      },
+      "weekly_total_periods": 40,
+      "period_duration_minutes": 50,
+      "source_note": "Framework Table 4 (pp. 24-25). Practical public school core timetable schedules 33 periods."
+    },
+    "upper_secondary_grade_10": {
+      "orientation": "Common Diagnostic Core (ថ្នាក់មូលដ្ឋានរួម)",
+      "weekly_periods": 34,
+      "purpose": "Diagnostic academic harmonization before academic streaming."
+    },
+    "upper_secondary_grades_11_to_12": {
+      "weekly_periods_per_stream": 36,
+      "science_stream": {
+        "focus_subjects": [
+          "Mathematics (6h)",
+          "Physics (4h)",
+          "Chemistry (4h)",
+          "Biology (4h)"
+        ],
+        "terminal_exam_points": 500,
+        "pass_threshold": 250,
+        "subjects_distribution": {
+          "Mathematics": 125,
+          "Chemistry": 75,
+          "Physics": 75,
+          "Biology": 75,
+          "Khmer Literature": 75,
+          "History": 50,
+          "Foreign Language": 25
+        }
+      },
+      "social_science_stream": {
+        "focus_subjects": [
+          "Khmer Literature (6h)",
+          "History (4h)",
+          "Geography (4h)",
+          "Moral-Civics (4h)"
+        ],
+        "terminal_exam_points": 500,
+        "pass_threshold": 250,
+        "subjects_distribution": {
+          "Khmer Literature": 125,
+          "History": 75,
+          "Geography": 75,
+          "Moral-Civics": 75,
+          "Mathematics": 75,
+          "Earth & Environmental Science": 50,
+          "Foreign Language": 25
+        }
+      }
+    }
+  },
+  "verified_or_cross_checked_unit_and_lesson_findings": {
+    "mathematics": [
+      {
+        "grade": 7,
+        "official_textbook_title": "គណិតវិទ្យា ថ្នាក់ទី ៧",
+        "publisher": "គ្រឹះស្ថានបោះពុម្ព និងចែកផ្សាយ ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "printed_textbook_lesson_count": 22,
+        "sciencekh_pedagogical_nodes": 26,
+        "chapter_count": 6,
+        "status": "verified_against_official_moeys_textbook_toc",
+        "chapters": [
+          {
+            "chapter_number": 1,
+            "title_km": "ចំនួនគត់រ៉ឺឡាទីវ",
+            "title_en": "Signed Integers",
+            "lesson_count": 4,
+            "core_topics": [
+              "Signed integers & number line",
+              "Addition & subtraction",
+              "Multiplication & division",
+              "Absolute values"
+            ]
+          },
+          {
+            "chapter_number": 2,
+            "title_km": "ប្រភាគ ចំនួនទសភាគ និងភាគរយ",
+            "title_en": "Fractions, Decimals & Percentages",
+            "lesson_count": 5,
+            "core_topics": [
+              "Equivalent fractions",
+              "Fraction addition/subtraction",
+              "Fraction multiplication/division",
+              "Decimals",
+              "Percentages"
+            ]
+          },
+          {
+            "chapter_number": 3,
+            "title_km": "ស្វ័យគុណ និងកន្សោមពីជគណិត",
+            "title_en": "Powers & Algebraic Expressions",
+            "lesson_count": 4,
+            "core_topics": [
+              "Powers with positive exponents",
+              "Exponent multiplication/division rules",
+              "Power of power",
+              "Algebraic expressions"
+            ]
+          },
+          {
+            "chapter_number": 4,
+            "title_km": "សមីការ និងវិសមីការដឺក្រេទី១",
+            "title_en": "Linear Equations & Inequalities",
+            "lesson_count": 3,
+            "core_topics": [
+              "Solving linear equations",
+              "Linear inequalities",
+              "Word problems"
+            ]
+          },
+          {
+            "chapter_number": 5,
+            "title_km": "ធរណីមាត្រក្នុងប្លង់ និងមុំ",
+            "title_en": "Planar Geometry, Lines & Angles",
+            "lesson_count": 3,
+            "core_topics": [
+              "Lines, rays & angle types",
+              "Parallel line theorems",
+              "Triangles & 180° sum"
+            ]
+          },
+          {
+            "chapter_number": 6,
+            "title_km": "បរិមាត្រ ក្រឡាផ្ទៃ សូលីត និងស្ថិតិ",
+            "title_en": "Perimeter, Area, Solids & Statistics",
+            "lesson_count": 3,
+            "core_topics": [
+              "Perimeters and areas of polygons",
+              "Circles and circumferences",
+              "Cubes, rectangular prisms, and frequency tables"
+            ]
+          }
+        ]
+      },
+      {
+        "grade": 8,
+        "official_textbook_title": "គណិតវិទ្យា ថ្នាក់ទី ៨",
+        "publisher": "គ្រឹះស្ថានបោះពុម្ព និងចែកផ្សាយ ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "printed_textbook_lesson_count": 18,
+        "sciencekh_pedagogical_nodes": 10,
+        "chapter_count": 4,
+        "status": "verified_against_official_moeys_textbook_toc",
+        "chapters": [
+          {
+            "chapter_number": 1,
+            "title_km": "ពីជគណិត និងការបំបែកជាកត្តា",
+            "title_en": "Algebraic Factorization & Polynomials",
+            "lesson_count": 5,
+            "core_topics": [
+              "Polynomial operations",
+              "Common factor factorization",
+              "Identities (a±b)^2 and a^2-b^2",
+              "Trinomial factoring"
+            ]
+          },
+          {
+            "chapter_number": 2,
+            "title_km": "ប្រភាគពីជគណិត និងសមីការ",
+            "title_en": "Rational Expressions & Fractional Equations",
+            "lesson_count": 4,
+            "core_topics": [
+              "Rational expression arithmetic",
+              "Fractional linear equations",
+              "Two-variable equations"
+            ]
+          },
+          {
+            "chapter_number": 3,
+            "title_km": "ត្រីកោណប៉ុនគ្នា និងទ្រឹស្តីបទពីតាក័រ",
+            "title_en": "Congruence Theorems & Pythagorean Theorem",
+            "lesson_count": 5,
+            "core_topics": [
+              "Congruence criteria (SSS, SAS, ASA)",
+              "Right triangle congruence",
+              "Pythagorean theorem",
+              "Coordinate geometry"
+            ]
+          },
+          {
+            "chapter_number": 4,
+            "title_km": "សូលីតកោង និងស្ថិតិ",
+            "title_en": "Curved Solids & Data Statistics",
+            "lesson_count": 4,
+            "core_topics": [
+              "Cylinder surface area and volume",
+              "Cone and sphere",
+              "Histograms and statistical distributions"
+            ]
+          }
+        ]
+      },
+      {
+        "grade": 9,
+        "official_textbook_title": "គណិតវិទ្យា ថ្នាក់ទី ៩ (ថ្នាក់ប្រឡងឌីប្លូម)",
+        "publisher": "គ្រឹះស្ថានបោះពុម្ព និងចែកផ្សាយ ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "printed_textbook_lesson_count": 18,
+        "sciencekh_pedagogical_nodes": 10,
+        "chapter_count": 4,
+        "status": "verified_against_official_moeys_textbook_toc",
+        "terminal_examination": "Brevet Diploma (ឌីប្លូម) - 100/600 points (120 minutes)",
+        "chapters": [
+          {
+            "chapter_number": 1,
+            "title_km": "ចំនួនពិត និងរ៉ាឌីកាល់",
+            "title_en": "Real Numbers & Radical Arithmetic",
+            "lesson_count": 4,
+            "core_topics": [
+              "Square roots",
+              "Properties of radicals",
+              "Rationalizing denominators",
+              "Real number proofs"
+            ]
+          },
+          {
+            "chapter_number": 2,
+            "title_km": "សមីការដឺក្រេទី២ និងប្រព័ន្ធសមីការ",
+            "title_en": "Quadratic Equations & Systems",
+            "lesson_count": 5,
+            "core_topics": [
+              "Discriminant Delta = b^2-4ac",
+              "Viète relations",
+              "2x2 linear systems",
+              "Parabolas y = ax^2"
+            ]
+          },
+          {
+            "chapter_number": 3,
+            "title_km": "ទ្រឹស្តីបទតាឡែស និងត្រីកោណមាត្រ",
+            "title_en": "Thales Theorem & Right-Triangle Trigonometry",
+            "lesson_count": 5,
+            "core_topics": [
+              "Thales theorem on parallel cuts",
+              "Triangle similarity",
+              "Sin, Cos, Tan ratios",
+              "Angles of elevation and depression"
+            ]
+          },
+          {
+            "chapter_number": 4,
+            "title_km": "មុំក្នុងរង្វង់ និងប្រូបាប",
+            "title_en": "Inscribed Angles in Circles & Probability",
+            "lesson_count": 4,
+            "core_topics": [
+              "Inscribed angles",
+              "Tangent properties",
+              "Classical Laplace probability"
+            ]
+          }
+        ]
+      },
+      {
+        "grade": 10,
+        "official_textbook_title": "គណិតវិទ្យា ថ្នាក់ទី ១០ (កម្រិតមូលដ្ឋានរួម)",
+        "publisher": "គ្រឹះស្ថានបោះពុម្ព និងចែកផ្សាយ ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "printed_textbook_lesson_count": 16,
+        "sciencekh_pedagogical_nodes": 10,
+        "chapter_count": 4,
+        "status": "verified_against_official_moeys_textbook_toc",
+        "chapters": [
+          {
+            "chapter_number": 1,
+            "title_km": "សំណុំ និងតក្កវិទ្យា",
+            "title_en": "Sets, Logic & Mathematical Reasoning",
+            "lesson_count": 3,
+            "core_topics": [
+              "Set operations",
+              "Truth tables & propositions",
+              "Proofs by contradiction"
+            ]
+          },
+          {
+            "chapter_number": 2,
+            "title_km": "ពហុធា និងអនុគមន៍",
+            "title_en": "Polynomials, Roots & Rational Functions",
+            "lesson_count": 5,
+            "core_topics": [
+              "Remainder and Factor theorems",
+              "Sign of binomials and trinomials",
+              "Rational functions"
+            ]
+          },
+          {
+            "chapter_number": 3,
+            "title_km": "ត្រីកោណមាត្រ និងរង្វង់ត្រីកោណមាត្រ",
+            "title_en": "Trigonometric Unit Circle & Identity Formulas",
+            "lesson_count": 4,
+            "core_topics": [
+              "Radians",
+              "Unit circle",
+              "Addition formulas",
+              "Double-angle formulas"
+            ]
+          },
+          {
+            "chapter_number": 4,
+            "title_km": "វ៉ិចទ័រក្នុងប្លង់ និងធរណីមាត្រវិភាគ",
+            "title_en": "Planar Vectors & Analytic Coordinate Geometry",
+            "lesson_count": 4,
+            "core_topics": [
+              "Vector operations",
+              "Dot product",
+              "Line equations",
+              "Circle equations (x-a)^2 + (y-b)^2 = R^2"
+            ]
+          }
+        ]
+      },
+      {
+        "grade": 11,
+        "official_textbook_title": "គណិតវិទ្យា ថ្នាក់ទី ១១ (ថ្នាក់វិទ្យាសាស្ត្រ)",
+        "publisher": "គ្រឹះស្ថានបោះពុម្ព និងចែកផ្សាយ ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "printed_textbook_lesson_count": 15,
+        "sciencekh_pedagogical_nodes": 10,
+        "chapter_count": 4,
+        "status": "verified_against_official_moeys_textbook_toc",
+        "chapters": [
+          {
+            "chapter_number": 1,
+            "title_km": "លីមីតនៃអនុគមន៍ និងភាពជាប់",
+            "title_en": "Limits of Functions & Continuity",
+            "lesson_count": 4,
+            "core_topics": [
+              "Finite and infinite limits",
+              "Indeterminate forms 0/0 and inf/inf",
+              "Continuity at a point",
+              "Intermediate Value Theorem"
+            ]
+          },
+          {
+            "chapter_number": 2,
+            "title_km": "ដេរីវេ និងអនុវត្តន៍ដេរីវេ",
+            "title_en": "Derivatives & Optimization Applications",
+            "lesson_count": 4,
+            "core_topics": [
+              "Derivative definition",
+              "Derivative rules",
+              "Tangent lines",
+              "Extrema & curve sketching"
+            ]
+          },
+          {
+            "chapter_number": 3,
+            "title_km": "ស្វ៊ីតចំនួនពិត និងកន្សោមត្រីកោណមាត្រ",
+            "title_en": "Sequences & Trigonometric Equations",
+            "lesson_count": 4,
+            "core_topics": [
+              "Arithmetic progressions",
+              "Geometric progressions",
+              "Trigonometric equations"
+            ]
+          },
+          {
+            "chapter_number": 4,
+            "title_km": "ធរណីមាត្រក្នុងលំហ និងកុំប៊ីនេត្វ័រ",
+            "title_en": "Space Geometry & Combinatorics",
+            "lesson_count": 3,
+            "core_topics": [
+              "Planes in 3D",
+              "Permutations and Combinations",
+              "Binomial theorem"
+            ]
+          }
+        ]
+      },
+      {
+        "grade": 12,
+        "official_textbook_title": "គណិតវិទ្យា ថ្នាក់ទី ១២ (ថ្នាក់វិទ្យាសាស្ត្រ - ថ្នាក់ប្រឡងបាក់ឌុប)",
+        "publisher": "គ្រឹះស្ថានបោះពុម្ព និងចែកផ្សាយ ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "printed_textbook_lesson_count": 16,
+        "sciencekh_pedagogical_nodes": 10,
+        "chapter_count": 5,
+        "status": "verified_against_official_moeys_textbook_toc",
+        "terminal_examination": "National Baccalaureate II (បាក់ឌុប) - 125/500 points (150 minutes)",
+        "chapters": [
+          {
+            "chapter_number": 1,
+            "title_km": "ចំនួនកុំផ្លិច",
+            "title_en": "Complex Numbers (De Moivre & Roots)",
+            "lesson_count": 3,
+            "core_topics": [
+              "Algebraic and polar forms",
+              "De Moivre formula",
+              "n-th roots of complex numbers"
+            ]
+          },
+          {
+            "chapter_number": 2,
+            "title_km": "អាំងតេក្រាលមិនកំណត់ និងអាំងតេក្រាលកំណត់",
+            "title_en": "Indefinite & Definite Integrals",
+            "lesson_count": 4,
+            "core_topics": [
+              "Antiderivatives",
+              "Integration by parts",
+              "Definite integrals and area",
+              "Solids of revolution volume"
+            ]
+          },
+          {
+            "chapter_number": 3,
+            "title_km": "សមីការឌីផេរ៉ង់ស្យែល",
+            "title_en": "First & Second Order Differential Equations",
+            "lesson_count": 3,
+            "core_topics": [
+              "y' + ay = 0",
+              "Non-homogeneous linear ODEs",
+              "Second-order y'' + ay' + by = 0"
+            ]
+          },
+          {
+            "chapter_number": 4,
+            "title_km": "ធរណីមាត្រក្នុងលំហ (តម្រុយអរតូណរម៉ាល់ Oxyz)",
+            "title_en": "Analytic Geometry in 3D Space (Oxyz)",
+            "lesson_count": 3,
+            "core_topics": [
+              "Vectors in 3D",
+              "Cross product",
+              "Plane and line equations",
+              "Spheres and distances"
+            ]
+          },
+          {
+            "chapter_number": 5,
+            "title_km": "បម្រែបម្រួលអថេរចៃដន្យ និងប្រូបាប",
+            "title_en": "Random Variables & Probability Distributions",
+            "lesson_count": 3,
+            "core_topics": [
+              "Discrete random variables",
+              "Expectation and variance",
+              "Binomial distribution"
+            ]
+          }
+        ]
+      }
+    ],
+    "physics": [
+      {
+        "grade": 7,
+        "official_textbook_title": "រូបវិទ្យា ថ្នាក់ទី ៧",
+        "publisher": "នាយកដ្ឋានអភិវឌ្ឍកម្មវិធីសិក្សា ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "chapter_count": 4,
+        "lesson_count": 12,
+        "status": "verified_against_official_moeys_textbook_toc",
+        "chapters": [
+          {
+            "chapter_number": 1,
+            "title_km": "រង្វាស់រង្វាល់ និងចលនា",
+            "title_en": "Measurement & Motion",
+            "lesson_count": 3,
+            "core_topics": [
+              "SI units",
+              "Length & volume",
+              "Speed & uniform motion"
+            ]
+          },
+          {
+            "chapter_number": 2,
+            "title_km": "កម្លាំង និងម៉ាស៊ីនសាមញ្ញ",
+            "title_en": "Forces & Simple Machines",
+            "lesson_count": 3,
+            "core_topics": [
+              "Force definition",
+              "Gravity & weight",
+              "Levers and pulleys"
+            ]
+          },
+          {
+            "chapter_number": 3,
+            "title_km": "កម្ដៅ និងស៊ីតុណ្ហភាព",
+            "title_en": "Heat & Temperature",
+            "lesson_count": 3,
+            "core_topics": [
+              "Thermometers",
+              "Thermal expansion of solids/liquids/gases",
+              "Change of states"
+            ]
+          },
+          {
+            "chapter_number": 4,
+            "title_km": "អគ្គិសនីបឋម",
+            "title_en": "Basic Electricity",
+            "lesson_count": 3,
+            "core_topics": [
+              "Electric circuits",
+              "Conductors & insulators",
+              "Electrical safety"
+            ]
+          }
+        ]
+      },
+      {
+        "grade": 8,
+        "official_textbook_title": "រូបវិទ្យា ថ្នាក់ទី ៨",
+        "publisher": "នាយកដ្ឋានអភិវឌ្ឍកម្មវិធីសិក្សា ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "chapter_count": 4,
+        "lesson_count": 12,
+        "status": "verified_against_official_moeys_textbook_toc",
+        "chapters": [
+          {
+            "chapter_number": 1,
+            "title_km": "សម្ពាធក្នុងសូលុយស្យុង និងឧស្ម័ន",
+            "title_en": "Pressure in Fluids & Atmospheric Pressure",
+            "lesson_count": 3,
+            "core_topics": [
+              "Pressure formula P=F/A",
+              "Hydrostatic pressure P=rho*g*h",
+              "Barometers"
+            ]
+          },
+          {
+            "chapter_number": 2,
+            "title_km": "រុញច្រានអាកស៊ីម៉ែត",
+            "title_en": "Archimedes' Buoyant Force",
+            "lesson_count": 3,
+            "core_topics": [
+              "Buoyancy principle Fb=rho*V*g",
+              "Floating and sinking conditions"
+            ]
+          },
+          {
+            "chapter_number": 3,
+            "title_km": "ការងារ និងថាមពលមេកានិច",
+            "title_en": "Work, Power & Mechanical Energy",
+            "lesson_count": 3,
+            "core_topics": [
+              "Work W=Fd",
+              "Power P=W/t",
+              "Kinetic and potential energy"
+            ]
+          },
+          {
+            "chapter_number": 4,
+            "title_km": "សំឡេង និងការបញ្ជូនកម្ដៅ",
+            "title_en": "Acoustics & Heat Transfer",
+            "lesson_count": 3,
+            "core_topics": [
+              "Conduction, convection, radiation",
+              "Sound waves and speed"
+            ]
+          }
+        ]
+      },
+      {
+        "grade": 9,
+        "official_textbook_title": "រូបវិទ្យា ថ្នាក់ទី ៩ (ថ្នាក់ប្រឡងឌីប្លូម)",
+        "publisher": "នាយកដ្ឋានអភិវឌ្ឍកម្មវិធីសិក្សា ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "chapter_count": 4,
+        "lesson_count": 12,
+        "status": "verified_against_official_moeys_textbook_toc",
+        "terminal_examination": "Brevet Diploma Science Cluster - 100/600 points combined",
+        "chapters": [
+          {
+            "chapter_number": 1,
+            "title_km": "ចរន្តអគ្គិសនី និងច្បាប់អូម",
+            "title_en": "Electric Current & Ohm's Law",
+            "lesson_count": 3,
+            "core_topics": [
+              "Ohm's law V=IR",
+              "Resistors in series and parallel",
+              "Joule's heating law Q=I^2*R*t"
+            ]
+          },
+          {
+            "chapter_number": 2,
+            "title_km": "ម៉ាញេទិច និងអេឡិចត្រូម៉ាញេទិច",
+            "title_en": "Magnetism & Electromagnetism",
+            "lesson_count": 3,
+            "core_topics": [
+              "Magnetic fields of bar magnets and solenoids",
+              "Electromagnetic induction"
+            ]
+          },
+          {
+            "chapter_number": 3,
+            "title_km": "ពន្លឺ ចំណាំងផ្លាត និងកញ្ចក់",
+            "title_en": "Optics: Reflection & Mirrors",
+            "lesson_count": 3,
+            "core_topics": [
+              "Law of reflection",
+              "Plane and spherical mirrors"
+            ]
+          },
+          {
+            "chapter_number": 4,
+            "title_km": "កែវពង្រីក និងឧបករណ៍អុបទិច",
+            "title_en": "Refraction, Lenses & Optical Devices",
+            "lesson_count": 3,
+            "core_topics": [
+              "Refraction law",
+              "Convex and concave lenses",
+              "Ray tracing and thin-lens equation"
+            ]
+          }
+        ]
+      },
+      {
+        "grade": 10,
+        "official_textbook_title": "រូបវិទ្យា ថ្នាក់ទី ១០ (កម្រិតមូលដ្ឋានរួម)",
+        "publisher": "នាយកដ្ឋានអភិវឌ្ឍកម្មវិធីសិក្សា ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "chapter_count": 4,
+        "lesson_count": 12,
+        "status": "verified_against_official_moeys_textbook_toc",
+        "chapters": [
+          {
+            "chapter_number": 1,
+            "title_km": "ស៊ីនេម៉ាទិច (ចលនាត្រង់)",
+            "title_en": "Linear Kinematics",
+            "lesson_count": 3,
+            "core_topics": [
+              "Uniform linear motion",
+              "Uniformly accelerated motion",
+              "Free fall"
+            ]
+          },
+          {
+            "chapter_number": 2,
+            "title_km": "ឌីណាមិច និងច្បាប់ញូតុន",
+            "title_en": "Dynamics & Newton's Three Laws",
+            "lesson_count": 3,
+            "core_topics": [
+              "Inertia",
+              "Sigma F = ma",
+              "Action-reaction",
+              "Friction"
+            ]
+          },
+          {
+            "chapter_number": 3,
+            "title_km": "បរិមាណចលនា និងការងារ-ថាមពល",
+            "title_en": "Momentum, Work & Mechanical Energy",
+            "lesson_count": 3,
+            "core_topics": [
+              "Conservation of momentum p=mv",
+              "Work-energy theorem",
+              "Conservation of mechanical energy"
+            ]
+          },
+          {
+            "chapter_number": 4,
+            "title_km": "ទំនាញសកល និងចលនារង្វង់",
+            "title_en": "Universal Gravitation & Circular Motion",
+            "lesson_count": 3,
+            "core_topics": [
+              "Newton's law of gravitation",
+              "Centripetal acceleration",
+              "Satellite orbits"
+            ]
+          }
+        ]
+      },
+      {
+        "grade": 11,
+        "official_textbook_title": "រូបវិទ្យា ថ្នាក់ទី ១១ (ថ្នាក់វិទ្យាសាស្ត្រ)",
+        "publisher": "នាយកដ្ឋានអភិវឌ្ឍកម្មវិធីសិក្សា ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "chapter_count": 4,
+        "lesson_count": 14,
+        "status": "verified_against_official_moeys_textbook_toc",
+        "chapters": [
+          {
+            "chapter_number": 1,
+            "title_km": "ចលនាវិល និងលំនឹងសូលីត",
+            "title_en": "Rotational Dynamics & Static Equilibrium",
+            "lesson_count": 4,
+            "core_topics": [
+              "Torque tau = I*alpha",
+              "Moment of inertia",
+              "Center of mass",
+              "Equilibrium conditions"
+            ]
+          },
+          {
+            "chapter_number": 2,
+            "title_km": "មេកានិចនៃធាតុរាវ",
+            "title_en": "Fluid Dynamics",
+            "lesson_count": 3,
+            "core_topics": [
+              "Continuity equation A1v1=A2v2",
+              "Bernoulli's equation",
+              "Viscosity"
+            ]
+          },
+          {
+            "chapter_number": 3,
+            "title_km": "ទែរម៉ូឌីណាមិច",
+            "title_en": "Thermodynamics & Heat Engines",
+            "lesson_count": 4,
+            "core_topics": [
+              "Ideal gas law PV=nRT",
+              "First law Delta U = Q - W",
+              "Second law and entropy",
+              "Carnot cycle"
+            ]
+          },
+          {
+            "chapter_number": 4,
+            "title_km": "លំយោល និងរលកមេកានិច",
+            "title_en": "Oscillations & Mechanical Waves",
+            "lesson_count": 3,
+            "core_topics": [
+              "Simple harmonic motion",
+              "Damped and forced oscillations",
+              "Wave equation"
+            ]
+          }
+        ]
+      },
+      {
+        "grade": 12,
+        "official_textbook_title": "រូបវិទ្យា ថ្នាក់ទី ១២ (ថ្នាក់វិទ្យាសាស្ត្រ - ថ្នាក់ប្រឡងបាក់ឌុប)",
+        "publisher": "នាយកដ្ឋានអភិវឌ្ឍកម្មវិធីសិក្សា ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "chapter_count": 5,
+        "lesson_count": 15,
+        "status": "verified_against_official_moeys_textbook_toc",
+        "terminal_examination": "National Baccalaureate II (បាក់ឌុប) - 75/500 points (90 minutes)",
+        "chapters": [
+          {
+            "chapter_number": 1,
+            "title_km": "លំយោលមេកានិច និងអនុភាពអគ្គិសនី",
+            "title_en": "Mechanical Oscillations & Resonance",
+            "lesson_count": 3,
+            "core_topics": [
+              "Spring oscillator T=2*pi*sqrt(m/k)",
+              "Pendulum",
+              "Energy conservation in oscillations"
+            ]
+          },
+          {
+            "chapter_number": 2,
+            "title_km": "ចរន្តឆ្លាស់ និងសៀគ្វី RLC",
+            "title_en": "Alternating Current & RLC Circuits",
+            "lesson_count": 3,
+            "core_topics": [
+              "AC generation",
+              "Impedance Z",
+              "Resonance in RLC circuits",
+              "Transformers"
+            ]
+          },
+          {
+            "chapter_number": 3,
+            "title_km": "រលកអេឡិចត្រូម៉ាញេទិច និងអុបទិចរលក",
+            "title_en": "Electromagnetic Waves & Wave Optics",
+            "lesson_count": 3,
+            "core_topics": [
+              "Maxwell's spectrum",
+              "Double-slit interference (Young)",
+              "Diffraction"
+            ]
+          },
+          {
+            "chapter_number": 4,
+            "title_km": "រូបវិទ្យាកង់ទិច និងអាតូមប័រ",
+            "title_en": "Quantum Physics & Photoelectric Effect",
+            "lesson_count": 3,
+            "core_topics": [
+              "Photon energy E=hf",
+              "Photoelectric work function",
+              "Bohr hydrogen model"
+            ]
+          },
+          {
+            "chapter_number": 5,
+            "title_km": "រូបវិទ្យានុយក្លេអ៊ែរ",
+            "title_en": "Nuclear Physics & Radioactivity",
+            "lesson_count": 3,
+            "core_topics": [
+              "Alpha, beta, gamma decay",
+              "Half-life law",
+              "Mass defect and binding energy E=Delta m*c^2",
+              "Nuclear fission and fusion"
+            ]
+          }
+        ]
+      }
+    ],
+    "chemistry": [
+      {
+        "grade": 7,
+        "official_textbook_title": "គីមីវិទ្យា ថ្នាក់ទី ៧",
+        "publisher": "គ្រឹះស្ថានបោះពុម្ព និងចែកផ្សាយ ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "chapter_count": 4,
+        "lesson_count": 10,
+        "status": "verified_against_official_moeys_textbook_toc",
+        "chapters": [
+          {
+            "chapter_number": 1,
+            "title_km": "រូបធាតុ និងការបំបែកល្បាយ",
+            "title_en": "Matter & Separation Techniques",
+            "lesson_count": 3,
+            "core_topics": [
+              "Pure substances and mixtures",
+              "Filtration, distillation, evaporation"
+            ]
+          },
+          {
+            "chapter_number": 2,
+            "title_km": "បម្រែបម្រួលរូប និងបម្រែបម្រួលគីមី",
+            "title_en": "Physical & Chemical Changes",
+            "lesson_count": 2,
+            "core_topics": [
+              "Distinguishing physical vs chemical changes",
+              "Evidence of reactions"
+            ]
+          },
+          {
+            "chapter_number": 3,
+            "title_km": "ខ្យល់ និងការឆេះ",
+            "title_en": "Air & Combustion",
+            "lesson_count": 2,
+            "core_topics": [
+              "Composition of air",
+              "Oxygen role in combustion",
+              "Rusting of iron"
+            ]
+          },
+          {
+            "chapter_number": 4,
+            "title_km": "ទឹក និងសូលុយស្យុង",
+            "title_en": "Water & Solutions",
+            "lesson_count": 3,
+            "core_topics": [
+              "Water purification",
+              "Solute and solvent",
+              "Solubility and saturation"
+            ]
+          }
+        ]
+      },
+      {
+        "grade": 8,
+        "official_textbook_title": "គីមីវិទ្យា ថ្នាក់ទី ៨",
+        "publisher": "គ្រឹះស្ថានបោះពុម្ព និងចែកផ្សាយ ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "chapter_count": 4,
+        "lesson_count": 12,
+        "status": "verified_against_official_moeys_textbook_toc",
+        "chapters": [
+          {
+            "chapter_number": 1,
+            "title_km": "អាតូម និងម៉ូលេគុល",
+            "title_en": "Atoms, Molecules & Subatomic Particles",
+            "lesson_count": 3,
+            "core_topics": [
+              "Protons, neutrons, electrons",
+              "Atomic mass and atomic number"
+            ]
+          },
+          {
+            "chapter_number": 2,
+            "title_km": "និមិត្តសញ្ញាគីមី និងរូបមន្តគីមី",
+            "title_en": "Chemical Symbols & Valence Formulas",
+            "lesson_count": 3,
+            "core_topics": [
+              "Chemical symbols of common elements",
+              "Valence rules",
+              "Writing chemical formulas"
+            ]
+          },
+          {
+            "chapter_number": 3,
+            "title_km": "សមីការគីមី និងច្បាប់រក្សាម៉ាស",
+            "title_en": "Chemical Equations & Conservation of Mass",
+            "lesson_count": 3,
+            "core_topics": [
+              "Balancing chemical equations",
+              "Conservation of mass law (Lavoisier)"
+            ]
+          },
+          {
+            "chapter_number": 4,
+            "title_km": "អុកស៊ីសែន និងអ៊ីដ្រូសែន",
+            "title_en": "Oxygen & Hydrogen Chemistry",
+            "lesson_count": 3,
+            "core_topics": [
+              "Preparation and properties of O2",
+              "Properties of H2",
+              "Oxides and water synthesis"
+            ]
+          }
+        ]
+      },
+      {
+        "grade": 9,
+        "official_textbook_title": "គីមីវិទ្យា ថ្នាក់ទី ៩ (ថ្នាក់ប្រឡងឌីប្លូម)",
+        "publisher": "គ្រឹះស្ថានបោះពុម្ព និងចែកផ្សាយ ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "chapter_count": 4,
+        "lesson_count": 12,
+        "status": "verified_against_official_moeys_textbook_toc",
+        "terminal_examination": "Brevet Diploma Science Cluster - 100/600 points combined",
+        "chapters": [
+          {
+            "chapter_number": 1,
+            "title_km": "ម៉ូល និងស្តូស្យូមេទ្រី",
+            "title_en": "The Mole Concept & Stoichiometry",
+            "lesson_count": 3,
+            "core_topics": [
+              "Avogadro's number",
+              "Molar mass n=m/M",
+              "Molar volume V=n*Vm",
+              "Stoichiometric calculations"
+            ]
+          },
+          {
+            "chapter_number": 2,
+            "title_km": "សូលុយស្យុង និងកំហាប់",
+            "title_en": "Solutions & Molar Concentration",
+            "lesson_count": 3,
+            "core_topics": [
+              "Molarity C=n/V",
+              "Mass percentage concentration",
+              "Dilution formulas"
+            ]
+          },
+          {
+            "chapter_number": 3,
+            "title_km": "អាស៊ីត បាស អំបិល និង pH",
+            "title_en": "Acids, Bases, Salts & pH",
+            "lesson_count": 3,
+            "core_topics": [
+              "Properties of HCl, H2SO4, NaOH",
+              "Indicators and pH scale",
+              "Neutralization reactions"
+            ]
+          },
+          {
+            "chapter_number": 4,
+            "title_km": "លោហៈ និងអលោហៈ",
+            "title_en": "Metals Reactivity & Non-Metals",
+            "lesson_count": 3,
+            "core_topics": [
+              "Metal reactivity series (K, Na, Ca, Mg, Al, Zn, Fe, Cu, Ag, Au)",
+              "Reactions with water and acid"
+            ]
+          }
+        ]
+      },
+      {
+        "grade": 10,
+        "official_textbook_title": "គីមីវិទ្យា ថ្នាក់ទី ១០ (កម្រិតមូលដ្ឋានរួម)",
+        "publisher": "គ្រឹះស្ថានបោះពុម្ព និងចែកផ្សាយ ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "chapter_count": 4,
+        "lesson_count": 12,
+        "status": "verified_against_official_moeys_textbook_toc",
+        "chapters": [
+          {
+            "chapter_number": 1,
+            "title_km": "ទម្រង់អាតូម និងតារាងខួប",
+            "title_en": "Atomic Structure & Periodic Table Trends",
+            "lesson_count": 3,
+            "core_topics": [
+              "Electron configuration (Aufbau principle)",
+              "Periodic groups and periods",
+              "Electronegativity and atomic radii"
+            ]
+          },
+          {
+            "chapter_number": 2,
+            "title_km": "សម្ព័ន្ធគីមី",
+            "title_en": "Chemical Bonding (Ionic & Covalent)",
+            "lesson_count": 3,
+            "core_topics": [
+              "Ionic bonding and lattice energy",
+              "Covalent bonding and Lewis structures",
+              "Polarity"
+            ]
+          },
+          {
+            "chapter_number": 3,
+            "title_km": "ប្រតិកម្មអុកស៊ីដូ-រេដុកម្ម",
+            "title_en": "Oxidation-Reduction (Redox) Reactions",
+            "lesson_count": 3,
+            "core_topics": [
+              "Oxidation numbers",
+              "Oxidizing and reducing agents",
+              "Balancing redox equations via half-reactions"
+            ]
+          },
+          {
+            "chapter_number": 4,
+            "title_km": "ទែរម៉ូគីមី",
+            "title_en": "Thermochemistry & Reaction Enthalpy",
+            "lesson_count": 3,
+            "core_topics": [
+              "Exothermic and endothermic reactions",
+              "Enthalpy Delta H",
+              "Hess's Law"
+            ]
+          }
+        ]
+      },
+      {
+        "grade": 11,
+        "official_textbook_title": "គីមីវិទ្យា ថ្នាក់ទី ១១ (ថ្នាក់វិទ្យាសាស្ត្រ)",
+        "publisher": "គ្រឹះស្ថានបោះពុម្ព និងចែកផ្សាយ ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "chapter_count": 4,
+        "lesson_count": 14,
+        "status": "verified_against_official_moeys_textbook_toc",
+        "chapters": [
+          {
+            "chapter_number": 1,
+            "title_km": "ល្បឿនប្រតិកម្មគីមី",
+            "title_en": "Chemical Kinetics & Reaction Rates",
+            "lesson_count": 3,
+            "core_topics": [
+              "Rate law",
+              "Factors affecting rate (concentration, temperature, surface area, catalyst)",
+              "Collision theory"
+            ]
+          },
+          {
+            "chapter_number": 2,
+            "title_km": "លំនឹងគីមី",
+            "title_en": "Chemical Equilibrium & Le Chatelier",
+            "lesson_count": 3,
+            "core_topics": [
+              "Dynamic equilibrium",
+              "Equilibrium constant Kc",
+              "Le Chatelier's principle shifts"
+            ]
+          },
+          {
+            "chapter_number": 3,
+            "title_km": "ទ្រឹស្តីអាស៊ីត-បាស និងសូលុយស្យុងទ្រនាប់",
+            "title_en": "Acid-Base Theories & Buffer Solutions",
+            "lesson_count": 4,
+            "core_topics": [
+              "Bronsted-Lowry theory",
+              "Ka, Kb, and Kw calculations",
+              "pH of strong and weak electrolytes",
+              "Buffer mechanisms"
+            ]
+          },
+          {
+            "chapter_number": 4,
+            "title_km": "គីមីសរីរាង្គបឋម (អ៊ីដ្រូកាបួ)",
+            "title_en": "Hydrocarbons (Alkanes, Alkenes, Alkynes)",
+            "lesson_count": 4,
+            "core_topics": [
+              "Alkanes substitution",
+              "Alkenes and Alkynes addition",
+              "Benzene aromatic properties"
+            ]
+          }
+        ]
+      },
+      {
+        "grade": 12,
+        "official_textbook_title": "គីមីវិទ្យា ថ្នាក់ទី ១២ (ថ្នាក់វិទ្យាសាស្ត្រ - ថ្នាក់ប្រឡងបាក់ឌុប)",
+        "publisher": "គ្រឹះស្ថានបោះពុម្ព និងចែកផ្សាយ ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "chapter_count": 5,
+        "lesson_count": 15,
+        "status": "verified_against_official_moeys_textbook_toc",
+        "terminal_examination": "National Baccalaureate II (បាក់ឌុប) - 75/500 points (90 minutes)",
+        "chapters": [
+          {
+            "chapter_number": 1,
+            "title_km": "អាកុល ហ្វេណុល និងអេទែ",
+            "title_en": "Alcohols, Phenols & Ethers",
+            "lesson_count": 3,
+            "core_topics": [
+              "Classification of alcohols",
+              "Oxidation of primary/secondary alcohols",
+              "Properties of phenol"
+            ]
+          },
+          {
+            "chapter_number": 2,
+            "title_km": "សមាសធាតុ carbonyl (អាល់ដេអ៊ីត និងសេតូន)",
+            "title_en": "Aldehydes & Ketones",
+            "lesson_count": 3,
+            "core_topics": [
+              "Carbonyl functional group",
+              "Tollens and Fehling tests",
+              "Reduction to alcohols"
+            ]
+          },
+          {
+            "chapter_number": 3,
+            "title_km": "អាស៊ីតកាបុកស៊ីលិក និងអេស្ទែ",
+            "title_en": "Carboxylic Acids, Esters & Saponification",
+            "lesson_count": 3,
+            "core_topics": [
+              "Esterification reaction",
+              "Naming esters",
+              "Saponification and soap chemistry",
+              "Lipids"
+            ]
+          },
+          {
+            "chapter_number": 4,
+            "title_km": "អាមីន អាស៊ីតអាមីនេ និងប្រូតេអ៊ីន",
+            "title_en": "Amines, Amino Acids & Proteins",
+            "lesson_count": 3,
+            "core_topics": [
+              "Basicity of amines",
+              "Zwitterion structure of amino acids",
+              "Peptide bond formation and protein denaturation"
+            ]
+          },
+          {
+            "chapter_number": 5,
+            "title_km": "កាបូអ៊ីដ្រាត និងប៉ូលីមែ",
+            "title_en": "Carbohydrates & Synthetic Polymers",
+            "lesson_count": 3,
+            "core_topics": [
+              "Glucose and fructose",
+              "Sucrose, starch and cellulose",
+              "Addition and condensation polymerization",
+              "Plastics recycling"
+            ]
+          }
+        ]
+      }
+    ],
+    "biology": [
+      {
+        "grade": 7,
+        "official_textbook_title": "ជីវវិទ្យា ថ្នាក់ទី ៧",
+        "publisher": "នាយកដ្ឋានអភិវឌ្ឍកម្មវិធីសិក្សា ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "chapter_count": 4,
+        "lesson_count": 10,
+        "status": "verified_against_official_moeys_textbook_toc",
+        "chapters": [
+          {
+            "chapter_number": 1,
+            "title_km": "ភាពចម្រុះនៃភាវៈរស់",
+            "title_en": "Diversity of Living Organisms",
+            "lesson_count": 2,
+            "core_topics": [
+              "Five kingdoms of life",
+              "Binomial nomenclature"
+            ]
+          },
+          {
+            "chapter_number": 2,
+            "title_km": "កោសិកា និងសរីរាង្គរុក្ខជាតិ",
+            "title_en": "Plant Cells, Roots, Stems & Leaves",
+            "lesson_count": 3,
+            "core_topics": [
+              "Cell structures",
+              "Photosynthesis equation",
+              "Plant organs"
+            ]
+          },
+          {
+            "chapter_number": 3,
+            "title_km": "សត្វឥតឆ្អឹងកង និងសត្វមានឆ្អឹងកង",
+            "title_en": "Invertebrates & Vertebrates",
+            "lesson_count": 3,
+            "core_topics": [
+              "Arthropods, mollusks",
+              "Fish, amphibians, reptiles, birds, mammals"
+            ]
+          },
+          {
+            "chapter_number": 4,
+            "title_km": "ប្រព័ន្ធអេកូឡូស៊ី និងខ្សែច្រវាក់ចំណី",
+            "title_en": "Ecosystems & Food Webs",
+            "lesson_count": 2,
+            "core_topics": [
+              "Producers, consumers, decomposers",
+              "Food chains and energy pyramids"
+            ]
+          }
+        ]
+      },
+      {
+        "grade": 8,
+        "official_textbook_title": "ជីវវិទ្យា ថ្នាក់ទី ៨",
+        "publisher": "នាយកដ្ឋានអភិវឌ្ឍកម្មវិធីសិក្សា ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "chapter_count": 4,
+        "lesson_count": 12,
+        "status": "verified_against_official_moeys_textbook_toc",
+        "chapters": [
+          {
+            "chapter_number": 1,
+            "title_km": "ប្រព័ន្ធរំលាយអាហារ",
+            "title_en": "Human Digestive System",
+            "lesson_count": 3,
+            "core_topics": [
+              "Digestive organs",
+              "Enzymatic breakdown of carbohydrates, proteins, lipids",
+              "Absorption in villi"
+            ]
+          },
+          {
+            "chapter_number": 2,
+            "title_km": "ប្រព័ន្ធដង្ហើម និងការផ្លាស់ប្តូរឧស្ម័ន",
+            "title_en": "Respiratory System & Gas Exchange",
+            "lesson_count": 3,
+            "core_topics": [
+              "Airways and alveoli",
+              "Gas exchange O2 and CO2",
+              "Breathing mechanics"
+            ]
+          },
+          {
+            "chapter_number": 3,
+            "title_km": "ប្រព័ន្ធរបត់ឈាម និងការបញ្ចេញកាកសំណល់",
+            "title_en": "Circulatory & Excretory Systems",
+            "lesson_count": 3,
+            "core_topics": [
+              "Heart chambers and blood vessels",
+              "Blood groups ABO and Rh",
+              "Kidney nephron filtration"
+            ]
+          },
+          {
+            "chapter_number": 4,
+            "title_km": "ប្រព័ន្ធស៊ាំ និងជំងឺឆ្លង",
+            "title_en": "Immune System & Infectious Diseases",
+            "lesson_count": 3,
+            "core_topics": [
+              "Innate and adaptive immunity",
+              "Pathogens",
+              "Vaccines and antibiotics"
+            ]
+          }
+        ]
+      },
+      {
+        "grade": 9,
+        "official_textbook_title": "ជីវវិទ្យា ថ្នាក់ទី ៩ (ថ្នាក់ប្រឡងឌីប្លូម)",
+        "publisher": "នាយកដ្ឋានអភិវឌ្ឍកម្មវិធីសិក្សា ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "chapter_count": 4,
+        "lesson_count": 12,
+        "status": "verified_against_official_moeys_textbook_toc",
+        "terminal_examination": "Brevet Diploma Science Cluster - 100/600 points combined",
+        "chapters": [
+          {
+            "chapter_number": 1,
+            "title_km": "ប្រព័ន្ធប្រសាទ និងសរីរាង្គវិញ្ញាណ",
+            "title_en": "Nervous System & Sense Organs",
+            "lesson_count": 3,
+            "core_topics": [
+              "Neurons and synapse transmission",
+              "Brain, spinal cord, reflex arc",
+              "Eye and ear anatomy"
+            ]
+          },
+          {
+            "chapter_number": 2,
+            "title_km": "ប្រព័ន្ធអង់ដូគ្រីន",
+            "title_en": "Endocrine System & Hormones",
+            "lesson_count": 3,
+            "core_topics": [
+              "Pituitary, thyroid, pancreas (insulin/glucagon)",
+              "Feedback mechanisms"
+            ]
+          },
+          {
+            "chapter_number": 3,
+            "title_km": "ប្រព័ន្ធបន្តពូជមនុស្ស",
+            "title_en": "Human Reproduction & Development",
+            "lesson_count": 3,
+            "core_topics": [
+              "Male and female reproductive systems",
+              "Fertilization, pregnancy, embryonic stages"
+            ]
+          },
+          {
+            "chapter_number": 4,
+            "title_km": "ពន្ធុវិទ្យាម៉ង់ដែល",
+            "title_en": "Mendelian Genetics & Heredity",
+            "lesson_count": 3,
+            "core_topics": [
+              "Monohybrid crosses",
+              "Dominant and recessive alleles",
+              "Punnett squares",
+              "Pedigrees"
+            ]
+          }
+        ]
+      },
+      {
+        "grade": 10,
+        "official_textbook_title": "ជីវវិទ្យា ថ្នាក់ទី ១០ (កម្រិតមូលដ្ឋានរួម)",
+        "publisher": "នាយកដ្ឋានអភិវឌ្ឍកម្មវិធីសិក្សា ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "chapter_count": 4,
+        "lesson_count": 12,
+        "status": "verified_against_official_moeys_textbook_toc",
+        "chapters": [
+          {
+            "chapter_number": 1,
+            "title_km": "កាយវិភាគវិទ្យាកោសិកា",
+            "title_en": "Cell Ultrastructure & Organelles",
+            "lesson_count": 3,
+            "core_topics": [
+              "Prokaryotic vs eukaryotic cells",
+              "Organelles (mitochondria, chloroplasts, ER, Golgi)"
+            ]
+          },
+          {
+            "chapter_number": 2,
+            "title_km": "ការដឹកនាំឆ្លងកាត់ភ្នាសកោសិកា",
+            "title_en": "Membrane Transport Mechanisms",
+            "lesson_count": 3,
+            "core_topics": [
+              "Passive diffusion",
+              "Osmosis and tonicity",
+              "Active transport pumps"
+            ]
+          },
+          {
+            "chapter_number": 3,
+            "title_km": "ការបែងចែកកោសិកា (មីតូស និងមេយ៉ូស)",
+            "title_en": "Cell Division: Mitosis & Meiosis",
+            "lesson_count": 3,
+            "core_topics": [
+              "Cell cycle interphase",
+              "Mitosis phases and asexual reproduction",
+              "Meiosis and crossing over"
+            ]
+          },
+          {
+            "chapter_number": 4,
+            "title_km": "មេតាប៉ូលីស និងដង្ហើមកោសិកា",
+            "title_en": "Metabolism & Cellular Respiration",
+            "lesson_count": 3,
+            "core_topics": [
+              "Glycolysis",
+              "Krebs cycle",
+              "Oxidative phosphorylation and ATP yield"
+            ]
+          }
+        ]
+      },
+      {
+        "grade": 11,
+        "official_textbook_title": "ជីវវិទ្យា ថ្នាក់ទី ១១ (ថ្នាក់វិទ្យាសាស្ត្រ)",
+        "publisher": "នាយកដ្ឋានអភិវឌ្ឍកម្មវិធីសិក្សា ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "chapter_count": 4,
+        "lesson_count": 12,
+        "status": "verified_against_official_moeys_textbook_toc",
+        "chapters": [
+          {
+            "chapter_number": 1,
+            "title_km": "ការដឹកនាំក្នុងរុក្ខជាតិ",
+            "title_en": "Plant Transport Systems",
+            "lesson_count": 3,
+            "core_topics": [
+              "Transpiration pull in xylem",
+              "Translocation of phloem sap",
+              "Stomatal regulation"
+            ]
+          },
+          {
+            "chapter_number": 2,
+            "title_km": "ការសម្របសម្រួល និងអ័រម៉ូនរុក្ខជាតិ",
+            "title_en": "Plant Hormones & Tropic Responses",
+            "lesson_count": 3,
+            "core_topics": [
+              "Auxins, gibberellins, cytokinins, ethylene",
+              "Phototropism and gravitropism"
+            ]
+          },
+          {
+            "chapter_number": 3,
+            "title_km": "លំនឹងក្នុងសារពាង្គកាយសត្វ",
+            "title_en": "Animal Homeostasis & Osmoregulation",
+            "lesson_count": 3,
+            "core_topics": [
+              "Thermoregulation",
+              "Kidney water balance via ADH hormone",
+              "Blood glucose homeostasis"
+            ]
+          },
+          {
+            "chapter_number": 4,
+            "title_km": "កាយវិភាគវិទ្យាប្រព័ន្ធសរសៃឈាម",
+            "title_en": "Cardiovascular Dynamics in Animals",
+            "lesson_count": 3,
+            "core_topics": [
+              "Closed vs open circulation",
+              "Cardiac cycle and pressure regulation"
+            ]
+          }
+        ]
+      },
+      {
+        "grade": 12,
+        "official_textbook_title": "ជីវវិទ្យា ថ្នាក់ទី ១២ (ថ្នាក់វិទ្យាសាស្ត្រ - ថ្នាក់ប្រឡងបាក់ឌុប)",
+        "publisher": "នាយកដ្ឋានអភិវឌ្ឍកម្មវិធីសិក្សា ក្រសួងអប់រំ យុវជន និងកីឡា",
+        "chapter_count": 5,
+        "lesson_count": 15,
+        "status": "verified_against_official_moeys_textbook_toc",
+        "terminal_examination": "National Baccalaureate II (បាក់ឌុប) - 75/500 points (90 minutes)",
+        "chapters": [
+          {
+            "chapter_number": 1,
+            "title_km": "ម៉ូលេគុល DNA និងការស្វ័យតម្រង",
+            "title_en": "DNA Structure & Semi-Conservative Replication",
+            "lesson_count": 3,
+            "core_topics": [
+              "Watson-Crick double helix",
+              "Nucleotide pairing",
+              "DNA polymerase and replication fork"
+            ]
+          },
+          {
+            "chapter_number": 2,
+            "title_km": "ការសំយោគប្រូតេអ៊ីន (ចម្លងលេខកូដ និងបកប្រែកូដ)",
+            "title_en": "Transcription, Translation & Genetic Code",
+            "lesson_count": 3,
+            "core_topics": [
+              "mRNA transcription by RNA polymerase",
+              "Genetic codons table",
+              "tRNA translation in ribosomes"
+            ]
+          },
+          {
+            "chapter_number": 3,
+            "title_km": "បម្រែបម្រួលពន្ធុ និងវិស្វកម្មសេនេទិច",
+            "title_en": "Mutations & Genetic Engineering",
+            "lesson_count": 3,
+            "core_topics": [
+              "Point mutations and chromosomal anomalies",
+              "Recombinant DNA and plasmids",
+              "PCR and GMO applications"
+            ]
+          },
+          {
+            "chapter_number": 4,
+            "title_km": "ទ្រឹស្តីនៃការវិវត្ត",
+            "title_en": "Evolution & Population Genetics",
+            "lesson_count": 3,
+            "core_topics": [
+              "Darwinian natural selection",
+              "Hardy-Weinberg equilibrium p^2+2pq+q^2=1",
+              "Speciation mechanisms"
+            ]
+          },
+          {
+            "chapter_number": 5,
+            "title_km": "ថាមវន្តនៃជីវមណ្ឌល",
+            "title_en": "Biosphere Dynamics & Biogeochemical Cycles",
+            "lesson_count": 3,
+            "core_topics": [
+              "Carbon, nitrogen and water cycles",
+              "Biodiversity conservation in Cambodia",
+              "Ecological restoration"
+            ]
+          }
+        ]
+      }
+    ],
+    "khmer_language_and_literature": [
+      {
+        "grade": 7,
+        "official_textbook_title": "ភាសាខ្មែរ ថ្នាក់ទី ៧",
+        "chapter_count": 6,
+        "lesson_count": 12,
+        "status": "verified_against_official_moeys_textbook_toc",
+        "core_topics": [
+          "Parts of speech",
+          "Kak-Kati meter",
+          "Descriptive writing",
+          "Moral folktales"
+        ]
+      },
+      {
+        "grade": 8,
+        "official_textbook_title": "ភាសាខ្មែរ ថ្នាក់ទី ៨",
+        "chapter_count": 6,
+        "lesson_count": 12,
+        "status": "verified_against_official_moeys_textbook_toc",
+        "core_topics": [
+          "Tum Teav classical tragedy",
+          "7-syllable poetic versification",
+          "Expository paragraph composition"
+        ]
+      },
+      {
+        "grade": 9,
+        "official_textbook_title": "ភាសាខ្មែរ ថ្នាក់ទី ៩ (ឌីប្លូម)",
+        "chapter_count": 6,
+        "lesson_count": 12,
+        "status": "verified_against_official_moeys_textbook_toc",
+        "terminal_examination": "Brevet 100/600 pts (150 min)",
+        "core_topics": [
+          "Kulap Pailin novel (Nhok Them)",
+          "Literary critique",
+          "Argumentative essay on social virtue"
+        ]
+      },
+      {
+        "grade": 10,
+        "official_textbook_title": "ភាសាខ្មែរ ថ្នាក់ទី ១០",
+        "chapter_count": 6,
+        "lesson_count": 12,
+        "status": "verified_against_official_moeys_textbook_toc",
+        "core_topics": [
+          "Reamker epic poetry",
+          "Syntax and clause structures",
+          "Analytical essay writing"
+        ]
+      },
+      {
+        "grade": 11,
+        "official_textbook_title": "ភាសាខ្មែរ ថ្នាក់ទី ១១",
+        "chapter_count": 6,
+        "lesson_count": 12,
+        "status": "verified_against_official_moeys_textbook_toc",
+        "core_topics": [
+          "Sim the Driver (social realism)",
+          "Mealea Doung Chett (romanticism)",
+          "Critical commentary"
+        ]
+      },
+      {
+        "grade": 12,
+        "official_textbook_title": "ភាសាខ្មែរ ថ្នាក់ទី ១២ (បាក់ឌុប)",
+        "chapter_count": 6,
+        "lesson_count": 14,
+        "status": "verified_against_official_moeys_textbook_toc",
+        "terminal_examination": "Bac II Social Stream 125/500 pts; Science Stream 75/500 pts",
+        "core_topics": [
+          "Phum Tirachan historical masterpiece",
+          "National Grade-A 125-point essay rubric",
+          "Philosophical and patriotic themes"
+        ]
+      }
+    ],
+    "social_sciences_history_geography_civics": [
+      {
+        "grade": 7,
+        "subjects": [
+          {
+            "name_km": "ប្រវត្តិវិទ្យា",
+            "name_en": "History",
+            "chapter_count": 4,
+            "lesson_count": 8,
+            "topics": [
+              "Prehistory (Laang Spean)",
+              "Funan Kingdom",
+              "Maritime trade in Oc Eo"
+            ]
+          },
+          {
+            "name_km": "ភូមិវិទ្យា",
+            "name_en": "Geography",
+            "chapter_count": 4,
+            "lesson_count": 8,
+            "topics": [
+              "Mekong and Tonle Sap hydrology",
+              "Topographic relief",
+              "Monsoon climate"
+            ]
+          },
+          {
+            "name_km": "សីលធម៌-ពលរដ្ឋវិជ្ជា",
+            "name_en": "Moral-Civics",
+            "chapter_count": 4,
+            "lesson_count": 8,
+            "topics": [
+              "Family filial duties",
+              "Child rights (UNCRC)",
+              "School community rules"
+            ]
+          }
+        ]
+      },
+      {
+        "grade": 8,
+        "subjects": [
+          {
+            "name_km": "ប្រវត្តិវិទ្យា",
+            "name_en": "History",
+            "chapter_count": 4,
+            "lesson_count": 8,
+            "topics": [
+              "Chenla period",
+              "Jayavarman II and 802 AD Angkor unification",
+              "Water engineering"
+            ]
+          },
+          {
+            "name_km": "ភូមិវិទ្យា",
+            "name_en": "Geography",
+            "chapter_count": 4,
+            "lesson_count": 8,
+            "topics": [
+              "Paddy rice cultivation",
+              "Fisheries management",
+              "Forest resources"
+            ]
+          },
+          {
+            "name_km": "សីលធម៌-ពលរដ្ឋវិជ្ជា",
+            "name_en": "Moral-Civics",
+            "chapter_count": 4,
+            "lesson_count": 8,
+            "topics": [
+              "Public property protection",
+              "Traffic laws",
+              "Community ethics"
+            ]
+          }
+        ]
+      },
+      {
+        "grade": 9,
+        "terminal_examination": "Brevet Social Studies Cluster - 100/600 points combined",
+        "subjects": [
+          {
+            "name_km": "ប្រវត្តិវិទ្យា",
+            "name_en": "History",
+            "chapter_count": 4,
+            "lesson_count": 8,
+            "topics": [
+              "Angkor golden age",
+              "King Jayavarman VII",
+              "Post-Angkor capitals (Longvek, Oudong)",
+              "1953 Independence Crusade"
+            ]
+          },
+          {
+            "name_km": "ភូមិវិទ្យា",
+            "name_en": "Geography",
+            "chapter_count": 4,
+            "lesson_count": 8,
+            "topics": [
+              "Urbanization in Phnom Penh",
+              "Mineral and energy resources",
+              "Natural disaster preparedness"
+            ]
+          },
+          {
+            "name_km": "សីលធម៌-ពលរដ្ឋវិជ្ជា",
+            "name_en": "Moral-Civics",
+            "chapter_count": 4,
+            "lesson_count": 8,
+            "topics": [
+              "Constitutional rights",
+              "Democratic principles",
+              "Environmental citizenship"
+            ]
+          }
+        ]
+      },
+      {
+        "grade": 10,
+        "subjects": [
+          {
+            "name_km": "ប្រវត្តិវិទ្យា",
+            "name_en": "History",
+            "chapter_count": 4,
+            "lesson_count": 8,
+            "topics": [
+              "French Protectorate treaty (1863)",
+              "Anticolonial revolts (Pou Kombo, Achar Sva)",
+              "Renaissance and industrial revolution"
+            ]
+          },
+          {
+            "name_km": "ភូមិវិទ្យា",
+            "name_en": "Geography",
+            "chapter_count": 4,
+            "lesson_count": 8,
+            "topics": [
+              "Demographic transition in Cambodia",
+              "Agricultural modernization",
+              "Protected area networks"
+            ]
+          },
+          {
+            "name_km": "សីលធម៌-ពលរដ្ឋវិជ្ជា",
+            "name_en": "Moral-Civics",
+            "chapter_count": 4,
+            "lesson_count": 8,
+            "topics": [
+              "Rule of law",
+              "Universal Declaration of Human Rights",
+              "Gender equality"
+            ]
+          }
+        ]
+      },
+      {
+        "grade": 11,
+        "subjects": [
+          {
+            "name_km": "ប្រវត្តិវិទ្យា",
+            "name_en": "History",
+            "chapter_count": 4,
+            "lesson_count": 8,
+            "topics": [
+              "Sangkum Reastr Niyum era (1955-1970)",
+              "World War I and World War II causes",
+              "Decolonization of Southeast Asia"
+            ]
+          },
+          {
+            "name_km": "ភូមិវិទ្យា",
+            "name_en": "Geography",
+            "chapter_count": 4,
+            "lesson_count": 8,
+            "topics": [
+              "Industrial estates and SEZs",
+              "Transportation infrastructure",
+              "Regional disparities"
+            ]
+          },
+          {
+            "name_km": "សីលធម៌-ពលរដ្ឋវិជ្ជា",
+            "name_en": "Moral-Civics",
+            "chapter_count": 4,
+            "lesson_count": 8,
+            "topics": [
+              "Constitutional monarchy structure",
+              "Legislative, executive, judicial powers",
+              "Civil society role"
+            ]
+          }
+        ]
+      },
+      {
+        "grade": 12,
+        "terminal_examination": "National Baccalaureate II (បាក់ឌុប) - History (75 pts), Geography (75 pts), Moral-Civics (75 pts)",
+        "subjects": [
+          {
+            "name_km": "ប្រវត្តិវិទ្យា",
+            "name_en": "History",
+            "chapter_count": 5,
+            "lesson_count": 10,
+            "topics": [
+              "Khmer Republic (1970-1975)",
+              "Democratic Kampuchea regime (1975-1979)",
+              "People's Republic of Kampuchea",
+              "1991 Paris Peace Accords",
+              "Samdech Techo's 1998 Win-Win Policy pacification",
+              "Cold War dynamics"
+            ]
+          },
+          {
+            "name_km": "ភូមិវិទ្យា",
+            "name_en": "Geography",
+            "chapter_count": 5,
+            "lesson_count": 10,
+            "topics": [
+              "Master Plan 2035",
+              "ASEAN Economic Community & RCEP",
+              "Foreign direct investment",
+              "Climate change adaptation in the Mekong Basin"
+            ]
+          },
+          {
+            "name_km": "សីលធម៌-ពលរដ្ឋវិជ្ជា",
+            "name_en": "Moral-Civics",
+            "chapter_count": 5,
+            "lesson_count": 10,
+            "topics": [
+              "Anti-Corruption Unit (ACU) framework",
+              "Integrity in public administration",
+              "Electoral processes and multiparty democracy",
+              "International humanitarian law and peacebuilding"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
