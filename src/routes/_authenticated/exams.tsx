@@ -33,7 +33,6 @@ import {
   RotateCcw,
   ShieldCheck,
   ExternalLink,
-  Bot,
   AlertCircle,
   Clock,
   BookMarked,
@@ -986,7 +985,6 @@ function ExamsArchivePage() {
 
   return (
     <AppShell
-      wide={true}
       breadcrumbs={[
         { label: isKhmer ? "ទំព័រដើម" : "Home", href: "/home" },
         { label: isKhmer ? "ស្វែងយល់" : "Explore", href: "/explore" },
@@ -995,61 +993,64 @@ function ExamsArchivePage() {
       rightSidebar={
         <div className="space-y-4">
           {/* Archive Summary Card */}
-          <div className="p-4 rounded-3xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs space-y-3">
+          <div className="p-5 rounded-3xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs space-y-3">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-                <FileText className="h-4 w-4 text-blue-600" />
-                <span>{isKhmer ? "បណ្ណសារវិញ្ញាសា" : "MoEYS Archive"}</span>
+              <span className="text-xs font-black text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
+                <FileText className="h-4 w-4 text-emerald-600" />
+                <span>{isKhmer ? "បណ្ណសារវិញ្ញាសាជាតិ" : "MoEYS Archive"}</span>
               </span>
-              <span className="text-[10px] font-bold text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 px-2 py-0.5 rounded-full border border-blue-200/80">
-                2011–2024
+              <span className="text-[10px] font-black text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-0.5 rounded-full border border-emerald-200/80 dark:border-emerald-800">
+                ២០១១–២០២៦
               </span>
             </div>
-            <p className="text-[11px] text-slate-400 leading-relaxed">
+            <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
               {isKhmer
-                ? `មានវិញ្ញាសាសរុប ${totalResultsCount} ច្បាប់ រួមទាំងបាក់ឌុប និងសិស្សពូកែទូទាំងប្រទេស។`
-                : `Contains ${totalResultsCount} verified papers across Bac II and Outstanding Students examinations.`}
+                ? `មានវិញ្ញាសាសរុប ${totalResultsCount} ច្បាប់ រួមទាំងបាក់ឌុប និងសិស្សពូកែទូទាំងប្រទេស ដោយមានអត្រាកំណែផ្លូវការ និង PDF ច្បាប់ដើម។`
+                : `Contains ${totalResultsCount} verified papers across Bac II and Outstanding Students with official rubrics & original PDFs.`}
             </p>
           </div>
 
-          {/* Offline Saved Papers Indicator */}
-          <div className="p-4 rounded-3xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs space-y-2">
-            <div className="flex items-center justify-between text-xs">
-              <span className="font-bold text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-                <BookmarkCheck className="h-4 w-4 text-amber-500" />
-                <span>{isKhmer ? "វិញ្ញាសា Offline" : "Saved Offline"}</span>
-              </span>
-              <span className="text-[11px] font-bold text-amber-600">
-                {offlineExamIds.length} {isKhmer ? "ច្បាប់" : "papers"}
-              </span>
-            </div>
-            <p className="text-[11px] text-slate-400 leading-relaxed">
-              {isKhmer
-                ? "វិញ្ញាសាដែលបានទាញយកអាចបើកមើលដោយគ្មានអ៊ីនធឺណិតបានគ្រប់ពេលវេលា។"
-                : "Downloaded papers can be viewed offline without internet."}
-            </p>
-          </div>
-
-          {/* Contribute Paper Link */}
-          <div className="p-4 rounded-3xl border border-dashed border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 space-y-2">
-            <span className="text-xs font-bold text-slate-700 dark:text-slate-300 block">
-              {isKhmer ? "ចូលរួមចែករំលែកវិញ្ញាសា" : "Contribute Papers"}
+          {/* Quick Data Export */}
+          <div className="p-5 rounded-3xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs space-y-3">
+            <span className="text-xs font-black text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
+              <FileSpreadsheet className="h-4 w-4 text-emerald-600" />
+              <span>{isKhmer ? "ទាញយកទិន្នន័យ (CSV)" : "Export Archive Dataset"}</span>
             </span>
-            <p className="text-[11px] text-slate-400 leading-relaxed">
+            <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
               {isKhmer
-                ? "មានវិញ្ញាសាចាស់ៗដែលមិនទាន់មានក្នុងប្រព័ន្ធ? ផ្ញើមកកាន់ Telegram យើងខ្ញុំ។"
-                : "Have historical exam papers to contribute? Reach out on Telegram."}
+                ? "ទាញយកតារាងវិញ្ញាសា និងពិន្ទុទាំងអស់ជាទម្រង់ CSV សម្រាប់ស្រាវជ្រាវ។"
+                : "Download complete catalog of papers, specs, and years as CSV."}
             </p>
             <a
-              href="https://t.me/sciencekh_support"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:underline"
+              href="/archive/cambodia_historical_exams_2011_2026.csv"
+              download="cambodia_historical_exams_2011_2026.csv"
+              onClick={() => sounds.playPop()}
+              className="w-full h-9 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 text-xs font-bold flex items-center justify-center gap-2 transition active:scale-95 cursor-pointer shadow-2xs"
             >
-              <span>Telegram: @sciencekh_support</span>
-              <ExternalLink className="h-3 w-3" />
+              <Download className="h-3.5 w-3.5 text-emerald-600" />
+              <span>{isKhmer ? "ទាញយកឯកសារ CSV" : "Download CSV Dataset"}</span>
             </a>
           </div>
+
+          {/* Offline Saved Papers Indicator (Only shown if user has saved papers) */}
+          {offlineExamIds.length > 0 && (
+            <div className="p-4 rounded-3xl border border-emerald-200/80 dark:border-emerald-800/80 bg-emerald-50/40 dark:bg-emerald-950/20 shadow-2xs space-y-2">
+              <div className="flex items-center justify-between text-xs">
+                <span className="font-bold text-emerald-800 dark:text-emerald-300 flex items-center gap-1.5">
+                  <BookmarkCheck className="h-4 w-4 text-emerald-600" />
+                  <span>{isKhmer ? "វិញ្ញាសា Offline" : "Saved Offline"}</span>
+                </span>
+                <span className="text-[11px] font-black text-emerald-700 dark:text-emerald-300 bg-white dark:bg-slate-800 px-2 py-0.5 rounded-full border border-emerald-200">
+                  {offlineExamIds.length} {isKhmer ? "ច្បាប់" : "papers"}
+                </span>
+              </div>
+              <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
+                {isKhmer
+                  ? "វិញ្ញាសាដែលបានរក្សាទុកអាចបើកមើលបានដោយគ្មានអ៊ីនធឺណិត។"
+                  : "Saved papers are accessible offline anytime."}
+              </p>
+            </div>
+          )}
         </div>
       }
     >
@@ -1065,158 +1066,216 @@ function ExamsArchivePage() {
       />
 
       <div className="space-y-6">
+        {/* Mobile-Only Header Brand Strip */}
+        <div className="lg:hidden px-4 pt-safe-top pb-1">
+          <div className="flex items-center justify-between">
+            <div>
+              <h1 className="font-display text-lg font-black text-slate-900 dark:text-white leading-tight">
+                វិញ្ញាសាជាតិ MoEYS
+              </h1>
+              <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
+                {category === "bacii" ? "បណ្ណសារប្រឡងបាក់ឌុប" : "បណ្ណសារប្រឡងសិស្សពូកែ"} • {totalResultsCount} វិញ្ញាសា
+              </p>
+            </div>
+            <span className="text-[10px] font-black px-2.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
+              ២០១១–២០២៦
+            </span>
+          </div>
+        </div>
+
         {/* ============================================================ */}
-        {/* 1. CLEAN, SPACIOUS MOBILE-FIRST TOP BAR                      */}
+        {/* 2. UNIFIED ACADEMIC SEARCH & CONTROL PANEL (DESKTOP & MOBILE)*/}
         {/* ============================================================ */}
-        <header
-          className="lg:hidden sticky top-0 z-20 border-b border-slate-200/80 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md header-safe-top transition-colors px-4 py-2.5"
-          style={{ paddingTop: "max(3.25rem, calc(env(safe-area-inset-top, 0px) + 0.5rem))" }}
-        >
-          <div className="mx-auto w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl px-4 sm:px-6 pt-3 pb-2.5 space-y-2.5">
-            {/* Row 1: Brand Title & Filter Actions */}
-            <div className="flex items-center justify-between gap-2">
-              <div>
-                <div className="flex items-center gap-1.5">
-                  <h1 className="font-display text-base sm:text-lg font-black text-slate-900 dark:text-white leading-tight">
-                    វិញ្ញាសាជាតិ MoEYS
-                  </h1>
-                  <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 shrink-0">
-                    ២០១១–២០២៦
-                  </span>
+        <section className="w-full mx-auto px-4 sm:px-6 lg:px-0 space-y-4 pb-32 lg:pb-8">
+          {/* Fast Search Input Box */}
+          <div className="relative">
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="ស្វែងរកតាមឈ្មោះវិញ្ញាសា ឬឆ្នាំ (ឧ. គណិតវិទ្យា, ២០២៤, រូបវិទ្យា)..."
+              className="w-full h-11 pl-10 pr-9 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 text-xs sm:text-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:border-emerald-500 shadow-2xs transition"
+            />
+            {searchQuery && (
+              <button
+                type="button"
+                onClick={() => setSearchQuery("")}
+                className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-slate-400 hover:text-slate-600 rounded-full cursor-pointer"
+                aria-label="Clear search"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            )}
+          </div>
+
+          {/* Interactive Filters Card */}
+          <div className="p-3.5 sm:p-4 rounded-3xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs space-y-3">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              {/* Category Segmented Control & Stream / Grade Toggle */}
+              <div className="flex items-center gap-2 flex-wrap">
+                <div className="inline-flex p-1 rounded-2xl bg-slate-100 dark:bg-slate-800 text-xs font-bold">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      sounds.playPop();
+                      setCategory("bacii");
+                      setSelectedSubject("all");
+                    }}
+                    className={cn(
+                      "px-3 py-1.5 rounded-xl transition cursor-pointer select-none",
+                      category === "bacii"
+                        ? "bg-white dark:bg-slate-900 text-emerald-700 dark:text-emerald-300 shadow-2xs font-black"
+                        : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                    )}
+                  >
+                    បាក់ឌុប (Bac II)
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      sounds.playPop();
+                      setCategory("outstanding_student");
+                      setSelectedSubject("all");
+                    }}
+                    className={cn(
+                      "px-3 py-1.5 rounded-xl transition cursor-pointer select-none",
+                      category === "outstanding_student"
+                        ? "bg-white dark:bg-slate-900 text-emerald-700 dark:text-emerald-300 shadow-2xs font-black"
+                        : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                    )}
+                  >
+                    សិស្សពូកែ
+                  </button>
                 </div>
-                <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
-                  {category === "bacii" ? "បណ្ណសារប្រឡងបាក់ឌុប" : "បណ្ណសារប្រឡងសិស្សពូកែ"} • {totalResultsCount} វិញ្ញាសា
-                </p>
+
+                {/* Stream / Level Switcher */}
+                {category === "bacii" ? (
+                  <div className="inline-flex p-1 rounded-2xl bg-slate-100 dark:bg-slate-800 text-xs font-bold">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        sounds.playPop();
+                        setStream("science");
+                        setSelectedSubject("all");
+                      }}
+                      className={cn(
+                        "px-3 py-1.5 rounded-xl transition cursor-pointer select-none",
+                        stream === "science"
+                          ? "bg-emerald-600 text-white shadow-2xs font-black"
+                          : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                      )}
+                    >
+                      វិទ្យាសាស្ត្រពិត
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        sounds.playPop();
+                        setStream("social");
+                        setSelectedSubject("all");
+                      }}
+                      className={cn(
+                        "px-3 py-1.5 rounded-xl transition cursor-pointer select-none",
+                        stream === "social"
+                          ? "bg-emerald-600 text-white shadow-2xs font-black"
+                          : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                      )}
+                    >
+                      សង្គម
+                    </button>
+                  </div>
+                ) : (
+                  <div className="inline-flex p-1 rounded-2xl bg-slate-100 dark:bg-slate-800 text-xs font-bold">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        sounds.playPop();
+                        setOutstandingGrade(12);
+                        setSelectedSubject("all");
+                      }}
+                      className={cn(
+                        "px-3 py-1.5 rounded-xl transition cursor-pointer select-none",
+                        outstandingGrade === 12
+                          ? "bg-emerald-600 text-white shadow-2xs font-black"
+                          : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                      )}
+                    >
+                      ថ្នាក់ទី ១២
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        sounds.playPop();
+                        setOutstandingGrade(9);
+                        setSelectedSubject("all");
+                      }}
+                      className={cn(
+                        "px-3 py-1.5 rounded-xl transition cursor-pointer select-none",
+                        outstandingGrade === 9
+                          ? "bg-emerald-600 text-white shadow-2xs font-black"
+                          : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                      )}
+                    >
+                      ថ្នាក់ទី ៩
+                    </button>
+                  </div>
+                )}
               </div>
 
-              <div className="flex items-center gap-1.5 shrink-0">
-                {/* Year Selector Pill */}
-                <button
-                  type="button"
-                  onClick={() => {
-                    sounds.playPop();
-                    setShowYearSheet(true);
-                  }}
-                  className={cn(
-                    "flex items-center gap-1.5 h-8 px-2.5 rounded-xl border text-xs font-bold transition active:scale-95 cursor-pointer shadow-2xs whitespace-nowrap",
-                    selectedYear !== "all"
-                      ? "border-emerald-500 bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 font-extrabold"
-                      : "border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:border-emerald-500"
-                  )}
-                  title="ជ្រើសរើសសម័យប្រឡង"
-                >
-                  <Calendar className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
-                  <span>{selectedYear === "all" ? "គ្រប់ឆ្នាំ" : selectedYear}</span>
-                  <ChevronDown className="h-3 w-3 text-slate-400" />
-                </button>
+              {/* Right Group: Year Selector + Sorting Selector */}
+              <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1.5 text-xs">
+                  <span className="text-slate-400 font-medium hidden md:inline">ឆ្នាំ៖</span>
+                  <select
+                    value={selectedYear}
+                    onChange={(e) => {
+                      sounds.playPop();
+                      setSelectedYear(e.target.value === "all" ? "all" : Number(e.target.value));
+                    }}
+                    className="h-8 px-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-bold text-slate-800 dark:text-slate-200 outline-none cursor-pointer shadow-2xs focus:border-emerald-500"
+                  >
+                    <option value="all">គ្រប់សម័យប្រឡង</option>
+                    {HISTORICAL_YEARS_TIMELINE.map((yr) => (
+                      <option key={yr} value={yr}>
+                        សម័យប្រឡង {yr}
+                      </option>
+                    ))}
+                  </select>
+                </div>
 
-                {/* Filter Sheet Trigger */}
-                <button
-                  type="button"
-                  onClick={() => {
-                    sounds.playPop();
-                    setShowFilterSheet(true);
-                  }}
-                  className={cn(
-                    "flex items-center gap-1 h-8 px-2.5 rounded-xl border text-xs font-bold transition active:scale-95 cursor-pointer shadow-2xs whitespace-nowrap",
-                    sortOrder !== "newest"
-                      ? "border-emerald-500 bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 font-extrabold"
-                      : "border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:border-emerald-500"
-                  )}
-                  aria-label="Filter & Archive Settings"
-                >
-                  <Filter className="h-3.5 w-3.5" />
-                  <span>តម្រង</span>
-                </button>
+                <div className="flex items-center gap-1.5 text-xs">
+                  <span className="text-slate-400 font-medium hidden md:inline">តម្រៀប៖</span>
+                  <select
+                    value={sortOrder}
+                    onChange={(e) => {
+                      sounds.playPop();
+                      setSortOrder(e.target.value as SortOrder);
+                    }}
+                    className="h-8 px-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-bold text-slate-800 dark:text-slate-200 outline-none cursor-pointer shadow-2xs focus:border-emerald-500"
+                  >
+                    <option value="newest">ថ្មីបំផុត</option>
+                    <option value="oldest">ចាស់បំផុត</option>
+                    <option value="title">តាមអក្ខរក្រម</option>
+                  </select>
+                </div>
 
-                {/* Reset Action */}
                 {isAnyFilterActive && (
                   <button
                     type="button"
                     onClick={handleResetFilters}
-                    className="grid h-8 w-8 place-items-center rounded-xl border border-red-200 dark:border-red-900/50 bg-red-50 dark:bg-red-950/30 text-red-600 dark:text-red-400 hover:bg-red-100 transition active:scale-95 cursor-pointer shadow-2xs shrink-0"
-                    title="កំណត់ឡើងវិញ (Reset)"
-                    aria-label="Reset filters"
+                    className="h-8 px-2.5 rounded-xl border border-rose-200 dark:border-rose-900/50 bg-rose-50 dark:bg-rose-950/30 text-rose-600 dark:text-rose-400 hover:bg-rose-100 transition text-xs font-bold flex items-center gap-1 shadow-2xs cursor-pointer"
+                    title="កំណត់ឡើងវិញ"
                   >
-                    <RotateCcw className="h-3.5 w-3.5" />
+                    <RotateCcw className="h-3 w-3" />
+                    <span className="hidden sm:inline">កំណត់ឡើងវិញ</span>
                   </button>
                 )}
               </div>
             </div>
 
-            {/* Row 2: Level Selector & Track Toggle */}
-            <div className="flex items-center gap-2">
-              {/* Category Segmented Control */}
-              <div className="flex-1 grid grid-cols-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-800/80 p-0.5">
-                <button
-                  type="button"
-                  onClick={() => {
-                    sounds.playPop();
-                    setCategory("bacii");
-                    setSelectedSubject("all");
-                  }}
-                  className={cn(
-                    "py-1.5 rounded-lg text-xs font-bold transition-all text-center cursor-pointer",
-                    category === "bacii"
-                      ? "bg-white dark:bg-slate-900 text-emerald-600 dark:text-emerald-400 shadow-2xs font-extrabold"
-                      : "text-slate-600 dark:text-slate-400 hover:text-slate-900"
-                  )}
-                >
-                  បាក់ឌុប (Bac II)
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => {
-                    sounds.playPop();
-                    setCategory("outstanding_student");
-                    setSelectedSubject("all");
-                  }}
-                  className={cn(
-                    "py-1.5 rounded-lg text-xs font-bold transition-all text-center cursor-pointer",
-                    category === "outstanding_student"
-                      ? "bg-white dark:bg-slate-900 text-emerald-600 dark:text-emerald-400 shadow-2xs font-extrabold"
-                      : "text-slate-600 dark:text-slate-400 hover:text-slate-900"
-                  )}
-                >
-                  សិស្សពូកែ
-                </button>
-              </div>
-
-              {/* Stream / Grade Switcher Pill */}
-              {category === "bacii" ? (
-                <button
-                  type="button"
-                  onClick={() => {
-                    sounds.playPop();
-                    setStream(stream === "science" ? "social" : "science");
-                    setSelectedSubject("all");
-                  }}
-                  className="flex items-center gap-1.5 h-8 px-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800 text-xs font-bold text-slate-700 dark:text-slate-300 hover:border-emerald-500 transition active:scale-95 cursor-pointer shrink-0 shadow-2xs"
-                  title="ប្តូរថ្នាក់វិទ្យាសាស្ត្រ / សង្គម"
-                >
-                  <span>{stream === "science" ? "ថ្នាក់វិទ្យាសាស្ត្រ" : "ថ្នាក់សង្គម"}</span>
-                  <ArrowLeftRight className="h-3 w-3 text-slate-400" />
-                </button>
-              ) : (
-                <button
-                  type="button"
-                  onClick={() => {
-                    sounds.playPop();
-                    setOutstandingGrade(outstandingGrade === 12 ? 9 : 12);
-                    setSelectedSubject("all");
-                  }}
-                  className="flex items-center gap-1.5 h-8 px-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800 text-xs font-bold text-slate-700 dark:text-slate-300 hover:border-emerald-500 transition active:scale-95 cursor-pointer shrink-0 shadow-2xs"
-                  title="ប្តូរថ្នាក់ទី ៩ / ១២"
-                >
-                  <span>ថ្នាក់ទី {outstandingGrade}</span>
-                  <ArrowLeftRight className="h-3 w-3 text-slate-400" />
-                </button>
-              )}
-            </div>
-
-            {/* Row 3: Horizontal Scrollable Subject Strip */}
-            <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5 -mx-4 px-4 sm:-mx-6 sm:px-6">
+            {/* Subject Filter Pills Strip */}
+            <div className="pt-2 border-t border-slate-100 dark:border-slate-800/80 flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
               {availableSubjects.map((subj) => {
                 const isSelected = selectedSubject === subj.id;
                 const SubjIcon = subj.icon;
@@ -1229,10 +1288,10 @@ function ExamsArchivePage() {
                       setSelectedSubject(subj.id as "all" | ExamSubject);
                     }}
                     className={cn(
-                      "flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition-all active:scale-95 cursor-pointer shrink-0",
+                      "flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition cursor-pointer active:scale-95 border shrink-0",
                       isSelected
-                        ? "bg-emerald-600 text-white shadow-xs font-extrabold"
-                        : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
+                        ? "bg-emerald-600 text-white border-emerald-600 shadow-2xs font-black"
+                        : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border-slate-200/90 dark:border-slate-800 hover:border-slate-300"
                     )}
                   >
                     {subj.id !== "all" && <SubjIcon className="h-3.5 w-3.5" />}
@@ -1240,73 +1299,6 @@ function ExamsArchivePage() {
                   </button>
                 );
               })}
-            </div>
-          </div>
-        </header>
-
-        {/* ============================================================ */}
-        {/* 2. MAIN RESULTS FEED & SEARCH                                */}
-        {/* ============================================================ */}
-        <section className="mx-auto w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-none px-4 sm:px-6 lg:px-0 pt-3 space-y-4 pb-32 lg:pb-8">
-          {/* Fast Search Input Box */}
-          <div className="relative">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="ស្វែងរកតាមឈ្មោះវិញ្ញាសា ឬឆ្នាំ..."
-              className="w-full h-10 rounded-xl border border-slate-200/90 dark:border-slate-700 bg-white dark:bg-slate-800 pl-9.5 pr-9 text-xs text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none shadow-2xs transition"
-            />
-            {searchQuery && (
-              <button
-                type="button"
-                onClick={() => setSearchQuery("")}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700 dark:hover:text-white cursor-pointer"
-                aria-label="Clear search"
-              >
-                <X className="h-4 w-4" />
-              </button>
-            )}
-          </div>
-
-          {/* Results Summary & Inline Sort */}
-          <div className="flex items-center justify-between text-xs px-0.5">
-            <div className="flex items-center gap-1.5 flex-wrap">
-              <span className="font-extrabold text-slate-900 dark:text-white">
-                {category === "bacii"
-                  ? stream === "science"
-                    ? "បាក់ឌុប • វិទ្យាសាស្ត្រ"
-                    : "បាក់ឌុប • សង្គម"
-                  : `សិស្សពូកែ • ថ្នាក់ទី ${outstandingGrade}`}
-              </span>
-              {selectedSubject !== "all" && (
-                <span className="text-slate-500 dark:text-slate-400 font-medium">
-                  • {getSubjectLabel(selectedSubject)}
-                </span>
-              )}
-              {selectedYear !== "all" && (
-                <span className="text-emerald-600 dark:text-emerald-400 font-bold">
-                  • ឆ្នាំ {selectedYear}
-                </span>
-              )}
-              <span className="text-slate-400 font-normal">
-                ({totalResultsCount} វិញ្ញាសា)
-              </span>
-            </div>
-
-            {/* Compact Sorting Selector */}
-            <div className="flex items-center gap-1 text-[11px] text-slate-500 shrink-0">
-              <span>តម្រៀប៖</span>
-              <select
-                value={sortOrder}
-                onChange={(e) => setSortOrder(e.target.value as SortOrder)}
-                className="bg-transparent border-none text-[11px] font-bold text-slate-900 dark:text-white outline-none cursor-pointer pr-1"
-              >
-                <option value="newest">ថ្មីបំផុត</option>
-                <option value="oldest">ចាស់បំផុត</option>
-                <option value="title">តាមអក្ខរក្រម</option>
-              </select>
             </div>
           </div>
 
@@ -1370,84 +1362,77 @@ function ExamsArchivePage() {
                   </div>
 
                   {/* Clean, Spacious Professional Cards */}
-                  <div className="space-y-3">
+                  <div className="space-y-2.5">
                     {papers.map((paper) => {
                       const cfg = getSubjectConfig(paper.subject);
                       const specs = getExamSpecs(paper);
                       const SubjectIcon = cfg.icon;
-                      const paperYear = paper.examinationYear || paper.examYear || year;
                       const hasPdf = Boolean(paper.pdfUrl);
 
                       return (
                         <article
                           key={paper.id}
                           onClick={() => handleOpenPaper(paper, "paper")}
-                          className="p-3.5 sm:p-4 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs hover:border-emerald-500/60 hover:shadow-xs transition-all active:scale-[0.99] cursor-pointer group flex items-center justify-between gap-3.5"
+                          className="p-3.5 sm:p-4 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 bg-white dark:bg-slate-900 shadow-2xs hover:border-emerald-500/50 hover:shadow-xs transition-all active:scale-[0.99] cursor-pointer group flex items-center justify-between gap-3"
                         >
-                          <div className="flex items-center gap-3.5 min-w-0 flex-1">
+                          <div className="flex items-center gap-3 sm:gap-3.5 min-w-0 flex-1">
                             {/* Subject Signature Icon Container */}
                             <div
                               className={cn(
-                                "grid h-12 w-12 place-items-center rounded-2xl border shrink-0 transition-transform group-hover:scale-105 shadow-2xs",
+                                "grid h-10 w-10 sm:h-11 sm:w-11 place-items-center rounded-xl border shrink-0 transition-transform group-hover:scale-105",
                                 cfg.accentBg,
                                 cfg.accentBorder,
                                 cfg.accentText
                               )}
                             >
-                              <SubjectIcon className="h-6 w-6 stroke-[2]" />
+                              <SubjectIcon className="h-5 w-5 stroke-[2]" />
                             </div>
 
                             {/* Clean Subject Info & Metadata - ZERO TRUNCATION */}
                             <div className="min-w-0 flex-1 space-y-1">
                               {/* Subject Khmer Name + English Subtitle */}
-                              <div className="flex items-baseline gap-1.5 flex-wrap">
-                                <h3 className="font-display text-base font-extrabold text-slate-900 dark:text-white leading-tight group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                              <div className="flex items-baseline gap-2 flex-wrap">
+                                <h3 className="font-display text-sm sm:text-base font-extrabold text-slate-900 dark:text-white leading-tight group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                                   {cfg.nameKm}
                                 </h3>
                                 <span className="text-xs font-semibold text-slate-400 dark:text-slate-500">
-                                  ({cfg.nameEn})
+                                  {cfg.nameEn}
                                 </span>
                               </div>
 
-                              {/* Academic Specs: Year, Duration & Points */}
-                              <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 flex-wrap">
-                                <span className="font-bold text-slate-700 dark:text-slate-300">
-                                  សម័យប្រឡង {paperYear}
-                                </span>
-                                <span>•</span>
+                              {/* Sleek single-line specs */}
+                              <div className="flex items-center gap-1.5 sm:gap-2 text-xs text-slate-500 dark:text-slate-400 flex-wrap">
                                 <span className="inline-flex items-center gap-1">
                                   <Clock className="h-3 w-3 text-slate-400" />
                                   <span>{specs.durationMins} នាទី</span>
                                 </span>
-                                <span>•</span>
+                                <span className="text-slate-300 dark:text-slate-700">•</span>
                                 <span>{specs.maxScore} ពិន្ទុ</span>
-                              </div>
-
-                              {/* Trust Badges */}
-                              <div className="flex items-center gap-1.5 pt-0.5 flex-wrap">
-                                <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-md bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-900/60">
-                                  <ShieldCheck className="h-3 w-3 text-emerald-600" />
-                                  <span>MoEYS ផ្លូវការ</span>
-                                </span>
-
                                 {paper.hasOfficialAnswerKey && (
-                                  <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-md bg-amber-50 dark:bg-amber-950/50 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-900/60">
-                                    <Check className="h-3 w-3 text-amber-600" />
-                                    <span>មានអត្រាកំណែ</span>
-                                  </span>
+                                  <>
+                                    <span className="text-slate-300 dark:text-slate-700">•</span>
+                                    <span className="text-emerald-600 dark:text-emerald-400 font-semibold inline-flex items-center gap-0.5">
+                                      <Check className="h-3 w-3" />
+                                      <span>អត្រាកំណែផ្លូវការ</span>
+                                    </span>
+                                  </>
                                 )}
-
                                 {hasPdf && (
-                                  <span className="text-[10px] font-black px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
-                                    PDF
-                                  </span>
+                                  <>
+                                    <span className="text-slate-300 dark:text-slate-700">•</span>
+                                    <span className="text-[10px] font-bold text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded border border-slate-200/80 dark:border-slate-700">
+                                      PDF
+                                    </span>
+                                  </>
                                 )}
-
                                 {offlineExamIds.includes(paper.id) && (
-                                  <span className="inline-flex items-center gap-1 text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700">
-                                    <BookmarkCheck className="h-3 w-3 text-emerald-600 dark:text-emerald-400" />
-                                    <span>Offline</span>
-                                  </span>
+                                  <>
+                                    <span className="text-slate-300 dark:text-slate-700">•</span>
+                                    <span className="text-[10px] font-bold text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/60 px-1.5 py-0.5 rounded border border-amber-200 dark:border-amber-800 inline-flex items-center gap-0.5">
+                                      <BookmarkCheck className="h-3 w-3" />
+                                      <span>Offline</span>
+                                    </span>
+                                  </>
                                 )}
                               </div>
                             </div>
@@ -1455,12 +1440,10 @@ function ExamsArchivePage() {
 
                           {/* Tactile Action Button */}
                           <div className="flex items-center gap-1 pl-1 shrink-0">
-                            <span className="hidden sm:inline text-xs font-bold text-emerald-600 group-hover:translate-x-0.5 transition-transform">
-                              បើកវិញ្ញាសា
+                            <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 group-hover:translate-x-0.5 transition-transform flex items-center gap-0.5">
+                              <span>បើកវិញ្ញាសា</span>
+                              <ChevronRight className="h-3.5 w-3.5" />
                             </span>
-                            <div className="grid h-8 w-8 place-items-center rounded-full bg-slate-50 dark:bg-slate-800 text-slate-400 group-hover:bg-emerald-600 group-hover:text-white transition-all shadow-2xs">
-                              <ChevronRight className="h-4 w-4" />
-                            </div>
                           </div>
                         </article>
                       );
@@ -1498,25 +1481,25 @@ function ExamsArchivePage() {
                         <article
                           key={collection.id}
                           onClick={() => handleOpenPaper(collection, "paper")}
-                          className="p-3.5 sm:p-4 rounded-2xl border border-emerald-200/80 dark:border-emerald-900/60 bg-emerald-50/20 dark:bg-slate-900 shadow-2xs hover:border-emerald-500 transition-all active:scale-[0.99] cursor-pointer group flex items-center justify-between gap-3.5"
+                          className="p-3.5 sm:p-4 rounded-2xl border border-emerald-200/70 dark:border-emerald-900/50 bg-emerald-50/20 dark:bg-slate-900/60 shadow-2xs hover:border-emerald-500/50 hover:shadow-xs transition-all active:scale-[0.99] cursor-pointer group flex items-center justify-between gap-3"
                         >
-                          <div className="flex items-center gap-3.5 min-w-0">
-                            <div className="grid h-12 w-12 place-items-center rounded-2xl bg-emerald-100/70 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 shrink-0">
-                              <BookMarked className="h-6 w-6 stroke-[1.9]" />
+                          <div className="flex items-center gap-3 sm:gap-3.5 min-w-0 flex-1">
+                            <div className="grid h-10 w-10 sm:h-11 sm:w-11 place-items-center rounded-xl bg-emerald-100/70 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 shrink-0">
+                              <BookMarked className="h-5 w-5 stroke-[1.9]" />
                             </div>
-                            <div className="min-w-0 space-y-1">
-                              <h3 className="font-display text-sm font-bold text-slate-900 dark:text-white leading-snug truncate group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                            <div className="min-w-0 flex-1 space-y-1">
+                              <h3 className="font-display text-sm sm:text-base font-extrabold text-slate-900 dark:text-white leading-snug truncate group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                                 {displayTitle}
                               </h3>
-                              <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                              <div className="flex items-center gap-1.5 sm:gap-2 text-xs text-slate-500 dark:text-slate-400">
                                 <span className="font-bold text-emerald-600 dark:text-emerald-400">
                                   {coverageSpan}
                                 </span>
-                                <span>•</span>
+                                <span className="text-slate-300 dark:text-slate-700">•</span>
                                 <span>{getSubjectLabel(collection.subject)}</span>
                                 {collection.actualAuthor && (
                                   <>
-                                    <span>•</span>
+                                    <span className="text-slate-300 dark:text-slate-700">•</span>
                                     <span className="truncate">{collection.actualAuthor}</span>
                                   </>
                                 )}
@@ -1524,8 +1507,11 @@ function ExamsArchivePage() {
                             </div>
                           </div>
 
-                          <div className="grid h-8 w-8 place-items-center rounded-full bg-emerald-100/60 dark:bg-slate-800 text-emerald-700 dark:text-emerald-400 group-hover:bg-emerald-200/70 transition shrink-0">
-                            <ChevronRight className="h-4 w-4" />
+                          <div className="flex items-center gap-1 pl-1 shrink-0">
+                            <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 group-hover:translate-x-0.5 transition-transform flex items-center gap-0.5">
+                              <span>បើកកម្រង</span>
+                              <ChevronRight className="h-3.5 w-3.5" />
+                            </span>
                           </div>
                         </article>
                       );
