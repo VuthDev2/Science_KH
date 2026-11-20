@@ -6,7 +6,7 @@
 
 import { getCuratedLesson } from "./curated-lessons";
 import type { PracticeExercise } from "./curriculum/types";
-import { CURATED_PRACTICE_BANK } from "./curriculum/practice-exercises";
+import { CURATED_PRACTICE_BANK, getLessonPracticeExercises } from "./curriculum/practice-exercises";
 import { getGradeStratifiedMathDeck } from "./curriculum-quiz/math-decks";
 import { getGradeStratifiedScienceDeck } from "./curriculum-quiz/science-decks";
 import type {
@@ -1690,6 +1690,12 @@ function getRawCurriculumLabQuestions(lessonId: string): QuizQuestionItem[] {
   // ============================================================================
   // 5. PHYSICS LABS (DEFAULT & SPECIFIC CHAPTERS)
   // ============================================================================
+  if (subjectSlug === "physics" || id.includes("phys")) {
+    const stratifiedPhys = getGradeStratifiedScienceDeck("physics", lessonId, lesson);
+    if (stratifiedPhys) {
+      return stratifiedPhys;
+    }
+  }
 
   // 5A. Waves (Mechanical & Electromagnetic Waves)
   if (id.includes("phys-02") || id.includes("wave")) {
@@ -2198,7 +2204,17 @@ function getRawCurriculumLabQuestions(lessonId: string): QuizQuestionItem[] {
     ];
   }
 
-  // 5C. Dynamic curriculum-aligned 10-Question Master Lab for any lesson in the 150-lesson MoEYS bank
+  // 5C. Check grade-stratified decks before falling back to generic questions
+  if (subjectSlug === "mathematics" || id.includes("math")) {
+    const mathDeck = getGradeStratifiedMathDeck(lessonId, lesson);
+    if (mathDeck && mathDeck.length > 0) return mathDeck;
+  }
+  const stratifiedSci = getGradeStratifiedScienceDeck(subjectSlug, lessonId, lesson);
+  if (stratifiedSci && stratifiedSci.length > 0) {
+    return stratifiedSci;
+  }
+
+  // 5D. Dynamic curriculum-aligned 10-Question Master Lab for any lesson in the 150-lesson MoEYS bank
   if (lesson) {
     return [
       {
@@ -2948,7 +2964,10 @@ function ensureDuolingoQuestionCount(
  * Prioritizes curated authentic calculation exercises and grade-stratified syllabus decks.
  */
 export function getCurriculumLabQuestions(lessonId: string): QuizQuestionItem[] {
-  const curatedExercises = CURATED_PRACTICE_BANK[lessonId];
+  const lesson = getCuratedLesson(lessonId);
+  const curatedExercises =
+    CURATED_PRACTICE_BANK[lessonId] ||
+    (lesson ? getLessonPracticeExercises(lesson) : []);
   const practiceQuestions =
     curatedExercises && curatedExercises.length > 0
       ? convertPracticeExercisesToLabQuestions(lessonId, curatedExercises)

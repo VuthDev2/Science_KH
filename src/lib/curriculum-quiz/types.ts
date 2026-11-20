@@ -27,6 +27,8 @@ export type BaseQuestion = {
   socratic_clue_km?: string;
   socratic_clue_en?: string;
   formula_badge?: string;
+  scientific_analogy_km?: string;
+  scientific_analogy_en?: string;
   explanation_km: string;
   explanation_en: string;
 };

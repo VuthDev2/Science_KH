@@ -647,7 +647,7 @@ function LessonPage() {
             </p>
             <Link
               to="/tutor"
-              search={() => ({ initialPrompt: `ពន្យល់ខ្ញុំអំពីមេរៀន "${lesson.title_km}" ថ្នាក់ទី ${lesson.grade}` })}
+              search={{ initialPrompt: `ពន្យល់ខ្ញុំអំពីមេរៀន "${lesson.title_km}" ថ្នាក់ទី ${lesson.grade}` }}
               className="w-full h-9 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs tracking-wide transition flex items-center justify-center gap-1.5 shadow-2xs active:scale-95 cursor-pointer"
             >
               <GraduationCap className="h-3.5 w-3.5" />
@@ -1138,11 +1138,11 @@ function LessonPage() {
           <div className="pt-2 flex items-center justify-center">
             <Link
               to="/tutor"
-              search={() => ({
+              search={{
                 initialPrompt: lesson
                   ? `សូមជួយពន្យល់មេរៀន «${lesson.title_km}» មុខវិជ្ជា ${lesson.subject ? (isKhmer ? lesson.subject.name_km : lesson.subject.name_en) : "STEM"} ថ្នាក់ទី ${lesson.grade} ឱ្យខ្ញុំយល់ច្បាស់បន្តិច។`
-                  : "",
-              })}
+                  : undefined,
+              }}
               onClick={() => sounds.playPop()}
               className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 text-xs font-semibold hover:bg-slate-200 dark:hover:bg-slate-700 transition"
             >

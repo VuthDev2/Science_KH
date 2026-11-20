@@ -10,6 +10,185 @@ import type { CuratedLesson, PracticeExercise } from "./types";
  * Curated practice exercises for high-frequency MoEYS examination lessons
  */
 export const CURATED_PRACTICE_BANK: Record<string, PracticeExercise[]> = {
+  // G8 Math 01: Rational & Irrational Numbers
+  "les-g8-math-01": [
+    {
+      id: "ex-g8-m01-1",
+      titleKm: "លំហាត់ទី ១ ៖ ចំនួនសនិទាន និងទសភាគខួប",
+      titleEn: "Exercise 1: Rational Numbers & Repeating Decimals",
+      questionKm: "ចូរបំប្លែងទសភាគខួប 0.333... (0.3̄) ទៅជាប្រភាគសាមញ្ញ a/b ៖",
+      questionEn: "Convert the repeating decimal 0.333... into a simple fraction a/b:",
+      formulaOrContext: "x = 0.333... \\implies 10x - x = 3",
+      options: [
+        { labelKm: "1/3", labelEn: "1/3", isCorrect: true },
+        { labelKm: "3/10", labelEn: "3/10", isCorrect: false },
+        { labelKm: "3/100", labelEn: "3/100", isCorrect: false },
+        { labelKm: "1/9", labelEn: "1/9", isCorrect: false },
+      ],
+      stepByStepSolutionKm: `**ជំហានទី ១ (កំណត់អថេរ)៖**
+តាង $x = 0.333...$
+
+**ជំហានទី ២ (គុណនឹង 10)៖**
+$10x = 3.333...$
+
+**ជំហានទី ៣ (ដកសមីការទាំងពីរ)៖**
+$$10x - x = 3.333... - 0.333... \\implies 9x = 3$$
+$$x = \\frac{3}{9} = \\frac{1}{3}$$
+
+**ចម្លើយត្រឹមត្រូវគឺ៖** $x = \\frac{1}{3}$`,
+      stepByStepSolutionEn: "Let x = 0.333... Then 10x = 3.333... Subtracting: 9x = 3 -> x = 3/9 = 1/3.",
+      tipKm: "ខួបមានមួយខ្ទង់ គុណនឹង 10; ខួបមានពីរខ្ទង់ គុណនឹង 100!",
+    },
+    {
+      id: "ex-g8-m01-2",
+      titleKm: "លំហាត់ទី ២ ៖ បែងចែកចំនួនសនិទាន និងអសនិទាន",
+      titleEn: "Exercise 2: Rational vs Irrational Classification",
+      questionKm: "ក្នុងចំណោមចំនួនខាងក្រោម តើចំនួនណាជាចំនួនអសនិទាន (មិនអាចសរសេរជា a/b)?",
+      questionEn: "Which of the following numbers is an irrational number?",
+      formulaOrContext: "\\sqrt{2} \\approx 1.41421356...",
+      options: [
+        { labelKm: "√2 (ឬសការេមិនដាច់)", labelEn: "√2 (non-terminating non-repeating)", isCorrect: true },
+        { labelKm: "√4 = 2", labelEn: "√4 = 2", isCorrect: false },
+        { labelKm: "0.75 = 3/4", labelEn: "0.75 = 3/4", isCorrect: false },
+        { labelKm: "-5 = -5/1", labelEn: "-5 = -5/1", isCorrect: false },
+      ],
+      stepByStepSolutionKm: `**និយមន័យចំនួនអសនិទាន៖**
+ចំនួនអសនិទាន គឺជាចំនួនដែលមានទសភាគមិនកំណត់ និងមិនខួប ដូចជា $\\sqrt{2}, \\sqrt{3}, \\pi$។
+រីឯ $\\sqrt{4} = 2, 0.75 = 3/4, -5 = -5/1$ សុទ្ធតែជាចំនួនសនិទាន $\\mathbb{Q}$។`,
+      stepByStepSolutionEn: "√2 is non-terminating and non-repeating, so it cannot be written as a fraction a/b.",
+      tipKm: "ឬសការេនៃចំនួនដែលមិនមែនជាការេប្រាកដ តែងតែជាចំនួនអសនិទាន!",
+    },
+  ],
+
+  // G8 Math 02: Algebraic Identities
+  "les-g8-math-02": [
+    {
+      id: "ex-g8-m02-1",
+      titleKm: "លំហាត់ទី ១ ៖ ពន្លាតការេនៃផលបូក (a + b)²",
+      titleEn: "Exercise 1: Square of Binomial Sum Expansion",
+      questionKm: "ចូរគណនាពន្លាតនៃកន្សោមពីជគណិត៖ (3x + 2)²",
+      questionEn: "Expand the algebraic binomial expression: (3x + 2)²",
+      formulaOrContext: "(a + b)^2 = a^2 + 2ab + b^2",
+      options: [
+        { labelKm: "9x² + 12x + 4", labelEn: "9x² + 12x + 4", isCorrect: true },
+        { labelKm: "9x² + 4", labelEn: "9x² + 4", isCorrect: false },
+        { labelKm: "2x² + 6x + 4", labelEn: "2x² + 6x + 4", isCorrect: false },
+        { labelKm: "4x² + 6x + 4", labelEn: "4x² + 6x + 4", isCorrect: false },
+      ],
+      stepByStepSolutionKm: `**ជំហានទី ១ (អនុវត្តរូបមន្ត)៖**
+$$(a + b)^2 = a^2 + 2ab + b^2$$
+ជាមួយ $a = 3x$ និង $b = 2$។
+
+**ជំហានទី ២ (ជំនួស និងគណនា)៖**
+$$(3x + 2)^2 = (3x)^2 + 2(3x)(2) + 2^2 = 9x^2 + 12x + 4$$
+
+**ចម្លើយត្រឹមត្រូវគឺ៖** $9x^2 + 12x + 4$`,
+      stepByStepSolutionEn: "(3x + 2)^2 = (3x)^2 + 2(3x)(2) + 2^2 = 9x^2 + 12x + 4.",
+      tipKm: "កុំភ្លេចតួកណ្តាលពីរដងផលគុណ៖ 2(3x)(2) = 12x!",
+    },
+  ],
+
+  // G8 Math 06: Factoring Polynomials
+  "les-g8-math-06": [
+    {
+      id: "ex-g8-m06-1",
+      titleKm: "លំហាត់ទី ១ ៖ ដាក់ជាផលគុណកត្តាតាមវិធីចាប់កត្តារួម",
+      titleEn: "Exercise 1: Factorization by Common Factor",
+      questionKm: "ចូរដាក់កន្សោមពីជគណិត 4x² + 12x ជាផលគុណកត្តា៖",
+      questionEn: "Factor the polynomial: 4x² + 12x",
+      formulaOrContext: "4x^2 + 12x = 4x(x + 3)",
+      options: [
+        { labelKm: "4x(x + 3)", labelEn: "4x(x + 3)", isCorrect: true },
+        { labelKm: "4(x² + 3)", labelEn: "4(x² + 3)", isCorrect: false },
+        { labelKm: "2x(2x + 6)", labelEn: "2x(2x + 6)", isCorrect: false },
+        { labelKm: "x(4x + 12)", labelEn: "x(4x + 12)", isCorrect: false },
+      ],
+      stepByStepSolutionKm: `**ជំហានទី ១ (រកកត្តារួមធំបំផុត GCF)៖**
+$4x^2 = 4x \\cdot x$
+$12x = 4x \\cdot 3$
+កត្តារួមធំបំផុតគឺ $4x$។
+
+**ជំហានទី ២ (ទាញកត្តារួមចេញក្រៅ)៖**
+$$4x^2 + 12x = 4x(x + 3)$$
+
+**ចម្លើយត្រឹមត្រូវគឺ៖** $4x(x + 3)$`,
+      stepByStepSolutionEn: "GCF is 4x -> 4x(x + 3).",
+      tipKm: "ទាញកត្តារួមអតិបរមាទាំងលេខ និងអថេរ!",
+    },
+  ],
+
+  // G8 Math 03: Pythagorean Theorem
+  "les-g8-math-03": [
+    {
+      id: "ex-g8-m03-1",
+      titleKm: "លំហាត់ទី ១ ៖ គណនាអ៊ីប៉ូតេនុសតាមទ្រឹស្តីបទពីតាក័រ",
+      titleEn: "Exercise 1: Calculate Hypotenuse via Pythagorean Theorem",
+      questionKm: "ត្រីកោណកែងមួយមានជ្រុងជាប់មុំកែង a = 9 cm និង b = 12 cm។ គណនាប្រវែងអ៊ីប៉ូតេនុស c ៖",
+      questionEn: "A right triangle has legs a = 9 cm and b = 12 cm. Find hypotenuse c:",
+      formulaOrContext: "c^2 = a^2 + b^2",
+      options: [
+        { labelKm: "c = 15 cm", labelEn: "c = 15 cm", isCorrect: true },
+        { labelKm: "c = 21 cm", labelEn: "c = 21 cm", isCorrect: false },
+        { labelKm: "c = 18 cm", labelEn: "c = 18 cm", isCorrect: false },
+        { labelKm: "c = 14 cm", labelEn: "c = 14 cm", isCorrect: false },
+      ],
+      stepByStepSolutionKm: `**ជំហានទី ១ (រូបមន្តពីតាក័រ)៖**
+$$c^2 = a^2 + b^2 = 9^2 + 12^2 = 81 + 144 = 225$$
+$$c = \\sqrt{225} = 15\\text{ cm}$$
+
+**ចម្លើយត្រឹមត្រូវគឺ៖** $c = 15\\text{ cm}$`,
+      stepByStepSolutionEn: "c = √(81 + 144) = 15 cm.",
+      tipKm: "ត្រីកោណកែង 3-4-5 គុណនឹង 3 បាន 9-12-15!",
+    },
+  ],
+
+  // G8 Physics 01: Pressure
+  "les-g8-phys-01": [
+    {
+      id: "ex-g8-p01-1",
+      titleKm: "លំហាត់ទី ១ ៖ គណនាសម្ពាធមេកានិច (P = F / S)",
+      titleEn: "Exercise 1: Mechanical Pressure Calculation",
+      questionKm: "វត្ថុមួយមានទម្ងន់ F = 500 N សង្កត់កាត់កែងលើផ្ទៃ S = 0.02 m²។ ចូរគណនាសម្ពាធ P ៖",
+      questionEn: "A block of weight F = 500 N presses on area S = 0.02 m². Calculate pressure P:",
+      formulaOrContext: "P = \\frac{F}{S}",
+      options: [
+        { labelKm: "P = 25,000 Pa (25 kPa)", labelEn: "P = 25,000 Pa (25 kPa)", isCorrect: true },
+        { labelKm: "P = 10 Pa", labelEn: "P = 10 Pa", isCorrect: false },
+        { labelKm: "P = 2,500 Pa", labelEn: "P = 2,500 Pa", isCorrect: false },
+        { labelKm: "P = 50,000 Pa", labelEn: "P = 50,000 Pa", isCorrect: false },
+      ],
+      stepByStepSolutionKm: `**ជំហានទី ១ (រូបមន្តសម្ពាធ)៖**
+$$P = \\frac{F}{S} = \\frac{500\\text{ N}}{0.02\\text{ m}^2} = 25,000\\text{ Pa = 25 kPa}$$
+
+**ចម្លើយត្រឹមត្រូវគឺ៖** $P = 25,000\\text{ Pa}$`,
+      stepByStepSolutionEn: "P = F / S = 500 / 0.02 = 25,000 Pa.",
+      tipKm: "1 Pa = 1 N/m²!",
+    },
+  ],
+
+  // G8 Chemistry 01: Molar Mass
+  "les-g8-chem-01": [
+    {
+      id: "ex-g8-c01-1",
+      titleKm: "លំហាត់ទី ១ ៖ គណនាម៉ាសម៉ូលនៃម៉ូលេគុល",
+      titleEn: "Exercise 1: Molecular Molar Mass Calculation",
+      questionKm: "គណនាម៉ាសម៉ូល M នៃអាស៊ីតស៊ុលផួរិក H₂SO₄ (ដឹងថា H = 1, S = 32, O = 16) ៖",
+      questionEn: "Calculate molar mass M of sulfuric acid H₂SO₄ (H = 1, S = 32, O = 16):",
+      formulaOrContext: "M = 2(1) + 32 + 4(16)",
+      options: [
+        { labelKm: "M = 98 g/mol", labelEn: "M = 98 g/mol", isCorrect: true },
+        { labelKm: "M = 50 g/mol", labelEn: "M = 50 g/mol", isCorrect: false },
+        { labelKm: "M = 96 g/mol", labelEn: "M = 96 g/mol", isCorrect: false },
+        { labelKm: "M = 100 g/mol", labelEn: "M = 100 g/mol", isCorrect: false },
+      ],
+      stepByStepSolutionKm: `**ជំហានទី ១ (បូកម៉ាសអាតូមតាមសមាសភាព)៖**
+$$M(H_2SO_4) = 2(1) + 32 + 4(16) = 2 + 32 + 64 = 98\\text{ g/mol}$$
+
+**ចម្លើយត្រឹមត្រូវគឺ៖** $M = 98\\text{ g/mol}$`,
+      stepByStepSolutionEn: "M(H₂SO₄) = 2(1) + 32 + 4(16) = 98 g/mol.",
+      tipKm: "គុណចំនួនអាតូមនីមួយៗនឹងម៉ាសអាតូម រួចបូកបញ្ចូលគ្នាទាំងអស់!",
+    },
+  ],
   // G12 Math 11: Limits of Functions & Indeterminate Forms
   "les-g12-math-11": [
     {
@@ -642,35 +821,351 @@ $$A = \\frac{4}{6} + \\frac{1}{6} = \\frac{4 + 1}{6} = \\frac{5}{6}$$`,
       ];
     }
 
-    if (title.includes("equation") || title.includes("សមីការ")) {
+    // Topic-aware Math generators
+    if (title.includes("ពន្លាត") || title.includes("identities") || title.includes("កន្សោម")) {
       return [
         {
           id: `ex-gen-${lesson.id}-1`,
-          titleKm: "លំហាត់អនុវត្ត ៖ ដោះស្រាយសមីការដឺក្រេទី ១",
-          titleEn: "Practice Exercise: Linear Equation",
-          questionKm: "ចូររកតម្លៃ $x$ នៃសមីការខាងក្រោម៖",
-          questionEn: "Solve for x in the linear equation:",
-          formulaOrContext: "3x - 7 = 11",
+          titleKm: "លំហាត់អនុវត្ត ៖ ពន្លាតការេនៃផលបូក (a + b)²",
+          titleEn: "Practice: Binomial Expansion (a + b)²",
+          questionKm: "ចូរគណនាពន្លាតនៃកន្សោម៖ (2x + 3)²",
+          questionEn: "Expand the expression: (2x + 3)²",
+          formulaOrContext: "(a + b)^2 = a^2 + 2ab + b^2",
           options: [
-            { labelKm: "x = 6", labelEn: "x = 6", isCorrect: true },
-            { labelKm: "x = 4", labelEn: "x = 4", isCorrect: false },
-            { labelKm: "x = -6", labelEn: "x = -6", isCorrect: false },
-            { labelKm: "x = 18", labelEn: "x = 18", isCorrect: false },
+            { labelKm: "4x² + 12x + 9", labelEn: "4x² + 12x + 9", isCorrect: true },
+            { labelKm: "4x² + 9", labelEn: "4x² + 9", isCorrect: false },
+            { labelKm: "2x² + 6x + 9", labelEn: "2x² + 6x + 9", isCorrect: false },
+            { labelKm: "4x² + 6x + 9", labelEn: "4x² + 6x + 9", isCorrect: false },
           ],
-          stepByStepSolutionKm: `**ជំហានទី ១ (ផ្ទេរតួថេរ)៖**
-$$3x = 11 + 7 \\implies 3x = 18$$
+          stepByStepSolutionKm: `**ជំហានទី ១ (អនុវត្តរូបមន្ត)៖**
+$$(a + b)^2 = a^2 + 2ab + b^2$$
+ជាមួយ $a = 2x, b = 3$។
 
-**ជំហានទី ២ (ចែកនឹងមេគុណ 3)៖**
-$$x = \\frac{18}{3} = 6$$`,
-          stepByStepSolutionEn: "3x = 11 + 7 = 18. x = 18 / 3 = 6.",
-          tipKm: "ពេលបោះលេខឆ្លងសញ្ញាស្មើ (=) ត្រូវប្តូរសញ្ញាពីដក (-) ទៅជាបូក (+)!",
+**ជំហានទី ២ (ជំនួស និងគណនា)៖**
+$$(2x + 3)^2 = (2x)^2 + 2(2x)(3) + 3^2 = 4x^2 + 12x + 9$$
+
+**ចម្លើយត្រឹមត្រូវគឺ៖** $4x^2 + 12x + 9$`,
+          stepByStepSolutionEn: "(2x + 3)^2 = (2x)^2 + 2(2x)(3) + 3^2 = 4x^2 + 12x + 9.",
+          tipKm: "កុំភ្លេចតួកណ្តាលពីរដងផលគុណ 2ab = 12x!",
         },
       ];
     }
+
+    if (title.includes("ផលគុណកត្តា") || title.includes("factor") || title.includes("បំបែកតួ")) {
+      return [
+        {
+          id: `ex-gen-${lesson.id}-1`,
+          titleKm: "លំហាត់អនុវត្ត ៖ ដាក់ជាផលគុណកត្តា",
+          titleEn: "Practice: Polynomial Factorization",
+          questionKm: "ចូរដាក់កន្សោម x² - 25 ជាផលគុណកត្តា៖",
+          questionEn: "Factor the polynomial: x² - 25",
+          formulaOrContext: "a^2 - b^2 = (a - b)(a + b)",
+          options: [
+            { labelKm: "(x - 5)(x + 5)", labelEn: "(x - 5)(x + 5)", isCorrect: true },
+            { labelKm: "(x - 5)²", labelEn: "(x - 5)²", isCorrect: false },
+            { labelKm: "(x + 5)²", labelEn: "(x + 5)²", isCorrect: false },
+            { labelKm: "(x - 25)(x + 1)", labelEn: "(x - 25)(x + 1)", isCorrect: false },
+          ],
+          stepByStepSolutionKm: `**ជំហានទី ១ (រូបមន្តផលដកការេ)៖**
+$$a^2 - b^2 = (a - b)(a + b)$$
+
+**ជំហានទី ២ (គណនា)៖**
+$$x^2 - 25 = x^2 - 5^2 = (x - 5)(x + 5)$$
+
+**ចម្លើយត្រឹមត្រូវគឺ៖** $(x - 5)(x + 5)$`,
+          stepByStepSolutionEn: "x^2 - 25 = x^2 - 5^2 = (x - 5)(x + 5).",
+          tipKm: "25 ស្មើ 5 ការេ (5²) នាំឱ្យបំបែកបាន (x - 5)(x + 5)!",
+        },
+      ];
+    }
+
+    if (title.includes("ពីតាក័រ") || title.includes("pythagor")) {
+      return [
+        {
+          id: `ex-gen-${lesson.id}-1`,
+          titleKm: "លំហាត់អនុវត្ត ៖ ទ្រឹស្តីបទពីតាក័រ",
+          titleEn: "Practice: Pythagorean Theorem",
+          questionKm: "ត្រីកោណកែងមួយមានជ្រុងជាប់មុំកែង a = 6 cm និង b = 8 cm។ គណនាប្រវែងអ៊ីប៉ូតេនុស c ៖",
+          questionEn: "A right triangle has legs a = 6 cm and b = 8 cm. Find hypotenuse c:",
+          formulaOrContext: "c^2 = a^2 + b^2",
+          options: [
+            { labelKm: "c = 10 cm", labelEn: "c = 10 cm", isCorrect: true },
+            { labelKm: "c = 14 cm", labelEn: "c = 14 cm", isCorrect: false },
+            { labelKm: "c = 12 cm", labelEn: "c = 12 cm", isCorrect: false },
+            { labelKm: "c = 48 cm", labelEn: "c = 48 cm", isCorrect: false },
+          ],
+          stepByStepSolutionKm: `**ជំហានទី ១ (រូបមន្តពីតាក័រ)៖**
+$$c = \\sqrt{a^2 + b^2}$$
+
+**ជំហានទី ២ (ជំនួសតម្លៃលេខ)៖**
+$$c = \\sqrt{6^2 + 8^2} = \\sqrt{36 + 64} = \\sqrt{100} = 10\\text{ cm}$$
+
+**ចម្លើយត្រឹមត្រូវគឺ៖** $c = 10\\text{ cm}$`,
+          stepByStepSolutionEn: "c = √(6^2 + 8^2) = √100 = 10 cm.",
+          tipKm: "ត្រីកោណកែង 3-4-5 គុណនឹង 2 បាន 6-8-10!",
+        },
+      ];
+    }
+
+    if (title.includes("វិសមីការ") || title.includes("inequalit")) {
+      return [
+        {
+          id: `ex-gen-${lesson.id}-1`,
+          titleKm: "លំហាត់អនុវត្ត ៖ ដោះស្រាយវិសមីការដឺក្រេទី១",
+          titleEn: "Practice: Linear Inequality Solution",
+          questionKm: "ចូររកសំណុំចម្លើយនៃវិសមីការ៖ -2x + 4 < 10",
+          questionEn: "Solve the inequality: -2x + 4 < 10",
+          formulaOrContext: "-2x + 4 < 10 \\implies -2x < 6",
+          options: [
+            { labelKm: "x > -3 (ប្តូរសញ្ញាពេលចែកនឹង -2)", labelEn: "x > -3", isCorrect: true },
+            { labelKm: "x < -3", labelEn: "x < -3", isCorrect: false },
+            { labelKm: "x > 3", labelEn: "x > 3", isCorrect: false },
+            { labelKm: "x < 7", labelEn: "x < 7", isCorrect: false },
+          ],
+          stepByStepSolutionKm: `**ជំហានទី ១ (ផ្ទេរតួថេរ)៖**
+$$-2x < 10 - 4 \\implies -2x < 6$$
+
+**ជំហានទី ២ (ចែកនឹង -2 និងត្រឡប់សញ្ញា)៖**
+$$x > \\frac{6}{-2} \\implies x > -3$$
+
+**ចម្លើយត្រឹមត្រូវគឺ៖** $x > -3$`,
+          stepByStepSolutionEn: "-2x < 6. Dividing by -2 flips the sign: x > -3.",
+          tipKm: "ចែកនឹងចំនួនអវិជ្ជមាន (-) ត្រូវតែត្រឡប់សញ្ញាវិសមភាព!",
+        },
+      ];
+    }
+
+    if (title.includes("មាឌ") || title.includes("volume") || title.includes("ស៊ីឡាំង") || title.includes("កោន") || title.includes("ស្វ៊ែរ")) {
+      return [
+        {
+          id: `ex-gen-${lesson.id}-1`,
+          titleKm: "លំហាត់អនុវត្ត ៖ គណនាមាឌស៊ីឡាំង",
+          titleEn: "Practice: Cylinder Volume",
+          questionKm: "ស៊ីឡាំងមួយមានកាំបាត r = 3 cm និងកម្ពស់ h = 10 cm។ គណនាមាឌ V ៖",
+          questionEn: "A cylinder has radius r = 3 cm and height h = 10 cm. Find volume V:",
+          formulaOrContext: "V = \\pi r^2 h",
+          options: [
+            { labelKm: "V = 90π cm³", labelEn: "V = 90π cm³", isCorrect: true },
+            { labelKm: "V = 30π cm³", labelEn: "V = 30π cm³", isCorrect: false },
+            { labelKm: "V = 60π cm³", labelEn: "V = 60π cm³", isCorrect: false },
+            { labelKm: "V = 180π cm³", labelEn: "V = 180π cm³", isCorrect: false },
+          ],
+          stepByStepSolutionKm: `**ជំហានទី ១ (រូបមន្តមាឌស៊ីឡាំង)៖**
+$$V = \\pi r^2 h$$
+
+**ជំហានទី ២ (ជំនួសលេខ)៖**
+$$V = \\pi (3)^2 (10) = \\pi (9)(10) = 90\\pi\\text{ cm}^3$$
+
+**ចម្លើយត្រឹមត្រូវគឺ៖** $V = 90\\pi\\text{ cm}^3$`,
+          stepByStepSolutionEn: "V = π * r^2 * h = π * 9 * 10 = 90π cm³.",
+          tipKm: "មាឌស៊ីឡាំង = ផ្ទៃបាត (πr²) គុណនឹង កម្ពស់ (h)!",
+        },
+      ];
+    }
+
+    if (title.includes("ស្ថិតិ") || title.includes("statistic") || title.includes("មធ្យម") || title.includes("mean")) {
+      return [
+        {
+          id: `ex-gen-${lesson.id}-1`,
+          titleKm: "លំហាត់អនុវត្ត ៖ គណនាមធ្យមនព្វន្ត x̄",
+          titleEn: "Practice: Arithmetic Mean",
+          questionKm: "គណនាមធ្យមនព្វន្តនៃទិន្នន័យ៖ 10, 14, 16, 20",
+          questionEn: "Find the mean of values: 10, 14, 16, 20",
+          formulaOrContext: "\\bar{x} = \\frac{\\sum x_i}{N}",
+          options: [
+            { labelKm: "x̄ = 15", labelEn: "x̄ = 15", isCorrect: true },
+            { labelKm: "x̄ = 14", labelEn: "x̄ = 14", isCorrect: false },
+            { labelKm: "x̄ = 16", labelEn: "x̄ = 16", isCorrect: false },
+            { labelKm: "x̄ = 60", labelEn: "x̄ = 60", isCorrect: false },
+          ],
+          stepByStepSolutionKm: `**ជំហានទី ១ (បូកតម្លៃទាំងអស់)៖**
+$$10 + 14 + 16 + 20 = 60$$
+
+**ជំហានទី ២ (ចែកនឹងចំនួនទិន្នន័យ N = 4)៖**
+$$\\bar{x} = \\frac{60}{4} = 15$$
+
+**ចម្លើយត្រឹមត្រូវគឺ៖** $\\bar{x} = 15$`,
+          stepByStepSolutionEn: "Sum = 60. Mean = 60 / 4 = 15.",
+          tipKm: "មធ្យម = ផលបូកតម្លៃទាំងអស់ ចែកនឹងចំនួនទិន្នន័យសរុប!",
+        },
+      ];
+    }
+
+    // Default Math Linear Equation with seed variation
+    const seed = Math.abs(lesson.sort_order * 7 + lesson.grade * 3);
+    const a = (seed % 4) + 2;
+    const b = (seed % 5) + 3;
+    const c = a * b;
+    return [
+      {
+        id: `ex-gen-${lesson.id}-1`,
+        titleKm: `លំហាត់អនុវត្ត ៖ ដោះស្រាយសមីការ ${lesson.title_km}`,
+        titleEn: `Practice Exercise: ${lesson.title_en}`,
+        questionKm: `ចូររកតម្លៃ $x$ នៃសមីការ៖ ${a}x - ${b} = ${c - b}`,
+        questionEn: `Solve for x: ${a}x - ${b} = ${c - b}`,
+        formulaOrContext: `${a}x - ${b} = ${c - b}`,
+        options: [
+          { labelKm: `x = ${b}`, labelEn: `x = ${b}`, isCorrect: true },
+          { labelKm: `x = ${b + 2}`, labelEn: `x = ${b + 2}`, isCorrect: false },
+          { labelKm: `x = ${Math.max(1, b - 2)}`, labelEn: `x = ${Math.max(1, b - 2)}`, isCorrect: false },
+          { labelKm: `x = ${b * 2}`, labelEn: `x = ${b * 2}`, isCorrect: false },
+        ],
+        stepByStepSolutionKm: `**ជំហានទី ១ (ផ្ទេរតួថេរ)៖**
+$$${a}x = ${c - b} + ${b} \\implies ${a}x = ${c}$$
+
+**ជំហានទី ២ (ចែកនឹងមេគុណ ${a})៖**
+$$x = \\frac{${c}}{${a}} = ${b}$$
+
+**ចម្លើយត្រឹមត្រូវគឺ៖** $x = ${b}$`,
+        stepByStepSolutionEn: `${a}x = ${c} -> x = ${c} / ${a} = ${b}.`,
+        tipKm: "បោះតួថេរឆ្លងសញ្ញាស្មើ រួចចែកនឹងមេគុណនៃ x!",
+      },
+    ];
   }
 
-  // Physics
+  // Physics Topic-Aware Calculations
   if (subj === "physics") {
+    if (title.includes("សម្ពាធ") || title.includes("pressure")) {
+      return [
+        {
+          id: `ex-gen-${lesson.id}-1`,
+          titleKm: "លំហាត់អនុវត្ត ៖ គណនាសម្ពាធ P = F / S",
+          titleEn: "Practice: Mechanical Pressure",
+          questionKm: "កម្លាំង F = 600 N សង្កត់លើផ្ទៃ S = 0.03 m²។ គណនាសម្ពាធ P ៖",
+          questionEn: "Force F = 600 N on area S = 0.03 m². Find pressure P:",
+          formulaOrContext: "P = \\frac{F}{S}",
+          options: [
+            { labelKm: "P = 20,000 Pa (20 kPa)", labelEn: "P = 20,000 Pa (20 kPa)", isCorrect: true },
+            { labelKm: "P = 18 Pa", labelEn: "P = 18 Pa", isCorrect: false },
+            { labelKm: "P = 2,000 Pa", labelEn: "P = 2,000 Pa", isCorrect: false },
+            { labelKm: "P = 180,000 Pa", labelEn: "P = 180,000 Pa", isCorrect: false },
+          ],
+          stepByStepSolutionKm: `**ជំហានទី ១ (រូបមន្តសម្ពាធ)៖**
+$$P = \\frac{F}{S}$$
+
+**ជំហានទី ២ (ជំនួសលេខ)៖**
+$$P = \\frac{600\\text{ N}}{0.03\\text{ m}^2} = 20,000\\text{ Pa = 20 kPa}$$
+
+**ចម្លើយត្រឹមត្រូវគឺ៖** $P = 20,000\\text{ Pa}$`,
+          stepByStepSolutionEn: "P = F / S = 600 / 0.03 = 20,000 Pa.",
+          tipKm: "1 Pa = 1 N/m²!",
+        },
+      ];
+    }
+
+    if (title.includes("អាកស៊ីម៉ែត") || title.includes("archimede") || title.includes("buoyan")) {
+      return [
+        {
+          id: `ex-gen-${lesson.id}-1`,
+          titleKm: "លំហាត់អនុវត្ត ៖ កម្លាំងរុញអាកស៊ីម៉ែត",
+          titleEn: "Practice: Archimedes Buoyant Force",
+          questionKm: "វត្ថុមួយមានមាឌ V = 0.004 m³ លិចទាំងស្រុងក្នុងទឹក (ρ = 1000 kg/m³, g = 10 m/s²)។ គណនា F_A ៖",
+          questionEn: "An object of V = 0.004 m³ is submerged in water (ρ = 1000, g = 10). Find F_A:",
+          formulaOrContext: "F_A = \\rho \\cdot g \\cdot V",
+          options: [
+            { labelKm: "F_A = 40 N", labelEn: "F_A = 40 N", isCorrect: true },
+            { labelKm: "F_A = 4 N", labelEn: "F_A = 4 N", isCorrect: false },
+            { labelKm: "F_A = 400 N", labelEn: "F_A = 400 N", isCorrect: false },
+            { labelKm: "F_A = 0.4 N", labelEn: "F_A = 0.4 N", isCorrect: false },
+          ],
+          stepByStepSolutionKm: `**ជំហានទី ១ (រូបមន្តអាកស៊ីម៉ែត)៖**
+$$F_A = \\rho \\cdot g \\cdot V$$
+
+**ជំហានទី ២ (ជំនួសលេខ)៖**
+$$F_A = 1000\\text{ kg/m}^3 \\times 10\\text{ m/s}^2 \\times 0.004\\text{ m}^3 = 40\\text{ N}$$
+
+**ចម្លើយត្រឹមត្រូវគឺ៖** $F_A = 40\\text{ N}$`,
+          stepByStepSolutionEn: "F_A = ρ * g * V = 1000 * 10 * 0.004 = 40 N.",
+          tipKm: "មាឌ V ត្រូវគិតជា m³ ជានិច្ច!",
+        },
+      ];
+    }
+
+    if (title.includes("ការងារ") || title.includes("អានុភាព") || title.includes("work") || title.includes("power")) {
+      return [
+        {
+          id: `ex-gen-${lesson.id}-1`,
+          titleKm: "លំហាត់អនុវត្ត ៖ ការងារ និងអានុភាពមេកានិច",
+          titleEn: "Practice: Work & Power",
+          questionKm: "កម្លាំង F = 200 N រុញវត្ថុបានចម្ងាយ d = 6 m ក្នុងរយៈពេល t = 4 s។ គណនាការងារ W និងអានុភាព P ៖",
+          questionEn: "Force F = 200 N moves an object d = 6 m in t = 4 s. Find work W and power P:",
+          formulaOrContext: "W = F \\cdot d, \\quad P = \\frac{W}{t}",
+          options: [
+            { labelKm: "W = 1,200 J; P = 300 W", labelEn: "W = 1,200 J; P = 300 W", isCorrect: true },
+            { labelKm: "W = 1,200 J; P = 150 W", labelEn: "W = 1,200 J; P = 150 W", isCorrect: false },
+            { labelKm: "W = 800 J; P = 200 W", labelEn: "W = 800 J; P = 200 W", isCorrect: false },
+            { labelKm: "W = 600 J; P = 300 W", labelEn: "W = 600 J; P = 300 W", isCorrect: false },
+          ],
+          stepByStepSolutionKm: `**ជំហានទី ១ (គណនាការងារ W)៖**
+$$W = F \\cdot d = 200\\text{ N} \\times 6\\text{ m} = 1,200\\text{ J}$$
+
+**ជំហានទី ២ (គណនាអានុភាព P)៖**
+$$P = \\frac{W}{t} = \\frac{1,200\\text{ J}}{4\\text{ s}} = 300\\text{ W}$$
+
+**ចម្លើយត្រឹមត្រូវគឺ៖** $W = 1,200\\text{ J}$ និង $P = 300\\text{ W}$`,
+          stepByStepSolutionEn: "W = F * d = 200 * 6 = 1,200 J. P = W / t = 1,200 / 4 = 300 W.",
+          tipKm: "1 Watt (W) = 1 Joule ក្នុង ១ វិនាទី!",
+        },
+      ];
+    }
+
+    if (title.includes("កម្តៅ") || title.includes("heat") || title.includes("ទែរម៉ូ")) {
+      return [
+        {
+          id: `ex-gen-${lesson.id}-1`,
+          titleKm: "លំហាត់អនុវត្ត ៖ បរិមាណកម្តៅ Q = m · c · ΔT",
+          titleEn: "Practice: Heat Energy Q = m · c · ΔT",
+          questionKm: "គណនាបរិមាណកម្តៅ Q ត្រូវការដើម្បីកម្តៅទឹក m = 2 kg ឱ្យឡើងកម្តៅ ΔT = 10°C (ដឹងថា c = 4200 J/(kg·°C)) ៖",
+          questionEn: "Calculate heat Q to warm m = 2 kg of water by ΔT = 10°C (c = 4200):",
+          formulaOrContext: "Q = m \\cdot c \\cdot \\Delta T",
+          options: [
+            { labelKm: "Q = 84,000 J (84 kJ)", labelEn: "Q = 84,000 J (84 kJ)", isCorrect: true },
+            { labelKm: "Q = 42,000 J", labelEn: "Q = 42,000 J", isCorrect: false },
+            { labelKm: "Q = 8,400 J", labelEn: "Q = 8,400 J", isCorrect: false },
+            { labelKm: "Q = 168,000 J", labelEn: "Q = 168,000 J", isCorrect: false },
+          ],
+          stepByStepSolutionKm: `**ជំហានទី ១ (រូបមន្តកម្តៅ)៖**
+$$Q = m \\cdot c \\cdot \\Delta T$$
+
+**ជំហានទី ២ (ជំនួសលេខ)៖**
+$$Q = 2\\text{ kg} \\times 4200\\text{ J/(kg}\\cdot^\\circ\\text{C)} \\times 10^\\circ\\text{C} = 84,000\\text{ J = 84 kJ}$$
+
+**ចម្លើយត្រឹមត្រូវគឺ៖** $Q = 84,000\\text{ J}$`,
+          stepByStepSolutionEn: "Q = 2 * 4200 * 10 = 84,000 J = 84 kJ.",
+          tipKm: "កម្តៅម៉ាសទឹកគឺ c = 4200 J/(kg·°C)!",
+        },
+      ];
+    }
+
+    if (title.includes("អគ្គិសនី") || title.includes("circuit") || title.includes("ចរន្ត") || title.includes("ohm")) {
+      return [
+        {
+          id: `ex-gen-${lesson.id}-1`,
+          titleKm: "លំហាត់អនុវត្ត ៖ ច្បាប់អូមក្នុងសៀគ្វី U = R · I",
+          titleEn: "Practice: Ohm's Law U = R · I",
+          questionKm: "រេស៊ីស្តង់មួយមានតម្លៃ R = 25 Ω ឆ្លងកាត់ដោយចរន្ត I = 0.4 A។ គណនាតង់ស្យុង U ៖",
+          questionEn: "A resistor R = 25 Ω carries current I = 0.4 A. Find voltage U:",
+          formulaOrContext: "U = R \\cdot I",
+          options: [
+            { labelKm: "U = 10 V", labelEn: "U = 10 V", isCorrect: true },
+            { labelKm: "U = 100 V", labelEn: "U = 100 V", isCorrect: false },
+            { labelKm: "U = 62.5 V", labelEn: "U = 62.5 V", isCorrect: false },
+            { labelKm: "U = 1 V", labelEn: "U = 1 V", isCorrect: false },
+          ],
+          stepByStepSolutionKm: `**ជំហានទី ១ (ច្បាប់អូម)៖**
+$$U = R \\cdot I$$
+
+**ជំហានទី ២ (ជំនួសលេខ)៖**
+$$U = 25\\ \\Omega \\times 0.4\\text{ A} = 10\\text{ V}$$
+
+**ចម្លើយត្រឹមត្រូវគឺ៖** $U = 10\\text{ V}$`,
+          stepByStepSolutionEn: "U = R * I = 25 * 0.4 = 10 V.",
+          tipKm: "U = R · I; I = U / R; R = U / I!",
+        },
+      ];
+    }
+
+    // Default Physics Law of Force
     return [
       {
         id: `ex-gen-${lesson.id}-1`,
@@ -696,8 +1191,59 @@ $$F = 5\\text{ kg} \\times 3\\text{ m/s}^2 = 15\\text{ N (ញូតុន)}$$`,
     ];
   }
 
-  // Chemistry
+  // Chemistry Topic-Aware Calculations
   if (subj === "chemistry") {
+    if (title.includes("ម៉ាសម៉ូល") || title.includes("អាតូម") || title.includes("ម៉ូលេគុល")) {
+      return [
+        {
+          id: `ex-gen-${lesson.id}-1`,
+          titleKm: "លំហាត់អនុវត្ត ៖ គណនាម៉ាសម៉ូល និងចំនួនម៉ូល",
+          titleEn: "Practice: Molar Mass & Moles",
+          questionKm: "គណនាម៉ាសម៉ូល M នៃឧស្ម័នកាបូនិច CO₂ (ដឹងថា C = 12, O = 16) ៖",
+          questionEn: "Find molar mass of CO₂ (C = 12, O = 16):",
+          formulaOrContext: "M(CO_2) = 12 + 2(16) = 44\\text{ g/mol}",
+          options: [
+            { labelKm: "M = 44 g/mol", labelEn: "M = 44 g/mol", isCorrect: true },
+            { labelKm: "M = 28 g/mol", labelEn: "M = 28 g/mol", isCorrect: false },
+            { labelKm: "M = 32 g/mol", labelEn: "M = 32 g/mol", isCorrect: false },
+            { labelKm: "M = 56 g/mol", labelEn: "M = 56 g/mol", isCorrect: false },
+          ],
+          stepByStepSolutionKm: `**ជំហានទី ១ (បូកម៉ាសអាតូម)៖**
+$$M(CO_2) = 12 + 2 \\times 16 = 12 + 32 = 44\\text{ g/mol}$$
+
+**ចម្លើយត្រឹមត្រូវគឺ៖** $M = 44\\text{ g/mol}$`,
+          stepByStepSolutionEn: "M(CO₂) = 12 + 2(16) = 44 g/mol.",
+          tipKm: "ម៉ាសម៉ូលនៃសារធាតុស្មើផលបូកម៉ាសអាតូមទាំងអស់ក្នុងម៉ូលេគុល!",
+        },
+      ];
+    }
+
+    if (title.includes("សមីការ") || title.includes("តុល្យភាព") || title.includes("រក្សាម៉ាស")) {
+      return [
+        {
+          id: `ex-gen-${lesson.id}-1`,
+          titleKm: "លំហាត់អនុវត្ត ៖ ច្បាប់រក្សាម៉ាសក្នុងប្រតិកម្មគីមី",
+          titleEn: "Practice: Conservation of Mass",
+          questionKm: "គេដុតម៉ាញេស្យូម m(Mg) = 24 g ជាមួយអុកស៊ីសែន m(O₂) = 16 g បង្កើតបានម៉ាញេស្យូមអុកស៊ីត MgO ទាំងស្រុង។ គណនាម៉ាស MgO ៖",
+          questionEn: "Burning 24 g Mg with 16 g O₂ yields MgO. Find mass of MgO:",
+          formulaOrContext: "m(MgO) = m(Mg) + m(O_2)",
+          options: [
+            { labelKm: "m(MgO) = 40 g", labelEn: "m(MgO) = 40 g", isCorrect: true },
+            { labelKm: "m(MgO) = 8 g", labelEn: "m(MgO) = 8 g", isCorrect: false },
+            { labelKm: "m(MgO) = 24 g", labelEn: "m(MgO) = 24 g", isCorrect: false },
+            { labelKm: "m(MgO) = 48 g", labelEn: "m(MgO) = 48 g", isCorrect: false },
+          ],
+          stepByStepSolutionKm: `**ច្បាប់ឡាវ័រហ្ស៊ីយេ (ច្បាប់រក្សាម៉ាស)៖**
+$$m(MgO) = m(Mg) + m(O_2) = 24\\text{ g} + 16\\text{ g} = 40\\text{ g}$$
+
+**ចម្លើយត្រឹមត្រូវគឺ៖** $m(MgO) = 40\\text{ g}$`,
+          stepByStepSolutionEn: "m(MgO) = 24 + 16 = 40 g.",
+          tipKm: "ផលបូកម៉ាសអង្គធាតុប្រតិករ = ផលបូកម៉ាសអង្គធាតុកកើត!",
+        },
+      ];
+    }
+
+    // Default Chemistry Calculation
     return [
       {
         id: `ex-gen-${lesson.id}-1`,
@@ -723,37 +1269,30 @@ $$n = \\frac{36\\text{ g}}{18\\text{ g/mol}} = 2\\text{ mol}$$`,
     ];
   }
 
-  // Biology & General Fallback
+  // Biology & Earth Quantitative Calculation
   return [
     {
       id: `ex-gen-${lesson.id}-1`,
-      titleKm: "លំហាត់អនុវត្តការយល់ដឹង និងការវិភាគ",
-      titleEn: "Concept Analysis & Application Exercise",
-      questionKm: `ផ្អែកលើខ្លឹមសារមេរៀន «${lesson.title_km}» តើមួយណាជាការអនុវត្តត្រឹមត្រូវបំផុត?`,
-      questionEn: `Based on the lesson "${lesson.title_en}", which is the most accurate practical application?`,
+      titleKm: `លំហាត់អនុវត្តគណនាទិន្នន័យ ៖ ${lesson.title_km}`,
+      titleEn: `Quantitative Metric Analysis: ${lesson.title_en}`,
+      questionKm: `ក្នុងការវាស់វែងពិសោធន៍វិទ្យាសាស្ត្រ ប៉ារ៉ាម៉ែត្រមួយកើនពី 25 ទៅ 100។ គណនាអត្រាកំណើនភាគរយ៖`,
+      questionEn: `A measured scientific parameter increases from 25 to 100. Find the percentage increase:`,
+      formulaOrContext: "\\Delta\\% = \\frac{100 - 25}{25} \\times 100\\%",
       options: [
-        {
-          labelKm: "អនុវត្តរូបមន្ត និងទ្រឹស្តីបទត្រង់ចំណុចគោលដៅ ជាមួយខ្នាតរង្វាស់ត្រឹមត្រូវ",
-          labelEn: "Apply formulas and theorems directly with proper units",
-          isCorrect: true,
-        },
-        {
-          labelKm: "ចងចាំតែនិយមន័យដោយមិនចាំបាច់ផ្ទៀងផ្ទាត់លក្ខខណ្ឌកំណត់",
-          labelEn: "Memorize only definitions without boundary checks",
-          isCorrect: false,
-        },
-        {
-          labelKm: "សន្មត់លទ្ធផលដោយមិនបាច់គណនាជំហានគំរូ",
-          labelEn: "Assume results without intermediate calculation",
-          isCorrect: false,
-        },
+        { labelKm: "+300% ((75 / 25) × 100% = 300%)", labelEn: "+300%", isCorrect: true },
+        { labelKm: "+400%", labelEn: "+400%", isCorrect: false },
+        { labelKm: "+75%", labelEn: "+75%", isCorrect: false },
+        { labelKm: "+100%", labelEn: "+100%", isCorrect: false },
       ],
-      stepByStepSolutionKm: `**វិធីសាស្ត្រដោះស្រាយត្រឹមត្រូវ៖**
-១. កំណត់ទិន្នន័យដែលប្រធានប្រាប់ និងខ្នាតរង្វាស់។
-២. ជ្រើសរើសរូបមន្តដែលត្រូវគ្នានឹងលក្ខខណ្ឌកំណត់។
-៣. គណនាលទ្ធផលមួយជំហានម្តងៗ និងផ្ទៀងផ្ទាត់ភាពសមហេតុផល។`,
-      stepByStepSolutionEn: "1. Identify given variables and units. 2. Select appropriate formula. 3. Calculate step-by-step.",
-      tipKm: "ការយល់ដឹងពីលក្ខខណ្ឌកំណត់ជួយការពារការខុសបច្ចេកទេសក្នុងការប្រឡង!",
+      stepByStepSolutionKm: `**ជំហានទី ១ (គណនាគម្លាតកំណើន)៖**
+$$100 - 25 = 75$$
+
+**ជំហានទី ២ (ចែកនឹងតម្លៃដើម និងគុណ 100%)៖**
+$$\\Delta\\% = \\frac{75}{25} \\times 100\\% = 3 \\times 100\\% = 300\\%$$
+
+**ចម្លើយត្រឹមត្រូវគឺ៖** $+300\\%$`,
+      stepByStepSolutionEn: "(100 - 25) / 25 * 100% = 300%.",
+      tipKm: "អត្រាកំណើនភាគរយ = (តម្លៃថ្មី - តម្លៃចាស់) / តម្លៃចាស់ × 100%!",
     },
   ];
 }
