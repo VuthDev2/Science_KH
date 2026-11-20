@@ -48,6 +48,9 @@ import {
   Award,
   CheckCircle2,
   BarChart3,
+  Eye,
+  EyeOff,
+  GraduationCap,
 } from "lucide-react";
 import { toast } from "sonner";
 import {
@@ -712,6 +715,7 @@ function ExamsArchivePage() {
     return null;
   });
   const [modalTab, setModalTab] = useState<"paper" | "rubric" | "formulas" | "topics">("paper");
+  const [expandedQuestionId, setExpandedQuestionId] = useState<number | null>(null);
 
   // Offline study storage state
   const [offlineExamIds, setOfflineExamIds] = useState<string[]>(() => getOfflineExamIds());
@@ -975,10 +979,12 @@ function ExamsArchivePage() {
     sounds.playPop();
     setActiveExam(paper);
     setModalTab(tab);
+    setExpandedQuestionId(null);
   };
 
   const handleClosePaper = () => {
     setActiveExam(null);
+    setExpandedQuestionId(null);
   };
 
   const totalResultsCount = individualPapers.length + collectionPapers.length;
@@ -1704,36 +1710,45 @@ function ExamsArchivePage() {
                   <DialogDescription>{formatAttribution(activeExam)}</DialogDescription>
                 </DialogHeader>
 
-                {/* Modal Top Header (Desktop Spacious Layout) */}
-                <div className="p-4 sm:p-5 lg:p-6 border-b border-[#E5EAF0] dark:border-slate-800 bg-[#F8FAFC] dark:bg-slate-850/80 shrink-0 space-y-3">
+                {/* Modal Top Header (Minimalist Apple/Linear Refined Layout) */}
+                <div className="p-4 sm:p-5 border-b border-slate-200/80 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900 shrink-0 space-y-3">
                   <div className="flex items-start justify-between gap-4">
-                    <div className="flex items-start gap-3.5">
-                      <div className="w-12 h-12 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-2xs flex items-center justify-center shrink-0 text-[#059669]">
-                        <SubjectIcon className="w-6 h-6 stroke-[2.2]" />
+                    <div className="flex items-start gap-3">
+                      <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-2xs flex items-center justify-center shrink-0 text-emerald-600 dark:text-emerald-400">
+                        <SubjectIcon className="w-5 h-5 stroke-[2.2]" />
                       </div>
-                      <div className="space-y-1">
+                      <div className="space-y-1 min-w-0">
                         <div className="flex items-center gap-1.5 flex-wrap">
-                          <span className="text-[11px] font-black uppercase tracking-wider text-[#059669] bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-0.5 rounded-full border border-emerald-200/60 dark:border-emerald-800">
+                          <span className="text-[10px] font-black uppercase tracking-wider text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded-md border border-emerald-200/60 dark:border-emerald-800">
                             {getResourceTypeLabel(activeExam.resourceType)}
                           </span>
                           {activeExam.examinationYear && (
-                            <span className="text-[10.5px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-2.5 py-0.5 rounded-full border border-slate-200 dark:border-slate-700">
+                            <span className="text-[10px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-2 py-0.5 rounded-md border border-slate-200 dark:border-slate-700">
                               សម័យប្រឡង {activeExam.examinationYear}
                             </span>
                           )}
-                          <span className="text-[10px] font-bold text-slate-400 bg-white dark:bg-slate-800 px-2 py-0.5 rounded-md border border-slate-200 dark:border-slate-700">
+                          <span className="text-[10px] font-bold text-slate-500 bg-white dark:bg-slate-800 px-2 py-0.5 rounded-md border border-slate-200 dark:border-slate-700">
                             {activeExam.stream === "social" ? "ថ្នាក់សង្គម" : "ថ្នាក់វិទ្យាសាស្ត្រ"}
                           </span>
                         </div>
 
-                        <h2 className="font-display text-lg sm:text-xl font-black text-slate-900 dark:text-white leading-snug">
+                        <h2 className="font-display text-base sm:text-lg font-black text-slate-900 dark:text-white leading-snug">
                           {cleanDisplayTitle(activeExam.originalTitleKh)}
                         </h2>
-                        {activeExam.titleEn && (
-                          <p className="text-xs text-slate-500 font-semibold">
-                            {activeExam.titleEn}
-                          </p>
-                        )}
+                        
+                        {/* Minimal dot-separated specs row */}
+                        <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 flex-wrap">
+                          <span className="inline-flex items-center gap-1">
+                            <Clock className="w-3.5 h-3.5 text-slate-400" />
+                            <span>{blueprint.durationMinutes || specs.durationMins} នាទី</span>
+                          </span>
+                          <span className="text-slate-300 dark:text-slate-700">•</span>
+                          <span>{blueprint.totalMarks || specs.maxScore} ពិន្ទុពេញ</span>
+                          <span className="text-slate-300 dark:text-slate-700">•</span>
+                          <span>មេគុណ {blueprint.coefficient}</span>
+                          <span className="text-slate-300 dark:text-slate-700">•</span>
+                          <span className="text-emerald-600 dark:text-emerald-400 font-semibold">MoEYS ស្តង់ដារជាតិ</span>
+                        </div>
                       </div>
                     </div>
 
@@ -1742,44 +1757,24 @@ function ExamsArchivePage() {
                         <button
                           type="button"
                           onClick={handleClosePaper}
-                          className="rounded-2xl p-2 text-slate-400 hover:text-slate-700 dark:hover:text-white bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer transition shadow-2xs active:scale-95"
+                          className="rounded-full p-2 text-slate-400 hover:text-slate-700 dark:hover:text-white bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer transition shadow-2xs active:scale-95"
                           aria-label="Close"
                         >
-                          <X className="h-5 w-5" />
+                          <X className="h-4 w-4" />
                         </button>
                       </DialogClose>
                     </div>
                   </div>
 
-                  {/* MoEYS Official Specification Pill Row */}
-                  <div className="flex items-center gap-2 pt-1 overflow-x-auto no-scrollbar text-xs">
-                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-bold text-slate-700 dark:text-slate-300 shadow-2xs">
-                      <Clock className="w-3.5 h-3.5 text-blue-500" />
-                      <span>{blueprint.durationMinutes || specs.durationMins} នាទី</span>
-                    </span>
-                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-bold text-slate-700 dark:text-slate-300 shadow-2xs">
-                      <Award className="w-3.5 h-3.5 text-amber-500" />
-                      <span>{blueprint.totalMarks || specs.maxScore} ពិន្ទុពេញ</span>
-                    </span>
-                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-bold text-slate-700 dark:text-slate-300 shadow-2xs">
-                      <Calculator className="w-3.5 h-3.5 text-emerald-500" />
-                      <span>មេគុណ {blueprint.coefficient}</span>
-                    </span>
-                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800 font-bold text-emerald-700 dark:text-emerald-300 shadow-2xs">
-                      <ShieldCheck className="w-3.5 h-3.5 text-[#059669]" />
-                      <span>ស្តង់ដារជាតិ MoEYS</span>
-                    </span>
-                  </div>
-
-                  {/* Cross-Year Comparison Switcher */}
+                  {/* Cross-Year Comparison Pill Strip */}
                   {relatedCrossYearPapers.length > 0 && (
-                    <div className="pt-2 border-t border-[#E5EAF0] dark:border-slate-800/80">
-                      <div className="flex items-center gap-2 overflow-x-auto no-scrollbar">
-                        <span className="text-[11px] text-slate-500 font-bold shrink-0">
-                          ប្រៀបធៀបឆ្នាំប្រឡង៖
+                    <div className="pt-2 border-t border-slate-200/70 dark:border-slate-800/80">
+                      <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
+                        <span className="text-[11px] text-slate-400 font-bold shrink-0 mr-1">
+                          សម័យប្រឡង៖
                         </span>
-                        <span className="px-3 py-1 rounded-xl text-xs font-black bg-[#059669] text-white shadow-xs shrink-0">
-                          {activeExam.examinationYear ?? activeExam.examYear} (បច្ចុប្បន្ន)
+                        <span className="px-3 py-1 rounded-xl text-xs font-black bg-emerald-600 text-white shadow-2xs shrink-0">
+                          {activeExam.examinationYear ?? activeExam.examYear}
                         </span>
                         {relatedCrossYearPapers.map((other) => (
                           <button
@@ -1788,8 +1783,9 @@ function ExamsArchivePage() {
                             onClick={() => {
                               sounds.playPop();
                               setActiveExam(other);
+                              setExpandedQuestionId(null);
                             }}
-                            className="px-3 py-1 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 border border-[#E5EAF0] dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-[#059669] hover:text-[#059669] transition shrink-0 cursor-pointer shadow-2xs active:scale-95"
+                            className="px-2.5 py-1 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-emerald-500 hover:text-emerald-600 transition shrink-0 cursor-pointer shadow-2xs active:scale-95"
                           >
                             {other.examinationYear ?? other.examYear ?? other.coverageEndYear}
                           </button>
@@ -1798,8 +1794,8 @@ function ExamsArchivePage() {
                     </div>
                   )}
 
-                  {/* 4 Tabs: Paper / Rubric / Formulas / Topics */}
-                  <div className="grid grid-cols-4 gap-1.5 bg-[#F1F5F9] dark:bg-slate-800 p-1.5 rounded-2xl text-xs font-bold">
+                  {/* 4 Sleek Tabs: Paper / Rubric / Formulas / Topics */}
+                  <div className="grid grid-cols-4 gap-1 bg-slate-100 dark:bg-slate-800 p-1 rounded-xl text-xs font-bold">
                     <button
                       type="button"
                       onClick={() => {
@@ -1807,9 +1803,9 @@ function ExamsArchivePage() {
                         setModalTab("paper");
                       }}
                       className={cn(
-                        "py-2 px-2 rounded-xl text-center transition cursor-pointer truncate flex items-center justify-center gap-1.5",
+                        "py-2 px-1 rounded-lg text-center transition cursor-pointer truncate flex items-center justify-center gap-1.5",
                         modalTab === "paper"
-                          ? "bg-white dark:bg-slate-900 text-[#059669] shadow-xs font-black"
+                          ? "bg-white dark:bg-slate-900 text-emerald-600 dark:text-emerald-400 shadow-2xs font-black"
                           : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
                       )}
                     >
@@ -1823,9 +1819,9 @@ function ExamsArchivePage() {
                         setModalTab("rubric");
                       }}
                       className={cn(
-                        "py-2 px-2 rounded-xl text-center transition cursor-pointer truncate flex items-center justify-center gap-1.5",
+                        "py-2 px-1 rounded-lg text-center transition cursor-pointer truncate flex items-center justify-center gap-1.5",
                         modalTab === "rubric"
-                          ? "bg-white dark:bg-slate-900 text-[#059669] shadow-xs font-black"
+                          ? "bg-white dark:bg-slate-900 text-emerald-600 dark:text-emerald-400 shadow-2xs font-black"
                           : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
                       )}
                     >
@@ -1839,9 +1835,9 @@ function ExamsArchivePage() {
                         setModalTab("formulas");
                       }}
                       className={cn(
-                        "py-2 px-2 rounded-xl text-center transition cursor-pointer truncate flex items-center justify-center gap-1.5",
+                        "py-2 px-1 rounded-lg text-center transition cursor-pointer truncate flex items-center justify-center gap-1.5",
                         modalTab === "formulas"
-                          ? "bg-white dark:bg-slate-900 text-[#059669] shadow-xs font-black"
+                          ? "bg-white dark:bg-slate-900 text-emerald-600 dark:text-emerald-400 shadow-2xs font-black"
                           : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
                       )}
                     >
@@ -1855,9 +1851,9 @@ function ExamsArchivePage() {
                         setModalTab("topics");
                       }}
                       className={cn(
-                        "py-2 px-2 rounded-xl text-center transition cursor-pointer truncate flex items-center justify-center gap-1.5",
+                        "py-2 px-1 rounded-lg text-center transition cursor-pointer truncate flex items-center justify-center gap-1.5",
                         modalTab === "topics"
-                          ? "bg-white dark:bg-slate-900 text-[#059669] shadow-xs font-black"
+                          ? "bg-white dark:bg-slate-900 text-emerald-600 dark:text-emerald-400 shadow-2xs font-black"
                           : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
                       )}
                     >
@@ -1867,38 +1863,29 @@ function ExamsArchivePage() {
                   </div>
                 </div>
 
-                {/* Modal Body (Scrollable, Full Desktop Width) */}
+                {/* Modal Body (Scrollable, Minimalist Linear Layout) */}
                 <div className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-7 space-y-4 text-xs sm:text-sm">
                   {/* TAB 1: EXAM PAPER */}
                   {modalTab === "paper" && (
                     <div className="space-y-4">
-                      {/* MoEYS Official Original PDF Link Banner */}
-                      <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-emerald-50 via-teal-50/50 to-white dark:from-emerald-950/40 dark:via-slate-850 dark:to-slate-900 border border-emerald-200/80 dark:border-emerald-800/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-2xs">
-                        <div className="space-y-1">
-                          <div className="flex items-center gap-1.5">
-                            <span className="text-[10.5px] font-black uppercase text-[#059669] bg-white dark:bg-slate-800 px-2 py-0.5 rounded-md border border-emerald-300 dark:border-emerald-700">
-                              MoEYS Verified Archive
-                            </span>
-                            <span className="text-xs font-bold text-slate-700 dark:text-slate-200">
-                              ឯកសារវិញ្ញាសាច្បាប់ដើមពេញលេញ
-                            </span>
-                          </div>
-                          <p className="text-xs text-slate-500 dark:text-slate-400">
-                            វិញ្ញាសាត្រូវបានរៀបចំតាមកម្រងសំណួរផ្លូវការ និងអាចបើកមើល PDF ច្បាប់ដើមរបស់ក្រសួងអប់រំគ្រប់ពេលវេលា។
+                      {/* Cambodian National Examination Official Document Header */}
+                      <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 text-center space-y-2 shadow-2xs">
+                        <div className="space-y-0.5">
+                          <p className="text-[10.5px] font-bold tracking-widest text-slate-500 uppercase">
+                            ព្រះរាជាណាចក្រកម្ពុជា • ជាតិ សាសនា ព្រះមហាក្សត្រ
+                          </p>
+                          <p className="text-xs font-bold text-slate-700 dark:text-slate-300">
+                            ក្រសួងអប់រំ យុវជន និងកីឡា
                           </p>
                         </div>
-
-                        {activeExam.pdfUrl && (
-                          <a
-                            href={activeExam.pdfUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="h-9 px-4 rounded-xl bg-[#059669] hover:bg-emerald-700 text-white font-bold text-xs inline-flex items-center gap-1.5 shadow-2xs shrink-0 cursor-pointer transition active:scale-95"
-                          >
-                            <ExternalLink className="h-3.5 w-3.5" />
-                            <span>បើកមើល PDF ច្បាប់ដើម</span>
-                          </a>
-                        )}
+                        <div className="pt-2 border-t border-slate-100 dark:border-slate-800">
+                          <h3 className="text-sm sm:text-base font-black text-slate-900 dark:text-white">
+                            វិញ្ញាសាប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ (បាក់ឌុប)
+                          </h3>
+                          <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
+                            សម័យប្រឡង៖ {activeExam.examinationYear ?? "២០២៦"} • រយៈពេល៖ {blueprint.durationMinutes} នាទី • ពិន្ទុពេញ៖ {blueprint.totalMarks}
+                          </p>
+                        </div>
                       </div>
 
                       {/* Digitized Questions OR MoEYS Blueprint 5 Exercises */}
@@ -1906,14 +1893,19 @@ function ExamsArchivePage() {
                         activeExam.questions.map((q) => (
                           <div
                             key={q.questionNumber}
-                            className="p-5 rounded-2xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 space-y-3 shadow-2xs"
+                            className="p-4 sm:p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-3.5 shadow-2xs"
                           >
-                            <div className="flex items-center justify-between border-b border-[#F1F5F9] dark:border-slate-800 pb-2.5">
-                              <span className="font-black text-sm text-[#059669]">
-                                {q.titleKm}
-                              </span>
+                            <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-2.5">
+                              <div className="flex items-center gap-2">
+                                <span className="grid h-7 w-7 place-items-center rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-xs font-black text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
+                                  {q.questionNumber}
+                                </span>
+                                <span className="font-bold text-sm text-slate-900 dark:text-white">
+                                  {q.titleKm}
+                                </span>
+                              </div>
                               {q.points && (
-                                <span className="text-xs font-black text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-2.5 py-0.5 rounded-full border border-slate-200 dark:border-slate-700">
+                                <span className="text-xs font-black text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-0.5 rounded-full border border-emerald-200/60 dark:border-emerald-800">
                                   {q.points} ពិន្ទុ
                                 </span>
                               )}
@@ -1922,11 +1914,70 @@ function ExamsArchivePage() {
                             <div className="prose prose-sm dark:prose-invert max-w-none text-slate-800 dark:text-slate-200 leading-relaxed font-sans">
                               <ReactMarkdown
                                 remarkPlugins={[remarkGfm, remarkMath]}
-                                rehypePlugins={[rehypeKatex]}
+                                rehypePlugins={[[rehypeKatex, { throwOnError: false, strict: false }]]}
                               >
                                 {q.problemTextKm.replace(/\\n/g, "\n\n")}
                               </ReactMarkdown>
                             </div>
+
+                            {/* Interactive 1-Tap Solution Toggle Button */}
+                            <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                              <button
+                                type="button"
+                                onClick={() =>
+                                  setExpandedQuestionId(
+                                    expandedQuestionId === q.questionNumber ? null : q.questionNumber
+                                  )
+                                }
+                                className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-emerald-50 dark:hover:bg-emerald-950/60 hover:text-emerald-600 text-slate-700 dark:text-slate-300 transition cursor-pointer active:scale-95 border border-slate-200/60 dark:border-slate-700"
+                              >
+                                {expandedQuestionId === q.questionNumber ? (
+                                  <>
+                                    <EyeOff className="w-3.5 h-3.5 text-slate-500" />
+                                    <span>លាក់អត្រាកំណែ</span>
+                                  </>
+                                ) : (
+                                  <>
+                                    <Eye className="w-3.5 h-3.5 text-emerald-600" />
+                                    <span>មើលអត្រាកំណែផ្លូវការ & ពិន្ទុ</span>
+                                  </>
+                                )}
+                              </button>
+
+                              {q.scoringCriteriaKm && (
+                                <span className="text-[11px] font-semibold text-slate-400">
+                                  ស្តង់ដារកំណែ MoEYS
+                                </span>
+                              )}
+                            </div>
+
+                            {/* Expandable Official Solution Drawer */}
+                            {expandedQuestionId === q.questionNumber && (
+                              <div className="p-4 rounded-xl bg-emerald-50/50 dark:bg-emerald-950/30 border border-emerald-200/80 dark:border-emerald-800/60 space-y-3 animate-in fade-in duration-200">
+                                <div className="flex items-center gap-1.5 text-xs font-black text-emerald-800 dark:text-emerald-300">
+                                  <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                                  <span>ដំណោះស្រាយផ្លូវការ & អត្រាកំណែ MoEYS</span>
+                                </div>
+
+                                {q.officialSolutionKm && (
+                                  <div className="prose prose-sm dark:prose-invert max-w-none text-slate-800 dark:text-slate-200 leading-relaxed font-sans">
+                                    <ReactMarkdown
+                                      remarkPlugins={[remarkGfm, remarkMath]}
+                                      rehypePlugins={[[rehypeKatex, { throwOnError: false, strict: false }]]}
+                                    >
+                                      {q.officialSolutionKm.replace(/\\n/g, "\n\n")}
+                                    </ReactMarkdown>
+                                  </div>
+                                )}
+
+                                {q.scoringCriteriaKm && (
+                                  <div className="pt-2 border-t border-emerald-200/60 dark:border-emerald-800/60 text-xs text-emerald-900/90 dark:text-emerald-200/90">
+                                    <span className="font-bold block mb-1">គោលការណ៍កាត់ពិន្ទុ៖</span>
+                                    <p className="leading-relaxed">{q.scoringCriteriaKm}</p>
+                                  </div>
+                                )}
+                              </div>
+                            )}
                           </div>
                         ))
                       ) : (
@@ -1944,11 +1995,11 @@ function ExamsArchivePage() {
                           {blueprint.exercises.map((ex, idx) => (
                             <div
                               key={idx}
-                              className="p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-3 shadow-2xs hover:border-[#059669]/60 transition"
+                              className="p-4 sm:p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-3 shadow-2xs hover:border-emerald-500/60 transition"
                             >
                               <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-2.5">
                                 <div className="flex items-center gap-2">
-                                  <span className="grid h-7 w-7 place-items-center rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-xs font-black text-[#059669] border border-emerald-200 dark:border-emerald-800">
+                                  <span className="grid h-7 w-7 place-items-center rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-xs font-black text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
                                     {idx + 1}
                                   </span>
                                   <div>
@@ -2007,23 +2058,23 @@ function ExamsArchivePage() {
                         activeExam.questions.map((q) => (
                           <div
                             key={q.questionNumber}
-                            className="p-5 rounded-2xl border border-emerald-100 dark:border-emerald-950/60 bg-emerald-50/20 dark:bg-emerald-950/20 space-y-3"
+                            className="p-4 sm:p-5 rounded-2xl border border-emerald-100 dark:border-emerald-950/60 bg-emerald-50/20 dark:bg-emerald-950/20 space-y-3"
                           >
-                            <div className="font-black text-sm text-[#059669]">
-                              ដំណោះស្រាយលម្អិត & អត្រាកំណែ — {q.titleKm}
+                            <div className="font-black text-sm text-emerald-700 dark:text-emerald-400">
+                              ដំណោះស្រាយលម្អិត & អត្រាកំណែ — {q.titleKm} ({q.points} ពិន្ទុ)
                             </div>
 
                             {q.officialSolutionKm ? (
                               <div className="prose prose-sm dark:prose-invert max-w-none text-slate-800 dark:text-slate-200 leading-relaxed font-sans">
                                 <ReactMarkdown
                                   remarkPlugins={[remarkGfm, remarkMath]}
-                                  rehypePlugins={[rehypeKatex]}
+                                  rehypePlugins={[[rehypeKatex, { throwOnError: false, strict: false }]]}
                                 >
                                   {q.officialSolutionKm.replace(/\\n/g, "\n\n")}
                                 </ReactMarkdown>
                               </div>
                             ) : (
-                              <p className="text-slate-500 italic">
+                              <p className="text-slate-500 italic text-xs">
                                 អត្រាកំណែផ្លូវការមាននៅក្នុងឯកសារ PDF ច្បាប់ដើមខាងក្រោម។
                               </p>
                             )}
@@ -2040,7 +2091,7 @@ function ExamsArchivePage() {
                               className="p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-2"
                             >
                               <div className="flex items-center justify-between text-xs sm:text-sm font-bold">
-                                <span className="text-[#059669]">
+                                <span className="text-emerald-600 dark:text-emerald-400">
                                   {ex.titleKm} ({ex.topicKm})
                                 </span>
                                 <span className="bg-slate-100 dark:bg-slate-800 px-2.5 py-0.5 rounded-full font-black text-slate-700 dark:text-slate-200">
@@ -2081,7 +2132,7 @@ function ExamsArchivePage() {
                       {blueprint.essentialFormulas.map((f, i) => (
                         <div
                           key={i}
-                          className="p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-2 shadow-2xs hover:border-[#059669]/60 transition"
+                          className="p-4 rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-2 shadow-2xs hover:border-emerald-500/60 transition"
                         >
                           <div className="flex items-center justify-between">
                             <span className="font-black text-xs sm:text-sm text-slate-900 dark:text-white">
@@ -2090,12 +2141,12 @@ function ExamsArchivePage() {
                             <button
                               type="button"
                               onClick={(e) => handleCopyFormula(f.formula, e)}
-                              className="inline-flex items-center gap-1 text-[11px] font-bold px-2 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-emerald-50 hover:text-[#059669] text-slate-600 dark:text-slate-300 transition cursor-pointer"
+                              className="inline-flex items-center gap-1 text-[11px] font-bold px-2 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-emerald-50 hover:text-emerald-600 text-slate-600 dark:text-slate-300 transition cursor-pointer"
                             >
                               {copiedFormulaText === f.formula ? (
                                 <>
-                                  <Check className="w-3 h-3 text-[#059669]" />
-                                  <span className="text-[#059669]">បានចម្លង!</span>
+                                  <Check className="w-3 h-3 text-emerald-600" />
+                                  <span className="text-emerald-600">បានចម្លង!</span>
                                 </>
                               ) : (
                                 <>
@@ -2106,7 +2157,7 @@ function ExamsArchivePage() {
                             </button>
                           </div>
 
-                          <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 font-mono text-center text-sm text-[#059669] dark:text-emerald-300 overflow-x-auto shadow-2xs">
+                          <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 font-mono text-center text-sm text-emerald-700 dark:text-emerald-300 overflow-x-auto shadow-2xs">
                             <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>
                               {`$${f.formula}$`}
                             </ReactMarkdown>
@@ -2126,7 +2177,7 @@ function ExamsArchivePage() {
                   {/* TAB 4: SYLLABUS TOPICS & STRATEGY */}
                   {modalTab === "topics" && (
                     <div className="space-y-4">
-                      <div className="p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-2 shadow-2xs">
+                      <div className="p-4 sm:p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-2 shadow-2xs">
                         <div className="font-black text-sm text-slate-900 dark:text-white flex items-center gap-2">
                           <BarChart3 className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
                           <span>សង្ខេបវិញ្ញាសា និងទម្ងន់ពិន្ទុ</span>
@@ -2136,7 +2187,7 @@ function ExamsArchivePage() {
                         </p>
                       </div>
 
-                      <div className="p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-3 shadow-2xs">
+                      <div className="p-4 sm:p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-3 shadow-2xs">
                         <div className="font-black text-sm text-slate-900 dark:text-white">
                           មេរៀនដែលចេញប្រឡងតាមលំដាប់លំហាត់
                         </div>
@@ -2177,21 +2228,21 @@ function ExamsArchivePage() {
                   )}
                 </div>
 
-                {/* Modal Footer Dock (Spacious, Responsive Desktop/Mobile) */}
-                <div className="p-4 sm:p-5 border-t border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shrink-0 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-lg">
+                {/* Modal Footer Dock (Minimalist, Apple-style Clean Toolbar) */}
+                <div className="p-3 sm:p-4 border-t border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 shrink-0 flex flex-col sm:flex-row items-center justify-between gap-2.5">
                   <div className="flex items-center gap-2 w-full sm:w-auto">
                     {activeExam.pdfUrl ? (
                       <a
                         href={activeExam.pdfUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="h-11 px-4 rounded-2xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-bold text-xs flex items-center justify-center gap-1.5 transition active:scale-95 shadow-2xs w-full sm:w-auto cursor-pointer"
+                        className="h-10 px-3.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-bold text-xs flex items-center justify-center gap-1.5 transition active:scale-95 shadow-2xs w-full sm:w-auto cursor-pointer"
                       >
-                        <ExternalLink className="h-4 w-4 text-[#059669]" />
+                        <ExternalLink className="h-3.5 w-3.5 text-emerald-600" />
                         <span>បើកមើល PDF ច្បាប់ដើម</span>
                       </a>
                     ) : (
-                      <div className="h-11 px-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-400 font-medium text-xs flex items-center justify-center">
+                      <div className="h-10 px-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-slate-400 font-medium text-xs flex items-center justify-center">
                         <span>គ្មាន PDF ក្រៅប្រព័ន្ធ</span>
                       </div>
                     )}
@@ -2200,7 +2251,7 @@ function ExamsArchivePage() {
                       type="button"
                       onClick={() => handleToggleOffline(activeExam)}
                       className={cn(
-                        "h-11 px-4 rounded-2xl font-bold text-xs flex items-center justify-center gap-1.5 transition active:scale-95 border cursor-pointer shadow-2xs w-full sm:w-auto",
+                        "h-10 px-3.5 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 transition active:scale-95 border cursor-pointer shadow-2xs w-full sm:w-auto",
                         offlineExamIds.includes(activeExam.id)
                           ? "bg-emerald-50 dark:bg-emerald-950/60 border-emerald-300 dark:border-emerald-700 text-emerald-800 dark:text-emerald-300"
                           : "bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200"
@@ -2208,12 +2259,12 @@ function ExamsArchivePage() {
                     >
                       {offlineExamIds.includes(activeExam.id) ? (
                         <>
-                          <BookmarkCheck className="h-4 w-4 text-emerald-600" />
+                          <BookmarkCheck className="h-3.5 w-3.5 text-emerald-600" />
                           <span>បានរក្សាទុក Offline</span>
                         </>
                       ) : (
                         <>
-                          <Download className="h-4 w-4 text-slate-500" />
+                          <Download className="h-3.5 w-3.5 text-slate-500" />
                           <span>រក្សាទុក Offline</span>
                         </>
                       )}
@@ -2231,9 +2282,9 @@ function ExamsArchivePage() {
                         },
                       });
                     }}
-                    className="w-full sm:w-auto h-11 px-6 rounded-2xl bg-[#059669] hover:bg-emerald-700 text-white font-black text-xs flex items-center justify-center gap-2 shadow-md cursor-pointer transition active:scale-95"
+                    className="w-full sm:w-auto h-10 px-5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-sm cursor-pointer transition active:scale-95"
                   >
-                    <Sparkles className="h-4 w-4" />
+                    <GraduationCap className="h-4 w-4" />
                     <span>សួរលោកគ្រូ វុឌ្ឍ ពន្យល់វិញ្ញាសានេះ</span>
                   </button>
                 </div>

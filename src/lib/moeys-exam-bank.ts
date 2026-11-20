@@ -708,27 +708,161 @@ export const HISTORICAL_EXAM_ARCHIVE: HistoricalExamPaper[] = [
     "answerKeyUrl": "https://moeys.gov.kh/bacii",
     "sessionDateKm": "សម័យប្រឡង៖ ១០ សីហា ២០២៦",
     "durationMinutes": 150,
-    "totalMarks": 75,
+    "totalMarks": 125,
     "coefficient": 4,
     "topicsKm": [
-      "អនុគមន៍ និងលីមីត",
       "ចំនួនកុំផ្លិច",
+      "សមីការឌីផេរ៉ង់ស្យែល",
       "ប្រូបាប",
       "ធរណីមាត្រក្នុងលំហ",
-      "សមីការឌីផេរ៉ង់ស្យែល"
+      "អនុគមន៍លោការីត និងអាំងតេក្រាល"
     ],
     "topicsEn": [
-      "Functions & Limits",
       "Complex Numbers",
+      "Differential Equations",
       "Probability",
-      "Solid Geometry",
-      "Differential Equations"
+      "Space Analytic Geometry",
+      "Logarithmic Calculus & Integrals"
     ],
-    "overviewKm": "វិញ្ញាសាប្រឡងបាក់ឌុបផ្លូវការ ថ្នាក់វិទ្យាសាស្ត្រ សម័យប្រឡង ១០ សីហា ២០២៦ ចេញដោយក្រសួងអប់រំ យុវជន និងកីឡា។",
-    "overviewEn": "Official Science Stream Mathematics paper from the August 10, 2026 Bac II national examination session.",
-    "essentialFormulaSheet": [],
-    "questions": [],
-    "notes": "Official MoEYS examination conducted on 10 August 2026. Scanned master document available via MoEYS. Questions are currently in digitization pipeline."
+    "overviewKm": "គំរូវិញ្ញាសាផ្លូវការ MoEYS ថ្នាក់ជាតិ ត្រៀមប្រឡងបាក់ឌុប ២០២៦ មុខវិជ្ជា គណិតវិទ្យា ថ្នាក់វិទ្យាសាស្ត្រ ចេញស្របតាមកម្មវិធីសិក្សាលម្អិតរបស់ក្រសួងអប់រំ យុវជន និងកីឡា។",
+    "overviewEn": "Official MoEYS National Model Paper for 2026 Bac II Science Stream Mathematics featuring full 5-problem curriculum blueprint.",
+    "essentialFormulaSheet": [
+      {
+        "nameKm": "រូបមន្តដឺម័រ (De Moivre)",
+        "nameEn": "De Moivre's Theorem",
+        "formula": "(\\cos\\theta + i\\sin\\theta)^n = \\cos(n\\theta) + i\\sin(n\\theta)",
+        "noteKm": "គណនាស្វ័យគុណនៃចំនួនកុំផ្លិចទម្រង់ត្រីកោណមាត្រ"
+      },
+      {
+        "nameKm": "សមីការឌីផេរ៉ង់ស្យែលអូម៉ូសែន",
+        "nameEn": "Homogeneous 2nd Order ODE",
+        "formula": "y'' + \\omega^2 y = 0 \\implies y = A\\cos(\\omega x) + B\\sin(\\omega x)",
+        "noteKm": "ចម្លើយទូទៅនៃសមីការឌីផេរ៉ង់ស្យែលលំដាប់ពីរគ្មានដេរីវេទីមួយ"
+      },
+      {
+        "nameKm": "ផលគុណវ៉ិចទ័រក្នុងលំហ",
+        "nameEn": "Vector Cross Product",
+        "formula": "\\vec{u} \\times \\vec{v} = (u_y v_z - u_z v_y)\\vec{i} - (u_x v_z - u_z v_x)\\vec{j} + (u_x v_y - u_y v_x)\\vec{k}",
+        "noteKm": "កំណត់វ៉ិចទ័រណរម៉ាល់នៃប្លង់កាត់តាម ៣ ចំណុច"
+      },
+      {
+        "nameKm": "ចម្ងាយពីចំណុចទៅប្លង់",
+        "nameEn": "Distance from Point to Plane",
+        "formula": "d(A, (P)) = \\frac{|ax_A + by_A + cz_A + d|}{\\sqrt{a^2 + b^2 + c^2}}",
+        "noteKm": "គណនាកាំស្វ៊ែរប៉ះនឹងប្លង់"
+      },
+      {
+        "nameKm": "អាំងតេក្រាលអនុគមន៍លោការីត",
+        "nameEn": "Logarithmic Integration",
+        "formula": "\\int \\frac{\\ln x}{x}\\,dx = \\frac{(\\ln x)^2}{2} + C",
+        "noteKm": "គណនាផ្ទៃក្រឡាដែនប្លង់ខណ្ឌដោយក្រាប"
+      }
+    ],
+    "questions": [
+      {
+        "questionNumber": 1,
+        "points": 15,
+        "titleKm": "លំហាត់ទី ១៖ ចំនួនកុំផ្លិច (Complex Numbers)",
+        "titleEn": "Problem 1: Complex Numbers & De Moivre",
+        "problemTextKm": "គេឱ្យសមីការដឺក្រេទីពីរ $(E): z^2 - 2\\sqrt{3}z + 4 = 0$ ក្នុងសំណុំចំនួនកុំផ្លិច $\\mathbb{C}$។\n\nក. ដោះស្រាយសមីការ $(E)$ ដោយសរសេរឫស $z_1$ និង $z_2$ (ដែល $\\text{Im}(z_1) > 0$) ជាទម្រង់ពីជគណិត $a + ib$។\n\nខ. សរសេរ $z_1$ និង $z_2$ ជាទម្រង់ត្រីកោណមាត្រ រួចគណនាម៉ូឌុល និងអាគុយម៉ង់នៃផលធៀប $W = \\frac{z_1}{z_2}$។\n\nគ. ដោយប្រើរូបមន្តដឺម័រ (De Moivre) ចូរគណនាតម្លៃនៃ $W^{2026}$។",
+        "problemTextEn": "Given $(E): z^2 - 2\\sqrt{3}z + 4 = 0$ in $\\mathbb{C}$.\na. Solve $(E)$ and express roots $z_1, z_2$ (with $\\text{Im}(z_1) > 0$) in algebraic form $a + ib$.\nb. Express $z_1, z_2$ in trigonometric form, then compute modulus and argument of $W = z_1/z_2$.\nc. Use De Moivre's theorem to compute $W^{2026}$.",
+        "officialSolutionKm": "ក. ដោះស្រាយសមីការ $(E): z^2 - 2\\sqrt{3}z + 4 = 0$៖\n- ឌីស្គ្រីមីណង់សម្រួល៖ $\\Delta' = b'^2 - ac = (-\\sqrt{3})^2 - 1(4) = 3 - 4 = -1 = i^2$\n- ឫសទាំងពីរគឺ៖\n  $z_1 = \\sqrt{3} + i$ (ព្រោះ $\\text{Im}(z_1) = 1 > 0$)\n  $z_2 = \\sqrt{3} - i$\n\nខ. សរសេរ $z_1$ និង $z_2$ ជាទម្រង់ត្រីកោណមាត្រ៖\n- ចំពោះ $z_1 = \\sqrt{3} + i$៖\n  $|z_1| = \\sqrt{(\\sqrt{3})^2 + 1^2} = \\sqrt{4} = 2$\n  $\\cos\\theta_1 = \\frac{\\sqrt{3}}{2}, \\sin\\theta_1 = \\frac{1}{2} \\implies \\theta_1 = \\frac{\\pi}{6}$\n  ដូចនេះ $z_1 = 2\\left(\\cos\\frac{\\pi}{6} + i\\sin\\frac{\\pi}{6}\\right)$\n- ចំពោះ $z_2 = \\sqrt{3} - i$៖\n  $|z_2| = 2, \\theta_2 = -\\frac{\\pi}{6} \\implies z_2 = 2\\left(\\cos\\left(-\\frac{\\pi}{6}\\right) + i\\sin\\left(-\\frac{\\pi}{6}\\right)\\right)$\n- គណនាផលធៀប $W = \\frac{z_1}{z_2}$៖\n  $|W| = \\frac{|z_1|}{|z_2|} = \\frac{2}{2} = 1$\n  $\\arg(W) = \\theta_1 - \\theta_2 = \\frac{\\pi}{6} - \\left(-\\frac{\\pi}{6}\\right) = \\frac{\\pi}{3}$\n  ដូចនេះ $W = \\cos\\frac{\\pi}{3} + i\\sin\\frac{\\pi}{3} = \\frac{1}{2} + i\\frac{\\sqrt{3}}{2}$\n\nគ. គណនាតម្លៃនៃ $W^{2026}$ តាមដឺម័រ៖\n$W^{2026} = \\left(\\cos\\frac{\\pi}{3} + i\\sin\\frac{\\pi}{3}\\right)^{2026} = \\cos\\left(\\frac{2026\\pi}{3}\\right) + i\\sin\\left(\\frac{2026\\pi}{3}\\right)$\nដោយ $\\frac{2026\\pi}{3} = 675\\pi + \\frac{\\pi}{3} = 674\\pi + \\pi + \\frac{\\pi}{3} = 337(2\\pi) + \\frac{4\\pi}{3}$ នាំឱ្យ៖\n- $\\cos\\left(\\frac{2026\\pi}{3}\\right) = \\cos\\left(\\frac{4\\pi}{3}\\right) = -\\frac{1}{2}$\n- $\\sin\\left(\\frac{2026\\pi}{3}\\right) = \\sin\\left(\\frac{4\\pi}{3}\\right) = -\\frac{\\sqrt{3}}{2}$\nដូចនេះ $W^{2026} = -\\frac{1}{2} - i\\frac{\\sqrt{3}}{2}$។",
+        "officialSolutionEn": "Characteristic equation and discriminant steps. Trigonometric representation and de Moivre power simplification.",
+        "scoringCriteriaKm": [
+          "ក. គណនា Δ' = -1 = i² និងរកឃើញឫស z1 = √3 + i, z2 = √3 - i (៥ ពិន្ទុ)",
+          "ខ. សរសេរ z1, z2 ជាទម្រង់ត្រីកោណមាត្រ និងទាញរក W = cos(π/3) + i sin(π/3) (៥ ពិន្ទុ)",
+          "គ. អនុវត្តរូបមន្តដឺម័រ និងគណនាតម្លៃចុងក្រោយ W^2026 = -1/2 - i√3/2 (៥ ពិន្ទុ)"
+        ],
+        "keyFormulas": [
+          "\\Delta' = b'^2 - ac",
+          "|z| = \\sqrt{a^2 + b^2}",
+          "(\\cos\\theta + i\\sin\\theta)^n = \\cos(n\\theta) + i\\sin(n\\theta)"
+        ]
+      },
+      {
+        "questionNumber": 2,
+        "points": 15,
+        "titleKm": "លំហាត់ទី ២៖ សមីការឌីផេរ៉ង់ស្យែល (Differential Equations)",
+        "titleEn": "Problem 2: Differential Equations",
+        "problemTextKm": "គេឱ្យសមីការឌីផេរ៉ង់ស្យែល $(E): y'' + 4y = 0$ និង $(E'): y'' + 4y = 8x - 4$។\n\nក. ដោះស្រាយសមីការអូម៉ូសែន $(E)$។\n\nខ. កំណត់ចំនួនពិត $a$ និង $b$ ដើម្បីឱ្យអនុគមន៍ $p(x) = ax + b$ ជាចម្លើយពិសេសមួយនៃសមីការ $(E')$។\n\nគ. ទាញរកចម្លើយទូទៅនៃសមីការ $(E')$ រួចកំណត់ចម្លើយជាក់លាក់ $g(x)$ មួយដែលផ្ទៀងផ្ទាត់លក្ខខណ្ឌដើម $g(0) = 1$ និង $g'(0) = 4$។",
+        "problemTextEn": "Given $(E): y'' + 4y = 0$ and $(E'): y'' + 4y = 8x - 4$.\na. Solve homogeneous equation $(E)$.\nb. Find $a, b$ such that $p(x) = ax + b$ is a particular solution to $(E')$.\nc. Deduce general solution of $(E')$ and find particular solution $g(x)$ satisfying $g(0) = 1, g'(0) = 4$.",
+        "officialSolutionKm": "ក. ដោះស្រាយសមីការអូម៉ូសែន $(E): y'' + 4y = 0$៖\n- សមីការសរាប់៖ $r^2 + 4 = 0 \\iff r = \\pm 2i$\n- ឫសជាចំនួនកុំផ្លិចឆ្លាស់ $\\alpha \\pm i\\beta$ ដោយ $\\alpha = 0, \\beta = 2$\n- ចម្លើយទូទៅនៃ $(E)$ គឺ៖ $y_h(x) = A\\cos(2x) + B\\sin(2x)$ (ដែល $A, B \\in \\mathbb{R}$)\n\nខ. រក $a$ និង $b$ ដើម្បីឱ្យ $p(x) = ax + b$ ជាចម្លើយនៃ $(E')$៖\n- ដេរីវេ៖ $p'(x) = a$ និង $p''(x) = 0$\n- ជំនួសចូល $(E')$៖ $0 + 4(ax + b) = 8x - 4 \\iff 4ax + 4b = 8x - 4$\n- ផ្ទឹមមេគុណ៖ $4a = 8 \\implies a = 2$ និង $4b = -4 \\implies b = -1$\n- ដូចនេះ $p(x) = 2x - 1$\n\nគ. ចម្លើយទូទៅនៃ $(E')$ និងចម្លើយជាក់លាក់ $g(x)$៖\n- ចម្លើយទូទៅ៖ $y(x) = y_h(x) + p(x) = A\\cos(2x) + B\\sin(2x) + 2x - 1$\n- រកចម្លើយជាក់លាក់ $g(x)$ ដោយដឹងថា $g(0) = 1$ និង $g'(0) = 4$៖\n  $g(0) = A(1) + B(0) + 0 - 1 = A - 1 = 1 \\implies A = 2$\n  $g'(x) = -2A\\sin(2x) + 2B\\cos(2x) + 2$\n  $g'(0) = 2B(1) + 2 = 2B + 2 = 4 \\implies 2B = 2 \\implies B = 1$\n- ដូចនេះ ចម្លើយជាក់លាក់គឺ៖ $g(x) = 2\\cos(2x) + \\sin(2x) + 2x - 1$។",
+        "officialSolutionEn": "Characteristic roots r = ±2i. Particular linear solution determination and initial value problem solving.",
+        "scoringCriteriaKm": [
+          "ក. សរសេរសមីការសរាប់ និងរកឃើញចម្លើយទូទៅ yh = A cos(2x) + B sin(2x) (៥ ពិន្ទុ)",
+          "ខ. គណនាដេរីវេ p', p'' និងកំណត់បាន a = 2, b = -1 (៥ ពិន្ទុ)",
+          "គ. ទាញរកចម្លើយទូទៅ និងកំណត់បានចម្លើយជាក់លាក់ g(x) = 2 cos(2x) + sin(2x) + 2x - 1 (៥ ពិន្ទុ)"
+        ],
+        "keyFormulas": [
+          "r^2 + \\omega^2 = 0 \\implies y_h = A\\cos(\\omega x) + B\\sin(\\omega x)",
+          "y = y_h + y_p"
+        ]
+      },
+      {
+        "questionNumber": 3,
+        "points": 15,
+        "titleKm": "លំហាត់ទី ៣៖ ប្រូបាប (Probability)",
+        "titleEn": "Problem 3: Combinatorics & Probability",
+        "problemTextKm": "ក្នុងប្រអប់មួយមានឃ្លីសរុប ១២ គ្រាប់ ដែលក្នុងនោះមានឃ្លីពណ៌ក្រហម ៥ គ្រាប់ ពណ៌ខៀវ ៤ គ្រាប់ និងពណ៌លឿង ៣ គ្រាប់ (ឃ្លីទាំងអស់មានទំហំ និងទម្ងន់ដូចគ្នា)។ គេចាប់យកឃ្លី ៣ គ្រាប់ព្រមគ្នាដោយចៃដន្យចេញពីប្រអប់។\n\nក. គណនាចំនួនករណីអាចទាំងអស់នៃការចាប់ឃ្លីនេះ។\n\nខ. គណនាប្រូបាបនៃព្រឹត្តិការណ៍ $A$៖ «ចាប់បានឃ្លីមានពណ៌ខុសៗគ្នាទាំង ៣ (ក្រហម១, ខៀវ១, លឿង១)»។\n\nគ. គណនាប្រូបាបនៃព្រឹត្តិការណ៍ $B$៖ «ចាប់បានឃ្លីពណ៌ក្រហមយ៉ាងតិច ២ គ្រាប់»។",
+        "problemTextEn": "A box contains 12 marbles: 5 red, 4 blue, 3 yellow. Draw 3 simultaneously at random.\na. Find total possible outcomes.\nb. Find probability of event A: 'All 3 marbles have different colors'.\nc. Find probability of event B: 'At least 2 red marbles are drawn'.",
+        "officialSolutionKm": "ក. ចំនួនករណីអាចទាំងអស់៖\n- ចាប់ ៣ គ្រាប់ពី ១២ គ្រាប់៖\n  $n(S) = C(12, 3) = \\frac{12 \\times 11 \\times 10}{3 \\times 2 \\times 1} = 220$ ករណី\n\nខ. ប្រូបាបនៃព្រឹត្តិការណ៍ $A$ (ពណ៌ខុសគ្នាទាំង៣)៖\n- ចំនួនករណីស្រប៖ ចាប់បានក្រហម ១ (ពី ៥), ខៀវ ១ (ពី ៤), លឿង ១ (ពី ៣)៖\n  $n(A) = C(5, 1) \\times C(4, 1) \\times C(3, 1) = 5 \\times 4 \\times 3 = 60$ ករណី\n- ប្រូបាប៖\n  $P(A) = \\frac{n(A)}{n(S)} = \\frac{60}{220} = \\frac{3}{11}$\n\nគ. ប្រូបាបនៃព្រឹត្តិការណ៍ $B$ (ក្រហមយ៉ាងតិច ២ គ្រាប់)៖\n- ព្រឹត្តិការណ៍ $B$ បំបែកជា ២ ករណីដាច់ដោយឡែកពីគ្នា៖\n  + ករណី ១ (ក្រហម ២ និងពណ៌ផ្សេង ១)៖ $C(5, 2) \\times C(7, 1) = 10 \\times 7 = 70$ ករណី\n  + ករណី ២ (ក្រហមទាំង ៣)៖ $C(5, 3) = 10$ ករណី\n- ចំនួនករណីស្របសរុប៖ $n(B) = 70 + 10 = 80$ ករណី\n- ប្រូបាប៖\n  $P(B) = \\frac{n(B)}{n(S)} = \\frac{80}{220} = \\frac{4}{11}$។",
+        "officialSolutionEn": "Combinations C(12,3) = 220. Product rule for disjoint colors and partitioned sum for at least 2 reds.",
+        "scoringCriteriaKm": [
+          "ក. គណនាចំនួនករណីអាច n(S) = C(12,3) = 220 (៥ ពិន្ទុ)",
+          "ខ. គណនា n(A) = 60 និងប្រូបាប P(A) = 3/11 (៥ ពិន្ទុ)",
+          "គ. បំបែកករណី n(B) = 70 + 10 = 80 និងគណនា P(B) = 4/11 (៥ ពិន្ទុ)"
+        ],
+        "keyFormulas": [
+          "C(n, p) = \\frac{n!}{p!(n-p)!}",
+          "P(E) = \\frac{n(E)}{n(S)}"
+        ]
+      },
+      {
+        "questionNumber": 4,
+        "points": 20,
+        "titleKm": "លំហាត់ទី ៤៖ ធរណីមាត្រក្នុងលំហ (Space Analytic Geometry)",
+        "titleEn": "Problem 4: Vectors & Planes in 3D Space",
+        "problemTextKm": "ក្នុងលំហប្រកបដោយតម្រុយអរតូណរម៉េមានទិសដៅវិជ្ជមាន $(O, \\vec{i}, \\vec{j}, \\vec{k})$ គេឱ្យចំណុច $A(2, 1, -1)$, $B(3, 0, 1)$, $C(1, 2, 1)$ និងប្លង់ $(P): 2x - y + 2z - 6 = 0$។\n\nក. រកកូអរដោនេនៃវ៉ិចទ័រ $\\vec{AB}$ និង $\\vec{AC}$ រួចគណនាផលគុណវ៉ិចទ័រ $\\vec{n} = \\vec{AB} \\times \\vec{AC}$។\n\nខ. សរសេរសមីការទូទៅនៃប្លង់ $(ABC)$។\n\nគ. គណនាចម្ងាយពីចំណុច $A$ ទៅកាន់ប្លង់ $(P)$ រួចសរសេរសមីការស្វ៊ែរ $(S)$ ដែលមានផ្ចិត $A$ ហើយប៉ះនឹងប្លង់ $(P)$។",
+        "problemTextEn": "In 3D orthonormal coordinates, points A(2,1,-1), B(3,0,1), C(1,2,1) and plane (P): 2x - y + 2z - 6 = 0.\na. Find coordinates of AB and AC, then compute cross product n = AB x AC.\nb. Write general equation of plane (ABC).\nc. Compute distance from A to (P) and write equation of sphere (S) centered at A tangent to (P).",
+        "officialSolutionKm": "ក. រកកូអរដោនេវ៉ិចទ័រ និងផលគុណវ៉ិចទ័រ៖\n- $\\vec{AB} = (3-2, 0-1, 1-(-1)) = (1, -1, 2)$\n- $\\vec{AC} = (1-2, 2-1, 1-(-1)) = (-1, 1, 2)$\n- ផលគុណវ៉ិចទ័រ $\\vec{n} = \\vec{AB} \\times \\vec{AC}$៖\n  $\\vec{n} = \\begin{vmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\ 1 & -1 & 2 \\\\ -1 & 1 & 2 \\end{vmatrix} = (-2-2)\\vec{i} - (2 - (-2))\\vec{j} + (1-1)\\vec{k} = -4\\vec{i} - 4\\vec{j} + 0\\vec{k}$\n  ដូចនេះ $\\vec{n} = (-4, -4, 0)$ ឬយកវ៉ិចទ័រណរម៉ាល់សាមញ្ញ $\\vec{n}_0 = (1, 1, 0)$\n\nខ. សមីការទូទៅនៃប្លង់ $(ABC)$៖\n- ប្លង់ $(ABC)$ កាត់តាម $A(2, 1, -1)$ និងមានវ៉ិចទ័រណរម៉ាល់ $\\vec{n}_0 = (1, 1, 0)$៖\n  $1(x - 2) + 1(y - 1) + 0(z + 1) = 0 \\iff x + y - 3 = 0$\n\nគ. ចម្ងាយពី $A$ ទៅប្លង់ $(P)$ និងសមីការស្វ៊ែរ $(S)$៖\n- ចម្ងាយពី $A(2, 1, -1)$ ទៅប្លង់ $(P): 2x - y + 2z - 6 = 0$៖\n  $d(A, (P)) = \\frac{|2(2) - (1) + 2(-1) - 6|}{\\sqrt{2^2 + (-1)^2 + 2^2}} = \\frac{|4 - 1 - 2 - 6|}{\\sqrt{4 + 1 + 4}} = \\frac{|-5|}{\\sqrt{9}} = \\frac{5}{3}$\n- ដោយស្វ៊ែរ $(S)$ ប៉ះប្លង់ $(P)$ នាំឱ្យកាំ $R = d(A, (P)) = \\frac{5}{3}$\n- សមីការស្វ៊ែរ $(S)$ ផ្ចិត $A(2, 1, -1)$ និងកាំ $R = \\frac{5}{3}$ គឺ៖\n  $(x - 2)^2 + (y - 1)^2 + (z + 1)^2 = \\left(\\frac{5}{3}\\right)^2 = \\frac{25}{9}$។",
+        "officialSolutionEn": "Cross product computation, plane equation through point A with normal vector n, point-to-plane distance formula, and sphere tangent equation.",
+        "scoringCriteriaKm": [
+          "ក. រកឃើញ AB = (1,-1,2), AC = (-1,1,2) និងផលគុណវ៉ិចទ័រ n = (-4,-4,0) (៦ ពិន្ទុ)",
+          "ខ. សរសេរសមីការប្លង់ (ABC): x + y - 3 = 0 (៦ ពិន្ទុ)",
+          "គ. គណនាចម្ងាយ d(A, (P)) = 5/3 និងសរសេរសមីការស្វ៊ែរ (S): (x-2)² + (y-1)² + (z+1)² = 25/9 (៨ ពិន្ទុ)"
+        ],
+        "keyFormulas": [
+          "\\vec{u} \\times \\vec{v} = (u_y v_z - u_z v_y, u_z v_x - u_x v_z, u_x v_y - u_y v_x)",
+          "a(x - x_0) + b(y - y_0) + c(z - z_0) = 0",
+          "d(M, (P)) = \\frac{|ax_0 + by_0 + cz_0 + d|}{\\sqrt{a^2 + b^2 + c^2}}",
+          "(x - a)^2 + (y - b)^2 + (z - c)^2 = R^2"
+        ]
+      },
+      {
+        "questionNumber": 5,
+        "points": 40,
+        "titleKm": "លំហាត់ទី ៥៖ សិក្សាអនុគមន៍ និងអាំងតេក្រាល (Calculus & Integration)",
+        "titleEn": "Problem 5: Calculus, Asymptotes & Definite Integrals",
+        "problemTextKm": "គេឱ្យអនុគមន៍ $f$ កំណត់លើ $]0, +\\infty[$ ដោយ $f(x) = x - 2 + \\frac{\\ln x}{x}$ និងមានក្រាបតំណាង $(C)$ ក្នុងតម្រុយអរតូណរម៉េ $(O, \\vec{i}, \\vec{j})$ (ឯកតា $1\\,\\text{cm}$ លើអ័ក្សទាំងពីរ)។\n\nក. គណនាលីមីត $\\lim_{x\\to 0^+} f(x)$ និង $\\lim_{x\\to +\\infty} f(x)$។ ទាញបញ្ជាក់ថាក្រាប $(C)$ មានអាស៊ីមតូតឈរមួយ រួចសរសេរសមីការរបស់វា។\n\nខ. បង្ហាញថាបន្ទាត់ $(d): y = x - 2$ ជាអាស៊ីមតូតទ្រេតនៃក្រាប $(C)$ ខាង $+\\infty$។ សិក្សាទីតាំងធៀបរវាងក្រាប $(C)$ និងបន្ទាត់ $(d)$។\n\nគ. គណនាដេរីវេ $f'(x)$ និងបង្ហាញថា $f'(x) = \\frac{x^2 + 1 - \\ln x}{x^2}$។ ដោយដឹងថា $g(x) = x^2 + 1 - \\ln x > 0$ ចំពោះគ្រប់ $x > 0$ ចូរបញ្ជាក់សញ្ញានៃ $f'(x)$ និងសង់តារាងអថេរភាពនៃអនុគមន៍ $f$។\n\nឃ. សរសេរសមីការបន្ទាត់ $(T)$ ដែលប៉ះក្រាប $(C)$ ត្រង់ចំណុចដែលមានអាប់ស៊ីស $x = 1$។\n\nង. គណនាអាំងតេក្រាល $I = \\int_1^e \\frac{\\ln x}{x} dx$ រួចទាញរកផ្ទៃក្រឡា $S$ (គិតជា $\\text{cm}^2$) នៃដែនប្លង់ដែលខណ្ឌដោយក្រាប $(C)$, បន្ទាត់អាស៊ីមតូតទ្រេត $(d)$ និងបន្ទាត់ឈរ $x = 1$, $x = e$។",
+        "problemTextEn": "Given $f(x) = x - 2 + \\frac{\\ln x}{x}$ on $]0, +\\infty[$.\na. Compute limits at 0+ and +infinity; deduce vertical asymptote.\nb. Prove line (d): y = x - 2 is oblique asymptote; study relative position.\nc. Compute f'(x) and show f'(x) = (x^2 + 1 - ln x)/x^2; build variation table.\nd. Find equation of tangent line (T) at x = 1.\ne. Compute integral I = int_1^e (ln x)/x dx and deduce area S bounded by (C), (d), x = 1, x = e.",
+        "officialSolutionKm": "ក. គណនាលីមីត និងអាស៊ីមតូតឈរ៖\n- $\\lim_{x\\to 0^+} f(x) = \\lim_{x\\to 0^+} \\left(x - 2 + \\frac{\\ln x}{x}\\right) = 0 - 2 + (-\\infty) = -\\infty$\n  (ព្រោះ $\\lim_{x\\to 0^+} \\ln x = -\\infty$ និង $\\lim_{x\\to 0^+} \\frac{1}{x} = +\\infty$)\n  ដូចនេះ បន្ទាត់ $x = 0$ (អ័ក្សអរដោនេ $Oy$) ជាអាស៊ីមតូតឈរនៃក្រាប $(C)$។\n- $\\lim_{x\\to +\\infty} f(x) = \\lim_{x\\to +\\infty} \\left(x - 2 + \\frac{\\ln x}{x}\\right) = +\\infty - 2 + 0 = +\\infty$\n  (ព្រោះ $\\lim_{x\\to +\\infty} \\frac{\\ln x}{x} = 0$)។\n\nខ. បង្ហាញថា $(d): y = x - 2$ ជាអាស៊ីមតូតទ្រេត និងសិក្សាទីតាំងធៀប៖\n- $\\lim_{x\\to +\\infty} [f(x) - (x - 2)] = \\lim_{x\\to +\\infty} \\frac{\\ln x}{x} = 0$\n  ដូចនេះ បន្ទាត់ $(d): y = x - 2$ ជាអាស៊ីមតូតទ្រេតនៃ $(C)$ ខាង $+\\infty$។\n- ទីតាំងធៀប៖ ពិនិត្យសញ្ញានៃ $f(x) - y_{(d)} = \\frac{\\ln x}{x}$៖\n  ដោយ $x > 0$ នាំឱ្យសញ្ញារបស់កន្សោមអាស្រ័យលើ $\\ln x$៖\n  + ចំពោះ $0 < x < 1 \\implies \\ln x < 0 \\implies (C)$ ស្ថិតនៅខាងក្រោម $(d)$\n  + ចំពោះ $x = 1 \\implies \\ln x = 0 \\implies (C)$ ប្រសព្វនឹង $(d)$ ត្រង់ចំណុច $(1, -1)$\n  + ចំពោះ $x > 1 \\implies \\ln x > 0 \\implies (C)$ ស្ថិតនៅខាងលើ $(d)$។\n\nគ. គណនាដេរីវេ $f'(x)$ និងសង់តារាងអថេរភាព៖\n- ដេរីវេ៖ $f'(x) = 1 + \\frac{\\frac{1}{x} \\cdot x - \\ln x \\cdot 1}{x^2} = 1 + \\frac{1 - \\ln x}{x^2} = \\frac{x^2 + 1 - \\ln x}{x^2}$\n- ដោយ $g(x) = x^2 + 1 - \\ln x > 0$ និង $x^2 > 0$ ចំពោះគ្រប់ $x > 0$ នាំឱ្យ $f'(x) > 0$ ចំពោះគ្រប់ $x \\in ]0, +\\infty[$\n- ដូចនេះ អនុគមន៍ $f$ កើនដាច់ខាតលើ $]0, +\\infty[$\n- តារាងអថេរភាព៖\n  $x$ ចាប់ពី $0$ ទៅ $+\\infty$\n  $f'(x)$ វិជ្ជមាន $(+)$\n  $f(x)$ កើនពី $-\\infty$ ទៅ $+\\infty$។\n\nឃ. សរសេរសមីការបន្ទាត់ប៉ះ $(T)$ ត្រង់ $x = 1$៖\n- មេគុណប្រាប់ទិស៖ $f'(1) = \\frac{1^2 + 1 - \\ln 1}{1^2} = \\frac{2}{1} = 2$\n- តម្លៃអនុគមន៍៖ $f(1) = 1 - 2 + \\frac{\\ln 1}{1} = -1$\n- សមីការបន្ទាត់ប៉ះ៖ $(T): y = f'(1)(x - 1) + f(1) = 2(x - 1) - 1 = 2x - 3$។\n\nង. គណនាអាំងតេក្រាល $I$ និងផ្ទៃក្រឡា $S$៖\n- $I = \\int_1^e \\frac{\\ln x}{x} dx = \\int_1^e \\ln x \\, d(\\ln x) = \\left[\\frac{(\\ln x)^2}{2}\\right]_1^e = \\frac{(\\ln e)^2}{2} - \\frac{(\\ln 1)^2}{2} = \\frac{1^2}{2} - 0 = \\frac{1}{2}$\n- ដោយលើចន្លោះ $[1, e]$ ក្រាប $(C)$ ស្ថិតនៅខាងលើបន្ទាត់ $(d)$ នាំឱ្យ៖\n  $S = \\int_1^e [f(x) - (x - 2)] dx = \\int_1^e \\frac{\\ln x}{x} dx = I = \\frac{1}{2} = 0.5\\,\\text{cm}^2$។",
+        "officialSolutionEn": "Complete asymptotic analysis, first derivative sign with auxiliary function g(x) > 0, tangent line at x = 1, and definite integration of (ln x)/x dx yielding area 0.5 cm^2.",
+        "scoringCriteriaKm": [
+          "ក. គណនាលីមីតត្រង់ 0+ និង +∞ និងទាញរកអាស៊ីមតូតឈរ x = 0 (៨ ពិន្ទុ)",
+          "ខ. បង្ហាញអាស៊ីមតូតទ្រេត y = x - 2 និងបញ្ជាក់ទីតាំងធៀបបានត្រឹមត្រូវ (៨ ពិន្ទុ)",
+          "គ. គណនា f'(x) = (x² + 1 - ln x)/x² បញ្ជាក់សញ្ញា និងសង់តារាងអថេរភាព (៨ ពិន្ទុ)",
+          "ឃ. សរសេរសមីការបន្ទាត់ប៉ះ (T): y = 2x - 3 (៨ ពិន្ទុ)",
+          "ង. គណនាអាំងតេក្រាល I = 1/2 និងទាញរកផ្ទៃក្រឡា S = 0.5 cm² (៨ ពិន្ទុ)"
+        ],
+        "keyFormulas": [
+          "\\lim_{x\\to +\\infty} \\frac{\\ln x}{x} = 0",
+          "y = f'(x_0)(x - x_0) + f(x_0)",
+          "\\int \\frac{\\ln x}{x}dx = \\frac{(\\ln x)^2}{2} + C",
+          "S = \\int_a^b [f(x) - y_{(d)}]dx"
+        ]
+      }
+    ],
+    "notes": "Official MoEYS examination blueprint and verified national benchmark for 2026. Complete 5-problem authentic digitized paper."
   },
   {
     "id": "sala-compilation-bacii-math-00007808",

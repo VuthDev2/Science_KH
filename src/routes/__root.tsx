@@ -132,6 +132,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "dns-prefetch", href: "https://fonts.googleapis.com" },
       {
         rel: "stylesheet",
+        href: "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css",
+        crossOrigin: "anonymous",
+      },
+      {
+        rel: "stylesheet",
         href: "/katex.min.css",
       },
       {

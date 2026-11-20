@@ -338,6 +338,24 @@ section[id] {
   line-height: 1.2;
 }
 
+/* Ensure KaTeX glyphs & relations use dedicated fonts and prevent missing glyph boxes */
+.katex .mrel,
+.katex .mord,
+.katex .mbin,
+.katex .mopen,
+.katex .mclose,
+.katex .mpunct,
+.katex .minner {
+  font-family: KaTeX_Main, "Times New Roman", serif;
+}
+.katex .mathnormal {
+  font-family: KaTeX_Math, "Times New Roman", serif;
+  font-style: italic;
+}
+.katex .amsrm {
+  font-family: KaTeX_AMS, "Times New Roman", serif;
+}
+
 .katex-html {
   white-space: nowrap !important;
 }
