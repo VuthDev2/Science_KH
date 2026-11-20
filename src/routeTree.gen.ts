@@ -9,49 +9,59 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as AuthRouteImport } from './routes/auth'
-import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as AuthenticatedVocabRouteImport } from './routes/_authenticated/vocab'
-import { Route as AuthenticatedProfileRouteImport } from './routes/_authenticated/profile'
-import { Route as AuthenticatedLeaderboardRouteImport } from './routes/_authenticated/leaderboard'
-import { Route as AuthenticatedHomeRouteImport } from './routes/_authenticated/home'
-import { Route as AuthenticatedExploreRouteImport } from './routes/_authenticated/explore'
-import { Route as AuthenticatedExamsRouteImport } from './routes/_authenticated/exams'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
+import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
-import { Route as AuthenticatedTutorIndexRouteImport } from './routes/_authenticated/tutor.index'
-import { Route as AuthenticatedReferenceIndexRouteImport } from './routes/_authenticated/reference.index'
-import { Route as AuthenticatedLessonsIndexRouteImport } from './routes/_authenticated/lessons.index'
+import { Route as AuthenticatedExamsRouteImport } from './routes/_authenticated/exams'
+import { Route as AuthenticatedExploreRouteImport } from './routes/_authenticated/explore'
+import { Route as AuthenticatedHomeRouteImport } from './routes/_authenticated/home'
+import { Route as AuthenticatedLeaderboardRouteImport } from './routes/_authenticated/leaderboard'
+import { Route as AuthenticatedProfileRouteImport } from './routes/_authenticated/profile'
+import { Route as AuthenticatedVocabRouteImport } from './routes/_authenticated/vocab'
 import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authenticated/admin.index'
-import { Route as AuthenticatedTutorConversationIdRouteImport } from './routes/_authenticated/tutor.$conversationId'
-import { Route as AuthenticatedReferenceReferenceIdRouteImport } from './routes/_authenticated/reference.$referenceId'
 import { Route as AuthenticatedAdminReferenceRouteImport } from './routes/_authenticated/admin.reference'
+import { Route as AuthenticatedLessonsIndexRouteImport } from './routes/_authenticated/lessons.index'
+import { Route as AuthenticatedReferenceIndexRouteImport } from './routes/_authenticated/reference.index'
+import { Route as AuthenticatedReferenceReferenceIdRouteImport } from './routes/_authenticated/reference.$referenceId'
+import { Route as AuthenticatedTutorIndexRouteImport } from './routes/_authenticated/tutor.index'
+import { Route as AuthenticatedTutorConversationIdRouteImport } from './routes/_authenticated/tutor.$conversationId'
+import { Route as AuthenticatedAdminLessonsLessonIdRouteImport } from './routes/_authenticated/admin.lessons.$lessonId'
 import { Route as AuthenticatedLessonsLessonIdIndexRouteImport } from './routes/_authenticated/lessons.$lessonId.index'
 import { Route as AuthenticatedLessonsLessonIdQuizRouteImport } from './routes/_authenticated/lessons.$lessonId.quiz'
-import { Route as AuthenticatedAdminLessonsLessonIdRouteImport } from './routes/_authenticated/admin.lessons.$lessonId'
 
-const AuthRoute = AuthRouteImport.update({
-  id: '/auth',
-  path: '/auth',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
   id: '/_authenticated',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthenticatedVocabRoute = AuthenticatedVocabRouteImport.update({
-  id: '/vocab',
-  path: '/vocab',
+const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const AuthenticatedProfileRoute = AuthenticatedProfileRouteImport.update({
-  id: '/profile',
-  path: '/profile',
+const AuthenticatedExamsRoute = AuthenticatedExamsRouteImport.update({
+  id: '/exams',
+  path: '/exams',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedExploreRoute = AuthenticatedExploreRouteImport.update({
+  id: '/explore',
+  path: '/explore',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedHomeRoute = AuthenticatedHomeRouteImport.update({
+  id: '/home',
+  path: '/home',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 const AuthenticatedLeaderboardRoute =
@@ -60,36 +70,26 @@ const AuthenticatedLeaderboardRoute =
     path: '/leaderboard',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
-const AuthenticatedHomeRoute = AuthenticatedHomeRouteImport.update({
-  id: '/home',
-  path: '/home',
+const AuthenticatedProfileRoute = AuthenticatedProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const AuthenticatedExploreRoute = AuthenticatedExploreRouteImport.update({
-  id: '/explore',
-  path: '/explore',
+const AuthenticatedVocabRoute = AuthenticatedVocabRouteImport.update({
+  id: '/vocab',
+  path: '/vocab',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const AuthenticatedExamsRoute = AuthenticatedExamsRouteImport.update({
-  id: '/exams',
-  path: '/exams',
-  getParentRoute: () => AuthenticatedRouteRoute,
+const AuthenticatedAdminIndexRoute = AuthenticatedAdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AuthenticatedAdminRoute,
 } as any)
-const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
-  id: '/admin',
-  path: '/admin',
-  getParentRoute: () => AuthenticatedRouteRoute,
-} as any)
-const AuthenticatedTutorIndexRoute = AuthenticatedTutorIndexRouteImport.update({
-  id: '/tutor/',
-  path: '/tutor/',
-  getParentRoute: () => AuthenticatedRouteRoute,
-} as any)
-const AuthenticatedReferenceIndexRoute =
-  AuthenticatedReferenceIndexRouteImport.update({
-    id: '/reference/',
-    path: '/reference/',
-    getParentRoute: () => AuthenticatedRouteRoute,
+const AuthenticatedAdminReferenceRoute =
+  AuthenticatedAdminReferenceRouteImport.update({
+    id: '/reference',
+    path: '/reference',
+    getParentRoute: () => AuthenticatedAdminRoute,
   } as any)
 const AuthenticatedLessonsIndexRoute =
   AuthenticatedLessonsIndexRouteImport.update({
@@ -97,15 +97,10 @@ const AuthenticatedLessonsIndexRoute =
     path: '/lessons/',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
-const AuthenticatedAdminIndexRoute = AuthenticatedAdminIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => AuthenticatedAdminRoute,
-} as any)
-const AuthenticatedTutorConversationIdRoute =
-  AuthenticatedTutorConversationIdRouteImport.update({
-    id: '/tutor/$conversationId',
-    path: '/tutor/$conversationId',
+const AuthenticatedReferenceIndexRoute =
+  AuthenticatedReferenceIndexRouteImport.update({
+    id: '/reference/',
+    path: '/reference/',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedReferenceReferenceIdRoute =
@@ -114,10 +109,21 @@ const AuthenticatedReferenceReferenceIdRoute =
     path: '/reference/$referenceId',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
-const AuthenticatedAdminReferenceRoute =
-  AuthenticatedAdminReferenceRouteImport.update({
-    id: '/reference',
-    path: '/reference',
+const AuthenticatedTutorIndexRoute = AuthenticatedTutorIndexRouteImport.update({
+  id: '/tutor/',
+  path: '/tutor/',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedTutorConversationIdRoute =
+  AuthenticatedTutorConversationIdRouteImport.update({
+    id: '/tutor/$conversationId',
+    path: '/tutor/$conversationId',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedAdminLessonsLessonIdRoute =
+  AuthenticatedAdminLessonsLessonIdRouteImport.update({
+    id: '/lessons/$lessonId',
+    path: '/lessons/$lessonId',
     getParentRoute: () => AuthenticatedAdminRoute,
   } as any)
 const AuthenticatedLessonsLessonIdIndexRoute =
@@ -131,12 +137,6 @@ const AuthenticatedLessonsLessonIdQuizRoute =
     id: '/lessons/$lessonId/quiz',
     path: '/lessons/$lessonId/quiz',
     getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
-const AuthenticatedAdminLessonsLessonIdRoute =
-  AuthenticatedAdminLessonsLessonIdRouteImport.update({
-    id: '/lessons/$lessonId',
-    path: '/lessons/$lessonId',
-    getParentRoute: () => AuthenticatedAdminRoute,
   } as any)
 
 export interface FileRoutesByFullPath {
@@ -277,11 +277,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/auth': {
-      id: '/auth'
-      path: '/auth'
-      fullPath: '/auth'
-      preLoaderRoute: typeof AuthRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_authenticated': {
@@ -291,46 +291,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_authenticated/vocab': {
-      id: '/_authenticated/vocab'
-      path: '/vocab'
-      fullPath: '/vocab'
-      preLoaderRoute: typeof AuthenticatedVocabRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/profile': {
-      id: '/_authenticated/profile'
-      path: '/profile'
-      fullPath: '/profile'
-      preLoaderRoute: typeof AuthenticatedProfileRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/leaderboard': {
-      id: '/_authenticated/leaderboard'
-      path: '/leaderboard'
-      fullPath: '/leaderboard'
-      preLoaderRoute: typeof AuthenticatedLeaderboardRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/home': {
-      id: '/_authenticated/home'
-      path: '/home'
-      fullPath: '/home'
-      preLoaderRoute: typeof AuthenticatedHomeRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/explore': {
-      id: '/_authenticated/explore'
-      path: '/explore'
-      fullPath: '/explore'
-      preLoaderRoute: typeof AuthenticatedExploreRouteImport
+    '/_authenticated/admin': {
+      id: '/_authenticated/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AuthenticatedAdminRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/exams': {
@@ -340,32 +312,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedExamsRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/_authenticated/admin': {
-      id: '/_authenticated/admin'
-      path: '/admin'
-      fullPath: '/admin'
-      preLoaderRoute: typeof AuthenticatedAdminRouteImport
+    '/_authenticated/explore': {
+      id: '/_authenticated/explore'
+      path: '/explore'
+      fullPath: '/explore'
+      preLoaderRoute: typeof AuthenticatedExploreRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/_authenticated/tutor/': {
-      id: '/_authenticated/tutor/'
-      path: '/tutor'
-      fullPath: '/tutor/'
-      preLoaderRoute: typeof AuthenticatedTutorIndexRouteImport
+    '/_authenticated/home': {
+      id: '/_authenticated/home'
+      path: '/home'
+      fullPath: '/home'
+      preLoaderRoute: typeof AuthenticatedHomeRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/_authenticated/reference/': {
-      id: '/_authenticated/reference/'
-      path: '/reference'
-      fullPath: '/reference/'
-      preLoaderRoute: typeof AuthenticatedReferenceIndexRouteImport
+    '/_authenticated/leaderboard': {
+      id: '/_authenticated/leaderboard'
+      path: '/leaderboard'
+      fullPath: '/leaderboard'
+      preLoaderRoute: typeof AuthenticatedLeaderboardRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/_authenticated/lessons/': {
-      id: '/_authenticated/lessons/'
-      path: '/lessons'
-      fullPath: '/lessons/'
-      preLoaderRoute: typeof AuthenticatedLessonsIndexRouteImport
+    '/_authenticated/profile': {
+      id: '/_authenticated/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof AuthenticatedProfileRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/vocab': {
+      id: '/_authenticated/vocab'
+      path: '/vocab'
+      fullPath: '/vocab'
+      preLoaderRoute: typeof AuthenticatedVocabRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/admin/': {
@@ -375,11 +354,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminIndexRouteImport
       parentRoute: typeof AuthenticatedAdminRoute
     }
-    '/_authenticated/tutor/$conversationId': {
-      id: '/_authenticated/tutor/$conversationId'
-      path: '/tutor/$conversationId'
-      fullPath: '/tutor/$conversationId'
-      preLoaderRoute: typeof AuthenticatedTutorConversationIdRouteImport
+    '/_authenticated/admin/reference': {
+      id: '/_authenticated/admin/reference'
+      path: '/reference'
+      fullPath: '/admin/reference'
+      preLoaderRoute: typeof AuthenticatedAdminReferenceRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
+    '/_authenticated/lessons/': {
+      id: '/_authenticated/lessons/'
+      path: '/lessons'
+      fullPath: '/lessons/'
+      preLoaderRoute: typeof AuthenticatedLessonsIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/reference/': {
+      id: '/_authenticated/reference/'
+      path: '/reference'
+      fullPath: '/reference/'
+      preLoaderRoute: typeof AuthenticatedReferenceIndexRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/reference/$referenceId': {
@@ -389,11 +382,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedReferenceReferenceIdRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/_authenticated/admin/reference': {
-      id: '/_authenticated/admin/reference'
-      path: '/reference'
-      fullPath: '/admin/reference'
-      preLoaderRoute: typeof AuthenticatedAdminReferenceRouteImport
+    '/_authenticated/tutor/': {
+      id: '/_authenticated/tutor/'
+      path: '/tutor'
+      fullPath: '/tutor/'
+      preLoaderRoute: typeof AuthenticatedTutorIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/tutor/$conversationId': {
+      id: '/_authenticated/tutor/$conversationId'
+      path: '/tutor/$conversationId'
+      fullPath: '/tutor/$conversationId'
+      preLoaderRoute: typeof AuthenticatedTutorConversationIdRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/admin/lessons/$lessonId': {
+      id: '/_authenticated/admin/lessons/$lessonId'
+      path: '/lessons/$lessonId'
+      fullPath: '/admin/lessons/$lessonId'
+      preLoaderRoute: typeof AuthenticatedAdminLessonsLessonIdRouteImport
       parentRoute: typeof AuthenticatedAdminRoute
     }
     '/_authenticated/lessons/$lessonId/': {
@@ -409,13 +416,6 @@ declare module '@tanstack/react-router' {
       fullPath: '/lessons/$lessonId/quiz'
       preLoaderRoute: typeof AuthenticatedLessonsLessonIdQuizRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/admin/lessons/$lessonId': {
-      id: '/_authenticated/admin/lessons/$lessonId'
-      path: '/lessons/$lessonId'
-      fullPath: '/admin/lessons/$lessonId'
-      preLoaderRoute: typeof AuthenticatedAdminLessonsLessonIdRouteImport
-      parentRoute: typeof AuthenticatedAdminRoute
     }
   }
 }
