@@ -147,18 +147,7 @@ function SafeMathBlock({ math, className }: { math: string; className?: string }
 
 function LessonErrorComponent({ error, reset }: { error: unknown; reset: () => void }) {
   console.error("Lesson route error:", error);
-  let lessonId = "";
-  try {
-    const params = routeApi.useParams();
-    lessonId = params?.lessonId || "";
-  } catch {
-    try {
-      const p = Route.useParams();
-      lessonId = p?.lessonId || "";
-    } catch {
-      // safely handle outside route context
-    }
-  }
+  const { lessonId } = Route.useParams();
   const isKhmer = typeof window !== "undefined"
     ? (localStorage.getItem("sciencekh_lang") || "km") === "km"
     : true;
@@ -398,18 +387,7 @@ const CONCEPT_CHECKS: Record<string, ConceptCheckData> = {
 };
 
 function LessonPage() {
-  let lessonId = "";
-  try {
-    const params = routeApi.useParams();
-    lessonId = params?.lessonId || "";
-  } catch {
-    try {
-      const p = Route.useParams();
-      lessonId = p?.lessonId || "";
-    } catch {
-      // safe fallback
-    }
-  }
+  const { lessonId } = Route.useParams();
   const { user } = useAuth();
   const { lang, setLanguage } = useProfile();
   const qc = useQueryClient();
@@ -456,6 +434,16 @@ function LessonPage() {
       }
     },
   });
+
+  const practiceExercises = useMemo(() => {
+    if (!lesson) return [];
+    try {
+      return getLessonPracticeExercises(lesson as any) || [];
+    } catch (err) {
+      console.warn("Failed to get practice exercises:", err);
+      return [];
+    }
+  }, [lesson]);
 
   const { data: progress } = useQuery({
     queryKey: ["progress", user?.id, lessonId],
@@ -652,15 +640,6 @@ function LessonPage() {
   const IconComp = theme.icon;
   const practicalInsight = getLessonPracticalInsight(lesson.title_en, lesson.title_km, isKhmer);
   const checkData = CONCEPT_CHECKS[lesson.id] || null;
-  const practiceExercises = useMemo(() => {
-    if (!lesson) return [];
-    try {
-      return getLessonPracticeExercises(lesson as any) || [];
-    } catch (err) {
-      console.warn("Failed to get practice exercises:", err);
-      return [];
-    }
-  }, [lesson]);
   const currentExercise = practiceExercises[activeExerciseIdx] || practiceExercises[0] || null;
 
   return (
