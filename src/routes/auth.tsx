@@ -57,8 +57,8 @@ function AuthPage() {
     signInAsGuest();
     toast.success(
       isKhmer
-        ? "សូមស្វាគមន៍មកកាន់ ScienceKH! (សាកល្បងលេងជាភ្ញៀវ)"
-        : "Welcome to ScienceKH as Guest Student!",
+        ? "សូមស្វាគមន៍មកកាន់ ScienceKH!"
+        : "Welcome to ScienceKH!",
     );
     navigate({ to: (targetRedirect as any) || "/home" });
   };

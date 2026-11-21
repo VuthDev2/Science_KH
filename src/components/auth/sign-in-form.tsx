@@ -334,24 +334,6 @@ export function SignInForm({
               <span>{copy.oauth.continueGoogle}</span>
             </Button>
           </div>
-
-          {/* Guest / Event Demo Access Button */}
-          {onGuestSignIn && (
-            <div className="pt-2">
-              <button
-                type="button"
-                onClick={onGuestSignIn}
-                className="w-full h-[48px] rounded-[14px] border-2 border-emerald-500/40 hover:border-emerald-500 bg-emerald-50/70 hover:bg-emerald-100/80 text-emerald-800 font-bold text-xs sm:text-sm transition-all cursor-pointer flex items-center justify-center gap-2 shadow-xs active:scale-[0.99]"
-              >
-                <span>🎮</span>
-                <span>
-                  {copy.header.brandTagline === "Grades 7–12"
-                    ? "Try Demo / Play as Guest"
-                    : "សាកល្បងលេងជាភ្ញៀវ (Event Demo)"}
-                </span>
-              </button>
-            </div>
-          )}
         </form>
 
         {/* Footer: Sign Up Switch */}

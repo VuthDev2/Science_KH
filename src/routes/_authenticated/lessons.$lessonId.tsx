@@ -89,8 +89,40 @@ class SafeMarkdownBoundary extends Component<
   }
 }
 
+class LessonContentErrorBoundary extends Component<
+  { children: React.ReactNode; fallback?: React.ReactNode },
+  { hasError: boolean; error: any }
+> {
+  constructor(props: { children: React.ReactNode; fallback?: React.ReactNode }) {
+    super(props);
+    this.state = { hasError: false, error: null };
+  }
+  static getDerivedStateFromError(error: any) {
+    return { hasError: true, error };
+  }
+  componentDidCatch(error: any, info: any) {
+    console.error("Lesson content rendering error:", error, info);
+  }
+  render() {
+    if (this.state.hasError) {
+      return (
+        this.props.fallback || (
+          <div className="p-5 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 text-amber-800 dark:text-amber-200 text-xs sm:text-sm leading-relaxed">
+            <p className="font-bold mb-1">មានការរអាក់រអួលក្នុងការបង្ហាញផ្នែកខ្លះនៃមេរៀន</p>
+            <p className="text-xs text-amber-700 dark:text-amber-300">
+              អ្នកអាចបន្តរៀន និងធ្វើតេស្ត Quiz បានជាធម្មតា។
+            </p>
+          </div>
+        )
+      );
+    }
+    return this.props.children;
+  }
+}
+
 function SafeMathBlock({ math, className }: { math: string; className?: string }) {
   const html = useMemo(() => {
+    if (!math || typeof math !== "string") return null;
     try {
       const sanitized = cleanLatexMathString(math);
       return katex.renderToString(sanitized, {
@@ -106,7 +138,7 @@ function SafeMathBlock({ math, className }: { math: string; className?: string }
   if (!html) {
     return (
       <div className={cn("font-mono text-xs sm:text-sm overflow-x-auto", className)}>
-        {math}
+        {math || ""}
       </div>
     );
   }
@@ -117,10 +149,15 @@ function LessonErrorComponent({ error, reset }: { error: unknown; reset: () => v
   console.error("Lesson route error:", error);
   let lessonId = "";
   try {
-    const params = Route.useParams();
+    const params = routeApi.useParams();
     lessonId = params?.lessonId || "";
   } catch {
-    // safely handle outside route context
+    try {
+      const p = Route.useParams();
+      lessonId = p?.lessonId || "";
+    } catch {
+      // safely handle outside route context
+    }
   }
   const isKhmer = typeof window !== "undefined"
     ? (localStorage.getItem("sciencekh_lang") || "km") === "km"
@@ -143,7 +180,7 @@ function LessonErrorComponent({ error, reset }: { error: unknown; reset: () => v
       </div>
 
       {Boolean(error) && (
-        <details className="mt-2 text-left p-3 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 text-xs text-red-700 dark:text-red-300 max-w-md w-full">
+        <details open className="mt-2 text-left p-3 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 text-xs text-red-700 dark:text-red-300 max-w-md w-full">
           <summary className="font-semibold cursor-pointer">
             {isKhmer ? "ព័ត៌មានលម្អិតបច្ចេកទេស (Error Details)" : "Technical Details"}
           </summary>
@@ -361,7 +398,18 @@ const CONCEPT_CHECKS: Record<string, ConceptCheckData> = {
 };
 
 function LessonPage() {
-  const { lessonId } = Route.useParams();
+  let lessonId = "";
+  try {
+    const params = routeApi.useParams();
+    lessonId = params?.lessonId || "";
+  } catch {
+    try {
+      const p = Route.useParams();
+      lessonId = p?.lessonId || "";
+    } catch {
+      // safe fallback
+    }
+  }
   const { user } = useAuth();
   const { lang, setLanguage } = useProfile();
   const qc = useQueryClient();
@@ -818,7 +866,8 @@ function LessonPage() {
         {/* ================================================================== */}
         {/* 2. EDITORIAL ARTICLE (SINGLE UNIFIED SURFACE WITHOUT BOX OVERLOAD) */}
         {/* ================================================================== */}
-        <article className="mx-auto w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-none px-4 sm:px-6 lg:px-0 pt-5 pb-32 lg:pb-8 space-y-6">
+        <LessonContentErrorBoundary>
+          <article className="mx-auto w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-none px-4 sm:px-6 lg:px-0 pt-5 pb-32 lg:pb-8 space-y-6">
           {/* Article Header */}
           <div className="space-y-2 pb-5 border-b border-slate-200/80 dark:border-slate-800">
             <div className="flex items-center justify-between gap-2">
@@ -1210,6 +1259,7 @@ function LessonPage() {
             </Link>
           </div>
         </article>
+      </LessonContentErrorBoundary>
 
         {/* ================================================================== */}
         {/* 7. HIGH-IMPACT TACTILE ACTION DOCK (STICKY BOTTOM BAR - MOBILE ONLY) */}

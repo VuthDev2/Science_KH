@@ -767,8 +767,29 @@ Cambodia's Long-Term Strategy for Carbon Neutrality by 2050 commits to zero new 
     estimated_minutes: 25,
     subject: SUBJECT_METADATA.mathematics,
     quiz: { id: "quiz-g12-math-11" },
-    body_km: "## ១. រាងមិនកំណត់គ្រឹះទាំង ៤\nក្នុងគណិតវិទ្យាវិភាគថ្នាក់ទី ១២ រាងមិនកំណត់សំខាន់ៗដែលត្រូវប្រឡងបាក់ឌុបមាន៖\n$$\\left[\\frac{0}{0}\\right], \\quad \\left[\\frac{\\infty}{\\infty}\\right], \\quad [\\infty - \\infty], \\quad [0 \\times \\infty]$$\n\n## ២. វិធីសាស្ត្រលុបរាងមិនកំណត់\n### ក. រាង $[\\frac{0}{0}]$ ចំពោះអនុគមន៍សនិទាន\n- ដាក់ភាគយក និងភាគបែងជាផលគុណកត្តា $(x - a)$ រួចសម្រួលចោល។\n- បើមានរ៉ាឌីកាល់ (ឫសការេ) ត្រូវគុណនឹងកន្សោមកំប្លេ (Conjugate)៖ $(\\sqrt{A} - B)(\\sqrt{A} + B) = A - B^2$។\n\n### ខ. រាង $[\\frac{\\infty}{\\infty}]$\n- ទាញតួដែលមានស្វ័យគុណខ្ពស់ជាងគេជាកត្តារួមទាំងនៅភាគយក និងភាគបែង រួចសម្រួល។\n- ប្រើទ្រឹស្តីបទ៖ $\\lim_{x \\to \\pm\\infty} \\frac{1}{x^n} = 0$ ($n > 0$)។\n\n### គ. លីមីតត្រីកោណមាត្រគ្រឹះ\n$$\\lim_{x \\to 0} \\frac{\\sin x}{x} = 1, \\quad \\lim_{x \\to 0} \\frac{1 - \\cos x}{x^2} = \\frac{1}{2}, \\quad \\lim_{x \\to 0} \\frac{\\tan x}{x} = 1$$\n\n> **ឧទាហរណ៍បាក់ឌុប៖** គណនា $L = \\lim_{x \\to 2} \\frac{\\sqrt{x + 2} - 2}{x - 2}$\n> ជំនួស $x = 2 \\implies \\frac{\\sqrt{4} - 2}{2 - 2} = \\left[\\frac{0}{0}\\right]$\n> គុណកន្សោមកំប្លេ៖\n> $$L = \\lim_{x \\to 2} \\frac{(\\sqrt{x + 2} - 2)(\\sqrt{x + 2} + 2)}{(x - 2)(\\sqrt{x + 2} + 2)} = \\lim_{x \\to 2} \\frac{x + 2 - 4}{(x - 2)(\\sqrt{x + 2} + 2)}$$\n> $$L = \\lim_{x \\to 2} \\frac{x - 2}{(x - 2)(\\sqrt{x + 2} + 2)} = \\lim_{x \\to 2} \\frac{1}{\\sqrt{x + 2} + 2} = \\frac{1}{2 + 2} = \\frac{1}{4}$$",
-    body_en: "## Limits of Functions\nEvaluating limits with indeterminate forms 0/0 and inf/inf. Conjugate multiplication for radicals and standard trigonometric limit identity lim (sin x)/x = 1 as x approaches 0.",
+    body_km: `## ១. រាងមិនកំណត់គ្រឹះទាំង ៤
+ក្នុងគណិតវិទ្យាវិភាគថ្នាក់ទី ១២ រាងមិនកំណត់សំខាន់ៗដែលត្រូវប្រឡងបាក់ឌុបមាន៖
+$$\\left[\\frac{0}{0}\\right], \\quad \\left[\\frac{\\infty}{\\infty}\\right], \\quad [\\infty - \\infty], \\quad [0 \\times \\infty]$$
+
+## ២. វិធីសាស្ត្រលុបរាងមិនកំណត់
+### ក. រាង $[\\frac{0}{0}]$ ចំពោះអនុគមន៍សនិទាន
+- ដាក់ភាគយក និងភាគបែងជាផលគុណកត្តា $(x - a)$ រួចសម្រួលចោល។
+- បើមានរ៉ាឌីកាល់ (ឫសការេ) ត្រូវគុណនឹងកន្សោមកំប្លេ (Conjugate)៖ $(\\sqrt{A} - B)(\\sqrt{A} + B) = A - B^2$។
+
+### ខ. រាង $[\\frac{\\infty}{\\infty}]$
+- ទាញតួដែលមានស្វ័យគុណខ្ពស់ជាងគេជាកត្តារួមទាំងនៅភាគយក និងភាគបែង រួចសម្រួល។
+- ប្រើទ្រឹស្តីបទ៖ $\\lim_{x \\to \\pm\\infty} \\frac{1}{x^n} = 0$ ($n > 0$)។
+
+### គ. លីមីតត្រីកោណមាត្រគ្រឹះ
+$$\\lim_{x \\to 0} \\frac{\\sin x}{x} = 1, \\quad \\lim_{x \\to 0} \\frac{1 - \\cos x}{x^2} = \\frac{1}{2}, \\quad \\lim_{x \\to 0} \\frac{\\tan x}{x} = 1$$
+
+> **ឧទាហរណ៍បាក់ឌុប៖** គណនា $L = \\lim_{x \\to 2} \\frac{\\sqrt{x + 2} - 2}{x - 2}$
+> ជំនួស $x = 2 \\implies \\frac{\\sqrt{4} - 2}{2 - 2} = \\left[\\frac{0}{0}\\right]$
+> គុណកន្សោមកំប្លេ៖
+> $$L = \\lim_{x \\to 2} \\frac{(\\sqrt{x + 2} - 2)(\\sqrt{x + 2} + 2)}{(x - 2)(\\sqrt{x + 2} + 2)} = \\lim_{x \\to 2} \\frac{x + 2 - 4}{(x - 2)(\\sqrt{x + 2} + 2)}$$
+> $$L = \\lim_{x \\to 2} \\frac{x - 2}{(x - 2)(\\sqrt{x + 2} + 2)} = \\lim_{x \\to 2} \\frac{1}{\\sqrt{x + 2} + 2} = \\frac{1}{2 + 2} = \\frac{1}{4}$$`,
+    body_en: `## Limits of Functions
+Evaluating limits with indeterminate forms 0/0 and inf/inf. Conjugate multiplication for radicals and standard trigonometric limit identity lim (sin x)/x = 1 as x approaches 0.`,
   },
 
   {
@@ -816,8 +837,21 @@ Cambodia's Long-Term Strategy for Carbon Neutrality by 2050 commits to zero new 
     lessonType: "practice",
     subject: SUBJECT_METADATA.mathematics,
     quiz: { id: "quiz-g12-math-11" },
-    body_km: "## លំហាត់អនុវត្តលីមីតរាងមិនកំណត់\\nផ្នែកនេះផ្តល់នូវលំហាត់គណនាជាក់ស្តែង ដើម្បីជួយសិស្សពង្រឹងជំនាញដោះស្រាយរាងមិនកំណត់ដែលចេញប្រឡងបាក់ឌុបញឹកញាប់បំផុត!\\n\\n### លំហាត់គំរូទី ១ (បំបែកកត្តា)\\nគណនា $L_1 = \\\\lim_{x \\\\to 3} \\\\frac{x^2 - 9}{x - 3}$\\n- ជំនួស $x = 3 \\\\implies \\\\frac{9 - 9}{3 - 3} = \\\\left[\\\\frac{0}{0}\\\\right]$\\n- ភាគយក $x^2 - 9 = (x - 3)(x + 3)$\\n- សម្រួល $(x - 3) \\\\implies L_1 = \\\\lim_{x \\\\to 3} (x + 3) = 3 + 3 = 6$\\n\\n### លំហាត់គំរូទី ២ (គុណកន្សោមកំប្លេ)\\nគណនា $L_2 = \\\\lim_{x \\\\to 4} \\\\frac{\\\\sqrt{x} - 2}{x - 4}$\\n- គុណកន្សោមកំប្លេ $(\\\\sqrt{x} + 2)$ ទាំងភាគយក និងភាគបែង៖\\n$$L_2 = \\\\lim_{x \\\\to 4} \\\\frac{(\\\\sqrt{x} - 2)(\\\\sqrt{x} + 2)}{(x - 4)(\\\\sqrt{x} + 2)} = \\\\lim_{x \\\\to 4} \\\\frac{x - 4}{(x - 4)(\\\\sqrt{x} + 2)}$$\\n$$L_2 = \\\\lim_{x \\\\to 4} \\\\frac{1}{\\\\sqrt{x} + 2} = \\\\frac{1}{2 + 2} = \\\\frac{1}{4}$$",
-    body_en: "Practical problem sets on 0/0 and inf/inf indeterminate limit evaluations using factoring and conjugate identities.",
+    body_km: `## លំហាត់អនុវត្តលីមីតរាងមិនកំណត់
+ផ្នែកនេះផ្តល់នូវលំហាត់គណនាជាក់ស្តែង ដើម្បីជួយសិស្សពង្រឹងជំនាញដោះស្រាយរាងមិនកំណត់ដែលចេញប្រឡងបាក់ឌុបញឹកញាប់បំផុត!
+
+### លំហាត់គំរូទី ១ (បំបែកកត្តា)
+គណនា $L_1 = \\lim_{x \\to 3} \\frac{x^2 - 9}{x - 3}$
+- ជំនួស $x = 3 \\implies \\frac{9 - 9}{3 - 3} = \\left[\\frac{0}{0}\\right]$
+- ភាគយក $x^2 - 9 = (x - 3)(x + 3)$
+- សម្រួល $(x - 3) \\implies L_1 = \\lim_{x \\to 3} (x + 3) = 3 + 3 = 6$
+
+### លំហាត់គំរូទី ២ (គុណកន្សោមកំប្លេ)
+គណនា $L_2 = \\lim_{x \\to 4} \\frac{\\sqrt{x} - 2}{x - 4}$
+- គុណកន្សោមកំប្លេ $(\\sqrt{x} + 2)$ ទាំងភាគយក និងភាគបែង៖
+$$L_2 = \\lim_{x \\to 4} \\frac{(\\sqrt{x} - 2)(\\sqrt{x} + 2)}{(x - 4)(\\sqrt{x} + 2)} = \\lim_{x \\to 4} \\frac{x - 4}{(x - 4)(\\sqrt{x} + 2)}$$
+$$L_2 = \\lim_{x \\to 4} \\frac{1}{\\sqrt{x} + 2} = \\frac{1}{2 + 2} = \\frac{1}{4}$$`,
+    body_en: `Practical problem sets on 0/0 and inf/inf indeterminate limit evaluations using factoring and conjugate identities.`,
   },
 
   {
@@ -833,8 +867,15 @@ Cambodia's Long-Term Strategy for Carbon Neutrality by 2050 commits to zero new 
     lessonType: "practice",
     subject: SUBJECT_METADATA.mathematics,
     quiz: { id: "quiz-g12-math-11" },
-    body_km: "## លំហាត់អនុវត្តលីមីតត្រីកោណមាត្រ\\nរូបមន្តគន្លឹះដែលត្រូវចងចាំ៖\\n$$\\\\lim_{u \\\\to 0} \\\\frac{\\\\sin u}{u} = 1, \\\\quad \\\\lim_{u \\\\to 0} \\\\frac{1 - \\\\cos u}{u^2} = \\\\frac{1}{2}, \\\\quad \\\\lim_{u \\\\to 0} \\\\frac{\\\\tan u}{u} = 1$$\\n\\n### លំហាត់គំរូទី ១\\nគណនា $L = \\\\lim_{x \\\\to 0} \\\\frac{\\\\sin 4x}{\\\\sin 3x}$\\n- ចែកភាគយក និងភាគបែងនឹង $x$៖\\n$$L = \\\\lim_{x \\\\to 0} \\\\frac{\\\\frac{\\\\sin 4x}{x}}{\\\\frac{\\\\sin 3x}{x}} = \\\\frac{4 \\\\cdot \\\\lim_{x \\\\to 0} \\\\frac{\\\\sin 4x}{4x}}{3 \\\\cdot \\\\lim_{x \\\\to 0} \\\\frac{\\\\sin 3x}{3x}} = \\\\frac{4 \\\\times 1}{3 \\\\times 1} = \\\\frac{4}{3}$$",
-    body_en: "Trigonometric limit exercises utilizing standard limits and variable substitution.",
+    body_km: `## លំហាត់អនុវត្តលីមីតត្រីកោណមាត្រ
+រូបមន្តគន្លឹះដែលត្រូវចងចាំ៖
+$$\\lim_{u \\to 0} \\frac{\\sin u}{u} = 1, \\quad \\lim_{u \\to 0} \\frac{1 - \\cos u}{u^2} = \\frac{1}{2}, \\quad \\lim_{u \\to 0} \\frac{\\tan u}{u} = 1$$
+
+### លំហាត់គំរូទី ១
+គណនា $L = \\lim_{x \\to 0} \\frac{\\sin 4x}{\\sin 3x}$
+- ចែកភាគយក និងភាគបែងនឹង $x$៖
+$$L = \\lim_{x \\to 0} \\frac{\\frac{\\sin 4x}{x}}{\\frac{\\sin 3x}{x}} = \\frac{4 \\cdot \\lim_{x \\to 0} \\frac{\\sin 4x}{4x}}{3 \\cdot \\lim_{x \\to 0} \\frac{\\sin 3x}{3x}} = \\frac{4 \\times 1}{3 \\times 1} = \\frac{4}{3}$$`,
+    body_en: `Trigonometric limit exercises utilizing standard limits and variable substitution.`,
   },
 
   {
