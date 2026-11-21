@@ -12,17 +12,14 @@ import {
   Clock,
   Sparkles,
   ArrowRight,
-  RotateCcw,
   BookOpen,
   Target,
-  ChevronRight,
-  Layers,
-  GraduationCap,
 } from "lucide-react";
 import { ALL_CURATED_LESSONS, type CuratedLesson } from "@/lib/curriculum";
 import { groupLessonsIntoUnits, type UnitWithLessons } from "@/lib/curriculum/units";
 import { sounds } from "@/lib/sound-effects";
 import { triggerHapticSelection } from "@/lib/native-mobile";
+import { toKhmerNumeral } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
 interface GuidedLearningPathProps {
@@ -86,29 +83,29 @@ export function GuidedLearningPath({
   }, [filteredLessons, completedIds]);
 
   return (
-    <section className="space-y-6">
+    <section className="space-y-4">
       {/* 1. Header with Subject Tabs */}
-      <div className="space-y-3">
+      <div className="space-y-2.5">
         <div className="flex items-center justify-between">
           <div>
             <div className="flex items-center gap-2">
-              <h2 className="font-display text-base sm:text-lg font-black text-slate-900 dark:text-white tracking-tight">
+              <h2 className="font-display text-base font-black text-slate-900 dark:text-white tracking-tight">
                 {isKhmer ? "គន្លងសិក្សាជាប្រព័ន្ធ" : "Guided Learning Path"}
               </h2>
-              <span className="text-[10.5px] font-extrabold px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-[#059669] border border-emerald-200/80 dark:border-emerald-800/60">
+              <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-emerald-50 dark:bg-emerald-950/60 text-[#059669] border border-emerald-200/60 dark:border-emerald-800/60">
                 MoEYS
               </span>
             </div>
             <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
               {isKhmer
-                ? "រៀនតាមលំដាប់លំដោយជំពូក មេរៀន និងអនុវត្តលំហាត់រំលឹកចំណេះដឹង"
-                : "Step-by-step curriculum progression with integrated revision milestones"}
+                ? `រៀនតាមលំដាប់លំដោយជំពូក មេរៀន និងអនុវត្តលំហាត់រំលឹកចំណេះដឹង (ថ្នាក់ទី ${toKhmerNumeral(grade)})`
+                : `Step-by-step curriculum progression with integrated revision milestones (Grade ${grade})`}
             </p>
           </div>
         </div>
 
-        {/* 1-Tap Subject Pills */}
-        <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
+        {/* Clean, Non-Clipped Wrapping Subject Filter Buttons */}
+        <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
           <button
             type="button"
             onClick={() => {
@@ -117,9 +114,9 @@ export function GuidedLearningPath({
               setSelectedSubject("all");
             }}
             className={cn(
-              "px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition cursor-pointer active:scale-95 border",
+              "px-3 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer active:scale-95 border",
               selectedSubject === "all"
-                ? "bg-emerald-600 text-white border-emerald-600 shadow-2xs font-extrabold"
+                ? "bg-[#059669] text-white border-[#059669] shadow-2xs font-bold"
                 : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border-[#E5EAF0] dark:border-slate-800 hover:border-slate-300"
             )}
           >
@@ -137,9 +134,9 @@ export function GuidedLearningPath({
                   setSelectedSubject(sub.slug);
                 }}
                 className={cn(
-                  "px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition cursor-pointer active:scale-95 border",
+                  "px-3 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer active:scale-95 border",
                   isSelected
-                    ? "bg-emerald-600 text-white border-emerald-600 shadow-2xs font-extrabold"
+                    ? "bg-[#059669] text-white border-[#059669] shadow-2xs font-bold"
                     : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border-[#E5EAF0] dark:border-slate-800 hover:border-slate-300"
                 )}
               >
@@ -151,56 +148,68 @@ export function GuidedLearningPath({
       </div>
 
       {/* 2. Units & Stepped Lesson Progression */}
-      <div className="space-y-6">
-        {unitsWithLessons.map((unitGroup, unitIdx) => {
+      <div className="space-y-4">
+        {unitsWithLessons.map((unitGroup) => {
           const unit = unitGroup.unit;
-          const isUnitCompleted = unitGroup.isCompleted;
 
           return (
             <div
               key={unit.id}
-              className="rounded-3xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs overflow-hidden"
+              className="rounded-2xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs overflow-hidden"
             >
               {/* Unit Banner Header */}
-              <div className="p-4 sm:p-5 border-b border-[#E5EAF0] dark:border-slate-800 bg-slate-50/70 dark:bg-slate-850/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <div className="space-y-1 min-w-0">
+              <div className="p-4 border-b border-[#E5EAF0] dark:border-slate-800 bg-slate-50/70 dark:bg-slate-850/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div className="space-y-0.5 min-w-0">
                   <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 border border-emerald-200/60 dark:border-emerald-800/60">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 border border-emerald-200/60 dark:border-emerald-800/60">
                       {isKhmer ? `ជំពូកទី ${unit.unitNumber}` : `Unit ${unit.unitNumber}`}
                     </span>
-                    <span className="text-xs font-bold text-slate-400">
+                    <span className="text-xs font-semibold text-slate-400">
                       {unitGroup.completedCount}/{unitGroup.totalCount} {isKhmer ? "បានចប់" : "Completed"}
                     </span>
                   </div>
-                  <h3 className="font-display text-sm sm:text-base font-extrabold text-slate-900 dark:text-white leading-snug">
+                  <h3 className="font-display text-sm font-bold text-slate-900 dark:text-white leading-snug">
                     {unit.title_km}
                   </h3>
                   {unit.title_en && (
-                    <p className="text-xs text-slate-400 font-medium truncate">
+                    <p className="text-[11px] text-slate-400 font-medium truncate">
                       {unit.title_en}
                     </p>
                   )}
                 </div>
 
-                {/* Unit Progress Ring / Pill */}
-                <div className="flex items-center gap-2 shrink-0">
-                  <div className="w-24 sm:w-28 h-2 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
-                    <div
-                      className="h-full rounded-full bg-emerald-600 dark:bg-emerald-500 transition-all duration-500"
-                      style={{ width: `${unitGroup.progressPercent}%` }}
-                    />
-                  </div>
-                  <span className="text-xs font-bold text-slate-600 dark:text-slate-300 min-w-[36px] text-right">
-                    {unitGroup.progressPercent}%
-                  </span>
+                {/* Meaningful Status / Progress Indicator (No Arbitrary 0% Bars) */}
+                <div className="shrink-0 flex items-center gap-2">
+                  {unitGroup.completedCount === 0 ? (
+                    <span className="text-[11px] font-semibold text-slate-400 bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-lg">
+                      {isKhmer ? "មិនទាន់ចាប់ផ្តើម" : "Not Started"}
+                    </span>
+                  ) : unitGroup.isCompleted ? (
+                    <span className="text-[11px] font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-1 rounded-lg border border-emerald-200/60 flex items-center gap-1">
+                      <Check className="h-3 w-3 stroke-[3]" />
+                      <span>{isKhmer ? "បានបញ្ចប់" : "Completed"}</span>
+                    </span>
+                  ) : (
+                    <div className="flex items-center gap-2">
+                      <div className="w-20 sm:w-24 h-1.5 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
+                        <div
+                          className="h-full rounded-full bg-[#059669] transition-all duration-500"
+                          style={{ width: `${unitGroup.progressPercent}%` }}
+                        />
+                      </div>
+                      <span className="text-xs font-bold text-slate-600 dark:text-slate-300">
+                        {unitGroup.completedCount}/{unitGroup.totalCount}
+                      </span>
+                    </div>
+                  )}
                 </div>
               </div>
 
               {/* Stepped Sequential Learning Track */}
-              <div className="p-4 sm:p-6 space-y-4 relative">
+              <div className="p-4 space-y-3 relative">
                 {/* Vertical Hairline Connecting Track */}
                 <div
-                  className="absolute left-8 sm:left-10 top-8 bottom-16 w-0.5 bg-slate-200 dark:bg-slate-800 -translate-x-1/2 z-0"
+                  className="absolute left-7 top-6 bottom-14 w-0.5 bg-slate-200 dark:bg-slate-800 -translate-x-1/2 z-0"
                   aria-hidden="true"
                 />
 
@@ -212,23 +221,23 @@ export function GuidedLearningPath({
                   return (
                     <div
                       key={lesson.id}
-                      className="relative z-10 flex items-start gap-3.5 sm:gap-4 group"
+                      className="relative z-10 flex items-start gap-3 group"
                     >
-                      {/* Step Node Circle Indicator */}
+                      {/* Step Node Indicator */}
                       <div
                         className={cn(
-                          "h-8 w-8 sm:h-9 sm:w-9 rounded-2xl grid place-items-center shrink-0 mt-2 transition-all duration-200 shadow-2xs font-bold text-xs select-none",
+                          "h-7 w-7 rounded-xl grid place-items-center shrink-0 mt-2 transition-all duration-200 text-xs font-bold select-none",
                           isCompleted
-                            ? "bg-emerald-600 text-white shadow-emerald-500/20"
+                            ? "bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200/80 shadow-2xs"
                             : isCurrent
-                              ? "bg-white dark:bg-slate-900 text-emerald-600 border-2 border-emerald-600 shadow-emerald-500/30 scale-105"
+                              ? "bg-[#059669] text-white shadow-xs ring-4 ring-emerald-500/20 font-black"
                               : "bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 border border-slate-200/80 dark:border-slate-700"
                         )}
                       >
                         {isCompleted ? (
-                          <Check className="h-4 w-4 stroke-[3]" />
+                          <Check className="h-3.5 w-3.5 stroke-[3]" />
                         ) : isCurrent ? (
-                          <div className="h-3 w-3 rounded-full bg-emerald-600 animate-pulse" />
+                          <Play className="h-3 w-3 fill-white ml-0.5" />
                         ) : (
                           <span>{lessonIdx + 1}</span>
                         )}
@@ -237,26 +246,26 @@ export function GuidedLearningPath({
                       {/* Lesson Card */}
                       <div
                         className={cn(
-                          "flex-1 p-3.5 sm:p-4 rounded-2xl border transition-all duration-200",
+                          "flex-1 p-3 rounded-xl border transition-all duration-150",
                           isCurrent
-                            ? "border-emerald-500/80 bg-emerald-50/40 dark:bg-emerald-950/20 shadow-xs"
+                            ? "border-emerald-500/60 bg-emerald-50/20 dark:bg-emerald-950/20 shadow-2xs"
                             : isCompleted
-                              ? "border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-850/30 hover:border-slate-300"
-                              : "border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-slate-300"
+                              ? "border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-slate-200"
+                              : "border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-slate-200"
                         )}
                       >
-                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                          <div className="min-w-0 space-y-1">
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+                          <div className="min-w-0 space-y-0.5">
                             <div className="flex items-center gap-2">
-                              <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700">
-                                {isKhmer ? `មេរៀនទី ${lessonIdx + 1}` : `Lesson ${lessonIdx + 1}`}
+                              <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+                                {isKhmer ? `មេរៀន ${lessonIdx + 1}` : `L${lessonIdx + 1}`}
                               </span>
-                              <span className="text-[11px] text-slate-400 font-medium">
+                              <span className="text-[11px] text-slate-400">
                                 {lesson.estimated_minutes} {isKhmer ? "នាទី" : "mins"} · +{lesson.xp_reward} XP
                               </span>
                               {isCurrent && (
-                                <span className="text-[10px] font-extrabold px-1.5 py-0.5 rounded-md bg-emerald-600 text-white animate-pulse">
-                                  {isKhmer ? "មេរៀនបន្ទាប់" : "Up Next"}
+                                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-[#059669] text-white">
+                                  {isKhmer ? "មេរៀនបច្ចុប្បន្ន" : "Current"}
                                 </span>
                               )}
                             </div>
@@ -278,28 +287,22 @@ export function GuidedLearningPath({
                               params={{ lessonId: lesson.id }}
                               onClick={() => sounds.playPop()}
                               className={cn(
-                                "px-3.5 py-2 rounded-xl font-bold text-xs transition active:scale-95 flex items-center gap-1.5 cursor-pointer shadow-2xs",
+                                "px-3 py-1.5 rounded-xl font-bold text-xs transition active:scale-95 flex items-center gap-1.5 cursor-pointer shadow-2xs",
                                 isCurrent
-                                  ? "bg-emerald-600 hover:bg-emerald-500 text-white shadow-emerald-500/20"
+                                  ? "bg-[#059669] hover:bg-[#047857] text-white shadow-xs"
                                   : isCompleted
-                                    ? "bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700"
+                                    ? "bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700"
                                     : "bg-white dark:bg-slate-800 hover:bg-slate-50 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700"
                               )}
                             >
                               <span>
                                 {isCompleted
-                                  ? isKhmer
-                                    ? "រៀនឡើងវិញ"
-                                    : "Review"
+                                  ? isKhmer ? "រៀនឡើងវិញ" : "Review"
                                   : isCurrent
-                                    ? isKhmer
-                                      ? "បន្តការសិក្សា"
-                                      : "Continue"
-                                    : isKhmer
-                                      ? "ចាប់ផ្តើម"
-                                      : "Start"}
+                                    ? isKhmer ? "បន្តការសិក្សា" : "Continue"
+                                    : isKhmer ? "ចាប់ផ្តើម" : "Start"}
                               </span>
-                              <ArrowRight className="h-3.5 w-3.5" />
+                              <ArrowRight className="h-3 w-3" />
                             </Link>
                           </div>
                         </div>
@@ -308,31 +311,31 @@ export function GuidedLearningPath({
                   );
                 })}
 
-                {/* Unit Practice & Revision Checkpoint Milestone */}
-                <div className="relative z-10 pt-2 flex items-start gap-3.5 sm:gap-4">
-                  <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-2xl bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 border border-amber-200/80 dark:border-amber-800/60 grid place-items-center shrink-0 mt-1 shadow-2xs font-bold">
-                    <Target className="h-4 w-4" />
+                {/* Unit Practice Checkpoint Milestone */}
+                <div className="relative z-10 pt-1 flex items-start gap-3">
+                  <div className="h-7 w-7 rounded-xl bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 border border-amber-200/80 dark:border-amber-800/60 grid place-items-center shrink-0 mt-1 shadow-2xs">
+                    <Target className="h-3.5 w-3.5" />
                   </div>
 
-                  <div className="flex-1 p-3.5 sm:p-4 rounded-2xl border border-amber-200/70 dark:border-amber-900/50 bg-amber-50/40 dark:bg-amber-950/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div className="flex-1 p-3 rounded-xl border border-amber-200/70 dark:border-amber-900/50 bg-amber-50/40 dark:bg-amber-950/20 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
                     <div className="space-y-0.5 min-w-0">
                       <div className="flex items-center gap-2">
-                        <span className="text-[10px] font-black uppercase tracking-wider text-amber-700 dark:text-amber-300">
-                          {isKhmer ? "ចំណុចត្រួតពិនិត្យ & រំលឹកចំណេះដឹង" : "Revision Checkpoint"}
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-300">
+                          {isKhmer ? "ចំណុចត្រួតពិនិត្យ" : "Checkpoint"}
                         </span>
-                        <span className="text-[10px] font-extrabold text-amber-600 dark:text-amber-400">
+                        <span className="text-[10px] font-bold text-amber-600 dark:text-amber-400">
                           +50 XP
                         </span>
                       </div>
                       <h4 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white truncate">
                         {isKhmer
-                          ? `លំហាត់សង្ខេបជំពូកទី ${unit.unitNumber} & Quiz សាកល្បង`
-                          : `Unit ${unit.unitNumber} Practice & Review Quiz`}
+                          ? `លំហាត់សង្ខេបជំពូកទី ${unit.unitNumber} & Quiz`
+                          : `Unit ${unit.unitNumber} Practice & Quiz`}
                       </h4>
                       <p className="text-[11px] text-slate-500 dark:text-slate-400">
                         {isKhmer
                           ? "ផ្ទៀងផ្ទាត់ការចងចាំរូបមន្ត និងទ្រឹស្តីបទនៃជំពូកនេះ"
-                          : "Verify formula recall and core principles covered in this unit"}
+                          : "Verify formula recall and core principles"}
                       </p>
                     </div>
 
@@ -340,10 +343,10 @@ export function GuidedLearningPath({
                       to="/lessons/$lessonId/quiz"
                       params={{ lessonId: unitGroup.lessons[0]?.id || "les-g10-phys-01" }}
                       onClick={() => sounds.playPop()}
-                      className="px-3.5 py-2 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs tracking-wide transition active:scale-95 shrink-0 flex items-center justify-center gap-1.5 shadow-2xs cursor-pointer"
+                      className="px-3 py-1.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs tracking-wide transition active:scale-95 shrink-0 flex items-center justify-center gap-1.5 shadow-2xs cursor-pointer"
                     >
-                      <Sparkles className="h-3.5 w-3.5" />
-                      <span>{isKhmer ? "ចាប់ផ្តើមអនុវត្ត" : "Start Quiz"}</span>
+                      <Sparkles className="h-3 w-3" />
+                      <span>{isKhmer ? "ធ្វើតេស្តសាកល្បង" : "Start Quiz"}</span>
                     </Link>
                   </div>
                 </div>

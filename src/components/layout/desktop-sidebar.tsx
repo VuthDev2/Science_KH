@@ -112,7 +112,7 @@ export function DesktopSidebar() {
 
   return (
     <aside
-      className="hidden lg:flex fixed left-0 top-0 bottom-0 z-40 flex-col w-[248px] bg-white dark:bg-slate-900 border-r border-[#E5EAF0] dark:border-slate-800 select-none"
+      className="hidden lg:flex fixed left-0 top-0 bottom-0 z-40 flex-col w-60 bg-white dark:bg-slate-900 border-r border-[#E5EAF0] dark:border-slate-800 select-none"
       aria-label="Desktop Navigation"
     >
       {/* 1. Header with ScienceKH Brand */}

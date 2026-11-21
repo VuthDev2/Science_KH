@@ -56,7 +56,7 @@ export function AppShell({
       <DesktopSidebar />
 
       {/* 2. Main Desktop Layout Area (Offset by Sidebar on Desktop only) */}
-      <div className="flex-1 flex flex-col min-w-0 lg:pl-[248px]">
+      <div className="flex-1 flex flex-col min-w-0 lg:pl-60">
         {/* Top Desktop-Only Header (Strictly hidden on mobile screens) */}
         <DesktopHeader
           breadcrumbs={breadcrumbs}
@@ -70,14 +70,14 @@ export function AppShell({
         />
 
         {/* Workspace Canvas: Plain full-width on mobile; 3-column bounded canvas on desktop */}
-        <div className="w-full flex-1 p-0 lg:px-8 lg:py-5 lg:flex lg:items-start lg:gap-8 min-w-0">
+        <div className="w-full flex-1 p-0 lg:px-6 xl:px-8 lg:py-6 lg:flex lg:items-start lg:justify-center lg:gap-6 xl:gap-8 min-w-0 max-w-[1600px] mx-auto">
           {/* Main Learning Canvas */}
           <main
             className={cn(
               "w-full min-w-0 flex-1",
               wide
                 ? "max-w-none"
-                : "max-w-5xl 2xl:max-w-6xl"
+                : "max-w-3xl xl:max-w-4xl 2xl:max-w-5xl"
             )}
           >
             {children}
