@@ -79,7 +79,7 @@ export function DesktopSidebar() {
       labelEn: "Exam Archive",
       icon: FileText,
       exact: false,
-      badge: "2011–24",
+      badge: isKhmer ? "២០១១–២៤" : "2011–24",
     },
     {
       to: "/tutor",
@@ -213,7 +213,7 @@ export function DesktopSidebar() {
             </div>
             <div className="min-w-0">
               <span className="text-xs font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 transition truncate block leading-tight">
-                {profile?.display_name || user?.email?.split("@")[0] || "សិស្ស"}
+                {profile?.display_name || user?.email?.split("@")[0] || (isKhmer ? "សិស្ស" : "Student")}
               </span>
               <span className="text-[10.5px] font-semibold text-slate-400 truncate block">
                 {gradeLabel}

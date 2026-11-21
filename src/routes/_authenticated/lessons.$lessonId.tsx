@@ -122,6 +122,10 @@ function LessonErrorComponent({ error, reset }: { error: unknown; reset: () => v
   } catch {
     // safely handle outside route context
   }
+  const isKhmer = typeof window !== "undefined"
+    ? (localStorage.getItem("sciencekh_lang") || "km") === "km"
+    : true;
+
   return (
     <main className="min-h-screen bg-[#F8FAFC] dark:bg-slate-950 flex flex-col items-center justify-center p-6 text-center space-y-4">
       <div className="h-16 w-16 rounded-3xl grid place-items-center bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-300 text-2xl shadow-xs">
@@ -129,16 +133,20 @@ function LessonErrorComponent({ error, reset }: { error: unknown; reset: () => v
       </div>
       <div className="space-y-1.5 max-w-sm">
         <h2 className="font-display font-black text-lg text-slate-900 dark:text-white">
-          មានបញ្ហាបច្ចេកទេសលើមេរៀននេះ
+          {isKhmer ? "មានបញ្ហាបច្ចេកទេសលើមេរៀននេះ" : "Technical Issue Loading Lesson"}
         </h2>
         <p className="text-xs text-slate-500 leading-relaxed">
-          ប្រព័ន្ធមិនអាចបង្ហាញទិន្នន័យមេរៀនបានពេញលេញនៅពេលនេះទេ។ អ្នកអាចធ្វើតេស្ត Quiz ភ្លាមៗ ឬត្រឡប់ទៅកម្មវិធីសិក្សាវិញ។
+          {isKhmer
+            ? "ប្រព័ន្ធមិនអាចបង្ហាញទិន្នន័យមេរៀនបានពេញលេញនៅពេលនេះទេ។ អ្នកអាចធ្វើតេស្ត Quiz ភ្លាមៗ ឬត្រឡប់ទៅកម្មវិធីសិក្សាវិញ។"
+            : "The lesson content could not be fully loaded right now. You can take the interactive quiz directly or return to the curriculum roadmap."}
         </p>
       </div>
 
       {Boolean(error) && (
         <details className="mt-2 text-left p-3 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 text-xs text-red-700 dark:text-red-300 max-w-md w-full">
-          <summary className="font-semibold cursor-pointer">ព័ត៌មានលម្អិតបច្ចេកទេស (Error Details)</summary>
+          <summary className="font-semibold cursor-pointer">
+            {isKhmer ? "ព័ត៌មានលម្អិតបច្ចេកទេស (Error Details)" : "Technical Details"}
+          </summary>
           <pre className="mt-2 overflow-auto max-h-40 whitespace-pre-wrap font-mono text-[10px]">
             {error instanceof Error ? error.stack || error.message : String(error)}
           </pre>
@@ -151,7 +159,7 @@ function LessonErrorComponent({ error, reset }: { error: unknown; reset: () => v
           onClick={() => reset()}
           className="px-4 py-2 rounded-xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-bold text-xs hover:bg-slate-300 transition cursor-pointer"
         >
-          ព្យាយាមម្តងទៀត
+          {isKhmer ? "ព្យាយាមម្តងទៀត" : "Try Again"}
         </button>
         {lessonId ? (
           <Link
@@ -159,20 +167,20 @@ function LessonErrorComponent({ error, reset }: { error: unknown; reset: () => v
             params={{ lessonId }}
             className="px-4 py-2 rounded-xl bg-emerald-600 text-white font-bold text-xs hover:bg-emerald-500 shadow-sm cursor-pointer"
           >
-            ធ្វើតេស្ត Quiz ជំនួសវិញ →
+            {isKhmer ? "ធ្វើតេស្ត Quiz ជំនួសវិញ →" : "Take Quiz Instead →"}
           </Link>
         ) : null}
         <Link
           to="/lessons"
           className="px-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-400 font-bold text-xs"
         >
-          ត្រឡប់ទៅកម្មវិធីសិក្សា
+          {isKhmer ? "ត្រឡប់ទៅកម្មវិធីសិក្សា" : "Back to Curriculum"}
         </Link>
         <Link
           to="/home"
           className="px-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-400 font-bold text-xs"
         >
-          ត្រឡប់ទៅទំព័រដើម
+          {isKhmer ? "ត្រឡប់ទៅទំព័រដើម" : "Back to Home"}
         </Link>
       </div>
     </main>
@@ -314,17 +322,58 @@ const CONCEPT_CHECKS: Record<string, ConceptCheckData> = {
     explanationKm: "ពិតជាត្រឹមត្រូវ! 3/4 × 100% = 75%!",
     explanationEn: "Spot on! 3/4 × 100% = 75%!",
   },
+  "les-g8-math-01": {
+    questionKm: "តើចំនួនណាខាងក្រោមជាចំនួនអសនិទាន?",
+    questionEn: "Which of the following is an irrational number?",
+    options: [
+      { labelKm: "√2", labelEn: "√2", isCorrect: true },
+      { labelKm: "3/5", labelEn: "3/5", isCorrect: false },
+      { labelKm: "0.45", labelEn: "0.45", isCorrect: false },
+      { labelKm: "√9", labelEn: "√9", isCorrect: false },
+    ],
+    explanationKm: "ត្រឹមត្រូវ! √2 ជាទសភាគមិនកំណត់ និងមិនខួប (1.414...) ដូច្នេះវាជាចំនួនអសនិទាន។",
+    explanationEn: "Correct! √2 is non-terminating and non-repeating, so it is an irrational number.",
+  },
+  "les-g8-math-02": {
+    questionKm: "គណនាពន្លាត៖ (2x + 3)² = ?",
+    questionEn: "Calculate the expansion: (2x + 3)² = ?",
+    options: [
+      { labelKm: "4x² + 12x + 9", labelEn: "4x² + 12x + 9", isCorrect: true },
+      { labelKm: "4x² + 9", labelEn: "4x² + 9", isCorrect: false },
+      { labelKm: "2x² + 6x + 9", labelEn: "2x² + 6x + 9", isCorrect: false },
+      { labelKm: "4x² + 6x + 9", labelEn: "4x² + 6x + 9", isCorrect: false },
+    ],
+    explanationKm: "ពិតជាត្រឹមត្រូវ! (2x + 3)² = (2x)² + 2(2x)(3) + 3² = 4x² + 12x + 9!",
+    explanationEn: "Spot on! (2x + 3)² = (2x)² + 2(2x)(3) + 3² = 4x² + 12x + 9!",
+  },
+  "les-g8-math-06": {
+    questionKm: "ដាក់ជាផលគុណកត្តា៖ x² - 25 = ?",
+    questionEn: "Factor the expression: x² - 25 = ?",
+    options: [
+      { labelKm: "(x - 5)(x + 5)", labelEn: "(x - 5)(x + 5)", isCorrect: true },
+      { labelKm: "(x - 5)²", labelEn: "(x - 5)²", isCorrect: false },
+      { labelKm: "(x - 25)(x + 25)", labelEn: "(x - 25)(x + 25)", isCorrect: false },
+      { labelKm: "x(x - 25)", labelEn: "x(x - 25)", isCorrect: false },
+    ],
+    explanationKm: "ត្រឹមត្រូវ! រូបមន្ត a² - b² = (a - b)(a + b) ដោយ 25 = 5² នាំឱ្យបាន (x - 5)(x + 5)។",
+    explanationEn: "Correct! a² - b² = (a - b)(a + b) with 25 = 5² gives (x - 5)(x + 5).",
+  },
 };
 
 function LessonPage() {
   const { lessonId } = Route.useParams();
   const { user } = useAuth();
-  const { lang } = useProfile();
+  const { lang, setLanguage } = useProfile();
   const qc = useQueryClient();
   const navigate = useNavigate();
 
-  // 1-Tap Bilingual View State (Default to Khmer for national curriculum)
-  const [viewLang, setViewLang] = useState<"km" | "en">("km");
+  // 1-Tap Bilingual View State synchronized with global profile language
+  const [viewLang, setViewLang] = useState<"km" | "en">(lang || "km");
+  useEffect(() => {
+    if (lang) {
+      setViewLang(lang);
+    }
+  }, [lang]);
   const isKhmer = viewLang === "km";
 
   // Interactive Concept Check state
@@ -633,7 +682,7 @@ function LessonPage() {
               </div>
               <div>
                 <h4 className="text-xs font-bold text-slate-900 dark:text-white leading-tight">
-                  {isKhmer ? "លោកគ្រូ វុឌ្ឍ (Kru Vuth)" : "Kru Vuth — STEM Mentor"}
+                  {isKhmer ? "លោកគ្រូ វុឌ្ឍ" : "Kru Vuth — STEM Mentor"}
                 </h4>
                 <span className="text-[10.5px] text-slate-400 font-medium">
                   {isKhmer ? "ជំនួយការដោះស្រាយមេរៀន MoEYS" : "Instant MoEYS Lesson Guidance"}
@@ -647,7 +696,11 @@ function LessonPage() {
             </p>
             <Link
               to="/tutor"
-              search={{ initialPrompt: `ពន្យល់ខ្ញុំអំពីមេរៀន "${lesson.title_km}" ថ្នាក់ទី ${lesson.grade}` }}
+              search={{
+                initialPrompt: isKhmer
+                  ? `ពន្យល់ខ្ញុំអំពីមេរៀន "${lesson.title_km}" ថ្នាក់ទី ${lesson.grade}`
+                  : `Please explain the lesson "${lesson.title_en}" Grade ${lesson.grade}`,
+              }}
               className="w-full h-9 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs tracking-wide transition flex items-center justify-center gap-1.5 shadow-2xs active:scale-95 cursor-pointer"
             >
               <GraduationCap className="h-3.5 w-3.5" />
@@ -728,6 +781,7 @@ function LessonPage() {
                   onClick={() => {
                     sounds.playPop();
                     setViewLang("km");
+                    setLanguage("km");
                   }}
                   className={cn(
                     "px-2 py-0.5 rounded-lg font-bold text-[11px] transition cursor-pointer",
@@ -744,6 +798,7 @@ function LessonPage() {
                   onClick={() => {
                     sounds.playPop();
                     setViewLang("en");
+                    setLanguage("en");
                   }}
                   className={cn(
                     "px-2 py-0.5 rounded-lg font-bold text-[11px] transition cursor-pointer",

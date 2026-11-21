@@ -242,11 +242,18 @@ export function HomeRightSidebarWidgets({
         </div>
 
         <div className="space-y-1.5">
-          {[
-            { titleKm: "រូបមន្តល្បឿនមធ្យម", formula: "v = s / t", subject: "រូបវិទ្យា" },
-            { titleKm: "ទ្រឹស្តីបទពីតាករ", formula: "a^2 + b^2 = c^2", subject: "គណិត" },
-            { titleKm: "កំហាប់ម៉ូលេគុល", formula: "C_M = n / V", subject: "គីមី" },
-          ].map((item, idx) => (
+          {(isKhmer
+            ? [
+                { title: "រូបមន្តល្បឿនមធ្យម", formula: "v = s / t", subject: "រូបវិទ្យា" },
+                { title: "ទ្រឹស្តីបទពីតាករ", formula: "a^2 + b^2 = c^2", subject: "គណិត" },
+                { title: "កំហាប់ម៉ូលេគុល", formula: "C_M = n / V", subject: "គីមី" },
+              ]
+            : [
+                { title: "Average Velocity", formula: "v = s / t", subject: "Physics" },
+                { title: "Pythagorean Theorem", formula: "a^2 + b^2 = c^2", subject: "Math" },
+                { title: "Molar Concentration", formula: "C_M = n / V", subject: "Chemistry" },
+              ]
+          ).map((item, idx) => (
             <Link
               key={idx}
               to="/reference"
@@ -256,7 +263,7 @@ export function HomeRightSidebarWidgets({
             >
               <div className="min-w-0">
                 <span className="font-bold text-slate-800 dark:text-slate-200 group-hover:text-emerald-600 transition truncate block text-[11.5px]">
-                  {item.titleKm}
+                  {item.title}
                 </span>
                 <span className="font-mono text-[10.5px] text-slate-500 dark:text-slate-400">
                   {item.formula}

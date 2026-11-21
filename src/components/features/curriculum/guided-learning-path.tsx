@@ -93,7 +93,7 @@ export function GuidedLearningPath({
           <div>
             <div className="flex items-center gap-2">
               <h2 className="font-display text-base sm:text-lg font-black text-slate-900 dark:text-white tracking-tight">
-                {isKhmer ? "គន្លងសិក្សាជាប្រព័ន្ធ (Learning Progression)" : "Guided Learning Path"}
+                {isKhmer ? "គន្លងសិក្សាជាប្រព័ន្ធ" : "Guided Learning Path"}
               </h2>
               <span className="text-[10.5px] font-extrabold px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-[#059669] border border-emerald-200/80 dark:border-emerald-800/60">
                 MoEYS

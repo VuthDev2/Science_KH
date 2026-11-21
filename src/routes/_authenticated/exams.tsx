@@ -276,9 +276,12 @@ export const MOEYS_STANDARD_EXAM_BLUEPRINTS: Record<
     exercises: Array<{
       number: number;
       titleKm: string;
+      titleEn?: string;
       topicKm: string;
+      topicEn?: string;
       points: number;
       descriptionKm: string;
+      descriptionEn?: string;
       sampleLatex?: string;
     }>;
     essentialFormulas: Array<{
@@ -286,6 +289,7 @@ export const MOEYS_STANDARD_EXAM_BLUEPRINTS: Record<
       nameEn: string;
       formula: string;
       noteKm: string;
+      noteEn?: string;
     }>;
   }
 > = {
@@ -296,69 +300,88 @@ export const MOEYS_STANDARD_EXAM_BLUEPRINTS: Record<
     exercises: [
       {
         number: 1,
-        titleKm: "លំហាត់ទី ១៖ ចំនួនកុំផ្លិច (Complex Numbers)",
+        titleKm: "លំហាត់ទី ១ ៖ ចំនួនកុំផ្លិច",
+        titleEn: "Problem 1: Complex Numbers",
         topicKm: "ចំនួនកុំផ្លិច & រូបមន្តដឺម័រ",
+        topicEn: "Complex Numbers & De Moivre's Theorem",
         points: 10,
         descriptionKm: "ដោះស្រាយសមីការដឺក្រេទី ២ ក្នុងសំណុំកុំផ្លិច C, សរសេរជាទម្រង់ត្រីកោណមាត្រ និងគណនាស្វ័យគុណ n តាមដឺម័រ។",
+        descriptionEn: "Solve quadratic equation in C, express in trigonometric form, and compute nth powers using De Moivre's formula.",
         sampleLatex: "z^2 - 2z + 4 = 0 \\implies z = 1 \\pm i\\sqrt{3} = 2\\left(\\cos\\frac{\\pi}{3} \\pm i\\sin\\frac{\\pi}{3}\\right)",
       },
       {
         number: 2,
-        titleKm: "លំហាត់ទី ២៖ សមីការឌីផេរ៉ង់ស្យែល & ប្រូបាប",
+        titleKm: "លំហាត់ទី ២ ៖ សមីការឌីផេរ៉ង់ស្យែល & ប្រូបាប",
+        titleEn: "Problem 2: Differential Equations & Probability",
         topicKm: "សមីការឌីផេរ៉ង់ស្យែលលំដាប់ ១ & ២",
+        topicEn: "1st & 2nd Order Differential Equations",
         points: 10,
         descriptionKm: "ដោះស្រាយសមីការលីនេអ៊ែរ y' + ay = 0 រកចម្លើយទូទៅដែលផ្ទៀងផ្ទាត់លក្ខខណ្ឌដើម និងដោះស្រាយចំណោទប្រូបាប។",
+        descriptionEn: "Solve linear equation y' + ay = 0 for particular solution with initial condition and solve combinatorial probability.",
         sampleLatex: "y' + 2y = 0 \\implies y = C e^{-2x}, \\quad P(A) = \\frac{n(A)}{n(S)}",
       },
       {
         number: 3,
-        titleKm: "លំហាត់ទី ៣៖ ធរណីមាត្រក្នុងលំហ Oxyz",
+        titleKm: "លំហាត់ទី ៣ ៖ ធរណីមាត្រក្នុងលំហ Oxyz",
+        titleEn: "Problem 3: Solid Analytic Geometry Oxyz",
         topicKm: "ផលគុណវ៉ិចទ័រ សមីការប្លង់ និងចម្ងាយ",
+        topicEn: "Cross Product, Plane Equations & Distance",
         points: 15,
         descriptionKm: "គណនាផលគុណវ៉ិចទ័រ u × v, សរសេរសមីការប្លង់កាត់តាម ៣ ចំណុច និងគណនាចម្ងាយពីចំណុចទៅប្លង់។",
+        descriptionEn: "Compute cross product u × v, write equation of plane through 3 points, and compute point-to-plane distance.",
         sampleLatex: "\\vec{u} \\times \\vec{v} = \\begin{vmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\ x_1 & y_1 & z_1 \\\\ x_2 & y_2 & z_2 \\end{vmatrix}, \\quad d(M, \\alpha) = \\frac{|ax_0 + by_0 + cz_0 + d|}{\\sqrt{a^2 + b^2 + c^2}}",
       },
       {
         number: 4,
-        titleKm: "លំហាត់ទី ៤៖ អាំងតេក្រាល និងផ្ទៃក្រឡា",
+        titleKm: "លំហាត់ទី ៤ ៖ អាំងតេក្រាល និងផ្ទៃក្រឡា",
+        titleEn: "Problem 4: Integrals & Surface Area",
         topicKm: "ព្រីមីទីវ អាំងតេក្រាលដោយផ្នែក & មាឌ",
+        topicEn: "Primitives, Integration by Parts & Volume",
         points: 15,
         descriptionKm: "គណនាអាំងតេក្រាលកំណត់ដោយវិធីអាំងតេក្រាលដោយផ្នែក និងគណនាផ្ទៃក្រឡា ឬមាឌសូលីតបដិវត្តន៍។",
+        descriptionEn: "Evaluate definite integrals using integration by parts and calculate area or volume of revolution.",
         sampleLatex: "\\int u\\,dv = uv - \\int v\\,du, \\quad V = \\pi \\int_{a}^{b} [f(x)]^2\\,dx",
       },
       {
         number: 5,
-        titleKm: "លំហាត់ទី ៥៖ សិក្សាអថេរភាព និងសង់ក្រាបនៃអនុគមន៍",
+        titleKm: "លំហាត់ទី ៥ ៖ សិក្សាអថេរភាព និងសង់ក្រាបនៃអនុគមន៍",
+        titleEn: "Problem 5: Function Study & Curve Sketching",
         topicKm: "អនុគមន៍អិចស្ប៉ូណង់ស្យែល ឬលោការីត",
+        topicEn: "Exponential or Logarithmic Functions",
         points: 25,
         descriptionKm: "គណនាលីមីតត្រង់ចុងដែនកំណត់, រកដេរីវេ f'(x), តារាងអថេរភាព, សមីការអាស៊ីមតូត និងសង់ក្រាប (C)។",
+        descriptionEn: "Compute limits at boundaries, derivative f'(x), variation table, asymptotes, and sketch curve (C).",
         sampleLatex: "f(x) = (x - 1)e^x + 2, \\quad f'(x) = x e^x, \\quad \\lim_{x\\to-\\infty} f(x) = 2",
       },
     ],
     essentialFormulas: [
       {
-        nameKm: "រូបមន្តដឺម័រ (De Moivre)",
+        nameKm: "រូបមន្តដឺម័រ",
         nameEn: "De Moivre's Formula",
         formula: "[r(\\cos\\theta + i\\sin\\theta)]^n = r^n(\\cos n\\theta + i\\sin n\\theta)",
         noteKm: "គណនាស្វ័យគុណធំនៃចំនួនកុំផ្លិច",
+        noteEn: "Compute powers of complex numbers",
       },
       {
         nameKm: "សមីការឌីផេរ៉ង់ស្យែលលំដាប់ទី ១",
         nameEn: "1st Order Differential Equation",
         formula: "y' + ay = 0 \\implies y = C e^{-ax}",
         noteKm: "C ជាចំនួនថេរពិតកំណត់ដោយលក្ខខណ្ឌដើម",
+        noteEn: "C is a real constant determined by initial condition",
       },
       {
         nameKm: "រូបមន្តអាំងតេក្រាលដោយផ្នែក",
         nameEn: "Integration by Parts",
         formula: "\\int u\\,dv = uv - \\int v\\,du",
         noteKm: "គន្លឹះជ្រើសរើស u តាមលំដាប់ LIATE",
+        noteEn: "Choose u following the LIATE rule",
       },
       {
         nameKm: "រូបមន្តចម្ងាយពីចំណុចទៅប្លង់",
         nameEn: "Point to Plane Distance",
         formula: "d(M_0, P) = \\frac{|ax_0 + by_0 + cz_0 + d|}{\\sqrt{a^2 + b^2 + c^2}}",
         noteKm: "ប្លង់ P: ax + by + cz + d = 0",
+        noteEn: "For plane P: ax + by + cz + d = 0",
       },
     ],
   },
@@ -369,42 +392,57 @@ export const MOEYS_STANDARD_EXAM_BLUEPRINTS: Record<
     exercises: [
       {
         number: 1,
-        titleKm: "លំហាត់ទី ១៖ ចលនាលំយោលសេរី",
+        titleKm: "លំហាត់ទី ១ ៖ ចលនាលំយោលសេរី",
+        titleEn: "Problem 1: Free Mechanical Oscillations",
         topicKm: "ប៉ោលទោល និងប៉ោលរ៉ឺស័រ",
+        topicEn: "Simple Pendulum & Spring Pendulum",
         points: 10,
         descriptionKm: "គណនាខួបលំយោល T, ប្រវែងខ្សែប៉ោល l, និងថាមពលមេកានិចសរុបនៃលំយោល។",
+        descriptionEn: "Calculate oscillation period T, pendulum length l, and total mechanical energy.",
         sampleLatex: "T = 2\\pi\\sqrt{\\frac{l}{g}}, \\quad E_m = \\frac{1}{2}k x_m^2",
       },
       {
         number: 2,
-        titleKm: "លំហាត់ទី ២៖ រលកមេកានិច",
+        titleKm: "លំហាត់ទី ២ ៖ រលកមេកានិច",
+        titleEn: "Problem 2: Mechanical Waves",
         topicKm: "ល្បឿនរលក និងអន្តរាគមន៍រលក",
+        topicEn: "Wave Speed & Interference",
         points: 15,
         descriptionKm: "គណនាល្បឿនរលក v = λf, រកប្រវែងរលក λ និងលក្ខខណ្ឌអតិបរមា/អប្បបរមានៃរលកជ្រៀតជ្រែក។",
+        descriptionEn: "Calculate wave speed v = λf, wavelength λ, and maximum/minimum interference conditions.",
         sampleLatex: "v = \\lambda f, \\quad d_2 - d_1 = k\\lambda \\quad (k \\in \\mathbb{Z})",
       },
       {
         number: 3,
-        titleKm: "លំហាត់ទី ៣៖ សៀគ្វីចរន្តឆ្លាស់ RLC",
+        titleKm: "លំហាត់ទី ៣ ៖ សៀគ្វីចរន្តឆ្លាស់ RLC",
+        titleEn: "Problem 3: AC RLC Circuits",
         topicKm: "អាំងប៉េដង់ និងបាតុភូតរេសូណង់",
+        topicEn: "Impedance & Resonance",
         points: 20,
         descriptionKm: "គណនាអាំងប៉េដង់ Z, គម្លាតផាស φ, អានុភាពមធ្យម P = UI cosφ, និងប្រេកង់រេសូណង់។",
+        descriptionEn: "Compute impedance Z, phase difference φ, average power P = UI cosφ, and resonance frequency.",
         sampleLatex: "Z = \\sqrt{R^2 + \\left(L\\omega - \\frac{1}{C\\omega}\\right)^2}, \\quad f_0 = \\frac{1}{2\\pi\\sqrt{LC}}",
       },
       {
         number: 4,
-        titleKm: "លំហាត់ទី ៤៖ រលកអេឡិចត្រូម៉ាញេទិច",
+        titleKm: "លំហាត់ទី ៤ ៖ រលកអេឡិចត្រូម៉ាញេទិច",
+        titleEn: "Problem 4: Electromagnetic Waves",
         topicKm: "សៀគ្វី LC និងការបញ្ជូនរលក",
+        topicEn: "LC Oscillating Circuit & Transmission",
         points: 15,
         descriptionKm: "គណនាខួប និងប្រេកង់លំយោលអគ្គិសនីក្នុងសៀគ្វី LC និងប្រវែងរលកអេឡិចត្រូម៉ាញេទិច c = λf។",
+        descriptionEn: "Calculate oscillation period/frequency in LC circuit and EM wavelength c = λf.",
         sampleLatex: "c = \\lambda f \\implies \\lambda = \\frac{c}{f} = 2\\pi c \\sqrt{LC}",
       },
       {
         number: 5,
-        titleKm: "លំហាត់ទី ៥៖ រូបវិទ្យានុយក្លេអ៊ែរ និងអាតូម",
+        titleKm: "លំហាត់ទី ៥ ៖ រូបវិទ្យានុយក្លេអ៊ែរ និងអាតូម",
+        titleEn: "Problem 5: Nuclear & Atomic Physics",
         topicKm: "ឥទ្ធិពលរូបអគ្គិសនី & បំបែកវិទ្យុសកម្ម",
+        topicEn: "Photoelectric Effect & Radioactive Decay",
         points: 15,
         descriptionKm: "អនុវត្តសមីការ Einstein hf = W₀ + Ek, គណនាថាមពលភ្ជាប់នុយក្លេអ៊ែរ E = Δm·c² និងច្បាប់បំបែកវិទ្យុសកម្ម។",
+        descriptionEn: "Apply Einstein's equation hf = W₀ + Ek, nuclear binding energy E = Δm·c², and radioactive decay law.",
         sampleLatex: "hf = W_0 + \\frac{1}{2}m v_{\\max}^2, \\quad N(t) = N_0 e^{-\\lambda t}",
       },
     ],
@@ -414,18 +452,21 @@ export const MOEYS_STANDARD_EXAM_BLUEPRINTS: Record<
         nameEn: "Simple Pendulum Period",
         formula: "T = 2\\pi\\sqrt{\\frac{l}{g}}",
         noteKm: "l គិតជាម៉ែត្រ (m), g = 9.8 ឬ 10 m/s²",
+        noteEn: "l in meters (m), g = 9.8 or 10 m/s²",
       },
       {
         nameKm: "អាំងប៉េដង់សៀគ្វី RLC",
         nameEn: "RLC Circuit Impedance",
         formula: "Z = \\sqrt{R^2 + (L\\omega - 1/C\\omega)^2}",
         noteKm: "នៅពេលរេសូណង់ Z = R អប្បបរមា",
+        noteEn: "At resonance Z = R (minimum)",
       },
       {
         nameKm: "ឥទ្ធិពលរូបអគ្គិសនី (Einstein)",
         nameEn: "Photoelectric Effect",
         formula: "hf = W_0 + E_{k,\\max}",
         noteKm: "h = 6.626 × 10⁻³⁴ J·s",
+        noteEn: "h = 6.626 × 10⁻³⁴ J·s",
       },
     ],
   },
@@ -436,42 +477,57 @@ export const MOEYS_STANDARD_EXAM_BLUEPRINTS: Record<
     exercises: [
       {
         number: 1,
-        titleKm: "លំហាត់ទី ១៖ ល្បឿនប្រតិកម្មគីមី",
+        titleKm: "លំហាត់ទី ១ ៖ ល្បឿនប្រតិកម្មគីមី",
+        titleEn: "Problem 1: Reaction Rates",
         topicKm: "ល្បឿនមធ្យម និងល្បឿនខណៈ",
+        topicEn: "Average & Instantaneous Rate",
         points: 10,
         descriptionKm: "គណនាល្បឿនបង្កើតផល ឬល្បឿនបំបាត់ប្រតិករ និងកត្តាជះឥទ្ធិពលលើល្បឿនប្រតិកម្ម។",
+        descriptionEn: "Calculate rate of formation or disappearance and factors influencing reaction speed.",
         sampleLatex: "v = -\\frac{\\Delta [A]}{\\Delta t} = +\\frac{\\Delta [B]}{\\Delta t}",
       },
       {
         number: 2,
-        titleKm: "លំហាត់ទី ២៖ តុល្យភាពអាស៊ីត-បាស & pH",
+        titleKm: "លំហាត់ទី ២ ៖ តុល្យភាពអាស៊ីត-បាស & pH",
+        titleEn: "Problem 2: Acid-Base Equilibria & pH",
         topicKm: "កំហាប់អ៊ីយ៉ុង និងសូលុយស្យុងទ្រនាប់",
+        topicEn: "Ion Concentrations & Buffer Solutions",
         points: 15,
         descriptionKm: "គណនា pH នៃអាស៊ីតខ្លាំង/ខ្សោយ, បាសខ្លាំង/ខ្សោយ, និងសមីការប្រតិកម្មអាស៊ីត-បាស។",
+        descriptionEn: "Calculate pH for strong/weak acids, strong/weak bases, and titration equilibrium equations.",
         sampleLatex: "\\text{pH} = -\\log[\\text{H}_3\\text{O}^+], \\quad K_a = \\frac{[\\text{H}_3\\text{O}^+][\\text{A}^-]}{[\\text{HA}]}",
       },
       {
         number: 3,
-        titleKm: "លំហាត់ទី ៣៖ លំនឹងគីមី",
+        titleKm: "លំហាត់ទី ៣ ៖ លំនឹងគីមី",
+        titleEn: "Problem 3: Chemical Equilibrium",
         topicKm: "ថេរលំនឹង Kc និងច្បាប់ Le Chatelier",
+        topicEn: "Equilibrium Constant Kc & Le Chatelier's Principle",
         points: 15,
         descriptionKm: "គណនាកំហាប់ត្រង់លំនឹង, ថេរលំនឹង Kc និងការព្យាករណ៍ទិសដៅរំកិលលំនឹងតាមច្បាប់ Le Chatelier។",
+        descriptionEn: "Calculate equilibrium concentrations, constant Kc, and predict equilibrium shifts.",
         sampleLatex: "K_c = \\frac{[C]^c [D]^d}{[A]^a [B]^b}",
       },
       {
         number: 4,
-        titleKm: "លំហាត់ទី ៤៖ សមាសធាតុសរីរាង្គមានអុកស៊ីសែន",
+        titleKm: "លំហាត់ទី ៤ ៖ សមាសធាតុសរីរាង្គមានអុកស៊ីសែន",
+        titleEn: "Problem 4: Oxygenated Organic Compounds",
         topicKm: "អាកុល អាស៊ីតកាបុកស៊ីលិច និងអេសទែ",
+        topicEn: "Alcohols, Carboxylic Acids & Esters",
         points: 20,
         descriptionKm: "កំណត់រូបមន្តម៉ូលេគុល រូបមន្តស្ថាបនា សរសេរសមីការប្រតិកម្មអេសទែភីកាសុង និងគណនាទិន្នផល %។",
+        descriptionEn: "Determine molecular and structural formulas, esterification reaction, and calculate percentage yield.",
         sampleLatex: "\\text{R-COOH} + \\text{R'-OH} \\rightleftharpoons \\text{R-COO-R'} + \\text{H}_2\\text{O}",
       },
       {
         number: 5,
-        titleKm: "លំហាត់ទី ៥៖ គីមីជីវៈ",
+        titleKm: "លំហាត់ទី ៥ ៖ គីមីជីវៈ",
+        titleEn: "Problem 5: Biochemistry",
         topicKm: "ខ្លាញ់ សាប៊ូ និងអាស៊ីតអាមីណេ",
+        topicEn: "Lipids, Saponification & Amino Acids",
         points: 15,
         descriptionKm: "ប្រតិកម្មសាប៊ូភីកាសុងនៃទ្រីគ្លីសេរីត, ការគណនាម៉ាសសាប៊ូដែលទទួលបាន, និងចំណងប៉ិបទីតនៃប្រូតេអ៊ីន។",
+        descriptionEn: "Saponification of triglycerides, mass calculation of soap yield, and peptide bonds.",
         sampleLatex: "(\\text{RCOO})_3\\text{C}_3\\text{H}_5 + 3\\text{NaOH} \\longrightarrow 3\\text{RCOONa} + \\text{C}_3\\text{H}_5(\\text{OH})_3",
       },
     ],
@@ -481,12 +537,14 @@ export const MOEYS_STANDARD_EXAM_BLUEPRINTS: Record<
         nameEn: "pH Formula",
         formula: "\\text{pH} = -\\log[\\text{H}_3\\text{O}^+], \\quad \\text{pH} + \\text{pOH} = 14",
         noteKm: "នៅសីតុណ្ហភាពបន្ទប់ 25°C",
+        noteEn: "At room temperature 25°C",
       },
       {
         nameKm: "ថេរអុកស៊ីដកម្មអាស៊ីត Ka",
         nameEn: "Acid Dissociation Constant",
         formula: "K_a = \\frac{[\\text{H}_3\\text{O}^+][\\text{A}^-]}{[\\text{HA}]}",
         noteKm: "Ka កាន់តែធំ អាស៊ីតកាន់តែខ្លាំង",
+        noteEn: "Higher Ka indicates a stronger acid",
       },
     ],
   },
@@ -497,41 +555,56 @@ export const MOEYS_STANDARD_EXAM_BLUEPRINTS: Record<
     exercises: [
       {
         number: 1,
-        titleKm: "លំហាត់ទី ១៖ ម៉ូលេគុល DNA និងច្បាប់បំពេញបាស",
+        titleKm: "លំហាត់ទី ១ ៖ ម៉ូលេគុល DNA និងច្បាប់បំពេញបាស",
+        titleEn: "Problem 1: DNA Molecular Structure & Base Pairing",
         topicKm: "រចនាសម្ព័ន្ធ DNA & សម្ព័ន្ធអ៊ីដ្រូសែន",
+        topicEn: "DNA Structure & Hydrogen Bonds",
         points: 15,
         descriptionKm: "គណនាចំនួននុយក្លេអូទីដប្រភេទនីមួយៗ (A, T, G, C), ប្រវែង DNA L, និងចំនួនសម្ព័ន្ធអ៊ីដ្រូសែន H។",
+        descriptionEn: "Calculate nucleotide counts (A, T, G, C), total DNA length L, and hydrogen bonds H.",
         sampleLatex: "N = 2\\text{A} + 2\\text{G}, \\quad L = \\frac{N}{2} \\times 3.4\\,\\text{Å}, \\quad H = 2\\text{A} + 3\\text{G}",
       },
       {
         number: 2,
-        titleKm: "លំហាត់ទី ២៖ ការសំយោគប្រូតេអ៊ីន",
-        topicKm: "ការចម្លងកូដ (mRNA) និងការបកប្រែកូដ (tRNA)",
+        titleKm: "លំហាត់ទី ២ ៖ ការសំយោគប្រូតេអ៊ីន",
+        titleEn: "Problem 2: Protein Biosynthesis",
+        topicKm: "ការចម្លងកូដ និងការបកប្រែកូដ",
+        topicEn: "Transcription & Translation",
         points: 15,
         descriptionKm: "កំណត់លំដាប់នុយក្លេអូទីដនៃ mRNA, ចំនួនកូដុង, និងលំដាប់អាស៊ីតអាមីណេនៃខ្សែប៉ូលីប៉ិបទីត។",
+        descriptionEn: "Determine mRNA nucleotide sequence, codon count, and polypeptide amino acid sequence.",
         sampleLatex: "\\text{ចំនួនអាស៊ីតអាមីណេ} = \\frac{N_{\\text{mRNA}}}{3} - 1",
       },
       {
         number: 3,
-        titleKm: "លំហាត់ទី ៣៖ ពន្ធុវិទ្យា Mendel",
+        titleKm: "លំហាត់ទី ៣ ៖ ពន្ធុវិទ្យា Mendel",
+        titleEn: "Problem 3: Mendelian Genetics",
         topicKm: "ការបង្កាត់ពូជ និងតារាងហ្សេណូទីប",
+        topicEn: "Monohybrid/Dihybrid Cross & Punnett Square",
         points: 20,
         descriptionKm: "ដោះស្រាយចំណោទបង្កាត់ពូជមួយគូ ឬពីរគូលក្ខណៈ, កំណត់ហ្សេណូទីប និងសរសេរតារាងបង្កាត់ F1, F2។",
+        descriptionEn: "Solve monohybrid or dihybrid crosses, determine genotypes, and construct F1, F2 genetic tables.",
       },
       {
         number: 4,
-        titleKm: "លំហាត់ទី ៤៖ មីតូស និងមេយ៉ូស",
+        titleKm: "លំហាត់ទី ៤ ៖ មីតូស និងមេយ៉ូស",
+        titleEn: "Problem 4: Mitosis & Meiosis",
         topicKm: "វដ្តកោសិកា & បម្រែបម្រួលក្រូម៉ូសូម",
+        topicEn: "Cell Cycle & Chromosome Variation",
         points: 15,
         descriptionKm: "គណនាចំនួនកោសិកាកូនកកើត, ចំនួនក្រូម៉ូសូមក្នុងដំណាក់កាលនីមួយៗនៃមីតូស និងមេយ៉ូស។",
+        descriptionEn: "Compute daughter cell yield and chromosome numbers across mitotic and meiotic stages.",
         sampleLatex: "\\text{ចំនួនកោសិកាកូន} = 2^k \\quad (k\\text{ ជាចំនួនដងនៃការចែកកោសិកា})",
       },
       {
         number: 5,
-        titleKm: "លំហាត់ទី ៥៖ បច្ចេកវិទ្យាជីវៈ & បរិស្ថាន",
+        titleKm: "លំហាត់ទី ៥ ៖ បច្ចេកវិទ្យាជីវៈ & បរិស្ថាន",
+        titleEn: "Problem 5: Biotechnology & Ecology",
         topicKm: "វិស្វកម្មសេនេទិច និងអេកូឡូស៊ី",
+        topicEn: "Genetic Engineering & Trophic Webs",
         points: 10,
         descriptionKm: "វិភាគគោលការណ៍កាត់តភ្ជាប់ DNA (Plasmids, Restriction enzymes) និងខ្សែច្រវាក់ចំណីអាហារ។",
+        descriptionEn: "Analyze recombinant DNA technology (plasmids, restriction enzymes) and ecological trophic chains.",
       },
     ],
     essentialFormulas: [
@@ -540,12 +613,14 @@ export const MOEYS_STANDARD_EXAM_BLUEPRINTS: Record<
         nameEn: "Chargaff Base Pairing Rule",
         formula: "\\text{A} = \\text{T}, \\quad \\text{G} \\equiv \\text{C}, \\quad N = 2\\text{A} + 2\\text{G}",
         noteKm: "សម្ព័ន្ធអ៊ីដ្រូសែន H = 2A + 3G",
+        noteEn: "Hydrogen bonds H = 2A + 3G",
       },
       {
         nameKm: "ប្រវែងម៉ូលេគុល DNA",
         nameEn: "DNA Length Formula",
         formula: "L = \\frac{N}{2} \\times 3.4\\,\\text{Å}",
         noteKm: "1 Å (អង់ស្រ្តូម) = 10⁻¹⁰ ម៉ែត្រ = 0.1 nm",
+        noteEn: "1 Å = 10⁻¹⁰ m = 0.1 nm",
       },
     ],
   },
@@ -556,17 +631,23 @@ export const MOEYS_STANDARD_EXAM_BLUEPRINTS: Record<
     exercises: [
       {
         number: 1,
-        titleKm: "ផ្នែកទី ១៖ អក្សរសិល្ប៍ និងវិភាគតួអង្គ (២៥ ពិន្ទុ)",
+        titleKm: "ផ្នែកទី ១ ៖ អក្សរសិល្ប៍ និងវិភាគតួអង្គ",
+        titleEn: "Part 1: Literary Character Analysis",
         topicKm: "អក្សរសិល្ប៍ខ្មែរ MoEYS",
+        topicEn: "MoEYS Khmer Classical & Modern Literature",
         points: 25,
         descriptionKm: "វិភាគអត្ថន័យទស្សនវិជ្ជា តម្លៃអប់រំ និងឥរិយាបថតួអង្គក្នុងស្នាដៃអក្សរសិល្ប៍បុរាណ និងទំនើប (រឿងទុំទាវ រឿងកុលាបប៉ៃលិន)។",
+        descriptionEn: "Analyze philosophical themes, moral values, and character development in classical and modern Khmer literature.",
       },
       {
         number: 2,
-        titleKm: "ផ្នែកទី ២៖ តែងសេចក្តីបែបពន្យល់ ឬពិភាក្សា (៥០ ពិន្ទុ)",
+        titleKm: "ផ្នែកទី ២ ៖ តែងសេចក្តីបែបពន្យល់ ឬពិភាក្សា",
+        titleEn: "Part 2: Analytical & Expository Composition",
         topicKm: "ក្បួនតែងសេចក្តី ៣ ដំណាក់កាល",
+        topicEn: "3-Part Classical Essay Framework",
         points: 50,
         descriptionKm: "សរសេរតែងសេចក្តីឱ្យបានត្រឹមត្រូវតាមទម្រង់ MoEYS៖ សេចក្តីផ្តើម (លំនាំបញ្ហា ចំណូលបញ្ហា ចំណោទបញ្ហា), តួសេចក្តី (ពន្យល់ពាក្យគន្លឹះ បកស្រាយ និងលើកឧទាហរណ៍), និងសេចក្តីបញ្ចប់ (វាយតម្លៃ និងមតិផ្ទាល់ខ្លួន)។",
+        descriptionEn: "Construct formal essay according to MoEYS standards: introduction, body arguments with textual citations, and personal evaluation.",
       },
     ],
     essentialFormulas: [
@@ -575,6 +656,7 @@ export const MOEYS_STANDARD_EXAM_BLUEPRINTS: Record<
         nameEn: "Khmer Essay 3-Part Structure",
         formula: "\\text{តែងសេចក្តី} = \\text{សេចក្តីផ្តើម} + \\text{តួសេចក្តី (អំណះអំណាង)} + \\text{សេចក្តីបញ្ចប់}",
         noteKm: "ត្រូវមានចំណោទបញ្ហានៅចុងសេចក្តីផ្តើមជានិច្ច",
+        noteEn: "Always formulate thesis question at the end of the introduction",
       },
     ],
   },
@@ -585,24 +667,33 @@ export const MOEYS_STANDARD_EXAM_BLUEPRINTS: Record<
     exercises: [
       {
         number: 1,
-        titleKm: "សំណួរទី ១៖ ប្រវត្តិសាស្ត្រកម្ពុជាសម័យអង្គរ (២០ ពិន្ទុ)",
+        titleKm: "សំណួរទី ១ ៖ ប្រវត្តិសាស្ត្រកម្ពុជាសម័យអង្គរ",
+        titleEn: "Question 1: Angkorian Era History",
         topicKm: "សម័យមហានគរអង្គរ",
+        topicEn: "Angkor Empire & Jayavarman VII",
         points: 20,
         descriptionKm: "វិភាគកត្តាដែលធ្វើឱ្យអាណាចក្រខ្មែរមានភាពរុងរឿងក្នុងរាជ្យព្រះបាទជ័យវរ្ម័នទី ៧ និងប្រព័ន្ធធារាសាស្ត្រ (បារាយណ៍)។",
+        descriptionEn: "Examine prosperity factors during Jayavarman VII's reign and hydraulic city planning (Barays).",
       },
       {
         number: 2,
-        titleKm: "សំណួរទី ២៖ ការដណ្តើមឯករាជ្យជាតិ (២០ ពិន្ទុ)",
+        titleKm: "សំណួរទី ២ ៖ ការដណ្តើមឯករាជ្យជាតិ",
+        titleEn: "Question 2: National Independence Movement",
         topicKm: "ទិវាបុណ្យឯករាជ្យជាតិ ៩ វិច្ឆិកា ១៩៥៣",
+        topicEn: "Royal Crusade for Independence 1953",
         points: 20,
         descriptionKm: "ពិពណ៌នាអំពីព្រះរាជបូជនីយកិច្ចទាមទារឯករាជ្យពីបារាំងនៃសម្តេចព្រះ នរោត្តម សីហនុ និងសន្និសីទក្រុងហ្សឺណែវ ១៩៥៤។",
+        descriptionEn: "Describe Norodom Sihanouk's Royal Crusade for Independence and the 1954 Geneva Conference.",
       },
       {
         number: 3,
-        titleKm: "សំណួរទី ៣៖ សន្តិភាព និងនយោបាយឈ្នះ-ឈ្នះ (៣៥ ពិន្ទុ)",
+        titleKm: "សំណួរទី ៣ ៖ សន្តិភាព និងនយោបាយឈ្នះ-ឈ្នះ",
+        titleEn: "Question 3: Peace Accords & Win-Win Policy",
         topicKm: "កិច្ចព្រមព្រៀងប៉ារីស ១៩៩១ & ឈ្នះ-ឈ្នះ ១៩៩៨",
+        topicEn: "Paris Peace Agreements 1991 & National Integration",
         points: 35,
         descriptionKm: "វិភាគសារៈសំខាន់នៃកិច្ចព្រមព្រៀងសន្តិភាពទីក្រុងប៉ារីស ២៣ តុលា ១៩៩១ និងការអនុវត្តនយោបាយឈ្នះ-ឈ្នះ បង្រួបបង្រួមជាតិ។",
+        descriptionEn: "Analyze significance of the October 23, 1991 Paris Peace Agreements and Win-Win national reconciliation.",
       },
     ],
     essentialFormulas: [],
@@ -637,9 +728,10 @@ function cleanDisplayTitle(title: string): string {
 }
 
 // Clean Subject Label
-function getSubjectLabel(subject: ExamSubject): string {
+function getSubjectLabel(subject: ExamSubject, isKhmer: boolean = true): string {
   const found = SUBJECT_OPTIONS.find((s) => s.id === subject);
-  return found ? found.nameKm : subject;
+  if (!found) return subject;
+  return isKhmer ? found.nameKm : found.nameEn;
 }
 
 // Subject Icon
@@ -649,35 +741,37 @@ function getSubjectIcon(subject: ExamSubject) {
 }
 
 // Resource Type Label
-function getResourceTypeLabel(type: ResourceType): string {
+function getResourceTypeLabel(type: ResourceType, isKhmer: boolean = true): string {
   switch (type) {
     case "individual_past_exam":
-      return "វិញ្ញាសាប្រឡងផ្លូវការ";
+      return isKhmer ? "វិញ្ញាសាប្រឡងផ្លូវការ" : "Official Examination Paper";
     case "multi_year_collection":
-      return "កម្រងវិញ្ញាសាច្រើនឆ្នាំ";
+      return isKhmer ? "កម្រងវិញ្ញាសាច្រើនឆ្នាំ" : "Multi-Year Collection";
     case "practice_examination":
-      return "វិញ្ញាសាត្រៀម";
+      return isKhmer ? "វិញ្ញាសាត្រៀម" : "Practice Examination";
     case "answer_key_solution":
-      return "អត្រាកំណែ";
+      return isKhmer ? "អត្រាកំណែ" : "Official Answer Key";
     case "curriculum_study_material":
-      return "ឯកសារជំនួយស្មារតី";
+      return isKhmer ? "ឯកសារជំនួយស្មារតី" : "Curriculum Study Material";
     default:
-      return "វិញ្ញាសា";
+      return isKhmer ? "វិញ្ញាសា" : "Exam Paper";
   }
 }
 
 // Provenance line
-function formatAttribution(paper: HistoricalExamPaper): string {
+function formatAttribution(paper: HistoricalExamPaper, isKhmer: boolean = true): string {
   if (paper.sourceVerificationStatus === "verified_official") {
-    return "ប្រភព៖ ក្រសួងអប់រំ យុវជន និងកីឡា (MoEYS)";
+    return isKhmer
+      ? "ប្រភព៖ ក្រសួងអប់រំ យុវជន និងកីឡា (MoEYS)"
+      : "Source: Ministry of Education, Youth and Sport (MoEYS)";
   }
   if (paper.actualAuthor) {
-    return `និពន្ធដោយ៖ ${paper.actualAuthor}`;
+    return isKhmer ? `និពន្ធដោយ៖ ${paper.actualAuthor}` : `Author: ${paper.actualAuthor}`;
   }
   if (paper.publisher) {
-    return `បោះពុម្ពដោយ៖ ${paper.publisher}`;
+    return isKhmer ? `បោះពុម្ពដោយ៖ ${paper.publisher}` : `Publisher: ${paper.publisher}`;
   }
-  return "បណ្ណាសារ ScienceKH";
+  return isKhmer ? "បណ្ណាសារ ScienceKH" : "ScienceKH National Archive";
 }
 
 function ExamsArchivePage() {
@@ -1135,7 +1229,7 @@ function ExamsArchivePage() {
                         : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
                     )}
                   >
-                    បាក់ឌុប (Bac II)
+                    {isKhmer ? "បាក់ឌុប" : "Bac II"}
                   </button>
                   <button
                     type="button"
@@ -1151,7 +1245,7 @@ function ExamsArchivePage() {
                         : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
                     )}
                   >
-                    សិស្សពូកែ
+                    {isKhmer ? "សិស្សពូកែ" : "Outstanding Students"}
                   </button>
                 </div>
 
@@ -1172,7 +1266,7 @@ function ExamsArchivePage() {
                           : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
                       )}
                     >
-                      វិទ្យាសាស្ត្រពិត
+                      {isKhmer ? "វិទ្យាសាស្ត្រពិត" : "Science Stream"}
                     </button>
                     <button
                       type="button"
@@ -1188,7 +1282,7 @@ function ExamsArchivePage() {
                           : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
                       )}
                     >
-                      សង្គម
+                      {isKhmer ? "សង្គម" : "Social Science"}
                     </button>
                   </div>
                 ) : (
@@ -1207,7 +1301,7 @@ function ExamsArchivePage() {
                           : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
                       )}
                     >
-                      ថ្នាក់ទី ១២
+                      {isKhmer ? "ថ្នាក់ទី ១២" : "Grade 12"}
                     </button>
                     <button
                       type="button"
@@ -1223,7 +1317,7 @@ function ExamsArchivePage() {
                           : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
                       )}
                     >
-                      ថ្នាក់ទី ៩
+                      {isKhmer ? "ថ្នាក់ទី ៩" : "Grade 9"}
                     </button>
                   </div>
                 )}
@@ -1232,7 +1326,7 @@ function ExamsArchivePage() {
               {/* Right Group: Year Selector + Sorting Selector */}
               <div className="flex items-center gap-2">
                 <div className="flex items-center gap-1.5 text-xs">
-                  <span className="text-slate-400 font-medium hidden md:inline">ឆ្នាំ៖</span>
+                  <span className="text-slate-400 font-medium hidden md:inline">{isKhmer ? "ឆ្នាំ៖" : "Year:"}</span>
                   <select
                     value={selectedYear}
                     onChange={(e) => {
@@ -1241,17 +1335,17 @@ function ExamsArchivePage() {
                     }}
                     className="h-8 px-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-bold text-slate-800 dark:text-slate-200 outline-none cursor-pointer shadow-2xs focus:border-emerald-500"
                   >
-                    <option value="all">គ្រប់សម័យប្រឡង</option>
+                    <option value="all">{isKhmer ? "គ្រប់សម័យប្រឡង" : "All Sessions"}</option>
                     {HISTORICAL_YEARS_TIMELINE.map((yr) => (
                       <option key={yr} value={yr}>
-                        សម័យប្រឡង {yr}
+                        {isKhmer ? `សម័យប្រឡង ${yr}` : `Session ${yr}`}
                       </option>
                     ))}
                   </select>
                 </div>
 
                 <div className="flex items-center gap-1.5 text-xs">
-                  <span className="text-slate-400 font-medium hidden md:inline">តម្រៀប៖</span>
+                  <span className="text-slate-400 font-medium hidden md:inline">{isKhmer ? "តម្រៀប៖" : "Sort:"}</span>
                   <select
                     value={sortOrder}
                     onChange={(e) => {
@@ -1260,9 +1354,9 @@ function ExamsArchivePage() {
                     }}
                     className="h-8 px-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-bold text-slate-800 dark:text-slate-200 outline-none cursor-pointer shadow-2xs focus:border-emerald-500"
                   >
-                    <option value="newest">ថ្មីបំផុត</option>
-                    <option value="oldest">ចាស់បំផុត</option>
-                    <option value="title">តាមអក្ខរក្រម</option>
+                    <option value="newest">{isKhmer ? "ថ្មីបំផុត" : "Newest"}</option>
+                    <option value="oldest">{isKhmer ? "ចាស់បំផុត" : "Oldest"}</option>
+                    <option value="title">{isKhmer ? "តាមអក្ខរក្រម" : "Alphabetical"}</option>
                   </select>
                 </div>
 
@@ -1271,10 +1365,10 @@ function ExamsArchivePage() {
                     type="button"
                     onClick={handleResetFilters}
                     className="h-8 px-2.5 rounded-xl border border-rose-200 dark:border-rose-900/50 bg-rose-50 dark:bg-rose-950/30 text-rose-600 dark:text-rose-400 hover:bg-rose-100 transition text-xs font-bold flex items-center gap-1 shadow-2xs cursor-pointer"
-                    title="កំណត់ឡើងវិញ"
+                    title={isKhmer ? "កំណត់ឡើងវិញ" : "Reset"}
                   >
                     <RotateCcw className="h-3 w-3" />
-                    <span className="hidden sm:inline">កំណត់ឡើងវិញ</span>
+                    <span className="hidden sm:inline">{isKhmer ? "កំណត់ឡើងវិញ" : "Reset"}</span>
                   </button>
                 )}
               </div>
@@ -1301,7 +1395,7 @@ function ExamsArchivePage() {
                     )}
                   >
                     {subj.id !== "all" && <SubjIcon className="h-3.5 w-3.5" />}
-                    <span>{subj.nameKm}</span>
+                    <span>{isKhmer ? subj.nameKm : subj.nameEn}</span>
                   </button>
                 );
               })}
@@ -1320,11 +1414,13 @@ function ExamsArchivePage() {
               <div className="space-y-1">
                 <h3 className="font-display font-bold text-sm text-slate-900 dark:text-white">
                   {selectedYear !== "all"
-                    ? `វិញ្ញាសាឆ្នាំ ${selectedYear} កំពុងត្រូវបានប្រមូលពីបណ្ណសារដ្ឋាន`
-                    : "មិនមានវិញ្ញាសាត្រូវគ្នានឹងការស្វែងរកនេះទេ"}
+                    ? isKhmer ? `វិញ្ញាសាឆ្នាំ ${selectedYear} កំពុងត្រូវបានប្រមូលពីបណ្ណសារដ្ឋាន` : `Year ${selectedYear} exams are being collected from the archive`
+                    : isKhmer ? "មិនមានវិញ្ញាសាត្រូវគ្នានឹងការស្វែងរកនេះទេ" : "No exams match your search criteria"}
                 </h3>
                 <p className="text-xs text-slate-500 dark:text-slate-400 max-w-sm mx-auto leading-relaxed">
-                  ScienceKH ប្រកាន់ខ្ជាប់នូវគោលការណ៍ «មិនបង្កើតវិញ្ញាសាក្លែងក្លាយ»។ ឯកសារច្បាប់ដើមកំពុងត្រូវបានប្រមូល និងផ្ទៀងផ្ទាត់។
+                  {isKhmer
+                    ? "ScienceKH ប្រកាន់ខ្ជាប់នូវគោលការណ៍ «មិនបង្កើតវិញ្ញាសាក្លែងក្លាយ»។ ឯកសារច្បាប់ដើមកំពុងត្រូវបានប្រមូល និងផ្ទៀងផ្ទាត់។"
+                    : "ScienceKH adheres to strict authenticity standards. Original documents are being digitized and verified."}
                 </p>
               </div>
 
@@ -1335,7 +1431,7 @@ function ExamsArchivePage() {
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-emerald-600 text-white text-xs font-bold hover:bg-emerald-700 cursor-pointer shadow-xs transition active:scale-95"
                 >
                   <RotateCcw className="h-3.5 w-3.5" />
-                  <span>មើលវិញ្ញាសាគ្រប់ឆ្នាំដែលមាន</span>
+                  <span>{isKhmer ? "មើលវិញ្ញាសាគ្រប់ឆ្នាំដែលមាន" : "View All Available Years"}</span>
                 </button>
                 <button
                   type="button"
@@ -1343,7 +1439,7 @@ function ExamsArchivePage() {
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-bold text-slate-700 dark:text-slate-200 hover:border-emerald-600 cursor-pointer"
                 >
                   <UploadCloud className="h-3.5 w-3.5 text-emerald-600" />
-                  <span>ចែករំលែកឯកសារច្បាប់ដើម</span>
+                  <span>{isKhmer ? "ចែករំលែកឯកសារច្បាប់ដើម" : "Share Original Paper"}</span>
                 </button>
               </div>
             </div>
@@ -1359,11 +1455,13 @@ function ExamsArchivePage() {
                     <div className="flex items-center gap-1.5">
                       <Calendar className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
                       <h2 className="font-display text-xs font-black text-slate-900 dark:text-white">
-                        {year > 0 ? `សម័យប្រឡង ${year}` : "វិញ្ញាសាផ្សេងៗ"}
+                        {year > 0
+                          ? isKhmer ? `សម័យប្រឡង ${year}` : `Session ${year}`
+                          : isKhmer ? "វិញ្ញាសាផ្សេងៗ" : "Other Papers"}
                       </h2>
                     </div>
                     <span className="text-[11px] font-bold text-slate-400">
-                      {papers.length} វិញ្ញាសា
+                      {papers.length} {isKhmer ? "វិញ្ញាសា" : "Papers"}
                     </span>
                   </div>
 
@@ -1396,30 +1494,32 @@ function ExamsArchivePage() {
 
                             {/* Clean Subject Info & Metadata - ZERO TRUNCATION */}
                             <div className="min-w-0 flex-1 space-y-1">
-                              {/* Subject Khmer Name + English Subtitle */}
+                              {/* Subject Name */}
                               <div className="flex items-baseline gap-2 flex-wrap">
                                 <h3 className="font-display text-sm sm:text-base font-extrabold text-slate-900 dark:text-white leading-tight group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
-                                  {cfg.nameKm}
+                                  {isKhmer ? cfg.nameKm : cfg.nameEn}
                                 </h3>
-                                <span className="text-xs font-semibold text-slate-400 dark:text-slate-500">
-                                  {cfg.nameEn}
-                                </span>
+                                {isKhmer && (
+                                  <span className="text-xs font-semibold text-slate-400 dark:text-slate-500">
+                                    {cfg.nameEn}
+                                  </span>
+                                )}
                               </div>
 
                               {/* Sleek single-line specs */}
                               <div className="flex items-center gap-1.5 sm:gap-2 text-xs text-slate-500 dark:text-slate-400 flex-wrap">
                                 <span className="inline-flex items-center gap-1">
                                   <Clock className="h-3 w-3 text-slate-400" />
-                                  <span>{specs.durationMins} នាទី</span>
+                                  <span>{specs.durationMins} {isKhmer ? "នាទី" : "mins"}</span>
                                 </span>
                                 <span className="text-slate-300 dark:text-slate-700">•</span>
-                                <span>{specs.maxScore} ពិន្ទុ</span>
+                                <span>{specs.maxScore} {isKhmer ? "ពិន្ទុ" : "pts"}</span>
                                 {paper.hasOfficialAnswerKey && (
                                   <>
                                     <span className="text-slate-300 dark:text-slate-700">•</span>
                                     <span className="text-emerald-600 dark:text-emerald-400 font-semibold inline-flex items-center gap-0.5">
                                       <Check className="h-3 w-3" />
-                                      <span>អត្រាកំណែផ្លូវការ</span>
+                                      <span>{isKhmer ? "អត្រាកំណែផ្លូវការ" : "Official Rubric"}</span>
                                     </span>
                                   </>
                                 )}
@@ -1447,7 +1547,7 @@ function ExamsArchivePage() {
                           {/* Tactile Action Button */}
                           <div className="flex items-center gap-1 pl-1 shrink-0">
                             <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 group-hover:translate-x-0.5 transition-transform flex items-center gap-0.5">
-                              <span>បើកវិញ្ញាសា</span>
+                              <span>{isKhmer ? "បើកវិញ្ញាសា" : "Open Exam"}</span>
                               <ChevronRight className="h-3.5 w-3.5" />
                             </span>
                           </div>
@@ -1720,34 +1820,38 @@ function ExamsArchivePage() {
                       <div className="space-y-1 min-w-0">
                         <div className="flex items-center gap-1.5 flex-wrap">
                           <span className="text-[10px] font-black uppercase tracking-wider text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded-md border border-emerald-200/60 dark:border-emerald-800">
-                            {getResourceTypeLabel(activeExam.resourceType)}
+                            {getResourceTypeLabel(activeExam.resourceType, isKhmer)}
                           </span>
                           {activeExam.examinationYear && (
                             <span className="text-[10px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-2 py-0.5 rounded-md border border-slate-200 dark:border-slate-700">
-                              សម័យប្រឡង {activeExam.examinationYear}
+                              {isKhmer ? `សម័យប្រឡង ${activeExam.examinationYear}` : `Session ${activeExam.examinationYear}`}
                             </span>
                           )}
                           <span className="text-[10px] font-bold text-slate-500 bg-white dark:bg-slate-800 px-2 py-0.5 rounded-md border border-slate-200 dark:border-slate-700">
-                            {activeExam.stream === "social" ? "ថ្នាក់សង្គម" : "ថ្នាក់វិទ្យាសាស្ត្រ"}
+                            {activeExam.stream === "social"
+                              ? isKhmer ? "ថ្នាក់សង្គម" : "Social Science"
+                              : isKhmer ? "ថ្នាក់វិទ្យាសាស្ត្រ" : "Science Stream"}
                           </span>
                         </div>
 
                         <h2 className="font-display text-base sm:text-lg font-black text-slate-900 dark:text-white leading-snug">
-                          {cleanDisplayTitle(activeExam.originalTitleKh)}
+                          {cleanDisplayTitle(isKhmer ? activeExam.originalTitleKh : activeExam.titleEn || activeExam.originalTitleKh)}
                         </h2>
                         
                         {/* Minimal dot-separated specs row */}
                         <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 flex-wrap">
                           <span className="inline-flex items-center gap-1">
                             <Clock className="w-3.5 h-3.5 text-slate-400" />
-                            <span>{blueprint.durationMinutes || specs.durationMins} នាទី</span>
+                            <span>{blueprint.durationMinutes || specs.durationMins} {isKhmer ? "នាទី" : "mins"}</span>
                           </span>
                           <span className="text-slate-300 dark:text-slate-700">•</span>
-                          <span>{blueprint.totalMarks || specs.maxScore} ពិន្ទុពេញ</span>
+                          <span>{blueprint.totalMarks || specs.maxScore} {isKhmer ? "ពិន្ទុពេញ" : "pts"}</span>
                           <span className="text-slate-300 dark:text-slate-700">•</span>
-                          <span>មេគុណ {blueprint.coefficient}</span>
+                          <span>{isKhmer ? `មេគុណ ${blueprint.coefficient}` : `Coeff ${blueprint.coefficient}`}</span>
                           <span className="text-slate-300 dark:text-slate-700">•</span>
-                          <span className="text-emerald-600 dark:text-emerald-400 font-semibold">MoEYS ស្តង់ដារជាតិ</span>
+                          <span className="text-emerald-600 dark:text-emerald-400 font-semibold">
+                            {isKhmer ? "MoEYS ស្តង់ដារជាតិ" : "MoEYS National Standard"}
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -1771,7 +1875,7 @@ function ExamsArchivePage() {
                     <div className="pt-2 border-t border-slate-200/70 dark:border-slate-800/80">
                       <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
                         <span className="text-[11px] text-slate-400 font-bold shrink-0 mr-1">
-                          សម័យប្រឡង៖
+                          {isKhmer ? "សម័យប្រឡង៖" : "Exam Session:"}
                         </span>
                         <span className="px-3 py-1 rounded-xl text-xs font-black bg-emerald-600 text-white shadow-2xs shrink-0">
                           {activeExam.examinationYear ?? activeExam.examYear}
@@ -1810,7 +1914,11 @@ function ExamsArchivePage() {
                       )}
                     >
                       <FileText className="w-3.5 h-3.5 shrink-0" />
-                      <span>វិញ្ញាសា ({activeExam.questions.length > 0 ? activeExam.questions.length : blueprint.exercises.length} លំហាត់)</span>
+                      <span>
+                        {isKhmer
+                          ? `វិញ្ញាសា (${activeExam.questions.length > 0 ? activeExam.questions.length : blueprint.exercises.length} លំហាត់)`
+                          : `Exam (${activeExam.questions.length > 0 ? activeExam.questions.length : blueprint.exercises.length} Problems)`}
+                      </span>
                     </button>
                     <button
                       type="button"
@@ -1826,7 +1934,7 @@ function ExamsArchivePage() {
                       )}
                     >
                       <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
-                      <span>អត្រាកំណែ & ពិន្ទុ</span>
+                      <span>{isKhmer ? "អត្រាកំណែ & ពិន្ទុ" : "Rubric & Scoring"}</span>
                     </button>
                     <button
                       type="button"
@@ -1842,7 +1950,11 @@ function ExamsArchivePage() {
                       )}
                     >
                       <Sparkles className="w-3.5 h-3.5 shrink-0" />
-                      <span>រូបមន្តគន្លឹះ ({blueprint.essentialFormulas.length})</span>
+                      <span>
+                        {isKhmer
+                          ? `រូបមន្តគន្លឹះ (${blueprint.essentialFormulas.length})`
+                          : `Key Formulas (${blueprint.essentialFormulas.length})`}
+                      </span>
                     </button>
                     <button
                       type="button"
@@ -1858,7 +1970,7 @@ function ExamsArchivePage() {
                       )}
                     >
                       <BookOpen className="w-3.5 h-3.5 shrink-0" />
-                      <span>មេរៀនប្រឡង</span>
+                      <span>{isKhmer ? "មេរៀនប្រឡង" : "Syllabus Topics"}</span>
                     </button>
                   </div>
                 </div>
@@ -1872,18 +1984,26 @@ function ExamsArchivePage() {
                       <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 text-center space-y-2 shadow-2xs">
                         <div className="space-y-0.5">
                           <p className="text-[10.5px] font-bold tracking-widest text-slate-500 uppercase">
-                            ព្រះរាជាណាចក្រកម្ពុជា • ជាតិ សាសនា ព្រះមហាក្សត្រ
+                            {isKhmer
+                              ? "ព្រះរាជាណាចក្រកម្ពុជា • ជាតិ សាសនា ព្រះមហាក្សត្រ"
+                              : "Kingdom of Cambodia • Nation Religion King"}
                           </p>
                           <p className="text-xs font-bold text-slate-700 dark:text-slate-300">
-                            ក្រសួងអប់រំ យុវជន និងកីឡា
+                            {isKhmer
+                              ? "ក្រសួងអប់រំ យុវជន និងកីឡា"
+                              : "Ministry of Education, Youth and Sport"}
                           </p>
                         </div>
                         <div className="pt-2 border-t border-slate-100 dark:border-slate-800">
                           <h3 className="text-sm sm:text-base font-black text-slate-900 dark:text-white">
-                            វិញ្ញាសាប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ (បាក់ឌុប)
+                            {isKhmer
+                              ? "វិញ្ញាសាប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ (បាក់ឌុប)"
+                              : "Upper Secondary National Examination (Bac II)"}
                           </h3>
                           <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-                            សម័យប្រឡង៖ {activeExam.examinationYear ?? "២០២៦"} • រយៈពេល៖ {blueprint.durationMinutes} នាទី • ពិន្ទុពេញ៖ {blueprint.totalMarks}
+                            {isKhmer
+                              ? `សម័យប្រឡង៖ ${activeExam.examinationYear ?? "២០២៦"} • រយៈពេល៖ ${blueprint.durationMinutes} នាទី • ពិន្ទុពេញ៖ ${blueprint.totalMarks}`
+                              : `Session: ${activeExam.examinationYear ?? "2026"} • Duration: ${blueprint.durationMinutes} mins • Full Marks: ${blueprint.totalMarks}`}
                           </p>
                         </div>
                       </div>
@@ -1901,12 +2021,12 @@ function ExamsArchivePage() {
                                   {q.questionNumber}
                                 </span>
                                 <span className="font-bold text-sm text-slate-900 dark:text-white">
-                                  {q.titleKm}
+                                  {isKhmer ? q.titleKm : q.titleEn || q.titleKm}
                                 </span>
                               </div>
                               {q.points && (
                                 <span className="text-xs font-black text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-0.5 rounded-full border border-emerald-200/60 dark:border-emerald-800">
-                                  {q.points} ពិន្ទុ
+                                  {q.points} {isKhmer ? "ពិន្ទុ" : "pts"}
                                 </span>
                               )}
                             </div>
@@ -1934,19 +2054,19 @@ function ExamsArchivePage() {
                                 {expandedQuestionId === q.questionNumber ? (
                                   <>
                                     <EyeOff className="w-3.5 h-3.5 text-slate-500" />
-                                    <span>លាក់អត្រាកំណែ</span>
+                                    <span>{isKhmer ? "លាក់អត្រាកំណែ" : "Hide Solution"}</span>
                                   </>
                                 ) : (
                                   <>
                                     <Eye className="w-3.5 h-3.5 text-emerald-600" />
-                                    <span>មើលអត្រាកំណែផ្លូវការ & ពិន្ទុ</span>
+                                    <span>{isKhmer ? "មើលអត្រាកំណែផ្លូវការ & ពិន្ទុ" : "View Official Solution & Rubric"}</span>
                                   </>
                                 )}
                               </button>
 
                               {q.scoringCriteriaKm && (
                                 <span className="text-[11px] font-semibold text-slate-400">
-                                  ស្តង់ដារកំណែ MoEYS
+                                  {isKhmer ? "ស្តង់ដារកំណែ MoEYS" : "MoEYS Rubric Standard"}
                                 </span>
                               )}
                             </div>
@@ -1956,7 +2076,7 @@ function ExamsArchivePage() {
                               <div className="p-4 rounded-xl bg-emerald-50/50 dark:bg-emerald-950/30 border border-emerald-200/80 dark:border-emerald-800/60 space-y-3 animate-in fade-in duration-200">
                                 <div className="flex items-center gap-1.5 text-xs font-black text-emerald-800 dark:text-emerald-300">
                                   <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                                  <span>ដំណោះស្រាយផ្លូវការ & អត្រាកំណែ MoEYS</span>
+                                  <span>{isKhmer ? "ដំណោះស្រាយផ្លូវការ & អត្រាកំណែ MoEYS" : "Official MoEYS Solution & Scoring Rubric"}</span>
                                 </div>
 
                                 {q.officialSolutionKm && (
@@ -1972,7 +2092,9 @@ function ExamsArchivePage() {
 
                                 {q.scoringCriteriaKm && (
                                   <div className="pt-2 border-t border-emerald-200/60 dark:border-emerald-800/60 text-xs text-emerald-900/90 dark:text-emerald-200/90">
-                                    <span className="font-bold block mb-1">គោលការណ៍កាត់ពិន្ទុ៖</span>
+                                    <span className="font-bold block mb-1">
+                                      {isKhmer ? "គោលការណ៍កាត់ពិន្ទុ៖" : "Grading Criteria:"}
+                                    </span>
                                     <p className="leading-relaxed">{q.scoringCriteriaKm}</p>
                                   </div>
                                 )}
@@ -1985,10 +2107,10 @@ function ExamsArchivePage() {
                           <div className="flex items-center justify-between pb-1">
                             <span className="font-black text-sm text-slate-800 dark:text-white flex items-center gap-2">
                               <span>🏛️</span>
-                              <span>រចនាសម្ព័ន្ធវិញ្ញាសាផ្លូវការ ៥ លំហាត់ (MoEYS Official Outline)</span>
+                              <span>{isKhmer ? "រចនាសម្ព័ន្ធវិញ្ញាសាផ្លូវការ ៥ លំហាត់" : "MoEYS Official Outline (5 Exercises)"}</span>
                             </span>
                             <span className="text-xs text-slate-400 font-semibold">
-                              សរុប {blueprint.totalMarks} ពិន្ទុ • រយៈពេល {blueprint.durationMinutes} នាទី
+                              {isKhmer ? `សរុប ${blueprint.totalMarks} ពិន្ទុ • រយៈពេល ${blueprint.durationMinutes} នាទី` : `Total ${blueprint.totalMarks} Points • Duration ${blueprint.durationMinutes} mins`}
                             </span>
                           </div>
 
@@ -2004,23 +2126,23 @@ function ExamsArchivePage() {
                                   </span>
                                   <div>
                                     <h3 className="font-bold text-sm text-slate-900 dark:text-white">
-                                      {ex.titleKm}
+                                      {isKhmer ? ex.titleKm : (ex.titleEn || ex.titleKm)}
                                     </h3>
                                   </div>
                                 </div>
 
                                 <div className="flex items-center gap-2">
                                   <span className="text-[11px] font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/50 px-2.5 py-1 rounded-full border border-emerald-200/80 dark:border-emerald-800">
-                                    {ex.topicKm}
+                                    {isKhmer ? ex.topicKm : (ex.topicEn || ex.topicKm)}
                                   </span>
                                   <span className="text-xs font-black text-slate-800 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-full border border-slate-200 dark:border-slate-700">
-                                    {ex.points} ពិន្ទុ
+                                    {ex.points} {isKhmer ? "ពិន្ទុ" : "pts"}
                                   </span>
                                 </div>
                               </div>
 
                               <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-                                {ex.descriptionKm}
+                                {isKhmer ? ex.descriptionKm : (ex.descriptionEn || ex.descriptionKm)}
                               </p>
 
                               {ex.sampleLatex && (
@@ -2044,13 +2166,12 @@ function ExamsArchivePage() {
                       <div className="p-4 sm:p-5 rounded-2xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/60 space-y-2.5">
                         <div className="flex items-center gap-2 text-amber-900 dark:text-amber-300 font-black text-sm">
                           <Award className="w-4 h-4 text-amber-600" />
-                          <span>គោលការណ៍បែងចែកពិន្ទុផ្លូវការ MoEYS ក្នុងការប្រឡងជាតិ</span>
+                          <span>{isKhmer ? "គោលការណ៍បែងចែកពិន្ទុផ្លូវការ MoEYS ក្នុងការប្រឡងជាតិ" : "Official MoEYS National Examination Grading Criteria"}</span>
                         </div>
                         <p className="text-xs text-amber-950/90 dark:text-amber-200/90 leading-relaxed">
-                          គណៈកម្មការកំណែអនុវត្តវិធានកាត់ពិន្ទុជាជំហានៗយ៉ាងម៉ឺងម៉ាត់៖ 
-                          <span className="font-bold"> ០.៥ – ១ ពិន្ទុ </span> សម្រាប់សរសេររូបមន្តត្រឹមត្រូវ, 
-                          <span className="font-bold"> ១ – ២ ពិន្ទុ </span> សម្រាប់ដំណើរការគណនា និងជំនួសលេខ, 
-                          និង <span className="font-bold"> ០.៥ – ១ ពិន្ទុ </span> សម្រាប់ចម្លើយចុងក្រោយ និងខ្នាតត្រឹមត្រូវ។
+                          {isKhmer
+                            ? "គណៈកម្មការកំណែអនុវត្តវិធានកាត់ពិន្ទុជាជំហានៗយ៉ាងម៉ឺងម៉ាត់៖ ០.៥ – ១ ពិន្ទុ សម្រាប់សរសេររូបមន្តត្រឹមត្រូវ, ១ – ២ ពិន្ទុ សម្រាប់ដំណើរការគណនា និងជំនួសលេខ, និង ០.៥ – ១ ពិន្ទុ សម្រាប់ចម្លើយចុងក្រោយ និងខ្នាតត្រឹមត្រូវ។"
+                            : "Grading committee enforces strict step-by-step scoring: 0.5–1 pt for correct formulas, 1–2 pts for calculation steps & substitutions, and 0.5–1 pt for final answers and physical units."}
                         </p>
                       </div>
 
@@ -2061,7 +2182,7 @@ function ExamsArchivePage() {
                             className="p-4 sm:p-5 rounded-2xl border border-emerald-100 dark:border-emerald-950/60 bg-emerald-50/20 dark:bg-emerald-950/20 space-y-3"
                           >
                             <div className="font-black text-sm text-emerald-700 dark:text-emerald-400">
-                              ដំណោះស្រាយលម្អិត & អត្រាកំណែ — {q.titleKm} ({q.points} ពិន្ទុ)
+                              {isKhmer ? `ដំណោះស្រាយលម្អិត & អត្រាកំណែ — ${q.titleKm} (${q.points} ពិន្ទុ)` : `Detailed Solution & Rubric — ${q.titleEn || q.titleKm} (${q.points} pts)`}
                             </div>
 
                             {q.officialSolutionKm ? (
@@ -2075,7 +2196,7 @@ function ExamsArchivePage() {
                               </div>
                             ) : (
                               <p className="text-slate-500 italic text-xs">
-                                អត្រាកំណែផ្លូវការមាននៅក្នុងឯកសារ PDF ច្បាប់ដើមខាងក្រោម។
+                                {isKhmer ? "អត្រាកំណែផ្លូវការមាននៅក្នុងឯកសារ PDF ច្បាប់ដើមខាងក្រោម។" : "Official scoring rubric is available in the original PDF below."}
                               </p>
                             )}
                           </div>
@@ -2083,7 +2204,7 @@ function ExamsArchivePage() {
                       ) : (
                         <div className="space-y-3">
                           <h3 className="font-bold text-sm text-slate-800 dark:text-white">
-                            បំណែងចែកពិន្ទុតាមលំហាត់នីមួយៗ (Exercise Scoring Rubric):
+                            {isKhmer ? "បំណែងចែកពិន្ទុតាមលំហាត់នីមួយៗ៖" : "Exercise Scoring Rubric:"}
                           </h3>
                           {blueprint.exercises.map((ex, idx) => (
                             <div
@@ -2092,21 +2213,36 @@ function ExamsArchivePage() {
                             >
                               <div className="flex items-center justify-between text-xs sm:text-sm font-bold">
                                 <span className="text-emerald-600 dark:text-emerald-400">
-                                  {ex.titleKm} ({ex.topicKm})
+                                  {isKhmer ? `${ex.titleKm} (${ex.topicKm})` : `${ex.titleEn || ex.titleKm} (${ex.topicEn || ex.topicKm})`}
                                 </span>
                                 <span className="bg-slate-100 dark:bg-slate-800 px-2.5 py-0.5 rounded-full font-black text-slate-700 dark:text-slate-200">
-                                  {ex.points} ពិន្ទុ
+                                  {ex.points} {isKhmer ? "ពិន្ទុ" : "pts"}
                                 </span>
                               </div>
                               <ul className="text-xs text-slate-600 dark:text-slate-400 space-y-1 list-disc list-inside">
                                 <li>
-                                  <span className="font-semibold text-slate-700 dark:text-slate-300">ជំហាន ១ (រូបមន្ត & ទ្រឹស្តី)៖</span> សរសេររូបមន្តមូលដ្ឋាន និងសម្មតិកម្ម ({Math.round(ex.points * 0.3)} ពិន្ទុ)
+                                  <span className="font-semibold text-slate-700 dark:text-slate-300">
+                                    {isKhmer ? "ជំហាន ១ (រូបមន្ត & ទ្រឹស្តី)៖" : "Step 1 (Formula & Theory):"}
+                                  </span>{" "}
+                                  {isKhmer
+                                    ? `សរសេររូបមន្តមូលដ្ឋាន និងសម្មតិកម្ម (${Math.round(ex.points * 0.3)} ពិន្ទុ)`
+                                    : `Write core formulas and state assumptions (${Math.round(ex.points * 0.3)} pts)`}
                                 </li>
                                 <li>
-                                  <span className="font-semibold text-slate-700 dark:text-slate-300">ជំហាន ២ (ដំណោះស្រាយ)៖</span> ដំណើរការគណនា សម្រួល និងជំនួសលេខ ({Math.round(ex.points * 0.5)} ពិន្ទុ)
+                                  <span className="font-semibold text-slate-700 dark:text-slate-300">
+                                    {isKhmer ? "ជំហាន ២ (ដំណោះស្រាយ)៖" : "Step 2 (Execution):"}
+                                  </span>{" "}
+                                  {isKhmer
+                                    ? `ដំណើរការគណនា សម្រួល និងជំនួសលេខ (${Math.round(ex.points * 0.5)} ពិន្ទុ)`
+                                    : `Algebraic steps, substitution, and evaluation (${Math.round(ex.points * 0.5)} pts)`}
                                 </li>
                                 <li>
-                                  <span className="font-semibold text-slate-700 dark:text-slate-300">ជំហាន ៣ (សន្និដ្ឋាន)៖</span> គូសប្រអប់ចម្លើយចុងក្រោយ និងខ្នាត ({Math.round(ex.points * 0.2)} ពិន្ទុ)
+                                  <span className="font-semibold text-slate-700 dark:text-slate-300">
+                                    {isKhmer ? "ជំហាន ៣ (សន្និដ្ឋាន)៖" : "Step 3 (Conclusion):"}
+                                  </span>{" "}
+                                  {isKhmer
+                                    ? `គូសប្រអប់ចម្លើយចុងក្រោយ និងខ្នាត (${Math.round(ex.points * 0.2)} ពិន្ទុ)`
+                                    : `Final answer box and correct physical units (${Math.round(ex.points * 0.2)} pts)`}
                                 </li>
                               </ul>
                             </div>
@@ -2122,10 +2258,10 @@ function ExamsArchivePage() {
                       <div className="flex items-center justify-between pb-1">
                         <span className="font-bold text-sm text-slate-800 dark:text-white flex items-center gap-1.5">
                           <span>📐</span>
-                          <span>រូបមន្តគន្លឹះដាច់ខាតសម្រាប់វិញ្ញាសានេះ</span>
+                          <span>{isKhmer ? "រូបមន្តគន្លឹះដាច់ខាតសម្រាប់វិញ្ញាសានេះ" : "Essential Formulas for This Exam"}</span>
                         </span>
                         <span className="text-xs text-slate-400">
-                          ចុចលើប៊ូតុងដើម្បីចម្លងរូបមន្ត (LaTeX)
+                          {isKhmer ? "ចុចលើប៊ូតុងដើម្បីចម្លងរូបមន្ត (LaTeX)" : "Click button to copy formula (LaTeX)"}
                         </span>
                       </div>
 
@@ -2136,7 +2272,7 @@ function ExamsArchivePage() {
                         >
                           <div className="flex items-center justify-between">
                             <span className="font-black text-xs sm:text-sm text-slate-900 dark:text-white">
-                              {f.nameKm}
+                              {isKhmer ? f.nameKm : (f.nameEn || f.nameKm)}
                             </span>
                             <button
                               type="button"
@@ -2146,12 +2282,12 @@ function ExamsArchivePage() {
                               {copiedFormulaText === f.formula ? (
                                 <>
                                   <Check className="w-3 h-3 text-emerald-600" />
-                                  <span className="text-emerald-600">បានចម្លង!</span>
+                                  <span className="text-emerald-600">{isKhmer ? "បានចម្លង!" : "Copied!"}</span>
                                 </>
                               ) : (
                                 <>
                                   <Copy className="w-3 h-3" />
-                                  <span>ចម្លងរូបមន្ត</span>
+                                  <span>{isKhmer ? "ចម្លងរូបមន្ត" : "Copy Formula"}</span>
                                 </>
                               )}
                             </button>
@@ -2163,10 +2299,10 @@ function ExamsArchivePage() {
                             </ReactMarkdown>
                           </div>
 
-                          {f.noteKm && (
+                          {(isKhmer ? f.noteKm : (f.noteEn || f.noteKm)) && (
                             <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed flex items-center gap-1.5">
                               <Lightbulb className="h-3.5 w-3.5 text-amber-500 shrink-0" />
-                              <span>{f.noteKm}</span>
+                              <span>{isKhmer ? f.noteKm : (f.noteEn || f.noteKm)}</span>
                             </p>
                           )}
                         </div>
@@ -2180,16 +2316,16 @@ function ExamsArchivePage() {
                       <div className="p-4 sm:p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-2 shadow-2xs">
                         <div className="font-black text-sm text-slate-900 dark:text-white flex items-center gap-2">
                           <BarChart3 className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
-                          <span>សង្ខេបវិញ្ញាសា និងទម្ងន់ពិន្ទុ</span>
+                          <span>{isKhmer ? "សង្ខេបវិញ្ញាសា និងទម្ងន់ពិន្ទុ" : "Exam Summary & Mark Weighting"}</span>
                         </div>
                         <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                          {activeExam.overviewKm || "វិញ្ញាសាផ្លូវការសម្រាប់បណ្ណសារដ្ឋាន។"}
+                          {isKhmer ? (activeExam.overviewKm || "វិញ្ញាសាផ្លូវការសម្រាប់បណ្ណសារដ្ឋាន។") : (activeExam.overviewEn || "Official national examination archive.")}
                         </p>
                       </div>
 
                       <div className="p-4 sm:p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-3 shadow-2xs">
                         <div className="font-black text-sm text-slate-900 dark:text-white">
-                          មេរៀនដែលចេញប្រឡងតាមលំដាប់លំហាត់
+                          {isKhmer ? "មេរៀនដែលចេញប្រឡងតាមលំដាប់លំហាត់" : "Exam Syllabus Topics by Exercise"}
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                           {blueprint.exercises.map((ex, idx) => (
@@ -2202,11 +2338,11 @@ function ExamsArchivePage() {
                                   {idx + 1}
                                 </span>
                                 <span className="font-bold text-slate-800 dark:text-slate-200">
-                                  {ex.topicKm}
+                                  {isKhmer ? ex.topicKm : (ex.topicEn || ex.topicKm)}
                                 </span>
                               </div>
                               <span className="font-black text-slate-500">
-                                {ex.points} ពិន្ទុ
+                                {ex.points} {isKhmer ? "ពិន្ទុ" : "pts"}
                               </span>
                             </div>
                           ))}
@@ -2217,10 +2353,11 @@ function ExamsArchivePage() {
                       <div className="p-4 rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/30 border border-emerald-200/80 dark:border-emerald-800/60 flex items-start gap-2.5">
                         <Lightbulb className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
                         <div className="text-xs text-emerald-950 dark:text-emerald-200 leading-relaxed space-y-1">
-                          <span className="font-black block">យុទ្ធសាស្ត្រដណ្តើមនិទ្ទេស A/B ក្នុងវិញ្ញាសានេះ៖</span>
+                          <span className="font-black block">{isKhmer ? "យុទ្ធសាស្ត្រដណ្តើមនិទ្ទេស A/B ក្នុងវិញ្ញាសានេះ៖" : "Strategy for Grade A/B on This Exam:"}</span>
                           <p>
-                            ផ្តោតលើលំហាត់ដែលមានទម្ងន់ពិន្ទុខ្ពស់ជាមុន (ដូចជា សិក្សាអនុគមន៍ ធរណីមាត្រក្នុងលំហ ឬលំហាត់សរុបពិន្ទុធំ) 
-                            ដើម្បីធានាពិន្ទុមូលដ្ឋានជាប់ ៥០% បន្ទាប់មកដោះស្រាយលំហាត់លំដាប់ពិន្ទុ ១០ ដើម្បីសន្សំពិន្ទុបន្ថែម។
+                            {isKhmer
+                              ? "ផ្តោតលើលំហាត់ដែលមានទម្ងន់ពិន្ទុខ្ពស់ជាមុន (ដូចជា សិក្សាអនុគមន៍ ធរណីមាត្រក្នុងលំហ ឬលំហាត់សរុបពិន្ទុធំ) ដើម្បីធានាពិន្ទុមូលដ្ឋានជាប់ ៥០% បន្ទាប់មកដោះស្រាយលំហាត់លំដាប់ពិន្ទុ ១០ ដើម្បីសន្សំពិន្ទុបន្ថែម។"
+                              : "Prioritize high-weight exercises first (such as Function Study & Space Geometry) to secure a passing score of 50%, then solve 10-point exercises for honors score accumulation."}
                           </p>
                         </div>
                       </div>
@@ -2239,11 +2376,11 @@ function ExamsArchivePage() {
                         className="h-10 px-3.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-bold text-xs flex items-center justify-center gap-1.5 transition active:scale-95 shadow-2xs w-full sm:w-auto cursor-pointer"
                       >
                         <ExternalLink className="h-3.5 w-3.5 text-emerald-600" />
-                        <span>បើកមើល PDF ច្បាប់ដើម</span>
+                        <span>{isKhmer ? "បើកមើល PDF ច្បាប់ដើម" : "Open Original PDF"}</span>
                       </a>
                     ) : (
                       <div className="h-10 px-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-slate-400 font-medium text-xs flex items-center justify-center">
-                        <span>គ្មាន PDF ក្រៅប្រព័ន្ធ</span>
+                        <span>{isKhmer ? "គ្មាន PDF ក្រៅប្រព័ន្ធ" : "No External PDF"}</span>
                       </div>
                     )}
 
@@ -2260,12 +2397,12 @@ function ExamsArchivePage() {
                       {offlineExamIds.includes(activeExam.id) ? (
                         <>
                           <BookmarkCheck className="h-3.5 w-3.5 text-emerald-600" />
-                          <span>បានរក្សាទុក Offline</span>
+                          <span>{isKhmer ? "បានរក្សាទុក Offline" : "Saved Offline"}</span>
                         </>
                       ) : (
                         <>
                           <Download className="h-3.5 w-3.5 text-slate-500" />
-                          <span>រក្សាទុក Offline</span>
+                          <span>{isKhmer ? "រក្សាទុក Offline" : "Save Offline"}</span>
                         </>
                       )}
                     </button>
@@ -2278,14 +2415,16 @@ function ExamsArchivePage() {
                       navigate({
                         to: "/tutor",
                         search: {
-                          initialPrompt: `សូមជួយពន្យល់ និងបង្រៀនគន្លឹះដោះស្រាយ «${cleanDisplayTitle(activeExam.originalTitleKh)} (${activeExam.titleEn})» ឱ្យបានច្បាស់លាស់។`,
+                          initialPrompt: isKhmer
+                            ? `សូមជួយពន្យល់ និងបង្រៀនគន្លឹះដោះស្រាយ «${cleanDisplayTitle(activeExam.originalTitleKh)}» ឱ្យបានច្បាស់លាស់។`
+                            : `Please explain and provide problem-solving strategies for "${activeExam.titleEn || cleanDisplayTitle(activeExam.originalTitleKh)}".`,
                         },
                       });
                     }}
                     className="w-full sm:w-auto h-10 px-5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-sm cursor-pointer transition active:scale-95"
                   >
                     <GraduationCap className="h-4 w-4" />
-                    <span>សួរលោកគ្រូ វុឌ្ឍ ពន្យល់វិញ្ញាសានេះ</span>
+                    <span>{isKhmer ? "សួរលោកគ្រូ វុឌ្ឍ ពន្យល់វិញ្ញាសានេះ" : "Ask Kru Vuth to Explain Exam"}</span>
                   </button>
                 </div>
               </DialogContent>
@@ -2302,10 +2441,10 @@ function ExamsArchivePage() {
               <div className="flex items-center justify-between">
                 <div>
                   <DrawerTitle className="font-display text-base font-bold text-slate-900 dark:text-white">
-                    តម្រង និងការកំណត់ (Filters)
+                    {isKhmer ? "តម្រង និងការកំណត់" : "Filters & Preferences"}
                   </DrawerTitle>
                   <DrawerDescription className="text-xs text-slate-500 mt-0.5">
-                    ចម្រាញ់តាមឆ្នាំប្រឡង និងទម្រង់តម្រៀប
+                    {isKhmer ? "ចម្រាញ់តាមឆ្នាំប្រឡង និងទម្រង់តម្រៀប" : "Filter by exam year and sorting order"}
                   </DrawerDescription>
                 </div>
 
@@ -2317,7 +2456,7 @@ function ExamsArchivePage() {
                     }}
                     className="text-xs font-bold text-red-600 dark:text-red-400 hover:underline cursor-pointer"
                   >
-                    កំណត់ឡើងវិញ
+                    {isKhmer ? "កំណត់ឡើងវិញ" : "Reset"}
                   </button>
                 )}
               </div>
@@ -2326,7 +2465,7 @@ function ExamsArchivePage() {
             {/* Year Filter Grid */}
             <div className="space-y-2 pt-1">
               <span className="text-xs font-bold text-slate-700 dark:text-slate-300">
-                ឆ្នាំប្រឡង (Exam Year)
+                {isKhmer ? "ឆ្នាំប្រឡង" : "Examination Year"}
               </span>
               <div className="grid grid-cols-3 gap-2">
                 <button
@@ -2342,7 +2481,7 @@ function ExamsArchivePage() {
                       : "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200"
                   )}
                 >
-                  គ្រប់ឆ្នាំ
+                  {isKhmer ? "គ្រប់ឆ្នាំ" : "All Years"}
                 </button>
                 {Object.keys(yearCounts.counts)
                   .map(Number)
@@ -2362,7 +2501,7 @@ function ExamsArchivePage() {
                           : "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200"
                       )}
                     >
-                      ឆ្នាំ {yr}
+                      {isKhmer ? `ឆ្នាំ ${yr}` : `Year ${yr}`}
                     </button>
                   ))}
               </div>
@@ -2371,13 +2510,13 @@ function ExamsArchivePage() {
             {/* Sort Order */}
             <div className="space-y-2 pt-1">
               <span className="text-xs font-bold text-slate-700 dark:text-slate-300">
-                តម្រៀបតាម (Sort Order)
+                {isKhmer ? "តម្រៀបតាម" : "Sort Order"}
               </span>
               <div className="grid grid-cols-3 gap-2">
                 {[
-                  { id: "newest", label: "ថ្មីបំផុត" },
-                  { id: "oldest", label: "ចាស់បំផុត" },
-                  { id: "title", label: "តាមឈ្មោះ" },
+                  { id: "newest", labelKm: "ថ្មីបំផុត", labelEn: "Newest" },
+                  { id: "oldest", labelKm: "ចាស់បំផុត", labelEn: "Oldest" },
+                  { id: "title", labelKm: "តាមឈ្មោះ", labelEn: "By Name" },
                 ].map((s) => (
                   <button
                     key={s.id}
@@ -2393,7 +2532,7 @@ function ExamsArchivePage() {
                         : "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200"
                     )}
                   >
-                    {s.label}
+                    {isKhmer ? s.labelKm : s.labelEn}
                   </button>
                 ))}
               </div>
@@ -2406,7 +2545,7 @@ function ExamsArchivePage() {
                 onClick={() => setShowFilterSheet(false)}
                 className="w-full py-2.5 rounded-xl bg-emerald-600 text-white text-xs font-bold text-center hover:bg-emerald-700 transition active:scale-95 cursor-pointer shadow-xs"
               >
-                អនុវត្ត និងបិទ (Apply Filters)
+                {isKhmer ? "អនុវត្ត និងបិទ" : "Apply & Close"}
               </button>
 
               <a
@@ -2417,7 +2556,7 @@ function ExamsArchivePage() {
               >
                 <div className="flex items-center gap-2">
                   <FileSpreadsheet className="h-4 w-4 text-emerald-600" />
-                  <span>ទាញយកទិន្នន័យ CSV (2011–2026)</span>
+                  <span>{isKhmer ? "ទាញយកទិន្នន័យ CSV (២០១១–២០២៦)" : "Download CSV Data (2011–2026)"}</span>
                 </div>
                 <ChevronRight className="h-4 w-4 text-slate-400" />
               </a>
@@ -2432,7 +2571,7 @@ function ExamsArchivePage() {
               >
                 <div className="flex items-center gap-2">
                   <UploadCloud className="h-4 w-4 text-emerald-600" />
-                  <span>ចូលរួមចែករំលែកវិញ្ញាសាច្បាប់ដើម</span>
+                  <span>{isKhmer ? "ចូលរួមចែករំលែកវិញ្ញាសាច្បាប់ដើម" : "Contribute Exam Archive"}</span>
                 </div>
                 <ChevronRight className="h-4 w-4 text-slate-400" />
               </button>
@@ -2447,21 +2586,23 @@ function ExamsArchivePage() {
           <DialogContent className="max-w-md w-[92%] rounded-3xl bg-white dark:bg-slate-900 p-5 space-y-4">
             <DialogHeader className="p-0 text-left">
               <DialogTitle className="font-display text-base font-bold text-[#111827] dark:text-white">
-                ចូលរួមចែករំលែកវិញ្ញាសាប្រឡងចាស់ៗ
+                {isKhmer ? "ចូលរួមចែករំលែកវិញ្ញាសាប្រឡងចាស់ៗ" : "Contribute Past Exam Papers"}
               </DialogTitle>
               <DialogDescription className="text-xs text-[#64748B] mt-1">
-                ជួយសិស្សានុសិស្សកម្ពុជាជំនាន់ក្រោយ ក្នុងការស្វែងរក និងស្រាវជ្រាវវិញ្ញាសាពីឆ្នាំ ២០១២ ដល់បច្ចុប្បន្ន
+                {isKhmer
+                  ? "ជួយសិស្សានុសិស្សកម្ពុជាជំនាន់ក្រោយ ក្នុងការស្វែងរក និងស្រាវជ្រាវវិញ្ញាសាពីឆ្នាំ ២០១១ ដល់បច្ចុប្បន្ន"
+                  : "Help Cambodian students discover and research national exams from 2011 to present"}
               </DialogDescription>
             </DialogHeader>
 
             <div className="p-3.5 rounded-2xl bg-[#F8FAFC] dark:bg-slate-800/60 border border-[#E5EAF0] dark:border-slate-700 space-y-2 text-xs text-[#64748B] dark:text-slate-300">
               <p className="font-semibold text-[#111827] dark:text-white">
-                លក្ខខណ្ឌឯកសារដែលត្រូវផ្ទៀងផ្ទាត់៖
+                {isKhmer ? "លក្ខខណ្ឌឯកសារដែលត្រូវផ្ទៀងផ្ទាត់៖" : "Verification requirements:"}
               </p>
               <ul className="list-disc pl-4 space-y-1">
-                <li>ជាវិញ្ញាសាផ្លូវការ ឬសន្លឹកកិច្ចការប្រឡងដើមរបស់ក្រសួងអប់រំ (MoEYS)។</li>
-                <li>មានបញ្ជាក់ច្បាស់នូវសម័យប្រឡង ឆ្នាំ និងកាលបរិច្ឆេទជាក់ស្តែង។</li>
-                <li>រូបថត ឬ File PDF ត្រូវមានគុណភាពច្បាស់ អាចអានអក្សរ និងរូបមន្តបាន។</li>
+                <li>{isKhmer ? "ជាវិញ្ញាសាផ្លូវការ ឬសន្លឹកកិច្ចការប្រឡងដើមរបស់ក្រសួងអប់រំ (MoEYS)។" : "Must be an official MoEYS paper or original national exam sheet."}</li>
+                <li>{isKhmer ? "មានបញ្ជាក់ច្បាស់នូវសម័យប្រឡង ឆ្នាំ និងកាលបរិច្ឆេទជាក់ស្តែង។" : "Clearly indicates the exam session, academic year, and date."}</li>
+                <li>{isKhmer ? "រូបថត ឬ File PDF ត្រូវមានគុណភាពច្បាស់ អាចអានអក្សរ និងរូបមន្តបាន។" : "Scanned photos or PDFs must be sharp and legible for all formulas."}</li>
               </ul>
             </div>
 

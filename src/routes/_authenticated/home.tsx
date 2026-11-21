@@ -197,7 +197,7 @@ function HomePage() {
   useEffect(() => {
     if (profile) {
       checkAndTriggerStreakGuardian(
-        profile.display_name || profile.full_name || "សិស្ស",
+        profile.display_name || profile.full_name || (isKhmer ? "សិស្ស" : "Student"),
         profile.streak_days || 1,
         isKhmer
       );
@@ -468,7 +468,7 @@ function HomePage() {
                   <span>
                     {hasAnyCompleted
                       ? isKhmer
-                        ? "បន្តការសិក្សាមេរៀននេះ (Continue Lesson)"
+                        ? "បន្តការសិក្សាមេរៀននេះ"
                         : "Continue Lesson"
                       : isKhmer
                         ? `ចាប់ផ្តើមរៀន (${activeLesson.estimated_minutes} នាទី)`
@@ -885,8 +885,8 @@ function MobileHomeScreen({
                   <BookOpen className="h-4 w-4 text-emerald-600" />
                   <span>
                     {isKhmer
-                      ? `មុខវិជ្ជាស្នូល (ថ្នាក់ទី ${studentGrade})`
-                      : `Core Subjects (Grade ${studentGrade})`}
+                      ? `មុខវិជ្ជាស្នូល ថ្នាក់ទី ${studentGrade}`
+                      : `Core Subjects · Grade ${studentGrade}`}
                   </span>
                 </h2>
                 <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
@@ -970,9 +970,9 @@ function MobileHomeScreen({
                 </span>
                 <h3 className="font-display text-sm font-black text-slate-900 dark:text-white mt-1 leading-snug">
                   {studentGrade === 12
-                    ? isKhmer ? "ការប្រឡងបាក់ឌុបថ្នាក់ជាតិ (MoEYS Bac II)" : "National Bac II Examination Archive"
+                    ? isKhmer ? "ការប្រឡងបាក់ឌុបថ្នាក់ជាតិ" : "National Bac II Examination Archive"
                     : studentGrade === 9
-                      ? isKhmer ? "ការប្រឡងឌីប្លូមថ្នាក់ជាតិ (MoEYS Brevet)" : "National Brevet Examination Archive"
+                      ? isKhmer ? "ការប្រឡងឌីប្លូមថ្នាក់ជាតិ" : "National Brevet Examination Archive"
                       : isKhmer ? "បណ្ណាល័យវិញ្ញាសា និងលំហាត់គំរូ" : "National Exam Papers & Question Bank"}
                 </h3>
                 <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
@@ -989,7 +989,7 @@ function MobileHomeScreen({
               className="h-10 w-full rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs tracking-wide transition shadow-2xs flex items-center justify-center gap-1.5 active:scale-[0.98] cursor-pointer"
             >
               <FileText className="h-3.5 w-3.5" />
-              <span>{isKhmer ? "មើលវិញ្ញាសា និងអត្រាកំណែ (Past Papers) →" : "View Exam Archive & Keys →"}</span>
+              <span>{isKhmer ? "មើលវិញ្ញាសា និងអត្រាកំណែ →" : "View Exam Archive & Keys →"}</span>
             </Link>
           </section>
 

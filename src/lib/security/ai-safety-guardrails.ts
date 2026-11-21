@@ -78,9 +78,9 @@ export function validateStudentInputForSafety(input: string): SafetyCheckResult 
       isSafe: false,
       flaggedReason: "jailbreak",
       cannedReplyKm:
-        "ខ្ញុំគឺជាគ្រូជំនួយ Kru Vuth នៃ ScienceKH។ ខ្ញុំនៅតែបន្តបង្រៀនមុខវិជ្ជា STEM តាមក្របខ័ណ្ឌក្រសួងអប់រំ (MoEYS) ដដែល។ តើប្អូនមានចម្ងល់លើលំហាត់វិទ្យាសាស្ត្រណាដែរទេ?",
+        "ខ្ញុំគឺជាលោកគ្រូ វុឌ្ឍ នៃ ScienceKH។ ខ្ញុំនៅតែបន្តបង្រៀនមុខវិជ្ជា STEM តាមក្របខ័ណ្ឌក្រសួងអប់រំ ដដែល។ តើប្អូនមានចម្ងល់លើលំហាត់វិទ្យាសាស្ត្រណាដែរទេ?",
       cannedReplyEn:
-        "I am Kru Vuth, your ScienceKH STEM Tutor. I strictly adhere to the official MoEYS educational mission. How can I help you with your science studies today?",
+        "I am Kru Vuth, your ScienceKH STEM Mentor. I strictly adhere to the official MoEYS educational curriculum. How can I help you with your STEM studies today?",
     };
   }
 

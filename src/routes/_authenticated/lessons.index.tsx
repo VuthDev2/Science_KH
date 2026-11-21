@@ -687,7 +687,7 @@ function LessonsIndex() {
                 )}
               >
                 <Compass className="h-3.5 w-3.5" />
-                <span>{isKhmer ? "គន្លងសិក្សា (Duolingo Path)" : "Learning Path"}</span>
+                <span>{isKhmer ? "គន្លងសិក្សា" : "Learning Path"}</span>
               </button>
               <button
                 type="button"
@@ -703,7 +703,7 @@ function LessonsIndex() {
                 )}
               >
                 <BookOpen className="h-3.5 w-3.5" />
-                <span>{isKhmer ? "មាតិកា MoEYS (Syllabus)" : "Official Syllabus"}</span>
+                <span>{isKhmer ? "មាតិកាកម្មវិធីសិក្សា" : "Official Syllabus"}</span>
               </button>
             </div>
           </div>

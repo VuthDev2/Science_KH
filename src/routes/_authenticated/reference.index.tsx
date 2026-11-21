@@ -101,12 +101,12 @@ export const Route = createFileRoute("/_authenticated/reference/")({
 
 // MoEYS 6 Grades Metadata
 const REFERENCE_GRADES = [
-  { grade: 7, labelKm: "ថ្នាក់ទី ៧", labelEn: "Grade 7", tierKm: "អនុវិទ្យាល័យ", isSenior: false, badge: null },
-  { grade: 8, labelKm: "ថ្នាក់ទី ៨", labelEn: "Grade 8", tierKm: "អនុវិទ្យាល័យ", isSenior: false, badge: null },
-  { grade: 9, labelKm: "ថ្នាក់ទី ៩", labelEn: "Grade 9", tierKm: "អនុវិទ្យាល័យ", isSenior: false, badge: "ឌីប្លូម" },
-  { grade: 10, labelKm: "ថ្នាក់ទី ១០", labelEn: "Grade 10", tierKm: "វិទ្យាល័យ", isSenior: true, badge: null },
-  { grade: 11, labelKm: "ថ្នាក់ទី ១១", labelEn: "Grade 11", tierKm: "វិទ្យាល័យ", isSenior: true, badge: null },
-  { grade: 12, labelKm: "ថ្នាក់ទី ១២", labelEn: "Grade 12", tierKm: "វិទ្យាល័យ", isSenior: true, badge: "បាក់ឌុប" },
+  { grade: 7, labelKm: "ថ្នាក់ទី ៧", labelEn: "Grade 7", tierKm: "អនុវិទ្យាល័យ", tierEn: "Junior High", isSenior: false, badgeKm: null, badgeEn: null },
+  { grade: 8, labelKm: "ថ្នាក់ទី ៨", labelEn: "Grade 8", tierKm: "អនុវិទ្យាល័យ", tierEn: "Junior High", isSenior: false, badgeKm: null, badgeEn: null },
+  { grade: 9, labelKm: "ថ្នាក់ទី ៩", labelEn: "Grade 9", tierKm: "អនុវិទ្យាល័យ", tierEn: "Junior High", isSenior: false, badgeKm: "ឌីប្លូម", badgeEn: "Brevet" },
+  { grade: 10, labelKm: "ថ្នាក់ទី ១០", labelEn: "Grade 10", tierKm: "វិទ្យាល័យ", tierEn: "Senior High", isSenior: true, badgeKm: null, badgeEn: null },
+  { grade: 11, labelKm: "ថ្នាក់ទី ១១", labelEn: "Grade 11", tierKm: "វិទ្យាល័យ", tierEn: "Senior High", isSenior: true, badgeKm: null, badgeEn: null },
+  { grade: 12, labelKm: "ថ្នាក់ទី ១២", labelEn: "Grade 12", tierKm: "វិទ្យាល័យ", tierEn: "Senior High", isSenior: true, badgeKm: "បាក់ឌុប", badgeEn: "Bac II" },
 ];
 
 // Subject-Aware Academic Constants & Scientific Cheat Sheets for Right Sidebar
@@ -119,11 +119,11 @@ export interface ReferenceConstantItem {
 }
 
 const MATHEMATICS_CONSTANTS: ReferenceConstantItem[] = [
-  { symbol: "π", nameKm: "ថេរពី (Archimedes)", nameEn: "Pi Constant", value: "≈ 3.14159265", subject: "Mathematics" },
-  { symbol: "e", nameKm: "ចំនួនអឺឡែ (Euler's Number)", nameEn: "Euler's Number", value: "≈ 2.71828182", subject: "Mathematics" },
-  { symbol: "φ", nameKm: "សមាមាត្រមាស (Golden Ratio)", nameEn: "Golden Ratio", value: "≈ 1.61803398", subject: "Mathematics" },
-  { symbol: "i", nameKm: "ឯកតានិម្មិត (i² = -1)", nameEn: "Imaginary Unit", value: "i² = -1", subject: "Mathematics" },
-  { symbol: "√2", nameKm: "ថេរពីតាករ (Pythagoras)", nameEn: "Square Root of 2", value: "≈ 1.41421356", subject: "Mathematics" },
+  { symbol: "π", nameKm: "ថេរពី", nameEn: "Pi Constant", value: "≈ 3.14159265", subject: "Mathematics" },
+  { symbol: "e", nameKm: "ចំនួនអឺឡែ", nameEn: "Euler's Number", value: "≈ 2.71828182", subject: "Mathematics" },
+  { symbol: "φ", nameKm: "សមាមាត្រមាស", nameEn: "Golden Ratio", value: "≈ 1.61803398", subject: "Mathematics" },
+  { symbol: "i", nameKm: "ឯកតានិម្មិត", nameEn: "Imaginary Unit", value: "i² = -1", subject: "Mathematics" },
+  { symbol: "√2", nameKm: "ថេរពីតាករ", nameEn: "Square Root of 2", value: "≈ 1.41421356", subject: "Mathematics" },
   { symbol: "ln(2)", nameKm: "លោការីតនេពែនៃ ២", nameEn: "Natural Log of 2", value: "≈ 0.693147", subject: "Mathematics" },
 ];
 
@@ -131,9 +131,9 @@ const PHYSICS_CONSTANTS: ReferenceConstantItem[] = [
   { symbol: "g", nameKm: "សំទុះទំនាញផែនដី", nameEn: "Gravitational Acceleration", value: "9.8 m/s²", subject: "Physics" },
   { symbol: "c", nameKm: "ល្បឿនពន្លឺក្នុងសុញ្ញាកាស", nameEn: "Speed of Light", value: "3.00 × 10⁸ m/s", subject: "Physics" },
   { symbol: "G", nameKm: "ថេរទំនាញសកល", nameEn: "Universal Gravitational Const.", value: "6.674 × 10⁻¹¹ N·m²/kg²", subject: "Physics" },
-  { symbol: "h", nameKm: "ថេរផ្លង់ (Planck)", nameEn: "Planck's Constant", value: "6.626 × 10⁻³⁴ J·s", subject: "Physics" },
+  { symbol: "h", nameKm: "ថេរផ្លង់", nameEn: "Planck's Constant", value: "6.626 × 10⁻³⁴ J·s", subject: "Physics" },
   { symbol: "e", nameKm: "បន្ទុកធាតុគ្រឹះ", nameEn: "Elementary Charge", value: "1.602 × 10⁻¹⁹ C", subject: "Physics" },
-  { symbol: "k_e", nameKm: "ថេរគូឡុំ (Coulomb)", nameEn: "Coulomb Constant", value: "8.99 × 10⁹ N·m²/C²", subject: "Physics" },
+  { symbol: "k_e", nameKm: "ថេរគូឡុំ", nameEn: "Coulomb Constant", value: "8.99 × 10⁹ N·m²/C²", subject: "Physics" },
 ];
 
 const CHEMISTRY_CONSTANTS: ReferenceConstantItem[] = [
@@ -141,12 +141,12 @@ const CHEMISTRY_CONSTANTS: ReferenceConstantItem[] = [
   { symbol: "R", nameKm: "ថេរឧស្ម័នល្អិត", nameEn: "Ideal Gas Constant", value: "0.0821 atm·L/(mol·K)", subject: "Chemistry" },
   { symbol: "V_m", nameKm: "មាឌម៉ូលនៅលក្ខខណ្ឌធម្មតា (STP)", nameEn: "Molar Volume at STP", value: "22.4 L/mol", subject: "Chemistry" },
   { symbol: "K_w", nameKm: "ផលគុណអ៊ីយ៉ុងនៃទឹក (25°C)", nameEn: "Ion Product of Water", value: "1.0 × 10⁻¹⁴", subject: "Chemistry" },
-  { symbol: "F", nameKm: "ថេរហ្វារ៉ាដេ (Faraday)", nameEn: "Faraday Constant", value: "96,485 C/mol", subject: "Chemistry" },
+  { symbol: "F", nameKm: "ថេរហ្វារ៉ាដេ", nameEn: "Faraday Constant", value: "96,485 C/mol", subject: "Chemistry" },
   { symbol: "pKa(H₂O)", nameKm: "កម្រិតអាស៊ីតនៃទឹកសុទ្ធ", nameEn: "pKa of Pure Water", value: "14.0", subject: "Chemistry" },
 ];
 
 const BIOLOGY_CONSTANTS: ReferenceConstantItem[] = [
-  { symbol: "A = T, C ≡ G", nameKm: "ច្បាប់បំពេញបាស DNA (Chargaff)", nameEn: "Chargaff's Base Pairing", value: "A=T (2H), C≡G (3H)", subject: "Biology" },
+  { symbol: "A = T, C ≡ G", nameKm: "ច្បាប់បំពេញបាស DNA", nameEn: "Chargaff's Base Pairing", value: "A=T (2H), C≡G (3H)", subject: "Biology" },
   { symbol: "L_base", nameKm: "ចម្ងាយរវាង ២ គូណ្វៃក្លេអូទីដ", nameEn: "Base Pair Spacing", value: "3.4 Å = 0.34 nm", subject: "Biology" },
   { symbol: "1 Codon", nameKm: "ក្រមពន្ធុ (កូដុង ១)", nameEn: "Triplet Genetic Code", value: "3 នុយក្លេអូទីដ (mRNA)", subject: "Biology" },
   { symbol: "M_nu", nameKm: "ម៉ាសម៉ូលេគុលជាមធ្យមនៃនុយក្លេអូទីដ", nameEn: "Average Nucleotide Mass", value: "300 đ.v.C (amu)", subject: "Biology" },
@@ -157,7 +157,7 @@ const BIOLOGY_CONSTANTS: ReferenceConstantItem[] = [
 const GENERAL_CONSTANTS: ReferenceConstantItem[] = [
   { symbol: "g", nameKm: "សំទុះទំនាញផែនដី", nameEn: "Gravitational Acceleration", value: "9.8 m/s²", subject: "Physics" },
   { symbol: "c", nameKm: "ល្បឿនពន្លឺក្នុងសុញ្ញាកាស", nameEn: "Speed of Light", value: "3.00 × 10⁸ m/s", subject: "Physics" },
-  { symbol: "π", nameKm: "ថេរពី (Archimedes)", nameEn: "Pi Constant", value: "≈ 3.14159", subject: "Mathematics" },
+  { symbol: "π", nameKm: "ថេរពី", nameEn: "Pi Constant", value: "≈ 3.14159", subject: "Mathematics" },
   { symbol: "N_A", nameKm: "ចំនួនអាវ៉ូកាដ្រូ", nameEn: "Avogadro's Constant", value: "6.022 × 10²³ mol⁻¹", subject: "Chemistry" },
   { symbol: "R", nameKm: "ថេរឧស្ម័នល្អិត", nameEn: "Ideal Gas Constant", value: "0.0821 atm·L/mol·K", subject: "Chemistry" },
   { symbol: "e", nameKm: "បន្ទុកធាតុគ្រឹះ", nameEn: "Elementary Charge", value: "1.602 × 10⁻¹⁹ C", subject: "Physics" },
@@ -221,6 +221,7 @@ const SUBJECT_THEMES: Record<
     cardBgHover: string;
     discipline: "stem" | "language" | "social" | "tech";
     formulaPillsKm: string[];
+    formulaPillsEn: string[];
   }
 > = {
   mathematics: {
@@ -233,6 +234,7 @@ const SUBJECT_THEMES: Record<
     cardBgHover: "hover:bg-blue-50/20 dark:hover:bg-blue-950/10",
     discipline: "stem",
     formulaPillsKm: ["ពីជគណិត", "ធរណីមាត្រ", "ត្រីកោណមាត្រ"],
+    formulaPillsEn: ["Algebra", "Geometry", "Trigonometry"],
   },
   physics: {
     iconBg: "bg-purple-50 dark:bg-purple-950/60",
@@ -244,6 +246,7 @@ const SUBJECT_THEMES: Record<
     cardBgHover: "hover:bg-purple-50/20 dark:hover:bg-purple-950/10",
     discipline: "stem",
     formulaPillsKm: ["ខ្នាត SI", "សមីការចលនា", "អគ្គិសនី"],
+    formulaPillsEn: ["SI Units", "Kinematics", "Electricity"],
   },
   chemistry: {
     iconBg: "bg-emerald-50 dark:bg-emerald-950/60",
@@ -255,6 +258,7 @@ const SUBJECT_THEMES: Record<
     cardBgHover: "hover:bg-emerald-50/20 dark:hover:bg-emerald-950/10",
     discipline: "stem",
     formulaPillsKm: ["តារាងខួប", "វ៉ាឡង់ធាតុ", "អាស៊ីត-បាស"],
+    formulaPillsEn: ["Periodic Table", "Valency", "Acids & Bases"],
   },
   biology: {
     iconBg: "bg-teal-50 dark:bg-teal-950/60",
@@ -266,6 +270,7 @@ const SUBJECT_THEMES: Record<
     cardBgHover: "hover:bg-teal-50/20 dark:hover:bg-teal-950/10",
     discipline: "stem",
     formulaPillsKm: ["កោសិកា", "តំណពូជ DNA", "រស្មីសំយោគ"],
+    formulaPillsEn: ["Cell Biology", "DNA Genetics", "Photosynthesis"],
   },
   earth: {
     iconBg: "bg-amber-50 dark:bg-amber-950/60",
@@ -277,6 +282,7 @@ const SUBJECT_THEMES: Record<
     cardBgHover: "hover:bg-amber-50/20 dark:hover:bg-amber-950/10",
     discipline: "stem",
     formulaPillsKm: ["ស្រទាប់ផែនដី", "បន្ទះតិចតូនិក", "អាកាសធាតុ"],
+    formulaPillsEn: ["Earth Layers", "Plate Tectonics", "Meteorology"],
   },
   khmer: {
     iconBg: "bg-rose-50 dark:bg-rose-950/60",
@@ -288,6 +294,7 @@ const SUBJECT_THEMES: Record<
     cardBgHover: "hover:bg-rose-50/20 dark:hover:bg-rose-950/10",
     discipline: "language",
     formulaPillsKm: ["វេយ្យាករណ៍", "ក្បួនតែងសេចក្តី", "កាព្យឃ្លោង"],
+    formulaPillsEn: ["Grammar", "Composition", "Khmer Poetry"],
   },
   history: {
     iconBg: "bg-amber-50 dark:bg-amber-950/60",
@@ -299,6 +306,7 @@ const SUBJECT_THEMES: Record<
     cardBgHover: "hover:bg-amber-50/20 dark:hover:bg-amber-950/10",
     discipline: "social",
     formulaPillsKm: ["កាលប្បវត្តិ", "នគរភ្នំ & ចេនឡា", "សម័យអង្គរ"],
+    formulaPillsEn: ["Chronology", "Funan & Chenla", "Angkor Era"],
   },
   geography: {
     iconBg: "bg-teal-50 dark:bg-teal-950/60",
@@ -310,6 +318,7 @@ const SUBJECT_THEMES: Record<
     cardBgHover: "hover:bg-teal-50/20 dark:hover:bg-teal-950/10",
     discipline: "social",
     formulaPillsKm: ["មាត្រដ្ឋានផែនទី", "និយាមកា", "សេដ្ឋកិច្ចតំបន់"],
+    formulaPillsEn: ["Map Scale", "Coordinates", "Regional Economy"],
   },
   english: {
     iconBg: "bg-indigo-50 dark:bg-indigo-950/60",
@@ -320,7 +329,8 @@ const SUBJECT_THEMES: Record<
     borderHover: "hover:border-indigo-400 dark:hover:border-indigo-500",
     cardBgHover: "hover:bg-indigo-50/20 dark:hover:bg-indigo-950/10",
     discipline: "language",
-    formulaPillsKm: ["Verb Tenses", "Grammar Rules", "Vocabulary"],
+    formulaPillsKm: ["កាលកិរិយា", "វេយ្យាករណ៍", "វាក្យសព្ទ"],
+    formulaPillsEn: ["Verb Tenses", "Grammar Rules", "Vocabulary"],
   },
   ict: {
     iconBg: "bg-cyan-50 dark:bg-cyan-950/60",
@@ -331,7 +341,8 @@ const SUBJECT_THEMES: Record<
     borderHover: "hover:border-cyan-400 dark:hover:border-cyan-500",
     cardBgHover: "hover:bg-cyan-50/20 dark:hover:bg-cyan-950/10",
     discipline: "tech",
-    formulaPillsKm: ["Binary & Logic", "កូដគ្រឹះ Python", "សុវត្ថិភាព IT"],
+    formulaPillsKm: ["ប្រព័ន្ធទ្វេភាគ", "កូដគ្រឹះ Python", "សុវត្ថិភាព IT"],
+    formulaPillsEn: ["Binary & Logic", "Python Basics", "Cybersecurity"],
   },
   morality: {
     iconBg: "bg-emerald-50 dark:bg-emerald-950/60",
@@ -343,6 +354,7 @@ const SUBJECT_THEMES: Record<
     cardBgHover: "hover:bg-emerald-50/20 dark:hover:bg-emerald-950/10",
     discipline: "social",
     formulaPillsKm: ["សិទ្ធិមនុស្ស", "រដ្ឋធម្មនុញ្ញ", "សីលធម៌ពលរដ្ឋ"],
+    formulaPillsEn: ["Human Rights", "Constitution", "Civic Ethics"],
   },
 };
 
@@ -492,11 +504,13 @@ function FriendlyReferenceCard({
             </span>
           )}
           <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
-            {REFERENCE_TYPE_LABELS[entry.referenceType]?.labelKm || entry.referenceType}
+            {isKhmer
+              ? REFERENCE_TYPE_LABELS[entry.referenceType]?.labelKm || entry.referenceType
+              : REFERENCE_TYPE_LABELS[entry.referenceType]?.labelEn || entry.referenceType}
           </span>
           <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-[#059669] border border-emerald-200/60 dark:border-emerald-800 flex items-center gap-1">
             <CheckCircle2 className="h-3 w-3" />
-            <span>MoEYS Standard</span>
+            <span>{isKhmer ? "ស្តង់ដារជាតិ MoEYS" : "MoEYS Standard"}</span>
           </span>
         </div>
 
@@ -524,9 +538,11 @@ function FriendlyReferenceCard({
       {/* Title & English Subtitle */}
       <div>
         <h2 className="text-base sm:text-lg font-black text-slate-900 dark:text-white group-hover:text-[#059669] transition leading-relaxed">
-          {cleanLatexDisplayTitle(entry.originalTitleKh)}
+          {isKhmer
+            ? cleanLatexDisplayTitle(entry.originalTitleKh)
+            : entry.titleEn || cleanLatexDisplayTitle(entry.originalTitleKh)}
         </h2>
-        {entry.titleEn && (
+        {isKhmer && entry.titleEn && (
           <p className="text-xs text-slate-400 font-semibold mt-0.5">
             {entry.titleEn}
           </p>
@@ -544,7 +560,7 @@ function FriendlyReferenceCard({
             type="button"
             onClick={(e) => onCopyFormula(mathExpr, entry.id, e)}
             className="absolute top-2.5 right-2.5 p-1.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-500 hover:text-[#059669] hover:border-emerald-300 shadow-2xs transition cursor-pointer"
-            title="Copy LaTeX"
+            title={isKhmer ? "ចម្លង LaTeX" : "Copy LaTeX"}
           >
             {isCopied ? <Check className="h-3.5 w-3.5 text-[#059669]" /> : <Copy className="h-3.5 w-3.5" />}
           </button>
@@ -571,14 +587,18 @@ function FriendlyReferenceCard({
                 )}
               </span>
               <span className="text-xs text-slate-500 font-bold">
-                {sc.associatedUnit ? `ខ្នាត៖ ${sc.associatedUnit}` : sc.phoneticKh || ""}
+                {sc.associatedUnit
+                  ? isKhmer
+                    ? `ខ្នាត៖ ${sc.associatedUnit}`
+                    : `Unit: ${sc.associatedUnit}`
+                  : (isKhmer ? sc.phoneticKh : sc.phoneticEn) || ""}
               </span>
             </div>
           );
         })()
       ) : (
         <p className="text-xs text-slate-600 dark:text-slate-300 line-clamp-2 leading-relaxed">
-          {entry.shortDescriptionKh}
+          {isKhmer ? entry.shortDescriptionKh : (entry.explanationEn || entry.titleEn || entry.shortDescriptionKh)}
         </p>
       )}
 
@@ -610,14 +630,14 @@ function FriendlyReferenceCard({
       )}
 
       {/* Student Memory Hook & Real-World Meaning Callout */}
-      {friendlyGuide && (
+      {(isKhmer ? friendlyGuide : (entry.explanationEn || null)) && (
         <div className="p-3 rounded-2xl bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200/60 dark:border-amber-800/40 flex items-start gap-2.5">
           <Lightbulb className="h-4 w-4 text-amber-500 shrink-0 mt-0.5" />
           <div className="space-y-0.5 text-xs text-amber-950 dark:text-amber-200/90 leading-relaxed font-medium">
             <span className="font-black text-amber-900 dark:text-amber-300 block">
               {isKhmer ? "គន្លឹះចងចាំ & អនុវត្ត៖" : "Key Takeaway:"}
             </span>
-            <p>{friendlyGuide}</p>
+            <p>{isKhmer ? friendlyGuide : entry.explanationEn}</p>
           </div>
         </div>
       )}
@@ -625,7 +645,9 @@ function FriendlyReferenceCard({
       {/* Source Citation & Detail Link Footer */}
       <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] text-slate-400">
         <span className="truncate max-w-[240px] font-medium">
-          {entry.sources?.[0]?.sourceDocument?.titleKm || "សៀវភៅពុម្ពផ្លូវការ MoEYS"}
+          {isKhmer
+            ? (entry.sources?.[0]?.sourceDocument?.titleKm || "សៀវភៅពុម្ពផ្លូវការ MoEYS")
+            : (entry.sources?.[0]?.sourceDocument?.titleEn || "Official MoEYS Textbook")}
         </span>
         <span className="font-black text-[#059669] group-hover:underline flex items-center gap-1 shrink-0">
           <span>{isKhmer ? "មើលលម្អិត" : "Full Details"}</span>
@@ -934,7 +956,7 @@ function StudyReferenceLibraryPage() {
               >
                 <div className="flex items-center gap-2">
                   <Award className="h-4 w-4 text-blue-600 dark:text-blue-400 shrink-0" />
-                  <span>{isKhmer ? "វិញ្ញាសាប្រឡងបាក់ឌុប (Bac II)" : "Bac II Exam Papers"}</span>
+                  <span>{isKhmer ? "វិញ្ញាសាប្រឡងបាក់ឌុប" : "Bac II Exam Papers"}</span>
                 </div>
                 <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
               </Link>
@@ -952,7 +974,7 @@ function StudyReferenceLibraryPage() {
               >
                 <div className="flex items-center gap-2">
                   <GraduationCap className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
-                  <span>{isKhmer ? "សួរលោកគ្រូ វុឌ្ឍ (Kru Vuth)" : "Ask Kru Vuth — STEM Mentor"}</span>
+                  <span>{isKhmer ? "សួរលោកគ្រូ វុឌ្ឍ" : "Ask Kru Vuth — STEM Mentor"}</span>
                 </div>
                 <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
               </Link>
@@ -983,7 +1005,7 @@ function StudyReferenceLibraryPage() {
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-emerald-50 dark:bg-emerald-950/60 text-[#059669] border border-emerald-200/80 dark:border-emerald-800">
                   <CheckCircle2 className="h-3.5 w-3.5" />
-                  <span>MoEYS Curriculum Standard 2026</span>
+                  <span>{isKhmer ? "ស្តង់ដារកម្មវិធីសិក្សា MoEYS ២០២៦" : "MoEYS Curriculum Standard 2026"}</span>
                 </span>
                 <span className="text-xs font-bold text-slate-400">
                   {isKhmer ? "ថ្នាក់ទី ៧ ដល់ ១២" : "Grades 7 to 12"}
@@ -1036,7 +1058,9 @@ function StudyReferenceLibraryPage() {
                   <span>{isKhmer ? "ជ្រើសរើសកម្រិតថ្នាក់សិក្សា៖" : "Select Grade Level:"}</span>
                 </span>
                 <span className="text-[11px] font-bold text-[#059669] bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded-full border border-emerald-200/60 dark:border-emerald-800">
-                  {REFERENCE_GRADES.find((g) => g.grade === activeGrade)?.tierKm}
+                  {isKhmer
+                    ? REFERENCE_GRADES.find((g) => g.grade === activeGrade)?.tierKm
+                    : REFERENCE_GRADES.find((g) => g.grade === activeGrade)?.tierEn}
                 </span>
               </div>
 
@@ -1044,6 +1068,7 @@ function StudyReferenceLibraryPage() {
               <div className="grid grid-cols-6 gap-1.5 p-1 rounded-2xl bg-slate-100 dark:bg-slate-800/90">
                 {REFERENCE_GRADES.map((g) => {
                   const isSelected = activeGrade === g.grade;
+                  const badgeText = isKhmer ? g.badgeKm : g.badgeEn;
                   return (
                     <button
                       key={g.grade}
@@ -1060,14 +1085,14 @@ function StudyReferenceLibraryPage() {
                       <span
                         className={cn(
                           "text-[9px] font-extrabold px-1 rounded-sm leading-tight mt-0.5 min-h-[14px] flex items-center justify-center",
-                          g.badge
+                          badgeText
                             ? isSelected
                               ? "bg-emerald-900/50 text-emerald-100"
                               : "bg-emerald-100 dark:bg-emerald-950/80 text-[#059669]"
                             : "invisible"
                         )}
                       >
-                        {g.badge || "—"}
+                        {badgeText || "—"}
                       </span>
                     </button>
                   );
@@ -1272,11 +1297,13 @@ function StudyReferenceLibraryPage() {
                                 `group-hover:${theme.textColor}`
                               )}
                             >
-                              {subject.nameKm}
+                              {isKhmer ? subject.nameKm : subject.nameEn}
                             </h2>
-                            <span className="text-xs font-semibold text-slate-400">
-                              {subject.nameEn}
-                            </span>
+                            {isKhmer && (
+                              <span className="text-xs font-semibold text-slate-400">
+                                {subject.nameEn}
+                              </span>
+                            )}
                           </div>
 
                           <p className="text-[11.5px] text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed">
@@ -1287,18 +1314,20 @@ function StudyReferenceLibraryPage() {
                         {/* Bottom: Formula Knowledge Category Pills + Explore CTA */}
                         <div className="pt-2 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between gap-2">
                           <div className="flex items-center gap-1 overflow-hidden">
-                            {theme.formulaPillsKm.slice(0, 2).map((pill) => (
-                              <span
-                                key={pill}
-                                className={cn(
-                                  "text-[10px] font-bold px-2 py-0.5 rounded-md truncate",
-                                  theme.badgeBg,
-                                  theme.badgeText
-                                )}
-                              >
-                                {pill}
-                              </span>
-                            ))}
+                            {(isKhmer ? theme.formulaPillsKm : (theme.formulaPillsEn || theme.formulaPillsKm))
+                              .slice(0, 2)
+                              .map((pill) => (
+                                <span
+                                  key={pill}
+                                  className={cn(
+                                    "text-[10px] font-bold px-2 py-0.5 rounded-md truncate",
+                                    theme.badgeBg,
+                                    theme.badgeText
+                                  )}
+                                >
+                                  {pill}
+                                </span>
+                              ))}
                           </div>
 
                           <div
@@ -1353,8 +1382,7 @@ function StudyReferenceLibraryPage() {
                   )}
                   <div className="min-w-0">
                     <h1 className="text-base sm:text-lg font-black text-slate-900 dark:text-white truncate leading-relaxed">
-                      {currentSubject?.nameKm}{" "}
-                      <span className="text-xs text-slate-400 font-semibold">({currentSubject?.nameEn})</span>
+                      {isKhmer ? currentSubject?.nameKm : currentSubject?.nameEn}
                     </h1>
                     <div className="flex items-center gap-2 mt-0.5">
                       <span className="text-[10.5px] font-black px-2 py-0.5 rounded-md bg-emerald-100 dark:bg-emerald-950/60 text-[#059669]">

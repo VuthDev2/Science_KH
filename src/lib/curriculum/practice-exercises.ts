@@ -788,9 +788,9 @@ export function getLessonPracticeExercises(lesson: CuratedLesson): PracticeExerc
   }
 
   // 2. Generate dynamic topic-based authentic calculations
-  const title = (lesson.title_km + " " + lesson.title_en).toLowerCase();
-  const grade = lesson.grade;
-  const subj = lesson.subject.slug;
+  const title = ((lesson?.title_km || "") + " " + (lesson?.title_en || "")).toLowerCase();
+  const grade = lesson?.grade || 8;
+  const subj = (lesson?.subject as any)?.slug || "mathematics";
 
   // Mathematics
   if (subj === "mathematics") {

@@ -32,7 +32,12 @@ import { useAuth } from "@/lib/auth-context";
 import { useSuper } from "@/lib/super-context";
 import { SuperPostLessonInterstitial } from "@/components/super/super-post-lesson-interstitial";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { cn, cleanLatexMathString } from "@/lib/utils";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+import katex from "katex";
 import { toast } from "sonner";
 import { sounds } from "@/lib/sound-effects";
 import { launchConfetti } from "@/lib/confetti";
@@ -57,6 +62,88 @@ import {
   type LabCalculationQuestion,
   getCurriculumLabQuestions,
 } from "@/lib/quiz-curriculum-labs";
+
+/**
+ * Robust KaTeX block renderer for mathematical formulas
+ */
+function SafeMathBlock({
+  math,
+  className,
+  displayMode = true,
+}: {
+  math: string;
+  className?: string;
+  displayMode?: boolean;
+}) {
+  const html = useMemo(() => {
+    try {
+      const sanitized = cleanLatexMathString(math);
+      return katex.renderToString(sanitized, {
+        displayMode,
+        throwOnError: false,
+        strict: false,
+      });
+    } catch {
+      return null;
+    }
+  }, [math, displayMode]);
+
+  if (!html) {
+    return <span className={className}>{math}</span>;
+  }
+  return <div className={cn("overflow-x-auto py-1", className)} dangerouslySetInnerHTML={{ __html: html }} />;
+}
+
+/**
+ * Renders rich markdown with embedded LaTeX math (both inline $ and display $$)
+ */
+function QuizMarkdownContent({ content, className }: { content: string; className?: string }) {
+  if (!content) return null;
+  return (
+    <div className={cn("prose prose-sm dark:prose-invert max-w-none text-inherit leading-relaxed", className)}>
+      <ReactMarkdown
+        remarkPlugins={[remarkGfm, remarkMath]}
+        rehypePlugins={[rehypeKatex]}
+        components={{
+          p: ({ children }) => <span className="block mb-1.5 last:mb-0">{children}</span>,
+        }}
+      >
+        {content}
+      </ReactMarkdown>
+    </div>
+  );
+}
+
+/**
+ * Smart Option Content Renderer: renders KaTeX formulas seamlessly if LaTeX notation is present
+ */
+function OptionMathContent({ text }: { text: string }) {
+  if (!text) return null;
+  if (text.includes("$")) {
+    return (
+      <ReactMarkdown
+        remarkPlugins={[remarkMath]}
+        rehypePlugins={[rehypeKatex]}
+        components={{ p: ({ children }) => <span>{children}</span> }}
+      >
+        {text}
+      </ReactMarkdown>
+    );
+  }
+  if (/(\\[a-zA-Z]+|[_^]|\b[a-zA-Z]_[0-9])/.test(text)) {
+    try {
+      const html = katex.renderToString(cleanLatexMathString(text), {
+        displayMode: false,
+        throwOnError: false,
+        strict: false,
+      });
+      return <span dangerouslySetInnerHTML={{ __html: html }} />;
+    } catch {
+      return <span>{text}</span>;
+    }
+  }
+  return <span>{text}</span>;
+}
 
 /**
  * Strips accidental leading order numbers (e.g., "1. ", "2) ", "១. ", "២) ")
@@ -979,14 +1066,14 @@ function InteractiveQuizPage() {
               <strong className="font-bold">
                 {isKhmer ? "គន្លឹះដោះស្រាយ ៖ " : "Solution Clue: "}
               </strong>
-              <span>{socraticClue}</span>
+              <span><OptionMathContent text={socraticClue} /></span>
             </div>
           </div>
         )}
 
         {/* Clean, Readable Prompt */}
         <h2 className="text-lg sm:text-2xl font-black tracking-tight text-slate-900 dark:text-white leading-relaxed mb-4 break-words">
-          {prompt}
+          <QuizMarkdownContent content={prompt} />
         </h2>
 
         {/* ================================================================= */}
@@ -1118,15 +1205,15 @@ function InteractiveQuizPage() {
 
             {/* Given Parameters Card */}
             {"given_values_km" in currentQ && ((isKhmer ? currentQ.given_values_km : currentQ.given_values_en) || []).length > 0 && (
-              <div className="mb-5 p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-850/80 border border-slate-200 dark:border-slate-750 flex items-center justify-around gap-2 text-center shadow-sm">
+              <div className="mb-5 p-4 rounded-2xl bg-slate-50 dark:bg-slate-850/80 border border-slate-200 dark:border-slate-750 flex flex-col items-center justify-center text-center shadow-sm">
                 {((isKhmer ? currentQ.given_values_km : currentQ.given_values_en) || []).map((item, i) => (
-                  <div key={i} className="flex flex-col">
-                    <span className="text-[10px] font-bold uppercase text-slate-500 dark:text-slate-400">
+                  <div key={i} className="flex flex-col items-center w-full min-w-0">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">
                       {item.label}
                     </span>
-                    <span className="font-mono text-xl font-black text-emerald-600 dark:text-emerald-400">
-                      {item.value}
-                    </span>
+                    <div className="text-lg sm:text-2xl font-black text-emerald-600 dark:text-emerald-400 py-1 overflow-x-auto max-w-full">
+                      <SafeMathBlock math={item.value} displayMode={true} />
+                    </div>
                   </div>
                 ))}
               </div>
@@ -1170,7 +1257,9 @@ function InteractiveQuizPage() {
                       <span className="grid h-8 w-8 place-items-center rounded-xl bg-slate-100 dark:bg-slate-750 text-xs font-black text-slate-600 dark:text-slate-300 shrink-0">
                         {String.fromCharCode(65 + i)}
                       </span>
-                      <span className="text-sm sm:text-base font-bold leading-snug">{opt}</span>
+                      <span className="text-sm sm:text-base font-bold leading-snug">
+                        <OptionMathContent text={opt} />
+                      </span>
                     </div>
 
                     {isChecked && isCorrect && (
@@ -1390,9 +1479,9 @@ function InteractiveQuizPage() {
                   {isKhmer ? "ត្រឹមត្រូវណាស់! 🎉" : "Nicely Done! 🎉"}
                 </h3>
                 {explanation && (
-                  <p className="text-xs sm:text-sm font-semibold text-[#407A00] dark:text-[#A0DB75] leading-relaxed line-clamp-2 mt-1">
-                    {explanation}
-                  </p>
+                  <div className="text-xs sm:text-sm font-semibold text-[#407A00] dark:text-[#A0DB75] leading-relaxed mt-1.5">
+                    <QuizMarkdownContent content={explanation} />
+                  </div>
                 )}
               </div>
             </div>
@@ -1451,13 +1540,23 @@ function InteractiveQuizPage() {
                 )}
 
                 {(currentQ.type === "concept_choice" || currentQ.type === "lab_calculation") && (
-                  <div className="mt-2 p-3 rounded-2xl bg-white dark:bg-slate-900 border border-rose-200 dark:border-rose-900/60 shadow-xs">
-                    <span className="font-black text-rose-700 dark:text-rose-400 text-xs uppercase tracking-wider block mb-1">
-                      {isKhmer ? "ចម្លើយត្រឹមត្រូវ៖" : "Correct Answer:"}
-                    </span>
-                    <span className="text-sm font-bold text-emerald-600 dark:text-emerald-400">
-                      {isKhmer ? currentQ.options_km[currentQ.correct_index] : currentQ.options_en[currentQ.correct_index]}
-                    </span>
+                  <div className="mt-2 p-3.5 rounded-2xl bg-white dark:bg-slate-900 border border-rose-200 dark:border-rose-900/60 shadow-xs space-y-2">
+                    <div className="flex items-center gap-2">
+                      <span className="font-black text-rose-700 dark:text-rose-400 text-xs uppercase tracking-wider">
+                        {isKhmer ? "ចម្លើយត្រឹមត្រូវ៖" : "Correct Answer:"}
+                      </span>
+                      <span className="text-sm font-bold text-emerald-600 dark:text-emerald-400">
+                        <OptionMathContent text={isKhmer ? currentQ.options_km[currentQ.correct_index] : currentQ.options_en[currentQ.correct_index]} />
+                      </span>
+                    </div>
+                    {explanation && (
+                      <div className="pt-2 border-t border-slate-100 dark:border-slate-800 text-xs text-slate-700 dark:text-slate-300">
+                        <span className="font-bold text-slate-900 dark:text-white block mb-1">
+                          {isKhmer ? "ដំណោះស្រាយលម្អិត ៖" : "Step-by-Step Solution:"}
+                        </span>
+                        <QuizMarkdownContent content={explanation} />
+                      </div>
+                    )}
                   </div>
                 )}
 

@@ -55,7 +55,7 @@ export function LessonsRightSidebar({
             </div>
             <div>
               <span className="text-xs font-bold text-slate-900 dark:text-white block leading-tight">
-                {activeSubjectNameKm || (isKhmer ? "កម្មវិធីសិក្សាជាតិ" : "Curriculum")}
+                {(isKhmer ? activeSubjectNameKm : (activeSubjectNameEn || activeSubjectNameKm)) || (isKhmer ? "កម្មវិធីសិក្សាជាតិ" : "Curriculum")}
               </span>
               <span className="text-[10.5px] text-slate-400 block">
                 {isKhmer ? `ថ្នាក់ទី ${currentGrade}` : `Grade ${currentGrade}`}
@@ -103,7 +103,7 @@ export function LessonsRightSidebar({
               >
                 <div className="min-w-0 pr-2">
                   <span className="font-bold text-slate-800 dark:text-slate-200 block truncate text-[11.5px]">
-                    {ug.unit.title_km}
+                    {isKhmer ? ug.unit.title_km : (ug.unit.title_en || ug.unit.title_km)}
                   </span>
                   <span className="text-[10px] text-slate-400">
                     {ug.completedCount}/{ug.totalCount} {isKhmer ? "មេរៀនចប់" : "completed"}
@@ -130,7 +130,7 @@ export function LessonsRightSidebar({
           </div>
           <div>
             <h4 className="text-xs font-bold text-slate-900 dark:text-white leading-tight">
-              {isKhmer ? "លោកគ្រូ វុឌ្ឍ (Kru Vuth)" : "Kru Vuth — STEM Mentor"}
+              {isKhmer ? "លោកគ្រូ វុឌ្ឍ" : "Kru Vuth — STEM Mentor"}
             </h4>
             <span className="text-[10.5px] text-slate-400 font-medium">
               {activeSubjectNameKm

@@ -61,7 +61,7 @@ export function DesktopHeader({
   showGradeSelector = true,
 }: DesktopHeaderProps) {
   const { user } = useAuth();
-  const { lang, data: profile } = useProfile();
+  const { lang, data: profile, setLanguage } = useProfile();
   const { isSuper, hearts, maxHearts, openPaywall } = useSuper();
   const isKhmer = lang === "km";
   const pathname = useRouterState({ select: (s) => s.location.pathname });
@@ -111,15 +111,7 @@ export function DesktopHeader({
     sounds.playPop();
     triggerHapticSelection();
     const nextLang = isKhmer ? "en" : "km";
-
-    if (user) {
-      try {
-        await supabase.from("profiles").update({ language: nextLang }).eq("id", user.id);
-        window.location.reload();
-      } catch {
-        // fallback
-      }
-    }
+    await setLanguage(nextLang);
   };
 
   // Current Grade Display Label
@@ -190,7 +182,7 @@ export function DesktopHeader({
                       {isKhmer ? "ជ្រើសរើសថ្នាក់ MoEYS" : "Select MoEYS Grade"}
                     </span>
                     <span className="text-[10px] font-semibold text-emerald-600 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded-md">
-                      ស្តង់ដារក្រសួង
+                      {isKhmer ? "ស្តង់ដារក្រសួង" : "National Standard"}
                     </span>
                   </div>
 
@@ -301,7 +293,7 @@ export function DesktopHeader({
             title={isKhmer ? "ប្តូរទៅភាសាអង់គ្លេស" : "Switch to Khmer"}
           >
             <Globe2 className="h-3.5 w-3.5 text-slate-400" />
-            <span>{isKhmer ? "ខ្មែរ" : "EN"}</span>
+            <span>{isKhmer ? "ខ្មែរ" : "English"}</span>
           </button>
 
           {/* Streak Flame Pill */}

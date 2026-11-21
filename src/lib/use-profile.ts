@@ -1,4 +1,5 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
 import type { Lang } from "@/lib/i18n";
@@ -17,6 +18,39 @@ export interface StudentProfile {
 
 export function useProfile() {
   const { user } = useAuth();
+  const qc = useQueryClient();
+
+  const [localLang, setLocalLang] = useState<Lang>(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("sciencekh_lang");
+      if (saved === "en" || saved === "km") return saved as Lang;
+    }
+    return "km";
+  });
+
+  // Listen to cross-window or local storage events
+  useEffect(() => {
+    const handleStorage = (e: StorageEvent) => {
+      if (e.key === "sciencekh_lang" && (e.newValue === "en" || e.newValue === "km")) {
+        setLocalLang(e.newValue as Lang);
+      }
+    };
+    const handleCustomChange = () => {
+      if (typeof window !== "undefined") {
+        const saved = localStorage.getItem("sciencekh_lang");
+        if (saved === "en" || saved === "km") {
+          setLocalLang(saved as Lang);
+        }
+      }
+    };
+
+    window.addEventListener("storage", handleStorage);
+    window.addEventListener("sciencekh_lang_change", handleCustomChange);
+    return () => {
+      window.removeEventListener("storage", handleStorage);
+      window.removeEventListener("sciencekh_lang_change", handleCustomChange);
+    };
+  }, []);
 
   const q = useQuery({
     queryKey: ["profile", user?.id],
@@ -50,9 +84,27 @@ export function useProfile() {
     : null;
 
   const profileData: StudentProfile | null = (q.data as StudentProfile | null) ?? fallbackProfile;
-  const lang: Lang = (profileData?.language as Lang) ?? "km";
+  const dbLang = (profileData?.language as Lang) ?? "km";
+  // localLang takes precedence for instant switching, then database, default "km"
+  const lang: Lang = localLang || dbLang;
 
-  return { ...q, data: profileData, lang };
+  const setLanguage = async (newLang: Lang) => {
+    setLocalLang(newLang);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("sciencekh_lang", newLang);
+      window.dispatchEvent(new Event("sciencekh_lang_change"));
+    }
+    if (user) {
+      try {
+        await supabase.from("profiles").update({ language: newLang }).eq("id", user.id);
+      } catch {
+        // silent
+      }
+    }
+    qc.invalidateQueries({ queryKey: ["profile"] });
+  };
+
+  return { ...q, data: profileData, lang, setLanguage };
 }
 
 export function useRoles() {

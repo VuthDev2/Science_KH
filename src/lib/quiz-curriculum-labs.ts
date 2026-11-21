@@ -48,10 +48,10 @@ function convertPracticeExercisesToLabQuestions(
       type: "lab_calculation" as const,
       stage_name_km: `ដំណាក់កាលអនុវត្តទី${idx + 1} • ${ex.titleKm}`,
       stage_name_en: `Practice Stage ${idx + 1} • ${ex.titleEn}`,
-      prompt_km: `${ex.questionKm}${ex.formulaOrContext ? `\n\n$$${ex.formulaOrContext}$$` : ""}`,
-      prompt_en: `${ex.questionEn}${ex.formulaOrContext ? `\n\n$$${ex.formulaOrContext}$$` : ""}`,
-      given_values_km: ex.formulaOrContext ? [{ label: "រូបមន្ត", value: ex.formulaOrContext }] : [],
-      given_values_en: ex.formulaOrContext ? [{ label: "Context", value: ex.formulaOrContext }] : [],
+      prompt_km: ex.questionKm,
+      prompt_en: ex.questionEn,
+      given_values_km: ex.formulaOrContext ? [{ label: "កន្សោមគណិតវិទ្យា", value: ex.formulaOrContext }] : [],
+      given_values_en: ex.formulaOrContext ? [{ label: "Target Expression", value: ex.formulaOrContext }] : [],
       options_km: ex.options.map((o) => o.labelKm),
       options_en: ex.options.map((o) => o.labelEn),
       correct_index: correctIdx,
@@ -2655,304 +2655,134 @@ function getRawCurriculumLabQuestions(lessonId: string): QuizQuestionItem[] {
 }
 
 /**
- * Duolingo-Style Deck Expander:
- * Ensures every single quiz block contains 10 to 12 questions.
- * Preserves custom handcrafted decks and appends authentic MoEYS
- * pedagogical stages (misconceptions, practical application, derivation protocol,
- * calculation mastery, and national exam readiness).
+ * Clean Non-Redundant Deck Verifier:
+ * Preserves custom handcrafted decks and strictly avoids repetitive boilerplate meta-questions.
+ * Focuses exclusively on genuine calculation problems and worked examples across MoEYS Grades 7–12.
  */
 function ensureDuolingoQuestionCount(
   deck: QuizQuestionItem[],
   lessonId: string,
 ): QuizQuestionItem[] {
-  if (deck.length >= 10) return deck;
+  // If the deck already has 4 or more topic-specific calculations, return directly.
+  // This completely eliminates repetitive boilerplate meta-questions across consecutive roadmap lessons!
+  if (deck.length >= 4) return deck;
 
   const lesson = getCuratedLesson(lessonId);
-  const titleKm = lesson?.title_km || "មេរៀនស្ដង់ដារ MoEYS";
-  const titleEn = lesson?.title_en || "MoEYS Standard Module";
-  const subjectKm = lesson?.subject?.name_km || "វិទ្យាសាស្ត្រ";
-  const subjectEn = lesson?.subject?.name_en || "Science";
-  const grade = lesson?.grade || 7;
-  const isBrevet = grade === 9;
-  const isBacII = grade === 12;
-  const examNameKm = isBrevet
-    ? "ឌីប្លូម (Grade 9)"
-    : isBacII
-      ? "បាក់ឌុប (Grade 12)"
-      : `ថ្នាក់ទី ${grade}`;
-  const examNameEn = isBrevet
-    ? "Brevet (Grade 9)"
-    : isBacII
-      ? "Bac II (Grade 12)"
-      : `Grade ${grade}`;
-
   const augmented: QuizQuestionItem[] = [...deck];
-  let stageNum = augmented.length + 1;
+  const subjectSlug = lesson?.subject?.slug || "mathematics";
 
-  // Question 5: Concept Precision & Definition Check
-  if (augmented.length < 10) {
-    augmented.push({
-      id: `${lessonId}-stage-${stageNum}`,
-      type: "concept_choice",
-      stage_name_km: `ដំណាក់កាលទី${stageNum} • ការផ្ទៀងផ្ទាត់គំនិតលម្អិត`,
-      stage_name_en: `Stage ${stageNum} • Concept Precision Check`,
-      prompt_km: `ក្នុងមេរៀន «${titleKm}» តើគោលការណ៍គ្រឹះណាដែលជាមូលដ្ឋានសំខាន់បំផុតក្នុងការដោះស្រាយលំហាត់?`,
-      prompt_en: `In "${titleEn}", which foundational principle is essential for systematic problem solving?`,
-      options_km: [
-        "ការក្តាប់បាននូវនិយមន័យច្បាស់លាស់ វិធានសញ្ញា និងទំនាក់ទំនងតក្កវិទ្យា",
-        "ការទន្ទេញចាំចម្លើយដោយមិនយល់ពីហេតុផល",
-        "ការរំលងជំហានដោះស្រាយហើយសរសេរតែចម្លើយចុងក្រោយ",
-        "ការប្រើរូបមន្តខុសពីកម្រិតថ្នាក់",
-      ],
-      options_en: [
-        "Mastering precise definitions, sign conventions, and logical relationships",
-        "Memorizing answers without conceptual understanding",
-        "Skipping intermediate steps and guessing final values",
-        "Applying unrelated formulas beyond syllabus",
-      ],
-      correct_index: 0,
-      scientific_analogy_km:
-        "ដូចគ្រឹះផ្ទះ៖ គ្រឹះទ្រឹស្តីរឹងមាំ ទើបអាចសាងសង់ចំណេះដឹងកម្រិតខ្ពស់បានរឹងមាំ។",
-      scientific_analogy_en:
-        "Like building foundations: rock-solid core principles support advanced understanding.",
-      socratic_clue_km: "និយមន័យ និងវិធានសញ្ញាត្រឹមត្រូវ គឺជាគ្រឹះនៃភាពជោគជ័យ។",
-      socratic_clue_en:
-        "Precise definitions and rigorous sign conventions are the bedrock of exam success.",
-      explanation_km: `ការយល់ច្បាស់ពីនិយមន័យ និងវិធានគ្រឹះនៃ «${titleKm}» ជួយឱ្យសិស្សដោះស្រាយលំហាត់បានត្រឹមត្រូវ ១០០%។`,
-      explanation_en: `Clear comprehension of foundational principles in "${titleEn}" ensures 100% accuracy.`,
-    });
-    stageNum++;
-  }
-
-  // Question 6: Common Misconception & Exam Trap
-  if (augmented.length < 10) {
-    augmented.push({
-      id: `${lessonId}-stage-${stageNum}`,
-      type: "concept_choice",
-      stage_name_km: `ដំណាក់កាលទី${stageNum} • ចំណុចងាយភាន់ច្រឡំក្នុងការប្រឡង`,
-      stage_name_en: `Stage ${stageNum} • Exam Trap & Misconception Check`,
-      prompt_km: `នៅពេលដោះស្រាយវិញ្ញាសាប្រឡងលើមេរៀន «${titleKm}» តើកំហុសទូទៅណាដែលសិស្សតែងតែប្រព្រឹត្ត?`,
-      prompt_en: `When tackling examination problems on "${titleEn}", which common pitfall must students actively avoid?`,
-      options_km: [
-        "ច្រឡំខ្នាតរង្វាស់ (Units) មិនបានបំប្លែងទៅជាប្រព័ន្ធ SI ឬភ្លេចវិធានសញ្ញា",
-        "អានប្រធានលំហាត់យ៉ាងហ្មត់ចត់ច្រើនដង",
-        "គូសបន្ទាត់ក្រោមទិន្នន័យបម្រាប់ក្នុងប្រធាន",
-        "ផ្ទៀងផ្ទាត់ចម្លើយចុងក្រោយដោយវិធីជំនួសត្រឡប់",
-      ],
-      options_en: [
-        "Confusing measurement units, failing to convert to SI, or misapplying sign rules",
-        "Reading the problem statement carefully multiple times",
-        "Underlining given data points in the exam prompt",
-        "Verifying final numeric values through back-substitution",
-      ],
-      correct_index: 0,
-      socratic_clue_km: "ការមិនបំប្លែងខ្នាត និងកំហុសសញ្ញាគឺជាអន្ទាក់ពិន្ទុធំបំផុត។",
-      socratic_clue_en:
-        "Unit conversion oversights and sign slips are the leading source of mark deductions.",
-      explanation_km: `ក្នុងការប្រឡងជាតិ MoEYS ការបំប្លែងខ្នាតទៅតាមប្រព័ន្ធអន្តរជាតិ (SI) និងការប្រយ័ត្នសញ្ញា (+) (-) ជួយធានាមិនឱ្យបាត់ពិន្ទុឡើយ។`,
-      explanation_en: `Strictly converting to standard SI units and monitoring operational signs guarantees zero penalty deductions.`,
-    });
-    stageNum++;
-  }
-
-  // Question 7: Cambodian Context & Real-World Application
-  if (augmented.length < 10) {
-    augmented.push({
-      id: `${lessonId}-stage-${stageNum}`,
-      type: "concept_choice",
-      stage_name_km: `ដំណាក់កាលទី${stageNum} • ការអនុវត្តជាក់ស្តែងក្នុងបរិបទកម្ពុជា`,
-      stage_name_en: `Stage ${stageNum} • Real-World Cambodian Application`,
-      prompt_km: `តើចំណេះដឹងពីមេរៀន «${titleKm}» អាចយកទៅអនុវត្តជាក់ស្តែងក្នុងជីវភាព ឬការអភិវឌ្ឍប្រទេសកម្ពុជាយ៉ាងដូចម្តេច?`,
-      prompt_en: `How can competencies from "${titleEn}" be directly applied to everyday life or national development in Cambodia?`,
-      options_km: [
-        "ជួយពន្យល់បាតុភូតធម្មជាតិ អនុវត្តក្នុងការងារបច្ចេកវិទ្យា វិស្វកម្ម កសិកម្ម និងការគ្រប់គ្រងធនធាន",
-        "គ្មានការអនុវត្តជាក់ស្តែងអ្វីក្នុងប្រទេសកម្ពុជាឡើយ",
-        "គ្រាន់តែជាចំណេះដឹងលើក្រដាសសម្រាប់ការប្រឡងប៉ុណ្ណោះ",
-        "មិនអាចយកទៅប្រើប្រាស់ក្រៅសាលារៀនបានទេ",
-      ],
-      options_en: [
-        "Informs scientific understanding, technology, civil engineering, agriculture, and natural resource management",
-        "Has zero practical relevance to Cambodia",
-        "Merely abstract textbook facts exclusively for test-taking",
-        "Cannot be utilized outside the school classroom",
-      ],
-      correct_index: 0,
-      scientific_analogy_km:
-        "ចំណេះដឹងវិទ្យាសាស្ត្រ និងសង្គមគឺជាឧបករណ៍កសាងសង្គមជាតិ និងសេដ្ឋកិច្ច។",
-      scientific_analogy_en:
-        "Academic competencies are tools driving national infrastructure, technology, and economic growth.",
-      socratic_clue_km: "ទ្រឹស្តីតែងតែបម្រើដល់ការអភិវឌ្ឍជាក់ស្តែងក្នុងសង្គម។",
-      socratic_clue_en:
-        "Theoretical knowledge bridges directly into industrial and societal development.",
-      explanation_km: `មុខវិជ្ជា ${subjectKm} តាមរយៈមេរៀន «${titleKm}» ផ្តល់មូលដ្ឋានគ្រឹះដល់វិស្វករ អ្នកស្រាវជ្រាវ និងពលរដ្ឋក្នុងការកសាងសង្គមជាតិកម្ពុជា។`,
-      explanation_en: `Competencies from ${subjectEn} ("${titleEn}") form the engineering and scientific bedrock of Cambodian national modernization.`,
-    });
-    stageNum++;
-  }
-
-  // Question 8: 4-Step Problem Solving Protocol (Derivation Chain)
-  if (augmented.length < 10) {
-    augmented.push({
-      id: `${lessonId}-stage-${stageNum}`,
-      type: "derivation_chain",
-      stage_name_km: `ដំណាក់កាលទី${stageNum} • សង្វាក់តក្កវិទ្យា ៤ ជំហានដោះស្រាយបញ្ហា`,
-      stage_name_en: `Stage ${stageNum} • 4-Step Problem-Solving Protocol`,
-      prompt_km: `ចូររៀបចំ ៤ ជំហាននៃការដោះស្រាយលំហាត់ប្រឡងក្នុងមេរៀន «${titleKm}» ឱ្យបានត្រឹមត្រូវតាមលំដាប់តក្កវិទ្យា៖`,
-      prompt_en: `Arrange the 4 steps of rigorous derivation and problem solving for "${titleEn}":`,
-      steps_km: [
-        "អានប្រធាន និងស្រង់ទិន្នន័យបម្រាប់ព្រមទាំងខ្នាត (Given Values & Units)",
-        "កំណត់រូបមន្ត ឬទ្រឹស្តីបទដែលត្រូវអនុវត្ត (Identify Principle / Formula)",
-        "បំប្លែងសមីការ និងជំនួសលេខដោយប្រុងប្រយ័ត្ន (Substitute & Calculate)",
-        "ផ្ទៀងផ្ទាត់ចម្លើយ និងសរសេរខ្នាតចុងក្រោយឱ្យបានច្បាស់លាស់ (Verify & State Unit)",
-      ],
-      steps_en: [
-        "Extract given values, identify constraints, and record standard units",
-        "Select governing formula, theorem, or grammatical/historical rule",
-        "Perform algebraic transposition and careful numerical substitution",
-        "Verify solution plausibility and clearly state final units/conclusion",
-      ],
-      correct_chain_order: [0, 1, 2, 3],
-      formula_badge: "MoEYS Protocol",
-      socratic_clue_km: "ស្រង់បម្រាប់ -> រើសរូបមន្ត -> ជំនួសលេខ -> ផ្ទៀងផ្ទាត់ចម្លើយ។",
-      socratic_clue_en: "Extract data -> Select principle -> Compute -> Conclude.",
-      explanation_km: `ការអនុវត្តតាមលំដាប់ ៤ ជំហាននេះជួយកាត់បន្ថយកំហុស និងធានាបានពិន្ទុពេញក្នុងការប្រឡងជាតិ។`,
-      explanation_en: `Following this 4-step protocol guarantees maximum marks on MoEYS national exams.`,
-    });
-    stageNum++;
-  }
-
-  // Question 9: Quantitative Benchmark / Evaluation Mastery
-  if (augmented.length < 10) {
-    augmented.push({
-      id: `${lessonId}-stage-${stageNum}`,
-      type: "lab_calculation",
-      stage_name_km: `ដំណាក់កាលទី${stageNum} • ការគណនាកម្រិតពិន្ទុ និងការវាយតម្លៃ`,
-      stage_name_en: `Stage ${stageNum} • Mastery Calculation & Evaluation`,
-      prompt_km: `ប្រសិនបើសិស្សម្នាក់ឆ្លើយត្រូវគ្រប់សំណួរទាំងអស់ក្នុងបន្ទប់ពិសោធន៍នៃមេរៀន «${titleKm}» តើសិស្សទទួលបានអត្ថប្រយោជន៍អ្វី?`,
-      prompt_en: `If a student completes all discovery lab stages in "${titleEn}" with full accuracy, what do they achieve?`,
-      given_values_km: [
-        { label: "មេរៀន", value: titleKm },
-        { label: "ពិន្ទុភាពស្ទាត់ជំនាញ", value: "100% Mastery" },
-      ],
-      given_values_en: [
-        { label: "Module", value: titleEn },
-        { label: "Mastery Level", value: "100% Mastery" },
-      ],
-      options_km: [
-        `ទទួលបាន +${lesson?.xp_reward || 35} XP, បង្កើនសន្ទុះ Streak, និងដោះសោមេរៀនបន្ទាប់`,
-        "មិនទទួលបានអ្វីទាំងអស់",
-        "ត្រូវចាប់ផ្តើមរៀនពីថ្នាក់ទី៧ ឡើងវិញ",
-        "បាត់បង់ថាមពលទាំងអស់",
-      ],
-      options_en: [
-        `Earn +${lesson?.xp_reward || 35} XP, advance daily streak, and unlock the next milestone`,
-        "No rewards granted",
-        "Forced to restart from Grade 7",
-        "Loss of all energy hearts",
-      ],
-      correct_index: 0,
-      formula_badge: "100% Mastery",
-      socratic_clue_km: "ការបញ្ចប់មេរៀនដោយជោគជ័យផ្តល់រង្វាន់ XP និងដោះសោដំណើរទៅមុខ។",
-      socratic_clue_en:
-        "Completing lessons unlocks XP rewards and advances the learning roadmap.",
-      explanation_km: `ការអនុវត្តជាប្រចាំជួយរក្សា Streak និងធ្វើឱ្យការសិក្សាក្លាយជាទម្លាប់ដ៏មានតម្លៃ។`,
-      explanation_en: `Daily consistency builds habits, secures leaderboard rankings, and guarantees mastery.`,
-    });
-    stageNum++;
-  }
-
-  // Question 10: National Examination Readiness Challenge
-  if (augmented.length < 10) {
-    augmented.push({
-      id: `${lessonId}-stage-${stageNum}`,
-      type: "concept_choice",
-      stage_name_km: `ដំណាក់កាលទី${stageNum} • ការត្រៀមខ្លួនប្រឡងថ្នាក់ជាតិ`,
-      stage_name_en: `Stage ${stageNum} • National Exam Readiness Challenge`,
-      prompt_km: `ដើម្បីទទួលបាននិទ្ទេសល្អ (A ឬ B) ក្នុងការប្រឡង ${examNameKm} តើសិស្សត្រូវត្រៀមខ្លួនចំពោះមេរៀន «${titleKm}» យ៉ាងណា?`,
-      prompt_en: `To achieve top honors (Grade A or B) on the ${examNameEn} examinations, how should one prepare for "${titleEn}"?`,
-      options_km: [
-        "ធ្វើស្វ័យវាយតម្លៃជាប្រចាំ ហាត់ដោះស្រាយវិញ្ញាសាចាស់ៗ និងយល់ច្បាស់ពីខ្លឹមសារមេរៀន",
-        "រង់ចាំជិតដល់ថ្ងៃប្រឡងទើបចាប់ផ្តើមមើលសៀវភៅ",
-        "មើលតែចម្លើយសង្ខេបដោយមិនបានអនុវត្តផ្ទាល់ដៃ",
-        "សង្ឃឹមលើសំណាងក្នុងការប្រឡង",
-      ],
-      options_en: [
-        "Self-assess frequently, practice past national exam archives, and understand foundational principles",
-        "Cram only a few days before the official exam",
-        "Read brief answer summaries without practicing by hand",
-        "Rely on luck on examination day",
-      ],
-      correct_index: 0,
-      socratic_clue_km:
-        "ការដោះស្រាយវិញ្ញាសាចាស់ៗ និងការអនុវត្តផ្ទាល់ដៃ គឺជាគន្លឹះឆ្ពោះទៅកាន់និទ្ទេស A។",
-      socratic_clue_en:
-        "Consistent practice with past exam papers and deep comprehension secures Grade A.",
-      explanation_km: `ការយល់ដឹងស៊ីជម្រៅលើមេរៀន «${titleKm}» រួមផ្សំជាមួយការអនុវត្តវិញ្ញាសាជាក់ស្តែង ជួយធានានូវលទ្ធផលឆ្នើមបំផុត។`,
-      explanation_en: `Deep comprehension of "${titleEn}" combined with authentic exam practice guarantees top results.`,
-    });
-    stageNum++;
-  }
-
-  // Question 11: Real-World Scenario Reasoning
-  if (augmented.length < 11) {
-    augmented.push({
-      id: `${lessonId}-stage-${stageNum}`,
-      type: "concept_choice",
-      stage_name_km: `ដំណាក់កាលទី${stageNum} • ការវិភាគហេតុផលបែបវិទ្យាសាស្ត្រ`,
-      stage_name_en: `Stage ${stageNum} • Real-World Scenario Reasoning`,
-      prompt_km: `នៅពេលជួបប្រទះស្ថានភាពជាក់ស្តែងទាក់ទងនឹងមេរៀន «${titleKm}» តើការវិនិច្ឆ័យបែបណាដែលត្រឹមត្រូវតាមស្ដង់ដារ MoEYS?`,
-      prompt_en: `When encountering a practical situation related to "${titleEn}", which reasoned judgement aligns with MoEYS standards?`,
-      options_km: [
-        "ផ្អែកលើភស្តុតាង វិភាគហេតុនិងផល និងប្រើប្រាស់រូបមន្តច្បាស់លាស់",
-        "ស្មានតាមអារម្មណ៍ដោយគ្មានទិន្នន័យ",
-        "សន្និដ្ឋានដោយផ្អែកលើពាក្យចចាមអារ៉ាម",
-        "មិនយកចិត្តទុកដាក់លើការពិតវិទ្យាសាស្ត្រ",
-      ],
-      options_en: [
-        "Base conclusions on empirical evidence, cause-and-effect logic, and verified principles",
-        "Guess impulsively without verifying parameters",
-        "Rely on hearsay without experimental backing",
-        "Disregard physical and empirical realities",
-      ],
-      correct_index: 0,
-      socratic_clue_km: "ការគិតបែបវិទ្យាសាស្ត្រតម្រូវឱ្យមានភស្តុតាង និងតក្កវិទ្យាច្បាស់លាស់។",
-      socratic_clue_en:
-        "Scientific thinking demands empirical evidence and sound logical reasoning.",
-      explanation_km: `ការអប់រំតាមកម្មវិធីសិក្សាជាតិ MoEYS បណ្តុះបណ្តាលសិស្សឱ្យមានការគិតស៊ីជម្រៅ និងចេះវិនិច្ឆ័យដោយសមហេតុផល។`,
-      explanation_en: `MoEYS national education cultivates critical thinking and evidence-based decision making.`,
-    });
-    stageNum++;
-  }
-
-  // Question 12: Comprehensive Capstone Synthesis
-  if (augmented.length < 12) {
-    augmented.push({
-      id: `${lessonId}-stage-${stageNum}`,
-      type: "concept_choice",
-      stage_name_km: `ដំណាក់កាលទី${stageNum} • សំយោគចំណេះដឹងទូទៅនៃមេរៀន`,
-      stage_name_en: `Stage ${stageNum} • Comprehensive Capstone Synthesis`,
-      prompt_km: `ជាសរុប តើអ្វីជាសារៈសំខាន់ដ៏ធំបំផុតនៃការបញ្ចប់ការសិក្សាមេរៀន «${titleKm}» ដោយជោគជ័យ?`,
-      prompt_en: `In summary, what is the greatest benefit of successfully mastering "${titleEn}"?`,
-      options_km: [
-        "កសាងចំណេះដឹងរឹងមាំ ត្រៀមប្រឡងជាតិប្រកបដោយទំនុកចិត្ត និងដោះសោមេរៀនបន្ទាប់លើ Learning Path",
-        "គ្រាន់តែទទួលបានពិន្ទុបណ្តោះអាសន្នដោយគ្មានប្រយោជន៍យូរអង្វែង",
-        "មិនមានឥទ្ធិពលលើការសិក្សាទៅមុខឡើយ",
-        "ត្រូវចាប់ផ្តើមឡើងវិញគ្រប់ពេល",
-      ],
-      options_en: [
-        "Build durable mastery, approach national exams with confidence, and advance through the roadmap",
-        "Merely temporary score points with no lasting academic value",
-        "Zero effect on future studies or grade advancement",
-        "Requires resetting every single time",
-      ],
-      correct_index: 0,
-      socratic_clue_km:
-        "ការតស៊ូរៀនសូត្រពីមួយកម្រិតទៅមួយកម្រិតនាំមកនូវភាពជោគជ័យយូរអង្វែង។",
-      socratic_clue_en:
-        "Step-by-step milestone progression leads to lifelong academic and professional success.",
-      explanation_km: `អបអរសាទរ! អ្នកបានឆ្លងកាត់ការសិក្សាយ៉ាងហ្មត់ចត់លើមេរៀន «${titleKm}»។ អ្នកបានត្រៀមខ្លួនរួចរាល់សម្រាប់មេរៀនបន្ទាប់!`,
-      explanation_en: `Outstanding! You have thoroughly completed all discovery stages for "${titleEn}". You are ready for the next milestone!`,
-    });
+  // Topic-specific calculation supplement only if deck has fewer than 4 items
+  if (augmented.length < 4) {
+    const stageNum = augmented.length + 1;
+    if (subjectSlug === "mathematics") {
+      augmented.push({
+        id: `${lessonId}-calc-supp-${stageNum}`,
+        type: "concept_choice",
+        stage_name_km: `ដំណាក់កាលទី${stageNum} • លំហាត់អនុវត្តគណនាលេខជាក់ស្តែង`,
+        stage_name_en: `Stage ${stageNum} • Applied Quantitative Calculation`,
+        prompt_km: `ចូរគណនាតម្លៃនៃកន្សោមគណិតវិទ្យា៖ 2(3x - 4) នៅពេល x = 5 ៖`,
+        prompt_en: `Evaluate the algebraic expression: 2(3x - 4) when x = 5:`,
+        options_km: [
+          "22 (2(3(5) - 4) = 2(15 - 4) = 2(11) = 22)",
+          "14",
+          "26",
+          "30",
+        ],
+        options_en: [
+          "22 (2(3(5) - 4) = 2(15 - 4) = 2(11) = 22)",
+          "14",
+          "26",
+          "30",
+        ],
+        correct_index: 0,
+        formula_badge: "2(3(5) - 4) = 22",
+        socratic_clue_km: "ជំនួស x = 5 រួចគណនាក្នុងវង់ក្រចកជាមុនសិន៖ 15 - 4 = 11 -> 2(11) = 22។",
+        socratic_clue_en: "Substitute x = 5: 15 - 4 = 11 -> 2(11) = 22.",
+        explanation_km: "2(3(5) - 4) = 2(15 - 4) = 2(11) = 22។",
+        explanation_en: "2(3(5) - 4) = 2(15 - 4) = 2(11) = 22.",
+      });
+    } else if (subjectSlug === "physics") {
+      augmented.push({
+        id: `${lessonId}-calc-supp-${stageNum}`,
+        type: "concept_choice",
+        stage_name_km: `ដំណាក់កាលទី${stageNum} • គណនាលំហាត់រូបវិទ្យាជាក់ស្តែង`,
+        stage_name_en: `Stage ${stageNum} • Quantitative Physics Calculation`,
+        prompt_km: `រថយន្តមួយធ្វើចលនាស្ទុះស្មើដោយសំទុះ a = 2 m/s² ក្រោមកម្លាំង F = 1000 N។ គណនាម៉ាស m នៃរថយន្ត៖`,
+        prompt_en: `A car accelerates at a = 2 m/s² under a net force F = 1000 N. Calculate the mass m of the car:`,
+        options_km: [
+          "m = 500 kg (តាមរូបមន្ត m = F / a = 1000 / 2)",
+          "m = 2000 kg",
+          "m = 200 kg",
+          "m = 100 kg",
+        ],
+        options_en: [
+          "m = 500 kg (via m = F / a = 1000 / 2)",
+          "m = 2000 kg",
+          "m = 200 kg",
+          "m = 100 kg",
+        ],
+        correct_index: 0,
+        formula_badge: "m = F / a = 500 kg",
+        socratic_clue_km: "អនុវត្តច្បាប់ញូតុន F = ma នាំឱ្យ m = F / a។",
+        socratic_clue_en: "From Newton's second law F = ma -> m = F / a.",
+        explanation_km: "m = 1000 N / 2 m/s² = 500 kg។",
+        explanation_en: "m = 1000 N / 2 m/s² = 500 kg.",
+      });
+    } else if (subjectSlug === "chemistry") {
+      augmented.push({
+        id: `${lessonId}-calc-supp-${stageNum}`,
+        type: "concept_choice",
+        stage_name_km: `ដំណាក់កាលទី${stageNum} • គណនាលំហាត់គីមីវិទ្យាជាក់ស្តែង`,
+        stage_name_en: `Stage ${stageNum} • Quantitative Chemistry Calculation`,
+        prompt_km: `គណនាចំនួនម៉ូល n នៃទឹក H₂O ចំនួន 36 g (ដឹងថា M = 18 g/mol) ៖`,
+        prompt_en: `Calculate moles n of water in 36 g H₂O (M = 18 g/mol):`,
+        options_km: [
+          "n = 2 mol (n = m / M = 36 / 18)",
+          "n = 0.5 mol",
+          "n = 1 mol",
+          "n = 4 mol",
+        ],
+        options_en: [
+          "n = 2 mol (n = m / M = 36 / 18)",
+          "n = 0.5 mol",
+          "n = 1 mol",
+          "n = 4 mol",
+        ],
+        correct_index: 0,
+        formula_badge: "n = m / M = 2 mol",
+        socratic_clue_km: "រូបមន្តចំនួនម៉ូល៖ n = m / M = 36 / 18 = 2 mol។",
+        socratic_clue_en: "n = m / M = 36 / 18 = 2 mol.",
+        explanation_km: "n = 36 g / 18 g/mol = 2 mol។",
+        explanation_en: "n = 36 g / 18 g/mol = 2 mol.",
+      });
+    } else {
+      augmented.push({
+        id: `${lessonId}-calc-supp-${stageNum}`,
+        type: "concept_choice",
+        stage_name_km: `ដំណាក់កាលទី${stageNum} • ការវិភាគទិន្នន័យជាក់ស្តែង`,
+        stage_name_en: `Stage ${stageNum} • Quantitative Metric Analysis`,
+        prompt_km: `ក្នុងការពិសោធន៍វិទ្យាសាស្ត្រមួយ ប៉ារ៉ាម៉ែត្រកើនពី 20 ទៅ 80។ គណនាអត្រាកំណើនភាគរយ៖`,
+        prompt_en: `In an empirical experiment, a parameter increases from 20 to 80. Calculate percentage increase:`,
+        options_km: [
+          "+300% (((80 - 20) / 20) × 100% = 300%)",
+          "+400%",
+          "+60%",
+          "+100%",
+        ],
+        options_en: [
+          "+300% (((80 - 20) / 20) * 100% = 300%)",
+          "+400%",
+          "+60%",
+          "+100%",
+        ],
+        correct_index: 0,
+        formula_badge: "Δ% = +300%",
+        socratic_clue_km: "អត្រាកំណើន = (តម្លៃថ្មី - តម្លៃចាស់) / តម្លៃចាស់ × 100% = (60 / 20) × 100% = 300%។",
+        socratic_clue_en: "Growth = (80 - 20) / 20 * 100% = 300%.",
+        explanation_km: "(80 - 20) / 20 × 100% = 300%។",
+        explanation_en: "(80 - 20) / 20 * 100% = 300%.",
+      });
+    }
   }
 
   return augmented;
