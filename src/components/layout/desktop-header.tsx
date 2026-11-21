@@ -41,6 +41,7 @@ interface DesktopHeaderProps {
   activeStream?: "science" | "social";
   onStreamChange?: (stream: "science" | "social") => void;
   showGradeSelector?: boolean;
+  hideGamification?: boolean;
 }
 
 const MOEYS_GRADES = [
@@ -60,6 +61,7 @@ export function DesktopHeader({
   activeStream: controlledStream,
   onStreamChange,
   showGradeSelector = true,
+  hideGamification = false,
 }: DesktopHeaderProps) {
   const { user } = useAuth();
   const { lang, data: profile, setLanguage } = useProfile();
@@ -304,34 +306,39 @@ export function DesktopHeader({
             <span>{isKhmer ? "ខ្មែរ" : "English"}</span>
           </button>
 
-          {/* Streak Flame Pill */}
-          <div
-            className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full text-xs font-black bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 border border-amber-200/80 dark:border-amber-800/60 shadow-2xs shrink-0 cursor-default"
-            title={isKhmer ? "ចំនួនថ្ងៃរៀនជាប់គ្នា" : "Daily Streak"}
-          >
-            <Flame className="h-3.5 w-3.5 fill-amber-500 text-amber-500" />
-            <span>{profile?.streak_days || 1}d</span>
-          </div>
+          {/* Gamification Indicators: Suppressed on dedicated academic reference libraries */}
+          {!hideGamification && (
+            <>
+              {/* Streak Flame Pill */}
+              <div
+                className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full text-xs font-black bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 border border-amber-200/80 dark:border-amber-800/60 shadow-2xs shrink-0 cursor-default"
+                title={isKhmer ? "ចំនួនថ្ងៃរៀនជាប់គ្នា" : "Daily Streak"}
+              >
+                <Flame className="h-3.5 w-3.5 fill-amber-500 text-amber-500" />
+                <span>{profile?.streak_days || 1}d</span>
+              </div>
 
-          {/* XP Pill */}
-          <div
-            className="hidden md:inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full text-xs font-black bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200/80 dark:border-emerald-800/60 shadow-2xs shrink-0 cursor-default"
-            title={isKhmer ? "ពិន្ទុបទពិសោធន៍ (XP)" : "Experience Points"}
-          >
-            <Sparkles className="h-3 w-3 fill-emerald-600 text-emerald-600 dark:fill-emerald-400 dark:text-emerald-400" />
-            <span>{profile?.xp ?? 0}</span>
-          </div>
+              {/* XP Pill */}
+              <div
+                className="hidden md:inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full text-xs font-black bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200/80 dark:border-emerald-800/60 shadow-2xs shrink-0 cursor-default"
+                title={isKhmer ? "ពិន្ទុបទពិសោធន៍ (XP)" : "Experience Points"}
+              >
+                <Sparkles className="h-3 w-3 fill-emerald-600 text-emerald-600 dark:fill-emerald-400 dark:text-emerald-400" />
+                <span>{profile?.xp ?? 0}</span>
+              </div>
 
-          {/* Hearts Gamification Indicator */}
-          <button
-            type="button"
-            onClick={() => openPaywall("hearts_pill")}
-            className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-full text-xs font-bold border border-rose-200 dark:border-rose-900/60 bg-rose-50/70 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 hover:border-rose-400 transition active:scale-95 cursor-pointer shadow-2xs"
-            title={isKhmer ? `នៅសល់ ${hearts}/${maxHearts} ជីវិត` : `${hearts}/${maxHearts} Hearts`}
-          >
-            <Heart className="h-3.5 w-3.5 text-rose-500 fill-rose-500" />
-            <span className="font-black text-xs text-rose-600 dark:text-rose-400">{hearts}</span>
-          </button>
+              {/* Hearts Gamification Indicator */}
+              <button
+                type="button"
+                onClick={() => openPaywall("hearts_pill")}
+                className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-full text-xs font-bold border border-rose-200 dark:border-rose-900/60 bg-rose-50/70 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 hover:border-rose-400 transition active:scale-95 cursor-pointer shadow-2xs"
+                title={isKhmer ? `នៅសល់ ${hearts}/${maxHearts} ជីវិត` : `${hearts}/${maxHearts} Hearts`}
+              >
+                <Heart className="h-3.5 w-3.5 text-rose-500 fill-rose-500" />
+                <span className="font-black text-xs text-rose-600 dark:text-rose-400">{hearts}</span>
+              </button>
+            </>
+          )}
 
           {/* Profile Avatar Link */}
           <Link

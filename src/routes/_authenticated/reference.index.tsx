@@ -110,108 +110,89 @@ const REFERENCE_GRADES = [
   { grade: 12, labelKm: "ថ្នាក់ទី ១២", labelEn: "Grade 12", tierKm: "វិទ្យាល័យ", tierEn: "Senior High", isSenior: true, badgeKm: "បាក់ឌុប", badgeEn: "Bac II" },
 ];
 
-// Subject-Aware Academic Constants & Scientific Cheat Sheets for Right Sidebar
-export interface ReferenceConstantItem {
-  symbol: string;
-  nameKm: string;
-  nameEn: string;
-  value: string;
-  subject: string;
-}
+// ==============================================================================
+// 7 Standard Academic Reference Categories specified for secondary students
+// ==============================================================================
+export const CORE_ACADEMIC_CATEGORIES = [
+  {
+    id: "formulas",
+    nameKm: "រូបមន្ត",
+    nameEn: "Formulas",
+    referenceTypes: ["formula", "equation", "chemical_formula"] as ReferenceType[],
+  },
+  {
+    id: "symbols",
+    nameKm: "និមិត្តសញ្ញា",
+    nameEn: "Symbols",
+    referenceTypes: ["symbol"] as ReferenceType[],
+  },
+  {
+    id: "definitions",
+    nameKm: "និយមន័យ",
+    nameEn: "Definitions",
+    referenceTypes: ["definition", "vocabulary"] as ReferenceType[],
+  },
+  {
+    id: "rules",
+    nameKm: "វិធាន & ច្បាប់",
+    nameEn: "Rules & Laws",
+    referenceTypes: ["rule", "law_principle", "theorem", "grammar_rule"] as ReferenceType[],
+  },
+  {
+    id: "units",
+    nameKm: "ខ្នាតរង្វាស់",
+    nameEn: "Units",
+    referenceTypes: ["unit_measurement"] as ReferenceType[],
+  },
+  {
+    id: "concepts",
+    nameKm: "ទ្រឹស្តី & គោលគំនិត",
+    nameEn: "Key Concepts",
+    referenceTypes: ["concept", "procedure", "historical_event", "date_timeline"] as ReferenceType[],
+  },
+  {
+    id: "tables",
+    nameKm: "តារាង & គំនូសបំព្រួញ",
+    nameEn: "Tables & Diagrams",
+    referenceTypes: ["table", "diagram", "chemical_element", "classification", "other"] as ReferenceType[],
+  },
+] as const;
 
-const MATHEMATICS_CONSTANTS: ReferenceConstantItem[] = [
-  { symbol: "π", nameKm: "ថេរពី", nameEn: "Pi Constant", value: "≈ 3.14159265", subject: "Mathematics" },
-  { symbol: "e", nameKm: "ចំនួនអឺឡែ", nameEn: "Euler's Number", value: "≈ 2.71828182", subject: "Mathematics" },
-  { symbol: "φ", nameKm: "សមាមាត្រមាស", nameEn: "Golden Ratio", value: "≈ 1.61803398", subject: "Mathematics" },
-  { symbol: "i", nameKm: "ឯកតានិម្មិត", nameEn: "Imaginary Unit", value: "i² = -1", subject: "Mathematics" },
-  { symbol: "√2", nameKm: "ថេរពីតាករ", nameEn: "Square Root of 2", value: "≈ 1.41421356", subject: "Mathematics" },
-  { symbol: "ln(2)", nameKm: "លោការីតនេពែនៃ ២", nameEn: "Natural Log of 2", value: "≈ 0.693147", subject: "Mathematics" },
-];
-
-const PHYSICS_CONSTANTS: ReferenceConstantItem[] = [
-  { symbol: "g", nameKm: "សំទុះទំនាញផែនដី", nameEn: "Gravitational Acceleration", value: "9.8 m/s²", subject: "Physics" },
-  { symbol: "c", nameKm: "ល្បឿនពន្លឺក្នុងសុញ្ញាកាស", nameEn: "Speed of Light", value: "3.00 × 10⁸ m/s", subject: "Physics" },
-  { symbol: "G", nameKm: "ថេរទំនាញសកល", nameEn: "Universal Gravitational Const.", value: "6.674 × 10⁻¹¹ N·m²/kg²", subject: "Physics" },
-  { symbol: "h", nameKm: "ថេរផ្លង់", nameEn: "Planck's Constant", value: "6.626 × 10⁻³⁴ J·s", subject: "Physics" },
-  { symbol: "e", nameKm: "បន្ទុកធាតុគ្រឹះ", nameEn: "Elementary Charge", value: "1.602 × 10⁻¹⁹ C", subject: "Physics" },
-  { symbol: "k_e", nameKm: "ថេរគូឡុំ", nameEn: "Coulomb Constant", value: "8.99 × 10⁹ N·m²/C²", subject: "Physics" },
-];
-
-const CHEMISTRY_CONSTANTS: ReferenceConstantItem[] = [
-  { symbol: "N_A", nameKm: "ចំនួនអាវ៉ូកាដ្រូ", nameEn: "Avogadro's Constant", value: "6.022 × 10²³ mol⁻¹", subject: "Chemistry" },
-  { symbol: "R", nameKm: "ថេរឧស្ម័នល្អិត", nameEn: "Ideal Gas Constant", value: "0.0821 atm·L/(mol·K)", subject: "Chemistry" },
-  { symbol: "V_m", nameKm: "មាឌម៉ូលនៅលក្ខខណ្ឌធម្មតា (STP)", nameEn: "Molar Volume at STP", value: "22.4 L/mol", subject: "Chemistry" },
-  { symbol: "K_w", nameKm: "ផលគុណអ៊ីយ៉ុងនៃទឹក (25°C)", nameEn: "Ion Product of Water", value: "1.0 × 10⁻¹⁴", subject: "Chemistry" },
-  { symbol: "F", nameKm: "ថេរហ្វារ៉ាដេ", nameEn: "Faraday Constant", value: "96,485 C/mol", subject: "Chemistry" },
-  { symbol: "pKa(H₂O)", nameKm: "កម្រិតអាស៊ីតនៃទឹកសុទ្ធ", nameEn: "pKa of Pure Water", value: "14.0", subject: "Chemistry" },
-];
-
-const BIOLOGY_CONSTANTS: ReferenceConstantItem[] = [
-  { symbol: "A = T, C ≡ G", nameKm: "ច្បាប់បំពេញបាស DNA", nameEn: "Chargaff's Base Pairing", value: "A=T (2H), C≡G (3H)", subject: "Biology" },
-  { symbol: "L_base", nameKm: "ចម្ងាយរវាង ២ គូណ្វៃក្លេអូទីដ", nameEn: "Base Pair Spacing", value: "3.4 Å = 0.34 nm", subject: "Biology" },
-  { symbol: "1 Codon", nameKm: "ក្រមពន្ធុ (កូដុង ១)", nameEn: "Triplet Genetic Code", value: "3 នុយក្លេអូទីដ (mRNA)", subject: "Biology" },
-  { symbol: "M_nu", nameKm: "ម៉ាសម៉ូលេគុលជាមធ្យមនៃនុយក្លេអូទីដ", nameEn: "Average Nucleotide Mass", value: "300 đ.v.C (amu)", subject: "Biology" },
-  { symbol: "ATP Yield", nameKm: "ថាមពលពីដង្ហើមកោសិកា ១ គ្លុយកូស", nameEn: "Cellular Respiration Yield", value: "36 – 38 ATP", subject: "Biology" },
-  { symbol: "DNA Turn", nameKm: "១ ជំហានរង្វេលទ្វេ DNA", nameEn: "One Complete DNA Helix", value: "10 គូ = 34 Å", subject: "Biology" },
-];
-
-const GENERAL_CONSTANTS: ReferenceConstantItem[] = [
-  { symbol: "g", nameKm: "សំទុះទំនាញផែនដី", nameEn: "Gravitational Acceleration", value: "9.8 m/s²", subject: "Physics" },
-  { symbol: "c", nameKm: "ល្បឿនពន្លឺក្នុងសុញ្ញាកាស", nameEn: "Speed of Light", value: "3.00 × 10⁸ m/s", subject: "Physics" },
-  { symbol: "π", nameKm: "ថេរពី", nameEn: "Pi Constant", value: "≈ 3.14159", subject: "Mathematics" },
-  { symbol: "N_A", nameKm: "ចំនួនអាវ៉ូកាដ្រូ", nameEn: "Avogadro's Constant", value: "6.022 × 10²³ mol⁻¹", subject: "Chemistry" },
-  { symbol: "R", nameKm: "ថេរឧស្ម័នល្អិត", nameEn: "Ideal Gas Constant", value: "0.0821 atm·L/mol·K", subject: "Chemistry" },
-  { symbol: "e", nameKm: "បន្ទុកធាតុគ្រឹះ", nameEn: "Elementary Charge", value: "1.602 × 10⁻¹⁹ C", subject: "Physics" },
-];
-
-function getSidebarConstantsForSubject(subjectSlug?: string): {
-  titleKm: string;
-  titleEn: string;
-  badgeKm: string;
-  badgeEn: string;
-  items: ReferenceConstantItem[];
-} {
+function getStudyContextTopic(grade: number, subjectSlug?: string, isKhmer: boolean = true): string {
+  if (!subjectSlug || subjectSlug === "all") {
+    return isKhmer ? "កម្មវិធីសិក្សាគោលថ្នាក់ជាតិ" : "National Core Curriculum";
+  }
   switch (subjectSlug) {
     case "mathematics":
-      return {
-        titleKm: "តារាងថេរគណិតវិទ្យា",
-        titleEn: "Mathematical Constants",
-        badgeKm: "រូបមន្តសង្ខេប",
-        badgeEn: "Math Cheat Sheet",
-        items: MATHEMATICS_CONSTANTS,
-      };
+      if (grade === 7) return isKhmer ? "សំណុំចំនួន & ធរណីមាត្រគ្រឹះ" : "Number Sets & Basic Geometry";
+      if (grade === 8) return isKhmer ? "ពហុធា & ត្រីកោណប៉ុនគ្នា" : "Polynomials & Congruent Triangles";
+      if (grade === 9) return isKhmer ? "សមីការដឺក្រេទី២ & ធរណីមាត្ររង្វង់" : "Quadratic Equations & Circle Geometry";
+      if (grade === 10) return isKhmer ? "អនុគមន៍ & ត្រីកោណមាត្រគ្រឹះ" : "Functions & Foundational Trigonometry";
+      if (grade === 11) return isKhmer ? "ស្វ៊ីតចំនួន & លីមីតនៃអនុគមន៍" : "Sequences & Function Limits";
+      return isKhmer ? "ដេរីវេ អាំងតេក្រាល & ប្រូបាប (បាក់ឌុប)" : "Derivatives, Integrals & Probability";
     case "physics":
-      return {
-        titleKm: "តារាងថេររូបវិទ្យា",
-        titleEn: "Physical Constants",
-        badgeKm: "ខ្នាតអន្តរជាតិ SI",
-        badgeEn: "Physics SI Sheet",
-        items: PHYSICS_CONSTANTS,
-      };
+      if (grade === 7) return isKhmer ? "កម្លាំង ចលនា និងខ្នាតរង្វាស់" : "Force, Motion & Measurement";
+      if (grade === 8) return isKhmer ? "សម្ពាធ ថាមពល និងកម្ដៅ" : "Pressure, Energy & Heat";
+      if (grade === 9) return isKhmer ? "អគ្គិសនី ចរន្ត និងម៉ាញ៉េទិច" : "Electricity, Current & Magnetism";
+      if (grade === 10) return isKhmer ? "ច្បាប់ញូតុន & ឌីណាមិច" : "Newton's Laws & Dynamics";
+      if (grade === 11) return isKhmer ? "ទែម៉ូឌីណាមិច & អុបទិចធរណីមាត្រ" : "Thermodynamics & Optics";
+      return isKhmer ? "លំយោលមេកានិច & រលកអេឡិចត្រូម៉ាញ៉េទិច" : "Oscillations & EM Waves";
     case "chemistry":
-      return {
-        titleKm: "តារាងថេរគីមីវិទ្យា",
-        titleEn: "Chemical Constants",
-        badgeKm: "ថេរគីមីវិទ្យា",
-        badgeEn: "Chemistry Key",
-        items: CHEMISTRY_CONSTANTS,
-      };
+      if (grade === 7) return isKhmer ? "សារធាតុ អង្គធាតុ និងល្បាយ" : "Matter, Substances & Mixtures";
+      if (grade === 8) return isKhmer ? "អាតូម ម៉ូលេគុល និងសមាសធាតុ" : "Atoms, Molecules & Compounds";
+      if (grade === 9) return isKhmer ? "សមីការគីមី អាស៊ីត-បាស និងអំបិល" : "Chemical Equations, Acids, Bases & Salts";
+      if (grade === 10) return isKhmer ? "តារាងខួបនៃធាតុគីមី & សម្ព័ន្ធគីមី" : "Periodic Table & Chemical Bonds";
+      if (grade === 11) return isKhmer ? "ល្បឿនប្រតិកម្ម & លំនឹងគីមី" : "Reaction Kinetics & Equilibrium";
+      return isKhmer ? "គីមីសរីរាង្គ អេសទែ និងអាស៊ីត-បាស" : "Organic Chemistry, Esters & pH";
     case "biology":
-      return {
-        titleKm: "ច្បាប់ និងវិមាត្រជីវវិទ្យា",
-        titleEn: "Biological Rules & Dimensions",
-        badgeKm: "ពន្ធុវិទ្យាគ្រឹះ",
-        badgeEn: "Genetics Key",
-        items: BIOLOGY_CONSTANTS,
-      };
+      if (grade === 7) return isKhmer ? "ពិភពរុក្ខជាតិ សត្វ និងកោសិកា" : "Plants, Animals & Cells";
+      if (grade === 8) return isKhmer ? "សរីរាង្គមនុស្ស និងប្រព័ន្ធរំលាយអាហារ" : "Human Body & Digestion";
+      if (grade === 9) return isKhmer ? "ប្រព័ន្ធប្រសាទ និងអ័រម៉ូន" : "Nervous System & Hormones";
+      if (grade === 10) return isKhmer ? "កោសិកា ការបំបែកកោសិកា និងជាលិកា" : "Cell Division & Tissues";
+      if (grade === 11) return isKhmer ? "សរីរវិទ្យារុក្ខជាតិ & រស្មីសំយោគ" : "Plant Physiology & Photosynthesis";
+      return isKhmer ? "ពន្ធុវិទ្យា ហ្សែន DNA & តំណពូជ" : "Genetics, DNA & Heredity";
     default:
-      return {
-        titleKm: "តារាងថេរវិទ្យាសាស្ត្រសកល",
-        titleEn: "Universal Constants",
-        badgeKm: "ខ្នាតអន្តរជាតិ SI",
-        badgeEn: "SI Cheat Sheet",
-        items: GENERAL_CONSTANTS,
-      };
+      return isKhmer ? "កម្មវិធីសិក្សាជាតិ MoEYS" : "MoEYS Curriculum Standard";
   }
 }
 
@@ -449,9 +430,15 @@ function SafeKatex({
 }
 
 /**
- * Friendly, student-focused reference card that de-mystifies math & science symbols and formulas.
+ * Compact Academic Reference Item
+ * Implements the user's compact reference blueprint:
+ * - Category · Type
+ * - Title (Khmer & English / notation)
+ * - Restrained, clean KaTeX formula / symbol box
+ * - Concise 1-2 line summary (zero bloated vertical space)
+ * - Footer: Grade · Subject on left, View details → on right
  */
-function FriendlyReferenceCard({
+function CompactAcademicReferenceCard({
   entry,
   activeGrade,
   isKhmer,
@@ -479,176 +466,104 @@ function FriendlyReferenceCard({
   const mathExpr = rawLatex ? cleanLatexMathString(rawLatex) : null;
   const hasPlainSymbol = !mathExpr && !!sc.symbol;
   const subTheme = SUBJECT_THEMES[entry.subjectSlug] || SUBJECT_THEMES.mathematics;
-  const variables = (sc.variables || []) as Array<{
-    symbol: string;
-    nameKh: string;
-    nameEn?: string;
-    unit?: string;
-    description?: string;
-  }>;
-  const friendlyGuide = entry.studentFriendlyGuideKh
-    ? entry.studentFriendlyGuideKh.replace(/^\*\*គន្លឹះចងចាំ៖\*\*\s*/, "").trim()
-    : null;
+  const subjectNameKm = MOEYS_REFERENCE_SUBJECTS.find((s) => s.slug === entry.subjectSlug)?.nameKm || entry.subjectSlug;
+
+  const categoryLabel = isKhmer
+    ? REFERENCE_TYPE_LABELS[entry.referenceType]?.labelKm || entry.referenceType
+    : REFERENCE_TYPE_LABELS[entry.referenceType]?.labelEn || entry.referenceType;
 
   return (
     <article
       onClick={() => onSelect(entry)}
-      className="p-5 sm:p-6 rounded-3xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs hover:border-[#059669] dark:hover:border-[#059669] hover:shadow-md transition-all duration-200 cursor-pointer group space-y-4 active:scale-[0.99]"
+      className="p-4 sm:p-4.5 rounded-2xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs hover:border-[#059669] dark:hover:border-[#059669] hover:shadow-xs transition-all duration-150 cursor-pointer group flex flex-col justify-between gap-3 active:scale-[0.99]"
     >
-      {/* Top Badges Row */}
+      {/* Category badge & bookmark button */}
       <div className="flex items-center justify-between gap-2">
         <div className="flex items-center gap-1.5 flex-wrap">
+          <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+            {categoryLabel}
+          </span>
           {showSubjectBadge && (
             <span
               className={cn(
-                "text-[10px] font-black px-2.5 py-0.5 rounded-full border uppercase",
+                "text-[10px] font-bold px-2 py-0.5 rounded-md",
                 subTheme.badgeBg,
-                subTheme.badgeText,
-                subTheme.iconBorder
+                subTheme.badgeText
               )}
             >
-              {entry.subjectSlug}
+              {isKhmer ? subjectNameKm : entry.subjectSlug}
             </span>
           )}
-          <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
-            {isKhmer
-              ? REFERENCE_TYPE_LABELS[entry.referenceType]?.labelKm || entry.referenceType
-              : REFERENCE_TYPE_LABELS[entry.referenceType]?.labelEn || entry.referenceType}
-          </span>
         </div>
 
-        <div className="flex items-center gap-2">
-          {showSubjectBadge && (
-            <span className="text-[10.5px] font-extrabold text-slate-400 bg-slate-50 dark:bg-slate-800 px-2 py-0.5 rounded-md">
-              {isKhmer ? `ថ្នាក់ទី ${toKhmerNumeral(activeGrade)}` : `Grade ${activeGrade}`}
-            </span>
+        <button
+          type="button"
+          onClick={(e) => onToggleBookmark(entry.id, e)}
+          className="p-1 rounded-lg text-slate-400 hover:text-amber-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition cursor-pointer"
+          aria-label={entry.isBookmarked ? "Remove bookmark" : "Save bookmark"}
+        >
+          {entry.isBookmarked ? (
+            <BookmarkCheck className="h-4 w-4 text-amber-500 fill-amber-500" />
+          ) : (
+            <Bookmark className="h-4 w-4" />
           )}
-          <button
-            type="button"
-            onClick={(e) => onToggleBookmark(entry.id, e)}
-            className="p-1 rounded-lg text-slate-400 hover:text-amber-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition cursor-pointer"
-            aria-label={entry.isBookmarked ? "Remove bookmark" : "Save bookmark"}
-          >
-            {entry.isBookmarked ? (
-              <BookmarkCheck className="h-4 w-4 text-amber-500 fill-amber-500" />
-            ) : (
-              <Bookmark className="h-4 w-4" />
-            )}
-          </button>
-        </div>
+        </button>
       </div>
 
       {/* Title */}
       <div>
-        <h2 className="text-base sm:text-lg font-black text-slate-900 dark:text-white group-hover:text-[#059669] transition leading-relaxed">
+        <h2 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white group-hover:text-[#059669] transition leading-snug line-clamp-1">
           {isKhmer
             ? cleanLatexDisplayTitle(entry.originalTitleKh)
             : entry.titleEn || cleanLatexDisplayTitle(entry.originalTitleKh)}
         </h2>
       </div>
 
-      {/* Formula / Math Expression Box with clean KaTeX */}
+      {/* Formula / Math Expression Display */}
       {mathExpr ? (
-        <div className="relative p-4 rounded-2xl bg-gradient-to-br from-slate-50 to-emerald-50/20 dark:from-slate-800/80 dark:to-emerald-950/20 border border-slate-200/80 dark:border-slate-800 formula-card-preview overflow-x-auto whitespace-nowrap text-center shadow-2xs">
-          <div className="inline-block text-base sm:text-lg md:text-xl text-slate-900 dark:text-white whitespace-nowrap px-4 py-1">
+        <div className="relative p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-800 formula-card-preview overflow-x-auto whitespace-nowrap text-center shadow-2xs">
+          <div className="inline-block text-sm sm:text-base text-slate-900 dark:text-white whitespace-nowrap px-3 py-0.5">
             <SafeKatex math={mathExpr} displayMode={true} />
           </div>
 
           <button
             type="button"
             onClick={(e) => onCopyFormula(mathExpr, entry.id, e)}
-            className="absolute top-2.5 right-2.5 p-1.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-500 hover:text-[#059669] hover:border-emerald-300 shadow-2xs transition cursor-pointer"
+            className="absolute top-2 right-2 p-1 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-400 hover:text-[#059669] shadow-2xs transition cursor-pointer"
             title={isKhmer ? "ចម្លង LaTeX" : "Copy LaTeX"}
           >
-            {isCopied ? <Check className="h-3.5 w-3.5 text-[#059669]" /> : <Copy className="h-3.5 w-3.5" />}
+            {isCopied ? <Check className="h-3 w-3 text-[#059669]" /> : <Copy className="h-3 w-3" />}
           </button>
         </div>
       ) : hasPlainSymbol ? (
-        (() => {
-          const isSymbolLatex =
-            sc.symbol &&
-            (sc.symbol.includes("\\") ||
-              sc.symbol.includes("{") ||
-              sc.symbol.includes("mathbb") ||
-              sc.symbol.includes("=") ||
-              sc.symbol.includes("^") ||
-              sc.symbol.includes("_") ||
-              sc.symbol.includes("dots"));
-
-          return (
-            <div className="p-3.5 rounded-2xl bg-slate-50/90 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-800 flex items-center justify-between px-4">
-              <span className="text-xl font-black text-slate-900 dark:text-white font-mono whitespace-nowrap">
-                {isSymbolLatex ? (
-                  <SafeKatex math={sc.symbol} />
-                ) : (
-                  sc.symbol
-                )}
-              </span>
-              <span className="text-xs text-slate-500 font-bold">
-                {sc.associatedUnit
-                  ? isKhmer
-                    ? `ខ្នាត៖ ${sc.associatedUnit}`
-                    : `Unit: ${sc.associatedUnit}`
-                  : (isKhmer ? sc.phoneticKh : sc.phoneticEn) || ""}
-              </span>
-            </div>
-          );
-        })()
-      ) : (
-        <p className="text-xs text-slate-600 dark:text-slate-300 line-clamp-2 leading-relaxed">
-          {isKhmer ? entry.shortDescriptionKh : (entry.explanationEn || entry.titleEn || entry.shortDescriptionKh)}
-        </p>
-      )}
-
-      {/* Friendly Variable Breakdown: De-mystifies every single letter */}
-      {variables.length > 0 && (
-        <div className="p-3 rounded-2xl bg-slate-50/80 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800/80 space-y-1.5">
-          <span className="text-[11px] font-black text-slate-600 dark:text-slate-300 flex items-center gap-1">
-            <span>📐</span>
-            <span>{isKhmer ? "អត្ថន័យអក្សរនីមួយៗក្នុងរូបមន្ត៖" : "Variable Breakdown:"}</span>
+        <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-800 flex items-center justify-between px-3">
+          <span className="text-base font-bold text-slate-900 dark:text-white font-mono whitespace-nowrap">
+            {sc.symbol}
           </span>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 pt-0.5">
-            {variables.map((v, idx) => (
-              <div key={idx} className="flex items-center gap-1.5 text-xs">
-                <span className="font-serif font-black text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 px-1.5 py-0.5 rounded-md border border-blue-200/60 shrink-0">
-                  {v.symbol}
-                </span>
-                <span className="font-bold text-slate-700 dark:text-slate-200 truncate">
-                  {isKhmer ? v.nameKh : v.nameEn || v.nameKh}
-                </span>
-                {v.unit && (
-                  <span className="text-[10.5px] text-slate-400 shrink-0 font-medium">
-                    [{v.unit}]
-                  </span>
-                )}
-              </div>
-            ))}
-          </div>
+          <span className="text-xs text-slate-500 font-medium">
+            {sc.associatedUnit
+              ? isKhmer
+                ? `ខ្នាត៖ ${sc.associatedUnit}`
+                : `Unit: ${sc.associatedUnit}`
+              : (isKhmer ? sc.phoneticKh : sc.phoneticEn) || ""}
+          </span>
         </div>
-      )}
+      ) : null}
 
-      {/* Student Memory Hook & Real-World Meaning Callout */}
-      {(isKhmer ? friendlyGuide : (entry.explanationEn || null)) && (
-        <div className="p-3 rounded-2xl bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200/60 dark:border-amber-800/40 flex items-start gap-2.5">
-          <Lightbulb className="h-4 w-4 text-amber-500 shrink-0 mt-0.5" />
-          <div className="space-y-0.5 text-xs text-amber-950 dark:text-amber-200/90 leading-relaxed font-medium">
-            <span className="font-black text-amber-900 dark:text-amber-300 block">
-              {isKhmer ? "គន្លឹះចងចាំ & អនុវត្ត៖" : "Key Takeaway:"}
-            </span>
-            <p>{isKhmer ? friendlyGuide : entry.explanationEn}</p>
-          </div>
-        </div>
-      )}
+      {/* Concise 1-2 line explanation */}
+      <p className="text-xs text-slate-600 dark:text-slate-300 line-clamp-2 leading-relaxed">
+        {isKhmer ? entry.shortDescriptionKh : (entry.explanationEn || entry.titleEn || entry.shortDescriptionKh)}
+      </p>
 
-      {/* Source Citation & Detail Link Footer */}
-      <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] text-slate-400">
-        <span className="truncate max-w-[240px] font-medium">
+      {/* Footer: Grade · Subject on left, View details → on right */}
+      <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] text-slate-400 font-medium">
+        <span className="truncate max-w-[200px]">
           {isKhmer
-            ? (entry.sources?.[0]?.sourceDocument?.titleKm || "សៀវភៅពុម្ពផ្លូវការ MoEYS")
-            : (entry.sources?.[0]?.sourceDocument?.titleEn || "Official MoEYS Textbook")}
+            ? `ថ្នាក់ទី ${toKhmerNumeral(activeGrade)} · ${subjectNameKm}`
+            : `Grade ${activeGrade} · ${entry.subjectSlug}`}
         </span>
-        <span className="font-black text-[#059669] group-hover:underline flex items-center gap-1 shrink-0">
-          <span>{isKhmer ? "មើលលម្អិត" : "Full Details"}</span>
+        <span className="font-bold text-[#059669] group-hover:underline flex items-center gap-1 shrink-0">
+          <span>{isKhmer ? "មើលលម្អិត" : "View details"}</span>
           <ArrowRight className="h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
         </span>
       </div>
@@ -685,7 +600,6 @@ function StudyReferenceLibraryPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [localSearch, setLocalSearch] = useState(searchQuery);
   const [selectedDiscipline, setSelectedDiscipline] = useState<DisciplineFilter>("all");
-  const [copiedConstant, setCopiedConstant] = useState<string | null>(null);
   const [copiedFormulaId, setCopiedFormulaId] = useState<string | null>(null);
 
   // Sync search input
@@ -751,33 +665,37 @@ function StudyReferenceLibraryPage() {
     return MOEYS_REFERENCE_SUBJECTS.find((s) => s.slug === activeSubjectSlug) || null;
   }, [activeSubjectSlug]);
 
-  // Dynamic knowledge categories for the selected subject
+  // Dynamic 7 Core Academic Categories generated strictly from actual loaded records
   const dynamicCategories = useMemo(() => {
-    if (!activeSubjectSlug) return [];
-    const baseCategories = getCategoriesForSubject(activeSubjectSlug);
-
-    return baseCategories
-      .map((cat) => {
-        const count = entries.filter((e) => cat.referenceTypes.includes(e.referenceType)).length;
-        return { ...cat, count };
-      })
-      .filter((cat) => cat.count > 0);
-  }, [activeSubjectSlug, entries]);
+    return CORE_ACADEMIC_CATEGORIES.map((cat) => {
+      const count = entries.filter((e) => (cat.referenceTypes as readonly ReferenceType[]).includes(e.referenceType)).length;
+      return { ...cat, count };
+    }).filter((cat) => cat.count > 0);
+  }, [entries]);
 
   // Entries filtered by the active dynamic category
   const filteredEntries = useMemo(() => {
     if (activeCategory === "all") return entries;
 
-    const matchedCat = dynamicCategories.find((c) => c.id === activeCategory);
+    const matchedCat = CORE_ACADEMIC_CATEGORIES.find((c) => c.id === activeCategory);
     if (!matchedCat) return entries;
 
-    return entries.filter((e) => matchedCat.referenceTypes.includes(e.referenceType));
-  }, [entries, activeCategory, dynamicCategories]);
+    return entries.filter((e) => (matchedCat.referenceTypes as readonly ReferenceType[]).includes(e.referenceType));
+  }, [entries, activeCategory]);
 
-  // Subject-specific constants & rules for right sidebar cheat sheet
-  const sidebarConstants = useMemo(() => {
-    return getSidebarConstantsForSubject(activeSubjectSlug);
-  }, [activeSubjectSlug]);
+  // Grade-appropriate quick references strictly filtered by active grade and active subject
+  const gradeQuickReferences = useMemo(() => {
+    return entries.filter((e) => {
+      const matchGrade = e.grades.includes(activeGrade);
+      const matchSubject = !activeSubjectSlug || activeSubjectSlug === "all" || e.subjectSlug === activeSubjectSlug;
+      return matchGrade && matchSubject;
+    });
+  }, [entries, activeGrade, activeSubjectSlug]);
+
+  // Saved / Bookmarked references
+  const savedReferences = useMemo(() => {
+    return entries.filter((e) => e.isBookmarked);
+  }, [entries]);
 
   // Handlers for clean navigation transitions
   const handleSelectGrade = (newGrade: number) => {
@@ -836,19 +754,6 @@ function StudyReferenceLibraryPage() {
     });
   };
 
-  const handleCopyConstant = (constant: ReferenceConstantItem) => {
-    navigator.clipboard.writeText(`${constant.symbol} = ${constant.value}`);
-    setCopiedConstant(constant.symbol);
-    sounds.playPop();
-    triggerHapticSelection();
-    toast.success(
-      isKhmer
-        ? `បានចម្លង ${constant.nameKm} (${constant.value})`
-        : `Copied ${constant.nameEn} (${constant.value})`
-    );
-    setTimeout(() => setCopiedConstant(null), 2000);
-  };
-
   const handleCopyFormula = (latex: string, id: string, e: React.MouseEvent) => {
     e.stopPropagation();
     navigator.clipboard.writeText(latex);
@@ -884,6 +789,7 @@ function StudyReferenceLibraryPage() {
 
   return (
     <AppShell
+      hideGamification={true}
       breadcrumbs={[
         { label: isKhmer ? "ទំព័រដើម" : "Home", href: "/home" },
         { label: isKhmer ? "ស្វែងយល់" : "Explore", href: "/explore" },
@@ -894,109 +800,152 @@ function StudyReferenceLibraryPage() {
       onGradeChange={(g) => handleSelectGrade(g)}
       rightSidebar={
         <div className="space-y-4">
-          {/* Card 1: Active Reference Tier & MoEYS Standard Summary */}
-          <div className="p-4 rounded-3xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs space-y-2.5">
+          {/* Section 1: Your Current Study Context */}
+          <div className="p-4 rounded-3xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs space-y-3">
             <div className="flex items-center justify-between">
               <span className="text-xs font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
                 <BookOpen className="h-4 w-4 text-[#059669]" />
-                <span>{isKhmer ? "កម្រិតថ្នាក់បច្ចុប្បន្ន" : "Active Reference Tier"}</span>
+                <span>{isKhmer ? "បរិបទសិក្សារបស់អ្នក" : "Current Study Context"}</span>
               </span>
               <span className="text-[11px] font-black text-[#059669] bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-0.5 rounded-full border border-emerald-200/80 dark:border-emerald-800">
                 {isKhmer ? `ថ្នាក់ទី ${toKhmerNumeral(activeGrade)}` : `Grade ${activeGrade}`}
               </span>
             </div>
 
-            <div className="p-2.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-xs">
-              <span className="text-slate-500 dark:text-slate-400 font-medium">
-                {isKhmer ? "មុខវិជ្ជាសកម្ម" : "Available Subjects"}
-              </span>
-              <span className="font-extrabold text-slate-800 dark:text-slate-100">
-                {isKhmer ? toKhmerNumeral(availableSubjects.length) : availableSubjects.length} {isKhmer ? "មុខវិជ្ជា" : "Subjects"}
-              </span>
+            <div className="space-y-1.5 text-xs">
+              <div className="p-2.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800/80 space-y-1">
+                <div className="flex items-center justify-between">
+                  <span className="text-slate-400 font-medium">
+                    {isKhmer ? "មុខវិជ្ជាសកម្ម" : "Active Subject"}
+                  </span>
+                  <span className="font-extrabold text-slate-800 dark:text-slate-100">
+                    {currentSubject ? (isKhmer ? currentSubject.nameKm : currentSubject.nameEn) : (isKhmer ? "គ្រប់មុខវិជ្ជា" : "All Subjects")}
+                  </span>
+                </div>
+                <div className="flex items-center justify-between pt-1 border-t border-slate-100 dark:border-slate-700/60">
+                  <span className="text-slate-400 font-medium">
+                    {isKhmer ? "មេរៀនស្នូល" : "Current Topic"}
+                  </span>
+                  <span className="font-bold text-[#059669] text-right truncate max-w-[150px]">
+                    {getStudyContextTopic(activeGrade, activeSubjectSlug, isKhmer)}
+                  </span>
+                </div>
+              </div>
+
+              {/* Action Link to Related Lesson */}
+              <Link
+                to="/lessons"
+                search={{
+                  grade: activeGrade,
+                  subject: activeSubjectSlug && activeSubjectSlug !== "all" ? activeSubjectSlug : undefined,
+                }}
+                className="w-full flex items-center justify-between p-2.5 rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/40 text-[#059669] dark:text-emerald-300 border border-emerald-100 dark:border-emerald-900/60 hover:bg-emerald-100/60 transition group font-bold text-xs"
+              >
+                <span>{isKhmer ? "បើកមេរៀនពាក់ព័ន្ធ" : "Open Related Lesson"}</span>
+                <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
+              </Link>
             </div>
           </div>
 
-          {/* Card 2: Dynamic Subject & Universal Constants Cheat Sheet */}
+          {/* Section 2: Grade-Appropriate Quick References */}
           <div className="p-4 rounded-3xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs space-y-3">
             <div className="flex items-center justify-between">
               <span className="text-[11px] font-extrabold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
                 <Sparkles className="h-3.5 w-3.5 text-amber-500" />
-                <span>{isKhmer ? sidebarConstants.titleKm : sidebarConstants.titleEn}</span>
+                <span>{isKhmer ? "ឯកសារយោងរហ័សប្រចាំថ្នាក់" : "Related References"}</span>
               </span>
               <span className="text-[10px] font-bold text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-full">
-                {isKhmer ? sidebarConstants.badgeKm : sidebarConstants.badgeEn}
+                {isKhmer ? `ថ្នាក់ទី ${toKhmerNumeral(activeGrade)}` : `Grade ${activeGrade}`}
               </span>
             </div>
 
             <div className="space-y-1.5">
-              {sidebarConstants.items.map((c) => {
-                const isCopied = copiedConstant === c.symbol;
-                return (
-                  <button
-                    key={c.symbol}
-                    type="button"
-                    onClick={() => handleCopyConstant(c)}
-                    className="w-full flex items-center justify-between p-2 rounded-xl text-left bg-slate-50/70 dark:bg-slate-800/40 hover:bg-emerald-50/60 dark:hover:bg-emerald-950/40 border border-slate-100 dark:border-slate-800 hover:border-emerald-200 dark:hover:border-emerald-800 transition group cursor-pointer"
-                  >
-                    <div className="min-w-0 pr-2">
-                      <div className="flex items-center gap-1.5">
-                        <span className="font-serif font-black text-xs text-slate-900 dark:text-white">
-                          {c.symbol}
-                        </span>
-                        <span className="text-[11px] font-medium text-slate-500 dark:text-slate-400 truncate">
-                          {isKhmer ? c.nameKm : c.nameEn}
-                        </span>
-                      </div>
-                      <span className="text-[11px] font-mono font-bold text-[#059669] block">
-                        {c.value}
-                      </span>
-                    </div>
+              {gradeQuickReferences.length > 0 ? (
+                gradeQuickReferences.slice(0, 4).map((ref) => {
+                  const sc = (ref.structuredContent || {}) as any;
+                  const displaySym = sc.symbol || sc.latexExpression || ref.titleEn;
+                  const isCopied = copiedFormulaId === ref.id;
 
-                    <div className="shrink-0 p-1 text-slate-400 group-hover:text-[#059669] transition">
-                      {isCopied ? <Check className="h-3.5 w-3.5 text-[#059669]" /> : <Copy className="h-3.5 w-3.5" />}
+                  return (
+                    <div
+                      key={ref.id}
+                      onClick={() => {
+                        sounds.playPop();
+                        triggerHapticSelection();
+                        navigate({
+                          to: "/reference/$referenceId",
+                          params: { referenceId: ref.slug || ref.id },
+                        });
+                      }}
+                      className="w-full flex items-center justify-between p-2 rounded-xl text-left bg-slate-50/70 dark:bg-slate-800/40 hover:bg-emerald-50/60 dark:hover:bg-emerald-950/40 border border-slate-100 dark:border-slate-800 hover:border-emerald-200 dark:hover:border-emerald-800 transition group cursor-pointer"
+                    >
+                      <div className="min-w-0 pr-2">
+                        <span className="font-serif font-black text-xs text-slate-900 dark:text-white truncate block">
+                          {cleanLatexDisplayTitle(ref.originalTitleKh)}
+                        </span>
+                        {displaySym && (
+                          <span className="text-[11px] font-mono font-bold text-[#059669] block truncate">
+                            {displaySym.length > 32 ? displaySym.slice(0, 32) + "..." : displaySym}
+                          </span>
+                        )}
+                      </div>
+
+                      <div className="shrink-0 flex items-center gap-1">
+                        <button
+                          type="button"
+                          onClick={(e) => handleCopyFormula(displaySym || ref.originalTitleKh, ref.id, e)}
+                          className="p-1 text-slate-400 hover:text-[#059669] transition cursor-pointer"
+                          title={isKhmer ? "ចម្លង" : "Copy"}
+                        >
+                          {isCopied ? <Check className="h-3.5 w-3.5 text-[#059669]" /> : <Copy className="h-3.5 w-3.5" />}
+                        </button>
+                      </div>
                     </div>
-                  </button>
-                );
-              })}
+                  );
+                })
+              ) : (
+                <p className="text-xs text-slate-400 py-2 text-center">
+                  {isKhmer ? "ជ្រើសរើសមុខវិជ្ជាដើម្បីបង្ហាញឯកសារយោងរហ័ស" : "Select a subject to display quick references"}
+                </p>
+              )}
             </div>
           </div>
 
-          {/* Card 3: Quick Academic Study Shortcuts */}
+          {/* Section 3: Saved & Recently Viewed References */}
           <div className="p-4 rounded-3xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs space-y-2.5">
-            <span className="text-[11px] font-extrabold text-slate-400 uppercase tracking-wider block">
-              {isKhmer ? "ផ្លូវកាត់ជំនួយការរៀន" : "Study Shortcuts"}
-            </span>
-
-            <div className="space-y-1.5 text-xs font-bold">
-              <Link
-                to="/exams"
-                className="flex items-center justify-between p-2.5 rounded-2xl bg-blue-50/60 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 border border-blue-100 dark:border-blue-900/60 hover:bg-blue-100/60 transition group"
-              >
-                <div className="flex items-center gap-2">
-                  <Award className="h-4 w-4 text-blue-600 dark:text-blue-400 shrink-0" />
-                  <span>{isKhmer ? "វិញ្ញាសាប្រឡងបាក់ឌុប" : "Bac II Exam Papers"}</span>
-                </div>
-                <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
-              </Link>
-
-              <Link
-                to="/tutor"
-                search={{
-                  initialPrompt: currentSubject
-                    ? isKhmer
-                      ? `សូមជួយពន្យល់រូបមន្ត និងទ្រឹស្តីបទក្នុងមុខវិជ្ជា ${currentSubject.nameKm} ថ្នាក់ទី ${activeGrade} ឱ្យខ្ញុំយល់ច្បាស់។`
-                      : `Please explain the formulas and concepts in ${currentSubject.nameEn} Grade ${activeGrade}.`
-                    : undefined,
-                }}
-                className="flex items-center justify-between p-2.5 rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 border border-emerald-100 dark:border-emerald-900/60 hover:bg-emerald-100/60 transition group"
-              >
-                <div className="flex items-center gap-2">
-                  <GraduationCap className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
-                  <span>{isKhmer ? "សួរលោកគ្រូ វុឌ្ឍ" : "Ask Kru Vuth — STEM Mentor"}</span>
-                </div>
-                <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
-              </Link>
+            <div className="flex items-center justify-between">
+              <span className="text-[11px] font-extrabold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+                <Bookmark className="h-3.5 w-3.5 text-amber-500" />
+                <span>{isKhmer ? "ឯកសារបានចំណាំ & ធ្លាប់មើល" : "Saved & Recent"}</span>
+              </span>
+              {savedReferences.length > 0 && (
+                <span className="text-[10px] font-bold text-amber-600 bg-amber-50 dark:bg-amber-950/60 px-2 py-0.5 rounded-full border border-amber-200/60 dark:border-amber-800/60">
+                  {isKhmer ? toKhmerNumeral(savedReferences.length) : savedReferences.length}
+                </span>
+              )}
             </div>
+
+            {savedReferences.length > 0 ? (
+              <div className="space-y-1.5">
+                {savedReferences.slice(0, 3).map((item) => (
+                  <Link
+                    key={item.id}
+                    to="/reference/$referenceId"
+                    params={{ referenceId: item.slug || item.id }}
+                    className="flex items-center justify-between p-2 rounded-xl bg-slate-50/70 dark:bg-slate-800/40 hover:bg-amber-50/40 dark:hover:bg-amber-950/30 border border-slate-100 dark:border-slate-800 hover:border-amber-200 text-xs font-bold text-slate-700 dark:text-slate-200 transition group"
+                  >
+                    <span className="truncate pr-2">{cleanLatexDisplayTitle(item.originalTitleKh)}</span>
+                    <ArrowRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-amber-500 group-hover:translate-x-0.5 transition-all shrink-0" />
+                  </Link>
+                ))}
+              </div>
+            ) : (
+              <div className="p-2.5 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 text-[11px] text-slate-500 leading-relaxed">
+                {isKhmer
+                  ? "ចុចសញ្ញាចំណាំ 🔖 លើរូបមន្ត ឬនិយមន័យ ដើម្បីរក្សាទុកសម្រាប់បើកមើលរហ័សនៅទីនេះ។"
+                  : "Bookmark any formula or definition to quickly access it here."}
+              </div>
+            )}
           </div>
         </div>
       }
@@ -1193,9 +1142,9 @@ function StudyReferenceLibraryPage() {
                     </button>
                   </div>
                 ) : (
-                  <div className="space-y-3">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
                     {entries.map((entry) => (
-                      <FriendlyReferenceCard
+                      <CompactAcademicReferenceCard
                         key={entry.id}
                         entry={entry}
                         activeGrade={activeGrade}
@@ -1530,9 +1479,9 @@ function StudyReferenceLibraryPage() {
                 </button>
               </div>
             ) : (
-              <div className="space-y-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
                 {filteredEntries.map((entry) => (
-                  <FriendlyReferenceCard
+                  <CompactAcademicReferenceCard
                     key={entry.id}
                     entry={entry}
                     activeGrade={activeGrade}

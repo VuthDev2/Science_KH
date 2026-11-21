@@ -297,28 +297,64 @@ export class ReferenceRepository {
           return false;
         }
 
-        // Search Query filter (matches Khmer title, English title, tags, variables, symbols)
+        // Comprehensive Multi-Lingual & Symbol Search
         if (filter.searchQuery && filter.searchQuery.trim().length > 0) {
-          const q = filter.searchQuery.toLowerCase().trim();
-          const matchTitleKh = entry.originalTitleKh.toLowerCase().includes(q);
-          const matchTitleEn = entry.titleEn.toLowerCase().includes(q);
-          const matchDesc = entry.shortDescriptionKh.toLowerCase().includes(q);
-          const matchTerms = entry.keyTerms.some((t) => t.toLowerCase().includes(q));
-          const matchTags = entry.tags.some((t) => t.toLowerCase().includes(q));
+          const rawQ = filter.searchQuery.toLowerCase().trim();
+          
+          // Alias dictionary: bridges student input (symbols, transliterations, synonyms) to canonical terms
+          const searchAliases: Record<string, string[]> = {
+            "sqrt": ["\\sqrt", "ឬស", "square root", "ឬសការេ"],
+            "√": ["\\sqrt", "sqrt", "ឬស", "square root"],
+            "ឬស": ["\\sqrt", "sqrt", "square root"],
+            "z": ["\\mathbb{z}", "integers", "ចំនួនគត់", "រ៉ឺឡាទីវ", "zahlen"],
+            "n": ["\\mathbb{n}", "natural", "ចំនួនធម្មជាតិ", "លេខរាប់"],
+            "q": ["\\mathbb{q}", "rational", "ចំនួនសនិទាន", "ប្រភាគ", "quotient"],
+            "r": ["\\mathbb{r}", "real", "ចំនួនពិត", "បន្ទាត់ចំនួន"],
+            "pi": ["\\pi", "3.14", "ថេរពី", "រង្វង់"],
+            "π": ["\\pi", "pi", "3.14", "ថេរពី"],
+            "ph": ["ph", "[h+]", "អាស៊ីត", "បាស", "acid", "base"],
+            "delta": ["\\delta", "ឌីសគ្រីមីណង់", "បម្រែបម្រួល"],
+            "δ": ["\\delta", "delta", "ឌីសគ្រីមីណង់"],
+            "Δ": ["\\delta", "delta", "ឌីសគ្រីមីណង់"],
+            "ohm": ["\\omega", "អូម", "ច្បាប់អូម", "រេស៊ីស្តង់"],
+            "ω": ["\\omega", "omega", "ប្រេកង់កោណ", "លំយោល"],
+            "newton": ["ញូតុន", "កម្លាំង", "ច្បាប់ញូតុន"],
+            "deriv": ["ដេរីវេ", "f'(x)", "derivative"],
+            "integ": ["អាំងតេក្រាល", "\\int", "integral"],
+            "dna": ["dna", "rna", "តំណពូជ", "ហ្សែន", "នុយក្លេអូទីដ", "កូដុង"],
+            "cell": ["កោសិកា", "cell", "ប្រូការីយ៉ូត", "អឺការីយ៉ូត"],
+            "acid": ["អាស៊ីត", "acid", "ph", "hcl"],
+            "base": ["បាស", "base", "naoh"],
+          };
 
-          // Formula or symbol deep search
+          const searchTerms = [rawQ, ...(searchAliases[rawQ] || [])];
+
+          const matchesAny = (text?: string | null) => {
+            if (!text) return false;
+            const lower = text.toLowerCase();
+            return searchTerms.some((t) => lower.includes(t));
+          };
+
+          const matchTitleKh = matchesAny(entry.originalTitleKh);
+          const matchTitleEn = matchesAny(entry.titleEn);
+          const matchDesc = matchesAny(entry.shortDescriptionKh) || matchesAny(entry.explanationEn);
+          const matchTerms = entry.keyTerms.some((t) => matchesAny(t));
+          const matchTags = entry.tags.some((t) => matchesAny(t));
+
+          // Formula, latex expression or symbol deep search
           let matchFormula = false;
           const sc = entry.structuredContent as any;
           if (sc) {
-            if (sc.latexExpression && sc.latexExpression.toLowerCase().includes(q)) matchFormula = true;
-            if (sc.plainExpression && sc.plainExpression.toLowerCase().includes(q)) matchFormula = true;
-            if (sc.symbol && sc.symbol.toLowerCase().includes(q)) matchFormula = true;
+            if (matchesAny(sc.latexExpression)) matchFormula = true;
+            if (matchesAny(sc.plainExpression)) matchFormula = true;
+            if (matchesAny(sc.symbol)) matchFormula = true;
+            if (matchesAny(sc.associatedUnit)) matchFormula = true;
             if (Array.isArray(sc.variables)) {
               if (sc.variables.some((v: any) =>
-                (v.symbol && v.symbol.toLowerCase().includes(q)) ||
-                (v.nameKh && v.nameKh.toLowerCase().includes(q)) ||
-                (v.nameEn && v.nameEn.toLowerCase().includes(q)) ||
-                (v.unit && v.unit.toLowerCase().includes(q))
+                matchesAny(v.symbol) ||
+                matchesAny(v.nameKh) ||
+                matchesAny(v.nameEn) ||
+                matchesAny(v.unit)
               )) {
                 matchFormula = true;
               }

@@ -23,6 +23,7 @@ interface AppShellProps {
   activeStream?: "science" | "social";
   onStreamChange?: (stream: "science" | "social") => void;
   showGradeSelector?: boolean;
+  hideGamification?: boolean;
 }
 
 export function AppShell({
@@ -36,6 +37,7 @@ export function AppShell({
   activeStream,
   onStreamChange,
   showGradeSelector = true,
+  hideGamification = false,
 }: AppShellProps) {
   // Clear any stale collapsed state from local storage so sidebar remains fully expanded
   useEffect(() => {
@@ -64,6 +66,7 @@ export function AppShell({
           activeStream={activeStream}
           onStreamChange={onStreamChange}
           showGradeSelector={showGradeSelector}
+          hideGamification={hideGamification}
         />
 
         {/* Workspace Canvas: Plain full-width on mobile; 3-column bounded canvas on desktop */}

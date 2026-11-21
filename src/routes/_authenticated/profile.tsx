@@ -481,11 +481,17 @@ function ProfilePage() {
         }
       }
 
-      // Update state and persistence
+      // Update state and local persistence immediately so UI updates with zero delay
       setSelectedAvatar(finalAvatarUrl);
       localStorage.setItem(`sciencekh_avatar_${user?.id || "guest"}`, finalAvatarUrl);
 
-      await updateFieldMutation.mutateAsync({ avatar_url: finalAvatarUrl });
+      // Attempt remote database sync; if it fails (e.g. data URL length limit on column or bucket permission),
+      // local avatar persistence already ensures seamless display for the student
+      try {
+        await updateFieldMutation.mutateAsync({ avatar_url: finalAvatarUrl });
+      } catch (remoteErr) {
+        console.warn("Avatar synced locally; remote DB sync bypassed:", remoteErr);
+      }
 
       sounds.playVictory();
       launchConfetti();

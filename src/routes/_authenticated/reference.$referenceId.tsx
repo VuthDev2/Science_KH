@@ -300,6 +300,7 @@ function ReferenceDetailPage() {
 
   return (
     <AppShell
+      hideGamification={true}
       breadcrumbs={[
         { label: isKhmer ? "ទំព័រដើម" : "Home", href: "/home" },
         { label: isKhmer ? "ស្វែងយល់" : "Explore", href: "/explore" },
