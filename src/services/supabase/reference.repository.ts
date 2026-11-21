@@ -183,7 +183,12 @@ export class ReferenceRepository {
         query = query.eq("reference_type", filter.referenceType);
       }
 
-      const { data, error } = await query;
+      // Safeguard against slow/cold-starting cloud database connections (max 1.5s wait)
+      const timeoutPromise = new Promise<{ data: null; error: Error }>((resolve) =>
+        setTimeout(() => resolve({ data: null, error: new Error("Supabase timeout") }), 1500)
+      );
+
+      const { data, error } = (await Promise.race([query, timeoutPromise])) as any;
 
       if (!error && data && data.length > 0) {
         // Map database records into typed ReferenceEntry
@@ -258,7 +263,7 @@ export class ReferenceRepository {
   /**
    * Filter reference entries with comprehensive search matching
    */
-  private static filterEntriesInMemory(
+  static filterEntriesInMemory(
     entries: ReferenceEntry[],
     filter: ReferenceFilterState
   ): ReferenceEntry[] {

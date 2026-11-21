@@ -45,7 +45,7 @@ import { useProfile } from "@/lib/use-profile";
 import { BottomNav } from "@/components/bottom-nav";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import { tx } from "@/lib/i18n";
+import { tx, toKhmerNumeral } from "@/lib/i18n";
 import { AppShell } from "@/components/layout/app-shell";
 import { HomeRightSidebarWidgets } from "@/components/layout/desktop-right-sidebar";
 import { GuidedLearningPath } from "@/components/features/curriculum/guided-learning-path";
@@ -360,10 +360,10 @@ function HomePage() {
                     <span className="text-[11px] font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-0.5 rounded-full border border-emerald-200/80 dark:border-emerald-800/60">
                       {studentGrade >= 11
                         ? isKhmer
-                          ? `ថ្នាក់ទី ${studentGrade} · ${selectedStream === "science" ? "វិទ្យាសាស្ត្រពិត" : "វិទ្យាសាស្ត្រសង្គម"}`
+                          ? `ថ្នាក់ទី ${toKhmerNumeral(studentGrade)} · ${selectedStream === "science" ? "វិទ្យាសាស្ត្រពិត" : "វិទ្យាសាស្ត្រសង្គម"}`
                           : `Grade ${studentGrade} · ${selectedStream === "science" ? "Science Stream" : "Social Stream"}`
                         : isKhmer
-                          ? `ថ្នាក់ទី ${studentGrade} (អនុវិទ្យាល័យ)`
+                          ? `ថ្នាក់ទី ${toKhmerNumeral(studentGrade)} (អនុវិទ្យាល័យ)`
                           : `Grade ${studentGrade} (Junior High)`}
                     </span>
                     <span className="text-[11px] text-slate-400 font-semibold">
@@ -417,7 +417,7 @@ function HomePage() {
                         ? "បន្តការសិក្សាមេរៀនគោលដៅ"
                         : "Target Next Lesson"
                       : isKhmer
-                        ? `ថ្នាក់ទី ${studentGrade} · មេរៀនចាប់ផ្តើម`
+                        ? `ថ្នាក់ទី ${toKhmerNumeral(studentGrade)} · មេរៀនដំបូង`
                         : `Recommended · Grade ${studentGrade}`}
                   </span>
                 </span>
@@ -496,7 +496,7 @@ function HomePage() {
                     <BookOpen className="h-4.5 w-4.5 text-emerald-600" />
                     <span>
                       {isKhmer
-                        ? `មុខវិជ្ជាកម្មវិធីជាតិ (ថ្នាក់ទី ${studentGrade})`
+                        ? `មុខវិជ្ជាកម្មវិធីជាតិ (ថ្នាក់ទី ${toKhmerNumeral(studentGrade)})`
                         : `Curriculum Subjects (Grade ${studentGrade})`}
                     </span>
                   </h2>
@@ -746,10 +746,10 @@ function MobileHomeScreen({
               <span>
                 {studentGrade >= 11
                   ? isKhmer
-                    ? `ថ្នាក់ទី ${studentGrade} · ${selectedStream === "science" ? "វិទ្យាសាស្ត្រពិត" : "សង្គម"}`
+                    ? `ថ្នាក់ទី ${toKhmerNumeral(studentGrade)} · ${selectedStream === "science" ? "វិទ្យាសាស្ត្រពិត" : "សង្គម"}`
                     : `Grade ${studentGrade} · ${selectedStream === "science" ? "Science" : "Social"}`
                   : isKhmer
-                    ? `ថ្នាក់ទី ${studentGrade}`
+                    ? `ថ្នាក់ទី ${toKhmerNumeral(studentGrade)}`
                     : `Grade ${studentGrade}`}
               </span>
               <ChevronDown className="h-3 w-3 text-slate-400" />
@@ -769,7 +769,7 @@ function MobileHomeScreen({
                 </span>
                 <span className="text-slate-300 dark:text-slate-700">•</span>
                 <span className="text-slate-400 text-xs shrink-0">
-                  {isKhmer ? `ថ្នាក់ទី ${studentGrade}` : `Grade ${studentGrade}`}
+                  {isKhmer ? `ថ្នាក់ទី ${toKhmerNumeral(studentGrade)}` : `Grade ${studentGrade}`}
                 </span>
               </div>
 
@@ -885,7 +885,7 @@ function MobileHomeScreen({
                   <BookOpen className="h-4 w-4 text-emerald-600" />
                   <span>
                     {isKhmer
-                      ? `មុខវិជ្ជាស្នូល ថ្នាក់ទី ${studentGrade}`
+                      ? `មុខវិជ្ជាស្នូល ថ្នាក់ទី ${toKhmerNumeral(studentGrade)}`
                       : `Core Subjects · Grade ${studentGrade}`}
                   </span>
                 </h2>

@@ -28,6 +28,7 @@ import {
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
 import { useProfile } from "@/lib/use-profile";
+import { toKhmerNumeral } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import { CURATED_MOEYS_LESSONS as MOEYS_BANK_LESSONS } from "@/lib/curated-lessons";
 import { sounds } from "@/lib/sound-effects";
@@ -536,7 +537,7 @@ function LessonsIndex() {
                   )}
                 >
                   <GraduationCap className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
-                  <span className="whitespace-nowrap">{isKhmer ? `ថ្នាក់ទី ${currentGrade}` : `G${currentGrade}`}</span>
+                  <span className="whitespace-nowrap">{isKhmer ? `ថ្នាក់ទី ${toKhmerNumeral(currentGrade)}` : `G${currentGrade}`}</span>
                   <ChevronDown className="h-3 w-3 text-slate-400 shrink-0" />
                 </button>
 
@@ -779,13 +780,13 @@ function LessonsIndex() {
                   <div className="flex items-center justify-between gap-2">
                     <span className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-black uppercase tracking-wider bg-white/20 backdrop-blur-md text-white border border-white/25">
                       <GraduationCap className="h-3.5 w-3.5" />
-                      <span>{isKhmer ? `ថ្នាក់ទី ${currentGrade}` : `Grade ${currentGrade}`}</span>
+                      <span>{isKhmer ? `ថ្នាក់ទី ${toKhmerNumeral(currentGrade)}` : `Grade ${currentGrade}`}</span>
                       <span>•</span>
                       <span>
                         {currentGrade === 12
-                          ? isKhmer ? "ត្រៀមបាក់ឌុប (Bac II)" : "Bac II Prep"
+                          ? isKhmer ? "ត្រៀមបាក់ឌុប" : "Bac II Prep"
                           : currentGrade === 9
-                            ? isKhmer ? "ត្រៀមឌីប្លូម (Brevet)" : "Brevet Prep"
+                            ? isKhmer ? "ត្រៀមឌីប្លូម" : "Brevet Prep"
                             : isKhmer ? "កម្មវិធីសិក្សាជាតិ" : "National Standard"}
                       </span>
                     </span>
@@ -801,7 +802,7 @@ function LessonsIndex() {
                     </h2>
                     <p className="text-xs sm:text-sm text-white/90 leading-relaxed mt-1 max-w-xl">
                       {isKhmer
-                        ? "ជ្រើសរើសមុខវិជ្ជាខាងក្រោម ដើម្បីបន្តដំណើរផ្សងព្រេងលើគន្លងសិក្សា (Learning Path) និងសន្សំពិន្ទុ XP!"
+                        ? "ជ្រើសរើសមុខវិជ្ជាខាងក្រោម ដើម្បីបន្តដំណើរលើគន្លងសិក្សា និងសន្សំពិន្ទុចំណេះដឹង!"
                         : "Choose a subject below to advance along the winding learning path and earn XP!"}
                     </p>
                   </div>
@@ -822,7 +823,7 @@ function LessonsIndex() {
                             : "bg-white/15 text-white hover:bg-white/25"
                         )}
                       >
-                        {isKhmer ? "គ្រប់មុខវិជ្ជា (All)" : "All Subjects"}
+                        {isKhmer ? "គ្រប់មុខវិជ្ជា" : "All Subjects"}
                       </button>
                       <button
                         type="button"
@@ -837,7 +838,7 @@ function LessonsIndex() {
                             : "bg-white/15 text-white hover:bg-white/25"
                         )}
                       >
-                        🔬 {isKhmer ? "វិទ្យាសាស្ត្រពិត (Science)" : "Science Stream"}
+                        🔬 {isKhmer ? "វិទ្យាសាស្ត្រពិត" : "Science Stream"}
                       </button>
                       <button
                         type="button"
@@ -852,7 +853,7 @@ function LessonsIndex() {
                             : "bg-white/15 text-white hover:bg-white/25"
                         )}
                       >
-                        📚 {isKhmer ? "វិទ្យាសាស្ត្រសង្គម (Social)" : "Social Stream"}
+                        📚 {isKhmer ? "វិទ្យាសាស្ត្រសង្គម" : "Social Stream"}
                       </button>
                     </div>
                   )}

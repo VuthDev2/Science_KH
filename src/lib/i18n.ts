@@ -88,3 +88,9 @@ export const t = {
 export function tx(lang: Lang, key: keyof typeof t.en): string {
   return t[lang][key] ?? t.en[key];
 }
+
+export function toKhmerNumeral(n: number | string): string {
+  const khmerDigits = ["០", "១", "២", "៣", "៤", "៥", "៦", "៧", "៨", "៩"];
+  return String(n).replace(/[0-9]/g, (d) => khmerDigits[parseInt(d, 10)]);
+}
+

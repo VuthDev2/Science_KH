@@ -18,7 +18,7 @@ import {
   Layers,
   Sparkle,
 } from "lucide-react";
-import { useAuth } from "@/lib/auth-context";
+import { useAuth, GUEST_USER_ID } from "@/lib/auth-context";
 import { useProfile } from "@/lib/use-profile";
 import { useSuper } from "@/lib/super-context";
 import { sounds } from "@/lib/sound-effects";
@@ -26,6 +26,7 @@ import { triggerHapticSelection } from "@/lib/native-mobile";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
+import { toKhmerNumeral } from "@/lib/i18n";
 
 interface BreadcrumbItem {
   label: string;
@@ -96,13 +97,23 @@ export function DesktopHeader({
       onGradeChange(grade);
     }
 
+    const isGuest = user?.app_metadata?.provider === "guest" || user?.id === GUEST_USER_ID;
     if (user) {
-      try {
-        await supabase.from("profiles").update({ grade }).eq("id", user.id);
-        toast.success(isKhmer ? `បានផ្លាស់ប្តូរទៅថ្នាក់ទី ${grade}` : `Switched to Grade ${grade}`);
-      } catch {
-        // silent
+      if (isGuest) {
+        try {
+          const saved = localStorage.getItem("sciencekh_guest_user");
+          const current = saved ? JSON.parse(saved) : user;
+          current.user_metadata = { ...(current.user_metadata || {}), grade };
+          localStorage.setItem("sciencekh_guest_user", JSON.stringify(current));
+        } catch {}
+      } else {
+        try {
+          await supabase.from("profiles").update({ grade }).eq("id", user.id);
+        } catch {
+          // silent
+        }
       }
+      toast.success(isKhmer ? `បានផ្លាស់ប្តូរទៅថ្នាក់ទី ${toKhmerNumeral(grade)}` : `Switched to Grade ${grade}`);
     }
   };
 

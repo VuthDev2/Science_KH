@@ -10,11 +10,13 @@ type AuthContextValue = {
   signInAsGuest: (customUser?: Partial<User>) => void;
 };
 
+export const GUEST_USER_ID = "00000000-0000-4000-a000-000000000001";
+
 export const GUEST_USER: User = {
-  id: "guest-student-001",
+  id: GUEST_USER_ID,
   app_metadata: { provider: "guest" },
   user_metadata: {
-    full_name: "សិស្សគំរូ (Student)",
+    full_name: "សិស្សគំរូ",
     display_name: "Saravuth",
     grade: 12,
     language: "km",
@@ -42,7 +44,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       try {
         const saved = localStorage.getItem("sciencekh_guest_user");
         if (saved) {
-          setGuestUser(JSON.parse(saved));
+          const parsed = JSON.parse(saved);
+          if (parsed && (parsed.id === "guest-student-001" || !parsed.id || !parsed.id.includes("-"))) {
+            parsed.id = GUEST_USER_ID;
+            localStorage.setItem("sciencekh_guest_user", JSON.stringify(parsed));
+          }
+          setGuestUser(parsed);
         }
       } catch {
         // ignore storage access errors

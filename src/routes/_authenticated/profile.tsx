@@ -40,8 +40,9 @@ import {
 import { toast } from "sonner";
 
 import { supabase } from "@/integrations/supabase/client";
-import { useAuth } from "@/lib/auth-context";
+import { useAuth, GUEST_USER_ID } from "@/lib/auth-context";
 import { useProfile } from "@/lib/use-profile";
+import { toKhmerNumeral } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { AppShell } from "@/components/layout/app-shell";
@@ -267,11 +268,12 @@ function ProfilePage() {
   const navigate = useNavigate();
   const qc = useQueryClient();
   const isKhmer = activeLang === "km";
+  const isGuest = user?.app_metadata?.provider === "guest" || user?.id === GUEST_USER_ID;
 
   // Real-time Supabase Profile Sync
   const { data: liveProfile } = useQuery({
     queryKey: ["profile-live", user?.id],
-    enabled: !!user?.id,
+    enabled: !!user?.id && !isGuest,
     queryFn: async () => {
       const { data, error } = await supabase
         .from("profiles")
@@ -365,6 +367,29 @@ function ProfilePage() {
   const updateFieldMutation = useMutation({
     mutationFn: async (fields: Record<string, unknown>) => {
       if (!user?.id) throw new Error("Not authenticated");
+      if (isGuest) {
+        // Intercept guest mutations to avoid Supabase UUID constraint error
+        try {
+          const saved = localStorage.getItem("sciencekh_guest_user");
+          const current = saved ? JSON.parse(saved) : (user || {});
+          const updated = {
+            ...current,
+            user_metadata: {
+              ...(current.user_metadata || {}),
+              ...fields,
+            },
+          };
+          localStorage.setItem("sciencekh_guest_user", JSON.stringify(updated));
+          if (fields.avatar_url) {
+            localStorage.setItem(`sciencekh_avatar_${user.id}`, String(fields.avatar_url));
+            localStorage.setItem("sciencekh_avatar_guest", String(fields.avatar_url));
+          }
+          return { id: user.id, ...fields };
+        } catch {
+          return { id: user.id, ...fields };
+        }
+      }
+
       const { data, error } = await (supabase
         .from("profiles") as any)
         .update(fields)
@@ -379,7 +404,7 @@ function ProfilePage() {
       qc.invalidateQueries({ queryKey: ["profile"] });
     },
     onError: (err) => {
-      toast.error(err instanceof Error ? err.message : "Failed to update profile");
+      toast.error(err instanceof Error ? err.message : (isKhmer ? "បរាជ័យក្នុងការកែប្រែព័ត៌មាន" : "Failed to update profile"));
     },
   });
 
@@ -431,8 +456,8 @@ function ProfilePage() {
       const compressedDataUrl = await resizeImageToDataUrl(file, 384, 384, 0.85);
       let finalAvatarUrl = compressedDataUrl;
 
-      // If user is authenticated, attempt Supabase Storage upload
-      if (user?.id) {
+      // If user is authenticated and not a guest, attempt Supabase Storage upload
+      if (user?.id && !isGuest) {
         try {
           const blob = dataUrlToBlob(compressedDataUrl);
           const fileName = `${user.id}-${Date.now()}.jpg`;
@@ -524,7 +549,7 @@ function ProfilePage() {
         grade: data.grade,
       });
 
-      if (user) {
+      if (user && !isGuest) {
         await supabase.auth.updateUser({
           data: {
             display_name: data.displayName,
@@ -798,7 +823,7 @@ function ProfilePage() {
           <div>
             <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400 border border-emerald-200/80 dark:border-emerald-800 text-[11px] font-bold">
               <GraduationCap className="h-3.5 w-3.5" />
-              <span>{isKhmer ? "គណនីសិស្សផ្លូវការ" : "Official Student Passport"}</span>
+              <span>{isKhmer ? "គណនីសិស្ស" : "Student Profile"}</span>
             </div>
             <h1 className="text-2xl font-black text-slate-900 dark:text-white mt-1">
               {isKhmer ? "គណនីសិស្ស & ការកំណត់" : "Student Profile & Settings"}
@@ -965,10 +990,10 @@ function ProfilePage() {
                   <span>
                     {isJuniorHigh
                       ? isKhmer
-                        ? `ថ្នាក់ទី ${currentGrade} • អនុវិទ្យាល័យ (ឌីប្លូម)`
+                        ? `ថ្នាក់ទី ${toKhmerNumeral(currentGrade)} • អនុវិទ្យាល័យ (ឌីប្លូម)`
                         : `Grade ${currentGrade} • Junior High (Brevet)`
                       : isKhmer
-                        ? `ថ្នាក់ទី ${currentGrade} • វិទ្យាល័យ (បាក់ឌុប)`
+                        ? `ថ្នាក់ទី ${toKhmerNumeral(currentGrade)} • វិទ្យាល័យ (បាក់ឌុប)`
                         : `Grade ${currentGrade} • Senior High (Bac II)`}
                   </span>
                   <ChevronDown
@@ -988,7 +1013,9 @@ function ProfilePage() {
                       {isKhmer ? "ជ្រើសរើសថ្នាក់សិក្សារបស់ប្អូន:" : "Select your active grade:"}
                     </span>
                     <span className="text-emerald-700 dark:text-emerald-400">
-                      {isJuniorHigh ? "អនុវិទ្យាល័យ (7–9)" : "វិទ្យាល័យ (10–12)"}
+                      {isKhmer
+                        ? isJuniorHigh ? "អនុវិទ្យាល័យ (ថ្នាក់ ៧–៩)" : "វិទ្យាល័យ (ថ្នាក់ ១០–១២)"
+                        : isJuniorHigh ? "Junior High (Grades 7–9)" : "Senior High (Grades 10–12)"}
                     </span>
                   </div>
 
@@ -1035,10 +1062,10 @@ function ProfilePage() {
               <div className="mt-2.5 flex items-center gap-2 text-[10px] font-semibold text-slate-400">
                 <span className="flex items-center gap-1">
                   <ShieldCheck className="h-3 w-3 text-emerald-600" />
-                  ID: #{user?.id ? user.id.slice(0, 6).toUpperCase() : "SKH-7829"}
+                  ID: #{isGuest ? "GUEST" : (user?.id ? user.id.slice(0, 8).toUpperCase() : "SKH-7829")}
                 </span>
                 <span>•</span>
-                <span>{isKhmer ? "គណនីផ្លូវការសិស្ស" : "Verified Student"}</span>
+                <span>{isKhmer ? "សិស្ស MoEYS" : "Verified Student"}</span>
               </div>
             </div>
 
@@ -1048,10 +1075,10 @@ function ProfilePage() {
               <div className="rounded-2xl bg-orange-50/70 dark:bg-orange-950/30 border border-orange-200/70 dark:border-orange-800/60 p-3 text-left">
                 <div className="flex items-center gap-1.5 text-xs font-bold text-orange-600 dark:text-orange-400">
                   <Flame className="h-4 w-4 fill-orange-500" />
-                  <span>{isKhmer ? "Streak រៀន" : "Daily Streak"}</span>
+                  <span>{isKhmer ? "ថ្ងៃបន្តបន្ទាប់" : "Daily Streak"}</span>
                 </div>
                 <p className="mt-1 font-display text-lg sm:text-xl font-black text-slate-900 dark:text-white">
-                  {streakDays} <span className="text-xs font-normal text-slate-500 dark:text-slate-400">{isKhmer ? "ថ្ងៃ" : "Days"}</span>
+                  {isKhmer ? toKhmerNumeral(streakDays) : streakDays} <span className="text-xs font-normal text-slate-500 dark:text-slate-400">{isKhmer ? "ថ្ងៃ" : "Days"}</span>
                 </p>
                 <p className="text-[10px] text-orange-700/80 dark:text-orange-300 font-medium mt-0.5">
                   {isKhmer ? "ទម្លាប់ប្រចាំថ្ងៃ" : "Daily habit"}
@@ -1062,10 +1089,10 @@ function ProfilePage() {
               <div className="rounded-2xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/70 dark:border-amber-800/60 p-3 text-left">
                 <div className="flex items-center gap-1.5 text-xs font-bold text-amber-700 dark:text-amber-400">
                   <Sparkles className="h-4 w-4 fill-amber-500" />
-                  <span>{isKhmer ? "ពិន្ទុ XP" : "Total XP"}</span>
+                  <span>{isKhmer ? "ពិន្ទុសរុប" : "Total XP"}</span>
                 </div>
                 <p className="mt-1 font-display text-lg sm:text-xl font-black text-slate-900 dark:text-white">
-                  {xp.toLocaleString()}
+                  {isKhmer ? toKhmerNumeral(xp.toLocaleString()) : xp.toLocaleString()}
                 </p>
                 <p className="text-[10px] text-amber-700/80 dark:text-amber-300 font-medium mt-0.5">
                   {isKhmer ? "ពិន្ទុចំណេះដឹង" : "Knowledge XP"}
@@ -1076,13 +1103,13 @@ function ProfilePage() {
               <div className="rounded-2xl bg-blue-50/70 dark:bg-blue-950/30 border border-blue-200/70 dark:border-blue-800/60 p-3 text-left">
                 <div className="flex items-center gap-1.5 text-xs font-bold text-blue-600 dark:text-blue-400">
                   <Trophy className="h-4 w-4" />
-                  <span>{isKhmer ? "លីគប្រកួត" : "League Tier"}</span>
+                  <span>{isKhmer ? "កម្រិតលីគ" : "League Tier"}</span>
                 </div>
                 <p className="mt-1 font-display text-base sm:text-lg font-black text-slate-900 dark:text-white truncate">
-                  Diamond
+                  {isKhmer ? "ត្បូងពេជ្រ" : "Diamond"}
                 </p>
                 <p className="text-[10px] text-blue-700/80 dark:text-blue-300 font-medium mt-0.5">
-                  {isKhmer ? "កំពូល ៥% ជាតិ" : "Top 5% National"}
+                  {isKhmer ? "កំពូល ៥% ទូទាំងប្រទេស" : "Top 5% National"}
                 </p>
               </div>
 
@@ -1090,10 +1117,10 @@ function ProfilePage() {
               <div className="rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200/70 dark:border-emerald-800/60 p-3 text-left">
                 <div className="flex items-center gap-1.5 text-xs font-bold text-emerald-700 dark:text-emerald-400">
                   <Coins className="h-4 w-4 fill-emerald-500" />
-                  <span>{isKhmer ? "កាក់ STEM" : "STEM Coins"}</span>
+                  <span>{isKhmer ? "កាក់រង្វាន់" : "STEM Coins"}</span>
                 </div>
                 <p className="mt-1 font-display text-lg sm:text-xl font-black text-slate-900 dark:text-white">
-                  {coins.toLocaleString()}
+                  {isKhmer ? toKhmerNumeral(coins.toLocaleString()) : coins.toLocaleString()}
                 </p>
                 <p className="text-[10px] text-emerald-700/80 dark:text-emerald-300 font-medium mt-0.5">
                   {isKhmer ? "រង្វាន់សិក្សា" : "Available balance"}
@@ -1110,7 +1137,7 @@ function ProfilePage() {
               <div>
                 <h3 className="font-display text-xs sm:text-sm font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
                   <Sparkle className="h-3.5 w-3.5 text-emerald-600 fill-emerald-500" />
-                  <span>{isKhmer ? "រូបតំណាង STEM Avatars" : "Choose STEM Avatar"}</span>
+                  <span>{isKhmer ? "រូបតំណាងសិស្ស" : "Choose STEM Avatar"}</span>
                 </h3>
                 <p className="text-[10px] text-slate-400 mt-0.5">
                   {isKhmer ? "ចុចដើម្បីប្តូរភ្លាមៗ" : "Tap to update your avatar"}
@@ -1398,11 +1425,11 @@ function ProfilePage() {
                   ) : (
                     <BellOff className="h-4 w-4 text-slate-400" />
                   )}
-                  <span>{isKhmer ? "រំលឹកការពារ Streak (7:00 យប់)" : "Streak Guardian Reminder"}</span>
+                  <span>{isKhmer ? "រំលឹកការពារការរៀនជាប់គ្នា (៧:០០ យប់)" : "Streak Guardian Reminder"}</span>
                 </p>
                 <p className="text-[10px] text-slate-400 mt-0.5">
                   {isKhmer
-                    ? "ជូនដំណឹងការពារកុំឱ្យបាត់បង់ Streak ប្រសិនបើមិនទាន់បានរៀន"
+                    ? "ជូនដំណឹងការពារកុំឱ្យខកខានការរៀនប្រចាំថ្ងៃ ប្រសិនបើមិនទាន់បានរៀន"
                     : "Daily notification at 7:00 PM if you haven't studied yet"}
                 </p>
               </div>

@@ -469,7 +469,7 @@ export function ExplorePage() {
                           {exam.originalTitleKh} {exam.examinationYear ? `(${exam.examinationYear})` : ""}
                         </span>
                         <p className="text-[11px] text-slate-400 truncate mt-0.5">
-                          {exam.subject} · {exam.examinationCategory === "bacii" ? "បាក់ឌុប (Bac II)" : "សិស្សពូកែ (Outstanding)"}
+                          {exam.subject} · {exam.examinationCategory === "bacii" ? (isKhmer ? "បាក់ឌុប" : "Bac II") : (isKhmer ? "សិស្សពូកែ" : "Outstanding")}
                         </p>
                       </div>
                       <ChevronRight className="h-4 w-4 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-0.5 transition-transform shrink-0" />
@@ -598,7 +598,7 @@ export function ExplorePage() {
                     <GraduationCap className="h-4 w-4 text-blue-600 dark:text-blue-400 shrink-0" />
                     <div className="min-w-0">
                       <span className="text-xs font-bold text-slate-900 dark:text-white block truncate">
-                        {isKhmer ? "វិញ្ញាសាប្រឡងបាក់ឌុប (Bac II)" : "Bac II National Exams"}
+                        {isKhmer ? "វិញ្ញាសាប្រឡងបាក់ឌុប" : "Bac II National Exams"}
                       </span>
                       <span className="text-[10.5px] text-slate-400 block truncate">
                         {isKhmer ? "ថ្នាក់វិទ្យាសាស្ត្រពិត & សង្គម" : "Science & Social Science"}

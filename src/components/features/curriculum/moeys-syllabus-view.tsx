@@ -512,7 +512,7 @@ export function MoeysSyllabusView({
               )}
             >
               <Atom className="h-3.5 w-3.5 text-emerald-600" />
-              <span>{isKhmer ? "ថ្នាក់វិទ្យាសាស្ត្រ (Science)" : "Science Track"}</span>
+              <span>{isKhmer ? "ថ្នាក់វិទ្យាសាស្ត្រពិត" : "Science Track"}</span>
             </button>
 
             <button
@@ -529,7 +529,7 @@ export function MoeysSyllabusView({
               )}
             >
               <BookOpen className="h-3.5 w-3.5 text-teal-600" />
-              <span>{isKhmer ? "ថ្នាក់វិទ្យាសាស្ត្រសង្គម (Social)" : "Social Track"}</span>
+              <span>{isKhmer ? "ថ្នាក់វិទ្យាសាស្ត្រសង្គម" : "Social Track"}</span>
             </button>
           </div>
         </div>

@@ -51,6 +51,7 @@ import { sounds } from "@/lib/sound-effects";
 import { triggerHapticSelection } from "@/lib/native-mobile";
 import { toast } from "sonner";
 import { ReferenceRepository } from "@/services/supabase/reference.repository";
+import { toKhmerNumeral } from "@/lib/i18n";
 import type {
   ReferenceEntry,
   ReferenceFilterState,
@@ -90,7 +91,7 @@ export const Route = createFileRoute("/_authenticated/reference/")({
     ],
   }),
   validateSearch: (s: Record<string, unknown>): SearchParams => ({
-    grade: typeof s.grade === "number" ? s.grade : undefined,
+    grade: s.grade ? Number(s.grade) : undefined,
     subject: typeof s.subject === "string" ? s.subject : undefined,
     category: typeof s.category === "string" ? s.category : undefined,
     stream: typeof s.stream === "string" ? s.stream : undefined,
@@ -166,7 +167,8 @@ const GENERAL_CONSTANTS: ReferenceConstantItem[] = [
 function getSidebarConstantsForSubject(subjectSlug?: string): {
   titleKm: string;
   titleEn: string;
-  badge: string;
+  badgeKm: string;
+  badgeEn: string;
   items: ReferenceConstantItem[];
 } {
   switch (subjectSlug) {
@@ -174,35 +176,40 @@ function getSidebarConstantsForSubject(subjectSlug?: string): {
       return {
         titleKm: "តារាងថេរគណិតវិទ្យា",
         titleEn: "Mathematical Constants",
-        badge: "Math Cheat Sheet",
+        badgeKm: "រូបមន្តសង្ខេប",
+        badgeEn: "Math Cheat Sheet",
         items: MATHEMATICS_CONSTANTS,
       };
     case "physics":
       return {
         titleKm: "តារាងថេររូបវិទ្យា",
         titleEn: "Physical Constants",
-        badge: "Physics SI Sheet",
+        badgeKm: "ខ្នាតអន្តរជាតិ SI",
+        badgeEn: "Physics SI Sheet",
         items: PHYSICS_CONSTANTS,
       };
     case "chemistry":
       return {
         titleKm: "តារាងថេរគីមីវិទ្យា",
         titleEn: "Chemical Constants",
-        badge: "Chemistry Key",
+        badgeKm: "ថេរគីមីវិទ្យា",
+        badgeEn: "Chemistry Key",
         items: CHEMISTRY_CONSTANTS,
       };
     case "biology":
       return {
         titleKm: "ច្បាប់ និងវិមាត្រជីវវិទ្យា",
         titleEn: "Biological Rules & Dimensions",
-        badge: "Genetics Key",
+        badgeKm: "ពន្ធុវិទ្យាគ្រឹះ",
+        badgeEn: "Genetics Key",
         items: BIOLOGY_CONSTANTS,
       };
     default:
       return {
         titleKm: "តារាងថេរវិទ្យាសាស្ត្រសកល",
         titleEn: "Universal Constants",
-        badge: "SI Cheat Sheet",
+        badgeKm: "ខ្នាតអន្តរជាតិ SI",
+        badgeEn: "SI Cheat Sheet",
         items: GENERAL_CONSTANTS,
       };
   }
@@ -517,7 +524,7 @@ function FriendlyReferenceCard({
         <div className="flex items-center gap-2">
           {showSubjectBadge && (
             <span className="text-[10.5px] font-extrabold text-slate-400 bg-slate-50 dark:bg-slate-800 px-2 py-0.5 rounded-md">
-              {isKhmer ? `ថ្នាក់ទី ${activeGrade}` : `Grade ${activeGrade}`}
+              {isKhmer ? `ថ្នាក់ទី ${toKhmerNumeral(activeGrade)}` : `Grade ${activeGrade}`}
             </span>
           )}
           <button
@@ -660,15 +667,26 @@ function StudyReferenceLibraryPage() {
   const navigate = Route.useNavigate();
 
   // Active Grade: Defaults to search param, then user profile grade, fallback to Grade 7
-  const activeGrade = searchParams.grade || profile?.grade || 7;
+  const activeGrade = Number(searchParams.grade) || profile?.grade || 7;
   const activeSubjectSlug = searchParams.subject;
   const activeCategory = searchParams.category || "all";
   const activeStream = (searchParams.stream as StreamApplicability) || "all";
   const searchQuery = searchParams.q || "";
 
-  // UI state
-  const [entries, setEntries] = useState<ReferenceEntry[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  // UI state: Synchronously initialized from master repository to ensure instant 0ms render
+  const [entries, setEntries] = useState<ReferenceEntry[]>(() => {
+    return ReferenceRepository.filterEntriesInMemory(
+      ReferenceRepository.getMasterReferenceEntries(),
+      {
+        grade: Number(searchParams.grade) || 7,
+        subjectSlug: searchParams.subject && searchParams.subject !== "all" ? searchParams.subject : "all",
+        referenceType: "all",
+        stream: (searchParams.stream as StreamApplicability) || "all",
+        searchQuery: searchParams.q || "",
+      }
+    );
+  });
+  const [isLoading, setIsLoading] = useState(false);
   const [localSearch, setLocalSearch] = useState(searchQuery);
   const [selectedDiscipline, setSelectedDiscipline] = useState<DisciplineFilter>("all");
   const [copiedConstant, setCopiedConstant] = useState<string | null>(null);
@@ -682,7 +700,6 @@ function StudyReferenceLibraryPage() {
   // Load all entries for active grade & stream
   useEffect(() => {
     let mounted = true;
-    setIsLoading(true);
 
     const filter: ReferenceFilterState = {
       grade: activeGrade,
@@ -692,15 +709,25 @@ function StudyReferenceLibraryPage() {
       searchQuery: localSearch,
     };
 
+    // 1. Immediately update with verified local master warehouse
+    const localData = ReferenceRepository.filterEntriesInMemory(
+      ReferenceRepository.getMasterReferenceEntries(),
+      filter
+    );
+    if (mounted) {
+      setEntries(localData);
+      setIsLoading(false);
+    }
+
+    // 2. Background sync from Supabase if online, without blocking the UI
     ReferenceRepository.getReferences(filter)
       .then((data) => {
-        if (mounted) {
+        if (mounted && data && data.length > 0) {
           setEntries(data);
-          setIsLoading(false);
         }
       })
       .catch(() => {
-        if (mounted) setIsLoading(false);
+        // Safe: localData is already loaded
       });
 
     return () => {
@@ -879,7 +906,7 @@ function StudyReferenceLibraryPage() {
                 <span>{isKhmer ? "កម្រិតថ្នាក់បច្ចុប្បន្ន" : "Active Reference Tier"}</span>
               </span>
               <span className="text-[11px] font-black text-[#059669] bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-0.5 rounded-full border border-emerald-200/80 dark:border-emerald-800">
-                Grade {activeGrade}
+                {isKhmer ? `ថ្នាក់ទី ${toKhmerNumeral(activeGrade)}` : `Grade ${activeGrade}`}
               </span>
             </div>
 
@@ -888,7 +915,7 @@ function StudyReferenceLibraryPage() {
                 {isKhmer ? "មុខវិជ្ជាសកម្ម" : "Available Subjects"}
               </span>
               <span className="font-extrabold text-slate-800 dark:text-slate-100">
-                {availableSubjects.length} {isKhmer ? "មុខវិជ្ជា" : "Subjects"}
+                {isKhmer ? toKhmerNumeral(availableSubjects.length) : availableSubjects.length} {isKhmer ? "មុខវិជ្ជា" : "Subjects"}
               </span>
             </div>
           </div>
@@ -901,7 +928,7 @@ function StudyReferenceLibraryPage() {
                 <span>{isKhmer ? sidebarConstants.titleKm : sidebarConstants.titleEn}</span>
               </span>
               <span className="text-[10px] font-bold text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-full">
-                {sidebarConstants.badge}
+                {isKhmer ? sidebarConstants.badgeKm : sidebarConstants.badgeEn}
               </span>
             </div>
 
@@ -1208,10 +1235,10 @@ function StudyReferenceLibraryPage() {
                   {(
                     [
                       { id: "all", labelKm: "គ្រប់មុខវិជ្ជា", labelEn: "All Subjects", icon: Layers },
-                      { id: "stem", labelKm: "វិទ្យាសាស្ត្រពិត (STEM)", labelEn: "STEM Sciences", icon: Atom },
+                      { id: "stem", labelKm: "វិទ្យាសាស្ត្រពិត", labelEn: "STEM Sciences", icon: Atom },
                       { id: "language", labelKm: "ភាសា & អក្សរសិល្ប៍", labelEn: "Languages", icon: BookOpen },
                       { id: "social", labelKm: "វិទ្យាសាស្ត្រសង្គម", labelEn: "Social Sciences", icon: Landmark },
-                      { id: "tech", labelKm: "បច្ចេកវិទ្យា (ICT)", labelEn: "Technology", icon: Laptop },
+                      { id: "tech", labelKm: "បច្ចេកវិទ្យា", labelEn: "Technology", icon: Laptop },
                     ] as const
                   ).map((d) => {
                     const DIcon = d.icon;
@@ -1376,11 +1403,11 @@ function StudyReferenceLibraryPage() {
                     </h1>
                     <div className="flex items-center gap-2 mt-0.5">
                       <span className="text-[10.5px] font-black px-2 py-0.5 rounded-md bg-emerald-100 dark:bg-emerald-950/60 text-[#059669]">
-                        {isKhmer ? `ថ្នាក់ទី ${activeGrade}` : `Grade ${activeGrade}`}
+                        {isKhmer ? `ថ្នាក់ទី ${toKhmerNumeral(activeGrade)}` : `Grade ${activeGrade}`}
                       </span>
                       {activeGrade >= 11 && activeStream !== "all" && (
                         <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
-                          {activeStream === "science" ? "Science Stream" : "Social Science"}
+                          {activeStream === "science" ? (isKhmer ? "វិទ្យាសាស្ត្រពិត" : "Science Stream") : (isKhmer ? "វិទ្យាសាស្ត្រសង្គម" : "Social Stream")}
                         </span>
                       )}
                     </div>
@@ -1444,7 +1471,7 @@ function StudyReferenceLibraryPage() {
                       : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border-[#E5EAF0] dark:border-slate-800 hover:border-slate-300"
                   )}
                 >
-                  {isKhmer ? `ទាំងអស់ (${entries.length})` : `All (${entries.length})`}
+                  {isKhmer ? `ទាំងអស់ (${toKhmerNumeral(entries.length)})` : `All (${entries.length})`}
                 </button>
 
                 {/* Populated Dynamic Categories */}
@@ -1469,7 +1496,7 @@ function StudyReferenceLibraryPage() {
                           isActive ? "text-emerald-100" : "text-slate-400"
                         )}
                       >
-                        ({cat.count})
+                        ({isKhmer ? toKhmerNumeral(cat.count) : cat.count})
                       </span>
                     </button>
                   );
@@ -1483,7 +1510,7 @@ function StudyReferenceLibraryPage() {
                 {isKhmer ? "បញ្ជីរូបមន្ត និងឯកសារយោងផ្លូវការ" : "Official Reference Records"}
               </span>
               <span>
-                {filteredEntries.length} {isKhmer ? "កំណត់ត្រា" : "Records"}
+                {isKhmer ? toKhmerNumeral(filteredEntries.length) : filteredEntries.length} {isKhmer ? "កំណត់ត្រា" : "Records"}
               </span>
             </div>
 

@@ -1,7 +1,7 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { useAuth } from "@/lib/auth-context";
+import { useAuth, GUEST_USER_ID } from "@/lib/auth-context";
 import type { Lang } from "@/lib/i18n";
 
 export interface StudentProfile {
@@ -19,6 +19,7 @@ export interface StudentProfile {
 export function useProfile() {
   const { user } = useAuth();
   const qc = useQueryClient();
+  const isGuest = user?.app_metadata?.provider === "guest" || user?.id === GUEST_USER_ID;
 
   const [localLang, setLocalLang] = useState<Lang>(() => {
     if (typeof window !== "undefined") {
@@ -54,7 +55,7 @@ export function useProfile() {
 
   const q = useQuery({
     queryKey: ["profile", user?.id],
-    enabled: !!user,
+    enabled: !!user && !isGuest,
     queryFn: async () => {
       const { data, error } = await supabase
         .from("profiles")
@@ -66,20 +67,25 @@ export function useProfile() {
     },
   });
 
+  const guestSaved = isGuest && typeof window !== "undefined" ? localStorage.getItem("sciencekh_guest_user") : null;
+  const guestParsed = guestSaved ? JSON.parse(guestSaved) : null;
+  const guestAvatar = isGuest && typeof window !== "undefined" ? (localStorage.getItem(`sciencekh_avatar_${user?.id}`) || localStorage.getItem("sciencekh_avatar_guest")) : null;
+
   const fallbackProfile: StudentProfile | null = user
     ? {
         display_name:
+          (guestParsed?.user_metadata?.display_name as string) ||
           (user.user_metadata?.display_name as string) ||
           (user.user_metadata?.full_name as string) ||
           user.email?.split("@")[0] ||
           "Student",
-        full_name: (user.user_metadata?.full_name as string) || null,
-        language: ((user.user_metadata?.language as string) === "en" ? "en" : "km") as "km" | "en",
-        grade: (user.user_metadata?.grade as number) || 12,
-        xp: 0,
-        streak_days: 1,
-        coins: 50,
-        avatar_url: "angkor",
+        full_name: (guestParsed?.user_metadata?.full_name as string) || (user.user_metadata?.full_name as string) || null,
+        language: (((guestParsed?.user_metadata?.language || user.user_metadata?.language) as string) === "en" ? "en" : "km") as "km" | "en",
+        grade: (guestParsed?.user_metadata?.grade as number) || (user.user_metadata?.grade as number) || 12,
+        xp: (guestParsed?.user_metadata?.xp as number) ?? 0,
+        streak_days: (guestParsed?.user_metadata?.streak_days as number) ?? 1,
+        coins: (guestParsed?.user_metadata?.coins as number) ?? 50,
+        avatar_url: guestAvatar || (guestParsed?.user_metadata?.avatar_url as string) || "angkor",
       }
     : null;
 
@@ -95,10 +101,19 @@ export function useProfile() {
       window.dispatchEvent(new Event("sciencekh_lang_change"));
     }
     if (user) {
-      try {
-        await supabase.from("profiles").update({ language: newLang }).eq("id", user.id);
-      } catch {
-        // silent
+      if (isGuest) {
+        try {
+          const saved = localStorage.getItem("sciencekh_guest_user");
+          const current = saved ? JSON.parse(saved) : user;
+          current.user_metadata = { ...(current.user_metadata || {}), language: newLang };
+          localStorage.setItem("sciencekh_guest_user", JSON.stringify(current));
+        } catch {}
+      } else {
+        try {
+          await supabase.from("profiles").update({ language: newLang }).eq("id", user.id);
+        } catch {
+          // silent
+        }
       }
     }
     qc.invalidateQueries({ queryKey: ["profile"] });
@@ -109,10 +124,11 @@ export function useProfile() {
 
 export function useRoles() {
   const { user } = useAuth();
+  const isGuest = user?.app_metadata?.provider === "guest" || user?.id === GUEST_USER_ID;
 
   return useQuery({
     queryKey: ["roles", user?.id],
-    enabled: !!user,
+    enabled: !!user && !isGuest,
     queryFn: async () => {
       const { data, error } = await supabase
         .from("user_roles")
@@ -121,5 +137,6 @@ export function useRoles() {
       if (error) throw error;
       return (data ?? []).map((r) => r.role as "admin" | "editor" | "student");
     },
+    initialData: isGuest ? (["student"] as ("admin" | "editor" | "student")[]) : undefined,
   });
 }
