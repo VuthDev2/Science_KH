@@ -535,18 +535,13 @@ function FriendlyReferenceCard({
         </div>
       </div>
 
-      {/* Title & English Subtitle */}
+      {/* Title */}
       <div>
         <h2 className="text-base sm:text-lg font-black text-slate-900 dark:text-white group-hover:text-[#059669] transition leading-relaxed">
           {isKhmer
             ? cleanLatexDisplayTitle(entry.originalTitleKh)
             : entry.titleEn || cleanLatexDisplayTitle(entry.originalTitleKh)}
         </h2>
-        {isKhmer && entry.titleEn && (
-          <p className="text-xs text-slate-400 font-semibold mt-0.5">
-            {entry.titleEn}
-          </p>
-        )}
       </div>
 
       {/* Formula / Math Expression Box with clean KaTeX */}
@@ -1288,7 +1283,7 @@ function StudyReferenceLibraryPage() {
                           </span>
                         </div>
 
-                        {/* Middle: Subject Title & English Label */}
+                        {/* Middle: Subject Title */}
                         <div className="space-y-1">
                           <div className="flex items-baseline gap-2 flex-wrap">
                             <h2
@@ -1299,11 +1294,6 @@ function StudyReferenceLibraryPage() {
                             >
                               {isKhmer ? subject.nameKm : subject.nameEn}
                             </h2>
-                            {isKhmer && (
-                              <span className="text-xs font-semibold text-slate-400">
-                                {subject.nameEn}
-                              </span>
-                            )}
                           </div>
 
                           <p className="text-[11.5px] text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed">
@@ -1352,8 +1342,8 @@ function StudyReferenceLibraryPage() {
           /* VIEW B: SCREEN TWO & THREE — SUBJECT REFERENCE HUB & FORMULA LIST  */
           /* ================================================================== */
           <div className="space-y-4">
-            {/* Minimal Back Navigation */}
-            <div>
+            {/* Mobile-Only Back Navigation */}
+            <div className="lg:hidden">
               <button
                 type="button"
                 onClick={handleBackToSubjects}

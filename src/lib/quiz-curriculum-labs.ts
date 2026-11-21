@@ -2663,70 +2663,107 @@ function ensureDuolingoQuestionCount(
   deck: QuizQuestionItem[],
   lessonId: string,
 ): QuizQuestionItem[] {
-  // If the deck already has 4 or more topic-specific calculations, return directly.
+  // If the deck already has 3 or more authentic topic-specific calculation questions, return them directly.
   // This completely eliminates repetitive boilerplate meta-questions across consecutive roadmap lessons!
-  if (deck.length >= 4) return deck;
+  if (deck.length >= 3) {
+    return deck.slice(0, 8);
+  }
 
   const lesson = getCuratedLesson(lessonId);
   const augmented: QuizQuestionItem[] = [...deck];
   const subjectSlug = lesson?.subject?.slug || "mathematics";
+  const title = `${lesson?.title_km || ""} ${lesson?.title_en || ""}`.toLowerCase();
 
-  // Topic-specific calculation supplement only if deck has fewer than 4 items
-  if (augmented.length < 4) {
+  // Distinct topic-aware calculation supplement only if deck has fewer than 3 items
+  while (augmented.length < 3) {
     const stageNum = augmented.length + 1;
+
     if (subjectSlug === "mathematics") {
-      augmented.push({
-        id: `${lessonId}-calc-supp-${stageNum}`,
-        type: "concept_choice",
-        stage_name_km: `ដំណាក់កាលទី${stageNum} • លំហាត់អនុវត្តគណនាលេខជាក់ស្តែង`,
-        stage_name_en: `Stage ${stageNum} • Applied Quantitative Calculation`,
-        prompt_km: `ចូរគណនាតម្លៃនៃកន្សោមគណិតវិទ្យា៖ 2(3x - 4) នៅពេល x = 5 ៖`,
-        prompt_en: `Evaluate the algebraic expression: 2(3x - 4) when x = 5:`,
-        options_km: [
-          "22 (2(3(5) - 4) = 2(15 - 4) = 2(11) = 22)",
-          "14",
-          "26",
-          "30",
-        ],
-        options_en: [
-          "22 (2(3(5) - 4) = 2(15 - 4) = 2(11) = 22)",
-          "14",
-          "26",
-          "30",
-        ],
-        correct_index: 0,
-        formula_badge: "2(3(5) - 4) = 22",
-        socratic_clue_km: "ជំនួស x = 5 រួចគណនាក្នុងវង់ក្រចកជាមុនសិន៖ 15 - 4 = 11 -> 2(11) = 22។",
-        socratic_clue_en: "Substitute x = 5: 15 - 4 = 11 -> 2(11) = 22.",
-        explanation_km: "2(3(5) - 4) = 2(15 - 4) = 2(11) = 22។",
-        explanation_en: "2(3(5) - 4) = 2(15 - 4) = 2(11) = 22.",
-      });
+      if (title.includes("សនិទាន") || title.includes("rational") || title.includes("ប្រភាគ")) {
+        augmented.push({
+          id: `${lessonId}-calc-supp-${stageNum}`,
+          type: "concept_choice",
+          stage_name_km: `ដំណាក់កាលទី${stageNum} • គណនាប្រភាគសនិទាន`,
+          stage_name_en: `Stage ${stageNum} • Rational Fraction Calculation`,
+          prompt_km: `គណនាផលបូកប្រភាគសនិទាន៖ $\\frac{2}{3} + \\frac{1}{6} = ?$`,
+          prompt_en: `Evaluate the rational sum: $\\frac{2}{3} + \\frac{1}{6} = ?$`,
+          options_km: ["5/6", "3/9 = 1/3", "3/6 = 1/2", "7/6"],
+          options_en: ["5/6", "3/9 = 1/3", "3/6 = 1/2", "7/6"],
+          correct_index: 0,
+          formula_badge: "\\frac{2}{3} + \\frac{1}{6} = \\frac{5}{6}",
+          socratic_clue_km: "តម្រូវភាគបែងរួម (LCM = 6)៖ (4 + 1)/6 = 5/6។",
+          socratic_clue_en: "Find common denominator 6: (4 + 1)/6 = 5/6.",
+          explanation_km: "\\frac{2}{3} + \\frac{1}{6} = \\frac{4}{6} + \\frac{1}{6} = \\frac{5}{6}។",
+          explanation_en: "2/3 + 1/6 = 4/6 + 1/6 = 5/6.",
+        });
+      } else if (title.includes("ពន្លាត") || title.includes("កន្សោម") || title.includes("identity")) {
+        augmented.push({
+          id: `${lessonId}-calc-supp-${stageNum}`,
+          type: "concept_choice",
+          stage_name_km: `ដំណាក់កាលទី${stageNum} • គណនាពន្លាតកន្សោមពីជគណិត`,
+          stage_name_en: `Stage ${stageNum} • Binomial Expansion`,
+          prompt_km: `គណនាពន្លាតនៃ $(2x - 3)^2 = ?$`,
+          prompt_en: `Expand the binomial: $(2x - 3)^2 = ?$`,
+          options_km: ["4x² - 12x + 9", "4x² - 9", "4x² + 9", "4x² - 6x + 9"],
+          options_en: ["4x² - 12x + 9", "4x² - 9", "4x² + 9", "4x² - 6x + 9"],
+          correct_index: 0,
+          formula_badge: "(a - b)^2 = a^2 - 2ab + b^2",
+          socratic_clue_km: "(2x)^2 - 2(2x)(3) + 3^2 = 4x^2 - 12x + 9។",
+          socratic_clue_en: "(2x)^2 - 2(2x)(3) + 3^2 = 4x^2 - 12x + 9.",
+          explanation_km: "(2x - 3)^2 = (2x)^2 - 2(2x)(3) + 3^2 = 4x^2 - 12x + 9។",
+          explanation_en: "(2x - 3)^2 = 4x^2 - 12x + 9.",
+        });
+      } else if (title.includes("កត្តា") || title.includes("factor")) {
+        augmented.push({
+          id: `${lessonId}-calc-supp-${stageNum}`,
+          type: "concept_choice",
+          stage_name_km: `ដំណាក់កាលទី${stageNum} • ដាក់ជាផលគុណកត្តា`,
+          stage_name_en: `Stage ${stageNum} • Factoring Expression`,
+          prompt_km: `ដាក់កន្សោម $x^2 - 49$ ជាផលគុណកត្តា៖`,
+          prompt_en: `Factor the expression: $x^2 - 49$:`,
+          options_km: ["(x - 7)(x + 7)", "(x - 7)²", "(x + 7)²", "x(x - 49)"],
+          options_en: ["(x - 7)(x + 7)", "(x - 7)²", "(x + 7)²", "x(x - 49)"],
+          correct_index: 0,
+          formula_badge: "a^2 - b^2 = (a - b)(a + b)",
+          socratic_clue_km: "រូបមន្ត a^2 - b^2 ដោយ 49 = 7^2 នាំឱ្យបាន (x - 7)(x + 7)។",
+          socratic_clue_en: "Difference of squares with 49 = 7^2: (x - 7)(x + 7).",
+          explanation_km: "x^2 - 49 = x^2 - 7^2 = (x - 7)(x + 7)។",
+          explanation_en: "x^2 - 49 = (x - 7)(x + 7).",
+        });
+      } else {
+        augmented.push({
+          id: `${lessonId}-calc-supp-${stageNum}`,
+          type: "concept_choice",
+          stage_name_km: `ដំណាក់កាលទី${stageNum} • គណនាលំហាត់ជាក់ស្តែង`,
+          stage_name_en: `Stage ${stageNum} • Applied Quantitative Calculation`,
+          prompt_km: `ដោះស្រាយសមីការដឺក្រេទី ១៖ $3x - 9 = 0 \\implies x = ?$`,
+          prompt_en: `Solve the linear equation: $3x - 9 = 0 \\implies x = ?$`,
+          options_km: ["x = 3", "x = -3", "x = 9", "x = 0"],
+          options_en: ["x = 3", "x = -3", "x = 9", "x = 0"],
+          correct_index: 0,
+          formula_badge: "3x = 9 \\implies x = 3",
+          socratic_clue_km: "បោះ 9 ទៅស្តាំ៖ 3x = 9 នាំឱ្យ x = 9 / 3 = 3។",
+          socratic_clue_en: "3x = 9 -> x = 3.",
+          explanation_km: "3x - 9 = 0 \\iff 3x = 9 \\iff x = 3។",
+          explanation_en: "3x - 9 = 0 -> 3x = 9 -> x = 3.",
+        });
+      }
     } else if (subjectSlug === "physics") {
       augmented.push({
         id: `${lessonId}-calc-supp-${stageNum}`,
         type: "concept_choice",
-        stage_name_km: `ដំណាក់កាលទី${stageNum} • គណនាលំហាត់រូបវិទ្យាជាក់ស្តែង`,
-        stage_name_en: `Stage ${stageNum} • Quantitative Physics Calculation`,
-        prompt_km: `រថយន្តមួយធ្វើចលនាស្ទុះស្មើដោយសំទុះ a = 2 m/s² ក្រោមកម្លាំង F = 1000 N។ គណនាម៉ាស m នៃរថយន្ត៖`,
-        prompt_en: `A car accelerates at a = 2 m/s² under a net force F = 1000 N. Calculate the mass m of the car:`,
-        options_km: [
-          "m = 500 kg (តាមរូបមន្ត m = F / a = 1000 / 2)",
-          "m = 2000 kg",
-          "m = 200 kg",
-          "m = 100 kg",
-        ],
-        options_en: [
-          "m = 500 kg (via m = F / a = 1000 / 2)",
-          "m = 2000 kg",
-          "m = 200 kg",
-          "m = 100 kg",
-        ],
+        stage_name_km: `ដំណាក់កាលទី${stageNum} • គណនារូបវិទ្យាជាក់ស្តែង`,
+        stage_name_en: `Stage ${stageNum} • Applied Physics Calculation`,
+        prompt_km: `ចលនាត្រង់ស្មើ៖ យានមួយបរបានចម្ងាយ $d = 120\\text{ m}$ ក្នុងរយៈពេល $t = 6\\text{ s}$។ គណនាល្បឿន $v$៖`,
+        prompt_en: `Uniform linear motion: distance $d = 120\\text{ m}$ in time $t = 6\\text{ s}$. Calculate velocity $v$:`,
+        options_km: ["v = 20 m/s", "v = 12 m/s", "v = 720 m/s", "v = 2 m/s"],
+        options_en: ["v = 20 m/s", "v = 12 m/s", "v = 720 m/s", "v = 2 m/s"],
         correct_index: 0,
-        formula_badge: "m = F / a = 500 kg",
-        socratic_clue_km: "អនុវត្តច្បាប់ញូតុន F = ma នាំឱ្យ m = F / a។",
-        socratic_clue_en: "From Newton's second law F = ma -> m = F / a.",
-        explanation_km: "m = 1000 N / 2 m/s² = 500 kg។",
-        explanation_en: "m = 1000 N / 2 m/s² = 500 kg.",
+        formula_badge: "v = \\frac{d}{t} = 20\\text{ m/s}",
+        socratic_clue_km: "រូបមន្តល្បឿន v = d / t = 120 / 6 = 20 m/s។",
+        socratic_clue_en: "v = d / t = 120 / 6 = 20 m/s.",
+        explanation_km: "v = 120 / 6 = 20 m/s។",
+        explanation_en: "v = 120 / 6 = 20 m/s.",
       });
     } else if (subjectSlug === "chemistry") {
       augmented.push({
@@ -2734,22 +2771,12 @@ function ensureDuolingoQuestionCount(
         type: "concept_choice",
         stage_name_km: `ដំណាក់កាលទី${stageNum} • គណនាលំហាត់គីមីវិទ្យាជាក់ស្តែង`,
         stage_name_en: `Stage ${stageNum} • Quantitative Chemistry Calculation`,
-        prompt_km: `គណនាចំនួនម៉ូល n នៃទឹក H₂O ចំនួន 36 g (ដឹងថា M = 18 g/mol) ៖`,
-        prompt_en: `Calculate moles n of water in 36 g H₂O (M = 18 g/mol):`,
-        options_km: [
-          "n = 2 mol (n = m / M = 36 / 18)",
-          "n = 0.5 mol",
-          "n = 1 mol",
-          "n = 4 mol",
-        ],
-        options_en: [
-          "n = 2 mol (n = m / M = 36 / 18)",
-          "n = 0.5 mol",
-          "n = 1 mol",
-          "n = 4 mol",
-        ],
+        prompt_km: `គណនាចំនួនម៉ូល $n$ នៃទឹក $\\text{H}_2\\text{O}$ ចំនួន $36\\text{ g}$ (ដឹងថា $M = 18\\text{ g/mol}$)៖`,
+        prompt_en: `Calculate moles $n$ in $36\\text{ g}$ of $\\text{H}_2\\text{O}$ ($M = 18\\text{ g/mol}$):`,
+        options_km: ["n = 2 mol", "n = 0.5 mol", "n = 1 mol", "n = 4 mol"],
+        options_en: ["n = 2 mol", "n = 0.5 mol", "n = 1 mol", "n = 4 mol"],
         correct_index: 0,
-        formula_badge: "n = m / M = 2 mol",
+        formula_badge: "n = \\frac{m}{M} = 2\\text{ mol}",
         socratic_clue_km: "រូបមន្តចំនួនម៉ូល៖ n = m / M = 36 / 18 = 2 mol។",
         socratic_clue_en: "n = m / M = 36 / 18 = 2 mol.",
         explanation_km: "n = 36 g / 18 g/mol = 2 mol។",
@@ -2760,25 +2787,15 @@ function ensureDuolingoQuestionCount(
         id: `${lessonId}-calc-supp-${stageNum}`,
         type: "concept_choice",
         stage_name_km: `ដំណាក់កាលទី${stageNum} • ការវិភាគទិន្នន័យជាក់ស្តែង`,
-        stage_name_en: `Stage ${stageNum} • Quantitative Metric Analysis`,
-        prompt_km: `ក្នុងការពិសោធន៍វិទ្យាសាស្ត្រមួយ ប៉ារ៉ាម៉ែត្រកើនពី 20 ទៅ 80។ គណនាអត្រាកំណើនភាគរយ៖`,
-        prompt_en: `In an empirical experiment, a parameter increases from 20 to 80. Calculate percentage increase:`,
-        options_km: [
-          "+300% (((80 - 20) / 20) × 100% = 300%)",
-          "+400%",
-          "+60%",
-          "+100%",
-        ],
-        options_en: [
-          "+300% (((80 - 20) / 20) * 100% = 300%)",
-          "+400%",
-          "+60%",
-          "+100%",
-        ],
+        stage_name_en: `Stage ${stageNum} • Quantitative Analysis`,
+        prompt_km: `ក្នុងការពិសោធន៍មួយ ប៉ារ៉ាម៉ែត្រកើនពី 20 ទៅ 80។ គណនាអត្រាកំណើនភាគរយ៖`,
+        prompt_en: `In an experiment, a value increases from 20 to 80. Calculate percentage increase:`,
+        options_km: ["+300%", "+400%", "+60%", "+100%"],
+        options_en: ["+300%", "+400%", "+60%", "+100%"],
         correct_index: 0,
-        formula_badge: "Δ% = +300%",
-        socratic_clue_km: "អត្រាកំណើន = (តម្លៃថ្មី - តម្លៃចាស់) / តម្លៃចាស់ × 100% = (60 / 20) × 100% = 300%។",
-        socratic_clue_en: "Growth = (80 - 20) / 20 * 100% = 300%.",
+        formula_badge: "\\Delta\\% = +300\\%",
+        socratic_clue_km: "អត្រាកំណើន = (80 - 20) / 20 × 100% = 300%។",
+        socratic_clue_en: "Increase = (80 - 20) / 20 * 100% = 300%.",
         explanation_km: "(80 - 20) / 20 × 100% = 300%។",
         explanation_en: "(80 - 20) / 20 * 100% = 300%.",
       });

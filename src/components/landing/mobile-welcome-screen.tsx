@@ -20,6 +20,7 @@ import {
 import { cn } from "@/lib/utils";
 import { triggerHapticLight, triggerHapticSelection } from "@/lib/native-mobile";
 import { sounds } from "@/lib/sound-effects";
+import { useAuth } from "@/lib/auth-context";
 
 interface SlideData {
   id: number;
@@ -85,6 +86,7 @@ const SLIDES: SlideData[] = [
 
 export function MobileWelcomeScreen() {
   const navigate = useNavigate();
+  const { signInAsGuest } = useAuth();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [lang, setLang] = useState<"km" | "en">("km");
 
@@ -126,6 +128,7 @@ export function MobileWelcomeScreen() {
   const handleBrowseGuest = () => {
     triggerHapticLight();
     sounds.playPop();
+    signInAsGuest();
     navigate({ to: "/exams" });
   };
 

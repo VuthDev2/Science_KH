@@ -51,7 +51,17 @@ function AuthPage() {
   const searchLang = search.lang;
   const targetRedirect = search.redirect || "/home";
   const navigate = useNavigate();
-  const { user, loading: authLoading } = useAuth();
+  const { user, loading: authLoading, signInAsGuest } = useAuth();
+
+  const handleGuestSignIn = () => {
+    signInAsGuest();
+    toast.success(
+      isKhmer
+        ? "សូមស្វាគមន៍មកកាន់ ScienceKH! (សាកល្បងលេងជាភ្ញៀវ)"
+        : "Welcome to ScienceKH as Guest Student!",
+    );
+    navigate({ to: (targetRedirect as any) || "/home" });
+  };
 
   // Language state initialized from search param or localStorage
   const [lang, setLang] = useState<SupportedLanguage>(() => {
@@ -442,6 +452,7 @@ function AuthPage() {
                 copy={copy}
                 onSubmit={handleSignIn}
                 onGoogleSignIn={handleGoogle}
+                onGuestSignIn={handleGuestSignIn}
                 onForgotPasswordClick={() => switchMode("forgot")}
                 onSwitchToSignUp={() => switchMode("signup")}
                 submitting={submitting}

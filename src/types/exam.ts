@@ -58,6 +58,7 @@ export interface ExamQuestion {
   officialSolutionKm: string | null;
   officialSolutionEn: string | null;
   scoringCriteriaKm: string[];
+  scoringCriteriaEn?: string[];
   keyFormulas: string[];
 }
 

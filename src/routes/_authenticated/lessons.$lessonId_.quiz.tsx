@@ -45,10 +45,59 @@ import { recordStudyActivity } from "@/lib/streak-guardian";
 import { getCuratedLesson, getNextCuratedLesson } from "@/lib/curated-lessons";
 import { MOEYS_UNITS_REGISTRY } from "@/lib/curriculum/units";
 
+function QuizErrorComponent({ error, reset }: { error: unknown; reset: () => void }) {
+  console.error("Quiz route error:", error);
+  const isKhmer =
+    typeof window !== "undefined"
+      ? (localStorage.getItem("sciencekh_lang") || "km") === "km"
+      : true;
+
+  return (
+    <main className="min-h-screen bg-[#F8FAFC] dark:bg-slate-950 flex flex-col items-center justify-center p-6 text-center space-y-4">
+      <div className="h-16 w-16 rounded-3xl grid place-items-center bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-300 text-2xl shadow-xs">
+        ⚠️
+      </div>
+      <div className="space-y-1.5 max-w-sm">
+        <h2 className="font-display font-black text-lg text-slate-900 dark:text-white">
+          {isKhmer ? "មានបញ្ហាបច្ចេកទេសលើលំហាត់នេះ" : "Technical Issue Loading Quiz"}
+        </h2>
+        <p className="text-xs text-slate-500 leading-relaxed">
+          {isKhmer
+            ? "ប្រព័ន្ធមិនអាចបង្ហាញលំហាត់បានពេញលេញនៅពេលនេះទេ។ អ្នកអាចព្យាយាមម្តងទៀត ឬត្រឡប់ទៅកម្មវិធីសិក្សាវិញ។"
+            : "The quiz exercises could not be loaded right now. You can try again or return to the curriculum roadmap."}
+        </p>
+      </div>
+
+      <div className="flex flex-wrap items-center justify-center gap-2 pt-2">
+        <button
+          type="button"
+          onClick={() => reset()}
+          className="px-4 py-2 rounded-xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-bold text-xs hover:bg-slate-300 transition cursor-pointer"
+        >
+          {isKhmer ? "ព្យាយាមម្តងទៀត" : "Try Again"}
+        </button>
+        <Link
+          to="/lessons"
+          className="px-4 py-2 rounded-xl bg-emerald-600 text-white font-bold text-xs hover:bg-emerald-500 transition cursor-pointer"
+        >
+          {isKhmer ? "ត្រឡប់ទៅកម្មវិធីសិក្សា" : "Back to Curriculum"}
+        </Link>
+        <Link
+          to="/home"
+          className="px-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-400 font-bold text-xs"
+        >
+          {isKhmer ? "ត្រឡប់ទៅទំព័រដើម" : "Back to Home"}
+        </Link>
+      </div>
+    </main>
+  );
+}
+
 export const Route = createFileRoute("/_authenticated/lessons/$lessonId_/quiz")({
   ssr: false,
   head: () => ({ meta: [{ title: "Interactive MoEYS Learning Lab — ScienceKH" }] }),
   component: InteractiveQuizPage,
+  errorComponent: QuizErrorComponent,
 });
 
 const routeApi = getRouteApi("/_authenticated/lessons/$lessonId_/quiz");
@@ -959,6 +1008,33 @@ function InteractiveQuizPage() {
             }
           }}
         />
+      </main>
+    );
+  }
+
+  // Guard against missing question or empty deck
+  if (!currentQ) {
+    return (
+      <main className="min-h-screen bg-background flex flex-col items-center justify-center p-6 text-center space-y-4">
+        <div className="h-14 w-14 rounded-2xl grid place-items-center bg-slate-100 dark:bg-slate-800 text-2xl">
+          📚
+        </div>
+        <div className="space-y-1">
+          <h2 className="font-display font-bold text-base text-slate-900 dark:text-white">
+            {isKhmer ? "មិនទាន់មានលំហាត់សម្រាប់មេរៀននេះទេ" : "No Quiz Available Yet"}
+          </h2>
+          <p className="text-xs text-slate-500 max-w-xs">
+            {isKhmer
+              ? "លំហាត់សម្រាប់មេរៀននេះកំពុងត្រូវបានរៀបចំ។ សូមត្រឡប់ទៅកម្មវិធីសិក្សាវិញ។"
+              : "Practice exercises for this module are being prepared. Please return to curriculum."}
+          </p>
+        </div>
+        <Button
+          onClick={() => navigate({ to: "/lessons" })}
+          className="rounded-xl bg-emerald-600 text-white font-bold text-xs cursor-pointer"
+        >
+          {isKhmer ? "ត្រឡប់ទៅកម្មវិធីសិក្សា" : "Back to Curriculum"}
+        </Button>
       </main>
     );
   }

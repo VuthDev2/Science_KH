@@ -42,9 +42,9 @@ export type {
   ExamFilter,
 };
 
-// Research scope: 16 Years from 2011 through 2026 inclusive
+// Research scope: Authentic Official Examination Sessions from 2011 through 2024
 export const HISTORICAL_YEARS_TIMELINE = [
-  2026, 2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011
+  2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011
 ] as const;
 
 export const HISTORICAL_EXAM_ARCHIVE: HistoricalExamPaper[] = [

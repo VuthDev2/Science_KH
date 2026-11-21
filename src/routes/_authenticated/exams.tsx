@@ -1499,11 +1499,6 @@ function ExamsArchivePage() {
                                 <h3 className="font-display text-sm sm:text-base font-extrabold text-slate-900 dark:text-white leading-tight group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                                   {isKhmer ? cfg.nameKm : cfg.nameEn}
                                 </h3>
-                                {isKhmer && (
-                                  <span className="text-xs font-semibold text-slate-400 dark:text-slate-500">
-                                    {cfg.nameEn}
-                                  </span>
-                                )}
                               </div>
 
                               {/* Sleek single-line specs */}
@@ -2036,7 +2031,7 @@ function ExamsArchivePage() {
                                 remarkPlugins={[remarkGfm, remarkMath]}
                                 rehypePlugins={[[rehypeKatex, { throwOnError: false, strict: false }]]}
                               >
-                                {q.problemTextKm.replace(/\\n/g, "\n\n")}
+                                {(isKhmer ? q.problemTextKm : (q.problemTextEn || q.problemTextKm)).replace(/\\n/g, "\n\n")}
                               </ReactMarkdown>
                             </div>
 
@@ -2079,23 +2074,27 @@ function ExamsArchivePage() {
                                   <span>{isKhmer ? "ដំណោះស្រាយផ្លូវការ & អត្រាកំណែ MoEYS" : "Official MoEYS Solution & Scoring Rubric"}</span>
                                 </div>
 
-                                {q.officialSolutionKm && (
+                                {Boolean(isKhmer ? q.officialSolutionKm : (q.officialSolutionEn || q.officialSolutionKm)) && (
                                   <div className="prose prose-sm dark:prose-invert max-w-none text-slate-800 dark:text-slate-200 leading-relaxed font-sans">
                                     <ReactMarkdown
                                       remarkPlugins={[remarkGfm, remarkMath]}
                                       rehypePlugins={[[rehypeKatex, { throwOnError: false, strict: false }]]}
                                     >
-                                      {q.officialSolutionKm.replace(/\\n/g, "\n\n")}
+                                      {((isKhmer ? q.officialSolutionKm : (q.officialSolutionEn || q.officialSolutionKm)) || "").replace(/\\n/g, "\n\n")}
                                     </ReactMarkdown>
                                   </div>
                                 )}
 
-                                {q.scoringCriteriaKm && (
+                                {((isKhmer ? q.scoringCriteriaKm : (q.scoringCriteriaEn || q.scoringCriteriaKm)) || []).length > 0 && (
                                   <div className="pt-2 border-t border-emerald-200/60 dark:border-emerald-800/60 text-xs text-emerald-900/90 dark:text-emerald-200/90">
                                     <span className="font-bold block mb-1">
                                       {isKhmer ? "គោលការណ៍កាត់ពិន្ទុ៖" : "Grading Criteria:"}
                                     </span>
-                                    <p className="leading-relaxed">{q.scoringCriteriaKm}</p>
+                                    <ul className="list-disc list-inside space-y-1">
+                                      {(isKhmer ? q.scoringCriteriaKm : (q.scoringCriteriaEn || q.scoringCriteriaKm)).map((crit, cIdx) => (
+                                        <li key={cIdx} className="leading-relaxed">{crit}</li>
+                                      ))}
+                                    </ul>
                                   </div>
                                 )}
                               </div>
