@@ -35,11 +35,11 @@ const AVATAR_EMOJI_MAP: Record<string, string> = {
 const isImageAvatar = (url?: string | null) =>
   Boolean(
     url &&
-      (url.startsWith("http://") ||
-        url.startsWith("https://") ||
-        url.startsWith("data:image/") ||
-        url.startsWith("blob:") ||
-        url.startsWith("/")),
+    (url.startsWith("http://") ||
+      url.startsWith("https://") ||
+      url.startsWith("data:image/") ||
+      url.startsWith("blob:") ||
+      url.startsWith("/")),
   );
 
 export function DesktopSidebar() {
@@ -79,7 +79,7 @@ export function DesktopSidebar() {
       labelEn: "Exam Archive",
       icon: FileText,
       exact: false,
-      badge: isKhmer ? "២០១១–២៤" : "2011–24",
+      badge: "2011–24",
     },
     {
       to: "/tutor",
@@ -213,7 +213,7 @@ export function DesktopSidebar() {
             </div>
             <div className="min-w-0">
               <span className="text-xs font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 transition truncate block leading-tight">
-                {profile?.display_name || user?.email?.split("@")[0] || (isKhmer ? "សិស្ស" : "Student")}
+                {profile?.display_name || user?.email?.split("@")[0] || "សិស្ស"}
               </span>
               <span className="text-[10.5px] font-semibold text-slate-400 truncate block">
                 {gradeLabel}

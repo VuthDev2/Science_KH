@@ -1,20 +1,18 @@
 // ==============================================================================
-// ScienceKH — Student Profile & Academic Passport
-// Professional, Clean, Executive Product Design for Cambodian STEM Students
-// Zero Broken Truncations, Refined Hierarchy, and Authentic Apple/Duolingo Polish
+// ScienceKH — Student Profile & Account Experience
+// Minimal, Sophisticated, Executive Academic Profile & Settings Architecture
+// Strict Separation of Concerns: Profile (Identity & Progress) vs Settings (Preferences)
 // ==============================================================================
 
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, useNavigate, Link } from "@tanstack/react-router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useMemo } from "react";
 import {
   Sparkles,
   Flame,
-  Trophy,
   Award,
   Globe,
   GraduationCap,
-  Coins,
   Camera,
   Check,
   Volume2,
@@ -24,18 +22,24 @@ import {
   Pencil,
   ChevronDown,
   LogOut,
-  ShieldCheck,
   Mail,
   Lock,
   ChevronRight,
-  Sparkle,
   User,
-  Lightbulb,
   Upload,
   Trash2,
   Loader2,
   Building2,
   BookOpen,
+  Settings,
+  Bookmark,
+  ShieldCheck,
+  Layers,
+  Atom,
+  FlaskConical,
+  Calculator,
+  Dna,
+  Landmark,
 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -60,122 +64,104 @@ import {
   requestNotificationPermission,
   getNotificationPermission,
 } from "@/lib/streak-guardian";
+import { getStudentProgress } from "@/lib/gamification.functions";
 
 export const Route = createFileRoute("/_authenticated/profile")({
   head: () => ({ meta: [{ title: "Student Profile — ScienceKH" }] }),
   component: ProfilePage,
 });
 
-// STEM Avatars with authentic MoEYS scientific identities
-interface AvatarOption {
+// Official MoEYS Grades (Grades 7–12)
+const GRADES = [
+  { grade: 7, label: "Grade 7", labelKm: "ថ្នាក់ទី ៧", cycle: "Junior High", cycleKm: "អនុវិទ្យាល័យ" },
+  { grade: 8, label: "Grade 8", labelKm: "ថ្នាក់ទី ៨", cycle: "Junior High", cycleKm: "អនុវិទ្យាល័យ" },
+  { grade: 9, label: "Grade 9", labelKm: "ថ្នាក់ទី ៩", cycle: "Brevet Exam", cycleKm: "ប្រឡងឌីប្លូម", isExam: true },
+  { grade: 10, label: "Grade 10", labelKm: "ថ្នាក់ទី ១០", cycle: "Senior High", cycleKm: "វិទ្យាល័យ" },
+  { grade: 11, label: "Grade 11", labelKm: "ថ្នាក់ទី ១១", cycle: "Senior High", cycleKm: "វិទ្យាល័យ", hasStream: true },
+  { grade: 12, label: "Grade 12", labelKm: "ថ្នាក់ទី ១២", cycle: "Bac II Exam", cycleKm: "ប្រឡងបាក់ឌុប", isExam: true, hasStream: true },
+];
+
+// Consistent Academic Scholar Avatars (Vector illustrations, NOT random emojis)
+interface ScholarAvatarOption {
   id: string;
-  emoji: string;
   nameKm: string;
   nameEn: string;
   roleKm: string;
   roleEn: string;
+  icon: typeof Landmark;
+  gradient: string;
 }
 
-const AVATAR_OPTIONS: AvatarOption[] = [
+const SCHOLAR_AVATARS: ScholarAvatarOption[] = [
   {
     id: "angkor",
-    emoji: "🇰🇭",
     nameKm: "សិស្សកម្ពុជា",
     nameEn: "Angkor Scholar",
-    roleKm: "ស្មារតីជាតិ",
+    roleKm: "ស្មារតីជាតិ MoEYS",
     roleEn: "National Spirit",
+    icon: Landmark,
+    gradient: "from-emerald-600 to-teal-800",
   },
   {
     id: "physics",
-    emoji: "👨‍🔬",
     nameKm: "អ្នករូបវិទ្យា",
     nameEn: "Physicist",
-    roleKm: "មេកានិច & ចលនា",
-    roleEn: "Mechanics & Motion",
+    roleKm: "មេកានិច & ថាមពល",
+    roleEn: "Quantum & Motion",
+    icon: Atom,
+    gradient: "from-blue-600 to-indigo-800",
   },
   {
     id: "chemistry",
-    emoji: "👩‍🔬",
     nameKm: "អ្នកគីមីវិទ្យា",
     nameEn: "Chemist",
-    roleKm: "សមាសធាតុគីមី",
-    roleEn: "Reactions & Bonds",
+    roleKm: "ម៉ូលេគុល & ប្រតិកម្ម",
+    roleEn: "Reactions & Matter",
+    icon: FlaskConical,
+    gradient: "from-emerald-500 to-teal-700",
   },
   {
     id: "math",
-    emoji: "📐",
     nameKm: "អ្នកគណិតវិទ្យា",
     nameEn: "Mathematician",
-    roleKm: "ពិជគណិត & ធរណីមាត្រ",
-    roleEn: "Algebra & Geometry",
+    roleKm: "ពីជគណិត & ធរណីមាត្រ",
+    roleEn: "Calculus & Geometry",
+    icon: Calculator,
+    gradient: "from-purple-600 to-violet-800",
   },
   {
     id: "biology",
-    emoji: "🧬",
     nameKm: "អ្នកជីវវិទ្យា",
     nameEn: "Biologist",
     roleKm: "ហ្សែន & កោសិកា",
-    roleEn: "Genetics & Cells",
+    roleEn: "Genetics & Life",
+    icon: Dna,
+    gradient: "from-teal-600 to-cyan-800",
   },
   {
-    id: "stem_mentor",
-    emoji: "👨‍🏫",
+    id: "kru_vuth",
     nameKm: "លោកគ្រូ វុឌ្ឍ",
     nameEn: "Kru Vuth Mentor",
     roleKm: "គ្រូជំនួយ STEM",
-    roleEn: "Socratic Mentor",
+    roleEn: "STEM Socratic Guide",
+    icon: GraduationCap,
+    gradient: "from-amber-600 to-orange-800",
   },
 ];
 
-// Grade definitions (Grades 7–12)
-const GRADES = [
-  {
-    grade: 7,
-    label: "Grade 7",
-    labelKm: "ថ្នាក់ទី ៧",
-    cycle: "Junior High",
-    cycleKm: "អនុវិទ្យាល័យ",
-  },
-  {
-    grade: 8,
-    label: "Grade 8",
-    labelKm: "ថ្នាក់ទី ៨",
-    cycle: "Junior High",
-    cycleKm: "អនុវិទ្យាល័យ",
-  },
-  {
-    grade: 9,
-    label: "Grade 9 (Brevet)",
-    labelKm: "ថ្នាក់ទី ៩ (ឌីប្លូម)",
-    cycle: "Brevet Exam",
-    cycleKm: "ប្រឡងឌីប្លូម",
-  },
-  {
-    grade: 10,
-    label: "Grade 10",
-    labelKm: "ថ្នាក់ទី ១០",
-    cycle: "Senior High",
-    cycleKm: "វិទ្យាល័យ",
-  },
-  {
-    grade: 11,
-    label: "Grade 11",
-    labelKm: "ថ្នាក់ទី ១១",
-    cycle: "Senior High",
-    cycleKm: "វិទ្យាល័យ",
-  },
-  {
-    grade: 12,
-    label: "Grade 12 (BacII)",
-    labelKm: "ថ្នាក់ទី ១២ (បាក់ឌុប)",
-    cycle: "Bac II Exam",
-    cycleKm: "ប្រឡងបាក់ឌុប",
-  },
+// Academic Monogram Palette Options
+const MONOGRAM_OPTIONS = [
+  { id: "mono_emerald", labelKm: "ត្បូងមរកត", labelEn: "Emerald", gradient: "from-emerald-600 to-teal-800" },
+  { id: "mono_indigo", labelKm: "ទឹកប៊ិចចាស់", labelEn: "Indigo", gradient: "from-indigo-600 to-blue-800" },
+  { id: "mono_amber", labelKm: "ទឹកក្រូច", labelEn: "Amber", gradient: "from-amber-600 to-orange-800" },
+  { id: "mono_rose", labelKm: "ផ្កាឈូក", labelEn: "Rose", gradient: "from-rose-600 to-pink-800" },
 ];
 
 interface BadgeData {
   id: string;
-  icon: string;
+  icon: typeof Award | typeof Flame | typeof Sparkles | typeof BookOpen;
+  iconBg: string;
+  iconColor: string;
   titleKm: string;
   titleEn: string;
   descKm: string;
@@ -203,15 +189,49 @@ function isAvatarCustomImage(url: string | null | undefined): boolean {
 }
 
 /**
- * High-performance client-side image resizer using HTML5 Canvas
- * Produces crisp, ultra-lightweight JPEG/WEBP data URLs (< 60KB)
+ * Renders consistent avatar graphics across the profile
  */
-function resizeImageToDataUrl(
-  file: File,
-  maxWidth = 384,
-  maxHeight = 384,
-  quality = 0.85,
-): Promise<string> {
+function renderAvatarContent(
+  avatarUrl: string | null | undefined,
+  name: string,
+  imgClass = "h-full w-full object-cover"
+) {
+  if (isAvatarCustomImage(avatarUrl)) {
+    return <img src={avatarUrl!} alt={name} className={imgClass} />;
+  }
+
+  // Monogram initials
+  if (avatarUrl?.startsWith("mono_")) {
+    const initials = (name || "SK")
+      .trim()
+      .split(" ")
+      .map((w) => w[0])
+      .slice(0, 2)
+      .join("")
+      .toUpperCase();
+
+    const matchedMono = MONOGRAM_OPTIONS.find((m) => m.id === avatarUrl) || MONOGRAM_OPTIONS[0];
+    return (
+      <div className={cn("h-full w-full grid place-items-center font-black text-sm sm:text-base text-white bg-gradient-to-br", matchedMono.gradient)}>
+        {initials}
+      </div>
+    );
+  }
+
+  // Academic scholar vector icons
+  const matchedScholar = SCHOLAR_AVATARS.find((a) => a.id === avatarUrl) || SCHOLAR_AVATARS[0];
+  const IconComponent = matchedScholar.icon;
+  return (
+    <div className={cn("h-full w-full grid place-items-center text-white bg-gradient-to-br", matchedScholar.gradient)}>
+      <IconComponent className="h-6 w-6 sm:h-7 sm:w-7 stroke-[2]" />
+    </div>
+  );
+}
+
+/**
+ * High-performance client-side image resizer using HTML5 Canvas
+ */
+function resizeImageToDataUrl(file: File, maxWidth = 384, maxHeight = 384, quality = 0.85): Promise<string> {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.onerror = () => reject(new Error("Failed to read image file"));
@@ -270,6 +290,9 @@ function ProfilePage() {
   const isKhmer = activeLang === "km";
   const isGuest = user?.app_metadata?.provider === "guest" || user?.id === GUEST_USER_ID;
 
+  // Active Navigation Tab: "profile" vs "settings"
+  const [activeTab, setActiveTab] = useState<"profile" | "settings">("profile");
+
   // Real-time Supabase Profile Sync
   const { data: liveProfile } = useQuery({
     queryKey: ["profile-live", user?.id],
@@ -286,10 +309,41 @@ function ProfilePage() {
     staleTime: 5000,
   });
 
-  // Local state
+  // Authentic Lesson Progress from Supabase
+  const { data: studentProgress } = useQuery({
+    queryKey: ["student-progress", user?.id],
+    enabled: !!user,
+    queryFn: async () => {
+      try {
+        return await getStudentProgress({ data: undefined });
+      } catch {
+        return { completedIds: [] as string[], inProgressIds: [] as string[] };
+      }
+    },
+    staleTime: 30_000,
+  });
+
+  const completedLessonsCount = studentProgress?.completedIds?.length ?? 0;
+
+  // Bookmarked items from localStorage
+  const [bookmarkedRefsCount, setBookmarkedRefsCount] = useState<number>(0);
+  const [savedOfflineExamsCount, setSavedOfflineExamsCount] = useState<number>(0);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const refs = localStorage.getItem("sciencekh_bookmarked_references");
+        if (refs) setBookmarkedRefsCount(JSON.parse(refs).length || 0);
+        const exams = localStorage.getItem("sciencekh_offline_exams");
+        if (exams) setSavedOfflineExamsCount(JSON.parse(exams).length || 0);
+      } catch {}
+    }
+  }, []);
+
+  // Local state for profile and preferences
   const [selectedAvatar, setSelectedAvatar] = useState<string>("angkor");
   const [isUploadingAvatar, setIsUploadingAvatar] = useState<boolean>(false);
-  const [currentGrade, setCurrentGrade] = useState<number>(10);
+  const [currentGrade, setCurrentGrade] = useState<number>(12);
   const [currentLanguage, setCurrentLanguage] = useState<"km" | "en">("km");
   const [soundEnabled, setSoundEnabled] = useState<boolean>(() => sounds.isEnabled());
   const [notificationsEnabled, setNotificationsEnabled] = useState<boolean>(() => {
@@ -304,9 +358,6 @@ function ProfilePage() {
     }
   });
 
-  // Profile fields & edit state
-  const [isEditingName, setIsEditingName] = useState<boolean>(false);
-  const [editNameValue, setEditNameValue] = useState<string>("");
   const [displayName, setDisplayName] = useState<string>("");
   const [fullName, setFullName] = useState<string>("");
   const [schoolName, setSchoolName] = useState<string>(() => {
@@ -318,13 +369,13 @@ function ProfilePage() {
     return (localStorage.getItem("sciencekh_study_stream") as "science" | "social") || "science";
   });
 
-  const [isGradeDrawerOpen, setIsGradeDrawerOpen] = useState<boolean>(false);
+  // Modal dialog states
   const [isEditProfileModalOpen, setIsEditProfileModalOpen] = useState<boolean>(false);
+  const [isAvatarModalOpen, setIsAvatarModalOpen] = useState<boolean>(false);
   const [selectedBadgeModal, setSelectedBadgeModal] = useState<BadgeData | null>(null);
   const [isSignOutModalOpen, setIsSignOutModalOpen] = useState<boolean>(false);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const nameInputRef = useRef<HTMLInputElement>(null);
 
   // Sync initial state from profile
   useEffect(() => {
@@ -368,7 +419,6 @@ function ProfilePage() {
     mutationFn: async (fields: Record<string, unknown>) => {
       if (!user?.id) throw new Error("Not authenticated");
       if (isGuest) {
-        // Intercept guest mutations to avoid Supabase UUID constraint error
         try {
           const saved = localStorage.getItem("sciencekh_guest_user");
           const current = saved ? JSON.parse(saved) : (user || {});
@@ -408,8 +458,8 @@ function ProfilePage() {
     },
   });
 
-  // Handle instant avatar selection
-  const handleSelectAvatar = (avatarId: string) => {
+  // Handle avatar selection and saving
+  const handleSaveAvatar = (avatarId: string) => {
     setSelectedAvatar(avatarId);
     sounds.playPop();
     localStorage.setItem(`sciencekh_avatar_${user?.id || "guest"}`, avatarId);
@@ -417,28 +467,21 @@ function ProfilePage() {
       { avatar_url: avatarId },
       {
         onSuccess: () => {
-          const matched = AVATAR_OPTIONS.find((a) => a.id === avatarId);
-          toast.success(
-            isKhmer
-              ? `បានជ្រើសរើសរូប ${matched?.nameKm || avatarId}`
-              : `Avatar updated to ${matched?.nameEn || avatarId}`,
-          );
+          setIsAvatarModalOpen(false);
+          sounds.playVictory();
+          toast.success(isKhmer ? "បានផ្លាស់ប្តូររូបតំណាងជោគជ័យ!" : "Avatar updated successfully!");
         },
-      },
+      }
     );
   };
 
-  // Handle client-side image compression and upload (Supabase Storage or direct Base64 fallback)
+  // Handle client-side image compression and upload
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
     if (!file.type.startsWith("image/")) {
-      toast.error(
-        isKhmer
-          ? "សូមជ្រើសរើសឯកសាររូបភាព (JPG, PNG, WEBP)"
-          : "Please select a valid image file (JPG, PNG, WEBP)",
-      );
+      toast.error(isKhmer ? "សូមជ្រើសរើសឯកសាររូបភាព (JPG, PNG, WEBP)" : "Please select an image file (JPG, PNG, WEBP)");
       return;
     }
 
@@ -448,15 +491,12 @@ function ProfilePage() {
     }
 
     setIsUploadingAvatar(true);
-    const toastId = toast.loading(
-      isKhmer ? "កំពុងដំណើរការ និងបង្ហោះរូបភាព..." : "Processing & uploading photo...",
-    );
+    const toastId = toast.loading(isKhmer ? "កំពុងដំណើរការ និងបង្ហោះរូបភាព..." : "Processing & uploading photo...");
 
     try {
       const compressedDataUrl = await resizeImageToDataUrl(file, 384, 384, 0.85);
       let finalAvatarUrl = compressedDataUrl;
 
-      // If user is authenticated and not a guest, attempt Supabase Storage upload
       if (user?.id && !isGuest) {
         try {
           const blob = dataUrlToBlob(compressedDataUrl);
@@ -469,50 +509,36 @@ function ProfilePage() {
             });
 
           if (!uploadErr && uploadData) {
-            const { data: pubData } = supabase.storage
-              .from("avatars")
-              .getPublicUrl(fileName);
-            if (pubData?.publicUrl) {
-              finalAvatarUrl = pubData.publicUrl;
-            }
+            const { data: pubData } = supabase.storage.from("avatars").getPublicUrl(fileName);
+            if (pubData?.publicUrl) finalAvatarUrl = pubData.publicUrl;
           }
         } catch {
-          // Gracefully fallback to high-quality compressed data URL
+          // Fallback to data URL
         }
       }
 
-      // Update state and local persistence immediately so UI updates with zero delay
       setSelectedAvatar(finalAvatarUrl);
       localStorage.setItem(`sciencekh_avatar_${user?.id || "guest"}`, finalAvatarUrl);
 
-      // Attempt remote database sync; if it fails (e.g. data URL length limit on column or bucket permission),
-      // local avatar persistence already ensures seamless display for the student
       try {
         await updateFieldMutation.mutateAsync({ avatar_url: finalAvatarUrl });
       } catch (remoteErr) {
-        console.warn("Avatar synced locally; remote DB sync bypassed:", remoteErr);
+        console.warn("Avatar synced locally:", remoteErr);
       }
 
       sounds.playVictory();
       launchConfetti();
-      toast.success(
-        isKhmer
-          ? "បានផ្លាស់ប្តូររូបថតគណនីជោគជ័យ! 🎉"
-          : "Profile photo updated successfully! 🎉",
-        { id: toastId },
-      );
+      setIsAvatarModalOpen(false);
+      toast.success(isKhmer ? "បានបង្ហោះរូបថតគណនីជោគជ័យ! 🎉" : "Profile photo uploaded successfully! 🎉", { id: toastId });
     } catch (err: any) {
-      toast.error(
-        err?.message || (isKhmer ? "បរាជ័យក្នុងការបង្ហោះរូបថត" : "Failed to upload photo"),
-        { id: toastId },
-      );
+      toast.error(err?.message || (isKhmer ? "បរាជ័យក្នុងការបង្ហោះរូបថត" : "Failed to upload photo"), { id: toastId });
     } finally {
       setIsUploadingAvatar(false);
       if (e.target) e.target.value = "";
     }
   };
 
-  // Revert custom photo back to standard STEM Avatar
+  // Revert custom photo back to standard Angkor Avatar
   const handleRemoveCustomAvatar = () => {
     setSelectedAvatar("angkor");
     sounds.playPop();
@@ -521,17 +547,13 @@ function ProfilePage() {
       { avatar_url: "angkor" },
       {
         onSuccess: () => {
-          toast.success(
-            isKhmer
-              ? "បានប្តូរត្រឡប់ទៅរូបតំណាងដើមវិញ"
-              : "Reverted to default STEM avatar",
-          );
+          toast.success(isKhmer ? "បានប្តូរត្រឡប់ទៅរូបតំណាងដើមវិញ" : "Reverted to default avatar");
         },
-      },
+      }
     );
   };
 
-  // Handle Full Profile Update from Modal Dialog
+  // Handle Full Profile Update from Modal or Settings Tab
   const handleSaveFullProfile = async (data: {
     displayName: string;
     fullName: string;
@@ -569,35 +591,10 @@ function ProfilePage() {
 
       setIsEditProfileModalOpen(false);
       sounds.playVictory();
-      launchConfetti();
-      toast.success(
-        isKhmer
-          ? "បានកែប្រែព័ត៌មានគណនីសិស្សដោយជោគជ័យ! 🎉"
-          : "Student profile updated successfully! 🎉",
-      );
+      toast.success(isKhmer ? "បានកែប្រែព័ត៌មានគណនីសិស្សជោគជ័យ!" : "Student profile updated successfully!");
     } catch (err: any) {
       toast.error(err?.message || "Failed to save profile changes");
     }
-  };
-
-  // Handle instant grade selection
-  const handleSelectGrade = (newGrade: number) => {
-    setCurrentGrade(newGrade);
-    setIsGradeDrawerOpen(false);
-    sounds.playVictory();
-    launchConfetti();
-    updateFieldMutation.mutate(
-      { grade: newGrade },
-      {
-        onSuccess: () => {
-          toast.success(
-            isKhmer
-              ? `បានប្តូរទៅកាន់ថ្នាក់ទី ${newGrade} ដោយជោគជ័យ!`
-              : `Grade updated to Grade ${newGrade}!`,
-          );
-        },
-      },
-    );
   };
 
   // Handle instant language toggle
@@ -612,7 +609,7 @@ function ProfilePage() {
           qc.invalidateQueries({ queryKey: ["profile-live", user?.id] });
           toast.success(lang === "km" ? "បានប្តូរទៅភាសាខ្មែរ" : "Switched to English");
         },
-      },
+      }
     );
   };
 
@@ -625,11 +622,7 @@ function ProfilePage() {
       sounds.playCorrect(1);
       toast.success(isKhmer ? "បានបើកសំឡេងអមការរៀន" : "Sound effects enabled");
     } else {
-      toast.info(
-        isKhmer
-          ? "បានបិទសំឡេង (រក្សាការរំញ័រ Tactile)"
-          : "Sound muted (tactile haptics preserved)"
-      );
+      toast.info(isKhmer ? "បានបិទសំឡេង (រក្សាការរំញ័រ Tactile)" : "Sound muted (tactile haptics preserved)");
     }
   };
 
@@ -640,50 +633,15 @@ function ProfilePage() {
       if (granted) {
         setNotificationsEnabled(true);
         sounds.playCorrect(1);
-        toast.success(
-          isKhmer
-            ? "បានបើកការរំលឹកការពារ Streak (ម៉ោង 7:00 យប់)"
-            : "Streak Guardian reminders active (7:00 PM)"
-        );
+        toast.success(isKhmer ? "បានបើកការរំលឹកការពារ Streak (ម៉ោង 7:00 យប់)" : "Streak Guardian reminders active (7:00 PM)");
       } else {
-        toast.error(
-          isKhmer
-            ? "សូមអនុញ្ញាតការជូនដំណឹង (Notifications) ក្នុងឧបករណ៍របស់អ្នក"
-            : "Please allow notifications in your device settings"
-        );
+        toast.error(isKhmer ? "សូមអនុញ្ញាតការជូនដំណឹងក្នុងឧបករណ៍របស់អ្នក" : "Please allow notifications in your device settings");
       }
     } else {
       setNotificationsEnabled(false);
       localStorage.setItem("sciencekh_notifications_enabled", "false");
       toast.info(isKhmer ? "បានបិទការរំលឹក Streak" : "Streak reminders disabled");
     }
-  };
-
-  // Handle inline name editing
-  const startEditingName = () => {
-    setEditNameValue(displayName);
-    setIsEditingName(true);
-    setTimeout(() => {
-      nameInputRef.current?.focus();
-      nameInputRef.current?.select();
-    }, 50);
-  };
-
-  const handleSaveName = () => {
-    const trimmed = editNameValue.trim();
-    setIsEditingName(false);
-    if (!trimmed || trimmed === displayName) return;
-
-    setDisplayName(trimmed);
-    sounds.playPop();
-    updateFieldMutation.mutate(
-      { display_name: trimmed },
-      {
-        onSuccess: () => {
-          toast.success(isKhmer ? "បានរក្សាទុកឈ្មោះថ្មី!" : "Name updated successfully!");
-        },
-      },
-    );
   };
 
   // Sign out confirmation
@@ -694,913 +652,1049 @@ function ProfilePage() {
     navigate({ to: "/auth", search: { mode: "signin" }, replace: true });
   }
 
-  // Student metrics
-  const xp = liveProfile?.xp ?? dbData?.xp ?? 182;
-  const streakDays = liveProfile?.streak_days ?? dbData?.streak_days ?? 2;
-  const coins = liveProfile?.coins ?? dbData?.coins ?? 50;
-  const isJuniorHigh = currentGrade >= 7 && currentGrade <= 9;
-  const currentAvatar = AVATAR_OPTIONS.find((a) => a.id === selectedAvatar) || AVATAR_OPTIONS[0];
+  // Authentic student metrics
+  const xp = liveProfile?.xp ?? dbData?.xp ?? 0;
+  const streakDays = liveProfile?.streak_days ?? dbData?.streak_days ?? 1;
 
-  // Authentic badges based on real student metrics
-  const studentBadges: BadgeData[] = [
-    {
-      id: "streak_7",
-      icon: "🔥",
-      titleKm: "ការពារ Streak ៧ ថ្ងៃ",
-      titleEn: "7-Day Streak Keeper",
-      descKm: "រៀនជាប់គ្នា ៧ ថ្ងៃដោយគ្មានខកខាន ដើម្បីកសាងទម្លាប់រឹងមាំ",
-      descEn: "Complete lessons for 7 consecutive days to build a strong study habit",
-      unlocked: streakDays >= 7,
-      progressText:
-        streakDays >= 7
-          ? isKhmer
-            ? "សម្រេចបាន"
-            : "Completed"
-          : `${streakDays} / 7 ${isKhmer ? "ថ្ងៃ" : "Days"}`,
-      progressPercent: Math.min(100, Math.round((streakDays / 7) * 100)),
-      xpReward: 150,
-      badgeTagKm: "ទម្លាប់រៀន",
-      badgeTagEn: "Daily Habit",
-    },
-    {
-      id: "explorer_starter",
-      icon: "✨",
-      titleKm: "អ្នករុករក STEM ជំហានដំបូង",
-      titleEn: "STEM Trailblazer",
-      descKm: "ទទួលបានពិន្ទុចំណេះដឹងដំបូងបង្អស់ ១០០ XP តាមរយៈមេរៀនវិទ្យាសាស្ត្រ",
-      descEn: "Earn your first 100 Knowledge XP exploring Cambodian STEM lessons",
-      unlocked: xp >= 100,
-      progressText: xp >= 100 ? (isKhmer ? "សម្រេចបាន" : "Completed") : `${xp} / 100 XP`,
-      progressPercent: Math.min(100, Math.round((xp / 100) * 100)),
-      xpReward: 100,
-      badgeTagKm: "ពិន្ទុចំណេះដឹង",
-      badgeTagEn: "Knowledge XP",
-    },
-    {
-      id: "diamond_league",
-      icon: "💎",
-      titleKm: "កំពូលតារាងលីគពេជ្រ",
-      titleEn: "Diamond League Tier",
-      descKm: "ឈរនៅចំណាត់ថ្នាក់កំពូលក្នុងលីគពេជ្រប្រចាំសប្តាហ៍",
-      descEn: "Ranked among the top scholars in the national diamond tier",
-      unlocked: true,
-      progressText: isKhmer ? "សកម្មភាពបច្ចុប្បន្ន" : "Active Tier",
-      progressPercent: 100,
-      xpReward: 250,
-      badgeTagKm: "តារាងកិត្តិយស",
-      badgeTagEn: "Leaderboard",
-    },
-    {
-      id: "bacii_master",
-      icon: "⚛️",
-      titleKm: "ម្ចាស់រូបវិទ្យាបាក់ឌុប",
-      titleEn: "BacII Physics Master",
-      descKm: "បញ្ចប់ការពិសោធន៍ និងវិញ្ញាសារូបវិទ្យាថ្នាក់ទី១២",
-      descEn: "Complete Grade 12 physics problem sets and national exam papers",
-      unlocked: currentGrade === 12,
-      progressText:
-        currentGrade === 12
-          ? isKhmer
-            ? "ត្រៀមប្រឡងបាក់ឌុប"
-            : "BacII Ready"
-          : isKhmer
-            ? "ដោះសោនៅថ្នាក់ទី១២"
-            : "Unlocks in Grade 12",
-      progressPercent: currentGrade === 12 ? 100 : Math.round((currentGrade / 12) * 100),
-      xpReward: 300,
-      badgeTagKm: "ថ្នាក់ទី១២",
-      badgeTagEn: "Grade 12",
-    },
-  ];
+  // Genuine achievements based on real student records
+  const studentBadges: BadgeData[] = useMemo(() => {
+    return [
+      {
+        id: "streak_7",
+        icon: Flame,
+        iconBg: "bg-orange-50 dark:bg-orange-950/60 border-orange-200/80 dark:border-orange-800",
+        iconColor: "text-orange-600 dark:text-orange-400",
+        titleKm: "ការពារ Streak ៧ ថ្ងៃ",
+        titleEn: "7-Day Study Habit",
+        descKm: "ចូលរៀនជាប់គ្នា ៧ ថ្ងៃដោយគ្មានខកខានដើម្បីកសាងទម្លាប់រឹងមាំ",
+        descEn: "Study for 7 consecutive days to build a resilient daily rhythm",
+        unlocked: streakDays >= 7,
+        progressText: streakDays >= 7 ? (isKhmer ? "សម្រេចបាន ✓" : "Completed ✓") : `${streakDays} / 7 ${isKhmer ? "ថ្ងៃ" : "Days"}`,
+        progressPercent: Math.min(100, Math.round((streakDays / 7) * 100)),
+        xpReward: 150,
+        badgeTagKm: "ទម្លាប់សិក្សា",
+        badgeTagEn: "Daily Habit",
+      },
+      {
+        id: "first_100_xp",
+        icon: Sparkles,
+        iconBg: "bg-amber-50 dark:bg-amber-950/60 border-amber-200/80 dark:border-amber-800",
+        iconColor: "text-amber-600 dark:text-amber-400",
+        titleKm: "ចំណេះដឹង ១០០ XP ដំបូង",
+        titleEn: "Century of Knowledge",
+        descKm: "ទទួលបានពិន្ទុចំណេះដឹងដំបូងបង្អស់ ១០០ XP ពីការសិក្សាមេរៀន",
+        descEn: "Earn your first 100 Knowledge XP from curriculum lessons",
+        unlocked: xp >= 100,
+        progressText: xp >= 100 ? (isKhmer ? "សម្រេចបាន ✓" : "Completed ✓") : `${xp} / 100 XP`,
+        progressPercent: Math.min(100, Math.round((xp / 100) * 100)),
+        xpReward: 100,
+        badgeTagKm: "ពិន្ទុចំណេះដឹង",
+        badgeTagEn: "Knowledge XP",
+      },
+      {
+        id: "lessons_completed_5",
+        icon: BookOpen,
+        iconBg: "bg-blue-50 dark:bg-blue-950/60 border-blue-200/80 dark:border-blue-800",
+        iconColor: "text-blue-600 dark:text-blue-400",
+        titleKm: "បញ្ចប់ ៥ មេរៀន",
+        titleEn: "5 Lessons Completed",
+        descKm: "រៀន និងឆ្លើយសំណួរស្ទង់សមត្ថភាពចប់សព្វគ្រប់ ៥ មេរៀន",
+        descEn: "Complete full content and practice quizzes for 5 lessons",
+        unlocked: completedLessonsCount >= 5,
+        progressText: completedLessonsCount >= 5 ? (isKhmer ? "សម្រេចបាន ✓" : "Completed ✓") : `${completedLessonsCount} / 5 ${isKhmer ? "មេរៀន" : "Lessons"}`,
+        progressPercent: Math.min(100, Math.round((completedLessonsCount / 5) * 100)),
+        xpReward: 200,
+        badgeTagKm: "កម្មវិធីសិក្សា",
+        badgeTagEn: "Curriculum",
+      },
+      {
+        id: "exam_preparation",
+        icon: Award,
+        iconBg: "bg-emerald-50 dark:bg-emerald-950/60 border-emerald-200/80 dark:border-emerald-800",
+        iconColor: "text-emerald-600 dark:text-emerald-400",
+        titleKm: currentGrade === 12 ? "ត្រៀមប្រឡងបាក់ឌុប" : currentGrade === 9 ? "ត្រៀមប្រឡងឌីប្លូម" : "ការត្រៀមប្រឡងជាតិ",
+        titleEn: currentGrade === 12 ? "Bac II Candidate" : currentGrade === 9 ? "Brevet Candidate" : "National Assessment",
+        descKm: `ត្រៀមលក្ខណៈ និងអនុវត្តវិញ្ញាសាប្រឡងជាតិ MoEYS ថ្នាក់ទី ${toKhmerNumeral(currentGrade)}`,
+        descEn: `Prepare and solve verified MoEYS past papers for Grade ${currentGrade}`,
+        unlocked: currentGrade === 12 || currentGrade === 9,
+        progressText: currentGrade === 12 || currentGrade === 9 ? (isKhmer ? "សកម្ម ✓" : "Active ✓") : (isKhmer ? "ដោះសោនៅថ្នាក់ទី ៩ & ១២" : "Grade 9 & 12 only"),
+        progressPercent: currentGrade === 12 || currentGrade === 9 ? 100 : 50,
+        xpReward: 250,
+        badgeTagKm: "ការប្រឡងជាតិ",
+        badgeTagEn: "National Exam",
+      },
+    ];
+  }, [streakDays, xp, completedLessonsCount, currentGrade, isKhmer]);
 
   const unlockedCount = studentBadges.filter((b) => b.unlocked).length;
+
+  // Profile completeness calculation
+  const completenessScore = useMemo(() => {
+    let score = 20; // base registered
+    if (displayName) score += 20;
+    if (fullName) score += 20;
+    if (schoolName) score += 20;
+    if (isAvatarCustomImage(selectedAvatar) || selectedAvatar !== "angkor") score += 20;
+    return score;
+  }, [displayName, fullName, schoolName, selectedAvatar]);
 
   return (
     <AppShell
       breadcrumbs={[
         { label: isKhmer ? "ទំព័រដើម" : "Home", href: "/home" },
-        { label: isKhmer ? "គណនីសិស្ស" : "Profile" },
+        { label: isKhmer ? "គណនីសិស្ស" : "Profile & Account" },
       ]}
       rightSidebar={
         <div className="space-y-4">
-          {/* Account Overview & Cloud Sync Card */}
-          <div className="p-4 rounded-3xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs space-y-3.5">
+          {/* 1. Academic Status Card */}
+          <section className="p-4 rounded-2xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs space-y-3">
             <div className="flex items-center justify-between">
               <span className="text-xs font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
-                <User className="h-4 w-4 text-emerald-600" />
-                <span>{isKhmer ? "ព័ត៌មានគណនី" : "Account Overview"}</span>
+                <ShieldCheck className="h-4 w-4 text-[#059669]" />
+                <span>{isKhmer ? "ស្ថានភាពគណនី" : "Account Status"}</span>
               </span>
-              <span className="inline-flex items-center gap-1.5 text-[10px] font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded-full border border-emerald-200/80">
+              <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded-full border border-emerald-200/80">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                <span>{isKhmer ? "បានភ្ជាប់" : "Connected"}</span>
+                <span>{isKhmer ? "បានភ្ជាប់" : "Active"}</span>
               </span>
             </div>
 
-            <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-850 border border-slate-100 dark:border-slate-800 space-y-2">
-              <div className="flex items-center justify-between text-xs">
-                <span className="text-slate-400 text-[11px]">{isKhmer ? "ប្រភេទគណនី" : "Account Type"}</span>
+            <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-850 border border-slate-100 dark:border-slate-800 space-y-2 text-xs">
+              <div className="flex items-center justify-between">
+                <span className="text-slate-400 text-[11px]">{isKhmer ? "ប្រភេទ" : "Type"}</span>
                 <span className="font-bold text-slate-800 dark:text-slate-200">
-                  {isGuest ? (isKhmer ? "សិស្សភ្ញៀវ" : "Guest Account") : (isKhmer ? "សិស្សផ្លូវការ" : "Standard Account")}
+                  {isGuest ? (isKhmer ? "សិស្សភ្ញៀវ" : "Guest") : (isKhmer ? "សិស្សផ្លូវការ" : "Standard")}
                 </span>
               </div>
-              <div className="flex items-center justify-between text-xs">
-                <span className="text-slate-400 text-[11px]">{isKhmer ? "កម្រិតថ្នាក់" : "Current Grade"}</span>
+              <div className="flex items-center justify-between">
+                <span className="text-slate-400 text-[11px]">{isKhmer ? "កម្រិតថ្នាក់" : "Grade"}</span>
                 <span className="font-bold text-slate-800 dark:text-slate-200">
                   {isKhmer ? `ថ្នាក់ទី ${toKhmerNumeral(currentGrade)}` : `Grade ${currentGrade}`}
                 </span>
               </div>
-              <div className="flex items-center justify-between text-xs">
-                <span className="text-slate-400 text-[11px]">{isKhmer ? "ការរក្សាទុក" : "Cloud Sync"}</span>
-                <span className="font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-1 text-[11px]">
-                  <Check className="h-3 w-3 stroke-[2.5]" />
-                  <span>{isKhmer ? "ស្វ័យប្រវត្តិ" : "Auto-synced"}</span>
-                </span>
+              {currentGrade >= 11 && (
+                <div className="flex items-center justify-between">
+                  <span className="text-slate-400 text-[11px]">{isKhmer ? "ផ្នែកសិក្សា" : "Track"}</span>
+                  <span className="font-bold text-slate-800 dark:text-slate-200">
+                    {studyStream === "science"
+                      ? isKhmer ? "វិទ្យាសាស្ត្រពិត" : "Science"
+                      : isKhmer ? "វិទ្យាសាស្ត្រសង្គម" : "Social"}
+                  </span>
+                </div>
+              )}
+              <div className="flex items-center justify-between">
+                <span className="text-slate-400 text-[11px]">{isKhmer ? "កម្មវិធីសិក្សា" : "Curriculum"}</span>
+                <span className="font-bold text-slate-800 dark:text-slate-200">MoEYS 2026</span>
               </div>
             </div>
+          </section>
 
-            <p className="text-[11px] text-slate-400 leading-relaxed">
-              {isKhmer
-                ? "វឌ្ឍនភាពសិក្សា ពិន្ទុ និងការកត់ចំណាំរបស់អ្នកត្រូវបានរក្សាទុកដោយសុវត្ថិភាព។"
-                : "Your learning progress, quiz scores, and bookmarks are securely backed up."}
-            </p>
-          </div>
+          {/* 2. Profile Completeness */}
+          <section className="p-4 rounded-2xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs space-y-2.5">
+            <div className="flex items-center justify-between text-xs">
+              <span className="font-bold text-slate-800 dark:text-slate-200">
+                {isKhmer ? "កម្រិតបំពេញព័ត៌មាន" : "Profile Completeness"}
+              </span>
+              <span className="font-bold text-[#059669]">{completenessScore}%</span>
+            </div>
 
-          {/* Clean Sign Out Action */}
-          <div className="p-4 rounded-3xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs">
+            <div className="h-1.5 w-full rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
+              <div
+                className="h-full rounded-full bg-[#059669] transition-all duration-500"
+                style={{ width: `${completenessScore}%` }}
+              />
+            </div>
+
+            <div className="space-y-1 pt-1 text-[11px] text-slate-500 dark:text-slate-400">
+              <div className="flex items-center gap-1.5">
+                <Check className={cn("h-3 w-3", displayName ? "text-[#059669]" : "text-slate-300")} />
+                <span>{isKhmer ? "ឈ្មោះបង្ហាញគណនី" : "Display name"}</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <Check className={cn("h-3 w-3", fullName ? "text-[#059669]" : "text-slate-300")} />
+                <span>{isKhmer ? "ឈ្មោះពេញសិស្ស" : "Full legal name"}</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <Check className={cn("h-3 w-3", schoolName ? "text-[#059669]" : "text-slate-300")} />
+                <span>{isKhmer ? "គ្រឹះស្ថានសិក្សា / សាលារៀន" : "School institution"}</span>
+              </div>
+            </div>
+          </section>
+
+          {/* 3. Concise Account Shortcuts */}
+          <section className="p-3.5 rounded-2xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs space-y-1">
             <button
               type="button"
-              onClick={() => setIsSignOutModalOpen(true)}
-              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-2xl border border-rose-200 dark:border-rose-900/60 bg-rose-50/50 dark:bg-rose-950/30 text-rose-600 dark:text-rose-400 hover:bg-rose-100 dark:hover:bg-rose-950/60 transition active:scale-95 text-xs font-bold cursor-pointer"
+              onClick={() => setActiveTab(activeTab === "profile" ? "settings" : "profile")}
+              className="w-full flex items-center justify-between p-2 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-bold text-slate-700 dark:text-slate-300 transition cursor-pointer"
             >
-              <LogOut className="h-4 w-4" />
-              <span>{isKhmer ? "ចាកចេញពីគណនី" : "Sign Out"}</span>
+              <span className="flex items-center gap-2">
+                <Settings className="h-4 w-4 text-slate-400" />
+                <span>{activeTab === "profile" ? (isKhmer ? "បើកការកំណត់គណនី" : "Account Settings") : (isKhmer ? "ត្រឡប់ទៅរូបសង្ខេប" : "View Profile")}</span>
+              </span>
+              <ChevronRight className="h-3.5 w-3.5 text-slate-400" />
             </button>
-          </div>
+
+            <Link
+              to="/reference"
+              search={{ grade: currentGrade }}
+              className="w-full flex items-center justify-between p-2 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-bold text-slate-700 dark:text-slate-300 transition cursor-pointer"
+            >
+              <span className="flex items-center gap-2">
+                <Layers className="h-4 w-4 text-[#059669]" />
+                <span>{isKhmer ? "បណ្ណាល័យរូបមន្ត & យោង" : "Formula Warehouse"}</span>
+              </span>
+              <ChevronRight className="h-3.5 w-3.5 text-slate-400" />
+            </Link>
+
+            <Link
+              to="/exams"
+              className="w-full flex items-center justify-between p-2 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-bold text-slate-700 dark:text-slate-300 transition cursor-pointer"
+            >
+              <span className="flex items-center gap-2">
+                <BookOpen className="h-4 w-4 text-blue-600" />
+                <span>{isKhmer ? "បណ្ណសារវិញ្ញាសាជាតិ" : "Exam Archive"}</span>
+              </span>
+              <ChevronRight className="h-3.5 w-3.5 text-slate-400" />
+            </Link>
+          </section>
         </div>
       }
     >
-      <div className="space-y-6">
-        {/* Desktop Header */}
-        <div className="hidden lg:flex items-center justify-between pb-4 border-b border-slate-200/80 dark:border-slate-800">
+      <div className="space-y-5 pb-8">
+        {/* Top Header: Title & Clean Segmented Destination Tabs (Profile vs Settings) */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-[#E5EAF0] dark:border-slate-800">
           <div>
-            <h1 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">
-              {isKhmer ? "គណនី & ការកំណត់" : "Account & Settings"}
+            <h1 className="font-display text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
+              {activeTab === "profile"
+                ? isKhmer ? "គណនីសិស្ស & សមិទ្ធផល" : "Student Profile & Identity"
+                : isKhmer ? "ការកំណត់គណនី & ប្រព័ន្ធ" : "Account Settings & Preferences"}
             </h1>
             <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-              {isKhmer ? "គ្រប់គ្រងព័ត៌មានផ្ទាល់ខ្លួន កម្រិតថ្នាក់ និងការកំណត់កម្មវិធី" : "Manage your personal profile, grade level, and app preferences"}
+              {activeTab === "profile"
+                ? isKhmer ? "ព័ត៌មានអត្តសញ្ញាណសិស្ស កម្រិតថ្នាក់ និងសមិទ្ធផលសិក្សា" : "Manage your student academic identity and milestone progress"
+                : isKhmer ? "កំណត់ភាសា សំឡេង ការជូនដំណឹង និងសុវត្ថិភាពគណនី" : "Configure language, audio, daily reminders, and security"}
             </p>
+          </div>
+
+          {/* P0: Segmented Destination Control (Profile vs Settings) */}
+          <div className="flex items-center gap-1 p-1 rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 shrink-0">
+            <button
+              type="button"
+              onClick={() => {
+                sounds.playPop();
+                setActiveTab("profile");
+              }}
+              className={cn(
+                "py-1.5 px-3 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer",
+                activeTab === "profile"
+                  ? "bg-white dark:bg-slate-900 text-slate-900 dark:text-white shadow-2xs font-extrabold"
+                  : "text-slate-500 hover:text-slate-900 dark:hover:text-white"
+              )}
+            >
+              <User className="h-3.5 w-3.5 text-[#059669]" />
+              <span>{isKhmer ? "រូបសង្ខេប" : "Profile"}</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => {
+                sounds.playPop();
+                setActiveTab("settings");
+              }}
+              className={cn(
+                "py-1.5 px-3 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer",
+                activeTab === "settings"
+                  ? "bg-white dark:bg-slate-900 text-slate-900 dark:text-white shadow-2xs font-extrabold"
+                  : "text-slate-500 hover:text-slate-900 dark:hover:text-white"
+              )}
+            >
+              <Settings className="h-3.5 w-3.5 text-slate-500" />
+              <span>{isKhmer ? "ការកំណត់" : "Settings"}</span>
+            </button>
           </div>
         </div>
 
-        {/* Mobile Header */}
-        <header
-          className="lg:hidden sticky top-0 z-20 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 header-safe-top px-4 pb-3"
-          style={{ paddingTop: "max(3.25rem, calc(env(safe-area-inset-top, 0px) + 0.5rem))" }}
-        >
-          <div className="mx-auto flex h-10 w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl items-center justify-between">
-            <div className="flex items-center gap-2.5">
-              <div className="grid h-8 w-8 place-items-center rounded-xl bg-emerald-600 text-white font-black text-sm shadow-2xs">
-                <User className="h-4 w-4" />
+        {/* ================================================================ */}
+        {/* TAB CONTENT A: STUDENT PROFILE (IDENTITY & PROGRESS)            */}
+        {/* ================================================================ */}
+        {activeTab === "profile" && (
+          <div className="space-y-4 animate-in fade-in duration-150">
+            {/* 1. Compact Horizontal Student Identity Section */}
+            <section className="rounded-2xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 p-4 sm:p-5 shadow-2xs">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div className="flex items-center gap-3.5 sm:gap-4 min-w-0">
+                  {/* Prominent but compact avatar with quick customize trigger */}
+                  <div className="relative group shrink-0">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        sounds.playPop();
+                        setIsAvatarModalOpen(true);
+                      }}
+                      className="h-16 w-16 sm:h-18 sm:w-18 rounded-2xl overflow-hidden border-2 border-emerald-500/70 bg-slate-100 dark:bg-slate-800 grid place-items-center shadow-xs transition group-hover:scale-105 cursor-pointer relative"
+                      title={isKhmer ? "ចុចដើម្បីប្តូររូបតំណាង" : "Click to customize avatar"}
+                    >
+                      {renderAvatarContent(selectedAvatar, displayName)}
+                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity grid place-items-center text-white">
+                        <Camera className="h-4 w-4" />
+                      </div>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        sounds.playPop();
+                        setIsAvatarModalOpen(true);
+                      }}
+                      className="absolute -bottom-1 -right-1 h-6 w-6 rounded-full bg-[#059669] hover:bg-[#047857] text-white border-2 border-white dark:border-slate-900 grid place-items-center shadow-xs cursor-pointer active:scale-95"
+                      title={isKhmer ? "ប្តូររូបតំណាង" : "Change avatar"}
+                    >
+                      <Camera className="h-3 w-3" />
+                    </button>
+                  </div>
+
+                  {/* Student Details */}
+                  <div className="space-y-1 min-w-0">
+                    <div className="flex items-center gap-2">
+                      <h2 className="font-display text-lg sm:text-xl font-black text-slate-900 dark:text-white tracking-tight truncate">
+                        {displayName || (isKhmer ? "សិស្ស ScienceKH" : "ScienceKH Student")}
+                      </h2>
+                      <span className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-emerald-50 dark:bg-emerald-950/60 text-[#059669] border border-emerald-200/60 dark:border-emerald-800/60 shrink-0">
+                        {isGuest ? (isKhmer ? "ភ្ញៀវ" : "Guest") : (isKhmer ? "សិស្ស MoEYS" : "Verified")}
+                      </span>
+                    </div>
+
+                    {fullName && (
+                      <p className="text-xs text-slate-500 dark:text-slate-400 font-medium truncate">
+                        {fullName}
+                      </p>
+                    )}
+
+                    {/* Academic Badges Row */}
+                    <div className="flex flex-wrap items-center gap-1.5 text-xs pt-0.5">
+                      <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold text-[11px]">
+                        <GraduationCap className="h-3 w-3 text-[#059669]" />
+                        <span>{isKhmer ? `ថ្នាក់ទី ${toKhmerNumeral(currentGrade)}` : `Grade ${currentGrade}`}</span>
+                      </span>
+
+                      {currentGrade >= 11 && (
+                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold text-[11px]">
+                          <span>{studyStream === "science" ? "🔬" : "📚"}</span>
+                          <span>
+                            {studyStream === "science"
+                              ? isKhmer ? "វិទ្យាសាស្ត្រពិត" : "Science"
+                              : isKhmer ? "សង្គម" : "Social"}
+                          </span>
+                        </span>
+                      )}
+
+                      {schoolName && (
+                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-500 font-medium text-[11px] truncate max-w-[200px]">
+                          <Building2 className="h-3 w-3 text-slate-400 shrink-0" />
+                          <span className="truncate">{schoolName}</span>
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Edit Actions */}
+                <div className="flex items-center gap-2 shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-slate-100 dark:border-slate-800">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={() => {
+                      sounds.playPop();
+                      setIsEditProfileModalOpen(true);
+                    }}
+                    className="rounded-xl border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-emerald-500 text-xs font-bold gap-1.5 h-9 cursor-pointer"
+                  >
+                    <Pencil className="h-3.5 w-3.5" />
+                    <span>{isKhmer ? "កែប្រែព័ត៌មាន" : "Edit Profile"}</span>
+                  </Button>
+                </div>
               </div>
-              <div>
-                <h1 className="font-display text-sm sm:text-base font-black text-slate-900 dark:text-white leading-tight">
-                  {isKhmer ? "គណនី & ការកំណត់" : "Account & Settings"}
-                </h1>
-                <p className="text-[10px] text-slate-400 font-medium">
-                  {isKhmer ? "កម្រិតថ្នាក់ និងព័ត៌មានផ្ទាល់ខ្លួន" : "Personal profile & grade"}
+            </section>
+
+            {/* 2. Four Authentic Learning Statistics Cards */}
+            <section className="grid grid-cols-2 lg:grid-cols-4 gap-2.5">
+              {/* Metric 1: Learning Streak */}
+              <div className="rounded-2xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 p-3.5 text-left shadow-2xs space-y-1">
+                <div className="flex items-center gap-1.5 text-xs font-bold text-orange-600 dark:text-orange-400">
+                  <Flame className="h-4 w-4 fill-orange-500 text-orange-500" />
+                  <span>{isKhmer ? "ថ្ងៃជាប់គ្នា" : "Daily Streak"}</span>
+                </div>
+                <p className="font-display text-lg sm:text-xl font-black text-slate-900 dark:text-white leading-tight">
+                  {isKhmer ? toKhmerNumeral(streakDays) : streakDays} <span className="text-xs font-normal text-slate-400">{isKhmer ? "ថ្ងៃ" : "Days"}</span>
+                </p>
+                <p className="text-[10px] text-slate-400 font-medium truncate">
+                  {isKhmer ? "ទម្លាប់សិក្សាជាប់លាប់" : "Consecutive study rhythm"}
                 </p>
               </div>
-            </div>
 
-            {/* Clean Sign Out Action */}
-            <button
-              type="button"
-              onClick={() => setIsSignOutModalOpen(true)}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition active:scale-95 text-xs font-bold cursor-pointer shadow-2xs"
-              title={isKhmer ? "ចាកចេញ" : "Sign Out"}
-            >
-              <LogOut className="h-3.5 w-3.5" />
-              <span>{isKhmer ? "ចាកចេញ" : "Sign Out"}</span>
-            </button>
-          </div>
-        </header>
+              {/* Metric 2: Total Knowledge XP */}
+              <div className="rounded-2xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 p-3.5 text-left shadow-2xs space-y-1">
+                <div className="flex items-center gap-1.5 text-xs font-bold text-amber-600 dark:text-amber-400">
+                  <Sparkles className="h-4 w-4 fill-amber-500 text-amber-500" />
+                  <span>{isKhmer ? "ពិន្ទុចំណេះដឹង" : "Total XP"}</span>
+                </div>
+                <p className="font-display text-lg sm:text-xl font-black text-slate-900 dark:text-white leading-tight">
+                  {isKhmer ? toKhmerNumeral(xp.toLocaleString()) : xp.toLocaleString()}
+                </p>
+                <p className="text-[10px] text-slate-400 font-medium truncate">
+                  {isKhmer ? "ពិន្ទុសរុបទទួលបាន" : "Earned knowledge XP"}
+                </p>
+              </div>
 
-        <div className="w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-none mx-auto px-4 sm:px-6 lg:px-0 space-y-4 pb-32 lg:pb-8">
-          {/* ============================================================ */}
-          {/* 2. EXECUTIVE HERO PROFILE CARD                               */}
-          {/* ============================================================ */}
-          <section className="rounded-3xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 sm:p-6 shadow-xs relative space-y-4">
-            {/* Hidden Native File Input for Photo Upload */}
-            <input
-              ref={fileInputRef}
-              type="file"
-              accept="image/png,image/jpeg,image/webp,image/gif"
-              onChange={handleFileUpload}
-              className="hidden"
-              aria-label="Upload profile photo"
-            />
+              {/* Metric 3: Real Lessons Completed */}
+              <div className="rounded-2xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 p-3.5 text-left shadow-2xs space-y-1">
+                <div className="flex items-center gap-1.5 text-xs font-bold text-blue-600 dark:text-blue-400">
+                  <BookOpen className="h-4 w-4" />
+                  <span>{isKhmer ? "មេរៀនចប់" : "Lessons"}</span>
+                </div>
+                <p className="font-display text-lg sm:text-xl font-black text-slate-900 dark:text-white leading-tight">
+                  {isKhmer ? toKhmerNumeral(completedLessonsCount) : completedLessonsCount} <span className="text-xs font-normal text-slate-400">{isKhmer ? "មេរៀន" : "Lessons"}</span>
+                </p>
+                <p className="text-[10px] text-slate-400 font-medium truncate">
+                  {isKhmer ? "មេរៀនកម្មវិធីជាតិ" : "Completed curriculum units"}
+                </p>
+              </div>
 
-            <div className="flex flex-col items-center text-center">
-              {/* Avatar Halo & Photo Upload Trigger */}
-              <div className="relative group">
-                <div
-                  onClick={() => fileInputRef.current?.click()}
-                  className="grid h-20 w-20 place-items-center rounded-full bg-gradient-to-tr from-emerald-100 to-teal-50 dark:from-emerald-950/60 dark:to-slate-800 border-2 border-emerald-500/50 text-4xl shadow-sm transition-transform group-hover:scale-105 cursor-pointer overflow-hidden relative select-none"
-                  title={isKhmer ? "ចុចដើម្បីបង្ហោះរូបថតផ្ទាល់ខ្លួន" : "Click to upload personal photo"}
+              {/* Metric 4: Achievements Unlocked */}
+              <div className="rounded-2xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 p-3.5 text-left shadow-2xs space-y-1">
+                <div className="flex items-center gap-1.5 text-xs font-bold text-emerald-600 dark:text-emerald-400">
+                  <Award className="h-4 w-4" />
+                  <span>{isKhmer ? "មេដាយ" : "Achievements"}</span>
+                </div>
+                <p className="font-display text-lg sm:text-xl font-black text-slate-900 dark:text-white leading-tight">
+                  {isKhmer ? `${toKhmerNumeral(unlockedCount)} / ${toKhmerNumeral(studentBadges.length)}` : `${unlockedCount} / ${studentBadges.length}`}
+                </p>
+                <p className="text-[10px] text-slate-400 font-medium truncate">
+                  {isKhmer ? "សមិទ្ធផលកិត្តិយស" : "Unlocked milestones"}
+                </p>
+              </div>
+            </section>
+
+            {/* 3. Academic Achievements & Milestones */}
+            <section className="rounded-2xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 p-4 sm:p-5 shadow-2xs space-y-3">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="font-display text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                    <Award className="h-4 w-4 text-[#059669]" />
+                    <span>{isKhmer ? "សមិទ្ធផលសិក្សា & មេដាយកិត្តិយស" : "Academic Achievements & Honors"}</span>
+                  </h3>
+                  <p className="text-xs text-slate-400 mt-0.5">
+                    {isKhmer ? "ផ្អែកលើវឌ្ឍនភាពសិក្សា និងការអនុវត្តជាក់ស្តែងក្នុងប្រព័ន្ធ" : "Earned through authentic curriculum study and daily rhythm"}
+                  </p>
+                </div>
+                <span className="text-xs font-bold text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-full">
+                  {isKhmer
+                    ? `${toKhmerNumeral(unlockedCount)} នៃ ${toKhmerNumeral(studentBadges.length)} សម្រេច`
+                    : `${unlockedCount} of ${studentBadges.length} Unlocked`}
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+                {studentBadges.map((b) => {
+                  const IconComp = b.icon;
+                  return (
+                    <button
+                      key={b.id}
+                      type="button"
+                      onClick={() => {
+                        sounds.playPop();
+                        setSelectedBadgeModal(b);
+                      }}
+                      className={cn(
+                        "flex flex-col text-left p-3.5 rounded-xl border transition active:scale-[0.99] cursor-pointer shadow-2xs",
+                        b.unlocked
+                          ? "bg-white dark:bg-slate-900 border-[#E5EAF0] dark:border-slate-800 hover:border-emerald-400"
+                          : "bg-slate-50/60 dark:bg-slate-850/40 border-slate-200/60 dark:border-slate-800/80 opacity-75"
+                      )}
+                    >
+                      <div className="flex items-center justify-between w-full">
+                        <div
+                          className={cn(
+                            "h-8 w-8 rounded-lg grid place-items-center border",
+                            b.unlocked ? b.iconBg : "bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700"
+                          )}
+                        >
+                          <IconComp className={cn("h-4 w-4", b.unlocked ? b.iconColor : "text-slate-400")} />
+                        </div>
+
+                        <span
+                          className={cn(
+                            "text-[10px] font-bold px-2 py-0.5 rounded-full border",
+                            b.unlocked
+                              ? "bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800"
+                              : "bg-slate-100 dark:bg-slate-800 text-slate-500 border-slate-200 dark:border-slate-700"
+                          )}
+                        >
+                          {b.unlocked ? (isKhmer ? "សម្រេច ✓" : "Done ✓") : (isKhmer ? "ជាប់សោ" : "Locked")}
+                        </span>
+                      </div>
+
+                      <h4 className="mt-2 text-xs font-bold text-slate-900 dark:text-white leading-snug">
+                        {isKhmer ? b.titleKm : b.titleEn}
+                      </h4>
+                      <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 line-clamp-1">
+                        {isKhmer ? b.descKm : b.descEn}
+                      </p>
+
+                      <div className="mt-2 w-full pt-2 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-[10px] font-semibold">
+                        <span className="text-slate-400">{b.progressText}</span>
+                        <span className="text-emerald-600 dark:text-emerald-400">+{b.xpReward} XP</span>
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            </section>
+
+            {/* 4. Bookmarks and Saved Academic Resources */}
+            <section className="rounded-2xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 p-4 sm:p-5 shadow-2xs space-y-3">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="font-display text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                    <Bookmark className="h-4 w-4 text-[#059669]" />
+                    <span>{isKhmer ? "ធនធានសិក្សាបានកត់ត្រាទុក" : "Saved Academic Resources"}</span>
+                  </h3>
+                  <p className="text-xs text-slate-400 mt-0.5">
+                    {isKhmer ? "រូបមន្ត និយមន័យ និងវិញ្ញាសាដែលអ្នកបានរក្សាទុក" : "Quick access to bookmarked formulas and offline past papers"}
+                  </p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                <Link
+                  to="/reference"
+                  search={{ grade: currentGrade }}
+                  className="p-3.5 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-850/50 hover:border-emerald-400 transition flex items-center justify-between group cursor-pointer"
                 >
-                  {isAvatarCustomImage(selectedAvatar) ? (
-                    <img
-                      src={selectedAvatar}
-                      alt={displayName}
-                      className="h-full w-full object-cover"
-                    />
-                  ) : (
-                    currentAvatar.emoji
-                  )}
-
-                  {isUploadingAvatar && (
-                    <div className="absolute inset-0 bg-black/50 backdrop-blur-xs grid place-items-center text-white">
-                      <Loader2 className="h-6 w-6 animate-spin text-white" />
+                  <div className="flex items-center gap-3">
+                    <div className="h-8 w-8 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-[#059669] grid place-items-center">
+                      <Layers className="h-4 w-4" />
                     </div>
-                  )}
+                    <div>
+                      <p className="text-xs font-bold text-slate-900 dark:text-white">
+                        {isKhmer ? "រូបមន្តបានកត់ត្រា" : "Bookmarked Formulas"}
+                      </p>
+                      <p className="text-[10px] text-slate-400">
+                        {bookmarkedRefsCount} {isKhmer ? "ឯកសារយោង" : "saved references"}
+                      </p>
+                    </div>
+                  </div>
+                  <ChevronRight className="h-4 w-4 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+
+                <Link
+                  to="/exams"
+                  className="p-3.5 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-850/50 hover:border-emerald-400 transition flex items-center justify-between group cursor-pointer"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="h-8 w-8 rounded-lg bg-blue-50 dark:bg-blue-950/60 text-blue-600 grid place-items-center">
+                      <BookOpen className="h-4 w-4" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold text-slate-900 dark:text-white">
+                        {isKhmer ? "វិញ្ញាសាសម្រាប់ក្រៅបណ្តាញ" : "Offline Exam Papers"}
+                      </p>
+                      <p className="text-[10px] text-slate-400">
+                        {savedOfflineExamsCount} {isKhmer ? "វិញ្ញាសាបានទាញយក" : "papers downloaded"}
+                      </p>
+                    </div>
+                  </div>
+                  <ChevronRight className="h-4 w-4 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+              </div>
+            </section>
+          </div>
+        )}
+
+        {/* ================================================================ */}
+        {/* TAB CONTENT B: ACCOUNT SETTINGS & PREFERENCES                   */}
+        {/* ================================================================ */}
+        {activeTab === "settings" && (
+          <div className="space-y-4 animate-in fade-in duration-150">
+            {/* 1. Account Identity & School Details */}
+            <section className="rounded-2xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 p-4 sm:p-5 shadow-2xs space-y-4">
+              <div>
+                <h3 className="font-display text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                  <User className="h-4 w-4 text-[#059669]" />
+                  <span>{isKhmer ? "ព័ត៌មានអត្តសញ្ញាណសិស្ស" : "Student Identity & Institution"}</span>
+                </h3>
+                <p className="text-xs text-slate-400 mt-0.5">
+                  {isKhmer ? "គ្រប់គ្រងឈ្មោះផ្លូវការ កម្រិតថ្នាក់ និងផ្នែកសិក្សា" : "Manage your legal name, grade level, and academic track"}
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                <div className="space-y-1">
+                  <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
+                    {isKhmer ? "ឈ្មោះបង្ហាញ (Display Name)" : "Display Name"}
+                  </label>
+                  <Input
+                    value={displayName}
+                    onChange={(e) => setDisplayName(e.target.value)}
+                    placeholder="e.g. Saravuth"
+                    className="h-9.5 text-xs rounded-xl bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 font-semibold"
+                  />
+                </div>
+
+                <div className="space-y-1">
+                  <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
+                    {isKhmer ? "ឈ្មោះពេញ (Full Name)" : "Full Name"}
+                  </label>
+                  <Input
+                    value={fullName}
+                    onChange={(e) => setFullName(e.target.value)}
+                    placeholder="e.g. Chea Saravuth"
+                    className="h-9.5 text-xs rounded-xl bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700"
+                  />
+                </div>
+
+                <div className="space-y-1 sm:col-span-2">
+                  <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
+                    {isKhmer ? "គ្រឹះស្ថានសិក្សា / សាលារៀន" : "School / Institution"}
+                  </label>
+                  <div className="relative">
+                    <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-slate-400" />
+                    <Input
+                      value={schoolName}
+                      onChange={(e) => setSchoolName(e.target.value)}
+                      placeholder="e.g. Preah Sisowath High School"
+                      className="h-9.5 pl-9 text-xs rounded-xl bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Grade Selector */}
+              <div className="space-y-1.5 pt-2 border-t border-slate-100 dark:border-slate-800/80">
+                <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
+                  {isKhmer ? "កម្រិតថ្នាក់សិក្សា" : "Grade Level"}
+                </label>
+                <div className="grid grid-cols-3 sm:grid-cols-6 gap-1.5">
+                  {[7, 8, 9, 10, 11, 12].map((g) => (
+                    <button
+                      key={g}
+                      type="button"
+                      onClick={() => setCurrentGrade(g)}
+                      className={cn(
+                        "py-2 rounded-xl text-xs font-bold transition flex flex-col items-center justify-center cursor-pointer active:scale-95",
+                        currentGrade === g
+                          ? "bg-[#059669] text-white font-black shadow-xs ring-2 ring-emerald-500/20"
+                          : "bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-emerald-400"
+                      )}
+                    >
+                      <span>{isKhmer ? `ថ្នាក់ ${toKhmerNumeral(g)}` : `Gr ${g}`}</span>
+                      <span className="text-[9px] opacity-80">{g <= 9 ? (isKhmer ? "អនុ" : "Jr") : (isKhmer ? "វិទ្យា" : "Sr")}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Track Selector for Grade 11 & 12 */}
+              {currentGrade >= 11 && (
+                <div className="space-y-1.5 pt-2 border-t border-slate-100 dark:border-slate-800/80">
+                  <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
+                    {isKhmer ? "ផ្នែកសិក្សាបាក់ឌុប (Stream)" : "Bac II Academic Stream"}
+                  </label>
+                  <div className="grid grid-cols-2 gap-2">
+                    <button
+                      type="button"
+                      onClick={() => setStudyStream("science")}
+                      className={cn(
+                        "p-2.5 rounded-xl border text-left transition cursor-pointer active:scale-98",
+                        studyStream === "science"
+                          ? "border-[#059669] bg-emerald-50/70 dark:bg-emerald-950/40 text-emerald-950 dark:text-emerald-200 ring-2 ring-emerald-500/20 font-bold"
+                          : "border-slate-200 dark:border-slate-700 bg-slate-50/60 dark:bg-slate-800/60 text-slate-600 dark:text-slate-400"
+                      )}
+                    >
+                      <p className="text-xs font-bold">🔬 {isKhmer ? "ថ្នាក់វិទ្យាសាស្ត្រពិត" : "Science Stream"}</p>
+                      <p className="text-[10px] text-slate-400 mt-0.5">{isKhmer ? "គណិត រូប គីមី ជីវៈ" : "Math, Physics, Chem, Bio"}</p>
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => setStudyStream("social")}
+                      className={cn(
+                        "p-2.5 rounded-xl border text-left transition cursor-pointer active:scale-98",
+                        studyStream === "social"
+                          ? "border-[#059669] bg-emerald-50/70 dark:bg-emerald-950/40 text-emerald-950 dark:text-emerald-200 ring-2 ring-emerald-500/20 font-bold"
+                          : "border-slate-200 dark:border-slate-700 bg-slate-50/60 dark:bg-slate-800/60 text-slate-600 dark:text-slate-400"
+                      )}
+                    >
+                      <p className="text-xs font-bold">📚 {isKhmer ? "ថ្នាក់វិទ្យាសាស្ត្រសង្គម" : "Social Stream"}</p>
+                      <p className="text-[10px] text-slate-400 mt-0.5">{isKhmer ? "ខ្មែរ ប្រវត្តិ ភូមិ ពលរដ្ឋ" : "Khmer, History, Geog, Civics"}</p>
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              <div className="pt-2 flex justify-end">
+                <Button
+                  type="button"
+                  onClick={() =>
+                    handleSaveFullProfile({
+                      displayName,
+                      fullName,
+                      grade: currentGrade,
+                      stream: studyStream,
+                      school: schoolName,
+                    })
+                  }
+                  className="rounded-xl bg-[#059669] hover:bg-[#047857] text-white text-xs font-bold h-9 px-4 cursor-pointer"
+                >
+                  <Check className="h-3.5 w-3.5 mr-1 stroke-[3]" />
+                  <span>{isKhmer ? "រក្សាទុកព័ត៌មាន" : "Save Changes"}</span>
+                </Button>
+              </div>
+            </section>
+
+            {/* 2. Language & Audio Preferences */}
+            <section className="rounded-2xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 p-4 sm:p-5 shadow-2xs space-y-4">
+              <div>
+                <h3 className="font-display text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                  <Globe className="h-4 w-4 text-[#059669]" />
+                  <span>{isKhmer ? "ចំណូលចិត្តភាសា & សំឡេង" : "Language & Audio Preferences"}</span>
+                </h3>
+              </div>
+
+              {/* Language Selector */}
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
+                  {isKhmer ? "ភាសាបង្ហាញកម្មវិធី" : "Interface Language"}
+                </label>
+                <div className="grid grid-cols-2 gap-2 max-w-sm">
+                  <button
+                    type="button"
+                    onClick={() => handleToggleLanguage("km")}
+                    className={cn(
+                      "py-2 px-3 rounded-xl border text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer",
+                      currentLanguage === "km"
+                        ? "border-[#059669] bg-emerald-50 dark:bg-emerald-950/60 text-[#059669] font-black ring-2 ring-emerald-500/20"
+                        : "border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-400"
+                    )}
+                  >
+                    <span>🇰🇭</span>
+                    <span>ភាសាខ្មែរ</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => handleToggleLanguage("en")}
+                    className={cn(
+                      "py-2 px-3 rounded-xl border text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer",
+                      currentLanguage === "en"
+                        ? "border-[#059669] bg-emerald-50 dark:bg-emerald-950/60 text-[#059669] font-black ring-2 ring-emerald-500/20"
+                        : "border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-400"
+                    )}
+                  >
+                    <span>🌐</span>
+                    <span>English</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Sound Toggle */}
+              <div className="pt-3 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between">
+                <div>
+                  <p className="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+                    {soundEnabled ? <Volume2 className="h-4 w-4 text-[#059669]" /> : <VolumeX className="h-4 w-4 text-slate-400" />}
+                    <span>{isKhmer ? "សំឡេងអមការរៀន" : "Learning Sound Effects"}</span>
+                  </p>
+                  <p className="text-[10px] text-slate-400 mt-0.5">
+                    {isKhmer ? "សំឡេងឆ្លើយត្រូវក្នុង Quiz និងរំលឹកមេរៀន" : "Audio chimes for quizzes and achievements"}
+                  </p>
                 </div>
 
                 <button
                   type="button"
-                  onClick={() => fileInputRef.current?.click()}
-                  disabled={isUploadingAvatar}
-                  className="absolute -bottom-1 -right-1 grid h-7 w-7 place-items-center rounded-full bg-emerald-600 hover:bg-emerald-500 text-white shadow-xs border-2 border-white dark:border-slate-900 transition-transform group-hover:scale-110 cursor-pointer active:scale-95"
-                  title={isKhmer ? "បង្ហោះរូបថតគណនី (Upload Photo)" : "Upload profile photo"}
-                  aria-label="Upload profile photo"
-                >
-                  {isUploadingAvatar ? (
-                    <Loader2 className="h-3.5 w-3.5 animate-spin" />
-                  ) : (
-                    <Camera className="h-3.5 w-3.5" />
+                  onClick={handleToggleSound}
+                  className={cn(
+                    "relative h-6 w-11 rounded-full transition-colors cursor-pointer",
+                    soundEnabled ? "bg-[#059669]" : "bg-slate-300 dark:bg-slate-700"
                   )}
-                </button>
-              </div>
-
-              {/* Student Name with 1-Tap Inline Edit or Modal Edit */}
-              <div className="mt-3 flex flex-col items-center justify-center gap-1 w-full">
-                {isEditingName ? (
-                  <div className="flex items-center gap-1.5 max-w-[240px]">
-                    <Input
-                      ref={nameInputRef}
-                      value={editNameValue}
-                      onChange={(e) => setEditNameValue(e.target.value)}
-                      onKeyDown={(e) => {
-                        if (e.key === "Enter") handleSaveName();
-                        if (e.key === "Escape") setIsEditingName(false);
-                      }}
-                      className="h-8 text-center font-bold text-slate-900 dark:text-white bg-slate-50 dark:bg-slate-800 border-emerald-500 focus:ring-emerald-500 text-sm rounded-lg"
-                      placeholder={isKhmer ? "ឈ្មោះរបស់អ្នក..." : "Your name..."}
-                    />
-                    <button
-                      type="button"
-                      onClick={handleSaveName}
-                      className="grid h-8 w-8 place-items-center rounded-lg bg-emerald-600 text-white hover:bg-emerald-700 transition cursor-pointer"
-                      title={isKhmer ? "រក្សាទុក" : "Save"}
-                    >
-                      <Check className="h-4 w-4 stroke-[3]" />
-                    </button>
-                  </div>
-                ) : (
-                  <div className="flex items-center gap-1.5">
-                    <h2 className="font-display text-xl font-black text-slate-900 dark:text-white tracking-tight">
-                      {displayName || (isKhmer ? "សិស្ស ScienceKH" : "ScienceKH Student")}
-                    </h2>
-                    <button
-                      type="button"
-                      onClick={() => setIsEditProfileModalOpen(true)}
-                      className="grid h-7 w-7 place-items-center rounded-full text-slate-400 hover:text-emerald-600 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 transition active:scale-90 cursor-pointer"
-                      title={isKhmer ? "កែសម្រួលគណនី (Edit Profile)" : "Edit Profile"}
-                    >
-                      <Pencil className="h-3.5 w-3.5" />
-                    </button>
-                  </div>
-                )}
-
-                <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-                  {fullName && !fullName.includes("(Student)") && !fullName.includes("សិស្សរៀន")
-                    ? fullName
-                    : isKhmer
-                      ? isJuniorHigh ? "សិស្សអនុវិទ្យាល័យ" : "សិស្សវិទ្យាល័យ"
-                      : isJuniorHigh ? "Junior High Student" : "High School Student"}
-                </p>
-              </div>
-
-              {/* Academic Grade Switcher Pill */}
-              <div className="mt-2">
-                <button
-                  type="button"
-                  onClick={() => {
-                    sounds.playPop();
-                    setIsGradeDrawerOpen((prev) => !prev);
-                  }}
-                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 hover:bg-emerald-100 transition active:scale-95 cursor-pointer shadow-2xs"
+                  aria-label="Toggle Sound"
                 >
-                  <GraduationCap className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
-                  <span>
-                    {isJuniorHigh
-                      ? isKhmer
-                        ? `ថ្នាក់ទី ${toKhmerNumeral(currentGrade)} • អនុវិទ្យាល័យ (ឌីប្លូម)`
-                        : `Grade ${currentGrade} • Junior High (Brevet)`
-                      : isKhmer
-                        ? `ថ្នាក់ទី ${toKhmerNumeral(currentGrade)} • វិទ្យាល័យ (បាក់ឌុប)`
-                        : `Grade ${currentGrade} • Senior High (Bac II)`}
-                  </span>
-                  <ChevronDown
+                  <span
                     className={cn(
-                      "h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400 transition-transform duration-200",
-                      isGradeDrawerOpen && "rotate-180",
+                      "block h-5 w-5 rounded-full bg-white transition-transform shadow-xs",
+                      soundEnabled ? "translate-x-5" : "translate-x-0.5"
                     )}
                   />
                 </button>
               </div>
 
-              {/* Expandable Grade Quick-Picker Accordion */}
-              {isGradeDrawerOpen && (
-                <div className="mt-3.5 w-full p-3.5 rounded-2xl border border-emerald-200 dark:border-emerald-800 bg-slate-50/90 dark:bg-slate-800/90 backdrop-blur-sm space-y-2.5 animate-in fade-in slide-in-from-top-2 duration-200">
-                  <div className="flex items-center justify-between text-[11px] font-bold text-slate-700 dark:text-slate-300">
-                    <span>
-                      {isKhmer ? "ជ្រើសរើសថ្នាក់សិក្សារបស់ប្អូន:" : "Select your active grade:"}
-                    </span>
-                    <span className="text-emerald-700 dark:text-emerald-400">
-                      {isKhmer
-                        ? isJuniorHigh ? "អនុវិទ្យាល័យ (ថ្នាក់ ៧–៩)" : "វិទ្យាល័យ (ថ្នាក់ ១០–១២)"
-                        : isJuniorHigh ? "Junior High (Grades 7–9)" : "Senior High (Grades 10–12)"}
-                    </span>
-                  </div>
-
-                  <div className="grid grid-cols-3 gap-1.5">
-                    {GRADES.map((g) => {
-                      const isSelected = currentGrade === g.grade;
-                      return (
-                        <button
-                          key={g.grade}
-                          type="button"
-                          onClick={() => handleSelectGrade(g.grade)}
-                          className={cn(
-                            "py-2 px-1 rounded-xl text-xs font-bold transition flex flex-col items-center justify-center cursor-pointer active:scale-95",
-                            isSelected
-                              ? "bg-emerald-600 text-white shadow-xs font-black ring-2 ring-emerald-500/20"
-                              : "bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-emerald-400",
-                          )}
-                        >
-                          <span>{isKhmer ? g.labelKm : g.label}</span>
-                          <span
-                            className={cn(
-                              "text-[8px] font-semibold mt-0.5",
-                              isSelected ? "text-emerald-100" : "text-slate-400",
-                            )}
-                          >
-                            {isKhmer ? g.cycleKm : g.cycle}
-                          </span>
-                        </button>
-                      );
-                    })}
-                  </div>
-                  <p className="text-[10px] text-slate-400 text-left pt-1 flex items-center gap-1.5">
-                    <Lightbulb className="h-3 w-3 text-amber-500 shrink-0" />
-                    <span>
-                      {isKhmer
-                        ? "ការជ្រើសរើសថ្នាក់នឹងធ្វើបច្ចុប្បន្នភាពមេរៀន និងវិញ្ញាសាប្រឡងដោយស្វ័យប្រវត្តិ។"
-                        : "Switching your grade automatically tailors lessons and exam papers."}
-                    </span>
-                  </p>
-                </div>
-              )}
-            </div>
-
-            {/* 4 Professional Stat Cards (2x2 on Mobile, Sleek Minimalist Standard) */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-4 border-t border-slate-100 dark:border-slate-800">
-              {/* Daily Streak */}
-              <div className="rounded-2xl bg-slate-50/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800 p-3 text-left transition hover:border-orange-300 dark:hover:border-orange-700">
-                <div className="flex items-center gap-1.5 text-xs font-bold text-orange-600 dark:text-orange-400">
-                  <Flame className="h-4 w-4 fill-orange-500" />
-                  <span>{isKhmer ? "ថ្ងៃជាប់គ្នា" : "Daily Streak"}</span>
-                </div>
-                <p className="mt-1 font-display text-lg sm:text-xl font-black text-slate-900 dark:text-white">
-                  {isKhmer ? toKhmerNumeral(streakDays) : streakDays} <span className="text-xs font-normal text-slate-500 dark:text-slate-400">{isKhmer ? "ថ្ងៃ" : "Days"}</span>
-                </p>
-                <p className="text-[10px] text-slate-400 font-medium mt-0.5">
-                  {isKhmer ? "ចូលរៀនជាប់គ្នា" : "Daily learning habit"}
-                </p>
-              </div>
-
-              {/* Knowledge XP */}
-              <div className="rounded-2xl bg-slate-50/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800 p-3 text-left transition hover:border-amber-300 dark:hover:border-amber-700">
-                <div className="flex items-center gap-1.5 text-xs font-bold text-amber-600 dark:text-amber-400">
-                  <Sparkles className="h-4 w-4 fill-amber-500" />
-                  <span>{isKhmer ? "ពិន្ទុសរុប" : "Total XP"}</span>
-                </div>
-                <p className="mt-1 font-display text-lg sm:text-xl font-black text-slate-900 dark:text-white">
-                  {isKhmer ? toKhmerNumeral(xp.toLocaleString()) : xp.toLocaleString()}
-                </p>
-                <p className="text-[10px] text-slate-400 font-medium mt-0.5">
-                  {isKhmer ? "ពិន្ទុចំណេះដឹង" : "Knowledge XP"}
-                </p>
-              </div>
-
-              {/* League Tier */}
-              <div className="rounded-2xl bg-slate-50/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800 p-3 text-left transition hover:border-blue-300 dark:hover:border-blue-700">
-                <div className="flex items-center gap-1.5 text-xs font-bold text-blue-600 dark:text-blue-400">
-                  <Trophy className="h-4 w-4 text-blue-600" />
-                  <span>{isKhmer ? "កម្រិតលីគ" : "League"}</span>
-                </div>
-                <p className="mt-1 font-display text-base sm:text-lg font-black text-slate-900 dark:text-white truncate">
-                  {isKhmer ? "ត្បូងពេជ្រ" : "Diamond"}
-                </p>
-                <p className="text-[10px] text-slate-400 font-medium mt-0.5">
-                  {isKhmer ? "លីគសិស្សពូកែ" : "Master tier"}
-                </p>
-              </div>
-
-              {/* STEM Coins */}
-              <div className="rounded-2xl bg-slate-50/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800 p-3 text-left transition hover:border-emerald-300 dark:hover:border-emerald-700">
-                <div className="flex items-center gap-1.5 text-xs font-bold text-emerald-600 dark:text-emerald-400">
-                  <Coins className="h-4 w-4 fill-emerald-500" />
-                  <span>{isKhmer ? "កាក់រង្វាន់" : "Coins"}</span>
-                </div>
-                <p className="mt-1 font-display text-lg sm:text-xl font-black text-slate-900 dark:text-white">
-                  {isKhmer ? toKhmerNumeral(coins.toLocaleString()) : coins.toLocaleString()}
-                </p>
-                <p className="text-[10px] text-slate-400 font-medium mt-0.5">
-                  {isKhmer ? "កាក់រង្វាន់សិក្សា" : "Available balance"}
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* ============================================================ */}
-          {/* 3. STEM AVATAR SELECTION (REFINED 3x2 GRID - NO TRUNCATION)  */}
-          {/* ============================================================ */}
-          <section className="rounded-3xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 sm:p-5 shadow-xs space-y-3">
-            <div className="flex items-center justify-between">
-              <div>
-                <h3 className="font-display text-xs sm:text-sm font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
-                  <Sparkle className="h-3.5 w-3.5 text-emerald-600 fill-emerald-500" />
-                  <span>{isKhmer ? "រូបតំណាងគណនី" : "Profile Avatar"}</span>
-                </h3>
-                <p className="text-[10px] text-slate-400 mt-0.5">
-                  {isKhmer ? "ជ្រើសរើសរូបតំណាង ឬបង្ហោះរូបថតផ្ទាល់ខ្លួន" : "Choose an avatar or upload a personal photo"}
-                </p>
-              </div>
-            </div>
-
-            {/* Grid of Custom Photo Upload + Preset STEM Avatars */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 pt-1">
-              {/* 1. Custom Uploaded Photo Card */}
-              <div
-                className={cn(
-                  "flex items-center gap-2.5 p-2.5 rounded-2xl border text-left transition-all cursor-pointer shadow-2xs relative group select-none",
-                  isAvatarCustomImage(selectedAvatar)
-                    ? "border-emerald-600 bg-emerald-50/70 dark:bg-emerald-950/40 ring-2 ring-emerald-500/20"
-                    : "border-dashed border-emerald-300 dark:border-emerald-800/80 bg-emerald-50/30 dark:bg-emerald-950/20 hover:border-emerald-500",
-                )}
-                onClick={() => fileInputRef.current?.click()}
-                title={isKhmer ? "ចុចដើម្បីបង្ហោះរូបថតផ្ទាល់ខ្លួន" : "Click to upload your own picture"}
-              >
-                {isAvatarCustomImage(selectedAvatar) ? (
-                  <div className="h-9 w-9 rounded-xl overflow-hidden shrink-0 border border-emerald-500 shadow-2xs">
-                    <img src={selectedAvatar} alt="Custom" className="h-full w-full object-cover" />
-                  </div>
-                ) : (
-                  <div className="h-9 w-9 rounded-xl bg-emerald-100 dark:bg-emerald-900/60 text-emerald-700 dark:text-emerald-300 grid place-items-center shrink-0">
-                    <Upload className="h-4 w-4" />
-                  </div>
-                )}
-                <div className="min-w-0 flex-1">
-                  <p className="text-xs font-bold text-slate-900 dark:text-white truncate">
-                    {isKhmer ? "រូបថតផ្ទាល់ខ្លួន" : "Custom Photo"}
-                  </p>
-                  <p className="text-[10px] text-emerald-700 dark:text-emerald-400 font-medium truncate mt-0.5">
-                    {isAvatarCustomImage(selectedAvatar)
-                      ? isKhmer ? "កំពុងប្រើរូបនេះ" : "Active Photo"
-                      : isKhmer ? "ចុចបង្ហោះរូបថត" : "Upload picture"}
-                  </p>
-                </div>
-
-                {isAvatarCustomImage(selectedAvatar) ? (
-                  <div className="flex items-center gap-1 shrink-0">
-                    <Check className="h-4 w-4 text-emerald-600 dark:text-emerald-400 stroke-[3]" />
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleRemoveCustomAvatar();
-                      }}
-                      className="h-6 w-6 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/60 grid place-items-center transition cursor-pointer"
-                      title={isKhmer ? "លុបរូបថត" : "Remove photo"}
-                    >
-                      <Trash2 className="h-3 w-3" />
-                    </button>
-                  </div>
-                ) : (
-                  <Camera className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
-                )}
-              </div>
-
-              {/* 2. Preset Official STEM Avatars */}
-              {AVATAR_OPTIONS.map((av) => {
-                const isSelected = selectedAvatar === av.id;
-                return (
-                  <button
-                    key={av.id}
-                    type="button"
-                    onClick={() => handleSelectAvatar(av.id)}
-                    className={cn(
-                      "flex items-center gap-2.5 p-2.5 rounded-2xl border text-left transition-all active:scale-95 cursor-pointer shadow-2xs select-none",
-                      isSelected
-                        ? "border-emerald-600 bg-emerald-50/70 dark:bg-emerald-950/40 ring-2 ring-emerald-500/20"
-                        : "border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-slate-300 dark:hover:border-slate-700",
-                    )}
-                  >
-                    <span className="text-2xl shrink-0">{av.emoji}</span>
-                    <div className="min-w-0 flex-1">
-                      <p className="text-xs font-bold text-slate-900 dark:text-white truncate">
-                        {isKhmer ? av.nameKm : av.nameEn}
-                      </p>
-                      <p className="text-[10px] text-slate-400 truncate mt-0.5">
-                        {isKhmer ? av.roleKm : av.roleEn}
-                      </p>
-                    </div>
-                    {isSelected && (
-                      <Check className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0 stroke-[3]" />
-                    )}
-                  </button>
-                );
-              })}
-            </div>
-          </section>
-
-          {/* ============================================================ */}
-          {/* 4. ACADEMIC ACHIEVEMENTS & MILESTONES                        */}
-          {/* ============================================================ */}
-          <section className="rounded-3xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 sm:p-5 shadow-xs space-y-3">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <div className="grid h-7 w-7 place-items-center rounded-xl bg-amber-50 dark:bg-amber-950/60 text-amber-600 border border-amber-200/60 dark:border-amber-800">
-                  <Award className="h-4 w-4" />
-                </div>
+              {/* Streak Guardian Reminder Toggle */}
+              <div className="pt-3 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between">
                 <div>
-                  <h3 className="font-display text-xs sm:text-sm font-bold text-slate-900 dark:text-white">
-                    {isKhmer ? "សមិទ្ធផលសិក្សា" : "Academic Achievements"}
-                  </h3>
-                  <p className="text-[10px] text-slate-400">
-                    {isKhmer ? "វឌ្ឍនភាព និងមេដាយកិត្តិយស" : "Academic milestones & honors"}
+                  <p className="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+                    {notificationsEnabled ? <Bell className="h-4 w-4 text-[#059669]" /> : <BellOff className="h-4 w-4 text-slate-400" />}
+                    <span>{isKhmer ? "ការរំលឹកការពារ Streak (ម៉ោង 7:00 យប់)" : "Streak Guardian Notification"}</span>
+                  </p>
+                  <p className="text-[10px] text-slate-400 mt-0.5">
+                    {isKhmer ? "ផ្ញើសាររំលឹកប្រសិនបើអ្នកមិនទាន់បានចូលរៀនប្រចាំថ្ងៃ" : "Daily reminder before streak expiration"}
                   </p>
                 </div>
-              </div>
-              <span className="text-xs font-bold text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-full">
-                {isKhmer
-                  ? `${toKhmerNumeral(unlockedCount)} នៃ ${toKhmerNumeral(studentBadges.length)} សម្រេច`
-                  : `${unlockedCount} of ${studentBadges.length} Unlocked`}
-              </span>
-            </div>
-
-            {/* Badges 2-Column Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
-              {studentBadges.map((b) => (
-                <button
-                  key={b.id}
-                  type="button"
-                  onClick={() => {
-                    sounds.playPop();
-                    setSelectedBadgeModal(b);
-                  }}
-                  className={cn(
-                    "flex flex-col text-left p-3.5 rounded-2xl border transition-all active:scale-[0.99] cursor-pointer shadow-2xs",
-                    b.unlocked
-                      ? "bg-white dark:bg-slate-900 border-slate-200/80 dark:border-slate-800 hover:border-emerald-400"
-                      : "bg-slate-50/60 dark:bg-slate-800/40 border-slate-200/60 dark:border-slate-800 opacity-80",
-                  )}
-                >
-                  <div className="flex items-center justify-between w-full">
-                    <div
-                      className={cn(
-                        "grid h-9 w-9 place-items-center rounded-xl text-xl shadow-2xs border",
-                        b.unlocked
-                          ? "bg-amber-50 dark:bg-amber-950/60 border-amber-200/70 dark:border-amber-800"
-                          : "bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700 grayscale",
-                      )}
-                    >
-                      {b.icon}
-                    </div>
-
-                    <span
-                      className={cn(
-                        "inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full border",
-                        b.unlocked
-                          ? "bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800"
-                          : "bg-slate-200/70 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-300 dark:border-slate-700",
-                      )}
-                    >
-                      {b.unlocked ? (
-                        <>
-                          <Check className="h-3 w-3 stroke-[3]" />
-                          <span>{isKhmer ? "សម្រេច" : "Done"}</span>
-                        </>
-                      ) : (
-                        <>
-                          <Lock className="h-2.5 w-2.5" />
-                          <span>{isKhmer ? "ជាប់សោ" : "Locked"}</span>
-                        </>
-                      )}
-                    </span>
-                  </div>
-
-                  <p className="mt-2 text-xs sm:text-sm font-bold text-slate-900 dark:text-white leading-snug">
-                    {isKhmer ? b.titleKm : b.titleEn}
-                  </p>
-                  <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 leading-relaxed">
-                    {isKhmer ? b.descKm : b.descEn}
-                  </p>
-
-                  {/* Progress Bar */}
-                  <div className="mt-3 w-full pt-2 border-t border-slate-100 dark:border-slate-800">
-                    <div className="flex items-center justify-between text-[10px] font-bold mb-1">
-                      <span className="text-slate-400">{b.progressText}</span>
-                      <span className="text-emerald-600 dark:text-emerald-400">+{b.xpReward} XP</span>
-                    </div>
-                    <div className="h-1.5 w-full rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
-                      <div
-                        className={cn(
-                          "h-full rounded-full transition-all duration-500",
-                          b.unlocked ? "bg-emerald-500" : "bg-amber-400",
-                        )}
-                        style={{ width: `${b.progressPercent}%` }}
-                      />
-                    </div>
-                  </div>
-                </button>
-              ))}
-            </div>
-          </section>
-
-          {/* ============================================================ */}
-          {/* 5. PREFERENCES & SYSTEM SETTINGS                            */}
-          {/* ============================================================ */}
-          <section className="rounded-3xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 sm:p-5 shadow-xs space-y-4">
-            <h3 className="font-display text-xs sm:text-sm font-bold text-slate-900 dark:text-white">
-              {isKhmer ? "ការកំណត់កម្មវិធី" : "App Preferences"}
-            </h3>
-
-            {/* Language Segmented Control */}
-            <div className="space-y-1.5">
-              <label className="text-[11px] font-bold text-slate-500 dark:text-slate-400">
-                {isKhmer ? "ភាសាបង្ហាញ" : "Preferred Language"}
-              </label>
-              <div className="grid grid-cols-2 gap-2">
-                <button
-                  type="button"
-                  onClick={() => handleToggleLanguage("km")}
-                  className={cn(
-                    "py-2.5 px-3 rounded-2xl border text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer active:scale-98",
-                    currentLanguage === "km"
-                      ? "border-emerald-600 bg-emerald-50 dark:bg-emerald-950/60 text-emerald-900 dark:text-emerald-300 font-black ring-2 ring-emerald-500/20 shadow-2xs"
-                      : "border-slate-200 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-800/60 text-slate-600 dark:text-slate-400 hover:bg-slate-100",
-                  )}
-                >
-                  <span className="text-base">🇰🇭</span>
-                  <span>ភាសាខ្មែរ</span>
-                </button>
 
                 <button
                   type="button"
-                  onClick={() => handleToggleLanguage("en")}
+                  onClick={handleToggleNotifications}
                   className={cn(
-                    "py-2.5 px-3 rounded-2xl border text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer active:scale-98",
-                    currentLanguage === "en"
-                      ? "border-emerald-600 bg-emerald-50 dark:bg-emerald-950/60 text-emerald-900 dark:text-emerald-300 font-black ring-2 ring-emerald-500/20 shadow-2xs"
-                      : "border-slate-200 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-800/60 text-slate-600 dark:text-slate-400 hover:bg-slate-100",
+                    "relative h-6 w-11 rounded-full transition-colors cursor-pointer",
+                    notificationsEnabled ? "bg-[#059669]" : "bg-slate-300 dark:bg-slate-700"
                   )}
+                  aria-label="Toggle Notifications"
                 >
-                  <Globe className="h-3.5 w-3.5 text-blue-600" />
-                  <span>English</span>
+                  <span
+                    className={cn(
+                      "block h-5 w-5 rounded-full bg-white transition-transform shadow-xs",
+                      notificationsEnabled ? "translate-x-5" : "translate-x-0.5"
+                    )}
+                  />
                 </button>
               </div>
-            </div>
+            </section>
 
-            {/* Sound Effects Toggle */}
-            <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+            {/* 3. Account Details & Security */}
+            <section className="rounded-2xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 p-4 sm:p-5 shadow-2xs space-y-3">
               <div>
-                <p className="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
-                  {soundEnabled ? (
-                    <Volume2 className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
-                  ) : (
-                    <VolumeX className="h-4 w-4 text-slate-400" />
-                  )}
-                  <span>{isKhmer ? "សំឡេងកម្មវិធី" : "Sound Effects"}</span>
-                </p>
-                <p className="text-[10px] text-slate-400 mt-0.5">
-                  {isKhmer
-                    ? "សំឡេងឆ្លើយត្រូវក្នុង Quiz និងរំលឹក"
-                    : "Audio chimes for quizzes and achievements"}
-                </p>
+                <h3 className="font-display text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                  <Lock className="h-4 w-4 text-slate-500" />
+                  <span>{isKhmer ? "សុវត្ថិភាព & គណនី" : "Account Security & Details"}</span>
+                </h3>
               </div>
 
-              <button
-                type="button"
-                onClick={handleToggleSound}
-                className={cn(
-                  "relative h-6 w-11 rounded-full transition-colors cursor-pointer",
-                  soundEnabled ? "bg-emerald-600" : "bg-slate-300 dark:bg-slate-700",
-                )}
-                aria-label="Toggle Sound"
-              >
-                <span
-                  className={cn(
-                    "block h-5 w-5 rounded-full bg-white transition-transform shadow-xs",
-                    soundEnabled ? "translate-x-5" : "translate-x-0.5",
-                  )}
-                />
-              </button>
-            </div>
+              <div className="space-y-2 text-xs">
+                <div className="flex items-center justify-between py-1.5 border-b border-slate-100 dark:border-slate-800/80">
+                  <span className="text-slate-400 flex items-center gap-1.5">
+                    <Mail className="h-3.5 w-3.5" />
+                    <span>{isKhmer ? "អ៊ីមែលគណនី" : "Email"}</span>
+                  </span>
+                  <span className="font-bold text-slate-800 dark:text-slate-200">
+                    {user?.email || "student@sciencekh.edu.kh"}
+                  </span>
+                </div>
 
-            {/* Streak Guardian Push Notification Toggle */}
-            <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                <div className="flex items-center justify-between py-1.5 border-b border-slate-100 dark:border-slate-800/80">
+                  <span className="text-slate-400 flex items-center gap-1.5">
+                    <User className="h-3.5 w-3.5" />
+                    <span>{isKhmer ? "លេខសម្គាល់គណនី" : "Account ID"}</span>
+                  </span>
+                  <span className="font-mono text-[11px] text-slate-500">
+                    #{user?.id?.slice(0, 8) || "000000"}
+                  </span>
+                </div>
+
+                <div className="flex items-center justify-between py-1.5">
+                  <span className="text-slate-400 flex items-center gap-1.5">
+                    <ShieldCheck className="h-3.5 w-3.5 text-[#059669]" />
+                    <span>{isKhmer ? "កម្រិតសុវត្ថិភាព" : "Security Level"}</span>
+                  </span>
+                  <span className="font-bold text-emerald-600 dark:text-emerald-400">
+                    {isGuest ? (isKhmer ? "ភ្ញៀវសាកល្បង" : "Guest Sandbox") : (isKhmer ? "បានផ្ទៀងផ្ទាត់ (Secured)" : "Secured")}
+                  </span>
+                </div>
+              </div>
+            </section>
+
+            {/* 4. Danger Zone: Sign Out Action (Restrained, Non-Promotional) */}
+            <section className="rounded-2xl border border-rose-200/80 dark:border-rose-900/40 bg-white dark:bg-slate-900 p-4 sm:p-5 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div>
-                <p className="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
-                  {notificationsEnabled ? (
-                    <Bell className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
-                  ) : (
-                    <BellOff className="h-4 w-4 text-slate-400" />
-                  )}
-                  <span>{isKhmer ? "ការរំលឹកការរៀនប្រចាំថ្ងៃ" : "Daily Study Reminder"}</span>
-                </p>
-                <p className="text-[10px] text-slate-400 mt-0.5">
+                <h4 className="text-xs font-bold text-rose-600 dark:text-rose-400 flex items-center gap-1.5">
+                  <LogOut className="h-4 w-4" />
+                  <span>{isKhmer ? "ចាកចេញពីគណនី" : "Sign Out of ScienceKH"}</span>
+                </h4>
+                <p className="text-[11px] text-slate-400 mt-0.5">
                   {isKhmer
-                    ? "រំលឹកកុំឱ្យខកខានការរៀនប្រចាំថ្ងៃ ប្រសិនបើមិនទាន់បានរៀន"
-                    : "Gentle reminder if you haven't completed your daily lesson"}
+                    ? "វឌ្ឍនភាព ពិន្ទុ XP និងការកត់ត្រារបស់អ្នកត្រូវបានរក្សាទុកដោយសុវត្ថិភាពក្នុងពពក។"
+                    : "Your learning progress, quiz scores, and bookmarks remain safely stored."}
                 </p>
               </div>
 
-              <button
-                type="button"
-                onClick={handleToggleNotifications}
-                className={cn(
-                  "relative h-6 w-11 rounded-full transition-colors cursor-pointer",
-                  notificationsEnabled ? "bg-emerald-600" : "bg-slate-300 dark:bg-slate-700",
-                )}
-                aria-label="Toggle Notifications"
-              >
-                <span
-                  className={cn(
-                    "block h-5 w-5 rounded-full bg-white transition-transform shadow-xs",
-                    notificationsEnabled ? "translate-x-5" : "translate-x-0.5",
-                  )}
-                />
-              </button>
-            </div>
-
-            {/* Account & Platform Info */}
-            <div className="pt-3 border-t border-slate-100 dark:border-slate-800 space-y-2">
-              <div className="flex items-center justify-between text-xs">
-                <span className="text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
-                  <Mail className="h-3.5 w-3.5 text-slate-400" />
-                  <span>{isKhmer ? "អ៊ីមែលគណនី" : "Account Email"}</span>
-                </span>
-                <span className="font-semibold text-slate-700 dark:text-slate-300 truncate max-w-[200px]">
-                  {user?.email || "student@sciencekh.edu.kh"}
-                </span>
-              </div>
-
-              <div className="flex items-center justify-between text-xs">
-                <span className="text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
-                  <BookOpen className="h-3.5 w-3.5 text-emerald-600" />
-                  <span>{isKhmer ? "កម្មវិធីសិក្សាគោល" : "Curriculum Standard"}</span>
-                </span>
-                <span className="font-semibold text-slate-700 dark:text-slate-300">
-                  {isKhmer ? "ក្រសួងអប់រំ (MoEYS)" : "MoEYS National"}
-                </span>
-              </div>
-
-              <div className="flex items-center justify-between text-xs">
-                <span className="text-slate-400 text-[10px]">Version</span>
-                <span className="text-slate-400 text-[10px]">ScienceKH v2.4</span>
-              </div>
-            </div>
-          </section>
-        </div>
-      </div>
-
-      {/* ============================================================ */}
-      {/* BADGE DETAIL MODAL                                           */}
-      {/* ============================================================ */}
-      <Dialog
-        open={!!selectedBadgeModal}
-        onOpenChange={(open) => !open && setSelectedBadgeModal(null)}
-      >
-        {selectedBadgeModal && (
-          <DialogContent className="max-w-xs rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white p-6 shadow-xl text-center">
-            <div className="mx-auto mb-3">
-              <div
-                className={cn(
-                  "grid h-16 w-16 place-items-center rounded-2xl border text-4xl shadow-xs mx-auto",
-                  selectedBadgeModal.unlocked
-                    ? "bg-amber-50 dark:bg-amber-950/60 border-amber-200 dark:border-amber-800"
-                    : "bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700 grayscale",
-                )}
-              >
-                {selectedBadgeModal.icon}
-              </div>
-            </div>
-
-            <DialogHeader className="text-center sm:text-center">
-              <DialogTitle className="font-display text-base font-black text-slate-900 dark:text-white">
-                {isKhmer ? selectedBadgeModal.titleKm : selectedBadgeModal.titleEn}
-              </DialogTitle>
-              <DialogDescription className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
-                {isKhmer ? selectedBadgeModal.descKm : selectedBadgeModal.descEn}
-              </DialogDescription>
-            </DialogHeader>
-
-            <div className="mt-3 p-3 rounded-2xl bg-emerald-50/80 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-center">
-              <span className="text-[10px] font-bold text-emerald-800 dark:text-emerald-300 uppercase tracking-wider">
-                {isKhmer ? "រង្វាន់ចំណេះដឹង XP Bounty" : "Milestone Reward"}
-              </span>
-              <p className="text-base font-black text-emerald-600 dark:text-emerald-400">
-                +{selectedBadgeModal.xpReward} Knowledge XP
-              </p>
-              <p className="text-[10px] text-emerald-700 dark:text-emerald-300 mt-0.5">
-                {selectedBadgeModal.progressText}
-              </p>
-            </div>
-
-            {selectedBadgeModal.unlocked ? (
-              <Button
-                type="button"
-                onClick={() => {
-                  launchConfetti();
-                  sounds.playVictory();
-                  toast.success(isKhmer ? "អបអរសាទរមេដាយ!" : "Badge celebrated!");
-                  setSelectedBadgeModal(null);
-                }}
-                className="mt-3 w-full h-11 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs cursor-pointer shadow-xs active:scale-95"
-              >
-                <Sparkles className="mr-1.5 h-3.5 w-3.5" />
-                <span>{isKhmer ? "អបអរសមិទ្ធផល 🎉" : "Celebrate Achievement 🎉"}</span>
-              </Button>
-            ) : (
               <Button
                 type="button"
                 variant="outline"
-                onClick={() => setSelectedBadgeModal(null)}
-                className="mt-3 w-full h-10 rounded-2xl border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-bold text-xs"
+                onClick={() => setIsSignOutModalOpen(true)}
+                className="rounded-xl border-rose-200 dark:border-rose-900 text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/40 text-xs font-bold h-9 px-4 shrink-0 cursor-pointer"
               >
-                <span>{isKhmer ? "បិទ" : "Close"}</span>
+                <span>{isKhmer ? "ចាកចេញ" : "Sign Out"}</span>
               </Button>
-            )}
-          </DialogContent>
-        )}
-      </Dialog>
-
-      {/* ============================================================ */}
-      {/* SIGN OUT CONFIRMATION MODAL                                  */}
-      {/* ============================================================ */}
-      <Dialog open={isSignOutModalOpen} onOpenChange={setIsSignOutModalOpen}>
-        <DialogContent className="max-w-xs rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white p-6 shadow-xl text-center">
-          <div className="mx-auto grid h-12 w-12 place-items-center rounded-2xl bg-rose-50 dark:bg-rose-950/60 text-rose-600 mb-2 border border-rose-200/60 dark:border-rose-900">
-            <LogOut className="h-5 w-5" />
+            </section>
           </div>
+        )}
+      </div>
 
-          <DialogHeader className="text-center sm:text-center">
-            <DialogTitle className="font-display text-base font-bold text-slate-900 dark:text-white">
-              {isKhmer ? "ចាកចេញពីគណនី?" : "Sign Out of ScienceKH?"}
+      {/* ================================================================ */}
+      {/* MODAL 1: DEDICATED AVATAR SELECTION MODAL                        */}
+      {/* Consistent vector illustrations + monograms + custom upload     */}
+      {/* ================================================================ */}
+      <Dialog open={isAvatarModalOpen} onOpenChange={setIsAvatarModalOpen}>
+        <DialogContent className="max-w-md rounded-3xl bg-white dark:bg-slate-900 border border-[#E5EAF0] dark:border-slate-800 text-slate-900 dark:text-white p-5 sm:p-6 shadow-2xl">
+          <DialogHeader className="text-left">
+            <DialogTitle className="font-display text-base font-black text-slate-900 dark:text-white flex items-center gap-2">
+              <Camera className="h-4 w-4 text-[#059669]" />
+              <span>{isKhmer ? "ជ្រើសរើសរូបតំណាងគណនី" : "Customize Profile Avatar"}</span>
             </DialogTitle>
-            <DialogDescription className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+            <DialogDescription className="text-xs text-slate-500 dark:text-slate-400">
               {isKhmer
-                ? "តើអ្នកពិតជាចង់ចាកចេញពីគណនី ScienceKH មែនទេ? វឌ្ឍនភាពរបស់អ្នកត្រូវបានរក្សាទុកដោយសុវត្ថិភាព។"
-                : "Are you sure you want to sign out? Your learning progress and XP are safely saved."}
+                ? "ជ្រើសរើសរូបតំណាងវិទ្យាសាស្ត្រ អក្សរកាត់ ឬបង្ហោះរូបថតផ្ទាល់ខ្លួន"
+                : "Choose an academic scholar avatar, monogram, or upload a photo"}
             </DialogDescription>
           </DialogHeader>
 
-          <div className="grid grid-cols-2 gap-2 pt-4">
+          {/* Hidden File Input */}
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="image/png,image/jpeg,image/webp"
+            onChange={handleFileUpload}
+            className="hidden"
+            aria-label="Upload profile image"
+          />
+
+          <div className="space-y-4 mt-2">
+            {/* Section A: Upload Photo Option */}
+            <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-850 border border-slate-100 dark:border-slate-800 flex items-center justify-between gap-3">
+              <div className="flex items-center gap-3">
+                <div className="h-11 w-11 rounded-xl overflow-hidden border-2 border-emerald-500 bg-white dark:bg-slate-900 grid place-items-center text-xl shrink-0 shadow-2xs">
+                  {isAvatarCustomImage(selectedAvatar) ? (
+                    <img src={selectedAvatar} alt="" className="h-full w-full object-cover" />
+                  ) : (
+                    <Upload className="h-5 w-5 text-[#059669]" />
+                  )}
+                </div>
+                <div>
+                  <p className="text-xs font-bold text-slate-900 dark:text-white leading-tight">
+                    {isKhmer ? "រូបថតផ្ទាល់ខ្លួន" : "Personal Photo"}
+                  </p>
+                  <p className="text-[10px] text-slate-400 mt-0.5">
+                    {isAvatarCustomImage(selectedAvatar)
+                      ? isKhmer ? "រូបថតកំពុងប្រើប្រាស់" : "Custom picture active"
+                      : isKhmer ? "JPG, PNG ឬ WEBP (< 8MB)" : "JPG, PNG or WEBP (< 8MB)"}
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-1.5 shrink-0">
+                {isAvatarCustomImage(selectedAvatar) && (
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={handleRemoveCustomAvatar}
+                    className="rounded-xl border-slate-200 dark:border-slate-700 text-slate-500 hover:text-rose-600 text-xs h-8 px-2.5 cursor-pointer"
+                    title={isKhmer ? "លុបរូបថត" : "Remove photo"}
+                  >
+                    <Trash2 className="h-3.5 w-3.5" />
+                  </Button>
+                )}
+
+                <Button
+                  type="button"
+                  size="sm"
+                  disabled={isUploadingAvatar}
+                  onClick={() => fileInputRef.current?.click()}
+                  className="rounded-xl bg-[#059669] hover:bg-[#047857] text-white text-xs font-bold gap-1.5 h-8 px-3 cursor-pointer"
+                >
+                  {isUploadingAvatar ? <Loader2 className="h-3 w-3 animate-spin" /> : <Upload className="h-3 w-3" />}
+                  <span>{isKhmer ? "បង្ហោះរូប" : "Upload"}</span>
+                </Button>
+              </div>
+            </div>
+
+            {/* Section B: Consistent Academic Scholar Avatars */}
+            <div className="space-y-1.5">
+              <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400">
+                {isKhmer ? "រូបតំណាងវិទ្យាសាស្ត្រ MoEYS" : "Academic Scholar Avatars"}
+              </span>
+              <div className="grid grid-cols-3 gap-2">
+                {SCHOLAR_AVATARS.map((av) => {
+                  const isSelected = selectedAvatar === av.id;
+                  const IconComp = av.icon;
+                  return (
+                    <button
+                      key={av.id}
+                      type="button"
+                      onClick={() => handleSaveAvatar(av.id)}
+                      className={cn(
+                        "p-2.5 rounded-2xl border text-center transition flex flex-col items-center justify-center gap-1.5 cursor-pointer active:scale-95",
+                        isSelected
+                          ? "border-[#059669] bg-emerald-50/70 dark:bg-emerald-950/40 ring-2 ring-emerald-500/20 shadow-2xs"
+                          : "border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-slate-300"
+                      )}
+                    >
+                      <div className={cn("h-10 w-10 rounded-xl grid place-items-center text-white bg-gradient-to-br shadow-2xs", av.gradient)}>
+                        <IconComp className="h-5 w-5" />
+                      </div>
+                      <span className="text-[11px] font-bold text-slate-800 dark:text-slate-200 truncate w-full">
+                        {isKhmer ? av.nameKm : av.nameEn}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Section C: Monogram Initials */}
+            <div className="space-y-1.5">
+              <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400">
+                {isKhmer ? "អក្សរកាត់ឈ្មោះសិស្ស (Monogram)" : "Student Monograms"}
+              </span>
+              <div className="grid grid-cols-4 gap-2">
+                {MONOGRAM_OPTIONS.map((mono) => {
+                  const isSelected = selectedAvatar === mono.id;
+                  const initials = (displayName || "SK")
+                    .trim()
+                    .split(" ")
+                    .map((w) => w[0])
+                    .slice(0, 2)
+                    .join("")
+                    .toUpperCase();
+
+                  return (
+                    <button
+                      key={mono.id}
+                      type="button"
+                      onClick={() => handleSaveAvatar(mono.id)}
+                      className={cn(
+                        "p-2 rounded-2xl border text-center transition flex flex-col items-center justify-center gap-1 cursor-pointer active:scale-95",
+                        isSelected
+                          ? "border-[#059669] bg-emerald-50/70 dark:bg-emerald-950/40 ring-2 ring-emerald-500/20 shadow-2xs"
+                          : "border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-slate-300"
+                      )}
+                    >
+                      <div className={cn("h-8 w-8 rounded-lg grid place-items-center text-white font-black text-xs bg-gradient-to-br shadow-2xs", mono.gradient)}>
+                        {initials}
+                      </div>
+                      <span className="text-[10px] text-slate-500 font-semibold truncate">
+                        {isKhmer ? mono.labelKm : mono.labelEn}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          <div className="pt-2 flex justify-end">
             <Button
               type="button"
               variant="outline"
-              onClick={() => setIsSignOutModalOpen(false)}
-              className="rounded-2xl border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-50 text-xs font-semibold cursor-pointer"
+              onClick={() => setIsAvatarModalOpen(false)}
+              className="rounded-xl border-slate-200 dark:border-slate-700 text-xs font-semibold"
             >
-              {isKhmer ? "បោះបង់" : "Cancel"}
-            </Button>
-
-            <Button
-              type="button"
-              onClick={handleConfirmSignOut}
-              className="rounded-2xl bg-rose-600 text-white hover:bg-rose-700 text-xs font-bold cursor-pointer"
-            >
-              {isKhmer ? "ចាកចេញ" : "Sign Out"}
+              {isKhmer ? "បិទ" : "Close"}
             </Button>
           </div>
         </DialogContent>
       </Dialog>
 
-      {/* ============================================================ */}
-      {/* COMPREHENSIVE EDIT STUDENT PROFILE MODAL                      */}
-      {/* ============================================================ */}
+      {/* ================================================================ */}
+      {/* MODAL 2: EDIT STUDENT PROFILE MODAL                              */}
+      {/* ================================================================ */}
       <EditProfileDialog
         isOpen={isEditProfileModalOpen}
         onClose={() => setIsEditProfileModalOpen(false)}
@@ -1614,9 +1708,119 @@ function ProfilePage() {
         }}
         isKhmer={isKhmer}
         onSave={handleSaveFullProfile}
-        onTriggerUpload={() => fileInputRef.current?.click()}
-        isUploading={isUploadingAvatar}
       />
+
+      {/* ================================================================ */}
+      {/* MODAL 3: ACHIEVEMENT CELEBRATION MODAL                           */}
+      {/* ================================================================ */}
+      <Dialog
+        open={!!selectedBadgeModal}
+        onOpenChange={(open) => !open && setSelectedBadgeModal(null)}
+      >
+        {selectedBadgeModal && (
+          <DialogContent className="max-w-xs rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white p-6 shadow-xl text-center">
+            <div className="mx-auto mb-3">
+              <div
+                className={cn(
+                  "h-14 w-14 rounded-2xl border grid place-items-center mx-auto shadow-2xs",
+                  selectedBadgeModal.unlocked ? selectedBadgeModal.iconBg : "bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700"
+                )}
+              >
+                {(() => {
+                  const IconC = selectedBadgeModal.icon;
+                  return <IconC className={cn("h-7 w-7", selectedBadgeModal.unlocked ? selectedBadgeModal.iconColor : "text-slate-400")} />;
+                })()}
+              </div>
+            </div>
+
+            <DialogHeader className="text-center sm:text-center">
+              <DialogTitle className="font-display text-base font-black text-slate-900 dark:text-white">
+                {isKhmer ? selectedBadgeModal.titleKm : selectedBadgeModal.titleEn}
+              </DialogTitle>
+              <DialogDescription className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+                {isKhmer ? selectedBadgeModal.descKm : selectedBadgeModal.descEn}
+              </DialogDescription>
+            </DialogHeader>
+
+            <div className="mt-3 p-3 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-center">
+              <span className="text-[10px] font-bold text-emerald-800 dark:text-emerald-300 uppercase tracking-wider">
+                {isKhmer ? "រង្វាន់ចំណេះដឹង" : "Milestone Bounty"}
+              </span>
+              <p className="text-base font-black text-[#059669]">
+                +{selectedBadgeModal.xpReward} Knowledge XP
+              </p>
+              <p className="text-[10px] text-emerald-700 dark:text-emerald-400 mt-0.5 font-medium">
+                {selectedBadgeModal.progressText}
+              </p>
+            </div>
+
+            {selectedBadgeModal.unlocked ? (
+              <Button
+                type="button"
+                onClick={() => {
+                  launchConfetti();
+                  sounds.playVictory();
+                  setSelectedBadgeModal(null);
+                }}
+                className="mt-3 w-full h-10 rounded-xl bg-[#059669] hover:bg-[#047857] text-white font-bold text-xs cursor-pointer active:scale-95"
+              >
+                <Sparkles className="mr-1.5 h-3.5 w-3.5" />
+                <span>{isKhmer ? "អបអរសមិទ្ធផល 🎉" : "Celebrate Achievement 🎉"}</span>
+              </Button>
+            ) : (
+              <Button
+                type="button"
+                variant="outline"
+                onClick={() => setSelectedBadgeModal(null)}
+                className="mt-3 w-full h-10 rounded-xl border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-bold text-xs"
+              >
+                <span>{isKhmer ? "បិទ" : "Close"}</span>
+              </Button>
+            )}
+          </DialogContent>
+        )}
+      </Dialog>
+
+      {/* ================================================================ */}
+      {/* MODAL 4: SIGN OUT CONFIRMATION MODAL                             */}
+      {/* ================================================================ */}
+      <Dialog open={isSignOutModalOpen} onOpenChange={setIsSignOutModalOpen}>
+        <DialogContent className="max-w-xs rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white p-6 shadow-xl text-center">
+          <div className="mx-auto grid h-12 w-12 place-items-center rounded-2xl bg-rose-50 dark:bg-rose-950/60 text-rose-600 mb-2 border border-rose-200/60 dark:border-rose-900">
+            <LogOut className="h-5 w-5" />
+          </div>
+
+          <DialogHeader className="text-center sm:text-center">
+            <DialogTitle className="font-display text-base font-bold text-slate-900 dark:text-white">
+              {isKhmer ? "ចាកចេញពីគណនី?" : "Sign Out of ScienceKH?"}
+            </DialogTitle>
+            <DialogDescription className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+              {isKhmer
+                ? "តើអ្នកពិតជាចង់ចាកចេញពីគណនីមែនទេ? វឌ្ឍនភាពសិក្សា និងពិន្ទុរបស់អ្នកត្រូវបានរក្សាទុកដោយសុវត្ថិភាព។"
+                : "Are you sure you want to sign out? Your learning progress and XP are safely saved."}
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="grid grid-cols-2 gap-2 pt-4">
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => setIsSignOutModalOpen(false)}
+              className="rounded-xl border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold cursor-pointer"
+            >
+              {isKhmer ? "បោះបង់" : "Cancel"}
+            </Button>
+
+            <Button
+              type="button"
+              onClick={handleConfirmSignOut}
+              className="rounded-xl bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold cursor-pointer"
+            >
+              {isKhmer ? "ចាកចេញ" : "Sign Out"}
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </AppShell>
   );
 }
@@ -1640,8 +1844,6 @@ interface EditProfileDialogProps {
     stream: "science" | "social";
     school: string;
   }) => void;
-  onTriggerUpload: () => void;
-  isUploading: boolean;
 }
 
 function EditProfileDialog({
@@ -1650,8 +1852,6 @@ function EditProfileDialog({
   initialData,
   isKhmer,
   onSave,
-  onTriggerUpload,
-  isUploading,
 }: EditProfileDialogProps) {
   const [displayName, setDisplayName] = useState(initialData.displayName);
   const [fullName, setFullName] = useState(initialData.fullName);
@@ -1682,63 +1882,20 @@ function EditProfileDialog({
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="max-w-md rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white p-5 sm:p-6 shadow-2xl">
+      <DialogContent className="max-w-md rounded-3xl bg-white dark:bg-slate-900 border border-[#E5EAF0] dark:border-slate-800 text-slate-900 dark:text-white p-5 sm:p-6 shadow-2xl">
         <DialogHeader className="text-left">
           <DialogTitle className="font-display text-base font-black text-slate-900 dark:text-white flex items-center gap-2">
-            <Pencil className="h-4 w-4 text-emerald-600" />
+            <Pencil className="h-4 w-4 text-[#059669]" />
             <span>{isKhmer ? "កែប្រែព័ត៌មានគណនីសិស្ស" : "Edit Student Profile"}</span>
           </DialogTitle>
           <DialogDescription className="text-xs text-slate-500 dark:text-slate-400">
             {isKhmer
-              ? "ធ្វើបច្ចុប្បន្នភាពឈ្មោះ រូបថត កម្រិតថ្នាក់ និងផ្នែកសិក្សារបស់ប្អូន"
-              : "Update your student identity, avatar photo, grade, and track"}
+              ? "ធ្វើបច្ចុប្បន្នភាពឈ្មោះ កម្រិតថ្នាក់ ផ្នែកសិក្សា និងគ្រឹះស្ថានសិក្សា"
+              : "Update your student identity, grade level, track, and school"}
           </DialogDescription>
         </DialogHeader>
 
-        <form onSubmit={handleSubmit} className="space-y-4 mt-2">
-          {/* Quick Avatar Photo Section in Dialog */}
-          <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 flex items-center justify-between gap-3">
-            <div className="flex items-center gap-3">
-              <div className="h-12 w-12 rounded-full overflow-hidden border-2 border-emerald-500 bg-white dark:bg-slate-900 grid place-items-center text-2xl shrink-0 shadow-2xs">
-                {isAvatarCustomImage(initialData.avatarUrl) ? (
-                  <img
-                    src={initialData.avatarUrl}
-                    alt=""
-                    className="h-full w-full object-cover"
-                  />
-                ) : (
-                  AVATAR_OPTIONS.find((a) => a.id === initialData.avatarUrl)?.emoji || "🇰🇭"
-                )}
-              </div>
-              <div>
-                <p className="text-xs font-bold text-slate-900 dark:text-white leading-tight">
-                  {isKhmer ? "រូបថតប្រវត្តិរូប" : "Profile Picture"}
-                </p>
-                <p className="text-[10px] text-slate-400 mt-0.5">
-                  {isAvatarCustomImage(initialData.avatarUrl)
-                    ? isKhmer ? "រូបថតផ្ទាល់ខ្លួន" : "Custom photo active"
-                    : isKhmer ? "រូបតំណាង STEM" : "STEM Avatar active"}
-                </p>
-              </div>
-            </div>
-
-            <Button
-              type="button"
-              variant="outline"
-              size="sm"
-              disabled={isUploading}
-              onClick={onTriggerUpload}
-              className="rounded-xl border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/60 text-xs font-bold gap-1.5 cursor-pointer"
-            >
-              {isUploading ? (
-                <Loader2 className="h-3.5 w-3.5 animate-spin" />
-              ) : (
-                <Upload className="h-3.5 w-3.5" />
-              )}
-              <span>{isKhmer ? "បង្ហោះរូបថ្មី" : "Upload Photo"}</span>
-            </Button>
-          </div>
-
+        <form onSubmit={handleSubmit} className="space-y-3.5 mt-2">
           {/* Display Name Input */}
           <div className="space-y-1">
             <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
@@ -1747,8 +1904,8 @@ function EditProfileDialog({
             <Input
               value={displayName}
               onChange={(e) => setDisplayName(e.target.value)}
-              placeholder={isKhmer ? "ឧ. សារ៉ាវុធ" : "e.g. Saravuth"}
-              className="h-10 rounded-xl bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-xs sm:text-sm font-semibold"
+              placeholder="e.g. Saravuth"
+              className="h-9.5 rounded-xl bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-xs font-semibold"
               required
             />
           </div>
@@ -1761,8 +1918,8 @@ function EditProfileDialog({
             <Input
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
-              placeholder={isKhmer ? "ឧ. ជា សារ៉ាវុធ" : "e.g. Chea Saravuth"}
-              className="h-10 rounded-xl bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-xs sm:text-sm"
+              placeholder="e.g. Chea Saravuth"
+              className="h-9.5 rounded-xl bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-xs"
             />
           </div>
 
@@ -1778,9 +1935,9 @@ function EditProfileDialog({
                   type="button"
                   onClick={() => setGrade(g)}
                   className={cn(
-                    "py-2 rounded-xl text-xs font-bold transition flex flex-col items-center justify-center cursor-pointer active:scale-95",
+                    "py-1.5 rounded-xl text-xs font-bold transition flex flex-col items-center justify-center cursor-pointer active:scale-95",
                     grade === g
-                      ? "bg-emerald-600 text-white font-black shadow-xs ring-2 ring-emerald-500/20"
+                      ? "bg-[#059669] text-white font-black shadow-xs ring-2 ring-emerald-500/20"
                       : "bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-emerald-400"
                   )}
                 >
@@ -1795,51 +1952,39 @@ function EditProfileDialog({
           {grade >= 11 && (
             <div className="space-y-1.5 animate-in fade-in duration-200">
               <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
-                {isKhmer ? "ផ្នែកសិក្សាបាក់ឌុប" : "Bac II Academic Track"}
+                {isKhmer ? "ផ្នែកសិក្សាបាក់ឌុប" : "Bac II Academic Stream"}
               </label>
               <div className="grid grid-cols-2 gap-2">
                 <button
                   type="button"
                   onClick={() => setStream("science")}
                   className={cn(
-                    "p-2.5 rounded-xl border text-left transition cursor-pointer active:scale-98",
+                    "p-2 rounded-xl border text-left transition cursor-pointer active:scale-98",
                     stream === "science"
-                      ? "border-emerald-600 bg-emerald-50/70 dark:bg-emerald-950/40 text-emerald-950 dark:text-emerald-200 ring-2 ring-emerald-500/20 font-bold"
+                      ? "border-[#059669] bg-emerald-50/70 dark:bg-emerald-950/40 text-emerald-950 dark:text-emerald-200 ring-2 ring-emerald-500/20 font-bold"
                       : "border-slate-200 dark:border-slate-700 bg-slate-50/60 dark:bg-slate-800/60 text-slate-600 dark:text-slate-400"
                   )}
                 >
-                  <p className="text-xs font-bold flex items-center gap-1.5">
-                    <span>🔬</span>
-                    <span>{isKhmer ? "ថ្នាក់វិទ្យាសាស្ត្រ" : "Science Track"}</span>
-                  </p>
-                  <p className="text-[10px] text-slate-400 mt-0.5">
-                    {isKhmer ? "គណិត រូប គីមី ជីវៈ" : "Math, Physics, Chem, Bio"}
-                  </p>
+                  <p className="text-xs font-bold">🔬 {isKhmer ? "វិទ្យាសាស្ត្រពិត" : "Science"}</p>
                 </button>
 
                 <button
                   type="button"
                   onClick={() => setStream("social")}
                   className={cn(
-                    "p-2.5 rounded-xl border text-left transition cursor-pointer active:scale-98",
+                    "p-2 rounded-xl border text-left transition cursor-pointer active:scale-98",
                     stream === "social"
-                      ? "border-emerald-600 bg-emerald-50/70 dark:bg-emerald-950/40 text-emerald-950 dark:text-emerald-200 ring-2 ring-emerald-500/20 font-bold"
+                      ? "border-[#059669] bg-emerald-50/70 dark:bg-emerald-950/40 text-emerald-950 dark:text-emerald-200 ring-2 ring-emerald-500/20 font-bold"
                       : "border-slate-200 dark:border-slate-700 bg-slate-50/60 dark:bg-slate-800/60 text-slate-600 dark:text-slate-400"
                   )}
                 >
-                  <p className="text-xs font-bold flex items-center gap-1.5">
-                    <span>📚</span>
-                    <span>{isKhmer ? "ថ្នាក់សង្គម" : "Social Track"}</span>
-                  </p>
-                  <p className="text-[10px] text-slate-400 mt-0.5">
-                    {isKhmer ? "ខ្មែរ ប្រវត្តិ ភូមិ ពលរដ្ឋ" : "Khmer, History, Geog, Civics"}
-                  </p>
+                  <p className="text-xs font-bold">📚 {isKhmer ? "វិទ្យាសាស្ត្រសង្គម" : "Social"}</p>
                 </button>
               </div>
             </div>
           )}
 
-          {/* School / Province Input */}
+          {/* School Input */}
           <div className="space-y-1">
             <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
               {isKhmer ? "គ្រឹះស្ថានសិក្សា / សាលារៀន" : "School / Institution"}
@@ -1849,8 +1994,8 @@ function EditProfileDialog({
               <Input
                 value={school}
                 onChange={(e) => setSchool(e.target.value)}
-                placeholder={isKhmer ? "ឧ. វិទ្យាល័យព្រះស៊ីសុវត្ថិ" : "e.g. Preah Sisowath High School"}
-                className="h-10 pl-9 rounded-xl bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-xs sm:text-sm"
+                placeholder="e.g. Preah Sisowath High School"
+                className="h-9.5 pl-9 rounded-xl bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-xs"
               />
             </div>
           </div>
@@ -1866,10 +2011,10 @@ function EditProfileDialog({
             </Button>
             <Button
               type="submit"
-              className="rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-xs active:scale-95 cursor-pointer"
+              className="rounded-xl bg-[#059669] hover:bg-[#047857] text-white text-xs font-bold shadow-xs active:scale-95 cursor-pointer"
             >
               <Check className="h-3.5 w-3.5 mr-1 stroke-[3]" />
-              <span>{isKhmer ? "រក្សាទុកការកែប្រែ" : "Save Changes"}</span>
+              <span>{isKhmer ? "រក្សាទុក" : "Save Changes"}</span>
             </Button>
           </div>
         </form>
