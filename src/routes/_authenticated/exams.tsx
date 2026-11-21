@@ -21,6 +21,8 @@ import {
   X,
   ChevronDown,
   ChevronRight,
+  ChevronLeft,
+  History,
   Calculator,
   Atom,
   FlaskConical,
@@ -246,24 +248,50 @@ export function getSubjectConfig(subject: ExamSubject): SubjectConfig {
   );
 }
 
-// Compute official MoEYS Examination time & score specifications
-export function getExamSpecs(paper: HistoricalExamPaper): { durationMins: number; maxScore: number } {
-  if (paper.durationMinutes && paper.totalMarks) {
-    return { durationMins: paper.durationMinutes, maxScore: paper.totalMarks };
+// Canonical MoEYS Examination time & score specifications
+export function getExamSpecs(paper: HistoricalExamPaper): {
+  durationMins: number | null;
+  maxScore: number | null;
+  coefficient: number | null;
+} {
+  // 1. If explicit verified specifications exist on the record, use them as canonical truth
+  if (paper.totalMarks !== null && paper.totalMarks !== undefined) {
+    return {
+      durationMins: paper.durationMinutes ?? null,
+      maxScore: paper.totalMarks,
+      coefficient: paper.coefficient ?? null,
+    };
   }
+
+  // 2. Outstanding Student National Exam
   if (paper.examinationCategory === "outstanding_student") {
-    return { durationMins: 180, maxScore: 100 };
+    return {
+      durationMins: paper.durationMinutes ?? 180,
+      maxScore: paper.totalMarks ?? 100,
+      coefficient: null,
+    };
   }
-  // Bac II Social Science Stream
+
+  // 3. Multi-year compilation or unverified paper (never invent artificial specifications)
+  if (paper.resourceType === "multi_year_collection" || paper.sourceVerificationStatus === "needs_review") {
+    return {
+      durationMins: paper.durationMinutes ?? null,
+      maxScore: paper.totalMarks ?? null,
+      coefficient: paper.coefficient ?? null,
+    };
+  }
+
+  // 4. Bac II Social Science Stream (Standard Framework)
   if (paper.stream === "social") {
-    if (paper.subject === "khmer") return { durationMins: 150, maxScore: 125 };
-    if (paper.subject === "earth" || paper.subject === "english") return { durationMins: 60, maxScore: 50 };
-    return { durationMins: 90, maxScore: 75 };
+    if (paper.subject === "khmer") return { durationMins: 150, maxScore: 125, coefficient: 4 };
+    if (paper.subject === "earth" || paper.subject === "english") return { durationMins: 60, maxScore: 50, coefficient: 1 };
+    return { durationMins: 90, maxScore: 75, coefficient: 3 };
   }
-  // Bac II Science Stream (Default)
-  if (paper.subject === "mathematics") return { durationMins: 150, maxScore: 125 };
-  if (paper.subject === "history" || paper.subject === "english") return { durationMins: 60, maxScore: 50 };
-  return { durationMins: 90, maxScore: 75 };
+
+  // 5. Bac II Science Stream (Default Framework)
+  if (paper.subject === "mathematics") return { durationMins: 150, maxScore: 125, coefficient: 4 };
+  if (paper.subject === "history" || paper.subject === "english") return { durationMins: 60, maxScore: 50, coefficient: 1 };
+  return { durationMins: 90, maxScore: 75, coefficient: 3 };
 }
 
 // Official MoEYS Exam Blueprints & Structured Outlines for All Core Examination Subjects
@@ -294,7 +322,7 @@ export const MOEYS_STANDARD_EXAM_BLUEPRINTS: Record<
   }
 > = {
   mathematics: {
-    totalMarks: 75,
+    totalMarks: 125,
     durationMinutes: 150,
     coefficient: 4,
     exercises: [
@@ -304,7 +332,7 @@ export const MOEYS_STANDARD_EXAM_BLUEPRINTS: Record<
         titleEn: "Problem 1: Complex Numbers",
         topicKm: "ចំនួនកុំផ្លិច & រូបមន្តដឺម័រ",
         topicEn: "Complex Numbers & De Moivre's Theorem",
-        points: 10,
+        points: 20,
         descriptionKm: "ដោះស្រាយសមីការដឺក្រេទី ២ ក្នុងសំណុំកុំផ្លិច C, សរសេរជាទម្រង់ត្រីកោណមាត្រ និងគណនាស្វ័យគុណ n តាមដឺម័រ។",
         descriptionEn: "Solve quadratic equation in C, express in trigonometric form, and compute nth powers using De Moivre's formula.",
         sampleLatex: "z^2 - 2z + 4 = 0 \\implies z = 1 \\pm i\\sqrt{3} = 2\\left(\\cos\\frac{\\pi}{3} \\pm i\\sin\\frac{\\pi}{3}\\right)",
@@ -315,40 +343,40 @@ export const MOEYS_STANDARD_EXAM_BLUEPRINTS: Record<
         titleEn: "Problem 2: Differential Equations & Probability",
         topicKm: "សមីការឌីផេរ៉ង់ស្យែលលំដាប់ ១ & ២",
         topicEn: "1st & 2nd Order Differential Equations",
-        points: 10,
+        points: 20,
         descriptionKm: "ដោះស្រាយសមីការលីនេអ៊ែរ y' + ay = 0 រកចម្លើយទូទៅដែលផ្ទៀងផ្ទាត់លក្ខខណ្ឌដើម និងដោះស្រាយចំណោទប្រូបាប។",
         descriptionEn: "Solve linear equation y' + ay = 0 for particular solution with initial condition and solve combinatorial probability.",
         sampleLatex: "y' + 2y = 0 \\implies y = C e^{-2x}, \\quad P(A) = \\frac{n(A)}{n(S)}",
       },
       {
         number: 3,
-        titleKm: "លំហាត់ទី ៣ ៖ ធរណីមាត្រក្នុងលំហ Oxyz",
-        titleEn: "Problem 3: Solid Analytic Geometry Oxyz",
+        titleKm: "លំហាត់ទី ៣ ៖ ប្រូបាប និងស្ថិតិ",
+        titleEn: "Problem 3: Probability & Statistics",
+        topicKm: "បន្សំ តម្រៀប និងការគណនាប្រូបាបនៃព្រឹត្តិការណ៍",
+        topicEn: "Combinations, Permutations & Event Probability",
+        points: 20,
+        descriptionKm: "គណនាចំនួនករណីអាច ចំនួនករណីស្រប និងប្រូបាបនៃការចាប់យកបាល់ ឬវត្ថុពីប្រអប់។",
+        descriptionEn: "Compute possible cases, favorable cases, and event probabilities in sampling without replacement.",
+        sampleLatex: "P(A) = \\frac{C(n, k)}{C(N, k)}",
+      },
+      {
+        number: 4,
+        titleKm: "លំហាត់ទី ៤ ៖ ធរណីមាត្រក្នុងលំហ Oxyz",
+        titleEn: "Problem 4: Solid Analytic Geometry Oxyz",
         topicKm: "ផលគុណវ៉ិចទ័រ សមីការប្លង់ និងចម្ងាយ",
         topicEn: "Cross Product, Plane Equations & Distance",
-        points: 15,
+        points: 25,
         descriptionKm: "គណនាផលគុណវ៉ិចទ័រ u × v, សរសេរសមីការប្លង់កាត់តាម ៣ ចំណុច និងគណនាចម្ងាយពីចំណុចទៅប្លង់។",
         descriptionEn: "Compute cross product u × v, write equation of plane through 3 points, and compute point-to-plane distance.",
         sampleLatex: "\\vec{u} \\times \\vec{v} = \\begin{vmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\ x_1 & y_1 & z_1 \\\\ x_2 & y_2 & z_2 \\end{vmatrix}, \\quad d(M, \\alpha) = \\frac{|ax_0 + by_0 + cz_0 + d|}{\\sqrt{a^2 + b^2 + c^2}}",
       },
       {
-        number: 4,
-        titleKm: "លំហាត់ទី ៤ ៖ អាំងតេក្រាល និងផ្ទៃក្រឡា",
-        titleEn: "Problem 4: Integrals & Surface Area",
-        topicKm: "ព្រីមីទីវ អាំងតេក្រាលដោយផ្នែក & មាឌ",
-        topicEn: "Primitives, Integration by Parts & Volume",
-        points: 15,
-        descriptionKm: "គណនាអាំងតេក្រាលកំណត់ដោយវិធីអាំងតេក្រាលដោយផ្នែក និងគណនាផ្ទៃក្រឡា ឬមាឌសូលីតបដិវត្តន៍។",
-        descriptionEn: "Evaluate definite integrals using integration by parts and calculate area or volume of revolution.",
-        sampleLatex: "\\int u\\,dv = uv - \\int v\\,du, \\quad V = \\pi \\int_{a}^{b} [f(x)]^2\\,dx",
-      },
-      {
         number: 5,
         titleKm: "លំហាត់ទី ៥ ៖ សិក្សាអថេរភាព និងសង់ក្រាបនៃអនុគមន៍",
         titleEn: "Problem 5: Function Study & Curve Sketching",
-        topicKm: "អនុគមន៍អិចស្ប៉ូណង់ស្យែល ឬលោការីត",
-        topicEn: "Exponential or Logarithmic Functions",
-        points: 25,
+        topicKm: "អនុគមន៍អិចស្ប៉ូណង់ស្យែល ឬលោការីត និងអាំងតេក្រាល",
+        topicEn: "Exponential or Logarithmic Functions & Integrals",
+        points: 40,
         descriptionKm: "គណនាលីមីតត្រង់ចុងដែនកំណត់, រកដេរីវេ f'(x), តារាងអថេរភាព, សមីការអាស៊ីមតូត និងសង់ក្រាប (C)។",
         descriptionEn: "Compute limits at boundaries, derivative f'(x), variation table, asymptotes, and sketch curve (C).",
         sampleLatex: "f(x) = (x - 1)e^x + 2, \\quad f'(x) = x e^x, \\quad \\lim_{x\\to-\\infty} f(x) = 2",
@@ -724,7 +752,10 @@ type SortOrder = "newest" | "oldest" | "title";
 
 // Clean user-facing titles from internal database IDs like "(SALA 00007808)"
 function cleanDisplayTitle(title: string): string {
-  return title.replace(/\s*\(SALA\s+\d+\)/gi, "").trim();
+  return title
+    .replace(/\s*\(SALA\s+\d+\)/gi, "")
+    .replace(/\s*\(Non-Official Compilation\)/gi, "")
+    .trim();
 }
 
 // Clean Subject Label
@@ -758,20 +789,25 @@ function getResourceTypeLabel(type: ResourceType, isKhmer: boolean = true): stri
   }
 }
 
-// Provenance line
+// Authentic Provenance and Source Attribution
 function formatAttribution(paper: HistoricalExamPaper, isKhmer: boolean = true): string {
   if (paper.sourceVerificationStatus === "verified_official") {
     return isKhmer
-      ? "ប្រភព៖ ក្រសួងអប់រំ យុវជន និងកីឡា (MoEYS)"
-      : "Source: Ministry of Education, Youth and Sport (MoEYS)";
+      ? "ប្រភព៖ ក្រសួងអប់រំ យុវជន និងកីឡា (MoEYS ផ្លូវការ)"
+      : "Source: Ministry of Education, Youth and Sport (MoEYS Official)";
+  }
+  if (paper.sourcePlatform === "sala_moeys") {
+    return isKhmer
+      ? `ប្រភព៖ បណ្ណាល័យឌីជីថល SALA${paper.actualAuthor ? ` (ចងក្រងដោយ ${paper.actualAuthor})` : ""}`
+      : `Source: SALA Digital Library${paper.actualAuthor ? ` (Compiled by ${paper.actualAuthor})` : ""}`;
   }
   if (paper.actualAuthor) {
-    return isKhmer ? `និពន្ធដោយ៖ ${paper.actualAuthor}` : `Author: ${paper.actualAuthor}`;
+    return isKhmer ? `ចងក្រងដោយ៖ ${paper.actualAuthor}` : `Compiled by: ${paper.actualAuthor}`;
   }
   if (paper.publisher) {
     return isKhmer ? `បោះពុម្ពដោយ៖ ${paper.publisher}` : `Publisher: ${paper.publisher}`;
   }
-  return isKhmer ? "បណ្ណាសារ ScienceKH" : "ScienceKH National Archive";
+  return isKhmer ? "បណ្ណសារដ្ឋាន ScienceKH" : "ScienceKH Historical Archive";
 }
 
 function ExamsArchivePage() {
@@ -813,6 +849,27 @@ function ExamsArchivePage() {
 
   // Offline study storage state
   const [offlineExamIds, setOfflineExamIds] = useState<string[]>(() => getOfflineExamIds());
+
+  // Recently viewed exam IDs
+  const [recentExamIds, setRecentExamIds] = useState<string[]>(() => {
+    if (typeof window === "undefined") return [];
+    try {
+      const raw = localStorage.getItem("sciencekh_recent_exam_ids");
+      return raw ? JSON.parse(raw) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  const addToRecentExams = (id: string) => {
+    setRecentExamIds((prev) => {
+      const next = [id, ...prev.filter((item) => item !== id)].slice(0, 5);
+      try {
+        localStorage.setItem("sciencekh_recent_exam_ids", JSON.stringify(next));
+      } catch {}
+      return next;
+    });
+  };
 
   const handleToggleOffline = async (paper: HistoricalExamPaper) => {
     sounds.playPop();
@@ -874,6 +931,37 @@ function ExamsArchivePage() {
     );
   }, [category, stream, outstandingGrade]);
 
+  // Available examination years derived strictly from actual records
+  const availableYears = useMemo(() => {
+    const years = new Set<number>();
+    HISTORICAL_EXAM_ARCHIVE.forEach((p) => {
+      if (category === "bacii") {
+        if (p.examinationCategory !== "bacii") return;
+        if (p.stream !== stream && p.stream !== "both") return;
+      } else {
+        if (p.examinationCategory !== "outstanding_student") return;
+        if (p.grade !== null && p.grade !== outstandingGrade) return;
+      }
+
+      if (selectedSubject !== "all" && p.subject !== selectedSubject) return;
+
+      if (p.examinationYear) {
+        years.add(p.examinationYear);
+      } else if (p.examYear) {
+        years.add(p.examYear);
+      }
+    });
+
+    return Array.from(years).sort((a, b) => b - a);
+  }, [category, stream, outstandingGrade, selectedSubject]);
+
+  // Synchronize year filter if the selected year is not present in real records of current track
+  useEffect(() => {
+    if (selectedYear !== "all" && !availableYears.includes(selectedYear)) {
+      setSelectedYear("all");
+    }
+  }, [availableYears, selectedYear]);
+
   // Paper count per year in the active track
   const yearCounts = useMemo(() => {
     const counts: Record<number, number> = {};
@@ -901,6 +989,53 @@ function ExamsArchivePage() {
 
     return { counts, multiYearCount };
   }, [category, stream, outstandingGrade, selectedSubject]);
+
+  // Overall catalog stats based strictly on database records (no hardcoding)
+  const archiveStats = useMemo(() => {
+    let baciiCount = 0;
+    let outstandingCount = 0;
+    let minYear = Infinity;
+    let maxYear = -Infinity;
+    const subjects = new Set<string>();
+
+    HISTORICAL_EXAM_ARCHIVE.forEach((p) => {
+      if (p.examinationCategory === "bacii") baciiCount++;
+      else if (p.examinationCategory === "outstanding_student") outstandingCount++;
+
+      if (p.examinationYear) {
+        minYear = Math.min(minYear, p.examinationYear);
+        maxYear = Math.max(maxYear, p.examinationYear);
+      } else if (p.examYear) {
+        minYear = Math.min(minYear, p.examYear);
+        maxYear = Math.max(maxYear, p.examYear);
+      }
+      if (p.coverageStartYear) minYear = Math.min(minYear, p.coverageStartYear);
+      if (p.coverageEndYear) maxYear = Math.max(maxYear, p.coverageEndYear);
+
+      subjects.add(p.subject);
+    });
+
+    return {
+      totalPapers: HISTORICAL_EXAM_ARCHIVE.length,
+      baciiCount,
+      outstandingCount,
+      minYear: minYear === Infinity ? 2011 : minYear,
+      maxYear: maxYear === -Infinity ? 2024 : maxYear,
+      subjectsCount: subjects.size,
+    };
+  }, []);
+
+  const recentPapers = useMemo(() => {
+    return recentExamIds
+      .map((id) => HISTORICAL_EXAM_ARCHIVE.find((p) => p.id === id))
+      .filter((p): p is HistoricalExamPaper => Boolean(p));
+  }, [recentExamIds]);
+
+  const savedPapers = useMemo(() => {
+    return offlineExamIds
+      .map((id) => HISTORICAL_EXAM_ARCHIVE.find((p) => p.id === id))
+      .filter((p): p is HistoricalExamPaper => Boolean(p));
+  }, [offlineExamIds]);
 
   // ============================================================================
   // 4. FILTER PIPELINE (INDIVIDUAL PAPERS VS MULTI-YEAR COLLECTIONS)
@@ -1022,13 +1157,10 @@ function ExamsArchivePage() {
     return groups;
   }, [individualPapers]);
 
-  // Related papers across other years for the active modal paper (Deduplicated strictly by year)
-  const relatedCrossYearPapers = useMemo(() => {
+  // Relevant papers across session years for the active modal paper
+  const relevantSameTrackPapers = useMemo(() => {
     if (!activeExam) return [];
-    const currentYear = activeExam.examinationYear ?? activeExam.examYear ?? 0;
-
-    const filtered = HISTORICAL_EXAM_ARCHIVE.filter((p) => {
-      if (p.id === activeExam.id) return false;
+    return HISTORICAL_EXAM_ARCHIVE.filter((p) => {
       if (p.examinationCategory !== activeExam.examinationCategory) return false;
       if (p.subject !== activeExam.subject) return false;
       if (
@@ -1040,31 +1172,26 @@ function ExamsArchivePage() {
       }
       if (
         activeExam.examinationCategory === "outstanding_student" &&
-        p.grade !== activeExam.grade
+        p.grade !== activeExam.grade &&
+        p.grade !== null
       ) {
         return false;
       }
-      return true;
+      return (p.examinationYear !== null && p.examinationYear !== undefined) || (p.examYear !== null && p.examYear !== undefined);
     }).sort((a, b) => {
-      const yA = a.examinationYear ?? a.examYear ?? a.coverageEndYear ?? 0;
-      const yB = b.examinationYear ?? b.examYear ?? b.coverageEndYear ?? 0;
+      const yA = a.examinationYear ?? a.examYear ?? 0;
+      const yB = b.examinationYear ?? b.examYear ?? 0;
       return yB - yA;
     });
-
-    // Deduplicate by year so duplicate years (e.g. 2025, 2025) never appear
-    const seenYears = new Set<number>();
-    if (currentYear) seenYears.add(currentYear);
-
-    const deduped: HistoricalExamPaper[] = [];
-    for (const p of filtered) {
-      const y = p.examinationYear ?? p.examYear ?? p.coverageEndYear;
-      if (y && !seenYears.has(y)) {
-        seenYears.add(y);
-        deduped.push(p);
-      }
-    }
-    return deduped;
   }, [activeExam]);
+
+  const currentPaperIndex = useMemo(() => {
+    if (!activeExam) return -1;
+    return relevantSameTrackPapers.findIndex((p) => p.id === activeExam.id);
+  }, [activeExam, relevantSameTrackPapers]);
+
+  const nextPaper = currentPaperIndex > 0 ? relevantSameTrackPapers[currentPaperIndex - 1] : null;
+  const prevPaper = currentPaperIndex >= 0 && currentPaperIndex < relevantSameTrackPapers.length - 1 ? relevantSameTrackPapers[currentPaperIndex + 1] : null;
 
   const handleOpenPaper = (
     paper: HistoricalExamPaper,
@@ -1074,6 +1201,7 @@ function ExamsArchivePage() {
     setActiveExam(paper);
     setModalTab(tab);
     setExpandedQuestionId(null);
+    addToRecentExams(paper.id);
   };
 
   const handleClosePaper = () => {
@@ -1090,65 +1218,125 @@ function ExamsArchivePage() {
         { label: isKhmer ? "ស្វែងយល់" : "Explore", href: "/explore" },
         { label: isKhmer ? "វិញ្ញាសាជាតិ MoEYS" : "National Exam Archive" },
       ]}
+      hideGamification={true}
       rightSidebar={
         <div className="space-y-4">
-          {/* Archive Summary Card */}
-          <div className="p-5 rounded-3xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs space-y-3">
+          {/* 1. Archive Overview Based on Actual Database Records */}
+          <div className="p-4 sm:p-5 rounded-3xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs space-y-3">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-black text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
-                <FileText className="h-4 w-4 text-emerald-600" />
-                <span>{isKhmer ? "បណ្ណសារវិញ្ញាសាជាតិ" : "MoEYS Archive"}</span>
+              <span className="text-xs font-black text-[#111827] dark:text-white flex items-center gap-1.5">
+                <FileText className="h-4 w-4 text-[#059669]" />
+                <span>{isKhmer ? "បណ្ណសារវិញ្ញាសាជាតិ" : "Archive Catalog"}</span>
               </span>
-              <span className="text-[10px] font-black text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-0.5 rounded-full border border-emerald-200/80 dark:border-emerald-800">
-                ២០១១–២០២៦
+              <span className="text-[10px] font-black text-[#059669] dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-0.5 rounded-full border border-emerald-200/80 dark:border-emerald-800">
+                {archiveStats.minYear}–{archiveStats.maxYear}
               </span>
             </div>
-            <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+
+            <div className="grid grid-cols-2 gap-2 text-center pt-0.5">
+              <div className="p-2.5 rounded-2xl bg-[#F8FAFC] dark:bg-slate-800/60 border border-[#E5EAF0] dark:border-slate-700/60">
+                <p className="text-base font-black text-[#111827] dark:text-white">
+                  {archiveStats.baciiCount}
+                </p>
+                <p className="text-[10px] font-semibold text-[#64748B]">
+                  {isKhmer ? "វិញ្ញាសាបាក់ឌុប" : "Bac II Papers"}
+                </p>
+              </div>
+              <div className="p-2.5 rounded-2xl bg-[#F8FAFC] dark:bg-slate-800/60 border border-[#E5EAF0] dark:border-slate-700/60">
+                <p className="text-base font-black text-[#111827] dark:text-white">
+                  {archiveStats.outstandingCount}
+                </p>
+                <p className="text-[10px] font-semibold text-[#64748B]">
+                  {isKhmer ? "សិស្សពូកែ" : "Outstanding"}
+                </p>
+              </div>
+            </div>
+
+            <p className="text-xs text-[#64748B] dark:text-slate-400 leading-relaxed pt-0.5">
               {isKhmer
-                ? `មានវិញ្ញាសាសរុប ${totalResultsCount} ច្បាប់ រួមទាំងបាក់ឌុប និងសិស្សពូកែទូទាំងប្រទេស ដោយមានអត្រាកំណែផ្លូវការ និង PDF ច្បាប់ដើម។`
-                : `Contains ${totalResultsCount} verified papers across Bac II and Outstanding Students with official rubrics & original PDFs.`}
+                ? `ប្រមូលផ្ដុំវិញ្ញាសាជាតិផ្លូវការសរុប ${archiveStats.totalPapers} ច្បាប់ គ្របដណ្ដប់លើ ${archiveStats.subjectsCount} មុខវិជ្ជាស្នូល ជាមួយនឹងឯកសារ PDF ច្បាប់ដើម។`
+                : `Cataloging ${archiveStats.totalPapers} authentic papers across ${archiveStats.subjectsCount} subjects with authoritative original PDFs.`}
             </p>
           </div>
 
-          {/* Quick Data Export */}
-          <div className="p-5 rounded-3xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs space-y-3">
-            <span className="text-xs font-black text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
-              <FileSpreadsheet className="h-4 w-4 text-emerald-600" />
-              <span>{isKhmer ? "ទាញយកទិន្នន័យ (CSV)" : "Export Archive Dataset"}</span>
-            </span>
-            <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-              {isKhmer
-                ? "ទាញយកតារាងវិញ្ញាសា និងពិន្ទុទាំងអស់ជាទម្រង់ CSV សម្រាប់ស្រាវជ្រាវ។"
-                : "Download complete catalog of papers, specs, and years as CSV."}
-            </p>
-            <a
-              href="/archive/cambodia_historical_exams_2011_2026.csv"
-              download="cambodia_historical_exams_2011_2026.csv"
-              onClick={() => sounds.playPop()}
-              className="w-full h-9 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 text-xs font-bold flex items-center justify-center gap-2 transition active:scale-95 cursor-pointer shadow-2xs"
-            >
-              <Download className="h-3.5 w-3.5 text-emerald-600" />
-              <span>{isKhmer ? "ទាញយកឯកសារ CSV" : "Download CSV Dataset"}</span>
-            </a>
-          </div>
-
-          {/* Offline Saved Papers Indicator (Only shown if user has saved papers) */}
-          {offlineExamIds.length > 0 && (
-            <div className="p-4 rounded-3xl border border-emerald-200/80 dark:border-emerald-800/80 bg-emerald-50/40 dark:bg-emerald-950/20 shadow-2xs space-y-2">
+          {/* 2. Recently Viewed Papers (Only displayed when real history exists) */}
+          {recentPapers.length > 0 && (
+            <div className="p-4 sm:p-5 rounded-3xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs space-y-2.5">
               <div className="flex items-center justify-between text-xs">
-                <span className="font-bold text-emerald-800 dark:text-emerald-300 flex items-center gap-1.5">
-                  <BookmarkCheck className="h-4 w-4 text-emerald-600" />
+                <span className="font-bold text-[#111827] dark:text-white flex items-center gap-1.5">
+                  <History className="h-4 w-4 text-[#059669]" />
+                  <span>{isKhmer ? "វិញ្ញាសាទើបមើលថ្មីៗ" : "Recently Viewed"}</span>
+                </span>
+                <span className="text-[10px] font-bold text-[#64748B]">
+                  {recentPapers.length}
+                </span>
+              </div>
+
+              <div className="space-y-1.5">
+                {recentPapers.map((paper) => {
+                  const cfg = getSubjectConfig(paper.subject);
+                  const SubjIcon = cfg.icon;
+                  return (
+                    <button
+                      key={paper.id}
+                      type="button"
+                      onClick={() => handleOpenPaper(paper, "paper")}
+                      className="w-full p-2 rounded-xl hover:bg-[#F8FAFC] dark:hover:bg-slate-800 text-left transition flex items-center justify-between gap-2 group cursor-pointer border border-transparent hover:border-[#E5EAF0] dark:hover:border-slate-700"
+                    >
+                      <div className="flex items-center gap-2 min-w-0">
+                        <div className="w-6 h-6 rounded-lg bg-slate-100 dark:bg-slate-800 text-[#059669] grid place-items-center shrink-0">
+                          <SubjIcon className="w-3.5 h-3.5" />
+                        </div>
+                        <div className="min-w-0">
+                          <p className="text-xs font-bold text-[#111827] dark:text-white truncate group-hover:text-[#059669]">
+                            {cleanDisplayTitle(isKhmer ? paper.originalTitleKh : (paper.titleEn || paper.originalTitleKh))}
+                          </p>
+                          <p className="text-[10px] text-[#64748B]">
+                            {paper.examinationYear ? `សម័យប្រឡង ${paper.examinationYear}` : "កម្រងវិញ្ញាសា"}
+                          </p>
+                        </div>
+                      </div>
+                      <ChevronRight className="h-3.5 w-3.5 text-slate-400 group-hover:translate-x-0.5 transition-transform shrink-0" />
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* 3. Saved Examination Papers (Offline) (Only displayed when real offline papers exist) */}
+          {savedPapers.length > 0 && (
+            <div className="p-4 sm:p-5 rounded-3xl border border-emerald-200/80 dark:border-emerald-800/80 bg-emerald-50/40 dark:bg-emerald-950/20 shadow-2xs space-y-2.5">
+              <div className="flex items-center justify-between text-xs">
+                <span className="font-bold text-[#059669] dark:text-emerald-300 flex items-center gap-1.5">
+                  <BookmarkCheck className="h-4 w-4 text-[#059669]" />
                   <span>{isKhmer ? "វិញ្ញាសា Offline" : "Saved Offline"}</span>
                 </span>
                 <span className="text-[11px] font-black text-emerald-700 dark:text-emerald-300 bg-white dark:bg-slate-800 px-2 py-0.5 rounded-full border border-emerald-200">
-                  {offlineExamIds.length} {isKhmer ? "ច្បាប់" : "papers"}
+                  {savedPapers.length} {isKhmer ? "ច្បាប់" : "papers"}
                 </span>
               </div>
-              <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
-                {isKhmer
-                  ? "វិញ្ញាសាដែលបានរក្សាទុកអាចបើកមើលបានដោយគ្មានអ៊ីនធឺណិត។"
-                  : "Saved papers are accessible offline anytime."}
-              </p>
+
+              <div className="space-y-1.5">
+                {savedPapers.slice(0, 4).map((paper) => (
+                  <button
+                    key={paper.id}
+                    type="button"
+                    onClick={() => handleOpenPaper(paper, "paper")}
+                    className="w-full p-2 rounded-xl bg-white dark:bg-slate-900/80 hover:bg-emerald-50/50 dark:hover:bg-slate-800 text-left transition flex items-center justify-between gap-2 group cursor-pointer border border-emerald-100 dark:border-emerald-900/60 shadow-2xs"
+                  >
+                    <div className="min-w-0">
+                      <p className="text-xs font-bold text-[#111827] dark:text-white truncate group-hover:text-[#059669]">
+                        {cleanDisplayTitle(isKhmer ? paper.originalTitleKh : (paper.titleEn || paper.originalTitleKh))}
+                      </p>
+                      <p className="text-[10px] text-[#64748B]">
+                        {paper.examinationYear ? `សម័យ ${paper.examinationYear}` : "Offline Ready"}
+                      </p>
+                    </div>
+                    <ChevronRight className="h-3.5 w-3.5 text-[#059669] group-hover:translate-x-0.5 transition-transform shrink-0" />
+                  </button>
+                ))}
+              </div>
             </div>
           )}
         </div>
@@ -1178,7 +1366,7 @@ function ExamsArchivePage() {
               </p>
             </div>
             <span className="text-[10px] font-black px-2.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
-              ២០១១–២០២៦
+              {archiveStats.minYear}–{archiveStats.maxYear}
             </span>
           </div>
         </div>
@@ -1195,7 +1383,7 @@ function ExamsArchivePage() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="ស្វែងរកតាមឈ្មោះវិញ្ញាសា ឬឆ្នាំ (ឧ. គណិតវិទ្យា, ២០២៤, រូបវិទ្យា)..."
-              className="w-full h-11 pl-10 pr-9 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 text-xs sm:text-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:border-emerald-500 shadow-2xs transition"
+              className="w-full h-11 pl-10 pr-9 rounded-2xl bg-white dark:bg-slate-900 border border-[#E5EAF0] dark:border-slate-800 text-xs sm:text-sm text-[#111827] dark:text-white placeholder:text-[#64748B] focus:outline-none focus:border-[#059669] shadow-2xs transition"
             />
             {searchQuery && (
               <button
@@ -1209,64 +1397,67 @@ function ExamsArchivePage() {
             )}
           </div>
 
-          {/* Interactive Filters Card */}
+          {/* Interactive Filters Card - Clean Academic Hierarchical Toolbar */}
           <div className="p-3.5 sm:p-4 rounded-3xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs space-y-3">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-              {/* Category Segmented Control & Stream / Grade Toggle */}
-              <div className="flex items-center gap-2 flex-wrap">
-                <div className="inline-flex p-1 rounded-2xl bg-slate-100 dark:bg-slate-800 text-xs font-bold">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      sounds.playPop();
-                      setCategory("bacii");
-                      setSelectedSubject("all");
-                    }}
-                    className={cn(
-                      "px-3 py-1.5 rounded-xl transition cursor-pointer select-none",
-                      category === "bacii"
-                        ? "bg-white dark:bg-slate-900 text-emerald-700 dark:text-emerald-300 shadow-2xs font-black"
-                        : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
-                    )}
-                  >
-                    {isKhmer ? "បាក់ឌុប" : "Bac II"}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      sounds.playPop();
-                      setCategory("outstanding_student");
-                      setSelectedSubject("all");
-                    }}
-                    className={cn(
-                      "px-3 py-1.5 rounded-xl transition cursor-pointer select-none",
-                      category === "outstanding_student"
-                        ? "bg-white dark:bg-slate-900 text-emerald-700 dark:text-emerald-300 shadow-2xs font-black"
-                        : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
-                    )}
-                  >
-                    {isKhmer ? "សិស្សពូកែ" : "Outstanding Students"}
-                  </button>
-                </div>
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-2.5 items-center">
+              {/* 2. Category Selector (Bac II vs Outstanding) */}
+              <div className="md:col-span-4 inline-flex p-1 rounded-2xl bg-[#F8FAFC] dark:bg-slate-800/80 border border-[#E5EAF0] dark:border-slate-700/60 text-xs font-bold w-full">
+                <button
+                  type="button"
+                  onClick={() => {
+                    sounds.playPop();
+                    setCategory("bacii");
+                    setSelectedSubject("all");
+                    setSelectedYear("all");
+                  }}
+                  className={cn(
+                    "flex-1 py-1.5 px-3 rounded-xl transition cursor-pointer select-none text-center",
+                    category === "bacii"
+                      ? "bg-white dark:bg-slate-900 text-[#059669] dark:text-emerald-400 shadow-2xs font-black"
+                      : "text-[#64748B] hover:text-[#111827] dark:hover:text-white"
+                  )}
+                >
+                  {isKhmer ? "បាក់ឌុប (Bac II)" : "Bac II"}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    sounds.playPop();
+                    setCategory("outstanding_student");
+                    setSelectedSubject("all");
+                    setSelectedYear("all");
+                  }}
+                  className={cn(
+                    "flex-1 py-1.5 px-3 rounded-xl transition cursor-pointer select-none text-center",
+                    category === "outstanding_student"
+                      ? "bg-white dark:bg-slate-900 text-[#059669] dark:text-emerald-400 shadow-2xs font-black"
+                      : "text-[#64748B] hover:text-[#111827] dark:hover:text-white"
+                  )}
+                >
+                  {isKhmer ? "សិស្សពូកែ (Outstanding)" : "Outstanding"}
+                </button>
+              </div>
 
-                {/* Stream / Level Switcher */}
+              {/* 3. Contextual Stream or Grade Selector */}
+              <div className="md:col-span-3 inline-flex p-1 rounded-2xl bg-[#F8FAFC] dark:bg-slate-800/80 border border-[#E5EAF0] dark:border-slate-700/60 text-xs font-bold w-full">
                 {category === "bacii" ? (
-                  <div className="inline-flex p-1 rounded-2xl bg-slate-100 dark:bg-slate-800 text-xs font-bold">
+                  <>
                     <button
                       type="button"
                       onClick={() => {
                         sounds.playPop();
                         setStream("science");
                         setSelectedSubject("all");
+                        setSelectedYear("all");
                       }}
                       className={cn(
-                        "px-3 py-1.5 rounded-xl transition cursor-pointer select-none",
+                        "flex-1 py-1.5 px-2 rounded-xl transition cursor-pointer select-none text-center truncate",
                         stream === "science"
-                          ? "bg-emerald-600 text-white shadow-2xs font-black"
-                          : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                          ? "bg-[#059669] text-white shadow-2xs font-black"
+                          : "text-[#64748B] hover:text-[#111827] dark:hover:text-white"
                       )}
                     >
-                      {isKhmer ? "វិទ្យាសាស្ត្រពិត" : "Science Stream"}
+                      {isKhmer ? "វិទ្យាសាស្ត្រពិត" : "Science"}
                     </button>
                     <button
                       type="button"
@@ -1274,31 +1465,33 @@ function ExamsArchivePage() {
                         sounds.playPop();
                         setStream("social");
                         setSelectedSubject("all");
+                        setSelectedYear("all");
                       }}
                       className={cn(
-                        "px-3 py-1.5 rounded-xl transition cursor-pointer select-none",
+                        "flex-1 py-1.5 px-2 rounded-xl transition cursor-pointer select-none text-center truncate",
                         stream === "social"
-                          ? "bg-emerald-600 text-white shadow-2xs font-black"
-                          : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                          ? "bg-[#059669] text-white shadow-2xs font-black"
+                          : "text-[#64748B] hover:text-[#111827] dark:hover:text-white"
                       )}
                     >
-                      {isKhmer ? "សង្គម" : "Social Science"}
+                      {isKhmer ? "សង្គម" : "Social"}
                     </button>
-                  </div>
+                  </>
                 ) : (
-                  <div className="inline-flex p-1 rounded-2xl bg-slate-100 dark:bg-slate-800 text-xs font-bold">
+                  <>
                     <button
                       type="button"
                       onClick={() => {
                         sounds.playPop();
                         setOutstandingGrade(12);
                         setSelectedSubject("all");
+                        setSelectedYear("all");
                       }}
                       className={cn(
-                        "px-3 py-1.5 rounded-xl transition cursor-pointer select-none",
+                        "flex-1 py-1.5 px-2 rounded-xl transition cursor-pointer select-none text-center truncate",
                         outstandingGrade === 12
-                          ? "bg-emerald-600 text-white shadow-2xs font-black"
-                          : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                          ? "bg-[#059669] text-white shadow-2xs font-black"
+                          : "text-[#64748B] hover:text-[#111827] dark:hover:text-white"
                       )}
                     >
                       {isKhmer ? "ថ្នាក់ទី ១២" : "Grade 12"}
@@ -1309,50 +1502,80 @@ function ExamsArchivePage() {
                         sounds.playPop();
                         setOutstandingGrade(9);
                         setSelectedSubject("all");
+                        setSelectedYear("all");
                       }}
                       className={cn(
-                        "px-3 py-1.5 rounded-xl transition cursor-pointer select-none",
+                        "flex-1 py-1.5 px-2 rounded-xl transition cursor-pointer select-none text-center truncate",
                         outstandingGrade === 9
-                          ? "bg-emerald-600 text-white shadow-2xs font-black"
-                          : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                          ? "bg-[#059669] text-white shadow-2xs font-black"
+                          : "text-[#64748B] hover:text-[#111827] dark:hover:text-white"
                       )}
                     >
                       {isKhmer ? "ថ្នាក់ទី ៩" : "Grade 9"}
                     </button>
-                  </div>
+                  </>
                 )}
               </div>
 
-              {/* Right Group: Year Selector + Sorting Selector */}
-              <div className="flex items-center gap-2">
-                <div className="flex items-center gap-1.5 text-xs">
-                  <span className="text-slate-400 font-medium hidden md:inline">{isKhmer ? "ឆ្នាំ៖" : "Year:"}</span>
-                  <select
-                    value={selectedYear}
-                    onChange={(e) => {
-                      sounds.playPop();
-                      setSelectedYear(e.target.value === "all" ? "all" : Number(e.target.value));
-                    }}
-                    className="h-8 px-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-bold text-slate-800 dark:text-slate-200 outline-none cursor-pointer shadow-2xs focus:border-emerald-500"
-                  >
-                    <option value="all">{isKhmer ? "គ្រប់សម័យប្រឡង" : "All Sessions"}</option>
-                    {HISTORICAL_YEARS_TIMELINE.map((yr) => (
-                      <option key={yr} value={yr}>
-                        {isKhmer ? `សម័យប្រឡង ${yr}` : `Session ${yr}`}
+              {/* 4. Subject Dropdown */}
+              <div className="md:col-span-3">
+                <select
+                  value={selectedSubject}
+                  onChange={(e) => {
+                    sounds.playPop();
+                    setSelectedSubject(e.target.value as "all" | ExamSubject);
+                  }}
+                  className="w-full h-9 px-3 rounded-xl border border-[#E5EAF0] dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-bold text-[#111827] dark:text-slate-200 outline-none cursor-pointer shadow-2xs focus:border-[#059669]"
+                >
+                  <option value="all">{isKhmer ? "គ្រប់មុខវិជ្ជា (All Subjects)" : "All Subjects"}</option>
+                  {availableSubjects
+                    .filter((s) => s.id !== "all")
+                    .map((subj) => (
+                      <option key={subj.id} value={subj.id}>
+                        {isKhmer ? subj.nameKm : subj.nameEn}
                       </option>
                     ))}
-                  </select>
-                </div>
+                </select>
+              </div>
 
+              {/* 5. Examination Year Dropdown (Strictly available years from real records) */}
+              <div className="md:col-span-2">
+                <select
+                  value={selectedYear}
+                  onChange={(e) => {
+                    sounds.playPop();
+                    setSelectedYear(e.target.value === "all" ? "all" : Number(e.target.value));
+                  }}
+                  className="w-full h-9 px-3 rounded-xl border border-[#E5EAF0] dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-bold text-[#111827] dark:text-slate-200 outline-none cursor-pointer shadow-2xs focus:border-[#059669]"
+                >
+                  <option value="all">{isKhmer ? "គ្រប់ឆ្នាំ (All Years)" : "All Years"}</option>
+                  {availableYears.map((yr) => (
+                    <option key={yr} value={yr}>
+                      {isKhmer ? `សម័យ ${yr}` : `Session ${yr}`}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            {/* Results Count & Sorting & Reset Actions */}
+            <div className="flex items-center justify-between text-xs pt-2 border-t border-slate-100 dark:border-slate-800/80">
+              <span className="text-[#64748B] dark:text-slate-400 font-medium">
+                {isKhmer
+                  ? `រកឃើញវិញ្ញាសាចំនួន ${totalResultsCount} ច្បាប់`
+                  : `Showing ${totalResultsCount} verified papers`}
+              </span>
+
+              <div className="flex items-center gap-2">
                 <div className="flex items-center gap-1.5 text-xs">
-                  <span className="text-slate-400 font-medium hidden md:inline">{isKhmer ? "តម្រៀប៖" : "Sort:"}</span>
+                  <span className="text-[#64748B] font-medium hidden sm:inline">{isKhmer ? "តម្រៀប៖" : "Sort:"}</span>
                   <select
                     value={sortOrder}
                     onChange={(e) => {
                       sounds.playPop();
                       setSortOrder(e.target.value as SortOrder);
                     }}
-                    className="h-8 px-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-bold text-slate-800 dark:text-slate-200 outline-none cursor-pointer shadow-2xs focus:border-emerald-500"
+                    className="h-8 px-2 rounded-xl border border-[#E5EAF0] dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-bold text-[#111827] dark:text-slate-200 outline-none cursor-pointer shadow-2xs focus:border-[#059669]"
                   >
                     <option value="newest">{isKhmer ? "ថ្មីបំផុត" : "Newest"}</option>
                     <option value="oldest">{isKhmer ? "ចាស់បំផុត" : "Oldest"}</option>
@@ -1372,33 +1595,6 @@ function ExamsArchivePage() {
                   </button>
                 )}
               </div>
-            </div>
-
-            {/* Subject Filter Pills Strip */}
-            <div className="pt-2 border-t border-slate-100 dark:border-slate-800/80 flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
-              {availableSubjects.map((subj) => {
-                const isSelected = selectedSubject === subj.id;
-                const SubjIcon = subj.icon;
-                return (
-                  <button
-                    key={subj.id}
-                    type="button"
-                    onClick={() => {
-                      sounds.playPop();
-                      setSelectedSubject(subj.id as "all" | ExamSubject);
-                    }}
-                    className={cn(
-                      "flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition cursor-pointer active:scale-95 border shrink-0",
-                      isSelected
-                        ? "bg-emerald-600 text-white border-emerald-600 shadow-2xs font-black"
-                        : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border-slate-200/90 dark:border-slate-800 hover:border-slate-300"
-                    )}
-                  >
-                    {subj.id !== "all" && <SubjIcon className="h-3.5 w-3.5" />}
-                    <span>{isKhmer ? subj.nameKm : subj.nameEn}</span>
-                  </button>
-                );
-              })}
             </div>
           </div>
 
@@ -1477,59 +1673,95 @@ function ExamsArchivePage() {
                         <article
                           key={paper.id}
                           onClick={() => handleOpenPaper(paper, "paper")}
-                          className="p-3.5 sm:p-4 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 bg-white dark:bg-slate-900 shadow-2xs hover:border-emerald-500/50 hover:shadow-xs transition-all active:scale-[0.99] cursor-pointer group flex items-center justify-between gap-3"
+                          className="p-3.5 sm:p-4 rounded-2xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs hover:border-[#059669]/60 hover:shadow-xs transition-all active:scale-[0.99] cursor-pointer group flex items-center justify-between gap-3"
                         >
                           <div className="flex items-center gap-3 sm:gap-3.5 min-w-0 flex-1">
-                            {/* Subject Signature Icon Container */}
-                            <div
-                              className={cn(
-                                "grid h-10 w-10 sm:h-11 sm:w-11 place-items-center rounded-xl border shrink-0 transition-transform group-hover:scale-105",
-                                cfg.accentBg,
-                                cfg.accentBorder,
-                                cfg.accentText
-                              )}
-                            >
+                            {/* Consistent Academic Subject Signature Icon Container */}
+                            <div className="grid h-10 w-10 sm:h-11 sm:w-11 place-items-center rounded-xl bg-[#F8FAFC] dark:bg-slate-800 border border-[#E5EAF0] dark:border-slate-700 text-[#059669] dark:text-emerald-400 shrink-0 group-hover:scale-105 transition-transform">
                               <SubjectIcon className="h-5 w-5 stroke-[2]" />
                             </div>
 
-                            {/* Clean Subject Info & Metadata - ZERO TRUNCATION */}
+                            {/* Clean Academic Resource Info & Canonical Metadata */}
                             <div className="min-w-0 flex-1 space-y-1">
-                              {/* Subject Name */}
-                              <div className="flex items-baseline gap-2 flex-wrap">
-                                <h3 className="font-display text-sm sm:text-base font-extrabold text-slate-900 dark:text-white leading-tight group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
-                                  {isKhmer ? cfg.nameKm : cfg.nameEn}
-                                </h3>
-                              </div>
+                              {/* Subject / Exam Title */}
+                              <h3 className="font-display text-sm sm:text-base font-extrabold text-[#111827] dark:text-white leading-tight group-hover:text-[#059669] dark:group-hover:text-emerald-400 transition-colors truncate">
+                                {cleanDisplayTitle(isKhmer ? paper.originalTitleKh : (paper.titleEn || paper.originalTitleKh))}
+                              </h3>
 
-                              {/* Sleek single-line specs */}
-                              <div className="flex items-center gap-1.5 sm:gap-2 text-xs text-slate-500 dark:text-slate-400 flex-wrap">
-                                <span className="inline-flex items-center gap-1">
-                                  <Clock className="h-3 w-3 text-slate-400" />
-                                  <span>{specs.durationMins} {isKhmer ? "នាទី" : "mins"}</span>
+                              {/* Minimal Single-line Metadata Row */}
+                              <div className="flex items-center gap-1.5 sm:gap-2 text-xs text-[#64748B] dark:text-slate-400 flex-wrap">
+                                {/* Track / Stream or Grade */}
+                                <span className="font-semibold text-slate-700 dark:text-slate-300">
+                                  {paper.examinationCategory === "bacii"
+                                    ? (paper.stream === "social" ? (isKhmer ? "បាក់ឌុប • សង្គម" : "Bac II • Social") : (isKhmer ? "បាក់ឌុប • វិទ្យាសាស្ត្រ" : "Bac II • Science"))
+                                    : (paper.grade ? (isKhmer ? `សិស្សពូកែ • ថ្នាក់ទី ${paper.grade}` : `Outstanding • G${paper.grade}`) : (isKhmer ? "សិស្សពូកែ" : "Outstanding"))}
                                 </span>
-                                <span className="text-slate-300 dark:text-slate-700">•</span>
-                                <span>{specs.maxScore} {isKhmer ? "ពិន្ទុ" : "pts"}</span>
-                                {paper.hasOfficialAnswerKey && (
+
+                                {/* Exam Year */}
+                                {(paper.examinationYear || paper.examYear) && (
                                   <>
                                     <span className="text-slate-300 dark:text-slate-700">•</span>
-                                    <span className="text-emerald-600 dark:text-emerald-400 font-semibold inline-flex items-center gap-0.5">
-                                      <Check className="h-3 w-3" />
-                                      <span>{isKhmer ? "អត្រាកំណែផ្លូវការ" : "Official Rubric"}</span>
+                                    <span>
+                                      {isKhmer ? `សម័យ ${paper.examinationYear ?? paper.examYear}` : `Session ${paper.examinationYear ?? paper.examYear}`}
                                     </span>
                                   </>
                                 )}
+
+                                {/* Duration (Only if genuinely verified) */}
+                                {specs.durationMins && (
+                                  <>
+                                    <span className="text-slate-300 dark:text-slate-700">•</span>
+                                    <span className="inline-flex items-center gap-1">
+                                      <Clock className="h-3 w-3 text-slate-400" />
+                                      <span>{specs.durationMins} {isKhmer ? "នាទី" : "mins"}</span>
+                                    </span>
+                                  </>
+                                )}
+
+                                {/* Maximum Marks (Only if genuinely verified) */}
+                                {specs.maxScore && (
+                                  <>
+                                    <span className="text-slate-300 dark:text-slate-700">•</span>
+                                    <span className="font-medium text-[#111827] dark:text-slate-200">
+                                      {specs.maxScore} {isKhmer ? "ពិន្ទុ" : "pts"}
+                                    </span>
+                                  </>
+                                )}
+
+                                {/* Source Verification Status */}
+                                <span className="text-slate-300 dark:text-slate-700">•</span>
+                                <span className="text-[10.5px] font-medium text-[#64748B] dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded border border-slate-200/80 dark:border-slate-700">
+                                  {paper.sourceVerificationStatus === "verified_official"
+                                    ? (isKhmer ? "MoEYS ផ្លូវការ" : "MoEYS Official")
+                                    : (paper.actualAuthor ? `ចងក្រងដោយ ${paper.actualAuthor}` : "បណ្ណសារ")}
+                                </span>
+
+                                {/* Official Answer Key Tag */}
+                                {paper.hasOfficialAnswerKey && (
+                                  <>
+                                    <span className="text-slate-300 dark:text-slate-700">•</span>
+                                    <span className="text-[#059669] dark:text-emerald-400 font-semibold inline-flex items-center gap-0.5 text-[11px]">
+                                      <Check className="h-3 w-3" />
+                                      <span>{isKhmer ? "អត្រាកំណែ" : "Rubric"}</span>
+                                    </span>
+                                  </>
+                                )}
+
+                                {/* Authoritative PDF Badge */}
                                 {hasPdf && (
                                   <>
                                     <span className="text-slate-300 dark:text-slate-700">•</span>
-                                    <span className="text-[10px] font-bold text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded border border-slate-200/80 dark:border-slate-700">
+                                    <span className="text-[10px] font-bold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded border border-slate-200/80 dark:border-slate-700">
                                       PDF
                                     </span>
                                   </>
                                 )}
+
+                                {/* Offline Saved Indicator */}
                                 {offlineExamIds.includes(paper.id) && (
                                   <>
                                     <span className="text-slate-300 dark:text-slate-700">•</span>
-                                    <span className="text-[10px] font-bold text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/60 px-1.5 py-0.5 rounded border border-amber-200 dark:border-amber-800 inline-flex items-center gap-0.5">
+                                    <span className="text-[10px] font-bold text-emerald-800 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 px-1.5 py-0.5 rounded border border-emerald-200 dark:border-emerald-800 inline-flex items-center gap-0.5">
                                       <BookmarkCheck className="h-3 w-3" />
                                       <span>Offline</span>
                                     </span>
@@ -1539,10 +1771,10 @@ function ExamsArchivePage() {
                             </div>
                           </div>
 
-                          {/* Tactile Action Button */}
+                          {/* One Clear Primary Action: View Paper */}
                           <div className="flex items-center gap-1 pl-1 shrink-0">
-                            <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 group-hover:translate-x-0.5 transition-transform flex items-center gap-0.5">
-                              <span>{isKhmer ? "បើកវិញ្ញាសា" : "Open Exam"}</span>
+                            <span className="text-xs font-bold text-[#059669] dark:text-emerald-400 group-hover:translate-x-0.5 transition-transform flex items-center gap-0.5">
+                              <span>{isKhmer ? "បើកវិញ្ញាសា" : "View Paper"}</span>
                               <ChevronRight className="h-3.5 w-3.5" />
                             </span>
                           </div>
@@ -1582,26 +1814,38 @@ function ExamsArchivePage() {
                         <article
                           key={collection.id}
                           onClick={() => handleOpenPaper(collection, "paper")}
-                          className="p-3.5 sm:p-4 rounded-2xl border border-emerald-200/70 dark:border-emerald-900/50 bg-emerald-50/20 dark:bg-slate-900/60 shadow-2xs hover:border-emerald-500/50 hover:shadow-xs transition-all active:scale-[0.99] cursor-pointer group flex items-center justify-between gap-3"
+                          className="p-3.5 sm:p-4 rounded-2xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs hover:border-[#059669]/60 hover:shadow-xs transition-all active:scale-[0.99] cursor-pointer group flex items-center justify-between gap-3"
                         >
                           <div className="flex items-center gap-3 sm:gap-3.5 min-w-0 flex-1">
-                            <div className="grid h-10 w-10 sm:h-11 sm:w-11 place-items-center rounded-xl bg-emerald-100/70 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 shrink-0">
-                              <BookMarked className="h-5 w-5 stroke-[1.9]" />
+                            <div className="grid h-10 w-10 sm:h-11 sm:w-11 place-items-center rounded-xl bg-[#F8FAFC] dark:bg-slate-800 border border-[#E5EAF0] dark:border-slate-700 text-[#059669] dark:text-emerald-400 shrink-0 group-hover:scale-105 transition-transform">
+                              <BookMarked className="h-5 w-5 stroke-[2]" />
                             </div>
                             <div className="min-w-0 flex-1 space-y-1">
-                              <h3 className="font-display text-sm sm:text-base font-extrabold text-slate-900 dark:text-white leading-snug truncate group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                              <h3 className="font-display text-sm sm:text-base font-extrabold text-[#111827] dark:text-white leading-snug truncate group-hover:text-[#059669] dark:group-hover:text-emerald-400 transition-colors">
                                 {displayTitle}
                               </h3>
-                              <div className="flex items-center gap-1.5 sm:gap-2 text-xs text-slate-500 dark:text-slate-400">
-                                <span className="font-bold text-emerald-600 dark:text-emerald-400">
+                              <div className="flex items-center gap-1.5 sm:gap-2 text-xs text-[#64748B] dark:text-slate-400 flex-wrap">
+                                <span className="font-semibold text-slate-700 dark:text-slate-300">
+                                  {isKhmer ? "កម្រងវិញ្ញាសា" : "Collection"}
+                                </span>
+                                <span className="text-slate-300 dark:text-slate-700">•</span>
+                                <span className="font-medium text-[#111827] dark:text-slate-200">
                                   {coverageSpan}
                                 </span>
                                 <span className="text-slate-300 dark:text-slate-700">•</span>
-                                <span>{getSubjectLabel(collection.subject)}</span>
+                                <span>{getSubjectLabel(collection.subject, isKhmer)}</span>
                                 {collection.actualAuthor && (
                                   <>
                                     <span className="text-slate-300 dark:text-slate-700">•</span>
-                                    <span className="truncate">{collection.actualAuthor}</span>
+                                    <span className="truncate">ចងក្រងដោយ {collection.actualAuthor}</span>
+                                  </>
+                                )}
+                                {collection.pdfUrl && (
+                                  <>
+                                    <span className="text-slate-300 dark:text-slate-700">•</span>
+                                    <span className="text-[10px] font-bold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded border border-slate-200/80 dark:border-slate-700">
+                                      PDF
+                                    </span>
                                   </>
                                 )}
                               </div>
@@ -1609,8 +1853,8 @@ function ExamsArchivePage() {
                           </div>
 
                           <div className="flex items-center gap-1 pl-1 shrink-0">
-                            <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 group-hover:translate-x-0.5 transition-transform flex items-center gap-0.5">
-                              <span>បើកកម្រង</span>
+                            <span className="text-xs font-bold text-[#059669] dark:text-emerald-400 group-hover:translate-x-0.5 transition-transform flex items-center gap-0.5">
+                              <span>{isKhmer ? "បើកកម្រង" : "View Volume"}</span>
                               <ChevronRight className="h-3.5 w-3.5" />
                             </span>
                           </div>
@@ -1739,10 +1983,10 @@ function ExamsArchivePage() {
             {/* Grid of Verified Years */}
             <div className="space-y-1.5">
               <span className="text-[10px] font-bold uppercase tracking-wider text-[#64748B]">
-                ឆ្នាំប្រឡងជាក់ស្តែង
+                ឆ្នាំប្រឡងជាក់ស្តែង (Available Sessions)
               </span>
               <div className="grid grid-cols-3 gap-2">
-                {HISTORICAL_YEARS_TIMELINE.map((yr) => {
+                {availableYears.map((yr) => {
                   const count = yearCounts.counts[yr] || 0;
                   const isSelected = selectedYear === yr;
 
@@ -1791,6 +2035,10 @@ function ExamsArchivePage() {
         <Dialog open={!!activeExam} onOpenChange={(open) => !open && handleClosePaper()}>
           {activeExam && (() => {
             const specs = getExamSpecs(activeExam);
+            const canonicalDuration = activeExam.durationMinutes ?? specs.durationMins;
+            const canonicalMarks = activeExam.totalMarks ?? specs.maxScore;
+            const canonicalCoeff = activeExam.coefficient ?? specs.coefficient;
+
             const blueprint =
               MOEYS_STANDARD_EXAM_BLUEPRINTS[activeExam.subject] ||
               MOEYS_STANDARD_EXAM_BLUEPRINTS.mathematics;
@@ -1798,51 +2046,91 @@ function ExamsArchivePage() {
               SUBJECT_CONFIG[activeExam.subject as ExamSubject] || SUBJECT_CONFIG.mathematics;
             const SubjectIcon = subjectConfig.icon || FileText;
 
+            const hasExamPaper = true;
+            const hasAnswerKey = Boolean(
+              activeExam.hasOfficialAnswerKey ||
+              activeExam.questions?.some((q) => q.officialSolutionKm || (q.scoringCriteriaKm && q.scoringCriteriaKm.length > 0))
+            );
+            const hasFormulas = Boolean(
+              (activeExam.essentialFormulaSheet && activeExam.essentialFormulaSheet.length > 0) ||
+              blueprint.essentialFormulas.length > 0
+            );
+            const hasTopics = Boolean(
+              (activeExam.topicsKm && activeExam.topicsKm.length > 0) ||
+              activeExam.overviewKm ||
+              blueprint.exercises.length > 0
+            );
+
+            const formulasToDisplay = (activeExam.essentialFormulaSheet && activeExam.essentialFormulaSheet.length > 0)
+              ? activeExam.essentialFormulaSheet
+              : blueprint.essentialFormulas;
+
             return (
-              <DialogContent className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] w-[96vw] max-w-4xl lg:max-w-5xl h-[88vh] max-h-[88vh] p-0 rounded-3xl overflow-hidden flex flex-col shadow-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 gap-0 z-50 focus:outline-none">
+              <DialogContent className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] w-[96vw] max-w-4xl lg:max-w-5xl h-[88vh] max-h-[88vh] p-0 rounded-3xl overflow-hidden flex flex-col shadow-2xl bg-white dark:bg-slate-900 border border-[#E5EAF0] dark:border-slate-800 gap-0 z-50 focus:outline-none">
                 <DialogHeader className="sr-only">
                   <DialogTitle>{cleanDisplayTitle(activeExam.originalTitleKh)}</DialogTitle>
                   <DialogDescription>{formatAttribution(activeExam)}</DialogDescription>
                 </DialogHeader>
 
-                {/* Modal Top Header (Minimalist Apple/Linear Refined Layout) */}
-                <div className="p-4 sm:p-5 border-b border-slate-200/80 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900 shrink-0 space-y-3">
+                {/* Modal Top Header (Minimalist Apple/Linear Refined Academic Layout) */}
+                <div className="p-4 sm:p-5 border-b border-[#E5EAF0] dark:border-slate-800 bg-[#F8FAFC]/90 dark:bg-slate-900 shrink-0 space-y-3">
                   <div className="flex items-start justify-between gap-4">
-                    <div className="flex items-start gap-3">
-                      <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-2xs flex items-center justify-center shrink-0 text-emerald-600 dark:text-emerald-400">
+                    <div className="flex items-start gap-3 min-w-0">
+                      <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white dark:bg-slate-800 border border-[#E5EAF0] dark:border-slate-700 shadow-2xs flex items-center justify-center shrink-0 text-[#059669] dark:text-emerald-400">
                         <SubjectIcon className="w-5 h-5 stroke-[2.2]" />
                       </div>
                       <div className="space-y-1 min-w-0">
-                        <div className="flex items-center gap-1.5 flex-wrap">
-                          <span className="text-[10px] font-black uppercase tracking-wider text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded-md border border-emerald-200/60 dark:border-emerald-800">
-                            {getResourceTypeLabel(activeExam.resourceType, isKhmer)}
+                        {/* Category, Stream/Grade, Year, and Source Badges */}
+                        <div className="flex items-center gap-1.5 flex-wrap text-[10.5px]">
+                          <span className="font-bold text-[#059669] dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded-md border border-emerald-200/80 dark:border-emerald-800">
+                            {activeExam.examinationCategory === "bacii" ? "បាក់ឌុប (Bac II)" : "សិស្សពូកែ (Outstanding)"}
+                          </span>
+                          <span className="font-semibold text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 px-2 py-0.5 rounded-md border border-[#E5EAF0] dark:border-slate-700">
+                            {activeExam.stream === "social"
+                              ? (isKhmer ? "ថ្នាក់សង្គម" : "Social Stream")
+                              : activeExam.stream === "science"
+                              ? (isKhmer ? "ថ្នាក់វិទ្យាសាស្ត្រ" : "Science Stream")
+                              : (activeExam.grade ? (isKhmer ? `ថ្នាក់ទី ${activeExam.grade}` : `Grade ${activeExam.grade}`) : "")}
                           </span>
                           {activeExam.examinationYear && (
-                            <span className="text-[10px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-2 py-0.5 rounded-md border border-slate-200 dark:border-slate-700">
+                            <span className="font-bold bg-white dark:bg-slate-800 text-[#111827] dark:text-slate-300 px-2 py-0.5 rounded-md border border-[#E5EAF0] dark:border-slate-700">
                               {isKhmer ? `សម័យប្រឡង ${activeExam.examinationYear}` : `Session ${activeExam.examinationYear}`}
                             </span>
                           )}
-                          <span className="text-[10px] font-bold text-slate-500 bg-white dark:bg-slate-800 px-2 py-0.5 rounded-md border border-slate-200 dark:border-slate-700">
-                            {activeExam.stream === "social"
-                              ? isKhmer ? "ថ្នាក់សង្គម" : "Social Science"
-                              : isKhmer ? "ថ្នាក់វិទ្យាសាស្ត្រ" : "Science Stream"}
+                          <span className="text-[10px] text-[#64748B] dark:text-slate-400">
+                            {activeExam.sourceVerificationStatus === "verified_official"
+                              ? "ប្រភព MoEYS ផ្លូវការ"
+                              : (activeExam.actualAuthor ? `ចងក្រងដោយ ${activeExam.actualAuthor}` : "បណ្ណសារដ្ឋាន")}
                           </span>
                         </div>
 
-                        <h2 className="font-display text-base sm:text-lg font-black text-slate-900 dark:text-white leading-snug">
-                          {cleanDisplayTitle(isKhmer ? activeExam.originalTitleKh : activeExam.titleEn || activeExam.originalTitleKh)}
+                        {/* Full Examination Title */}
+                        <h2 className="font-display text-base sm:text-lg font-black text-[#111827] dark:text-white leading-snug truncate">
+                          {cleanDisplayTitle(isKhmer ? activeExam.originalTitleKh : (activeExam.titleEn || activeExam.originalTitleKh))}
                         </h2>
-                        
-                        {/* Minimal dot-separated specs row */}
-                        <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 flex-wrap">
-                          <span className="inline-flex items-center gap-1">
-                            <Clock className="w-3.5 h-3.5 text-slate-400" />
-                            <span>{blueprint.durationMinutes || specs.durationMins} {isKhmer ? "នាទី" : "mins"}</span>
-                          </span>
-                          <span className="text-slate-300 dark:text-slate-700">•</span>
-                          <span>{blueprint.totalMarks || specs.maxScore} {isKhmer ? "ពិន្ទុពេញ" : "pts"}</span>
-                          <span className="text-slate-300 dark:text-slate-700">•</span>
-                          <span>{isKhmer ? `មេគុណ ${blueprint.coefficient}` : `Coeff ${blueprint.coefficient}`}</span>
+
+                        {/* Minimal Canonical Specs Row (Zero Contradiction with Main Cards) */}
+                        <div className="flex items-center gap-2 text-xs text-[#64748B] dark:text-slate-400 flex-wrap">
+                          {canonicalDuration && (
+                            <span className="inline-flex items-center gap-1">
+                              <Clock className="w-3.5 h-3.5 text-slate-400" />
+                              <span>{canonicalDuration} {isKhmer ? "នាទី" : "mins"}</span>
+                            </span>
+                          )}
+                          {canonicalMarks && (
+                            <>
+                              <span className="text-slate-300 dark:text-slate-700">•</span>
+                              <span className="font-semibold text-[#111827] dark:text-slate-200">
+                                {isKhmer ? `ពិន្ទុពេញ ${canonicalMarks}` : `Max Marks: ${canonicalMarks}`}
+                              </span>
+                            </>
+                          )}
+                          {canonicalCoeff && (
+                            <>
+                              <span className="text-slate-300 dark:text-slate-700">•</span>
+                              <span>{isKhmer ? `មេគុណ ${canonicalCoeff}` : `Coeff ${canonicalCoeff}`}</span>
+                            </>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -1852,7 +2140,7 @@ function ExamsArchivePage() {
                         <button
                           type="button"
                           onClick={handleClosePaper}
-                          className="rounded-full p-2 text-slate-400 hover:text-slate-700 dark:hover:text-white bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer transition shadow-2xs active:scale-95"
+                          className="rounded-full p-2 text-slate-400 hover:text-[#111827] dark:hover:text-white bg-white dark:bg-slate-800 border border-[#E5EAF0] dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer transition shadow-2xs active:scale-95"
                           aria-label="Close"
                         >
                           <X className="h-4 w-4" />
@@ -1861,108 +2149,149 @@ function ExamsArchivePage() {
                     </div>
                   </div>
 
-                  {/* Cross-Year Comparison Pill Strip */}
-                  {relatedCrossYearPapers.length > 0 && (
-                    <div className="pt-2 border-t border-slate-200/70 dark:border-slate-800/80">
-                      <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
-                        <span className="text-[11px] text-slate-400 font-bold shrink-0 mr-1">
-                          {isKhmer ? "សម័យប្រឡង៖" : "Exam Session:"}
-                        </span>
-                        <span className="px-3 py-1 rounded-xl text-xs font-black bg-emerald-600 text-white shadow-2xs shrink-0">
-                          {activeExam.examinationYear ?? activeExam.examYear}
-                        </span>
-                        {relatedCrossYearPapers.map((other) => (
-                          <button
-                            key={other.id}
-                            type="button"
-                            onClick={() => {
+                  {/* B. Compact Year Selector with Prev & Next Navigation */}
+                  {relevantSameTrackPapers.length > 1 && (
+                    <div className="pt-2 border-t border-[#E5EAF0] dark:border-slate-800 flex items-center justify-between text-xs">
+                      <button
+                        type="button"
+                        disabled={!prevPaper}
+                        onClick={() => {
+                          if (prevPaper) {
+                            sounds.playPop();
+                            setActiveExam(prevPaper);
+                            setExpandedQuestionId(null);
+                          }
+                        }}
+                        className={cn(
+                          "inline-flex items-center gap-1 px-2.5 py-1 rounded-xl font-bold transition border",
+                          prevPaper
+                            ? "bg-white dark:bg-slate-800 border-[#E5EAF0] dark:border-slate-700 text-[#111827] dark:text-slate-200 hover:border-[#059669] cursor-pointer active:scale-95"
+                            : "opacity-40 cursor-not-allowed bg-slate-100 dark:bg-slate-800 border-transparent text-slate-400"
+                        )}
+                      >
+                        <ChevronLeft className="h-3.5 w-3.5" />
+                        <span>{isKhmer ? "ឆ្នាំមុន" : "Prev Year"}</span>
+                      </button>
+
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-[11px] text-[#64748B] font-semibold">{isKhmer ? "សម័យប្រឡង៖" : "Session:"}</span>
+                        <select
+                          value={activeExam.id}
+                          onChange={(e) => {
+                            const next = relevantSameTrackPapers.find((p) => p.id === e.target.value);
+                            if (next) {
                               sounds.playPop();
-                              setActiveExam(other);
+                              setActiveExam(next);
                               setExpandedQuestionId(null);
-                            }}
-                            className="px-2.5 py-1 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-emerald-500 hover:text-emerald-600 transition shrink-0 cursor-pointer shadow-2xs active:scale-95"
-                          >
-                            {other.examinationYear ?? other.examYear ?? other.coverageEndYear}
-                          </button>
-                        ))}
+                            }
+                          }}
+                          className="h-7 px-2.5 rounded-lg border border-[#E5EAF0] dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-black text-[#059669] dark:text-emerald-400 outline-none cursor-pointer"
+                        >
+                          {relevantSameTrackPapers.map((p) => (
+                            <option key={p.id} value={p.id}>
+                              {isKhmer ? `សម័យ ${p.examinationYear ?? p.examYear}` : `Session ${p.examinationYear ?? p.examYear}`}
+                            </option>
+                          ))}
+                        </select>
                       </div>
+
+                      <button
+                        type="button"
+                        disabled={!nextPaper}
+                        onClick={() => {
+                          if (nextPaper) {
+                            sounds.playPop();
+                            setActiveExam(nextPaper);
+                            setExpandedQuestionId(null);
+                          }
+                        }}
+                        className={cn(
+                          "inline-flex items-center gap-1 px-2.5 py-1 rounded-xl font-bold transition border",
+                          nextPaper
+                            ? "bg-white dark:bg-slate-800 border-[#E5EAF0] dark:border-slate-700 text-[#111827] dark:text-slate-200 hover:border-[#059669] cursor-pointer active:scale-95"
+                            : "opacity-40 cursor-not-allowed bg-slate-100 dark:bg-slate-800 border-transparent text-slate-400"
+                        )}
+                      >
+                        <span>{isKhmer ? "ឆ្នាំបន្ទាប់" : "Next Year"}</span>
+                        <ChevronRight className="h-3.5 w-3.5" />
+                      </button>
                     </div>
                   )}
 
-                  {/* 4 Sleek Tabs: Paper / Rubric / Formulas / Topics */}
-                  <div className="grid grid-cols-4 gap-1 bg-slate-100 dark:bg-slate-800 p-1 rounded-xl text-xs font-bold">
-                    <button
-                      type="button"
-                      onClick={() => {
-                        sounds.playPop();
-                        setModalTab("paper");
-                      }}
-                      className={cn(
-                        "py-2 px-1 rounded-lg text-center transition cursor-pointer truncate flex items-center justify-center gap-1.5",
-                        modalTab === "paper"
-                          ? "bg-white dark:bg-slate-900 text-emerald-600 dark:text-emerald-400 shadow-2xs font-black"
-                          : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
-                      )}
-                    >
-                      <FileText className="w-3.5 h-3.5 shrink-0" />
-                      <span>
-                        {isKhmer
-                          ? `វិញ្ញាសា (${activeExam.questions.length > 0 ? activeExam.questions.length : blueprint.exercises.length} លំហាត់)`
-                          : `Exam (${activeExam.questions.length > 0 ? activeExam.questions.length : blueprint.exercises.length} Problems)`}
-                      </span>
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        sounds.playPop();
-                        setModalTab("rubric");
-                      }}
-                      className={cn(
-                        "py-2 px-1 rounded-lg text-center transition cursor-pointer truncate flex items-center justify-center gap-1.5",
-                        modalTab === "rubric"
-                          ? "bg-white dark:bg-slate-900 text-emerald-600 dark:text-emerald-400 shadow-2xs font-black"
-                          : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
-                      )}
-                    >
-                      <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
-                      <span>{isKhmer ? "អត្រាកំណែ & ពិន្ទុ" : "Rubric & Scoring"}</span>
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        sounds.playPop();
-                        setModalTab("formulas");
-                      }}
-                      className={cn(
-                        "py-2 px-1 rounded-lg text-center transition cursor-pointer truncate flex items-center justify-center gap-1.5",
-                        modalTab === "formulas"
-                          ? "bg-white dark:bg-slate-900 text-emerald-600 dark:text-emerald-400 shadow-2xs font-black"
-                          : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
-                      )}
-                    >
-                      <Sparkles className="w-3.5 h-3.5 shrink-0" />
-                      <span>
-                        {isKhmer
-                          ? `រូបមន្តគន្លឹះ (${blueprint.essentialFormulas.length})`
-                          : `Key Formulas (${blueprint.essentialFormulas.length})`}
-                      </span>
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        sounds.playPop();
-                        setModalTab("topics");
-                      }}
-                      className={cn(
-                        "py-2 px-1 rounded-lg text-center transition cursor-pointer truncate flex items-center justify-center gap-1.5",
-                        modalTab === "topics"
-                          ? "bg-white dark:bg-slate-900 text-emerald-600 dark:text-emerald-400 shadow-2xs font-black"
-                          : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
-                      )}
-                    >
-                      <BookOpen className="w-3.5 h-3.5 shrink-0" />
-                      <span>{isKhmer ? "មេរៀនប្រឡង" : "Syllabus Topics"}</span>
-                    </button>
+                  {/* C. Content Tabs - Only Displayed When Content Exists */}
+                  <div className="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 p-1 rounded-xl text-xs font-bold">
+                    {hasExamPaper && (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          sounds.playPop();
+                          setModalTab("paper");
+                        }}
+                        className={cn(
+                          "flex-1 py-1.5 px-2 rounded-lg text-center transition cursor-pointer flex items-center justify-center gap-1.5 truncate",
+                          modalTab === "paper"
+                            ? "bg-white dark:bg-slate-900 text-[#059669] dark:text-emerald-400 shadow-2xs font-black"
+                            : "text-[#64748B] hover:text-[#111827] dark:hover:text-white"
+                        )}
+                      >
+                        <FileText className="w-3.5 h-3.5 shrink-0" />
+                        <span>{isKhmer ? "វិញ្ញាសា" : "Exam Paper"}</span>
+                      </button>
+                    )}
+                    {hasAnswerKey && (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          sounds.playPop();
+                          setModalTab("rubric");
+                        }}
+                        className={cn(
+                          "flex-1 py-1.5 px-2 rounded-lg text-center transition cursor-pointer flex items-center justify-center gap-1.5 truncate",
+                          modalTab === "rubric"
+                            ? "bg-white dark:bg-slate-900 text-[#059669] dark:text-emerald-400 shadow-2xs font-black"
+                            : "text-[#64748B] hover:text-[#111827] dark:hover:text-white"
+                        )}
+                      >
+                        <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
+                        <span>{isKhmer ? "អត្រាកំណែ" : "Answer Key"}</span>
+                      </button>
+                    )}
+                    {hasFormulas && (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          sounds.playPop();
+                          setModalTab("formulas");
+                        }}
+                        className={cn(
+                          "flex-1 py-1.5 px-2 rounded-lg text-center transition cursor-pointer flex items-center justify-center gap-1.5 truncate",
+                          modalTab === "formulas"
+                            ? "bg-white dark:bg-slate-900 text-[#059669] dark:text-emerald-400 shadow-2xs font-black"
+                            : "text-[#64748B] hover:text-[#111827] dark:hover:text-white"
+                        )}
+                      >
+                        <Sparkles className="w-3.5 h-3.5 shrink-0" />
+                        <span>{isKhmer ? "រូបមន្តគន្លឹះ" : "Formulas"}</span>
+                      </button>
+                    )}
+                    {hasTopics && (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          sounds.playPop();
+                          setModalTab("topics");
+                        }}
+                        className={cn(
+                          "flex-1 py-1.5 px-2 rounded-lg text-center transition cursor-pointer flex items-center justify-center gap-1.5 truncate",
+                          modalTab === "topics"
+                            ? "bg-white dark:bg-slate-900 text-[#059669] dark:text-emerald-400 shadow-2xs font-black"
+                            : "text-[#64748B] hover:text-[#111827] dark:hover:text-white"
+                        )}
+                      >
+                        <BookOpen className="w-3.5 h-3.5 shrink-0" />
+                        <span>{isKhmer ? "មេរៀនប្រឡង" : "Topics"}</span>
+                      </button>
+                    )}
                   </div>
                 </div>
 
@@ -1972,29 +2301,42 @@ function ExamsArchivePage() {
                   {modalTab === "paper" && (
                     <div className="space-y-4">
                       {/* Cambodian National Examination Official Document Header */}
-                      <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 text-center space-y-2 shadow-2xs">
+                      <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-[#E5EAF0] dark:border-slate-800 text-center space-y-2 shadow-2xs">
                         <div className="space-y-0.5">
-                          <p className="text-[10.5px] font-bold tracking-widest text-slate-500 uppercase">
+                          <p className="text-[10.5px] font-bold tracking-widest text-[#64748B] uppercase">
                             {isKhmer
                               ? "ព្រះរាជាណាចក្រកម្ពុជា • ជាតិ សាសនា ព្រះមហាក្សត្រ"
                               : "Kingdom of Cambodia • Nation Religion King"}
                           </p>
-                          <p className="text-xs font-bold text-slate-700 dark:text-slate-300">
+                          <p className="text-xs font-bold text-[#111827] dark:text-slate-300">
                             {isKhmer
                               ? "ក្រសួងអប់រំ យុវជន និងកីឡា"
                               : "Ministry of Education, Youth and Sport"}
                           </p>
                         </div>
                         <div className="pt-2 border-t border-slate-100 dark:border-slate-800">
-                          <h3 className="text-sm sm:text-base font-black text-slate-900 dark:text-white">
-                            {isKhmer
-                              ? "វិញ្ញាសាប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ (បាក់ឌុប)"
-                              : "Upper Secondary National Examination (Bac II)"}
+                          <h3 className="text-sm sm:text-base font-black text-[#111827] dark:text-white">
+                            {cleanDisplayTitle(isKhmer ? activeExam.originalTitleKh : (activeExam.titleEn || activeExam.originalTitleKh))}
                           </h3>
-                          <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
+                          <p className="text-xs text-[#64748B] dark:text-slate-400 font-medium">
                             {isKhmer
-                              ? `សម័យប្រឡង៖ ${activeExam.examinationYear ?? "២០២៦"} • រយៈពេល៖ ${blueprint.durationMinutes} នាទី • ពិន្ទុពេញ៖ ${blueprint.totalMarks}`
-                              : `Session: ${activeExam.examinationYear ?? "2026"} • Duration: ${blueprint.durationMinutes} mins • Full Marks: ${blueprint.totalMarks}`}
+                              ? `សម័យប្រឡង៖ ${activeExam.examinationYear ?? "បណ្ណសារ"}${canonicalDuration ? ` • រយៈពេល៖ ${canonicalDuration} នាទី` : ""}${canonicalMarks ? ` • ពិន្ទុពេញ៖ ${canonicalMarks}` : ""}${canonicalCoeff ? ` • មេគុណ ${canonicalCoeff}` : ""}`
+                              : `Session: ${activeExam.examinationYear ?? "Archive"}${canonicalDuration ? ` • Duration: ${canonicalDuration} mins` : ""}${canonicalMarks ? ` • Full Marks: ${canonicalMarks} pts` : ""}${canonicalCoeff ? ` • Coeff: ${canonicalCoeff}` : ""}`}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Document Integrity Notice */}
+                      <div className="p-3.5 rounded-2xl bg-[#F8FAFC] dark:bg-slate-800/60 border border-[#E5EAF0] dark:border-slate-700/80 flex items-start gap-2.5">
+                        <ShieldCheck className="w-4 h-4 text-[#059669] shrink-0 mt-0.5" />
+                        <div className="text-xs text-[#64748B] dark:text-slate-400 leading-relaxed space-y-0.5">
+                          <p className="font-bold text-[#111827] dark:text-white">
+                            {isKhmer ? "ឯកសារដើមផ្លូវការជាមូលដ្ឋាន (Authoritative Document)" : "Authoritative Examination Document"}
+                          </p>
+                          <p>
+                            {isKhmer
+                              ? "ឯកសារ PDF ច្បាប់ដើមគឺជាឯកសារយោងផ្លូវការខ្ពស់បំផុត។ អត្ថបទខាងក្រោមត្រូវបានចម្លងផ្ទៀងផ្ទាត់ និងរៀបចំតាមក្បួនគណិតវិទ្យា LaTeX សម្រាប់ការសិក្សាលើអេក្រង់។"
+                              : "The original PDF remains the authoritative examination record. The digitized transcription below is formatted with mathematical LaTeX for optimal on-screen study."}
                           </p>
                         </div>
                       </div>
@@ -2254,7 +2596,7 @@ function ExamsArchivePage() {
                         </span>
                       </div>
 
-                      {blueprint.essentialFormulas.map((f, i) => (
+                      {formulasToDisplay.map((f, i) => (
                         <div
                           key={i}
                           className="p-4 rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-2 shadow-2xs hover:border-emerald-500/60 transition"
@@ -2288,10 +2630,10 @@ function ExamsArchivePage() {
                             </ReactMarkdown>
                           </div>
 
-                          {(isKhmer ? f.noteKm : (f.noteEn || f.noteKm)) && (
+                          {(isKhmer ? f.noteKm : (("noteEn" in f ? (f as { noteEn?: string }).noteEn : undefined) || f.noteKm)) && (
                             <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed flex items-center gap-1.5">
                               <Lightbulb className="h-3.5 w-3.5 text-amber-500 shrink-0" />
-                              <span>{isKhmer ? f.noteKm : (f.noteEn || f.noteKm)}</span>
+                              <span>{isKhmer ? f.noteKm : (("noteEn" in f ? (f as { noteEn?: string }).noteEn : undefined) || f.noteKm)}</span>
                             </p>
                           )}
                         </div>
@@ -2314,28 +2656,53 @@ function ExamsArchivePage() {
 
                       <div className="p-4 sm:p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-3 shadow-2xs">
                         <div className="font-black text-sm text-slate-900 dark:text-white">
-                          {isKhmer ? "មេរៀនដែលចេញប្រឡងតាមលំដាប់លំហាត់" : "Exam Syllabus Topics by Exercise"}
+                          {isKhmer ? "មេរៀនដែលចេញប្រឡងក្នុងវិញ្ញាសានេះ" : "Exam Syllabus Topics Covered"}
                         </div>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                          {blueprint.exercises.map((ex, idx) => (
-                            <div
-                              key={idx}
-                              className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs"
-                            >
-                              <div className="flex items-center gap-2">
-                                <span className="h-6 w-6 rounded-lg bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 font-black grid place-items-center text-[11px]">
-                                  {idx + 1}
-                                </span>
-                                <span className="font-bold text-slate-800 dark:text-slate-200">
-                                  {isKhmer ? ex.topicKm : (ex.topicEn || ex.topicKm)}
+                        {activeExam.topicsKm && activeExam.topicsKm.length > 0 ? (
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            {activeExam.topicsKm.map((topic, idx) => (
+                              <div
+                                key={idx}
+                                className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs"
+                              >
+                                <div className="flex items-center gap-2">
+                                  <span className="h-6 w-6 rounded-lg bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 font-black grid place-items-center text-[11px]">
+                                    {idx + 1}
+                                  </span>
+                                  <span className="font-bold text-slate-800 dark:text-slate-200">
+                                    {topic}
+                                  </span>
+                                </div>
+                                {activeExam.topicsEn && activeExam.topicsEn[idx] && (
+                                  <span className="text-[11px] text-slate-400 italic hidden sm:inline">
+                                    {activeExam.topicsEn[idx]}
+                                  </span>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        ) : (
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            {blueprint.exercises.map((ex, idx) => (
+                              <div
+                                key={idx}
+                                className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs"
+                              >
+                                <div className="flex items-center gap-2">
+                                  <span className="h-6 w-6 rounded-lg bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 font-black grid place-items-center text-[11px]">
+                                    {idx + 1}
+                                  </span>
+                                  <span className="font-bold text-slate-800 dark:text-slate-200">
+                                    {isKhmer ? ex.topicKm : (ex.topicEn || ex.topicKm)}
+                                  </span>
+                                </div>
+                                <span className="font-black text-slate-500">
+                                  {ex.points} {isKhmer ? "ពិន្ទុ" : "pts"}
                                 </span>
                               </div>
-                              <span className="font-black text-slate-500">
-                                {ex.points} {isKhmer ? "ពិន្ទុ" : "pts"}
-                              </span>
-                            </div>
-                          ))}
-                        </div>
+                            ))}
+                          </div>
+                        )}
                       </div>
 
                       {/* Strategic Study Tip */}
@@ -2355,20 +2722,20 @@ function ExamsArchivePage() {
                 </div>
 
                 {/* Modal Footer Dock (Minimalist, Apple-style Clean Toolbar) */}
-                <div className="p-3 sm:p-4 border-t border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 shrink-0 flex flex-col sm:flex-row items-center justify-between gap-2.5">
+                <div className="p-3 sm:p-4 border-t border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shrink-0 flex flex-col sm:flex-row items-center justify-between gap-2.5">
                   <div className="flex items-center gap-2 w-full sm:w-auto">
                     {activeExam.pdfUrl ? (
                       <a
                         href={activeExam.pdfUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="h-10 px-3.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-bold text-xs flex items-center justify-center gap-1.5 transition active:scale-95 shadow-2xs w-full sm:w-auto cursor-pointer"
+                        className="h-10 px-4 rounded-xl bg-[#059669] hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition active:scale-95 shadow-xs w-full sm:w-auto cursor-pointer"
                       >
-                        <ExternalLink className="h-3.5 w-3.5 text-emerald-600" />
-                        <span>{isKhmer ? "បើកមើល PDF ច្បាប់ដើម" : "Open Original PDF"}</span>
+                        <ExternalLink className="h-3.5 w-3.5" />
+                        <span>{isKhmer ? "បើក PDF ច្បាប់ដើម" : "Open Original PDF"}</span>
                       </a>
                     ) : (
-                      <div className="h-10 px-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-slate-400 font-medium text-xs flex items-center justify-center">
+                      <div className="h-10 px-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-[#E5EAF0] dark:border-slate-700 text-slate-400 font-medium text-xs flex items-center justify-center">
                         <span>{isKhmer ? "គ្មាន PDF ក្រៅប្រព័ន្ធ" : "No External PDF"}</span>
                       </div>
                     )}
@@ -2380,18 +2747,18 @@ function ExamsArchivePage() {
                         "h-10 px-3.5 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 transition active:scale-95 border cursor-pointer shadow-2xs w-full sm:w-auto",
                         offlineExamIds.includes(activeExam.id)
                           ? "bg-emerald-50 dark:bg-emerald-950/60 border-emerald-300 dark:border-emerald-700 text-emerald-800 dark:text-emerald-300"
-                          : "bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200"
+                          : "bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 border-[#E5EAF0] dark:border-slate-700 text-slate-700 dark:text-slate-200"
                       )}
                     >
                       {offlineExamIds.includes(activeExam.id) ? (
                         <>
-                          <BookmarkCheck className="h-3.5 w-3.5 text-emerald-600" />
+                          <BookmarkCheck className="h-3.5 w-3.5 text-[#059669]" />
                           <span>{isKhmer ? "បានរក្សាទុក Offline" : "Saved Offline"}</span>
                         </>
                       ) : (
                         <>
                           <Download className="h-3.5 w-3.5 text-slate-500" />
-                          <span>{isKhmer ? "រក្សាទុក Offline" : "Save Offline"}</span>
+                          <span>{isKhmer ? "ទាញយកសម្រាប់រៀន Offline" : "Download for Offline Study"}</span>
                         </>
                       )}
                     </button>
@@ -2410,10 +2777,10 @@ function ExamsArchivePage() {
                         },
                       });
                     }}
-                    className="w-full sm:w-auto h-10 px-5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-sm cursor-pointer transition active:scale-95"
+                    className="w-full sm:w-auto h-10 px-4 rounded-xl border border-[#E5EAF0] dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 text-slate-700 dark:text-slate-200 font-bold text-xs flex items-center justify-center gap-1.5 shadow-2xs cursor-pointer transition active:scale-95"
                   >
-                    <GraduationCap className="h-4 w-4" />
-                    <span>{isKhmer ? "សួរលោកគ្រូ វុឌ្ឍ ពន្យល់វិញ្ញាសានេះ" : "Ask Kru Vuth to Explain Exam"}</span>
+                    <GraduationCap className="h-4 w-4 text-[#059669]" />
+                    <span>{isKhmer ? "សួរលោកគ្រូ វុឌ្ឍ ពន្យល់" : "Ask Kru Vuth to Explain"}</span>
                   </button>
                 </div>
               </DialogContent>
@@ -2536,19 +2903,6 @@ function ExamsArchivePage() {
               >
                 {isKhmer ? "អនុវត្ត និងបិទ" : "Apply & Close"}
               </button>
-
-              <a
-                href="/archive/cambodia_historical_exams_2011_2026.csv"
-                download="cambodia_historical_exams_2011_2026.csv"
-                onClick={() => sounds.playPop()}
-                className="w-full flex items-center justify-between p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 text-xs font-bold text-slate-800 dark:text-white hover:border-emerald-600 transition"
-              >
-                <div className="flex items-center gap-2">
-                  <FileSpreadsheet className="h-4 w-4 text-emerald-600" />
-                  <span>{isKhmer ? "ទាញយកទិន្នន័យ CSV (២០១១–២០២៦)" : "Download CSV Data (2011–2026)"}</span>
-                </div>
-                <ChevronRight className="h-4 w-4 text-slate-400" />
-              </a>
 
               <button
                 type="button"
