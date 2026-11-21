@@ -102,12 +102,12 @@ const AVATAR_OPTIONS: AvatarOption[] = [
     roleEn: "Reactions & Bonds",
   },
   {
-    id: "mechanics",
-    emoji: "⚡",
-    nameKm: "ញូតុន",
-    nameEn: "Newton",
-    roleKm: "ថាមពល & កម្លាំង",
-    roleEn: "Energy & Dynamics",
+    id: "math",
+    emoji: "📐",
+    nameKm: "អ្នកគណិតវិទ្យា",
+    nameEn: "Mathematician",
+    roleKm: "ពិជគណិត & ធរណីមាត្រ",
+    roleEn: "Algebra & Geometry",
   },
   {
     id: "biology",
@@ -777,33 +777,49 @@ function ProfilePage() {
       ]}
       rightSidebar={
         <div className="space-y-4">
-          {/* Student Status Card */}
-          <div className="p-4 rounded-3xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs space-y-3">
+          {/* Account Overview & Cloud Sync Card */}
+          <div className="p-4 rounded-3xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs space-y-3.5">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-                <ShieldCheck className="h-4 w-4 text-emerald-600" />
-                <span>{isKhmer ? "អត្តសញ្ញាណសិស្ស" : "Student Passport"}</span>
+              <span className="text-xs font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
+                <User className="h-4 w-4 text-emerald-600" />
+                <span>{isKhmer ? "ព័ត៌មានគណនី" : "Account Overview"}</span>
               </span>
-              <span className="text-[10px] font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded-full border border-emerald-200/80">
-                {isKhmer ? "ផ្ទៀងផ្ទាត់រួច" : "Verified"}
+              <span className="inline-flex items-center gap-1.5 text-[10px] font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded-full border border-emerald-200/80">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                <span>{isKhmer ? "បានភ្ជាប់" : "Connected"}</span>
               </span>
             </div>
-            <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 space-y-1">
-              <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
-                {isKhmer ? "លេខកូដសិស្សជាតិ" : "National Student ID"}
-              </p>
-              <p className="text-xs font-mono font-bold text-slate-900 dark:text-white">
-                ID: #{user?.id ? user.id.slice(0, 6).toUpperCase() : "SKH-7829"}
-              </p>
+
+            <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-850 border border-slate-100 dark:border-slate-800 space-y-2">
+              <div className="flex items-center justify-between text-xs">
+                <span className="text-slate-400 text-[11px]">{isKhmer ? "ប្រភេទគណនី" : "Account Type"}</span>
+                <span className="font-bold text-slate-800 dark:text-slate-200">
+                  {isGuest ? (isKhmer ? "សិស្សភ្ញៀវ" : "Guest Account") : (isKhmer ? "សិស្សផ្លូវការ" : "Standard Account")}
+                </span>
+              </div>
+              <div className="flex items-center justify-between text-xs">
+                <span className="text-slate-400 text-[11px]">{isKhmer ? "កម្រិតថ្នាក់" : "Current Grade"}</span>
+                <span className="font-bold text-slate-800 dark:text-slate-200">
+                  {isKhmer ? `ថ្នាក់ទី ${toKhmerNumeral(currentGrade)}` : `Grade ${currentGrade}`}
+                </span>
+              </div>
+              <div className="flex items-center justify-between text-xs">
+                <span className="text-slate-400 text-[11px]">{isKhmer ? "ការរក្សាទុក" : "Cloud Sync"}</span>
+                <span className="font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-1 text-[11px]">
+                  <Check className="h-3 w-3 stroke-[2.5]" />
+                  <span>{isKhmer ? "ស្វ័យប្រវត្តិ" : "Auto-synced"}</span>
+                </span>
+              </div>
             </div>
+
             <p className="text-[11px] text-slate-400 leading-relaxed">
               {isKhmer
-                ? "ទិន្នន័យសិក្សា និងពិន្ទុរបស់អ្នកត្រូវបានធ្វើសមកាលកម្មជាមួយប្រព័ន្ធ MoEYS STEM Cloud។"
-                : "Your learning history, streak, and XP are synchronized with MoEYS STEM Cloud."}
+                ? "វឌ្ឍនភាពសិក្សា ពិន្ទុ និងការកត់ចំណាំរបស់អ្នកត្រូវបានរក្សាទុកដោយសុវត្ថិភាព។"
+                : "Your learning progress, quiz scores, and bookmarks are securely backed up."}
             </p>
           </div>
 
-          {/* Quick Sign Out Action */}
+          {/* Clean Sign Out Action */}
           <div className="p-4 rounded-3xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs">
             <button
               type="button"
@@ -821,23 +837,13 @@ function ProfilePage() {
         {/* Desktop Header */}
         <div className="hidden lg:flex items-center justify-between pb-4 border-b border-slate-200/80 dark:border-slate-800">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400 border border-emerald-200/80 dark:border-emerald-800 text-[11px] font-bold">
-              <GraduationCap className="h-3.5 w-3.5" />
-              <span>{isKhmer ? "គណនីសិស្ស" : "Student Profile"}</span>
-            </div>
-            <h1 className="text-2xl font-black text-slate-900 dark:text-white mt-1">
-              {isKhmer ? "គណនីសិស្ស & ការកំណត់" : "Student Profile & Settings"}
+            <h1 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">
+              {isKhmer ? "គណនី & ការកំណត់" : "Account & Settings"}
             </h1>
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+              {isKhmer ? "គ្រប់គ្រងព័ត៌មានផ្ទាល់ខ្លួន កម្រិតថ្នាក់ និងការកំណត់កម្មវិធី" : "Manage your personal profile, grade level, and app preferences"}
+            </p>
           </div>
-
-          <button
-            type="button"
-            onClick={() => setIsSignOutModalOpen(true)}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition active:scale-95 text-xs font-bold cursor-pointer shadow-2xs"
-          >
-            <LogOut className="h-3.5 w-3.5" />
-            <span>{isKhmer ? "ចាកចេញ" : "Sign Out"}</span>
-          </button>
         </div>
 
         {/* Mobile Header */}
@@ -852,10 +858,10 @@ function ProfilePage() {
               </div>
               <div>
                 <h1 className="font-display text-sm sm:text-base font-black text-slate-900 dark:text-white leading-tight">
-                  {isKhmer ? "គណនីសិស្ស" : "Student Profile"}
+                  {isKhmer ? "គណនី & ការកំណត់" : "Account & Settings"}
                 </h1>
                 <p className="text-[10px] text-slate-400 font-medium">
-                  {isKhmer ? "កម្មវិធីជាតិ MoEYS STEM" : "MoEYS Official STEM"}
+                  {isKhmer ? "កម្រិតថ្នាក់ និងព័ត៌មានផ្ទាល់ខ្លួន" : "Personal profile & grade"}
                 </p>
               </div>
             </div>
@@ -969,11 +975,13 @@ function ProfilePage() {
                   </div>
                 )}
 
-                {fullName && (
-                  <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-                    {fullName}
-                  </p>
-                )}
+                <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
+                  {fullName && !fullName.includes("(Student)") && !fullName.includes("សិស្សរៀន")
+                    ? fullName
+                    : isKhmer
+                      ? isJuniorHigh ? "សិស្សអនុវិទ្យាល័យ" : "សិស្សវិទ្យាល័យ"
+                      : isJuniorHigh ? "Junior High Student" : "High School Student"}
+                </p>
               </div>
 
               {/* Academic Grade Switcher Pill */}
@@ -1057,73 +1065,63 @@ function ProfilePage() {
                   </p>
                 </div>
               )}
-
-              {/* Verified Student ID Badge */}
-              <div className="mt-2.5 flex items-center gap-2 text-[10px] font-semibold text-slate-400">
-                <span className="flex items-center gap-1">
-                  <ShieldCheck className="h-3 w-3 text-emerald-600" />
-                  ID: #{isGuest ? "GUEST" : (user?.id ? user.id.slice(0, 8).toUpperCase() : "SKH-7829")}
-                </span>
-                <span>•</span>
-                <span>{isKhmer ? "គណនីសិស្ស" : "Student Account"}</span>
-              </div>
             </div>
 
-            {/* 4 Professional Stat Cards (2x2 on Mobile, Never Truncates!) */}
+            {/* 4 Professional Stat Cards (2x2 on Mobile, Sleek Minimalist Standard) */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-4 border-t border-slate-100 dark:border-slate-800">
               {/* Daily Streak */}
-              <div className="rounded-2xl bg-orange-50/70 dark:bg-orange-950/30 border border-orange-200/70 dark:border-orange-800/60 p-3 text-left">
+              <div className="rounded-2xl bg-slate-50/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800 p-3 text-left transition hover:border-orange-300 dark:hover:border-orange-700">
                 <div className="flex items-center gap-1.5 text-xs font-bold text-orange-600 dark:text-orange-400">
                   <Flame className="h-4 w-4 fill-orange-500" />
-                  <span>{isKhmer ? "ថ្ងៃបន្តបន្ទាប់" : "Daily Streak"}</span>
+                  <span>{isKhmer ? "ថ្ងៃជាប់គ្នា" : "Daily Streak"}</span>
                 </div>
                 <p className="mt-1 font-display text-lg sm:text-xl font-black text-slate-900 dark:text-white">
                   {isKhmer ? toKhmerNumeral(streakDays) : streakDays} <span className="text-xs font-normal text-slate-500 dark:text-slate-400">{isKhmer ? "ថ្ងៃ" : "Days"}</span>
                 </p>
-                <p className="text-[10px] text-orange-700/80 dark:text-orange-300 font-medium mt-0.5">
-                  {isKhmer ? "ទម្លាប់ប្រចាំថ្ងៃ" : "Daily habit"}
+                <p className="text-[10px] text-slate-400 font-medium mt-0.5">
+                  {isKhmer ? "ចូលរៀនជាប់គ្នា" : "Daily learning habit"}
                 </p>
               </div>
 
               {/* Knowledge XP */}
-              <div className="rounded-2xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/70 dark:border-amber-800/60 p-3 text-left">
-                <div className="flex items-center gap-1.5 text-xs font-bold text-amber-700 dark:text-amber-400">
+              <div className="rounded-2xl bg-slate-50/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800 p-3 text-left transition hover:border-amber-300 dark:hover:border-amber-700">
+                <div className="flex items-center gap-1.5 text-xs font-bold text-amber-600 dark:text-amber-400">
                   <Sparkles className="h-4 w-4 fill-amber-500" />
                   <span>{isKhmer ? "ពិន្ទុសរុប" : "Total XP"}</span>
                 </div>
                 <p className="mt-1 font-display text-lg sm:text-xl font-black text-slate-900 dark:text-white">
                   {isKhmer ? toKhmerNumeral(xp.toLocaleString()) : xp.toLocaleString()}
                 </p>
-                <p className="text-[10px] text-amber-700/80 dark:text-amber-300 font-medium mt-0.5">
+                <p className="text-[10px] text-slate-400 font-medium mt-0.5">
                   {isKhmer ? "ពិន្ទុចំណេះដឹង" : "Knowledge XP"}
                 </p>
               </div>
 
-              {/* League Tier (Never Truncates!) */}
-              <div className="rounded-2xl bg-blue-50/70 dark:bg-blue-950/30 border border-blue-200/70 dark:border-blue-800/60 p-3 text-left">
+              {/* League Tier */}
+              <div className="rounded-2xl bg-slate-50/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800 p-3 text-left transition hover:border-blue-300 dark:hover:border-blue-700">
                 <div className="flex items-center gap-1.5 text-xs font-bold text-blue-600 dark:text-blue-400">
-                  <Trophy className="h-4 w-4" />
-                  <span>{isKhmer ? "កម្រិតលីគ" : "League Tier"}</span>
+                  <Trophy className="h-4 w-4 text-blue-600" />
+                  <span>{isKhmer ? "កម្រិតលីគ" : "League"}</span>
                 </div>
                 <p className="mt-1 font-display text-base sm:text-lg font-black text-slate-900 dark:text-white truncate">
                   {isKhmer ? "ត្បូងពេជ្រ" : "Diamond"}
                 </p>
-                <p className="text-[10px] text-blue-700/80 dark:text-blue-300 font-medium mt-0.5">
-                  {isKhmer ? "កំពូល ៥% ទូទាំងប្រទេស" : "Top 5% National"}
+                <p className="text-[10px] text-slate-400 font-medium mt-0.5">
+                  {isKhmer ? "លីគសិស្សពូកែ" : "Master tier"}
                 </p>
               </div>
 
               {/* STEM Coins */}
-              <div className="rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200/70 dark:border-emerald-800/60 p-3 text-left">
-                <div className="flex items-center gap-1.5 text-xs font-bold text-emerald-700 dark:text-emerald-400">
+              <div className="rounded-2xl bg-slate-50/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800 p-3 text-left transition hover:border-emerald-300 dark:hover:border-emerald-700">
+                <div className="flex items-center gap-1.5 text-xs font-bold text-emerald-600 dark:text-emerald-400">
                   <Coins className="h-4 w-4 fill-emerald-500" />
-                  <span>{isKhmer ? "កាក់រង្វាន់" : "STEM Coins"}</span>
+                  <span>{isKhmer ? "កាក់រង្វាន់" : "Coins"}</span>
                 </div>
                 <p className="mt-1 font-display text-lg sm:text-xl font-black text-slate-900 dark:text-white">
                   {isKhmer ? toKhmerNumeral(coins.toLocaleString()) : coins.toLocaleString()}
                 </p>
-                <p className="text-[10px] text-emerald-700/80 dark:text-emerald-300 font-medium mt-0.5">
-                  {isKhmer ? "រង្វាន់សិក្សា" : "Available balance"}
+                <p className="text-[10px] text-slate-400 font-medium mt-0.5">
+                  {isKhmer ? "កាក់រង្វាន់សិក្សា" : "Available balance"}
                 </p>
               </div>
             </div>
@@ -1137,15 +1135,12 @@ function ProfilePage() {
               <div>
                 <h3 className="font-display text-xs sm:text-sm font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
                   <Sparkle className="h-3.5 w-3.5 text-emerald-600 fill-emerald-500" />
-                  <span>{isKhmer ? "រូបតំណាងសិស្ស" : "Choose STEM Avatar"}</span>
+                  <span>{isKhmer ? "រូបតំណាងគណនី" : "Profile Avatar"}</span>
                 </h3>
                 <p className="text-[10px] text-slate-400 mt-0.5">
-                  {isKhmer ? "ចុចដើម្បីប្តូរភ្លាមៗ" : "Tap to update your avatar"}
+                  {isKhmer ? "ជ្រើសរើសរូបតំណាង ឬបង្ហោះរូបថតផ្ទាល់ខ្លួន" : "Choose an avatar or upload a personal photo"}
                 </p>
               </div>
-              <span className="text-[10px] font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded-full border border-emerald-200/70 dark:border-emerald-800">
-                {isKhmer ? currentAvatar.nameKm : currentAvatar.nameEn}
-              </span>
             </div>
 
             {/* Grid of Custom Photo Upload + Preset STEM Avatars */}
@@ -1252,8 +1247,10 @@ function ProfilePage() {
                   </p>
                 </div>
               </div>
-              <span className="text-xs font-extrabold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-0.5 rounded-full border border-emerald-200/70 dark:border-emerald-800">
-                {unlockedCount} / {studentBadges.length} {isKhmer ? "សម្រេច" : "Unlocked"}
+              <span className="text-xs font-bold text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-full">
+                {isKhmer
+                  ? `${toKhmerNumeral(unlockedCount)} នៃ ${toKhmerNumeral(studentBadges.length)} សម្រេច`
+                  : `${unlockedCount} of ${studentBadges.length} Unlocked`}
               </span>
             </div>
 
@@ -1341,13 +1338,13 @@ function ProfilePage() {
           {/* ============================================================ */}
           <section className="rounded-3xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 sm:p-5 shadow-xs space-y-4">
             <h3 className="font-display text-xs sm:text-sm font-bold text-slate-900 dark:text-white">
-              {isKhmer ? "ការកំណត់ និងភាសា" : "Preferences & Settings"}
+              {isKhmer ? "ការកំណត់កម្មវិធី" : "App Preferences"}
             </h3>
 
             {/* Language Segmented Control */}
             <div className="space-y-1.5">
               <label className="text-[11px] font-bold text-slate-500 dark:text-slate-400">
-                {isKhmer ? "ភាសាបង្ហាញ (Language)" : "Preferred Language"}
+                {isKhmer ? "ភាសាបង្ហាញ" : "Preferred Language"}
               </label>
               <div className="grid grid-cols-2 gap-2">
                 <button
@@ -1361,7 +1358,7 @@ function ProfilePage() {
                   )}
                 >
                   <span className="text-base">🇰🇭</span>
-                  <span>ភាសាខ្មែរ (Khmer)</span>
+                  <span>ភាសាខ្មែរ</span>
                 </button>
 
                 <button
@@ -1375,7 +1372,7 @@ function ProfilePage() {
                   )}
                 >
                   <Globe className="h-3.5 w-3.5 text-blue-600" />
-                  <span>English (International)</span>
+                  <span>English</span>
                 </button>
               </div>
             </div>
@@ -1389,12 +1386,12 @@ function ProfilePage() {
                   ) : (
                     <VolumeX className="h-4 w-4 text-slate-400" />
                   )}
-                  <span>{isKhmer ? "សំឡេងអមការរៀន" : "Interactive Audio Chimes"}</span>
+                  <span>{isKhmer ? "សំឡេងកម្មវិធី" : "Sound Effects"}</span>
                 </p>
                 <p className="text-[10px] text-slate-400 mt-0.5">
                   {isKhmer
-                    ? "សំឡេងឆ្លើយត្រូវក្នុង Quiz និងរំលឹក Streak"
-                    : "Audio feedback for quizzes and streaks"}
+                    ? "សំឡេងឆ្លើយត្រូវក្នុង Quiz និងរំលឹក"
+                    : "Audio chimes for quizzes and achievements"}
                 </p>
               </div>
 
@@ -1425,12 +1422,12 @@ function ProfilePage() {
                   ) : (
                     <BellOff className="h-4 w-4 text-slate-400" />
                   )}
-                  <span>{isKhmer ? "រំលឹកការពារការរៀនជាប់គ្នា (៧:០០ យប់)" : "Streak Guardian Reminder"}</span>
+                  <span>{isKhmer ? "ការរំលឹកការរៀនប្រចាំថ្ងៃ" : "Daily Study Reminder"}</span>
                 </p>
                 <p className="text-[10px] text-slate-400 mt-0.5">
                   {isKhmer
-                    ? "ជូនដំណឹងការពារកុំឱ្យខកខានការរៀនប្រចាំថ្ងៃ ប្រសិនបើមិនទាន់បានរៀន"
-                    : "Daily notification at 7:00 PM if you haven't studied yet"}
+                    ? "រំលឹកកុំឱ្យខកខានការរៀនប្រចាំថ្ងៃ ប្រសិនបើមិនទាន់បានរៀន"
+                    : "Gentle reminder if you haven't completed your daily lesson"}
                 </p>
               </div>
 
@@ -1466,15 +1463,17 @@ function ProfilePage() {
 
               <div className="flex items-center justify-between text-xs">
                 <span className="text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
-                  <ShieldCheck className="h-3.5 w-3.5 text-emerald-600" />
-                  <span>{isKhmer ? "កម្មវិធីសិក្សាផ្លូវការ" : "Curriculum Standard"}</span>
+                  <BookOpen className="h-3.5 w-3.5 text-emerald-600" />
+                  <span>{isKhmer ? "កម្មវិធីសិក្សាគោល" : "Curriculum Standard"}</span>
                 </span>
-                <span className="font-semibold text-emerald-600 dark:text-emerald-400">MoEYS STEM 2026</span>
+                <span className="font-semibold text-slate-700 dark:text-slate-300">
+                  {isKhmer ? "ក្រសួងអប់រំ (MoEYS)" : "MoEYS National"}
+                </span>
               </div>
 
               <div className="flex items-center justify-between text-xs">
                 <span className="text-slate-400 text-[10px]">Version</span>
-                <span className="text-slate-400 text-[10px]">ScienceKH v2.4 (Build 2026.11)</span>
+                <span className="text-slate-400 text-[10px]">ScienceKH v2.4</span>
               </div>
             </div>
           </section>
@@ -1737,12 +1736,12 @@ function EditProfileDialog({
           {/* Display Name Input */}
           <div className="space-y-1">
             <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
-              {isKhmer ? "ឈ្មោះហៅក្រៅ (Display Name)" : "Display Name"} <span className="text-rose-500">*</span>
+              {isKhmer ? "ឈ្មោះបង្ហាញ" : "Display Name"} <span className="text-rose-500">*</span>
             </label>
             <Input
               value={displayName}
               onChange={(e) => setDisplayName(e.target.value)}
-              placeholder={isKhmer ? "ឧ. Saravuth" : "e.g. Saravuth"}
+              placeholder={isKhmer ? "ឧ. សារ៉ាវុធ" : "e.g. Saravuth"}
               className="h-10 rounded-xl bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-xs sm:text-sm font-semibold"
               required
             />
@@ -1751,12 +1750,12 @@ function EditProfileDialog({
           {/* Full Name Input */}
           <div className="space-y-1">
             <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
-              {isKhmer ? "ឈ្មោះពេញផ្លូវការ (Official Full Name)" : "Official Full Name"}
+              {isKhmer ? "ឈ្មោះពេញ" : "Full Name"}
             </label>
             <Input
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
-              placeholder={isKhmer ? "ឧ. ជា សារ៉ាវុធ (Chea Saravuth)" : "e.g. Chea Saravuth"}
+              placeholder={isKhmer ? "ឧ. ជា សារ៉ាវុធ" : "e.g. Chea Saravuth"}
               className="h-10 rounded-xl bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-xs sm:text-sm"
             />
           </div>
@@ -1764,7 +1763,7 @@ function EditProfileDialog({
           {/* Grade Selector (7–12) */}
           <div className="space-y-1.5">
             <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
-              {isKhmer ? "កម្រិតថ្នាក់ (Grade Level)" : "Grade Level"}
+              {isKhmer ? "កម្រិតថ្នាក់" : "Grade Level"}
             </label>
             <div className="grid grid-cols-6 gap-1">
               {[7, 8, 9, 10, 11, 12].map((g) => (
@@ -1779,8 +1778,8 @@ function EditProfileDialog({
                       : "bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-emerald-400"
                   )}
                 >
-                  <span>{g}</span>
-                  <span className="text-[8px] opacity-80">{g <= 9 ? "Jr" : "Sr"}</span>
+                  <span>{isKhmer ? toKhmerNumeral(g) : g}</span>
+                  <span className="text-[8px] opacity-80">{g <= 9 ? (isKhmer ? "អនុ" : "Jr") : (isKhmer ? "វិទ្យា" : "Sr")}</span>
                 </button>
               ))}
             </div>
@@ -1790,7 +1789,7 @@ function EditProfileDialog({
           {grade >= 11 && (
             <div className="space-y-1.5 animate-in fade-in duration-200">
               <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
-                {isKhmer ? "ផ្នែកសិក្សាបាក់ឌុប (Bac II Track)" : "Bac II Academic Track"}
+                {isKhmer ? "ផ្នែកសិក្សាបាក់ឌុប" : "Bac II Academic Track"}
               </label>
               <div className="grid grid-cols-2 gap-2">
                 <button
@@ -1837,7 +1836,7 @@ function EditProfileDialog({
           {/* School / Province Input */}
           <div className="space-y-1">
             <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
-              {isKhmer ? "គ្រឹះស្ថានសិក្សា / សាលារៀន (School)" : "School / High School"}
+              {isKhmer ? "គ្រឹះស្ថានសិក្សា / សាលារៀន" : "School / Institution"}
             </label>
             <div className="relative">
               <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-slate-400" />
