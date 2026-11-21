@@ -59,7 +59,60 @@ export const Route = createFileRoute("/_authenticated/reference/$referenceId")({
     meta: [{ title: "Reference Details — ScienceKH" }],
   }),
   component: ReferenceDetailPage,
+  errorComponent: ReferenceErrorComponent,
 });
+
+function ReferenceErrorComponent({ error, reset }: { error: unknown; reset: () => void }) {
+  console.error("Reference route error:", error);
+  const isKhmer = typeof window !== "undefined"
+    ? (localStorage.getItem("sciencekh_lang") || "km") === "km"
+    : true;
+
+  return (
+    <main className="min-h-screen bg-[#F8FAFC] dark:bg-slate-950 flex flex-col items-center justify-center p-6 text-center space-y-4">
+      <div className="h-16 w-16 rounded-3xl grid place-items-center bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-300 text-2xl shadow-xs">
+        ⚠️
+      </div>
+      <div className="space-y-1.5 max-w-sm">
+        <h2 className="font-display font-black text-lg text-slate-900 dark:text-white">
+          {isKhmer ? "មានបញ្ហាក្នុងការផ្ទុកឯកសារយោងនេះ" : "Error Loading Reference"}
+        </h2>
+        <p className="text-xs text-slate-500 leading-relaxed">
+          {isKhmer
+            ? "ប្រព័ន្ធមិនអាចបង្ហាញទិន្នន័យឯកសារយោងបាននៅពេលនេះទេ។"
+            : "The reference entry could not be displayed."}
+        </p>
+      </div>
+
+      {Boolean(error) && (
+        <details open className="mt-2 text-left p-3 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 text-xs text-red-700 dark:text-red-300 max-w-md w-full">
+          <summary className="font-semibold cursor-pointer">
+            {isKhmer ? "ព័ត៌មានលម្អិតបច្ចេកទេស (Error Details)" : "Technical Details"}
+          </summary>
+          <pre className="mt-2 overflow-auto max-h-40 whitespace-pre-wrap font-mono text-[10px]">
+            {error instanceof Error ? error.stack || error.message : String(error)}
+          </pre>
+        </details>
+      )}
+
+      <div className="flex flex-wrap items-center justify-center gap-2 pt-2">
+        <button
+          type="button"
+          onClick={() => reset()}
+          className="px-4 py-2 rounded-xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-bold text-xs hover:bg-slate-300 transition cursor-pointer"
+        >
+          {isKhmer ? "ព្យាយាមម្តងទៀត" : "Try Again"}
+        </button>
+        <Link
+          to="/reference"
+          className="px-4 py-2 rounded-xl bg-emerald-600 text-white font-bold text-xs hover:bg-emerald-500 shadow-sm cursor-pointer"
+        >
+          {isKhmer ? "ត្រឡប់ទៅបណ្ណាល័យ" : "Back to Library"}
+        </Link>
+      </div>
+    </main>
+  );
+}
 
 /**
  * Robust KaTeX renderer that avoids react-markdown delimiter escaping bugs.
@@ -74,6 +127,7 @@ function SafeKatex({
   displayMode?: boolean;
 }) {
   const html = useMemo(() => {
+    if (!math || typeof math !== "string") return null;
     try {
       const sanitized = cleanLatexMathString(math);
       return katex.renderToString(sanitized, {
@@ -87,7 +141,7 @@ function SafeKatex({
   }, [math, displayMode]);
 
   if (!html) {
-    return <span className={className}>{math}</span>;
+    return <span className={className}>{math || ""}</span>;
   }
 
   return (
@@ -109,6 +163,37 @@ function ReferenceDetailPage() {
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [copiedType, setCopiedType] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<"official" | "student" | "sources">("official");
+
+  // Cross-link with official MoEYS curriculum lessons (unconditionally declared at top level)
+  const relatedLessons = useMemo(() => {
+    if (!entry) return [];
+    const entrySubj = (entry.subjectSlug || "").toLowerCase();
+    const matches = ALL_CURATED_LESSONS.filter((l) => {
+      const isGrade = entry.grades?.includes(l.grade);
+      const lSubj = (l.subject?.slug || "").toLowerCase();
+      const isSubj =
+        lSubj === entrySubj ||
+        (entrySubj === "math" && lSubj === "mathematics") ||
+        (entrySubj === "physics" && lSubj === "physics") ||
+        (entrySubj === "chemistry" && lSubj === "chemistry") ||
+        (entrySubj === "biology" && lSubj === "biology");
+      return isGrade && isSubj;
+    });
+
+    // Score based on title and key terms matching
+    const scored = matches.map((lesson) => {
+      let score = 0;
+      const haystack = `${lesson.title_km} ${lesson.title_en} ${lesson.summary_km || ""}`.toLowerCase();
+      (entry.keyTerms || []).forEach((term) => {
+        if (haystack.includes(term.toLowerCase())) score += 2;
+      });
+      if (entry.originalTitleKh && haystack.includes(entry.originalTitleKh.toLowerCase())) score += 5;
+      return { lesson, score };
+    });
+
+    scored.sort((a, b) => b.score - a.score);
+    return scored.slice(0, 3).map((s) => s.lesson);
+  }, [entry]);
 
   useEffect(() => {
     let mounted = true;
@@ -212,37 +297,6 @@ function ReferenceDetailPage() {
   const concept = entry.referenceType === "concept"
     ? (entry.structuredContent as ConceptContent)
     : null;
-
-  // Cross-link with official MoEYS curriculum lessons
-  const relatedLessons = useMemo(() => {
-    if (!entry) return [];
-    const entrySubj = entry.subjectSlug.toLowerCase();
-    const matches = ALL_CURATED_LESSONS.filter((l) => {
-      const isGrade = entry.grades.includes(l.grade);
-      const lSubj = l.subject.slug.toLowerCase();
-      const isSubj =
-        lSubj === entrySubj ||
-        (entrySubj === "math" && lSubj === "mathematics") ||
-        (entrySubj === "physics" && lSubj === "physics") ||
-        (entrySubj === "chemistry" && lSubj === "chemistry") ||
-        (entrySubj === "biology" && lSubj === "biology");
-      return isGrade && isSubj;
-    });
-
-    // Score based on title and key terms matching
-    const scored = matches.map((lesson) => {
-      let score = 0;
-      const haystack = `${lesson.title_km} ${lesson.title_en} ${lesson.summary_km || ""}`.toLowerCase();
-      (entry.keyTerms || []).forEach((term) => {
-        if (haystack.includes(term.toLowerCase())) score += 2;
-      });
-      if (entry.originalTitleKh && haystack.includes(entry.originalTitleKh.toLowerCase())) score += 5;
-      return { lesson, score };
-    });
-
-    scored.sort((a, b) => b.score - a.score);
-    return scored.slice(0, 3).map((s) => s.lesson);
-  }, [entry]);
 
   return (
     <AppShell
