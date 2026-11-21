@@ -11,14 +11,13 @@ import { Link } from "@tanstack/react-router";
 import { useState, useMemo, useEffect } from "react";
 import {
   Flame,
-  Sparkles,
   Check,
   Bookmark,
-  BookOpen,
   ArrowRight,
-  Clock,
   Layers,
   ChevronRight,
+  Target,
+  GraduationCap,
 } from "lucide-react";
 import { useProfile } from "@/lib/use-profile";
 import { toKhmerNumeral } from "@/lib/i18n";
@@ -236,52 +235,80 @@ export function HomeRightSidebarWidgets({
       </section>
 
       {/* ================================================================== */}
-      {/* SECTION B: CONTINUE STUDYING                                       */}
-      {/* Direct resume for recently accessed or current syllabus lesson     */}
+      {/* SECTION B: STUDY REMINDER & ACADEMIC MILESTONES                    */}
+      {/* Actionable study habit prompts & examination milestones            */}
       {/* ================================================================== */}
-      {resumeLesson && (
-        <section className="p-4 rounded-2xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs space-y-2.5">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <BookOpen className="h-4 w-4 text-[#059669]" />
-              <span className="text-xs font-bold text-slate-900 dark:text-white">
-                {isKhmer ? "បន្តការសិក្សា" : "Continue Studying"}
-              </span>
+      <section className="p-4 rounded-2xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs space-y-3">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className="h-7 w-7 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-[#059669] grid place-items-center shrink-0 border border-emerald-200/60 dark:border-emerald-800/60">
+              <Target className="h-4 w-4" />
             </div>
-            {resumeLesson.subject && (
-              <span className="text-[10px] font-bold text-slate-500 bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded">
-                {isKhmer ? resumeLesson.subject.name_km : resumeLesson.subject.name_en}
+            <div>
+              <span className="text-xs font-bold text-slate-900 dark:text-white block leading-tight">
+                {isKhmer ? "ការរំលឹកការសិក្សា" : "Study Reminder"}
               </span>
-            )}
-          </div>
-
-          <div className="space-y-1">
-            <h4 className="text-xs font-bold text-slate-900 dark:text-white line-clamp-1 leading-snug">
-              {isKhmer ? resumeLesson.title_km : resumeLesson.title_en}
-            </h4>
-            <div className="flex items-center gap-2 text-[11px] text-slate-400">
-              <span className="inline-flex items-center gap-1">
-                <Clock className="h-3 w-3" />
-                <span>{resumeLesson.estimated_minutes} {isKhmer ? "នាទី" : "mins"}</span>
-              </span>
-              <span>•</span>
-              <span className="text-emerald-600 dark:text-emerald-400 font-semibold">
-                {isKhmer ? "៥ លំហាត់អនុវត្ត" : "5 Exercises"}
+              <span className="text-[10.5px] text-slate-400 block mt-0.5">
+                {isKhmer ? "ទម្លាប់ & គោលដៅប្រចាំថ្ងៃ" : "Habit & Daily Milestone"}
               </span>
             </div>
           </div>
+          <span className="text-[10px] font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded-md border border-emerald-200/60 dark:border-emerald-800/60">
+            {todayXp >= dailyGoal
+              ? isKhmer ? "សម្រេច 🎉" : "Done 🎉"
+              : isKhmer ? `ខ្វះ ${dailyGoal - todayXp} XP` : `${dailyGoal - todayXp} XP left`}
+          </span>
+        </div>
 
+        {/* Milestone Advice Card */}
+        <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-850/60 border border-slate-100 dark:border-slate-800 space-y-1.5">
+          <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-700 dark:text-slate-200">
+            <GraduationCap className="h-3.5 w-3.5 text-[#059669]" />
+            <span>
+              {studentGrade === 12
+                ? isKhmer ? "ត្រៀមប្រឡងបាក់ឌុប ២០២៦" : "Bac II 2026 Milestone"
+                : studentGrade === 9
+                  ? isKhmer ? "ត្រៀមប្រឡងឌីប្លូម ២០២៦" : "Brevet 2026 Milestone"
+                  : isKhmer ? `ស្ទង់សមត្ថភាព ថ្នាក់ទី ${toKhmerNumeral(studentGrade)}` : `Grade ${studentGrade} Assessment`}
+            </span>
+          </div>
+          <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
+            {studentGrade === 12
+              ? isKhmer
+                ? "អនុវត្តវិញ្ញាសាគំរូ និងរូបមន្តសង្ខេបដើម្បីត្រៀមប្រឡងថ្នាក់ជាតិ។"
+                : "Practice past examination papers and review formulas for national exams."
+              : studentGrade === 9
+                ? isKhmer
+                  ? "ពង្រឹងលំហាត់គណិត និងរូបវិទ្យាសម្រាប់វិញ្ញាសាឌីប្លូមជាតិ។"
+                  : "Consolidate math and physics exercises for the national Brevet exam."
+                : isKhmer
+                  ? "រក្សាការរៀនយ៉ាងតិច ១ មេរៀនក្នុងមួយថ្ងៃ ដើម្បីរក្សាចង្វាក់សិក្សា។"
+                  : "Complete at least one lesson per day to keep your daily study streak alive."}
+          </p>
+        </div>
+
+        {/* Action Link: Exam Archive or Reference */}
+        {studentGrade === 12 || studentGrade === 9 ? (
           <Link
-            to="/lessons/$lessonId"
-            params={{ lessonId: resumeLesson.id }}
+            to="/exams"
             onClick={() => sounds.playPop()}
-            className="w-full h-8.5 rounded-xl bg-[#059669] hover:bg-[#047857] text-white font-bold text-xs tracking-wide transition flex items-center justify-center gap-1.5 shadow-2xs active:scale-95 cursor-pointer mt-1"
+            className="w-full h-8.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-emerald-500 hover:bg-emerald-50/50 dark:hover:bg-emerald-950/30 text-slate-700 dark:text-slate-200 hover:text-[#059669] font-bold text-xs tracking-wide transition flex items-center justify-center gap-1.5 shadow-2xs active:scale-95 cursor-pointer"
           >
-            <span>{isKhmer ? "បន្តមេរៀននេះ" : "Resume Lesson"}</span>
+            <span>{isKhmer ? "មើលវិញ្ញាសាប្រឡងចាស់ៗ" : "Browse Exam Archive"}</span>
             <ArrowRight className="h-3.5 w-3.5" />
           </Link>
-        </section>
-      )}
+        ) : (
+          <Link
+            to="/reference"
+            search={{ grade: studentGrade }}
+            onClick={() => sounds.playPop()}
+            className="w-full h-8.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-emerald-500 hover:bg-emerald-50/50 dark:hover:bg-emerald-950/30 text-slate-700 dark:text-slate-200 hover:text-[#059669] font-bold text-xs tracking-wide transition flex items-center justify-center gap-1.5 shadow-2xs active:scale-95 cursor-pointer"
+          >
+            <span>{isKhmer ? "មើលរូបមន្តសង្ខេប" : "Quick Reference Formulas"}</span>
+            <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
+        )}
+      </section>
 
       {/* ================================================================== */}
       {/* SECTION C: QUICK REFERENCES                                        */}
