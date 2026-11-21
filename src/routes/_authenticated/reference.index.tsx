@@ -515,10 +515,6 @@ function FriendlyReferenceCard({
               ? REFERENCE_TYPE_LABELS[entry.referenceType]?.labelKm || entry.referenceType
               : REFERENCE_TYPE_LABELS[entry.referenceType]?.labelEn || entry.referenceType}
           </span>
-          <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-[#059669] border border-emerald-200/60 dark:border-emerald-800 flex items-center gap-1">
-            <CheckCircle2 className="h-3 w-3" />
-            <span>{isKhmer ? "ស្តង់ដារជាតិ MoEYS" : "MoEYS Standard"}</span>
-          </span>
         </div>
 
         <div className="flex items-center gap-2">
@@ -1024,11 +1020,7 @@ function StudyReferenceLibraryPage() {
           <div className="space-y-5">
             {/* Elevated Academic Hero Header */}
             <header className="p-5 sm:p-6 rounded-3xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs space-y-3.5">
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-emerald-50 dark:bg-emerald-950/60 text-[#059669] border border-emerald-200/80 dark:border-emerald-800">
-                  <CheckCircle2 className="h-3.5 w-3.5" />
-                  <span>{isKhmer ? "ស្តង់ដារកម្មវិធីសិក្សា MoEYS ២០២៦" : "MoEYS Curriculum Standard 2026"}</span>
-                </span>
+              <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-slate-400">
                   {isKhmer ? "ថ្នាក់ទី ៧ ដល់ ១២" : "Grades 7 to 12"}
                 </span>

@@ -356,20 +356,6 @@ function HomePage() {
             <section className="p-6 rounded-3xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs space-y-4">
               <div className="flex items-center justify-between gap-3">
                 <div className="space-y-1 min-w-0">
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <span className="text-[11px] font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-0.5 rounded-full border border-emerald-200/80 dark:border-emerald-800/60">
-                      {studentGrade >= 11
-                        ? isKhmer
-                          ? `ថ្នាក់ទី ${toKhmerNumeral(studentGrade)} · ${selectedStream === "science" ? "វិទ្យាសាស្ត្រពិត" : "វិទ្យាសាស្ត្រសង្គម"}`
-                          : `Grade ${studentGrade} · ${selectedStream === "science" ? "Science Stream" : "Social Stream"}`
-                        : isKhmer
-                          ? `ថ្នាក់ទី ${toKhmerNumeral(studentGrade)} (អនុវិទ្យាល័យ)`
-                          : `Grade ${studentGrade} (Junior High)`}
-                    </span>
-                    <span className="text-[11px] text-slate-400 font-semibold">
-                      {isKhmer ? "ស្តង់ដារក្រសួងអប់រំ MoEYS" : "National Standard"}
-                    </span>
-                  </div>
                   <h1 className="font-display text-2xl font-black tracking-tight text-slate-900 dark:text-white leading-tight">
                     {isKhmer ? "សួស្តី" : "Hello"}, {greetingName} 👋
                   </h1>
@@ -409,17 +395,8 @@ function HomePage() {
             {/* SECTION B: UP NEXT / PRIMARY ACTION TARGET CARD */}
             <section className="rounded-3xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-xs space-y-4">
               <div className="flex items-center justify-between gap-2">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200/80 dark:border-emerald-800/80 text-[11px] font-extrabold shrink-0">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                  <span>
-                    {hasAnyCompleted
-                      ? isKhmer
-                        ? "បន្តការសិក្សាមេរៀនគោលដៅ"
-                        : "Target Next Lesson"
-                      : isKhmer
-                        ? `ថ្នាក់ទី ${toKhmerNumeral(studentGrade)} · មេរៀនដំបូង`
-                        : `Recommended · Grade ${studentGrade}`}
-                  </span>
+                <span className="text-xs font-black uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                  {isKhmer ? "មេរៀនបន្ទាប់" : "Up Next"}
                 </span>
 
                 <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 dark:text-slate-400 shrink-0">

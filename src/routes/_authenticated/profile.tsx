@@ -1065,7 +1065,7 @@ function ProfilePage() {
                   ID: #{isGuest ? "GUEST" : (user?.id ? user.id.slice(0, 8).toUpperCase() : "SKH-7829")}
                 </span>
                 <span>•</span>
-                <span>{isKhmer ? "សិស្ស MoEYS" : "Verified Student"}</span>
+                <span>{isKhmer ? "គណនីសិស្ស" : "Student Account"}</span>
               </div>
             </div>
 

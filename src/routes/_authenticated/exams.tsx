@@ -1843,10 +1843,6 @@ function ExamsArchivePage() {
                           <span>{blueprint.totalMarks || specs.maxScore} {isKhmer ? "ពិន្ទុពេញ" : "pts"}</span>
                           <span className="text-slate-300 dark:text-slate-700">•</span>
                           <span>{isKhmer ? `មេគុណ ${blueprint.coefficient}` : `Coeff ${blueprint.coefficient}`}</span>
-                          <span className="text-slate-300 dark:text-slate-700">•</span>
-                          <span className="text-emerald-600 dark:text-emerald-400 font-semibold">
-                            {isKhmer ? "MoEYS ស្តង់ដារជាតិ" : "MoEYS National Standard"}
-                          </span>
                         </div>
                       </div>
                     </div>
@@ -2058,12 +2054,6 @@ function ExamsArchivePage() {
                                   </>
                                 )}
                               </button>
-
-                              {q.scoringCriteriaKm && (
-                                <span className="text-[11px] font-semibold text-slate-400">
-                                  {isKhmer ? "ស្តង់ដារកំណែ MoEYS" : "MoEYS Rubric Standard"}
-                                </span>
-                              )}
                             </div>
 
                             {/* Expandable Official Solution Drawer */}

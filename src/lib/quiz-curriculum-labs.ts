@@ -46,8 +46,8 @@ function convertPracticeExercisesToLabQuestions(
     return {
       id: `${lessonId}-practice-${idx + 1}`,
       type: "lab_calculation" as const,
-      stage_name_km: `ដំណាក់កាលអនុវត្តទី${idx + 1} • ${ex.titleKm}`,
-      stage_name_en: `Practice Stage ${idx + 1} • ${ex.titleEn}`,
+      stage_name_km: ex.titleKm || `លំហាត់ទី ${idx + 1}`,
+      stage_name_en: ex.titleEn || `Exercise ${idx + 1}`,
       prompt_km: ex.questionKm,
       prompt_en: ex.questionEn,
       given_values_km: ex.formulaOrContext ? [{ label: "កន្សោមគណិតវិទ្យា", value: ex.formulaOrContext }] : [],

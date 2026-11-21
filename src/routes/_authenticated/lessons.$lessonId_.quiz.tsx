@@ -148,16 +148,21 @@ function SafeMathBlock({
  */
 function QuizMarkdownContent({ content, className }: { content: string; className?: string }) {
   if (!content) return null;
+  // Normalize inline $$formula$$ into $formula$ so remarkMath reliably parses and renders KaTeX
+  const normalizedContent = content
+    .replace(/\$\$([^\n]+?)\$\$/g, (_, math) => `$${math.trim()}$`)
+    .replace(/\\n/g, "\n\n");
+
   return (
     <div className={cn("prose prose-sm dark:prose-invert max-w-none text-inherit leading-relaxed", className)}>
       <ReactMarkdown
         remarkPlugins={[remarkGfm, remarkMath]}
-        rehypePlugins={[rehypeKatex]}
+        rehypePlugins={[[rehypeKatex, { throwOnError: false, strict: false }]]}
         components={{
           p: ({ children }) => <span className="block mb-1.5 last:mb-0">{children}</span>,
         }}
       >
-        {content}
+        {normalizedContent}
       </ReactMarkdown>
     </div>
   );

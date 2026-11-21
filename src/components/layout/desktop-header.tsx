@@ -190,10 +190,7 @@ export function DesktopHeader({
                 <div className="absolute right-0 top-full mt-2 w-72 p-3 rounded-2xl bg-white dark:bg-slate-900 border border-[#E5EAF0] dark:border-slate-800 shadow-xl z-50 space-y-3 animate-in fade-in slide-in-from-top-1 duration-150">
                   <div className="flex items-center justify-between text-xs px-1">
                     <span className="font-bold text-slate-900 dark:text-white">
-                      {isKhmer ? "ជ្រើសរើសថ្នាក់ MoEYS" : "Select MoEYS Grade"}
-                    </span>
-                    <span className="text-[10px] font-semibold text-emerald-600 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded-md">
-                      {isKhmer ? "ស្តង់ដារក្រសួង" : "National Standard"}
+                      {isKhmer ? "ជ្រើសរើសថ្នាក់សិក្សា" : "Select Grade"}
                     </span>
                   </div>
 
