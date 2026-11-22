@@ -7684,7 +7684,107 @@ export const HISTORICAL_EXAM_ARCHIVE: HistoricalExamPaper[] = [
         "noteKm": "គណនាអាំងតេក្រាលនៃផលគុណអនុគមន៍"
       }
     ],
-    "questions": [],
+    "questions": [
+      {
+            "questionNumber": 1,
+            "points": 15,
+            "titleKm": "លំហាត់ទី ១៖ ចំនួនកុំផ្លិច (Complex Numbers)",
+            "titleEn": "Problem 1: Complex Quadratic Equation",
+            "problemTextKm": "ក. ដោះស្រាយក្នុងសំណុំកុំផ្លិច $\\mathbb{C}$ នូវសមីការ $z^2 - 4z + 5 = 0$។\n\nខ. តាង $z_1, z_2$ ជាឫសទាំងពីរនៃសមីការខាងលើ ដោយ $z_1$ មានផ្នែកនិម្មិតវិជ្ជមាន។ គណនាម៉ូឌុលនៃ $z_1$ និង $z_2$។\n\nគ. គណនា $Z = (z_1 - 2)^4 + (z_2 - 2)^4$។",
+            "problemTextEn": "a. Solve $z^2 - 4z + 5 = 0$ in $\\mathbb{C}$.\nb. Let $z_1, z_2$ be the roots ($z_1$ has positive imaginary part). Compute $|z_1|$ and $|z_2|$.\nc. Compute $Z = (z_1 - 2)^4 + (z_2 - 2)^4$.",
+            "officialSolutionKm": "ក. ដោះស្រាយសមីការ $z^2 - 4z + 5 = 0$៖\n$\\Delta' = (-2)^2 - 1(5) = 4 - 5 = -1 = i^2$។\nដូចនេះ ឫសទាំងពីរគឺ $z_1 = 2 + i$ និង $z_2 = 2 - i$។\n\nខ. ម៉ូឌុលនៃ $z_1$ និង $z_2$៖\n$|z_1| = |z_2| = \\sqrt{2^2 + 1^2} = \\sqrt{5}$។\n\nគ. គណនា $Z$៖\n- $z_1 - 2 = (2 + i) - 2 = i \\implies (z_1 - 2)^4 = i^4 = 1$។\n- $z_2 - 2 = (2 - i) - 2 = -i \\implies (z_2 - 2)^4 = (-i)^4 = 1$។\n$Z = 1 + 1 = 2$។",
+            "officialSolutionEn": "Roots z1 = 2+i, z2 = 2-i. Modulus |z1| = |z2| = sqrt(5). Z = i^4 + (-i)^4 = 1 + 1 = 2.",
+            "scoringCriteriaKm": [
+                  "ក. ដោះស្រាយរកឃើញឫស z1 = 2 + i និង z2 = 2 - i (៦ ពិន្ទុ)",
+                  "ខ. គណនាម៉ូឌុល |z1| = |z2| = √5 (៤ ពិន្ទុ)",
+                  "គ. គណនា Z = i^4 + (-i)^4 = 2 (៥ ពិន្ទុ)"
+            ],
+            "keyFormulas": [
+                  "\\Delta' = b'^2 - ac",
+                  "|z| = \\sqrt{a^2 + b^2}",
+                  "i^4 = 1"
+            ]
+      },
+      {
+            "questionNumber": 2,
+            "points": 20,
+            "titleKm": "លំហាត់ទី ២៖ សមីការឌីផេរ៉ង់ស្យែល (Differential Equations)",
+            "titleEn": "Problem 2: 1st Order Linear Differential Equation",
+            "problemTextKm": "គេឱ្យសមីការឌីផេរ៉ង់ស្យែល $(E): y' - 3y = 0$។\n\nក. រកចម្លើយទូទៅនៃសមីការ $(E)$។\n\nខ. កំណត់អនុគមន៍ $g(x)$ ជាចម្លើយជាក់លាក់មួយនៃ $(E)$ ដោយដឹងថា $g(0) = 2$។\n\nគ. គណនាអាំងតេក្រាល $I = \\int_0^1 g(x) \\, dx$។",
+            "problemTextEn": "Given differential equation $(E): y' - 3y = 0$.\na. Find the general solution of $(E)$.\nb. Find particular solution $g(x)$ with $g(0) = 2$.\nc. Compute integral $I = \\int_0^1 g(x) \\, dx$.",
+            "officialSolutionKm": "ក. ចម្លើយទូទៅនៃ $(E): y' - 3y = 0$ គឺ $y(x) = C e^{3x}$ ដែល $C \\in \\mathbb{R}$។\n\nខ. ចម្លើយជាក់លាក់ $g(x)$៖\n$g(0) = C e^0 = C = 2 \\implies g(x) = 2e^{3x}$។\n\nគ. គណនាអាំងតេក្រាល $I$៖\n$I = \\int_0^1 2e^{3x} \\, dx = \\left[\\frac{2}{3}e^{3x}\\right]_0^1 = \\frac{2}{3}(e^3 - e^0) = \\frac{2}{3}(e^3 - 1)$។",
+            "officialSolutionEn": "General solution y = C*e^(3x), particular solution g(x) = 2e^(3x), integral I = 2/3*(e^3 - 1).",
+            "scoringCriteriaKm": [
+                  "ក. រកឃើញចម្លើយទូទៅ y = C e^(3x) (៧ ពិន្ទុ)",
+                  "ខ. កំណត់ C = 2 និងទាញបាន g(x) = 2e^(3x) (៦ ពិន្ទុ)",
+                  "គ. គណនាអាំងតេក្រាល I = (2/3)(e^3 - 1) (៧ ពិន្ទុ)"
+            ],
+            "keyFormulas": [
+                  "y' - ay = 0 \\implies y = C e^{ax}",
+                  "\\int e^{ax} \\, dx = \\frac{1}{a}e^{ax} + C"
+            ]
+      },
+      {
+            "questionNumber": 3,
+            "points": 20,
+            "titleKm": "លំហាត់ទី ៣៖ ប្រូបាប (Combinatorial Probability)",
+            "titleEn": "Problem 3: Colored Marble Sampling",
+            "problemTextKm": "ក្នុងថង់មួយមានឃ្លី ១២ គ្រាប់៖ ក្រហម ៥, ខៀវ ៤, និងលឿង ៣។ គេចាប់យកឃ្លី ៣ គ្រាប់ព្រមគ្នាដោយចៃដន្យ។\n\nក. រកចំនួនករណីអាចទាំងអស់នៃការចាប់ឃ្លី។\n\nខ. គណនាប្រូបាបដែលចាប់បានឃ្លីពណ៌ក្រហម ២ និងខៀវ ១។\n\nគ. គណនាប្រូបាបដែលចាប់បានឃ្លីមានពណ៌ខុសគ្នាទាំង ៣ (១ មួយពណ៌ៗ)។",
+            "problemTextEn": "A bag has 12 marbles: 5 red, 4 blue, 3 yellow. 3 marbles drawn simultaneously.\na. Find total possible outcomes.\nb. Probability of 2 red and 1 blue.\nc. Probability of 3 different colors.",
+            "officialSolutionKm": "ក. ចំនួនករណីអាច $n(S) = C(12, 3) = \\frac{12 \\times 11 \\times 10}{6} = 220$ ករណី។\n\nខ. ព្រឹត្តិការណ៍ $A$ (ក្រហម ២ និងខៀវ ១)៖\n$n(A) = C(5, 2) \\times C(4, 1) = 10 \\times 4 = 40$ ករណី។\n$P(A) = \\frac{40}{220} = \\frac{2}{11}$។\n\nគ. ព្រឹត្តិការណ៍ $B$ (ពណ៌ខុសគ្នាទាំង ៣ គឺ ក្រហម ១ ខៀវ ១ លឿង ១)៖\n$n(B) = C(5, 1) \\times C(4, 1) \\times C(3, 1) = 5 \\times 4 \\times 3 = 60$ ករណី។\n$P(B) = \\frac{60}{220} = \\frac{3}{11}$។",
+            "officialSolutionEn": "Total C(12, 3) = 220. P(2 red, 1 blue) = 40/220 = 2/11. P(3 distinct colors) = 60/220 = 3/11.",
+            "scoringCriteriaKm": [
+                  "ក. គណនា n(S) = 220 (៦ ពិន្ទុ)",
+                  "ខ. គណនា n(A) = 40 និង P(A) = 2/11 (៧ ពិន្ទុ)",
+                  "គ. គណនា n(B) = 60 និង P(B) = 3/11 (៧ ពិន្ទុ)"
+            ],
+            "keyFormulas": [
+                  "C(n, k) = \\frac{n!}{k!(n-k)!}",
+                  "P(A) = \\frac{n(A)}{n(S)}"
+            ]
+      },
+      {
+            "questionNumber": 4,
+            "points": 25,
+            "titleKm": "លំហាត់ទី ៤៖ ធរណីមាត្រក្នុងលំហ Oxyz (Analytic Space Geometry)",
+            "titleEn": "Problem 4: Plane Equation & Point-Plane Distance",
+            "problemTextKm": "ក្នុងលំហតម្រុយអរតូណរម៉េ $(O; \\vec{i}, \\vec{j}, \\vec{k})$ គេឱ្យចំណុច $A(2, 0, 1), B(1, 2, 0), C(0, 1, 3)$។\n\nក. គណនាកូអរដោនេនៃ $\\vec{AB}, \\vec{AC}$ និងផលគុណវ៉ិចទ័រ $\\vec{n} = \\vec{AB} \\times \\vec{AC}$។\n\nខ. សរសេរសមីការប្លង់ $(ABC)$។\n\nគ. គណនាចម្ងាយពីចំណុច $D(1, 1, 1)$ ទៅកាន់ប្លង់ $(ABC)$។",
+            "problemTextEn": "In orthonormal frame $(O; \\vec{i}, \\vec{j}, \\vec{k})$, points are $A(2, 0, 1), B(1, 2, 0), C(0, 1, 3)$.\na. Compute $\\vec{AB}, \\vec{AC}$ and cross product $\\vec{n} = \\vec{AB} \\times \\vec{AC}$.\nb. Write equation of plane $(ABC)$.\nc. Compute distance from $D(1, 1, 1)$ to plane $(ABC)$.",
+            "officialSolutionKm": "ក. កូអរដោនេវ៉ិចទ័រ៖\n- $\\vec{AB} = (-1, 2, -1)$\n- $\\vec{AC} = (-2, 1, 2)$\n- $\\vec{n} = \\vec{AB} \\times \\vec{AC} = (2(2) - (-1)(1))\\vec{i} - ((-1)(2) - (-1)(-2))\\vec{j} + ((-1)(1) - 2(-2))\\vec{k} = (5, 4, 3)$។\n\nខ. សមីការប្លង់ $(ABC)$ កាត់តាម $A(2, 0, 1)$ មាន $\\vec{n} = (5, 4, 3)$៖\n$5(x - 2) + 4(y - 0) + 3(z - 1) = 0 \\iff 5x + 4y + 3z - 13 = 0$។\n\nគ. ចម្ងាយពី $D(1, 1, 1)$ ទៅប្លង់ $(ABC)$៖\n$d(D, (ABC)) = \\frac{|5(1) + 4(1) + 3(1) - 13|}{\\sqrt{5^2 + 4^2 + 3^2}} = \\frac{|12 - 13|}{\\sqrt{25 + 16 + 9}} = \\frac{|-1|}{\\sqrt{50}} = \\frac{1}{5\\sqrt{2}} = \\frac{\\sqrt{2}}{10}$។",
+            "officialSolutionEn": "AB = (-1, 2, -1), AC = (-2, 1, 2), n = (5, 4, 3). Plane: 5x + 4y + 3z - 13 = 0. Distance d = sqrt(2)/10.",
+            "scoringCriteriaKm": [
+                  "ក. គណនា AB, AC និង n = (5, 4, 3) (៨ ពិន្ទុ)",
+                  "ខ. រកឃើញសមីការប្លង់ 5x + 4y + 3z - 13 = 0 (៩ ពិន្ទុ)",
+                  "គ. គណនាចម្ងាយ d = √2/10 (៨ ពិន្ទុ)"
+            ],
+            "keyFormulas": [
+                  "\\vec{u} \\times \\vec{v} = (y_1 z_2 - z_1 y_2, z_1 x_2 - x_1 z_2, x_1 y_2 - y_1 x_2)",
+                  "d(M_0, (P)) = \\frac{|ax_0 + by_0 + cz_0 + d|}{\\sqrt{a^2 + b^2 + c^2}}"
+            ]
+      },
+      {
+            "questionNumber": 5,
+            "points": 45,
+            "titleKm": "លំហាត់ទី ៥៖ សិក្សាអនុគមន៍លោការីត និងអាំងតេក្រាល (Logarithmic Calculus)",
+            "titleEn": "Problem 5: Function f(x) = ln(x)/x Study & Integral",
+            "problemTextKm": "គេឱ្យអនុគមន៍ $f$ កំណត់លើចន្លោះ $(0, +\\infty)$ ដោយ $f(x) = \\frac{\\ln x}{x}$។ តាង $(C)$ ជាក្រាបតំណាង $f$ ក្នុងតម្រុយអរតូណរម៉េ។\n\nក. គណនាលីមីតនៃ $f(x)$ កាលណា $x \\to 0^+$ និង $x \\to +\\infty$។ ទាញរកសមីការអាស៊ីមតូតឈរ និងអាស៊ីមតូតដេកនៃ $(C)$។\n\nខ. គណនាដេរីវេ $f'(x)$ និងបង្ហាញថា $f'(x) = \\frac{1 - \\ln x}{x^2}$។ សិក្សាសញ្ញា $f'(x)$ និងសង់តារាងអថេរភាពនៃ $f$ (ទាញរកតម្លៃអតិបរមានៃ $f$)។\n\nគ. រកកូអរដោនេចំណុចប្រសព្វរវាងក្រាប $(C)$ ជាមួយអ័ក្សអាប់ស៊ីស $Ox$ និងសរសេរសមីការបន្ទាត់ប៉ះ $(T)$ ត្រង់ចំណុចនោះ។\n\nឃ. សង់បន្ទាត់អាស៊ីមតូត បន្ទាត់ប៉ះ $(T)$ និងក្រាប $(C)$ (យក $e \\approx 2.7, 1/e \\approx 0.37$)។\n\nង. គណនាផ្ទៃក្រឡា $S$ នៃផ្នែកប្លង់ខណ្ឌដោយក្រាប $(C)$ អ័ក្សអាប់ស៊ីស និងបន្ទាត់ឈរ $x = 1, x = e$។",
+            "problemTextEn": "Given $f(x) = \\ln(x)/x$ on $(0, +\\infty)$.\na. Compute limits at $0^+$ and $+\\infty$, deduce asymptotes.\nb. Compute $f'(x) = (1 - \\ln x)/x^2$ and build variation table (find maximum).\nc. Find x-intercept and tangent (T) at that point.\nd. Sketch asymptotes, tangent, and curve.\ne. Compute area S bounded by (C), x-axis, and lines x = 1, x = e.",
+            "officialSolutionKm": "ក. លីមីត និងអាស៊ីមតូត៖\n- $\\lim_{x \\to 0^+} \\frac{\\ln x}{x} = \\lim_{x \\to 0^+} \\left(\\frac{1}{x} \\cdot \\ln x\\right) = (+?\\infty)(-\\infty) = -\\infty \\implies x = 0$ (អ័ក្ស $Oy$) ជាអាស៊ីមតូតឈរ។\n- $\\lim_{x \\to +\\infty} \\frac{\\ln x}{x} = 0 \\implies y = 0$ (អ័ក្ស $Ox$) ជាអាស៊ីមតូតដេកខាង $+\\infty$។\n\nខ. ដេរីវេ និងតារាងអថេរភាព៖\n- $f'(x) = \\frac{(\\ln x)' \\cdot x - \\ln x \\cdot (x)'}{x^2} = \\frac{(1/x)x - \\ln x}{x^2} = \\frac{1 - \\ln x}{x^2}$។\n- $f'(x) = 0 \\iff 1 - \\ln x = 0 \\iff \\ln x = 1 \\iff x = e$។\n- $x \\in (0, e) \\implies f'(x) > 0$ ($f$ កើន); $x \\in (e, +\\infty) \\implies f'(x) < 0$ ($f$ ចុះ)។\n- តម្លៃអតិបរមាធៀបត្រង់ $x = e$ គឺ $f(e) = \\frac{\\ln e}{e} = \\frac{1}{e} \\approx 0.37$។\n\nគ. ចំណុចប្រសព្វ និងបន្ទាត់ប៉ះ៖\n- $f(x) = 0 \\iff \\frac{\\ln x}{x} = 0 \\iff \\ln x = 0 \\iff x = 1$។ ចំណុចប្រសព្វគឺ $A(1, 0)$។\n- មេគុណប្រាប់ទិសបន្ទាត់ប៉ះត្រង់ $A$៖ $f'(1) = \\frac{1 - \\ln 1}{1^2} = 1$។\n- សមីការបន្ទាត់ប៉ះ $(T)$: $y - 0 = 1(x - 1) \\iff y = x - 1$។\n\nឃ. សង់ក្រាប $(C)$៖ គូសអាស៊ីមតូត $x = 0, y = 0$, កំពូល $(e, 1/e)$, ចំណុចកាត់ $(1, 0)$ និងបន្ទាត់ប៉ះ $(T)$។\n\nង. គណនាផ្ទៃក្រឡា $S$៖\n$S = \\int_1^e f(x) \\, dx = \\int_1^e \\frac{\\ln x}{x} \\, dx = \\int_1^e \\ln x \\, d(\\ln x) = \\left[\\frac{(\\ln x)^2}{2}\\right]_1^e = \\frac{(\\ln e)^2}{2} - \\frac{(\\ln 1)^2}{2} = \\frac{1}{2} - 0 = \\frac{1}{2}$ ឯកតាផ្ទៃ។",
+            "officialSolutionEn": "Limits give vertical asymptote x=0 and horizontal asymptote y=0. Maximum at (e, 1/e). Intercept at (1, 0) with tangent y = x - 1. Area S = 1/2.",
+            "scoringCriteriaKm": [
+                  "ក. គណនាលីមីត និងទាញរកអាស៊ីមតូត x = 0, y = 0 (៨ ពិន្ទុ)",
+                  "ខ. រកឃើញ f'(x) = (1-ln x)/x^2, តារាងអថេរភាព និងអតិបរមា f(e) = 1/e (១០ ពិន្ទុ)",
+                  "គ. រកឃើញចំណុច A(1, 0) និងសមីការបន្ទាត់ប៉ះ y = x - 1 (៧ ពិន្ទុ)",
+                  "ឃ. សង់ក្រាប (C) និងបន្ទាត់ប៉ះត្រឹមត្រូវ (១០ ពិន្ទុ)",
+                  "ង. គណនាអាំងតេក្រាល រកឃើញផ្ទៃក្រឡា S = 1/2 (១០ ពិន្ទុ)"
+            ],
+            "keyFormulas": [
+                  "\\lim_{x \\to +\\infty} \\frac{\\ln x}{x} = 0",
+                  "\\left(\\frac{u}{v}\\right)' = \\frac{u'v - uv'}{v^2}",
+                  "\\int u \\, du = \\frac{u^2}{2} + C"
+            ]
+      }
+],
     "notes": "Official MoEYS 2017 Bac II examination paper archive."
   },
   {
@@ -9921,7 +10021,86 @@ export const HISTORICAL_EXAM_ARCHIVE: HistoricalExamPaper[] = [
         "noteKm": "លក្ខខណ្ឌអាំងតង់ស៊ីតេអតិបរមា"
       }
     ],
-    "questions": [],
+    "questions": [
+      {
+            "questionNumber": 1,
+            "points": 20,
+            "titleKm": "លំហាត់ទី ១៖ មេកានិច និងកំញ័រ (Mechanics & Oscillations)",
+            "titleEn": "Problem 1: Harmonic Oscillator",
+            "problemTextKm": "ប្រព័ន្ធលំយោលមួយផ្សំឡើងពីម៉ាស $m = 200\\text{ g} = 0.2\\text{ kg}$ ភ្ជាប់ទៅនឹងចុងម្ខាងនៃរឺស័រផ្តេកដែលមានថេររឹង $k = 80\\text{ N/m}$។ គេទាញម៉ាស $m$ ឱ្យងាកពីទីតាំងលំនឹងបានចម្ងាយ $X_m = 5\\text{ cm} = 0.05\\text{ m}$ រួចលែងដោយគ្មានល្បឿនដើមនៅខណៈ $t = 0$ (គ្មានកកិត)។\n\nក. គណនាពុលសាស្យុងស្វ័យប្រវត្ត $\\omega$ និងខួប $T$ នៃលំយោល។\n\nខ. សរសេរសមីការចលនានៃម៉ាស $m$ ជាអនុគមន៍នៃពេល $t$។\n\nគ. គណនាថាមពលមេកានិចសរុប $E$ នៃប្រព័ន្ធ និងល្បឿនអតិបរមា $v_{\\max}$ នៃម៉ាស $m$។",
+            "problemTextEn": "A horizontal spring-mass system with $m = 0.2\\text{ kg}$ and $k = 80\\text{ N/m}$. Pulled to $X_m = 0.05\\text{ m}$ and released without initial velocity at $t = 0$.\na. Compute angular frequency $\\omega$ and period $T$.\nb. Write the equation of motion $x(t)$.\nc. Compute total mechanical energy $E$ and maximum speed $v_{\\max}$.",
+            "officialSolutionKm": "ក. ពុលសាស្យុងស្វ័យប្រវត្ត និងខួប៖\n- $\\omega = \\sqrt{\\frac{k}{m}} = \\sqrt{\\frac{80}{0.2}} = \\sqrt{400} = 20\\text{ rad/s}$។\n- $T = \\frac{2\\pi}{\\omega} = \\frac{2\\pi}{20} = \\frac{\\pi}{10} \\approx 0.314\\text{ s}$។\n\nខ. សមីការចលនា $x(t) = X_m\\cos(\\omega t + \\varphi)$៖\n- $X_m = 0.05\\text{ m}$។\n- នៅ $t = 0$: $x(0) = X_m\\cos\\varphi = X_m \\implies \\cos\\varphi = 1 \\implies \\varphi = 0\\text{ rad}$។\nដូចនេះ សមីការចលនាគឺ $x(t) = 0.05\\cos(20t)\\text{ (m)}$។\n\nគ. ថាមពលមេកានិច និងល្បឿនអតិបរមា៖\n- ថាមពលមេកានិច $E = \\frac{1}{2}kX_m^2 = \\frac{1}{2}(80)(0.05)^2 = 40 \\times 0.0025 = 0.1\\text{ J}$។\n- ល្បឿនអតិបរមា $v_{\\max} = \\omega X_m = 20 \\times 0.05 = 1\\text{ m/s}$ (ឬតាម $E = \\frac{1}{2}mv_{\\max}^2 \\implies v_{\\max} = \\sqrt{2E/m} = \\sqrt{0.2/0.2} = 1\\text{ m/s}$)។",
+            "officialSolutionEn": "omega = 20 rad/s, T = 0.314 s. x(t) = 0.05*cos(20t) m. Energy E = 0.1 J, vmax = 1 m/s.",
+            "scoringCriteriaKm": [
+                  "ក. គណនាឃើញ omega = 20 rad/s និង T = 0.314 s (៦ ពិន្ទុ)",
+                  "ខ. កំណត់ផាសដើម phi = 0 និងសរសេរសមីការ x(t) = 0.05 cos(20t) m (៧ ពិន្ទុ)",
+                  "គ. គណនាថាមពលមេកានិច E = 0.1 J និងល្បឿន vmax = 1 m/s (៧ ពិន្ទុ)"
+            ],
+            "keyFormulas": [
+                  "\\omega = \\sqrt{\\frac{k}{m}}",
+                  "T = \\frac{2\\pi}{\\omega}",
+                  "E = \\frac{1}{2}kX_m^2 = \\frac{1}{2}mv_{\\max}^2"
+            ]
+      },
+      {
+            "questionNumber": 2,
+            "points": 15,
+            "titleKm": "លំហាត់ទី ២៖ រលកសូរស័ព្ទ (Acoustic Waves)",
+            "titleEn": "Problem 2: Sound Intensity & Decibel Level",
+            "problemTextKm": "ប្រភពសំឡេងចំណុចមួយបញ្ចេញថាមពលសូរស័ព្ទដោយស្មើភាពគ្រប់ទិសក្នុងលំហដោយអានុភាព $P = 12.56\\text{ W}$ (គេយក $\\pi \\approx 3.14$)។ កម្រិតកំហាប់សំឡេងត្រចៀកមនុស្សអាចចាប់ផ្តើមឮគឺ $I_0 = 10^{-12}\\text{ W/m}^2$។\n\nក. គណនាកំហាប់សំឡេង $I$ នៅត្រង់ចំណុចមួយដែលមានចម្ងាយ $r = 10\\text{ m}$ ពីប្រភព។\n\nខ. គណនាកម្រិតកំហាប់សំឡេង $L$ គិតជាដេស៊ីបែល ($\\text{dB}$) នៅត្រង់ចំណុចនោះ។",
+            "problemTextEn": "A point sound source emits power $P = 12.56\\text{ W}$ uniformly in all directions. Threshold $I_0 = 10^{-12}\\text{ W/m}^2$.\na. Compute sound intensity $I$ at distance $r = 10\\text{ m}$.\nb. Compute sound level $L$ in decibels (dB).",
+            "officialSolutionKm": "ក. កំហាប់សំឡេង $I$ នៅចម្ងាយ $r = 10\\text{ m}$៖\n$I = \\frac{P}{4\\pi r^2} = \\frac{12.56}{4 \\times 3.14 \\times 10^2} = \\frac{12.56}{12.56 \\times 100} = \\frac{1}{100} = 0.01\\text{ W/m}^2 = 10^{-2}\\text{ W/m}^2$។\n\nខ. កម្រិតកំហាប់សំឡេង $L$ គិតជា $\\text{dB}$៖\n$L = 10\\log_{10}\\left(\\frac{I}{I_0}\\right) = 10\\log_{10}\\left(\\frac{10^{-2}}{10^{-12}}\\right) = 10\\log_{10}(10^{10}) = 10 \\times 10 = 100\\text{ dB}$។",
+            "officialSolutionEn": "Intensity I = 10^-2 W/m^2, Sound level L = 10*log(10^10) = 100 dB.",
+            "scoringCriteriaKm": [
+                  "ក. អនុវត្តរូបមន្ត I = P / (4*pi*r^2) គណនាឃើញ I = 10^-2 W/m^2 (៧ ពិន្ទុ)",
+                  "ខ. អនុវត្តរូបមន្ត L = 10 log(I/I0) គណនាឃើញ L = 100 dB (៨ ពិន្ទុ)"
+            ],
+            "keyFormulas": [
+                  "I = \\frac{P}{4\\pi r^2}",
+                  "L = 10\\log_{10}\\left(\\frac{I}{I_0}\\right)"
+            ]
+      },
+      {
+            "questionNumber": 3,
+            "points": 20,
+            "titleKm": "លំហាត់ទី ៣៖ ចរន្តអគ្គិសនីឆ្លាស់ (Alternating Current Circuits)",
+            "titleEn": "Problem 3: RLC Series Circuit",
+            "problemTextKm": "សៀគ្វីអគ្គិសនីមួយតជាស៊េរីរួមមាន រេស៊ីស្តង់ $R = 40\\ \\Omega$, បូប៊ីនសុទ្ធមានអាំងឌុចតង់ $L = \\frac{0.3}{\\pi}\\text{ H}$, និងកាប៉ាស៊ីទ័រមានកាប៉ាស៊ីតេ $C = \\frac{10^{-4}}{\\pi}\\text{ F}$។ គេភ្ជាប់ចុងទាំងពីរនៃសៀគ្វីទៅនឹងតង់ស្យុងឆ្លាស់ $u(t) = 120\\sqrt{2}\\cos(100\\pi t)\\text{ (V)}$។\n\nក. គណនាអាំងពែដង់អាំងឌុចទីវ $Z_L$, អាំងពែដង់កាប៉ាស៊ីទីវ $Z_C$, និងអាំងពែដង់សរុប $Z$ នៃសៀគ្វី។\n\nខ. គណនាអាំងតង់ស៊ីតេចរន្តប្រសិទ្ធ $I$ ក្នុងសៀគ្វី និងមេគុណអានុភាព $\\cos\\varphi$។",
+            "problemTextEn": "RLC series circuit with $R = 40\\ \\Omega, L = 0.3/\\pi\\text{ H}, C = 10^{-4}/\\pi\\text{ F}$, connected to $u(t) = 120\\sqrt{2}\\cos(100\\pi t)\\text{ V}$.\na. Compute inductive reactance $Z_L$, capacitive reactance $Z_C$, and total impedance $Z$.\nb. Compute RMS current $I$ and power factor $\\cos\\varphi$.",
+            "officialSolutionKm": "ក. គណនាអាំងពែដង់នីមួយៗ (ពុលសាស្យុង $\\omega = 100\\pi\\text{ rad/s}$)៖\n- $Z_L = L\\omega = \\left(\\frac{0.3}{\\pi}\\right)(100\\pi) = 30\\ \\Omega$។\n- $Z_C = \\frac{1}{C\\omega} = \\frac{1}{\\left(\\frac{10^{-4}}{\\pi}\\right)(100\\pi)} = \\frac{1}{10^{-2}} = 100\\ \\Omega$។\n- អាំងពែដង់សរុប $Z = \\sqrt{R^2 + (Z_L - Z_C)^2} = \\sqrt{40^2 + (30 - 100)^2} = \\sqrt{1600 + (-70)^2} = \\sqrt{1600 + 4900} = \\sqrt{6500} \\approx 80.62\\ \\Omega$។\n\nខ. ចរន្តប្រសិទ្ធ និងមេគុណអានុភាព៖\n- តង់ស្យុងប្រសិទ្ធ $U = 120\\text{ V}$។\n- ចរន្តប្រសិទ្ធ $I = \\frac{U}{Z} = \\frac{120}{80.62} \\approx 1.49\\text{ A}$។\n- មេគុណអានុភាព $\\cos\\varphi = \\frac{R}{Z} = \\frac{40}{80.62} \\approx 0.496$ (ចរន្តមុនតង់ស្យុងព្រោះ $Z_C > Z_L$)។",
+            "officialSolutionEn": "ZL = 30 ohms, ZC = 100 ohms, Z = sqrt(40^2 + 70^2) = 80.62 ohms. RMS current I = 1.49 A, power factor cos(phi) = 0.496.",
+            "scoringCriteriaKm": [
+                  "ក. គណនា ZL = 30 ohm, ZC = 100 ohm និង Z = 80.62 ohm (១០ ពិន្ទុ)",
+                  "ខ. គណនា I = U/Z = 1.49 A និង cos(phi) = R/Z = 0.496 (១០ ពិន្ទុ)"
+            ],
+            "keyFormulas": [
+                  "Z_L = L\\omega",
+                  "Z_C = \\frac{1}{C\\omega}",
+                  "Z = \\sqrt{R^2 + (Z_L - Z_C)^2}",
+                  "I = \\frac{U}{Z}, \\quad \\cos\\varphi = \\frac{R}{Z}"
+            ]
+      },
+      {
+            "questionNumber": 4,
+            "points": 20,
+            "titleKm": "លំហាត់ទី ៤៖ រូបវិទ្យានុយក្លេអ៊ែរ (Nuclear Physics)",
+            "titleEn": "Problem 4: Radioactive Decay of Cobalt-60",
+            "problemTextKm": "កូបាល់-៦០ ($^{60}_{27}\\text{Co}$) ជាជាតិវិទ្យុសកម្មដែលបញ្ចេញភាគល្អិត $\\beta^-$ បំប្លែងទៅជានីកែល ($^{A}_{Z}\\text{Ni}$) ដោយមានខួបបំណាក់ពាក់កណ្តាល $T = 5.27\\text{ ឆ្នាំ}$។\n\nក. សរសេរសមីការបំបែកនុយក្លេអ៊ែរ និងកំណត់តម្លៃលេខម៉ាស $A$ និងចំនួនបន្ទុក $Z$ នៃនីកែល។\n\nខ. គណនាថេរវិទ្យុសកម្ម $\\lambda$ នៃ $^{60}_{27}\\text{Co}$ គិតជា $\\text{ឆ្នាំ}^{-1}$។\n\nគ. ប្រសិនបើសំណាកដើមមានម៉ាស $m_0 = 10\\text{ g}$ តើក្រោយរយៈពេល $t = 15.81\\text{ ឆ្នាំ}$ ម៉ាសកូបាល់ដែលនៅសល់ស្មើនឹងប៉ុន្មានក្រាម?",
+            "problemTextEn": "Cobalt-60 ($^{60}_{27}\\text{Co}$) decays via $\\beta^-$ emission to Nickel ($^{A}_{Z}\\text{Ni}$) with half-life $T = 5.27\\text{ years}$.\na. Write the nuclear decay equation and find A and Z.\nb. Compute decay constant $\\lambda$ in $\\text{year}^{-1}$.\nc. If initial mass is $m_0 = 10\\text{ g}$, find the remaining mass after $t = 15.81\\text{ years}$.",
+            "officialSolutionKm": "ក. សមីការបំបែកវិទ្យុសកម្ម $\\beta^-$ ($^0_{-1}e$)៖\n$^{60}_{27}\\text{Co} \\to ^{A}_{Z}\\text{Ni} + ^0_{-1}e$។\nតាមច្បាប់រក្សាលេខម៉ាស និងបន្ទុក (Soddy)៖\n- $60 = A + 0 \\implies A = 60$\n- $27 = Z - 1 \\implies Z = 28$។\nសមីការពេញលេញ៖ $^{60}_{27}\\text{Co} \\to ^{60}_{28}\\text{Ni} + ^0_{-1}e$។\n\nខ. ថេរវិទ្យុសកម្ម $\\lambda$៖\n$\\lambda = \\frac{\\ln 2}{T} = \\frac{0.693}{5.27} \\approx 0.1315\\text{ ឆ្នាំ}^{-1}$។\n\nគ. ម៉ាសដែលនៅសល់ក្រោយពេល $t = 15.81\\text{ ឆ្នាំ}$៖\nផលធៀបរយៈពេល $n = \\frac{t}{T} = \\frac{15.81}{5.27} = 3$ (ត្រូវជា ៣ ដងនៃខួបពាក់កណ្តាល)។\nម៉ាសនៅសល់ $m(t) = \\frac{m_0}{2^n} = \\frac{10}{2^3} = \\frac{10}{8} = 1.25\\text{ g}$។",
+            "officialSolutionEn": "Nuclear reaction: 60/27 Co -> 60/28 Ni + 0/-1 e. Decay constant lambda = 0.1315 year^-1. After 3 half-lives, remaining mass = 1.25 g.",
+            "scoringCriteriaKm": [
+                  "ក. អនុវត្តច្បាប់រក្សា Soddy រកឃើញ A = 60, Z = 28 និងសរសេរសមីការ (៧ ពិន្ទុ)",
+                  "ខ. គណនាថេរវិទ្យុសកម្ម lambda = 0.1315 year^-1 (៦ ពិន្ទុ)",
+                  "គ. រកឃើញ n = 3 និងគណនាម៉ាសនៅសល់ m = 1.25 g (៧ ពិន្ទុ)"
+            ],
+            "keyFormulas": [
+                  "^{A}_{Z}X \\to ^{A}_{Z+1}Y + ^0_{-1}e",
+                  "\\lambda = \\frac{\\ln 2}{T}",
+                  "m(t) = m_0 \\cdot 2^{-t/T}"
+            ]
+      }
+],
     "notes": "Official MoEYS 2014 Bac II examination paper archive."
   },
   {
@@ -9980,7 +10159,85 @@ export const HISTORICAL_EXAM_ARCHIVE: HistoricalExamPaper[] = [
         "noteKm": "សម្រាប់អាស៊ីតម៉ូណូបាស និងបាសម៉ូណូអាស៊ីត"
       }
     ],
-    "questions": [],
+    "questions": [
+      {
+            "questionNumber": 1,
+            "points": 15,
+            "titleKm": "លំហាត់ទី ១៖ ស៊ីនេទិចគីមី (Chemical Kinetics)",
+            "titleEn": "Problem 1: Reaction Rate & Factors",
+            "problemTextKm": "គេឱ្យលោហៈស័ង្កសី ($\\text{Zn}$) មានអំពើជាមួយសូលុយស្យុងអាស៊ីតក្លរីឌ្រិច ($\\text{HCl}$) តាមសមីការ៖\n$$\\text{Zn (s)} + 2\\text{HCl (aq)} \\to \\text{ZnCl}_2\\text{ (aq)} + \\text{H}_2\\text{ (g)}$$\n\nក. ប្រាប់កត្តា ៣ យ៉ាងដែលអាចបង្កើនល្បឿននៃប្រតិកម្មខាងលើនេះ។\n\nខ. ក្នុងរយៈពេល $\\Delta t = 2\\text{ នាទី} = 120\\text{ s}$ គេប្រមូលបានឧស្ម័ន $\\text{H}_2$ ចំនួន $V = 448\\text{ mL} = 0.448\\text{ L}$ នៅលក្ខខណ្ឌធម្មតា ($V_m = 22.4\\text{ L/mol}$)។ គណនាល្បឿនមធ្យមនៃការកកើតឧស្ម័ន $\\text{H}_2$ គិតជា $\\text{mol/s}$។",
+            "problemTextEn": "Reaction: Zn(s) + 2HCl(aq) -> ZnCl2(aq) + H2(g).\na. State 3 factors that increase the reaction rate.\nb. In 2 minutes, 448 mL of H2 is collected at STP (Vm = 22.4 L/mol). Compute the average rate of H2 formation in mol/s.",
+            "officialSolutionKm": "ក. កត្តា ៣ យ៉ាងដែលបង្កើនល្បឿនប្រតិកម្ម៖\n1. ការបង្កើនកំហាប់នៃសូលុយស្យុងអាស៊ីត $\\text{HCl}$។\n2. ការបង្កើនសីតុណ្ហភាពនៃមជ្ឈដ្ឋានប្រតិកម្ម។\n3. ការបង្កើនផ្ទៃប៉ះនៃលោហៈស័ង្កសី (ប្រើម្សៅស័ង្កសីជំនួសបន្ទះស័ង្កសី)។\n\nខ. ល្បឿនមធ្យមនៃការកកើត $\\text{H}_2$៖\n- ចំនួនម៉ូល $\\text{H}_2$ ដែលកកើត៖ $n(\\text{H}_2) = \\frac{V}{V_m} = \\frac{0.448}{22.4} = 0.02\\text{ mol}$។\n- រយៈពេលគិតជាវិនាទី៖ $\\Delta t = 2 \\times 60 = 120\\text{ s}$។\n- ល្បឿនមធ្យម $v_m(\\text{H}_2) = \\frac{\\Delta n}{\\Delta t} = \\frac{0.02}{120} = \\frac{2 \\times 10^{-2}}{1.2 \\times 10^2} \\approx 1.67 \\times 10^{-4}\\text{ mol/s}$។",
+            "officialSolutionEn": "Factors: acid concentration, temperature, surface area. Moles H2 = 0.02 mol. Rate = 0.02 / 120 = 1.67 x 10^-4 mol/s.",
+            "scoringCriteriaKm": [
+                  "ក. រៀបរាប់កត្តា ៣ យ៉ាងត្រឹមត្រូវ (កំហាប់ សីតុណ្ហភាព ផ្ទៃប៉ះ) (៦ ពិន្ទុ)",
+                  "ខ. គណនាចំនួនម៉ូល n(H2) = 0.02 mol និងល្បឿន vm = 1.67 x 10^-4 mol/s (៩ ពិន្ទុ)"
+            ],
+            "keyFormulas": [
+                  "n = \\frac{V}{V_m}",
+                  "v_m = \\frac{\\Delta n}{\\Delta t}"
+            ]
+      },
+      {
+            "questionNumber": 2,
+            "points": 20,
+            "titleKm": "លំហាត់ទី ២៖ អាស៊ីត-បាស និង pH (Acids, Bases & pH)",
+            "titleEn": "Problem 2: Weak Acid Dissociation",
+            "problemTextKm": "សូលុយស្យុងអាស៊ីតអេតាណូអ៊ិច ($\\text{CH}_3\\text{COOH}$) មានកំហាប់ $C = 0.1\\text{ M}$ មាន $\\text{pH} = 2.88$ នៅសីតុណ្ហភាព $25^\\circ\\text{C}$ (គេឱ្យ $10^{-2.88} \\approx 1.32 \\times 10^{-3}$)។\n\nក. គណនាកំហាប់អ៊ីយ៉ុងអុីដ្រូញ៉ូម $[\\text{H}_3\\text{O}^+]$ ក្នុងសូលុយស្យុង។\n\nខ. គណនាអត្រាបំបែក $\\alpha$ (កម្រិតបំបែក) នៃអាស៊ីតអេតាណូអ៊ិច។ តើអាស៊ីតនេះជាអាស៊ីតខ្លាំង ឬខ្សោយ?\n\nគ. គណនាថេរអាស៊ីត $K_a$ នៃគូ $\\text{CH}_3\\text{COOH} / \\text{CH}_3\\text{COO}^-$។",
+            "problemTextEn": "A 0.1 M solution of ethanoic acid has pH = 2.88 (given 10^-2.88 = 1.32 x 10^-3).\na. Compute [H3O+].\nb. Compute degree of dissociation alpha. Is it a strong or weak acid?\nc. Compute the acidity constant Ka.",
+            "officialSolutionKm": "ក. កំហាប់ $[\\text{H}_3\\text{O}^+]$៖\n$[\\text{H}_3\\text{O}^+] = 10^{-\\text{pH}} = 10^{-2.88} = 1.32 \\times 10^{-3}\\text{ M}$។\n\nខ. អត្រាបំបែក $\\alpha$៖\n$\\alpha = \\frac{[\\text{H}_3\\text{O}^+]}{C} = \\frac{1.32 \\times 10^{-3}}{0.1} = 0.0132 = 1.32\\%$។\nដោយសារ $\\alpha = 1.32\\% \\ll 100\\%$ ដូចនេះ អាស៊ីតអេតាណូអ៊ិចជាអាស៊ីតខ្សោយ (បំបែកមិនសព្វក្នុងទឹក)។\n\nគ. ថេរអាស៊ីត $K_a$៖\nសមីការបំបែក៖ $\\text{CH}_3\\text{COOH} + \\text{H}_2\\text{O} \\rightleftharpoons \\text{CH}_3\\text{COO}^- + \\text{H}_3\\text{O}^+$។\n$[\\text{CH}_3\\text{COO}^-] = [\\text{H}_3\\text{O}^+] = 1.32 \\times 10^{-3}\\text{ M}$។\n$[\\text{CH}_3\\text{COOH}] = C - [\\text{H}_3\\text{O}^+] \\approx 0.1\\text{ M}$ (ព្រោះបំបែកតិចតួច)។\n$K_a = \\frac{[\\text{CH}_3\\text{COO}^-][\\text{H}_3\\text{O}^+]}{[\\text{CH}_3\\text{COOH}]} = \\frac{(1.32 \\times 10^{-3})^2}{0.1} = \\frac{1.74 \\times 10^{-6}}{0.1} = 1.74 \\times 10^{-5}$។",
+            "officialSolutionEn": "[H3O+] = 1.32 x 10^-3 M. alpha = 1.32% (weak acid). Ka = (1.32 x 10^-3)^2 / 0.1 = 1.74 x 10^-5.",
+            "scoringCriteriaKm": [
+                  "ក. គណនា [H3O+] = 1.32 x 10^-3 M (៦ ពិន្ទុ)",
+                  "ខ. គណនា alpha = 1.32% និងសន្និដ្ឋានជាអាស៊ីតខ្សោយ (៧ ពិន្ទុ)",
+                  "គ. អនុវត្តកន្សោម Ka គណនាឃើញ Ka = 1.74 x 10^-5 (៧ ពិន្ទុ)"
+            ],
+            "keyFormulas": [
+                  "[\\text{H}_3\\text{O}^+] = 10^{-\\text{pH}}",
+                  "\\alpha = \\frac{[\\text{H}_3\\text{O}^+]}{C}",
+                  "K_a = \\frac{[\\text{A}^-][\\text{H}_3\\text{O}^+]}{[\\text{HA}]}"
+            ]
+      },
+      {
+            "questionNumber": 3,
+            "points": 20,
+            "titleKm": "លំហាត់ទី ៣៖ គីមីសរីរាង្គ — អេស្ទែ (Organic Chemistry — Esters)",
+            "titleEn": "Problem 3: Esterification & Yield",
+            "problemTextKm": "គេឱ្យអាស៊ីតអេតាណូអ៊ិច ($\\text{CH}_3\\text{COOH}$) ចំនួន $0.5\\text{ mol}$ មានអំពើជាមួយអេតាណុល ($\\text{C}_2\\text{H}_5\\text{OH}$) ចំនួន $0.5\\text{ mol}$ ដោយមានវត្តមានអាស៊ីតស៊ុលផួរិចខាប់ជាកាតាលីករ។\n\nក. សរសេរសមីការគីមីតាងប្រតិកម្ម និងប្រាប់ឈ្មោះផលិតផលអេស្ទែដែលកកើត។\n\nខ. ប្រាប់លក្ខណៈ ៣ យ៉ាងនៃប្រតិកម្មអេស្ទែកម្មនេះ។\n\nគ. គណនាម៉ាសអេស្ទែកកើតនៅពេលលំនឹង ដោយដឹងថាទិន្នផលនៃប្រតិកម្មស្មើនឹង $67\\%$ (គេឱ្យ $C=12, H=1, O=16$)។",
+            "problemTextEn": "Reaction between 0.5 mol CH3COOH and 0.5 mol C2H5OH with H2SO4 catalyst.\na. Write reaction equation and name the ester product.\nb. State 3 characteristics of esterification.\nc. Compute mass of ester formed at equilibrium (yield = 67%).",
+            "officialSolutionKm": "ក. សមីការតាងប្រតិកម្មអេស្ទែកម្ម៖\n$$\\text{CH}_3\\text{COOH} + \\text{C}_2\\text{H}_5\\text{OH} \\underset{\\Delta}{\\overset{\\text{H}_2\\text{SO}_4}{\\rightleftharpoons}} \\text{CH}_3\\text{COOC}_2\\text{H}_5 + \\text{H}_2\\text{O}$$\nឈ្មោះផលិតផលអេស្ទែ៖ **អេទីលអេតាណូអាត (Ethyl ethanoate)**។\n\nខ. លក្ខណៈ ៣ នៃប្រតិកម្មអេស្ទែកម្ម៖\n1. ជាប្រតិកម្មទៅមក (ទ្វេទិស / Reversible)។\n2. ជាប្រតិកម្មយឺត (Slow)។\n3. ជាប្រតិកម្មឥតកម្ដៅ (Athermic: $\\Delta H \\approx 0$)។\n\nគ. គណនាម៉ាសអេស្ទែដែលកកើត៖\n- ចំនួនម៉ូលទ្រឹស្តី $n_{\\text{th}} = 0.5\\text{ mol}$។\n- ចំនួនម៉ូលជាក់ស្តែងនៅលំនឹង ($67\\%$)៖ $n_{\\text{act}} = 0.5 \\times \\frac{67}{100} = 0.335\\text{ mol}$។\n- ម៉ាសម៉ូលនៃ $\\text{CH}_3\\text{COOC}_2\\text{H}_5$: $M = 4(12) + 8(1) + 2(16) = 48 + 8 + 32 = 88\\text{ g/mol}$។\n- ម៉ាសអេស្ទែ៖ $m = n_{\\text{act}} \\times M = 0.335 \\times 88 = 29.48\\text{ g}$។",
+            "officialSolutionEn": "Equation: CH3COOH + C2H5OH <=> CH3COOC2H5 + H2O. Ester: ethyl ethanoate. Characteristics: reversible, slow, athermic. Mass = 0.335 mol x 88 g/mol = 29.48 g.",
+            "scoringCriteriaKm": [
+                  "ក. សរសេរសមីការទ្វេទិសត្រឹមត្រូវ និងដាក់ឈ្មោះ អេទីលអេតាណូអាត (៧ ពិន្ទុ)",
+                  "ខ. រៀបរាប់លក្ខណៈ ៣ (ទៅមក យឺត ឥតកម្ដៅ) (៦ ពិន្ទុ)",
+                  "គ. គណនាម៉ាសម៉ូល M = 88 g/mol និងម៉ាស m = 29.48 g (៧ ពិន្ទុ)"
+            ],
+            "keyFormulas": [
+                  "\\text{RCOOH} + \\text{R'OH} \\rightleftharpoons \\text{RCOOR'} + \\text{H}_2\\text{O}",
+                  "n_{\\text{act}} = n_{\\text{th}} \\times \\frac{\\text{Yield}\\%}{100}",
+                  "m = n \\times M"
+            ]
+      },
+      {
+            "questionNumber": 4,
+            "points": 20,
+            "titleKm": "លំហាត់ទី ៤៖ សាប៊ូនីកម្ម និងខ្លាញ់ (Saponification & Lipids)",
+            "titleEn": "Problem 4: Saponification of Tristearin",
+            "problemTextKm": "គេយកទ្រីស្តេអារីន ($\\text{C}_{57}\\text{H}_{110}\\text{O}_6$ ឬ $(\\text{C}_{17}\\text{H}_{35}\\text{COO})_3\\text{C}_3\\text{H}_5$) ចំនួន $m = 8.9\\text{ kg}$ ឱ្យមានអំពើជាមួយសូលុយស្យុងសូដ្យូមអ៊ីដ្រុកស៊ីត ($\\text{NaOH}$) លើស ដើម្បីផលិតសាប៊ូ។\n\nក. សរសេរសមីការគីមីនៃប្រតិកម្មសាប៊ូនីកម្ម និងប្រាប់ឈ្មោះផលិតផលបន្ទាប់បន្សំដែលទទួលបាន។\n\nខ. គណនាម៉ាសសាប៊ូសូដ្យូមស្តេអារ៉ាត ($\\text{C}_{17}\\text{H}_{35}\\text{COONa}$) ដែលទទួលបាន ប្រសិនបើប្រតិកម្មប្រព្រឹត្តទៅបានពេញលេញ ($100\\%$) (គេឱ្យ $C=12, H=1, O=16, Na=23$)។",
+            "problemTextEn": "Saponification of 8.9 kg of tristearin with excess NaOH.\na. Write balanced saponification equation and name the byproduct.\nb. Compute mass of sodium stearate soap produced (100% yield).",
+            "officialSolutionKm": "ក. សមីការតាងប្រតិកម្មសាប៊ូនីកម្ម៖\n$$(\\text{C}_{17}\\text{H}_{35}\\text{COO})_3\\text{C}_3\\text{H}_5 + 3\\text{NaOH} \\xrightarrow{\\Delta} 3\\text{C}_{17}\\text{H}_{35}\\text{COONa} + \\text{C}_3\\text{H}_5(\\text{OH})_3$$\nឈ្មោះផលិតផលបន្ទាប់បន្សំគឺ៖ **គ្លីសេរ៉ុល (Glycerol ឬ គ្លីសេរីន)**។\n\nខ. គណនាម៉ាសសាប៊ូដែលទទួលបាន៖\n- ម៉ាសម៉ូលទ្រីស្តេអារីន $M_1 = 3(17 \\times 12 + 35 + 44) + 41 = 3(283) + 41 = 849 + 41 = 890\\text{ g/mol}$។\n- ចំនួនម៉ូលទ្រីស្តេអារីន៖ $n = \\frac{8900\\text{ g}}{890\\text{ g/mol}} = 10\\text{ mol}$។\n- តាមសមីការ ចំនួនម៉ូលសាប៊ូដែលកកើតគឺ៖ $n_{\\text{soap}} = 3 \\times n = 3 \\times 10 = 30\\text{ mol}$។\n- ម៉ាសម៉ូលសូដ្យូមស្តេអារ៉ាត ($\\text{C}_{17}\\text{H}_{35}\\text{COONa}$)៖\n  $M_2 = 17(12) + 35(1) + 12 + 32 + 23 = 204 + 35 + 67 = 306\\text{ g/mol}$។\n- ម៉ាសសាប៊ូដែលទទួលបាន៖\n  $m_{\\text{soap}} = n_{\\text{soap}} \\times M_2 = 30 \\times 306 = 9180\\text{ g} = 9.18\\text{ kg}$។",
+            "officialSolutionEn": "Saponification equation produces 3 sodium stearate + 1 glycerol. Moles tristearin = 8.9 kg / 890 g/mol = 10 mol. Soap = 30 mol x 306 g/mol = 9.18 kg.",
+            "scoringCriteriaKm": [
+                  "ក. សរសេរសមីការត្រឹមត្រូវ និងប្រាប់ឈ្មោះ គ្លីសេរ៉ុល (៧ ពិន្ទុ)",
+                  "ខ. គណនាចំនួនម៉ូលទ្រីស្តេអារីន n = 10 mol និងម៉ាសសាប៊ូ m = 9.18 kg (១៣ ពិន្ទុ)"
+            ],
+            "keyFormulas": [
+                  "(\\text{RCOO})_3\\text{C}_3\\text{H}_5 + 3\\text{NaOH} \\to 3\\text{RCOONa} + \\text{C}_3\\text{H}_5(\\text{OH})_3",
+                  "n_{\\text{soap}} = 3 n_{\\text{fat}}",
+                  "m = n \\times M"
+            ]
+      }
+],
     "notes": "Official MoEYS 2014 Bac II examination paper archive."
   },
   {
@@ -10039,7 +10296,86 @@ export const HISTORICAL_EXAM_ARCHIVE: HistoricalExamPaper[] = [
         "noteKm": "N ជាចំនួននុយក្លេអូទីតសរុប"
       }
     ],
-    "questions": [],
+    "questions": [
+      {
+            "questionNumber": 1,
+            "points": 20,
+            "titleKm": "លំហាត់ទី ១៖ ហ្សែន និងម៉ូលេគុល ADN (Genetics & DNA Molecular Structure)",
+            "titleEn": "Problem 1: DNA Calculations & Hydrogen Bonds",
+            "problemTextKm": "ម៉ូលេគុល $\\text{ADN}$ មួយមានប្រវែង $L = 5100\\text{ \\AA} = 510\\text{ nm}$ ហើយមានចំនួននុយក្លេអូទីតប្រភេទអាដេនីន $A = 600$។\n\nក. គណនាចំនួននុយក្លេអូទីតសរុប $N$ នៃម៉ូលេគុល $\\text{ADN}$ នោះ។\n\nខ. គណនាចំនួននុយក្លេអូទីតប្រភេទនីមួយៗ ($A, T, G, C$)។\n\nគ. គណនាចំនួនសម្ព័ន្ធអ៊ីដ្រូសែន $H$ ទាំងអស់ដែលមានក្នុងម៉ូលេគុល $\\text{ADN}$ នោះ។\n\nឃ. គណនាម៉ាសម៉ូលេគុល $M$ នៃម៉ូលេគុល $\\text{ADN}$ (យកម៉ាសមធ្យមនៃ ១ នុយក្លេអូទីតគឺ $300\\text{ amu}$)។",
+            "problemTextEn": "A DNA molecule has length $L = 5100\\text{ \\AA}$ and Adenine count $A = 600$.\na. Compute total nucleotides $N$.\nb. Compute quantity of each nucleotide type ($A, T, G, C$).\nc. Compute total hydrogen bonds $H$.\nd. Compute molecular mass $M$ (average 300 amu per nucleotide).",
+            "officialSolutionKm": "ក. ចំនួននុយក្លេអូទីតសរុប $N$៖\nតាមរូបមន្តប្រវែង $\\text{ADN}$: $L = \\frac{N}{2} \\times 3.4\\text{ \\AA}$ (ព្រោះ ១ គូមានប្រវែង $3.4\\text{ \\AA}$)។\n$\\implies N = \\frac{2L}{3.4} = \\frac{2 \\times 5100}{3.4} = \\frac{10200}{3.4} = 3000\\text{ នុយក្លេអូទីត}$។\n\nខ. ចំនួននុយក្លេអូទីតប្រភេទនីមួយៗ (តាមគោលការណ៍បំពេញបាស Chargaff)៖\n- $A = T = 600\\text{ នុយក្លេអូទីត}$។\n- $A + T + G + C = N \\implies 2A + 2G = 3000 \\implies 2(600) + 2G = 3000$\n  $\\implies 2G = 3000 - 1200 = 1800 \\implies G = C = 900\\text{ នុយក្លេអូទីត}$។\n\nគ. ចំនួនសម្ព័ន្ធអ៊ីដ្រូសែន $H$៖\n$A$ ភ្ជាប់ $T$ ដោយសម្ព័ន្ធ ២; $G$ ភ្ជាប់ $C$ ដោយសម្ព័ន្ធ ៣៖\n$H = 2A + 3G = 2(600) + 3(900) = 1200 + 2700 = 3900\\text{ សម្ព័ន្ធ}$។\n\nឃ. ម៉ាសម៉ូលេគុល $\\text{ADN}$៖\n$M = N \\times 300\\text{ amu} = 3000 \\times 300 = 900\\,000\\text{ amu}$ (ឬ ដាល់តុង)។",
+            "officialSolutionEn": "Total N = 3000 nucleotides. A = T = 600, G = C = 900. Hydrogen bonds H = 2A + 3G = 3900. Mass M = 3000 x 300 = 900,000 amu.",
+            "scoringCriteriaKm": [
+                  "ក. អនុវត្តរូបមន្ត L គណនាឃើញ N = 3000 នុយក្លេអូទីត (៥ ពិន្ទុ)",
+                  "ខ. រកឃើញ A = T = 600 និង G = C = 900 (៥ ពិន្ទុ)",
+                  "គ. អនុវត្តរូបមន្ត H = 2A + 3G គណនាឃើញ 3900 សម្ព័ន្ធ (៥ ពិន្ទុ)",
+                  "ឃ. គណនាម៉ាស M = 900,000 amu (៥ ពិន្ទុ)"
+            ],
+            "keyFormulas": [
+                  "L = \\frac{N}{2} \\times 3.4\\text{ \\AA}",
+                  "N = 2A + 2G",
+                  "H = 2A + 3G",
+                  "M = N \\times 300\\text{ amu}"
+            ]
+      },
+      {
+            "questionNumber": 2,
+            "points": 20,
+            "titleKm": "លំហាត់ទី ២៖ ពន្ធុវិទ្យាម៉ង់ដែល (Mendelian Genetics)",
+            "titleEn": "Problem 2: Monohybrid & Dihybrid Cross",
+            "problemTextKm": "នៅរុក្ខជាតិតាសក់ គេឱ្យអាឡែល $A$ កំណត់ផ្លែរលោង ត្រួតលើអាឡែល $a$ កំណត់ផ្លែគគ្រើម។ អាឡែល $B$ កំណត់ផ្លែវែង ត្រួតលើអាឡែល $b$ កំណត់ផ្លែមូល។ ហ្សែនទាំងពីរនេះស្ថិតនៅលើក្រូម៉ូសូមផ្សេងគ្នា (ប្លែកគ្នា)។\n\nក. កំណត់សែនប្រភេទ និងរូបប្រភេទនៃជំនាន់កូន $F_1$ កើតចេញពីការបង្កាត់រវាងមេបាពូជសុទ្ធផ្លែរលោង-វែង ជាមួយផ្លែគគ្រើម-មូល។\n\nខ. ប្រសិនបើគេយកកូន $F_1$ ឱ្យស្វ័យបង្កាត់គ្នា ($F_1 \\times F_1$) តើសមាមាត្ររូបប្រភេទនៅជំនាន់ $F_2$ ស្មើនឹងប៉ុន្មាន?\n\nគ. ប្រសិនបើគេចង់ដឹងថាតើរុក្ខជាតិផ្លែរលោង-វែងមួយដើមជាពូជសុទ្ធឬអត់ តើគេត្រូវធ្វើដូចម្តេច?",
+            "problemTextEn": "Cucumber genetics: A (smooth) dominant to a (rough); B (long) dominant to b (round). Genes on different chromosomes.\na. Determine genotype and phenotype of F1 from homozygous smooth-long x rough-round.\nb. Determine phenotypic ratio of F2 from F1 x F1.\nc. How to test if a smooth-long plant is homozygous?",
+            "officialSolutionKm": "ក. កំណត់ $F_1$៖\n- មេបាពូជសុទ្ធ៖ ផ្លែរលោង-វែង ($AABB$) $\\times$ ផ្លែគគ្រើម-មូល ($aabb$)។\n- ហ្គាម៉ែតមេបា៖ $G_P: AB$ និង $ab$។\n- ជំនាន់ $F_1$៖ សែនប្រភេទ $AaBb$ ($100\\%$); រូបប្រភេទគឺ **ផ្លែរលោង-វែង** ទាំងអស់។\n\nខ. សមាមាត្ររូបប្រភេទនៅ $F_2$ ($F_1 \\times F_1: AaBb \\times AaBb$)៖\nតាមច្បាប់បំណែងចែកឯករាជ្យនៃអាឡែលរបស់ម៉ង់ដែល ជំនាន់ $F_2$ មាន ១៦ បន្សំ និងមាន ៤ រូបប្រភេទក្នុងសមាមាត្រ៖\n- ៩/១៦ ផ្លែរលោង-វែង ($A-B-$)\n- ៣/១៦ ផ្លែរលោង-មូល ($A-bb$)\n- ៣/១៦ ផ្លែគគ្រើម-វែង ($aaB-$)\n- ១/១៦ ផ្លែគគ្រើម-មូល ($aabb$)។\nផលធៀបរូបប្រភេទគឺ៖ **9 : 3 : 3 : 1**។\n\nគ. វិធីបញ្ជាក់ពូជសុទ្ធ (ការបង្កាត់តេស្ត / Testcross)៖\nគេត្រូវយកដើមផ្លែរលោង-វែងនោះ ទៅបង្កាត់ជាមួយបុគ្គលដែលមានរូបប្រភេទអន់សុទ្ធ (ផ្លែគគ្រើម-មូល $aabb$)៖\n- ប្រសិនបើកូនកើតមកមានរូបប្រភេទផ្លែរលោង-វែងទាំងអស់ ($100\\%$) នោះដើមនោះជាពូជសុទ្ធ ($AABB$)។\n- ប្រសិនបើកូនកើតមកបែកចែករូបប្រភេទ (មានផ្លែគគ្រើម ឬមូលលេចឡើង) នោះដើមនោះជាពូជកាត់ (មិនសុទ្ធ)។",
+            "officialSolutionEn": "F1 is 100% AaBb (smooth-long). F2 ratio is 9:3:3:1. Testcross with homozygous recessive aabb to determine homozygosity.",
+            "scoringCriteriaKm": [
+                  "ក. សរសេរសែនប្រភេទមេបា និងទាញរក F1: AaBb (ផ្លែរលោង-វែង) (៧ ពិន្ទុ)",
+                  "ខ. បញ្ជាក់សមាមាត្រ F2 តាមម៉ង់ដែលគឺ 9:3:3:1 (៧ ពិន្ទុ)",
+                  "គ. ពន្យល់ការបង្កាត់តេស្ត (Testcross) ជាមួយ aabb ត្រឹមត្រូវ (៦ ពិន្ទុ)"
+            ],
+            "keyFormulas": [
+                  "P: AABB \\times aabb \\implies F_1: AaBb",
+                  "F_2 = (3:1)(3:1) = 9:3:3:1",
+                  "\\text{Testcross}: A-B- \\times aabb"
+            ]
+      },
+      {
+            "questionNumber": 3,
+            "points": 20,
+            "titleKm": "លំហាត់ទី ៣៖ ប្រព័ន្ធប្រសាទ និងសរីរវិទ្យា (Nervous System & Physiology)",
+            "titleEn": "Problem 3: Neuron Action Potential & Synapse",
+            "problemTextKm": "ក. គូសប្លង់សង្ខេបនៃណឺរ៉ូនមួយ និងបញ្ជាក់ផ្នែកសំខាន់ៗទាំង ៤ របស់វា។\n\nខ. តើប្លង់ទង់ស្យុងសកម្ម (Action Potential) នៃណឺរ៉ូនមានប៉ុន្មានដំណាក់កាល? ចូររៀបរាប់ពីចលនានៃអ៊ីយ៉ុង $\\text{Na}^+$ និង $\\text{K}^+$ ក្នុងដំណាក់កាលនីមួយៗ។\n\nគ. តើស៊ីណាប់ (Synapse) ជាអ្វី? ចូរប្រាប់ឈ្មោះសារធាតុបញ្ជូនសរសៃប្រសាទ (Neurotransmitter) សំខាន់មួយ។",
+            "problemTextEn": "a. Diagram a neuron with its 4 main parts.\nb. Describe phases of an action potential and movement of Na+ and K+ ions.\nc. What is a synapse? Name an important neurotransmitter.",
+            "officialSolutionKm": "ក. ផ្នែកសំខាន់ៗទាំង ៤ នៃណឺរ៉ូន៖\n1. តួណឺរ៉ូន (Cell body ឬ Soma)៖ មានណ្វៃយ៉ូ និងស៊ីតូប្លាស។\n2. ដង់ឌ្រីត (Dendrites)៖ ទទួលព័ត៌មានពីណឺរ៉ូនដទៃនាំចូលតួ។\n3. អាក់សូន (Axon)៖ នាំអាំងភ្លុចប្រសាទចេញពីតួទៅចុងណឺរ៉ូន។\n4. ស្រោមមីយេលីន (Myelin sheath) និងចុងអាក់សូន៖ ជួយចម្លងអាំងភ្លុចប្រសាទបានលឿន។\n\nខ. ដំណាក់កាលនៃប្លង់ទង់ស្យុងសកម្ម៖\n- **ដំណាក់កាលសម្រាក (Resting state)**: ប៉ូឡាភាព $-70\\text{ mV}$ (បូម $\\text{Na}^+/\\text{K}^+$ បញ្ចេញ $3\\text{Na}^+$ បញ្ចូល $2\\text{K}^+$)។\n- **ដំណាក់កាលដឺប៉ូឡារីកម្ម (Depolarization)**: ច្រក $\\text{Na}^+$ បើក អ៊ីយ៉ុង $\\text{Na}^+$ ហូរចូលយ៉ាងលឿនក្នុងកោសិកា បណ្តាលឱ្យទង់ស្យុងឡើងដល់ $+30\\text{ mV}$។\n- **ដំណាក់កាលរឺប៉ូឡារីកម្ម (Repolarization)**: ច្រក $\\text{Na}^+$ បិទ ច្រក $\\text{K}^+$ បើក អ៊ីយ៉ុង $\\text{K}^+$ ហូរចេញក្រៅកោសិកា ទង់ស្យុងធ្លាក់ចុះមកអវិជ្ជមានវិញ។\n- **ដំណាក់កាលអ៊ីពែប៉ូឡារីកម្ម (Hyperpolarization)**: ច្រក $\\text{K}^+$ បិទយឺតយ៉ាវ ធ្វើឱ្យទង់ស្យុងធ្លាក់ចុះក្រោម $-70\\text{ mV}$ មុនពេលបូម $\\text{Na}^+/\\text{K}^+$ ស្តារតុល្យភាពឡើងវិញ។\n\nគ. ស៊ីណាប់ និងសារធាតុបញ្ជូន៖\n- ស៊ីណាប់ គឺជាកន្លែងតភ្ជាប់រវាងណឺរ៉ូនពីរ ឬរវាងណឺរ៉ូន និងកោសិកាឆ្លើយតប (សាច់ដុំ/ក្រពេញ) សម្រាប់បញ្ជូនព័ត៌មាន។\n- ឧទាហរណ៍សារធាតុបញ្ជូនប្រសាទ៖ **អាសេទីលកូលីន (Acetylcholine)** ឬ **ដូប៉ាមីន (Dopamine)**។",
+            "officialSolutionEn": "Neuron parts: soma, dendrites, axon, myelin sheath. Action potential phases: depolarization (Na+ in), repolarization (K+ out), hyperpolarization. Synapse transmits via acetylcholine.",
+            "scoringCriteriaKm": [
+                  "ក. រៀបរាប់ផ្នែកទាំង ៤ នៃណឺរ៉ូនបានពេញលេញ (៦ ពិន្ទុ)",
+                  "ខ. ពន្យល់ដំណាក់កាល ដឺប៉ូឡារីកម្ម រឺប៉ូឡារីកម្ម និងចលនា Na+/K+ (៨ ពិន្ទុ)",
+                  "គ. និយមន័យស៊ីណាប់ និងលើកឈ្មោះ អាសេទីលកូលីន (៦ ពិន្ទុ)"
+            ],
+            "keyFormulas": [
+                  "\\text{Resting Potential} = -70\\text{ mV}",
+                  "\\text{Action Potential Peak} = +30\\text{ mV}"
+            ]
+      },
+      {
+            "questionNumber": 4,
+            "points": 15,
+            "titleKm": "លំហាត់ទី ៤៖ អេកូឡូស៊ី និងបរិស្ថាន (Ecology & Energy Flow)",
+            "titleEn": "Problem 4: Trophic Levels & 10% Energy Rule",
+            "problemTextKm": "ក្នុងប្រព័ន្ធអេកូឡូស៊ីមួយមានខ្សែច្រវាក់អាហារដូចតទៅ៖\n$$\\text{ស្មៅ (អ្នកផលិត)} \\to \\text{កណ្តូប} \\to \\text{កង្កែប} \\to \\text{ពស់} \\to \\text{ឥន្ទ្រី}$$\n\nក. កំណត់កម្រិតត្រូភិច (Trophic Levels) នៃសារពាង្គកាយនីមួយៗក្នុងច្រវាក់អាហារខាងលើ។\n\nខ. ប្រសិនបើស្មៅទទួលបានថាមពលពន្លឺព្រះអាទិត្យ និងផលិតបានថាមពលគីមី $100\\,000\\text{ kJ}$ តាមរយៈរស្មីសំយោគ តើឥន្ទ្រីនឹងទទួលបានថាមពលប៉ុន្មានគីឡូស៊ូល? (ដឹងថាមេគុណផ្ទេរថាមពលរវាងកម្រិតត្រូភិចនីមួយៗគឺ $10\\%$)។",
+            "problemTextEn": "Food chain: Grass -> Grasshopper -> Frog -> Snake -> Eagle.\na. Identify trophic levels for each organism.\nb. If grass synthesizes 100,000 kJ, how much energy reaches the eagle under the 10% rule?",
+            "officialSolutionKm": "ក. កម្រិតត្រូភិច៖\n1. ស្មៅ៖ អ្នកផលិតបឋម (កម្រិតត្រូភិចទី ១ - Producers)\n2. កណ្តូប៖ អ្នកប្រើប្រាស់លំដាប់ទី ១ (កម្រិតត្រូភិចទី ២ - Herbivores)\n3. កង្កែប៖ អ្នកប្រើប្រាស់លំដាប់ទី ២ (កម្រិតត្រូភិចទី ៣ - Carnivores)\n4. ពស់៖ អ្នកប្រើប្រាស់លំដាប់ទី ៣ (កម្រិតត្រូភិចទី ៤)\n5. ឥន្ទ្រី៖ អ្នកប្រើប្រាស់កំពូល / លំដាប់ទី ៤ (កម្រិតត្រូភិចទី ៥ - Apex predator)។\n\nខ. គណនាថាមពលដែលឥន្ទ្រីទទួលបាន (ច្បាប់ ១០%)៖\n- ស្មៅ៖ $100\\,000\\text{ kJ}$\n- កណ្តូប៖ $100\\,000 \\times 10\\% = 10\\,000\\text{ kJ}$\n- កង្កែប៖ $10\\,000 \\times 10\\% = 1\\,000\\text{ kJ}$\n- ពស់៖ $1\\,000 \\times 10\\% = 100\\text{ kJ}$\n- ឥន្ទ្រី៖ $100 \\times 10\\% = 10\\text{ kJ}$។\nដូចនេះ ឥន្ទ្រីទទួលបានថាមពលត្រឹមតែ **$10\\text{ kJ}$** ប៉ុណ្ណោះ។",
+            "officialSolutionEn": "Trophic levels 1 to 5. Grass: 100,000 kJ -> Grasshopper: 10,000 kJ -> Frog: 1,000 kJ -> Snake: 100 kJ -> Eagle: 10 kJ.",
+            "scoringCriteriaKm": [
+                  "ក. កំណត់កម្រិតត្រូភិចទាំង ៥ ត្រឹមត្រូវ (៧ ពិន្ទុ)",
+                  "ខ. អនុវត្តច្បាប់ ១០% គណនាឃើញថាមពលឥន្ទ្រីទទួលបាន ១០ kJ (៨ ពិន្ទុ)"
+            ],
+            "keyFormulas": [
+                  "E_{n+1} = E_n \\times 10\\%"
+            ]
+      }
+],
     "notes": "Official MoEYS 2014 Bac II examination paper archive."
   },
   {
