@@ -2724,7 +2724,7 @@ function ExamsArchivePage() {
                 {/* Modal Footer Dock (Minimalist, Apple-style Clean Toolbar) */}
                 <div className="p-3 sm:p-4 border-t border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shrink-0 flex flex-col sm:flex-row items-center justify-between gap-2.5">
                   <div className="flex items-center gap-2 w-full sm:w-auto">
-                    {activeExam.pdfUrl ? (
+                    {activeExam.pdfUrl && activeExam.pdfUrl !== "https://moeys.gov.kh/bacii" ? (
                       <a
                         href={activeExam.pdfUrl}
                         target="_blank"
@@ -2740,7 +2740,7 @@ function ExamsArchivePage() {
                       </div>
                     )}
 
-                    {activeExam.answerKeyUrl && activeExam.answerKeyUrl !== activeExam.pdfUrl && (
+                    {activeExam.answerKeyUrl && activeExam.answerKeyUrl !== "https://moeys.gov.kh/bacii" && activeExam.answerKeyUrl !== activeExam.pdfUrl && (
                       <a
                         href={activeExam.answerKeyUrl}
                         target="_blank"
