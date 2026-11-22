@@ -2740,6 +2740,18 @@ function ExamsArchivePage() {
                       </div>
                     )}
 
+                    {activeExam.answerKeyUrl && activeExam.answerKeyUrl !== activeExam.pdfUrl && (
+                      <a
+                        href={activeExam.answerKeyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="h-10 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 font-bold text-xs flex items-center justify-center gap-1.5 transition active:scale-95 border border-slate-200/80 dark:border-slate-700 w-full sm:w-auto cursor-pointer shadow-2xs"
+                      >
+                        <FileText className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
+                        <span>{isKhmer ? "អត្រាកំណែ PDF" : "Solution PDF"}</span>
+                      </a>
+                    )}
+
                     <button
                       type="button"
                       onClick={() => handleToggleOffline(activeExam)}
