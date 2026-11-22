@@ -4713,7 +4713,112 @@ export const HISTORICAL_EXAM_ARCHIVE: HistoricalExamPaper[] = [
         "noteKm": "គណនាអាំងតេក្រាលនៃផលគុណអនុគមន៍"
       }
     ],
-    "questions": [],
+    "questions": [
+      {
+            "questionNumber": 1,
+            "points": 15,
+            "titleKm": "លំហាត់ទី ១៖ លីមីតនៃអនុគមន៍ (Limits)",
+            "titleEn": "Problem 1: Limits of Functions",
+            "problemTextKm": "គណនាលីមីតខាងក្រោម៖\n\nក. $L_1 = \\lim_{x \\to 0} \\frac{1 - \\cos 4x}{x \\sin 2x}$\n\nខ. $L_2 = \\lim_{x \\to +\\infty} \\left(\\sqrt{x^2 + 3x} - x\\right)$",
+            "problemTextEn": "Compute the following limits:\na. $L_1 = \\lim_{x \\to 0} \\frac{1 - \\cos 4x}{x \\sin 2x}$\nb. $L_2 = \\lim_{x \\to +\\infty} \\left(\\sqrt{x^2 + 3x} - x\\right)$",
+            "officialSolutionKm": "ក. គណនា $L_1$៖\nរូបមន្ត $1 - \\cos 4x = 2\\sin^2 2x$។\n$L_1 = \\lim_{x \\to 0} \\frac{2\\sin^2 2x}{x\\sin 2x} = \\lim_{x \\to 0} \\frac{2\\sin 2x}{x} = 2 \\times 2 \\lim_{x \\to 0}\\frac{\\sin 2x}{2x} = 4(1) = 4$។\n\nខ. គណនា $L_2$ (រាងមិនកំណត់ $\\infty - \\infty$)៖\nគុណកន្សោមឆ្លាស់៖\n$L_2 = \\lim_{x \\to +\\infty} \\frac{(\\sqrt{x^2 + 3x} - x)(\\sqrt{x^2 + 3x} + x)}{\\sqrt{x^2 + 3x} + x} = \\lim_{x \\to +\\infty} \\frac{x^2 + 3x - x^2}{\\sqrt{x^2(1 + 3/x)} + x} = \\lim_{x \\to +\\infty} \\frac{3x}{x(\\sqrt{1 + 3/x} + 1)} = \\frac{3}{1 + 1} = \\frac{3}{2}$។",
+            "officialSolutionEn": "L1 = 4 via trigonometric identity 1 - cos(4x) = 2sin^2(2x). L2 = 3/2 using conjugate multiplication.",
+            "scoringCriteriaKm": [
+                  "ក. ប្រើរូបមន្ត 1 - cos(4x) = 2sin^2(2x) និងគណនាឃើញ L1 = 4 (៨ ពិន្ទុ)",
+                  "ខ. គុណកន្សោមឆ្លាស់ បំបាត់រាងមិនកំណត់ គណនាឃើញ L2 = 3/2 (៧ ពិន្ទុ)"
+            ],
+            "keyFormulas": [
+                  "1 - \\cos 2a = 2\\sin^2 a",
+                  "\\lim_{u \\to 0} \\frac{\\sin u}{u} = 1",
+                  "\\sqrt{A} - B = \\frac{A - B^2}{\\sqrt{A} + B}"
+            ]
+      },
+      {
+            "questionNumber": 2,
+            "points": 15,
+            "titleKm": "លំហាត់ទី ២៖ ចំនួនកុំផ្លិច (Complex Numbers)",
+            "titleEn": "Problem 2: Complex Numbers & De Moivre",
+            "problemTextKm": "គេឱ្យចំនួនកុំផ្លិច $z = 1 + i\\sqrt{3}$។\n\nក. សរសេរ $z$ ជាទម្រង់ត្រីកោណមាត្រ។\n\nខ. គណនា $z^6$។\n\nគ. រកចំនួនកុំផ្លិច $Z$ ដែលផ្ទៀងផ្ទាត់ $Z^2 = z$។",
+            "problemTextEn": "Given complex number $z = 1 + i\\sqrt{3}$.\na. Express $z$ in trigonometric form.\nb. Compute $z^6$.\nc. Find complex numbers $Z$ satisfying $Z^2 = z$.",
+            "officialSolutionKm": "ក. ទម្រង់ត្រីកោណមាត្រនៃ $z$៖\n$|z| = \\sqrt{1^2 + (\\sqrt{3})^2} = 2$\n$\\cos\\theta = 1/2, \\sin\\theta = \\sqrt{3}/2 \\implies \\theta = \\pi/3$។\n$z = 2\\left(\\cos\\frac{\\pi}{3} + i\\sin\\frac{\\pi}{3}\\right)$។\n\nខ. គណនា $z^6$ តាមរូបមន្តដឺម័រ៖\n$z^6 = 2^6\\left(\\cos\\left(6 \\times \\frac{\\pi}{3}\\right) + i\\sin\\left(6 \\times \\frac{\\pi}{3}\\right)\\right) = 64(\\cos 2\\pi + i\\sin 2\\pi) = 64(1 + 0) = 64$។\n\nគ. រក $Z$ ដែល $Z^2 = z$ (ឫសការេកុំផ្លិច)៖\n$Z_k = \\sqrt{2}\\left(\\cos\\left(\\frac{\\pi/3 + 2k\\pi}{2}\\right) + i\\sin\\left(\\frac{\\pi/3 + 2k\\pi}{2}\\right)\\right)$ ចំពោះ $k = 0, 1$។\n- $k = 0 \\implies Z_0 = \\sqrt{2}\\left(\\cos\\frac{\\pi}{6} + i\\sin\\frac{\\pi}{6}\\right) = \\sqrt{2}\\left(\\frac{\\sqrt{3}}{2} + i\\frac{1}{2}\\right) = \\frac{\\sqrt{6} + i\\sqrt{2}}{2}$។\n- $k = 1 \\implies Z_1 = -Z_0 = -\\frac{\\sqrt{6} + i\\sqrt{2}}{2}$។",
+            "officialSolutionEn": "Trigonometric form 2(cos pi/3 + i sin pi/3), z^6 = 64, square roots Z = +-(sqrt(6)+i*sqrt(2))/2.",
+            "scoringCriteriaKm": [
+                  "ក. សរសេរ z = 2(cos pi/3 + i sin pi/3) (៥ ពិន្ទុ)",
+                  "ខ. អនុវត្តដឺម័រ គណនាឃើញ z^6 = 64 (៥ ពិន្ទុ)",
+                  "គ. រកឃើញឫសការេទាំងពីរ Z0 និង Z1 = -Z0 (៥ ពិន្ទុ)"
+            ],
+            "keyFormulas": [
+                  "|z| = \\sqrt{a^2 + b^2}",
+                  "z^n = r^n(\\cos n\\theta + i\\sin n\\theta)",
+                  "Z_k = \\sqrt{r}\\left(\\cos\\frac{\\theta+2k\\pi}{2} + i\\sin\\frac{\\theta+2k\\pi}{2}\\right)"
+            ]
+      },
+      {
+            "questionNumber": 3,
+            "points": 20,
+            "titleKm": "លំហាត់ទី ៣៖ ប្រូបាប (Probability)",
+            "titleEn": "Problem 3: Student Committee Selection",
+            "problemTextKm": "ក្នុងថ្នាក់រៀនមួយមានសិស្ស ៩ នាក់ ក្នុងនោះមានប្រុស ៥ នាក់ និងស្រី ៤ នាក់។ គេជ្រើសរើសសិស្ស ៣ នាក់ដោយចៃដន្យដើម្បីបង្កើតគណៈកម្មការមួយ។\n\nក. រកចំនួនករណីអាចទាំងអស់នៃការជ្រើសរើស។\n\nខ. គណនាប្រូបាបដែលជ្រើសរើសបានសិស្សប្រុសទាំង ៣ នាក់។\n\nគ. គណនាប្រូបាបដែលជ្រើសរើសបានសិស្សស្រីយ៉ាងតិច ១ នាក់។\n\nឃ. គណនាប្រូបាបដែលជ្រើសរើសបានសិស្សប្រុស ២ នាក់ និងស្រី ១ នាក់។",
+            "problemTextEn": "A class has 9 students: 5 boys and 4 girls. 3 students are selected at random.\na. Find total number of possible outcomes.\nb. Find probability of selecting 3 boys.\nc. Find probability of selecting at least 1 girl.\nd. Find probability of selecting 2 boys and 1 girl.",
+            "officialSolutionKm": "ក. ចំនួនករណីអាច $n(S) = C(9, 3) = \\frac{9 \\times 8 \\times 7}{3 \\times 2 \\times 1} = 84$ ករណី។\n\nខ. ព្រឹត្តិការណ៍ $A$ (ប្រុសទាំង ៣)៖\n$n(A) = C(5, 3) = 10$ ករណី។\n$P(A) = \\frac{10}{84} = \\frac{5}{42}$។\n\nគ. ព្រឹត្តិការណ៍ $B$ (ស្រីយ៉ាងតិច ១)៖\nព្រឹត្តិការណ៍ផ្ទុយ $\\bar{B}$: «គ្មានសិស្សស្រីសោះ» (គឺបានប្រុសទាំង ៣)។\n$P(B) = 1 - P(A) = 1 - \\frac{5}{42} = \\frac{37}{42}$។\n\nឃ. ព្រឹត្តិការណ៍ $C$ (ប្រុស ២ ស្រី ១)៖\n$n(C) = C(5, 2) \\times C(4, 1) = 10 \\times 4 = 40$ ករណី។\n$P(C) = \\frac{40}{84} = \\frac{10}{21}$។",
+            "officialSolutionEn": "Total combinations C(9,3) = 84. P(3 boys) = 10/84 = 5/42. P(at least 1 girl) = 37/42. P(2 boys, 1 girl) = 40/84 = 10/21.",
+            "scoringCriteriaKm": [
+                  "ក. គណនា n(S) = 84 (៤ ពិន្ទុ)",
+                  "ខ. គណនា P(A) = 5/42 (៥ ពិន្ទុ)",
+                  "គ. គណនា P(B) = 37/42 (៥ ពិន្ទុ)",
+                  "ឃ. គណនា P(C) = 10/21 (៦ ពិន្ទុ)"
+            ],
+            "keyFormulas": [
+                  "C(n, k) = \\frac{n!}{k!(n-k)!}",
+                  "P(B) = 1 - P(\\bar{B})"
+            ]
+      },
+      {
+            "questionNumber": 4,
+            "points": 25,
+            "titleKm": "លំហាត់ទី ៤៖ ធរណីមាត្រក្នុងលំហ Oxyz (Analytic Space Geometry)",
+            "titleEn": "Problem 4: Planes & Tangent Sphere",
+            "problemTextKm": "ក្នុងលំហតម្រុយអរតូណរម៉េ $(O; \\vec{i}, \\vec{j}, \\vec{k})$ គេឱ្យចំណុច $A(1, 2, -1), B(2, 0, 1), C(0, 1, 2)$។\n\nក. គណនា $\\vec{AB}, \\vec{AC}$ និងផលគុណវ៉ិចទ័រ $\\vec{n} = \\vec{AB} \\times \\vec{AC}$។\n\nខ. សរសេរសមីការប្លង់ $(P)$ កាត់តាមចំណុច $A, B, C$។\n\nគ. គណនាចម្ងាយពីគល់តម្រុយ $O(0, 0, 0)$ ទៅប្លង់ $(P)$។\n\nឃ. សរសេរសមីការស្វ៊ែរ $(S)$ ដែលមានផ្ចិត $O$ ហើយប៉ះនឹងប្លង់ $(P)$។",
+            "problemTextEn": "In orthonormal frame $(O; \\vec{i}, \\vec{j}, \\vec{k})$, points are $A(1, 2, -1), B(2, 0, 1), C(0, 1, 2)$.\na. Compute $\\vec{AB}, \\vec{AC}$ and cross product $\\vec{n} = \\vec{AB} \\times \\vec{AC}$.\nb. Write equation of plane (P) through A, B, C.\nc. Compute distance from origin O(0,0,0) to plane (P).\nd. Write equation of sphere (S) with center O tangent to (P).",
+            "officialSolutionKm": "ក. កូអរដោនេវ៉ិចទ័រ៖\n- $\\vec{AB} = (1, -2, 2)$\n- $\\vec{AC} = (-1, -1, 3)$\n- $\\vec{n} = \\vec{AB} \\times \\vec{AC} = ((-2)(3) - (2)(-1))\\vec{i} - (1(3) - 2(-1))\\vec{j} + (1(-1) - (-2)(-1))\\vec{k} = (-4, -5, -3)$។\n(អាចយកវ៉ិចទ័រស្របគ្នា $\\vec{n}' = (4, 5, 3)$)។\n\nខ. សមីការប្លង់ $(P)$ កាត់តាម $A(1, 2, -1)$ មាន $\\vec{n} = (4, 5, 3)$៖\n$4(x - 1) + 5(y - 2) + 3(z + 1) = 0 \\iff 4x + 5y + 3z - 11 = 0$។\n\nគ. ចម្ងាយពី $O(0, 0, 0)$ ទៅប្លង់ $(P)$៖\n$d(O, (P)) = \\frac{|4(0) + 5(0) + 3(0) - 11|}{\\sqrt{4^2 + 5^2 + 3^2}} = \\frac{11}{\\sqrt{16 + 25 + 9}} = \\frac{11}{\\sqrt{50}} = \\frac{11\\sqrt{2}}{10}$។\n\nឃ. សមីការស្វ៊ែរ $(S)$ ផ្ចិត $O(0, 0, 0)$ ប៉ះ $(P)$៖\nកាំ $R = d(O, (P)) = \\frac{11}{\\sqrt{50}} \\implies R^2 = \\frac{121}{50}$។\nសមីការស្វ៊ែរ $(S)$: $x^2 + y^2 + z^2 = \\frac{121}{50}$។",
+            "officialSolutionEn": "Normal vector n = (4, 5, 3), plane 4x + 5y + 3z - 11 = 0, distance d = 11/sqrt(50), sphere equation x^2 + y^2 + z^2 = 121/50.",
+            "scoringCriteriaKm": [
+                  "ក. គណនា AB, AC និងផលគុណវ៉ិចទ័រ n = (-4, -5, -3) (៧ ពិន្ទុ)",
+                  "ខ. រកឃើញសមីការប្លង់ 4x + 5y + 3z - 11 = 0 (៦ ពិន្ទុ)",
+                  "គ. គណនាចម្ងាយ d(O, P) = 11√2/10 (៦ ពិន្ទុ)",
+                  "ឃ. សរសេរសមីការស្វ៊ែរ x^2 + y^2 + z^2 = 121/50 (៦ ពិន្ទុ)"
+            ],
+            "keyFormulas": [
+                  "\\vec{u} \\times \\vec{v} = (y_1 z_2 - z_1 y_2, z_1 x_2 - x_1 z_2, x_1 y_2 - y_1 x_2)",
+                  "d(M_0, (P)) = \\frac{|ax_0 + by_0 + cz_0 + d|}{\\sqrt{a^2 + b^2 + c^2}}",
+                  "(x - x_0)^2 + (y - y_0)^2 + (z - z_0)^2 = R^2"
+            ]
+      },
+      {
+            "questionNumber": 5,
+            "points": 50,
+            "titleKm": "លំហាត់ទី ៥៖ សិក្សាអនុគមន៍អិចស្ប៉ូណង់ស្យែល (Exponential Calculus & Curve Sketch)",
+            "titleEn": "Problem 5: Exponential Function Study & Integral",
+            "problemTextKm": "គេឱ្យអនុគមន៍ $f$ កំណត់លើ $\\mathbb{R}$ ដោយ $f(x) = e^x - x - 1$។ តាង $(C)$ ជាក្រាបតំណាងឱ្យ $f$ ក្នុងតម្រុយអរតូណរម៉េ។\n\nក. គណនាលីមីតនៃ $f(x)$ កាលណា $x \\to -\\infty$ និង $x \\to +\\infty$។\n\nខ. គណនាដេរីវេ $f'(x)$ និងសង់តារាងអថេរភាពនៃ $f$។\n\nគ. ទាញបញ្ជាក់ពីតម្លៃអប្បបរមានៃ $f$ និងទាញរកវិសមភាព $e^x \\ge x + 1$ ចំពោះគ្រប់ចំនួនពិត $x$។\n\nឃ. បង្ហាញថាបន្ទាត់ $(D): y = -x - 1$ ជាអាស៊ីមតូតទ្រេតនៃក្រាប $(C)$ ខាង $-\\infty$។ សិក្សាទីតាំងធៀបរវាង $(C)$ និង $(D)$។\n\nង. សង់បន្ទាត់ $(D)$ និងក្រាប $(C)$ ក្នុងតម្រុយតែមួយ។\n\nច. គណនាផ្ទៃក្រឡា $S$ នៃផ្នែកប្លង់ខណ្ឌដោយក្រាប $(C)$ អ័ក្សអាប់ស៊ីស និងបន្ទាត់ឈរ $x = 0, x = 1$។",
+            "problemTextEn": "Given function $f(x) = e^x - x - 1$ on $\\mathbb{R}$.\na. Compute limits at $\\pm\\infty$.\nb. Compute derivative $f'(x)$ and construct variation table.\nc. Find minimum value and deduce inequality $e^x \\ge x + 1$ for all real x.\nd. Show line $(D): y = -x - 1$ is an oblique asymptote at $-\\infty$ and study relative positions.\ne. Sketch curve (C) and line (D).\nf. Compute area S between (C), x-axis, and lines x = 0, x = 1.",
+            "officialSolutionKm": "ក. លីមីត៖\n- $\\lim_{x \\to -\\infty} f(x) = \\lim_{x \\to -\\infty} (e^x - x - 1) = 0 - (-\\infty) - 1 = +\\infty$។\n- $\\lim_{x \\to +\\infty} f(x) = \\lim_{x \\to +\\infty} x\\left(\\frac{e^x}{x} - 1 - \\frac{1}{x}\\right) = +\\infty$ (ព្រោះ $\\lim_{x \\to +\\infty} \\frac{e^x}{x} = +\\infty$)។\n\nខ. ដេរីវេ និងតារាងអថេរភាព៖\n- $f'(x) = e^x - 1$។\n- $f'(x) = 0 \\iff e^x = 1 \\iff x = 0$។\n- $x < 0 \\implies f'(x) < 0$ ($f$ ចុះ); $x > 0 \\implies f'(x) > 0$ ($f$ កើន)។\n- តម្លៃអប្បបរមាត្រង់ $x = 0$ គឺ $f(0) = e^0 - 0 - 1 = 0$។\n\nគ. វិសមភាព $e^x \\ge x + 1$៖\nដោយសារ $f(x)$ មានតម្លៃអប្បបរមាត្រង់ $x = 0$ ស្មើ $0$ នោះ $f(x) \\ge 0$ គ្រប់ $x \\in \\mathbb{R}$។\n$\\implies e^x - x - 1 \\ge 0 \\iff e^x \\ge x + 1$ ចំពោះគ្រប់ $x \\in \\mathbb{R}$។\n\nឃ. អាស៊ីមតូតទ្រេតខាង $-\\infty$៖\n$\\lim_{x \\to -\\infty} [f(x) - (-x - 1)] = \\lim_{x \\to -\\infty} e^x = 0$។ ដូចនេះ បន្ទាត់ $(D): y = -x - 1$ ជាអាស៊ីមតូតទ្រេតខាង $-\\infty$។\nទីតាំងធៀប៖ ដោយ $f(x) - (-x - 1) = e^x > 0$ គ្រប់ $x$ នោះក្រាប $(C)$ នៅខាងលើ $(D)$ ជានិច្ច។\n\nង. សង់ក្រាប $(C)$ និងបន្ទាត់ $(D)$៖ ចំណុចអប្បបរមា $(0, 0)$ ជាចំណុចប៉ះអ័ក្ស $Ox$។\n\nច. ផ្ទៃក្រឡា $S$៖\n$S = \\int_0^1 f(x) \\, dx = \\int_0^1 (e^x - x - 1) \\, dx = \\left[e^x - \\frac{x^2}{2} - x\\right]_0^1 = \\left(e - \\frac{1}{2} - 1\\right) - (1 - 0 - 0) = e - \\frac{5}{2}$ ឯកតាផ្ទៃ។",
+            "officialSolutionEn": "f'(x) = e^x - 1 with minimum f(0) = 0, proving e^x >= x + 1. Oblique asymptote y = -x - 1 at -inf. Area S = e - 5/2.",
+            "scoringCriteriaKm": [
+                  "ក. គណនាលីមីតត្រង់ +∞ និង -∞ ត្រឹមត្រូវ (៨ ពិន្ទុ)",
+                  "ខ. រកឃើញ f'(x) = e^x - 1 និងសង់តារាងអថេរភាព (១០ ពិន្ទុ)",
+                  "គ. ទាញរកតម្លៃអប្បបរមា f(0) = 0 និងស្រាយបញ្ជាក់ e^x >= x + 1 (៨ ពិន្ទុ)",
+                  "ឃ. បញ្ជាក់អាស៊ីមតូតទ្រេត និងសិក្សាទីតាំងធៀប (៧ ពិន្ទុ)",
+                  "ង. សង់ក្រាប (C) និងអាស៊ីមតូត (D) បានត្រឹមត្រូវ (៩ ពិន្ទុ)",
+                  "ច. គណនាអាំងតេក្រាល រកឃើញផ្ទៃ S = e - 5/2 (៨ ពិន្ទុ)"
+            ],
+            "keyFormulas": [
+                  "f'(x) = e^x - 1",
+                  "\\lim_{x \\to +\\infty} \\frac{e^x}{x} = +\\infty",
+                  "\\lim_{x \\to -\\infty} e^x = 0",
+                  "\\int (e^x - x - 1) \\, dx = e^x - \\frac{x^2}{2} - x + C"
+            ]
+      }
+],
     "notes": "Official MoEYS 2021 Bac II examination paper archive."
   },
   {
@@ -6095,7 +6200,109 @@ export const HISTORICAL_EXAM_ARCHIVE: HistoricalExamPaper[] = [
         "noteKm": "គណនាអាំងតេក្រាលនៃផលគុណអនុគមន៍"
       }
     ],
-    "questions": [],
+    "questions": [
+      {
+            "questionNumber": 1,
+            "points": 15,
+            "titleKm": "លំហាត់ទី ១៖ ចំនួនកុំផ្លិច (Complex Numbers)",
+            "titleEn": "Problem 1: Complex Numbers",
+            "problemTextKm": "ក. ដោះស្រាយក្នុងសំណុំកុំផ្លិច $\\mathbb{C}$ នូវសមីការ $z^2 - 2\\sqrt{3}z + 4 = 0$។\n\nខ. តាង $z_1, z_2$ ជាឫសទាំងពីរនៃសមីការខាងលើ ដោយ $z_1$ មានផ្នែកនិម្មិតវិជ្ជមាន។ សរសេរ $z_1$ និង $z_2$ ជាទម្រង់ត្រីកោណមាត្រ។\n\nគ. គណនា $\\left(\\frac{z_1}{z_2}\\right)^6$។",
+            "problemTextEn": "a. Solve $z^2 - 2\\sqrt{3}z + 4 = 0$ in $\\mathbb{C}$.\nb. Let $z_1, z_2$ be the roots ($z_1$ having positive imaginary part). Write $z_1, z_2$ in trigonometric form.\nc. Compute $(z_1/z_2)^6$.",
+            "officialSolutionKm": "ក. សមីការ $z^2 - 2\\sqrt{3}z + 4 = 0$៖\n$\\Delta' = (-\\sqrt{3})^2 - 4 = 3 - 4 = -1 = i^2$។\nដូចនេះ ឫសទាំងពីរគឺ $z_1 = \\sqrt{3} + i$ និង $z_2 = \\sqrt{3} - i$។\n\nខ. ទម្រង់ត្រីកោណមាត្រ៖\n- $|z_1| = \\sqrt{(\\sqrt{3})^2 + 1^2} = 2$\n- $z_1 = 2\\left(\\frac{\\sqrt{3}}{2} + i\\frac{1}{2}\\right) = 2\\left(\\cos\\frac{\\pi}{6} + i\\sin\\frac{\\pi}{6}\\right)$\n- $z_2 = \\bar{z}_1 = 2\\left(\\cos\\left(-\\frac{\\pi}{6}\\right) + i\\sin\\left(-\\frac{\\pi}{6}\\right)\\right)$។\n\nគ. គណនា $\\left(\\frac{z_1}{z_2}\\right)^6$៖\n$\\frac{z_1}{z_2} = \\frac{2(\\cos\\pi/6 + i\\sin\\pi/6)}{2(\\cos(-\\pi/6) + i\\sin(-\\pi/6))} = \\cos\\left(\\frac{\\pi}{6} - \\left(-\\frac{\\pi}{6}\\right)\\right) + i\\sin\\left(\\frac{\\pi}{6} - \\left(-\\frac{\\pi}{6}\\right)\\right) = \\cos\\frac{\\pi}{3} + i\\sin\\frac{\\pi}{3}$។\n$\\left(\\frac{z_1}{z_2}\\right)^6 = \\left(\\cos\\frac{\\pi}{3} + i\\sin\\frac{\\pi}{3}\\right)^6 = \\cos(2\\pi) + i\\sin(2\\pi) = 1$។",
+            "officialSolutionEn": "Roots z1 = sqrt(3) + i, z2 = sqrt(3) - i. Trigonometric forms with modulus 2, argument pi/6. Ratio has argument pi/3, raised to 6th power yields 1.",
+            "scoringCriteriaKm": [
+                  "ក. ដោះស្រាយរកឃើញឫស z1 = √3 + i និង z2 = √3 - i (៥ ពិន្ទុ)",
+                  "ខ. សរសេរទម្រង់ត្រីកោណមាត្រនៃ z1 និង z2 ត្រឹមត្រូវ (៥ ពិន្ទុ)",
+                  "គ. អនុវត្តដឺម័រ គណនាឃើញ (z1/z2)^6 = 1 (៥ ពិន្ទុ)"
+            ],
+            "keyFormulas": [
+                  "\\Delta' = b'^2 - ac",
+                  "\\frac{z_1}{z_2} = \\frac{r_1}{r_2}[\\cos(\\theta_1-\\theta_2) + i\\sin(\\theta_1-\\theta_2)]",
+                  "(\\cos\\theta + i\\sin\\theta)^n = \\cos(n\\theta) + i\\sin(n\\theta)"
+            ]
+      },
+      {
+            "questionNumber": 2,
+            "points": 20,
+            "titleKm": "លំហាត់ទី ២៖ សមីការឌីផេរ៉ង់ស្យែល (Differential Equations)",
+            "titleEn": "Problem 2: 1st Order Linear Differential Equations",
+            "problemTextKm": "គេឱ្យសមីការឌីផេរ៉ង់ស្យែល $(E): y' - 2y = 0$។\n\nក. រកចម្លើយទូទៅនៃសមីការ $(E)$។\n\nខ. កំណត់អនុគមន៍ $g(x)$ ជាចម្លើយជាក់លាក់មួយនៃ $(E)$ ដែលផ្ទៀងផ្ទាត់ $g(0) = 3$។\n\nគ. គណនាអាំងតេក្រាល $I = \\int_0^1 g(x) \\, dx$។",
+            "problemTextEn": "Given differential equation $(E): y' - 2y = 0$.\na. Find the general solution of $(E)$.\nb. Determine particular solution $g(x)$ satisfying $g(0) = 3$.\nc. Compute integral $I = \\int_0^1 g(x) \\, dx$.",
+            "officialSolutionKm": "ក. ចម្លើយទូទៅនៃ $(E): y' - 2y = 0$ គឺ $y(x) = C e^{2x}$ ដែល $C$ ជាចំនួនថេរពិត។\n\nខ. ចម្លើយជាក់លាក់ $g(x)$៖\n$g(0) = C e^0 = C = 3$។\nដូចនេះ $g(x) = 3e^{2x}$។\n\nគ. គណនាអាំងតេក្រាល $I$៖\n$I = \\int_0^1 3e^{2x} \\, dx = \\left[\\frac{3}{2}e^{2x}\\right]_0^1 = \\frac{3}{2}(e^2 - e^0) = \\frac{3}{2}(e^2 - 1)$។",
+            "officialSolutionEn": "General solution y = C*e^(2x), particular solution g(x) = 3e^(2x), definite integral I = 3/2*(e^2 - 1).",
+            "scoringCriteriaKm": [
+                  "ក. រកឃើញចម្លើយទូទៅ y = C e^(2x) (៧ ពិន្ទុ)",
+                  "ខ. កំណត់បាន C = 3 និង g(x) = 3e^(2x) (៦ ពិន្ទុ)",
+                  "គ. គណនាអាំងតេក្រាល I = (3/2)(e^2 - 1) (៧ ពិន្ទុ)"
+            ],
+            "keyFormulas": [
+                  "y' - ay = 0 \\implies y = Ce^{ax}",
+                  "\\int e^{ax} \\, dx = \\frac{1}{a}e^{ax} + C"
+            ]
+      },
+      {
+            "questionNumber": 3,
+            "points": 20,
+            "titleKm": "លំហាត់ទី ៣៖ ប្រូបាប (Combinatorial Probability)",
+            "titleEn": "Problem 3: Probability from Box Sampling",
+            "problemTextKm": "ក្នុងប្រអប់មួយមានបាល់ ១២ គ្រាប់៖ បាល់ពណ៌ក្រហម ៣, ពណ៌ស ៤, និងពណ៌ខ្មៅ ៥។ គេចាប់យកបាល់ ៣ គ្រាប់ព្រមគ្នាដោយចៃដន្យ។\n\nក. គណនាប្រូបាបដែលចាប់បានបាល់ទាំង ៣ មានពណ៌ដូចគ្នាទាំងអស់។\n\nខ. គណនាប្រូបាបដែលចាប់បានបាល់ពណ៌ស ២ គ្រាប់គត់។\n\nគ. គណនាប្រូបាបដែលចាប់បានបាល់ពណ៌ខ្មៅយ៉ាងតិច ១ គ្រាប់។",
+            "problemTextEn": "A box contains 12 balls: 3 red, 4 white, and 5 black. 3 balls are drawn simultaneously at random.\na. Find probability of drawing 3 balls of identical color.\nb. Find probability of drawing exactly 2 white balls.\nc. Find probability of drawing at least 1 black ball.",
+            "officialSolutionKm": "ក. ចំនួនករណីអាច $n(S) = C(12, 3) = \\frac{12 \\times 11 \\times 10}{6} = 220$។\nព្រឹត្តិការណ៍ $A$: «បាល់ពណ៌ដូចគ្នា» (ក្រហមទាំង ៣ ឬ សទាំង ៣ ឬ ខ្មៅទាំង ៣)៖\n$n(A) = C(3, 3) + C(4, 3) + C(5, 3) = 1 + 4 + 10 = 15$ ករណី។\n$P(A) = \\frac{15}{220} = \\frac{3}{44}$។\n\nខ. ព្រឹត្តិការណ៍ $B$: «ពណ៌ស ២ គ្រាប់គត់» (ស ២ និងពណ៌ផ្សេង ១)៖\n$n(B) = C(4, 2) \\times C(8, 1) = 6 \\times 8 = 48$ ករណី។\n$P(B) = \\frac{48}{220} = \\frac{12}{55}$។\n\nគ. ព្រឹត្តិការណ៍ $C$: «ខ្មៅយ៉ាងតិច ១ គ្រាប់»៖\nព្រឹត្តិការណ៍ផ្ទុយ $\\bar{C}$: «គ្មានបាល់ខ្មៅសោះ» (ចាប់ចេញពីបាល់ ៧ គ្រាប់ដែលមិនមែនខ្មៅ)៖\n$n(\\bar{C}) = C(7, 3) = \\frac{7 \\times 6 \\times 5}{6} = 35$ ករណី។\n$P(C) = 1 - P(\\bar{C}) = 1 - \\frac{35}{220} = 1 - \\frac{7}{44} = \\frac{37}{44}$។",
+            "officialSolutionEn": "Total outcomes C(12,3) = 220. P(same color) = 15/220 = 3/44. P(2 white) = 48/220 = 12/55. P(at least 1 black) = 1 - 35/220 = 37/44.",
+            "scoringCriteriaKm": [
+                  "ក. គណនា n(S) = 220 និង P(A) = 3/44 (៧ ពិន្ទុ)",
+                  "ខ. គណនា n(B) = 48 និង P(B) = 12/55 (៦ ពិន្ទុ)",
+                  "គ. គណនាព្រឹត្តិការណ៍ផ្ទុយ រកឃើញ P(C) = 37/44 (៧ ពិន្ទុ)"
+            ],
+            "keyFormulas": [
+                  "C(n, k) = \\frac{n!}{k!(n-k)!}",
+                  "P(A \\cup B \\cup C) = P(A) + P(B) + P(C)",
+                  "P(C) = 1 - P(\\bar{C})"
+            ]
+      },
+      {
+            "questionNumber": 4,
+            "points": 25,
+            "titleKm": "លំហាត់ទី ៤៖ ធរណីមាត្រក្នុងលំហ Oxyz (Analytic Geometry in Space)",
+            "titleEn": "Problem 4: 3D Vectors & Tetrahedron Volume",
+            "problemTextKm": "ក្នុងលំហតម្រុយអរតូណរម៉េ $(O; \\vec{i}, \\vec{j}, \\vec{k})$ គេឱ្យចំណុច $A(2, 1, 0), B(0, 3, 1), C(1, 0, 2), D(3, 2, 1)$។\n\nក. គណនាកូអរដោនេនៃ $\\vec{AB}, \\vec{AC}$ និងផលគុណវ៉ិចទ័រ $\\vec{AB} \\times \\vec{AC}$។\n\nខ. សរសេរសមីការប្លង់ $(ABC)$។\n\nគ. គណនាមាឌតេត្រាអែត $ABCD$ ដោយប្រើរូបមន្ត $V = \\frac{1}{6}|(\\vec{AB} \\times \\vec{AC}) \\cdot \\vec{AD}|$។",
+            "problemTextEn": "In orthonormal frame $(O; \\vec{i}, \\vec{j}, \\vec{k})$, points are $A(2, 1, 0), B(0, 3, 1), C(1, 0, 2), D(3, 2, 1)$.\na. Compute $\\vec{AB}, \\vec{AC}$ and cross product $\\vec{AB} \\times \\vec{AC}$.\nb. Write equation of plane $(ABC)$.\nc. Compute volume of tetrahedron ABCD.",
+            "officialSolutionKm": "ក. កូអរដោនេវ៉ិចទ័រ៖\n- $\\vec{AB} = (-2, 2, 1)$\n- $\\vec{AC} = (-1, -1, 2)$\n- $\\vec{AB} \\times \\vec{AC} = (2(2) - 1(-1))\\vec{i} - ((-2)(2) - 1(-1))\\vec{j} + ((-2)(-1) - 2(-1))\\vec{k} = (5, 3, 4)$។\n\nខ. សមីការប្លង់ $(ABC)$ កាត់តាម $A(2, 1, 0)$ មានវ៉ិចទ័រណរម៉ាល់ $\\vec{n} = (5, 3, 4)$៖\n$5(x - 2) + 3(y - 1) + 4(z - 0) = 0 \\iff 5x + 3y + 4z - 13 = 0$។\n\nគ. មាឌតេត្រាអែត $ABCD$៖\n$\\vec{AD} = (3-2, 2-1, 1-0) = (1, 1, 1)$។\nផលគុណស្កាលែ $(\\vec{AB} \\times \\vec{AC}) \\cdot \\vec{AD} = 5(1) + 3(1) + 4(1) = 12$។\nមាឌ $V = \\frac{1}{6}|12| = 2$ ឯកតាមាឌ។",
+            "officialSolutionEn": "AB x AC = (5, 3, 4), plane 5x + 3y + 4z - 13 = 0, AD = (1, 1, 1), volume V = 1/6 * 12 = 2.",
+            "scoringCriteriaKm": [
+                  "ក. គណនា AB, AC និង AB × AC = (5, 3, 4) (៨ ពិន្ទុ)",
+                  "ខ. រកឃើញសមីការប្លង់ 5x + 3y + 4z - 13 = 0 (៨ ពិន្ទុ)",
+                  "គ. គណនា AD = (1, 1, 1) និងមាឌ V = 2 ឯកតាមាឌ (៩ ពិន្ទុ)"
+            ],
+            "keyFormulas": [
+                  "\\vec{u} \\times \\vec{v} = (y_1 z_2 - z_1 y_2, z_1 x_2 - x_1 z_2, x_1 y_2 - y_1 x_2)",
+                  "V = \\frac{1}{6}|(\\vec{AB} \\times \\vec{AC}) \\cdot \\vec{AD}|"
+            ]
+      },
+      {
+            "questionNumber": 5,
+            "points": 45,
+            "titleKm": "លំហាត់ទី ៥៖ សិក្សាអនុគមន៍សនិទាន និងសង់ក្រាប (Rational Function Study)",
+            "titleEn": "Problem 5: Rational Function Study & Asymptotes",
+            "problemTextKm": "គេឱ្យអនុគមន៍ $f$ កំណត់លើ $\\mathbb{R} \\setminus \\{1\\}$ ដោយ $f(x) = \\frac{2x - 1}{x - 1}$។ តាង $(C)$ ជាក្រាបតំណាង $f$ ក្នុងតម្រុយអរតូណរម៉េ។\n\nក. រកចំនួនពិត $a$ និង $b$ ដើម្បីឱ្យ $f(x) = a + \\frac{b}{x - 1}$។\n\nខ. គណនាលីមីតត្រង់ចុងដែនកំណត់ និងទាញរកសមីការអាស៊ីមតូតឈរ និងអាស៊ីមតូតដេកនៃ $(C)$។\n\nគ. គណនាដេរីវេ $f'(x)$ និងសង់តារាងអថេរភាពនៃ $f$។\n\nឃ. បង្ហាញថាចំណុច $I(1, 2)$ ជាផ្ចិតឆ្លុះនៃក្រាប $(C)$។\n\nង. សរសេរសមីការបន្ទាត់ប៉ះ $(T)$ ទៅនឹងក្រាប $(C)$ ត្រង់ចំណុចដែលមានអាប់ស៊ីស $x = 2$ រួចសង់ក្រាប $(C)$ និងបន្ទាត់ប៉ះ $(T)$។\n\nច. គណនាផ្ទៃក្រឡា $S$ នៃផ្នែកប្លង់ខណ្ឌដោយក្រាប $(C)$ បន្ទាត់អាស៊ីមតូតដេក $y = 2$ និងបន្ទាត់ឈរ $x = 2, x = 3$។",
+            "problemTextEn": "Given function $f(x) = (2x - 1)/(x - 1)$ on $\\mathbb{R} \\setminus \\{1\\}$.\na. Decompose into $a + b/(x-1)$.\nb. Compute limits and find vertical/horizontal asymptotes.\nc. Compute derivative and construct variation table.\nd. Prove point I(1, 2) is a center of symmetry.\ne. Write tangent (T) at x = 2 and sketch curve.\nf. Compute area between curve, asymptote y = 2, and lines x = 2, x = 3.",
+            "officialSolutionKm": "ក. បំបែក $f(x)$៖\n$f(x) = \\frac{2(x - 1) + 1}{x - 1} = 2 + \\frac{1}{x - 1} \\implies a = 2, b = 1$។\n\nខ. លីមីត និងអាស៊ីមតូត៖\n- $\\lim_{x \\to \\pm\\infty} f(x) = \\lim_{x \\to \\pm\\infty} \\frac{2x}{x} = 2 \\implies y = 2$ ជាអាស៊ីមតូតដេក។\n- $\\lim_{x \\to 1^-} f(x) = -\\infty$ និង $\\lim_{x \\to 1^+} f(x) = +\\infty \\implies x = 1$ ជាអាស៊ីមតូតឈរ។\n\nគ. ដេរីវេ និងតារាងអថេរភាព៖\n$f'(x) = -\\frac{1}{(x - 1)^2} < 0$ គ្រប់ $x \\ne 1$។ $f$ ចុះដាច់ខាតលើ $(-\\infty, 1)$ និងលើ $(1, +\\infty)$។\n\nឃ. ផ្ចិតឆ្លុះ $I(1, 2)$៖\n$f(1 + h) + f(1 - h) = \\left(2 + \\frac{1}{h}\\right) + \\left(2 - \\frac{1}{h}\\right) = 4 = 2(2)$។ ដូចនេះ $I(1, 2)$ ជាផ្ចិតឆ្លុះនៃ $(C)$។\n\nង. បន្ទាត់ប៉ះត្រង់ $x = 2$៖\n$f(2) = 2 + 1 = 3$ និង $f'(2) = -\\frac{1}{(2 - 1)^2} = -1$។\nសមីការបន្ទាត់ប៉ះ $(T)$: $y - 3 = -1(x - 2) \\iff y = -x + 5$។\n\nច. ផ្ទៃក្រឡា $S$៖\n$S = \\int_2^3 [f(x) - 2] \\, dx = \\int_2^3 \\frac{1}{x - 1} \\, dx = [\\ln|x - 1|]_2^3 = \\ln 2 - \\ln 1 = \\ln 2$ ឯកតាផ្ទៃ។",
+            "officialSolutionEn": "f(x) = 2 + 1/(x-1), asymptotes x=1, y=2. f'(x) = -1/(x-1)^2 < 0 everywhere. Center of symmetry I(1,2). Tangent y = -x + 5. Area S = ln(2).",
+            "scoringCriteriaKm": [
+                  "ក. រកឃើញ a = 2, b = 1 (៥ ពិន្ទុ)",
+                  "ខ. គណនាលីមីត និងទាញរកអាស៊ីមតូត x = 1, y = 2 (៨ ពិន្ទុ)",
+                  "គ. គណនា f'(x) < 0 និងសង់តារាងអថេរភាព (៧ ពិន្ទុ)",
+                  "ឃ. បញ្ជាក់ I(1, 2) ជាផ្ចិតឆ្លុះត្រឹមត្រូវ (៥ ពិន្ទុ)",
+                  "ង. សរសេរសមីការបន្ទាត់ប៉ះ y = -x + 5 និងសង់ក្រាប (១២ ពិន្ទុ)",
+                  "ច. គណនាផ្ទៃក្រឡា S = ln 2 ឯកតាផ្ទៃ (៨ ពិន្ទុ)"
+            ],
+            "keyFormulas": [
+                  "f(a + h) + f(a - h) = 2b",
+                  "y - y_0 = f'(x_0)(x - x_0)",
+                  "\\int \\frac{1}{x - 1} \\, dx = \\ln|x - 1| + C"
+            ]
+      }
+],
     "notes": "Official MoEYS 2019 Bac II examination paper archive."
   },
   {
@@ -9550,7 +9757,112 @@ export const HISTORICAL_EXAM_ARCHIVE: HistoricalExamPaper[] = [
         "noteKm": "គណនាអាំងតេក្រាលនៃផលគុណអនុគមន៍"
       }
     ],
-    "questions": [],
+    "questions": [
+      {
+            "questionNumber": 1,
+            "points": 15,
+            "titleKm": "លំហាត់ទី ១៖ ចំនួនកុំផ្លិច (Complex Numbers)",
+            "titleEn": "Problem 1: Complex Numbers",
+            "problemTextKm": "គេឱ្យចំនួនកុំផ្លិច $z = \\sqrt{2} - i\\sqrt{6}$។\n\nក. គណនាម៉ូឌុល និងអាគុយម៉ង់នៃ $z$។\n\nខ. សរសេរ $z$ ជាទម្រង់ត្រីកោណមាត្រ។\n\nគ. គណនា $z^{2014}$។\n\nឃ. រកឫសការេនៃចំនួនកុំផ្លិច $w = -3 + 4i$។",
+            "problemTextEn": "Given complex number $z = \\sqrt{2} - i\\sqrt{6}$.\na. Compute modulus and argument of $z$.\nb. Write $z$ in trigonometric form.\nc. Compute $z^{2014}$.\nd. Find the square roots of complex number $w = -3 + 4i$.",
+            "officialSolutionKm": "ក. ម៉ូឌុល និងអាគុយម៉ង់៖\n- $|z| = \\sqrt{(\\sqrt{2})^2 + (-\\sqrt{6})^2} = \\sqrt{2 + 6} = \\sqrt{8} = 2\\sqrt{2}$\n- $\\cos\\theta = \\frac{\\sqrt{2}}{2\\sqrt{2}} = \\frac{1}{2}$ និង $\\sin\\theta = \\frac{-\\sqrt{6}}{2\\sqrt{2}} = -\\frac{\\sqrt{3}}{2} \\implies \\theta = -\\frac{\\pi}{3} \\pmod{2\\pi}$។\n\nខ. ទម្រង់ត្រីកោណមាត្រ៖\n$z = 2\\sqrt{2}\\left(\\cos\\left(-\\frac{\\pi}{3}\\right) + i\\sin\\left(-\\frac{\\pi}{3}\\right)\\right)$។\n\nគ. គណនា $z^{2014}$ តាមរូបមន្តដឺម័រ៖\n$z^{2014} = (2\\sqrt{2})^{2014}\\left(\\cos\\left(-\\frac{2014\\pi}{3}\\right) + i\\sin\\left(-\\frac{2014\\pi}{3}\\right)\\right)$។ ដោយសារ $-\\frac{2014\\pi}{3} = -671\\pi - \\frac{\\pi}{3} = -672\\pi + \\frac{2\\pi}{3} \\equiv \\frac{2\\pi}{3}$ ដូច្នេះ $z^{2014} = 2^{3021}\\left(-\\frac{1}{2} + i\\frac{\\sqrt{3}}{2}\\right)$។\n\nឃ. ឫសការេនៃ $w = -3 + 4i$៖\nតាង $\\delta = x + iy$ ជាឫសការេនៃ $w \\implies x^2 - y^2 = -3$, $2xy = 4$, $x^2 + y^2 = 5$។\n$\\implies x^2 = 1 \\implies x = \\pm 1$ និង $y = \\pm 2$។ ដូចនេះ $\\delta = \\pm(1 + 2i)$។",
+            "officialSolutionEn": "Trigonometric conversion, De Moivre exponentiation, and algebraic square root resolution.",
+            "scoringCriteriaKm": [
+                  "ក. រកឃើញម៉ូឌុល |z| = 2√2 និងអាគុយម៉ង់ θ = -π/3 (៤ ពិន្ទុ)",
+                  "ខ. សរសេរទម្រង់ត្រីកោណមាត្រត្រឹមត្រូវ (៣ ពិន្ទុ)",
+                  "គ. អនុវត្តរូបមន្តដឺម័រ និងគណនាឃើញតម្លៃពិតប្រាកដ (៤ ពិន្ទុ)",
+                  "ឃ. រកឃើញឫសការេទាំងពីរ δ = ±(1 + 2i) (៤ ពិន្ទុ)"
+            ],
+            "keyFormulas": [
+                  "|z| = \\sqrt{a^2 + b^2}",
+                  "z^n = r^n(\\cos n\\theta + i\\sin n\\theta)",
+                  "\\delta = \\pm(x + iy)"
+            ]
+      },
+      {
+            "questionNumber": 2,
+            "points": 20,
+            "titleKm": "លំហាត់ទី ២៖ សមីការឌីផេរ៉ង់ស្យែល (Differential Equations)",
+            "titleEn": "Problem 2: Differential Equations",
+            "problemTextKm": "គេឱ្យសមីការឌីផេរ៉ង់ស្យែល $(E): y'' + 4y' + 4y = 0$។\n\nក. រកចម្លើយទូទៅនៃសមីការ $(E)$។\n\nខ. កំណត់ចម្លើយជាក់លាក់មួយនៃ $(E)$ ដោយដឹងថា $y(0) = 1$ និង $y'(0) = 0$។",
+            "problemTextEn": "Given differential equation $(E): y'' + 4y' + 4y = 0$.\na. Find the general solution of $(E)$.\nb. Determine the particular solution satisfying $y(0) = 1$ and $y'(0) = 0$.",
+            "officialSolutionKm": "ក. សមីការសំគាល់៖\n$r^2 + 4r + 4 = 0 \\iff (r + 2)^2 = 0 \\implies r_1 = r_2 = -2$ (ឫសឌុប)។\nចម្លើយទូទៅនៃ $(E)$ គឺ $y(x) = (Ax + B)e^{-2x}$ ដែល $A, B \\in \\mathbb{R}$។\n\nខ. រកចម្លើយជាក់លាក់៖\n- $y(0) = (A(0) + B)e^0 = B = 1$\n- $y'(x) = Ae^{-2x} - 2(Ax + B)e^{-2x} = (A - 2Ax - 2B)e^{-2x}$\n- $y'(0) = A - 2B = 0 \\implies A = 2B = 2(1) = 2$។\nដូចនេះ ចម្លើយជាក់លាក់គឺ $y(x) = (2x + 1)e^{-2x}$។",
+            "officialSolutionEn": "Characteristic equation with double root r = -2 yielding y = (Ax+B)e^(-2x), with particular constants A=2, B=1.",
+            "scoringCriteriaKm": [
+                  "ក. រកឃើញឫសឌុប r = -2 និងទាញរកចម្លើយទូទៅ y = (Ax + B)e^(-2x) (១០ ពិន្ទុ)",
+                  "ខ. អនុវត្តលក្ខខណ្ឌដើម y(0) = 1 និង y'(0) = 0 រកឃើញ A = 2, B = 1 (១០ ពិន្ទុ)"
+            ],
+            "keyFormulas": [
+                  "r^2 + ar + b = 0",
+                  "y = (Ax + B)e^{rx}",
+                  "y'(x) = [A - 2(Ax + B)]e^{-2x}"
+            ]
+      },
+      {
+            "questionNumber": 3,
+            "points": 20,
+            "titleKm": "លំហាត់ទី ៣៖ ប្រូបាប (Probability)",
+            "titleEn": "Problem 3: Combinatorial Probability",
+            "problemTextKm": "ក្នុងថង់មួយមានបាល់ពណ៌ក្រហម ៤ និងបាល់ពណ៌ស ៦ ដែលមានទំហំ និងទម្ងន់ដូចគ្នា។ គេចាប់យកបាល់ ៣ ព្រមគ្នាដោយចៃដន្យចេញពីថង់។\n\nក. រកចំនួនករណីអាចទាំងអស់នៃការចាប់បាល់។\n\nខ. គណនាប្រូបាបនៃព្រឹត្តិការណ៍ $A$: «ចាប់បានបាល់ពណ៌ក្រហម ២ និងពណ៌ស ១»។\n\nគ. គណនាប្រូបាបនៃព្រឹត្តិការណ៍ $B$: «ចាប់បានបាល់ពណ៌សយ៉ាងតិច ១»។",
+            "problemTextEn": "A bag contains 4 red balls and 6 white balls. 3 balls are drawn simultaneously at random.\na. Find the total number of possible outcomes.\nb. Find probability of event A: \"drawing 2 red balls and 1 white ball\".\nc. Find probability of event B: \"drawing at least 1 white ball\".",
+            "officialSolutionKm": "ក. ចំនួនករណីអាចទាំងអស់៖\n$n(S) = C(10, 3) = \\frac{10!}{3! \\times 7!} = \\frac{10 \\times 9 \\times 8}{3 \\times 2 \\times 1} = 120$ ករណី។\n\nខ. ប្រូបាបនៃព្រឹត្តិការណ៍ $A$ (ក្រហម ២ និង ស ១)៖\n$n(A) = C(4, 2) \\times C(6, 1) = \\frac{4 \\times 3}{2} \\times 6 = 6 \\times 6 = 36$ ករណី។\n$P(A) = \\frac{n(A)}{n(S)} = \\frac{36}{120} = \\frac{3}{10} = 0.3$។\n\nគ. ប្រូបាបនៃព្រឹត្តិការណ៍ $B$ (សយ៉ាងតិច ១)៖\nព្រឹត្តិការណ៍ផ្ទុយ $\\bar{B}$: «ចាប់មិនបានបាល់សទាល់តែសោះ» (គឺបានបាល់ក្រហមទាំង ៣)។\n$n(\\bar{B}) = C(4, 3) = 4$ ករណី។\n$P(\\bar{B}) = \\frac{4}{120} = \\frac{1}{30}$។\nដូចនេះ $P(B) = 1 - P(\\bar{B}) = 1 - \\frac{1}{30} = \\frac{29}{30}$។",
+            "officialSolutionEn": "Total combinations C(10,3)=120. P(A) = 36/120 = 3/10. Complementary probability for at least 1 white: P(B) = 1 - 4/120 = 29/30.",
+            "scoringCriteriaKm": [
+                  "ក. គណនាចំនួនករណីអាច n(S) = C(10, 3) = 120 (៥ ពិន្ទុ)",
+                  "ខ. គណនា n(A) = 36 និង P(A) = 3/10 (៧ ពិន្ទុ)",
+                  "គ. ប្រើព្រឹត្តិការណ៍ផ្ទុយ ឬបូកករណី រកឃើញ P(B) = 29/30 (៨ ពិន្ទុ)"
+            ],
+            "keyFormulas": [
+                  "C(n, k) = \\frac{n!}{k!(n-k)!}",
+                  "P(A) = \\frac{n(A)}{n(S)}",
+                  "P(B) = 1 - P(\\bar{B})"
+            ]
+      },
+      {
+            "questionNumber": 4,
+            "points": 25,
+            "titleKm": "លំហាត់ទី ៤៖ ធរណីមាត្រក្នុងលំហ Oxyz (Solid Analytic Geometry)",
+            "titleEn": "Problem 4: Analytic Geometry in Space",
+            "problemTextKm": "ក្នុងលំហប្រដាប់ដោយតម្រុយអរតូណរម៉េមានទិសដៅវិជ្ជមាន $(O; \\vec{i}, \\vec{j}, \\vec{k})$ គេឱ្យចំណុច $A(1, 0, 2), B(2, -1, 1), C(0, 1, 1)$។\n\nក. គណនាកូអរដោនេនៃវ៉ិចទ័រ $\\vec{AB}, \\vec{AC}$ និងផលគុណវ៉ិចទ័រ $\\vec{AB} \\times \\vec{AC}$។\n\nខ. ទាញបញ្ជាក់ថា $A, B, C$ មិនរត់ត្រង់ជួរគ្នា ហើយគណនាផ្ទៃក្រឡានៃត្រីកោណ $ABC$។\n\nគ. រកសមីការប្លង់ $(P)$ កាត់តាមចំណុច $A, B, C$។\n\nឃ. រកសមីការស្វ៊ែរ $(S)$ ដែលមានផ្ចិត $A$ ហើយប៉ះនឹងប្លង់ $(Q): 2x - y + 2z - 1 = 0$។",
+            "problemTextEn": "In an orthonormal frame $(O; \\vec{i}, \\vec{j}, \\vec{k})$, points are $A(1, 0, 2), B(2, -1, 1), C(0, 1, 1)$.\na. Compute coordinates of $\\vec{AB}, \\vec{AC}$ and cross product $\\vec{AB} \\times \\vec{AC}$.\nb. Show that A, B, C are not collinear and find area of triangle ABC.\nc. Write the equation of plane (P) through A, B, C.\nd. Find equation of sphere (S) with center A tangent to plane (Q): 2x - y + 2z - 1 = 0.",
+            "officialSolutionKm": "ក. កូអរដោនេវ៉ិចទ័រ៖\n- $\\vec{AB} = (2-1, -1-0, 1-2) = (1, -1, -1)$\n- $\\vec{AC} = (0-1, 1-0, 1-2) = (-1, 1, -1)$\n- ផលគុណវ៉ិចទ័រ $\\vec{AB} \\times \\vec{AC} = ((-1)(-1) - (-1)(1))\\vec{i} - ((1)(-1) - (-1)(-1))\\vec{j} + ((1)(1) - (-1)(-1))\\vec{k} = (2, 2, 0)$។\n\nខ. ត្រីកោណ $ABC$៖\nដោយសារ $\\vec{AB} \\times \\vec{AC} = (2, 2, 0) \\ne \\vec{0}$ នោះចំណុច $A, B, C$ មិនរត់ត្រង់ជួរគ្នាទេ (បង្កើតបានជាប្លង់មួយ)។\nផ្ទៃក្រឡា $S_{ABC} = \\frac{1}{2}\\|\\vec{AB} \\times \\vec{AC}\\| = \\frac{1}{2}\\sqrt{2^2 + 2^2 + 0^2} = \\frac{1}{2}\\sqrt{8} = \\sqrt{2}$ ឯកតាផ្ទៃ។\n\nគ. សមីការប្លង់ $(P)$ កាត់តាម $A(1, 0, 2)$ មានវ៉ិចទ័រណរម៉ាល់ $\\vec{n} = (2, 2, 0)$ (ឬសម្រួលជា $(1, 1, 0)$)៖\n$1(x - 1) + 1(y - 0) + 0(z - 2) = 0 \\iff x + y - 1 = 0$។\n\nឃ. សមីការស្វ៊ែរ $(S)$ មានផ្ចិត $A(1, 0, 2)$ ប៉ះប្លង់ $(Q)$៖\nកាំ $R = d(A, (Q)) = \\frac{|2(1) - (0) + 2(2) - 1|}{\\sqrt{2^2 + (-1)^2 + 2^2}} = \\frac{|2 - 0 + 4 - 1|}{\\sqrt{9}} = \\frac{5}{3}$។\nសមីការស្វ៊ែរ $(S)$: $(x - 1)^2 + y^2 + (z - 2)^2 = \\left(\\frac{5}{3}\\right)^2 = \\frac{25}{9}$។",
+            "officialSolutionEn": "Vector cross product (2, 2, 0), non-collinear verification, area = sqrt(2), plane x + y - 1 = 0, sphere radius = 5/3.",
+            "scoringCriteriaKm": [
+                  "ក. រកឃើញ AB = (1, -1, -1), AC = (-1, 1, -1) និង AB × AC = (2, 2, 0) (៧ ពិន្ទុ)",
+                  "ខ. បញ្ជាក់មិនរត់ត្រង់ជួរ និងគណនាផ្ទៃក្រឡា S = √2 (៦ ពិន្ទុ)",
+                  "គ. រកឃើញសមីការប្លង់ (P): x + y - 1 = 0 (៦ ពិន្ទុ)",
+                  "ឃ. គណនាកាំ R = 5/3 និងសរសេរសមីការស្វ៊ែរត្រឹមត្រូវ (៦ ពិន្ទុ)"
+            ],
+            "keyFormulas": [
+                  "\\vec{u} \\times \\vec{v} = (y_1 z_2 - z_1 y_2, z_1 x_2 - x_1 z_2, x_1 y_2 - y_1 x_2)",
+                  "S_{\\Delta} = \\frac{1}{2}\\|\\vec{AB} \\times \\vec{AC}\\|",
+                  "d(A, (Q)) = \\frac{|ax_0 + by_0 + cz_0 + d|}{\\sqrt{a^2 + b^2 + c^2}}"
+            ]
+      },
+      {
+            "questionNumber": 5,
+            "points": 45,
+            "titleKm": "លំហាត់ទី ៥៖ សិក្សាអថេរភាព និងសង់ក្រាបនៃអនុគមន៍ (Function Study & Graph)",
+            "titleEn": "Problem 5: Exponential Function Study & Integration",
+            "problemTextKm": "គេឱ្យអនុគមន៍ $f$ កំណត់លើ $\\mathbb{R}$ ដោយ $f(x) = (x - 2)e^x + 1$។ តាង $(C)$ ជាក្រាបតំណាងឱ្យ $f$ ក្នុងតម្រុយអរតូណរម៉េ $(O; \\vec{i}, \\vec{j})$។\n\nក. គណនាលីមីតនៃ $f(x)$ កាលណា $x \\to -\\infty$ និង $x \\to +\\infty$។ ទាញរកសមីការអាស៊ីមតូតដេកនៃ $(C)$។\n\nខ. គណនាដេរីវេ $f'(x)$ និងបង្ហាញថា $f'(x) = (x - 1)e^x$។ សិក្សាសញ្ញា $f'(x)$ និងសង់តារាងអថេរភាពនៃ $f$។\n\nគ. រកកូអរដោនេចំណុចរបត់ $I$ នៃក្រាប $(C)$ និងសរសេរសមីការបន្ទាត់ប៉ះ $(T)$ ទៅនឹង $(C)$ ត្រង់ចំណុច $I$។\n\nឃ. សង់បន្ទាត់អាស៊ីមតូត បន្ទាត់ប៉ះ $(T)$ និងក្រាប $(C)$ ក្នុងតម្រុយតែមួយ (គេយក $e \\approx 2.7$ និង $e^{-1} \\approx 0.4$)។\n\nង. គណនាផ្ទៃក្រឡា $S$ នៃផ្នែកប្លង់ខណ្ឌដោយក្រាប $(C)$ បន្ទាត់អាស៊ីមតូតដេក $y = 1$ និងបន្ទាត់ឈរ $x = 0, x = 1$។",
+            "problemTextEn": "Given function $f(x) = (x - 2)e^x + 1$ on $\\mathbb{R}$.\na. Compute limits at $\\pm\\infty$ and deduce horizontal asymptote.\nb. Compute derivative $f'(x) = (x - 1)e^x$ and construct variation table.\nc. Find inflection point I and tangent equation (T) at I.\nd. Sketch asymptotes, tangent (T), and curve (C).\ne. Compute area S bounded by (C), line y = 1, and lines x = 0, x = 1.",
+            "officialSolutionKm": "ក. លីមីត និងអាស៊ីមតូត៖\n- $\\lim_{x \\to -\\infty} f(x) = \\lim_{x \\to -\\infty} (xe^x - 2e^x + 1) = 0 - 0 + 1 = 1$ (ព្រោះ $\\lim_{x \\to -\\infty} xe^x = 0$)។ ដូចនេះ បន្ទាត់ $y = 1$ ជាអាស៊ីមតូតដេកខាង $-\\infty$។\n- $\\lim_{x \\to +\\infty} f(x) = \\lim_{x \\to +\\infty} [(x - 2)e^x + 1] = (+\\infty)(+\\infty) + 1 = +\\infty$។\n\nខ. ដេរីវេ និងតារាងអថេរភាព៖\n- $f'(x) = (x - 2)'e^x + (x - 2)(e^x)' = 1 \\cdot e^x + (x - 2)e^x = (x - 1)e^x$។\n- ដោយ $e^x > 0$ គ្រប់ $x \\in \\mathbb{R}$ នោះ $f'(x)$ មានសញ្ញាតាម $x - 1$៖\n  + $f'(x) = 0 \\iff x = 1$។\n  + $x < 1 \\implies f'(x) < 0$ ($f$ ចុះ)។\n  + $x > 1 \\implies f'(x) > 0$ ($f$ កើន)។\n- តម្លៃអប្បបរមាធៀប៖ $f(1) = (1 - 2)e^1 + 1 = 1 - e \\approx 1 - 2.7 = -1.7$។\n\nគ. ចំណុចរបត់ និងបន្ទាត់ប៉ះ៖\n- $f''(x) = (x - 1)'e^x + (x - 1)e^x = xe^x$។\n- $f''(x) = 0 \\iff x = 0$ (ប្តូរសញ្ញាត្រង់ $x = 0$) នាំឱ្យ $I(0, f(0)) = I(0, -1)$ ជាចំណុចរបត់។\n- មេគុណប្រាប់ទិសបន្ទាត់ប៉ះត្រង់ $I$ គឺ $f'(0) = (0 - 1)e^0 = -1$។\n- សមីការបន្ទាត់ប៉ះ $(T)$: $y - (-1) = -1(x - 0) \\iff y = -x - 1$។\n\nឃ. សង់ក្រាប $(C)$៖ គូសអាស៊ីមតូតដេក $y = 1$, ចំណុចអប្បបរមា $(1, 1-e)$, ចំណុចរបត់ $I(0, -1)$ និងបន្ទាត់ប៉ះ $(T)$។\n\nង. គណនាផ្ទៃក្រឡា $S$៖\n$S = \\int_0^1 [1 - f(x)] \\, dx = \\int_0^1 [1 - ((x-2)e^x + 1)] \\, dx = \\int_0^1 (2 - x)e^x \\, dx$។\nប្រើអាំងតេក្រាលដោយផ្នែក៖ តាង $u = 2 - x \\implies du = -dx$, $dv = e^x dx \\implies v = e^x$។\n$S = [(2 - x)e^x]_0^1 - \\int_0^1 -e^x dx = (e - 2) + [e^x]_0^1 = (e - 2) + (e - 1) = 2e - 3$ ឯកតាផ្ទៃ។",
+            "officialSolutionEn": "Complete analysis: horizontal asymptote y=1, minimum at (1, 1-e), inflection at (0, -1) with tangent y = -x - 1, and definite integral yielding area S = 2e - 3.",
+            "scoringCriteriaKm": [
+                  "ក. គណនាលីមីតត្រឹមត្រូវទាំងពីរ និងទាញបានអាស៊ីមតូតដេក y = 1 (៨ ពិន្ទុ)",
+                  "ខ. រកឃើញ f'(x) = (x-1)e^x, សិក្សាសញ្ញា និងសង់តារាងអថេរភាព (១០ ពិន្ទុ)",
+                  "គ. រកឃើញចំណុចរបត់ I(0, -1) និងសមីការបន្ទាត់ប៉ះ y = -x - 1 (៧ ពិន្ទុ)",
+                  "ឃ. សង់ក្រាប (C) បន្ទាត់អាស៊ីមតូត និងបន្ទាត់ប៉ះបានស្អាត និងត្រឹមត្រូវ (១០ ពិន្ទុ)",
+                  "ង. គណនាអាំងតេក្រាលដោយផ្នែក រកឃើញផ្ទៃក្រឡា S = 2e - 3 (១០ ពិន្ទុ)"
+            ],
+            "keyFormulas": [
+                  "\\lim_{x \\to -\\infty} xe^x = 0",
+                  "(uv)' = u'v + uv'",
+                  "y - y_0 = f'(x_0)(x - x_0)",
+                  "\\int u \\, dv = uv - \\int v \\, du"
+            ]
+      }
+],
     "notes": "Official MoEYS 2014 Bac II examination paper archive."
   },
   {
