@@ -125,6 +125,7 @@ export function DesktopHeader({
     triggerHapticSelection();
     const nextLang = isKhmer ? "en" : "km";
     await setLanguage(nextLang);
+    toast.success(nextLang === "km" ? "បានប្តូរទៅភាសាខ្មែរ" : "Switched to English");
   };
 
   // Current Grade Display Label

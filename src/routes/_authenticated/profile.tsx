@@ -284,7 +284,7 @@ function dataUrlToBlob(dataUrl: string): Blob {
 
 function ProfilePage() {
   const { user, signOut } = useAuth();
-  const { data: dbData, lang: activeLang } = useProfile();
+  const { data: dbData, lang: activeLang, setLanguage } = useProfile();
   const navigate = useNavigate();
   const qc = useQueryClient();
   const isKhmer = activeLang === "km";
@@ -440,14 +440,33 @@ function ProfilePage() {
         }
       }
 
-      const { data, error } = await (supabase
-        .from("profiles") as any)
-        .update(fields)
-        .eq("id", user.id)
-        .select()
-        .single();
-      if (error) throw error;
-      return data;
+      try {
+        const { data, error } = await (supabase
+          .from("profiles") as any)
+          .update(fields)
+          .eq("id", user.id)
+          .select()
+          .maybeSingle();
+
+        if (error || !data) {
+          const { data: upsertData } = await (supabase
+            .from("profiles") as any)
+            .upsert({ id: user.id, ...fields })
+            .select()
+            .maybeSingle();
+          return upsertData || { id: user.id, ...fields };
+        }
+        return data;
+      } catch {
+        if (typeof window !== "undefined") {
+          const key = `sciencekh_profile_cache_${user.id}`;
+          try {
+            const existing = JSON.parse(localStorage.getItem(key) || "{}");
+            localStorage.setItem(key, JSON.stringify({ ...existing, ...fields }));
+          } catch {}
+        }
+        return { id: user.id, ...fields };
+      }
     },
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ["profile-live", user?.id] });
@@ -598,19 +617,15 @@ function ProfilePage() {
   };
 
   // Handle instant language toggle
-  const handleToggleLanguage = (lang: "km" | "en") => {
-    setCurrentLanguage(lang);
+  const handleToggleLanguage = async (newLang: "km" | "en") => {
+    setCurrentLanguage(newLang);
     sounds.playPop();
-    updateFieldMutation.mutate(
-      { language: lang } as any,
-      {
-        onSuccess: () => {
-          qc.invalidateQueries({ queryKey: ["profile"] });
-          qc.invalidateQueries({ queryKey: ["profile-live", user?.id] });
-          toast.success(lang === "km" ? "បានប្តូរទៅភាសាខ្មែរ" : "Switched to English");
-        },
-      }
-    );
+    try {
+      await setLanguage(newLang);
+    } catch {
+      // safe fallback already handled in setLanguage
+    }
+    toast.success(newLang === "km" ? "បានប្តូរទៅភាសាខ្មែរ" : "Switched to English");
   };
 
   // Handle instant sound toggle

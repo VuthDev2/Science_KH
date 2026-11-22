@@ -110,7 +110,10 @@ export function useProfile() {
         } catch {}
       } else {
         try {
-          await supabase.from("profiles").update({ language: newLang }).eq("id", user.id);
+          await (supabase.from("profiles") as any).upsert(
+            { id: user.id, language: newLang },
+            { onConflict: "id" }
+          );
         } catch {
           // silent
         }
