@@ -147,7 +147,8 @@ function SafeMathBlock({ math, className }: { math: string; className?: string }
 
 function LessonErrorComponent({ error, reset }: { error: unknown; reset: () => void }) {
   console.error("Lesson route error:", error);
-  const { lessonId } = Route.useParams();
+  const params = Route.useParams({ strict: false } as any);
+  const lessonId = params?.lessonId || "";
   const isKhmer = typeof window !== "undefined"
     ? (localStorage.getItem("sciencekh_lang") || "km") === "km"
     : true;

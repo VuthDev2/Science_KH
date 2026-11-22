@@ -238,10 +238,17 @@ export function HomeRightSidebarWidgets({
       <section className="p-4 rounded-2xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs space-y-2.5">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Layers className="h-4 w-4 text-[#059669]" />
-            <span className="text-xs font-bold text-slate-900 dark:text-white">
-              {isKhmer ? `រូបមន្តសំខាន់ (ថ្នាក់ទី ${toKhmerNumeral(studentGrade)})` : `Formulas (Grade ${studentGrade})`}
-            </span>
+            <div className="h-7 w-7 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-[#059669] dark:text-emerald-400 grid place-items-center shrink-0 border border-emerald-200/60 dark:border-emerald-800/60">
+              <Layers className="h-4 w-4 text-[#059669]" />
+            </div>
+            <div>
+              <span className="text-xs font-bold text-slate-900 dark:text-white block leading-tight">
+                {isKhmer ? `រូបមន្តសំខាន់ (ថ្នាក់ទី ${toKhmerNumeral(studentGrade)})` : `Formulas (Grade ${studentGrade})`}
+              </span>
+              <span className="text-[11px] text-slate-400 block mt-0.5">
+                {isKhmer ? "ឯកសារយោង និងរូបមន្តស្នូល" : "Core academic formulas"}
+              </span>
+            </div>
           </div>
           <Link
             to="/reference"

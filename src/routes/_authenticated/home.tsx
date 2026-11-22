@@ -312,7 +312,6 @@ function HomePage() {
     if (recentProgressRows && recentProgressRows.length > 0) {
       return recentProgressRows
         .map((row) => {
-          const curated = getCuratedLesson(row.lesson_id);
           const lessonData = row.lesson as {
             id: string;
             title_en: string;
@@ -321,13 +320,23 @@ function HomePage() {
             grade?: number;
           } | null;
 
-          const id = row.lesson_id || lessonData?.id || "";
+          // Lookup curated lesson by ID, or match by title
+          const curated =
+            getCuratedLesson(row.lesson_id) ||
+            ALL_CURATED_LESSONS.find(
+              (l) =>
+                l.id === row.lesson_id ||
+                (lessonData?.title_km && l.title_km === lessonData.title_km) ||
+                (lessonData?.title_en && l.title_en === lessonData.title_en)
+            );
+
+          const id = curated?.id || row.lesson_id || lessonData?.id || "";
           const titleKm = curated?.title_km || lessonData?.title_km || "";
           const titleEn = curated?.title_en || lessonData?.title_en || "";
           const grade = curated?.grade || lessonData?.grade || studentGrade;
           const minutes = curated?.estimated_minutes || lessonData?.estimated_minutes || 15;
-          const subjectNameKm = curated?.subject?.name_km || (isKhmer ? "មុខវិជ្ជាទូទៅ" : "General");
-          const subjectNameEn = curated?.subject?.name_en || "General";
+          const subjectNameKm = curated?.subject?.name_km || (isKhmer ? "រូបវិទ្យា" : "Physics");
+          const subjectNameEn = curated?.subject?.name_en || "Physics";
           const xp = curated?.xp_reward || 20;
 
           return {
@@ -588,55 +597,63 @@ function HomePage() {
             </div>
 
             {/* 2. CONTINUE LEARNING (One Focal, Compact Academic Card) */}
-            <section className="rounded-2xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 p-4 sm:p-5 shadow-2xs space-y-3">
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                <div className="min-w-0 space-y-1.5">
-                  <div className="flex flex-wrap items-center gap-2 text-xs">
-                    <span className="px-2 py-0.5 rounded-md bg-emerald-50 dark:bg-emerald-950/60 text-[#059669] dark:text-emerald-400 font-extrabold text-[10.5px] uppercase tracking-wider border border-emerald-200/60 dark:border-emerald-800/60">
-                      {hasAnyCompleted
-                        ? isKhmer ? "បន្តការសិក្សា" : "Continue Learning"
-                        : isKhmer ? "ចាប់ផ្តើមរៀន" : "Get Started"}
-                    </span>
-                    <span className="text-slate-800 dark:text-slate-200 font-bold">
-                      {isKhmer ? activeLesson.subject.name_km : activeLesson.subject.name_en}
-                    </span>
-                    <span className="text-slate-300 dark:text-slate-700">•</span>
-                    <span className="text-slate-500 text-xs truncate">
-                      {isKhmer
-                        ? `ថ្នាក់ទី ${toKhmerNumeral(studentGrade)} · ${activeLessonUnit?.titleKm || "ជំពូកទី ១"}`
-                        : `Grade ${studentGrade} · ${activeLessonUnit?.titleEn || "Unit 1"}`}
-                    </span>
+            <section className="space-y-2.5">
+              <div>
+                <h2 className="text-sm sm:text-base font-black text-slate-900 dark:text-white">
+                  {isKhmer ? "បន្តការសិក្សា" : "Continue Learning"}
+                </h2>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                  {isKhmer
+                    ? "មេរៀនបន្ទាប់ក្នុងគន្លងសិក្សា MoEYS របស់អ្នក"
+                    : "Next lesson in your MoEYS learning pathway"}
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 p-4 sm:p-5 shadow-2xs">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                  <div className="min-w-0 space-y-1.5">
+                    <div className="flex flex-wrap items-center gap-2 text-xs">
+                      <span className="text-[#059669] dark:text-emerald-400 font-extrabold text-xs">
+                        {isKhmer ? activeLesson.subject.name_km : activeLesson.subject.name_en}
+                      </span>
+                      <span className="text-slate-300 dark:text-slate-700">•</span>
+                      <span className="text-slate-500 text-xs truncate">
+                        {isKhmer
+                          ? `ថ្នាក់ទី ${toKhmerNumeral(studentGrade)} · ${activeLessonUnit?.titleKm || "ជំពូកទី ១"}`
+                          : `Grade ${studentGrade} · ${activeLessonUnit?.titleEn || "Unit 1"}`}
+                      </span>
+                    </div>
+
+                    <h2 className="font-display text-base sm:text-lg font-black text-slate-900 dark:text-white leading-snug">
+                      {isKhmer ? activeLesson.title_km : activeLesson.title_en}
+                    </h2>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-1 leading-relaxed">
+                      {isKhmer ? activeLesson.summary_km : activeLesson.summary_en}
+                    </p>
                   </div>
 
-                  <h2 className="font-display text-base sm:text-lg font-black text-slate-900 dark:text-white leading-snug">
-                    {isKhmer ? activeLesson.title_km : activeLesson.title_en}
-                  </h2>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-1 leading-relaxed">
-                    {isKhmer ? activeLesson.summary_km : activeLesson.summary_en}
-                  </p>
-                </div>
-
-                <div className="shrink-0 flex items-center">
-                  <Link
-                    to="/lessons/$lessonId"
-                    params={{ lessonId: activeLesson.id }}
-                    onClick={() => sounds.playPop()}
-                    className="h-10.5 px-5 rounded-xl bg-[#059669] hover:bg-[#047857] text-white font-bold text-xs tracking-wide transition shadow-2xs hover:shadow-xs flex items-center justify-center gap-2 cursor-pointer active:scale-95"
-                  >
-                    <BookOpen className="h-4 w-4" />
-                    <span>
-                      {hasAnyCompleted
-                        ? isKhmer ? "បន្តការរៀន" : "Continue Learning"
-                        : isKhmer ? "ចាប់ផ្តើមរៀន" : "Get Started"}
-                    </span>
-                    <ArrowRight className="h-3.5 w-3.5 stroke-[2.5]" />
-                  </Link>
+                  <div className="shrink-0 flex items-center">
+                    <Link
+                      to="/lessons/$lessonId"
+                      params={{ lessonId: activeLesson.id }}
+                      onClick={() => sounds.playPop()}
+                      className="h-10 px-5 rounded-xl bg-[#059669] hover:bg-[#047857] text-white font-bold text-xs tracking-wide transition shadow-2xs hover:shadow-xs flex items-center justify-center gap-2 cursor-pointer active:scale-95"
+                    >
+                      <BookOpen className="h-4 w-4" />
+                      <span>
+                        {hasAnyCompleted
+                          ? isKhmer ? "បន្តការរៀន" : "Continue Learning"
+                          : isKhmer ? "ចាប់ផ្តើមរៀន" : "Get Started"}
+                      </span>
+                      <ArrowRight className="h-3.5 w-3.5 stroke-[2.5]" />
+                    </Link>
+                  </div>
                 </div>
               </div>
             </section>
 
             {/* 3. SUBJECT OVERVIEW (Up to 4 Prioritized Subjects) */}
-            <section className="space-y-3 pt-1">
+            <section className="space-y-2.5 pt-1">
               <div className="flex items-center justify-between">
                 <div>
                   <h2 className="text-sm sm:text-base font-black text-slate-900 dark:text-white">
@@ -660,7 +677,7 @@ function HomePage() {
                 </Link>
               </div>
 
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                 {overviewSubjects.map((sub) => {
                   const Icon = sub.icon;
                   const isStarted = sub.completed > 0;
@@ -670,46 +687,26 @@ function HomePage() {
                       to="/lessons"
                       search={{ subject: sub.slug, grade: studentGrade }}
                       onClick={() => sounds.playPop()}
-                      className={cn(
-                        "group p-3.5 rounded-2xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs hover:shadow-xs transition duration-150 flex flex-col justify-between space-y-3 cursor-pointer",
-                        sub.cardBorder
-                      )}
+                      className="group p-3.5 rounded-2xl border border-[#E5EAF0] dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xs hover:shadow-xs hover:border-[#059669]/50 transition duration-150 flex items-center gap-3 cursor-pointer"
                     >
-                      <div className="flex items-start justify-between">
-                        <div
-                          className={cn(
-                            "w-8.5 h-8.5 rounded-xl flex items-center justify-center border group-hover:scale-105 transition-transform",
-                            sub.iconBg
-                          )}
-                        >
-                          <Icon className={cn("h-4 w-4", sub.iconColor)} />
-                        </div>
+                      <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center shrink-0 group-hover:bg-emerald-50 dark:group-hover:bg-emerald-950/60 group-hover:text-[#059669] text-slate-700 dark:text-slate-300 transition-colors border border-slate-200/60 dark:border-slate-700">
+                        <Icon className="h-5 w-5" />
                       </div>
 
-                      <div className="space-y-1">
+                      <div className="min-w-0 flex-1">
                         <h3 className="text-xs font-bold text-slate-900 dark:text-white truncate group-hover:text-[#059669] transition-colors">
                           {isKhmer ? sub.nameKm : sub.nameEn}
                         </h3>
                         {isStarted ? (
-                          <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
-                            {sub.completed}/{sub.total} {isKhmer ? "មេរៀន" : "lessons"}
+                          <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium truncate mt-0.5">
+                            {sub.completed}/{sub.total} {isKhmer ? "មេរៀន" : "lessons"} ({sub.percent}%)
                           </p>
                         ) : (
-                          <p className="text-[11px] text-slate-400 dark:text-slate-500 font-medium">
+                          <p className="text-[11px] text-slate-400 dark:text-slate-500 font-medium truncate mt-0.5">
                             {isKhmer ? "មិនទាន់ចាប់ផ្តើម" : "Not started"}
                           </p>
                         )}
                       </div>
-
-                      {/* Only show progress bar if started */}
-                      {isStarted && (
-                        <div className="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                          <div
-                            className={cn("h-full transition-all duration-300", sub.progressColor)}
-                            style={{ width: `${sub.percent}%` }}
-                          />
-                        </div>
-                      )}
                     </Link>
                   );
                 })}
@@ -717,7 +714,7 @@ function HomePage() {
             </section>
 
             {/* 4. RECENTLY STUDIED */}
-            <section className="space-y-3 pt-1">
+            <section className="space-y-2.5 pt-1">
               <div className="flex items-center justify-between">
                 <div>
                   <h2 className="text-sm sm:text-base font-black text-slate-900 dark:text-white">
@@ -740,7 +737,7 @@ function HomePage() {
                     >
                       <div className="min-w-0 space-y-1">
                         <div className="flex items-center gap-2 text-[11px]">
-                          <span className="font-semibold text-slate-700 dark:text-slate-300">
+                          <span className="font-bold text-[#059669] dark:text-emerald-400">
                             {isKhmer ? item.subjectNameKm : item.subjectNameEn}
                           </span>
                           <span className="text-slate-300 dark:text-slate-700">•</span>
@@ -766,9 +763,9 @@ function HomePage() {
                           to="/lessons/$lessonId"
                           params={{ lessonId: item.id }}
                           onClick={() => sounds.playPop()}
-                          className="h-8.5 px-3.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:bg-[#059669] hover:border-[#059669] hover:text-white text-slate-700 dark:text-slate-300 text-xs font-bold transition flex items-center gap-1.5 shadow-2xs active:scale-95 cursor-pointer"
+                          className="h-9 px-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:bg-[#059669] hover:border-[#059669] hover:text-white text-slate-700 dark:text-slate-300 text-xs font-bold transition flex items-center gap-1.5 shadow-2xs active:scale-95 cursor-pointer"
                         >
-                          <span>{isKhmer ? "បើកមេរៀន" : "Open"}</span>
+                          <span>{isKhmer ? "បន្តមេរៀន" : "Resume"}</span>
                           <ArrowRight className="h-3 w-3" />
                         </Link>
                       </div>
