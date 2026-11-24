@@ -267,9 +267,7 @@ ScienceKH/
     │                            # ==========================================
     ├── README.md                # Database documentation & ER diagrams
     ├── 00_master_schema.sql     # Single idempotent master schema & seed script
-    ├── full_schema.sql          # Reference schema
-    ├── create_remaining_tables.sql
-    └── migrations/              # Versioned SQL migrations
+    └── migrations/              # Versioned SQL migrations (Supabase CLI)
 ```
 
 ---
