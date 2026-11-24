@@ -84,7 +84,7 @@ export function HeroPanel({ copy, isKhmer = false, mode }: HeroPanelProps) {
                 <span className="inline-flex flex-wrap items-center justify-center gap-x-2">
                   <span className="inline-block animate-text-reveal-1">រៀនសូត្រ។</span>
                   <span className="inline-block animate-text-reveal-2">ស្វែងយល់។</span>
-                  <span className="inline-block animate-text-reveal-3 bg-gradient-to-r from-emerald-400 via-teal-200 to-emerald-400 bg-clip-text text-transparent animate-gradient-text animate-emerald-glow">
+                  <span className="inline-block animate-text-reveal-3 text-emerald-400 font-black">
                     រីកចម្រើន។
                   </span>
                 </span>
@@ -92,7 +92,7 @@ export function HeroPanel({ copy, isKhmer = false, mode }: HeroPanelProps) {
                 <span className="inline-flex flex-wrap items-center justify-center gap-x-2.5">
                   <span className="inline-block animate-text-reveal-1">Learn.</span>
                   <span className="inline-block animate-text-reveal-2">Explore.</span>
-                  <span className="inline-block animate-text-reveal-3 bg-gradient-to-r from-emerald-400 via-teal-200 to-emerald-400 bg-clip-text text-transparent animate-gradient-text animate-emerald-glow">
+                  <span className="inline-block animate-text-reveal-3 text-emerald-400 font-black">
                     Grow.
                   </span>
                 </span>
